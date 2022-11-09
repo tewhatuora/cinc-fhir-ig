@@ -1,0 +1,70 @@
+{
+    "subject": {
+        "type": "Patient",
+        "identifier": {
+            "value": "ZXP7823",
+            "use": "official",
+            "system": "https://standards.digital.health.nz/ns/nhi-id"
+        },
+        "display": "Carey Carrington"
+    },
+    "component": [
+        {
+            "code": {
+                "coding": [
+                    {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic Blood Pressure"
+                    }
+                ]
+            },
+            "valueQuantity": {
+                "value": 150,
+                "unit": "mm[Hg]"
+            }
+        },
+        {
+            "code": {
+                "coding": [
+                    {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic Blood Pressure"
+                    }
+                ]
+            },
+            "valueQuantity": {
+                "value": 90,
+                "unit": "mm[Hg]"
+            }
+        }
+    ],
+    "meta": {
+        "lastUpdated": "2022-11-01T19:38:40.813Z",
+        "versionId": "1"
+    },
+    "status": "final",
+    "issued": "2022-11-01T19:38:40.609Z",
+    "code": {
+        "text": "Type of Observation (this should be replaced with an appropriate LOINC Code)"
+    },
+    "resourceType": "Observation",
+    "performer": [
+        {
+            "type": "Patient",
+            "identifier": {
+                "value": "ZXP7823",
+                "use": "official",
+                "system": "https://standards.digital.health.nz/ns/nhi-id"
+            },
+            "display": "Carey Carrington"
+        }
+    ],
+    "id": "42272ef6-c9af-4344-a6c5-3872aa70467f",
+    "basedOn": [
+        {
+            "reference": "ServiceRequest/b69665f9-d347-40f5-aed1-2897dfad0148"
+        }
+    ]
+}

@@ -4,7 +4,7 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: fhir.ig.test
-canonical: https://build.fhir.org/ig/richard-hunt-mwnz/fhir-ig-test
+canonical: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
 name: FHIR_IG_TEST
 title: Care In The Community COVID Care Plan API
 description: Care In The Community COVID Care Plan API

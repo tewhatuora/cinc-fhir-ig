@@ -21,7 +21,7 @@ For more information and examples please refer to:
 ### Outstanding Tasks
 
 - Determine whether to continue to use the FHIR IG Publisher or migrate this content to [Simplifier](https://simplifier.net/)
-- Move this content to a more appropriate source repository - it's currently located at [https://github.com/richard-hunt-mwnz/fhir-ig-test](https://github.com/richard-hunt-mwnz/fhir-ig-test)
+- Move this content to a more appropriate source repository - it's currently located at [https://github.com/tewhatuora/cinc-fhir-ig](https://github.com/tewhatuora/cinc-fhir-ig)
   - Note: if we want to continue using the [IG Auto-Builder](https://github.com/FHIR/auto-ig-builder) then the content needs to be in a public GitHub repository
 - Determine where the IG will be published and potentially follow the steps in [Publishing an IG](https://confluence.hl7.org/pages/viewpage.action?pageId=104580055&src=contextnavpagetreemode) and [Maintaining an IG Publication](https://confluence.hl7.org/display/FHIR/Maintaining+a+FHIR+IG+Publication?src=contextnavpagetreemode) to publish it
 - Provide content for all of the placeholder sections in this IG
