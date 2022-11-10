@@ -24,6 +24,11 @@
 <td><p>The Care in the Community profile of the Encounter resource</p></td>
 </tr>
 <tr>
+<td><a href='StructureDefinition-CovidObservation.html'>CovidObservation</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidObservation</td>
+<td><p>The Care in the Community profile of the Observation resource</p></td>
+</tr>
+<tr>
 <td><a href='StructureDefinition-CovidPlanDefinition.html'>CovidPlanDefinition</a></td>
 <td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidPlanDefinition</td>
 <td><p>The Care in the Community profile of the PlanDefinition resource</p></td>
@@ -37,11 +42,6 @@
 <td><a href='StructureDefinition-CovidQuestionnaireResponse.html'>CovidQuestionnaireResponse</a></td>
 <td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidQuestionnaireResponse</td>
 <td><p>The Care in the Community profile of the QuestionnaireResponse resource</p></td>
-</tr>
-<tr>
-<td><a href='StructureDefinition-CovidObservation.html'>CovidObservation</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidObservation</td>
-<td><p>The Care in the Community profile of the Observation resource</p></td>
 </tr>
 </table>
 </div>
