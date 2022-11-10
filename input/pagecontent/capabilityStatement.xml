@@ -490,4 +490,411 @@
 </td>
 </tr>
 </table>
+<a name="Observation"> </a>
+<h3>Observation</h3>
+<strong>Interactions</strong>
+<table class='table table-bordered table-condensed'>
+<tr><th width='30%'>Code</th><th width='70%'>Documentation</th></tr>
+<tr>
+<td>create</td>
+<td>Creates a resource.</td>
+</tr>
+<tr>
+<td>read</td>
+<td>Retrieves a resource by its ID. Will return a single resource.</td>
+</tr>
+<tr>
+<td>update</td>
+<td>Updates a resource.</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>Deletes a resource.</td>
+</tr>
+<tr>
+<td>vread</td>
+<td>Retrieves a version of a resource by its ID and version ID. Will return a single resource.</td>
+</tr>
+<tr>
+<td>search-type</td>
+<td>Queries against the resource type. Will return a Bundle (even if there are no matching resources).</td>
+</tr>
+</table>
+<strong>Search Parameters</strong>
+<table class='table table-bordered table-condensed'>
+<tr><th width='15%'>Name</th><th>Type</th><th width='70%'>Documentation</th></tr>
+<tr>
+<td>code</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-code</div><p>Multiple Resources:</p>
+<ul>
+<li><a href="allergyintolerance.html">AllergyIntolerance</a>: Code that identifies the allergy or intolerance</li>
+<li><a href="condition.html">Condition</a>: Code for the condition</li>
+<li><a href="devicerequest.html">DeviceRequest</a>: Code for what is being requested/ordered</li>
+<li><a href="diagnosticreport.html">DiagnosticReport</a>: The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result</li>
+<li><a href="familymemberhistory.html">FamilyMemberHistory</a>: A search by a condition code</li>
+<li><a href="list.html">List</a>: What the purpose of this list is</li>
+<li><a href="medication.html">Medication</a>: Returns medications for a specific code</li>
+<li><a href="medicationadministration.html">MedicationAdministration</a>: Return administrations of this medication code</li>
+<li><a href="medicationdispense.html">MedicationDispense</a>: Returns dispenses of this medicine code</li>
+<li><a href="medicationrequest.html">MedicationRequest</a>: Return prescriptions of this medication code</li>
+<li><a href="medicationstatement.html">MedicationStatement</a>: Return statements of this medication code</li>
+<li><a href="observation.html">Observation</a>: The code of the observation type</li>
+<li><a href="procedure.html">Procedure</a>: A code to identify a  procedure</li>
+<li><a href="servicerequest.html">ServiceRequest</a>: What is being requested/ordered</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>date</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#date">date</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-date</div><p>Multiple Resources:</p>
+<ul>
+<li><a href="allergyintolerance.html">AllergyIntolerance</a>: Date first version of the resource instance was recorded</li>
+<li><a href="careplan.html">CarePlan</a>: Time period plan covers</li>
+<li><a href="careteam.html">CareTeam</a>: Time period team covers</li>
+<li><a href="clinicalimpression.html">ClinicalImpression</a>: When the assessment was documented</li>
+<li><a href="composition.html">Composition</a>: Composition editing time</li>
+<li><a href="consent.html">Consent</a>: When this Consent was created or indexed</li>
+<li><a href="diagnosticreport.html">DiagnosticReport</a>: The clinically relevant time of the report</li>
+<li><a href="encounter.html">Encounter</a>: A date within the period the Encounter lasted</li>
+<li><a href="episodeofcare.html">EpisodeOfCare</a>: The provided date search value falls within the episode of care's period</li>
+<li><a href="familymemberhistory.html">FamilyMemberHistory</a>: When history was recorded or last updated</li>
+<li><a href="flag.html">Flag</a>: Time period when flag is active</li>
+<li><a href="immunization.html">Immunization</a>: Vaccination  (non)-Administration Date</li>
+<li><a href="list.html">List</a>: When the list was prepared</li>
+<li><a href="observation.html">Observation</a>: Obtained date/time. If the obtained element is a period, a date that falls in the period</li>
+<li><a href="procedure.html">Procedure</a>: When the procedure was performed</li>
+<li><a href="riskassessment.html">RiskAssessment</a>: When was assessment made?</li>
+<li><a href="supplyrequest.html">SupplyRequest</a>: When the request was made</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-identifier</div><p>Multiple Resources:</p>
+<ul>
+<li><a href="allergyintolerance.html">AllergyIntolerance</a>: External ids for this item</li>
+<li><a href="careplan.html">CarePlan</a>: External Ids for this plan</li>
+<li><a href="careteam.html">CareTeam</a>: External Ids for this team</li>
+<li><a href="composition.html">Composition</a>: Version-independent identifier for the Composition</li>
+<li><a href="condition.html">Condition</a>: A unique identifier of the condition record</li>
+<li><a href="consent.html">Consent</a>: Identifier for this record (external references)</li>
+<li><a href="detectedissue.html">DetectedIssue</a>: Unique id for the detected issue</li>
+<li><a href="devicerequest.html">DeviceRequest</a>: Business identifier for request/order</li>
+<li><a href="diagnosticreport.html">DiagnosticReport</a>: An identifier for the report</li>
+<li><a href="documentmanifest.html">DocumentManifest</a>: Unique Identifier for the set of documents</li>
+<li><a href="documentreference.html">DocumentReference</a>: Master Version Specific Identifier</li>
+<li><a href="encounter.html">Encounter</a>: Identifier(s) by which this encounter is known</li>
+<li><a href="episodeofcare.html">EpisodeOfCare</a>: Business Identifier(s) relevant for this EpisodeOfCare</li>
+<li><a href="familymemberhistory.html">FamilyMemberHistory</a>: A search by a record identifier</li>
+<li><a href="goal.html">Goal</a>: External Ids for this goal</li>
+<li><a href="imagingstudy.html">ImagingStudy</a>: Identifiers for the Study, such as DICOM Study Instance UID and Accession number</li>
+<li><a href="immunization.html">Immunization</a>: Business identifier</li>
+<li><a href="list.html">List</a>: Business identifier</li>
+<li><a href="medicationadministration.html">MedicationAdministration</a>: Return administrations with this external identifier</li>
+<li><a href="medicationdispense.html">MedicationDispense</a>: Returns dispenses with this external identifier</li>
+<li><a href="medicationrequest.html">MedicationRequest</a>: Return prescriptions with this external identifier</li>
+<li><a href="medicationstatement.html">MedicationStatement</a>: Return statements with this external identifier</li>
+<li><a href="nutritionorder.html">NutritionOrder</a>: Return nutrition orders with this external identifier</li>
+<li><a href="observation.html">Observation</a>: The unique id for a particular observation</li>
+<li><a href="procedure.html">Procedure</a>: A unique identifier for a procedure</li>
+<li><a href="riskassessment.html">RiskAssessment</a>: Unique identifier for the assessment</li>
+<li><a href="servicerequest.html">ServiceRequest</a>: Identifiers assigned to this order</li>
+<li><a href="supplydelivery.html">SupplyDelivery</a>: External identifier</li>
+<li><a href="supplyrequest.html">SupplyRequest</a>: Business Identifier for SupplyRequest</li>
+<li><a href="visionprescription.html">VisionPrescription</a>: Return prescriptions with this external identifier</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>patient</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-patient</div><p>Multiple Resources:</p>
+<ul>
+<li><a href="allergyintolerance.html">AllergyIntolerance</a>: Who the sensitivity is for</li>
+<li><a href="careplan.html">CarePlan</a>: Who the care plan is for</li>
+<li><a href="careteam.html">CareTeam</a>: Who care team is for</li>
+<li><a href="clinicalimpression.html">ClinicalImpression</a>: Patient or group assessed</li>
+<li><a href="composition.html">Composition</a>: Who and/or what the composition is about</li>
+<li><a href="condition.html">Condition</a>: Who has the condition?</li>
+<li><a href="consent.html">Consent</a>: Who the consent applies to</li>
+<li><a href="detectedissue.html">DetectedIssue</a>: Associated patient</li>
+<li><a href="devicerequest.html">DeviceRequest</a>: Individual the service is ordered for</li>
+<li><a href="deviceusestatement.html">DeviceUseStatement</a>: Search by subject - a patient</li>
+<li><a href="diagnosticreport.html">DiagnosticReport</a>: The subject of the report if a patient</li>
+<li><a href="documentmanifest.html">DocumentManifest</a>: The subject of the set of documents</li>
+<li><a href="documentreference.html">DocumentReference</a>: Who/what is the subject of the document</li>
+<li><a href="encounter.html">Encounter</a>: The patient or group present at the encounter</li>
+<li><a href="episodeofcare.html">EpisodeOfCare</a>: The patient who is the focus of this episode of care</li>
+<li><a href="familymemberhistory.html">FamilyMemberHistory</a>: The identity of a subject to list family member history items for</li>
+<li><a href="flag.html">Flag</a>: The identity of a subject to list flags for</li>
+<li><a href="goal.html">Goal</a>: Who this goal is intended for</li>
+<li><a href="imagingstudy.html">ImagingStudy</a>: Who the study is about</li>
+<li><a href="immunization.html">Immunization</a>: The patient for the vaccination record</li>
+<li><a href="list.html">List</a>: If all resources have the same subject</li>
+<li><a href="medicationadministration.html">MedicationAdministration</a>: The identity of a patient to list administrations  for</li>
+<li><a href="medicationdispense.html">MedicationDispense</a>: The identity of a patient to list dispenses  for</li>
+<li><a href="medicationrequest.html">MedicationRequest</a>: Returns prescriptions for a specific patient</li>
+<li><a href="medicationstatement.html">MedicationStatement</a>: Returns statements for a specific patient.</li>
+<li><a href="nutritionorder.html">NutritionOrder</a>: The identity of the person who requires the diet, formula or nutritional supplement</li>
+<li><a href="observation.html">Observation</a>: The subject that the observation is about (if patient)</li>
+<li><a href="procedure.html">Procedure</a>: Search by subject - a patient</li>
+<li><a href="riskassessment.html">RiskAssessment</a>: Who/what does assessment apply to?</li>
+<li><a href="servicerequest.html">ServiceRequest</a>: Search by subject - a patient</li>
+<li><a href="supplydelivery.html">SupplyDelivery</a>: Patient for whom the item is supplied</li>
+<li><a href="visionprescription.html">VisionPrescription</a>: The identity of a patient to list dispenses for</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>encounter</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-encounter</div><p>Multiple Resources:</p>
+<ul>
+<li><a href="composition.html">Composition</a>: Context of the Composition</li>
+<li><a href="devicerequest.html">DeviceRequest</a>: Encounter during which request was created</li>
+<li><a href="diagnosticreport.html">DiagnosticReport</a>: The Encounter when the order was made</li>
+<li><a href="documentreference.html">DocumentReference</a>: Context of the document  content</li>
+<li><a href="flag.html">Flag</a>: Alert relevant during encounter</li>
+<li><a href="list.html">List</a>: Context in which list created</li>
+<li><a href="nutritionorder.html">NutritionOrder</a>: Return nutrition orders with this encounter identifier</li>
+<li><a href="observation.html">Observation</a>: Encounter related to the observation</li>
+<li><a href="procedure.html">Procedure</a>: Encounter created as part of</li>
+<li><a href="riskassessment.html">RiskAssessment</a>: Where was assessment performed?</li>
+<li><a href="servicerequest.html">ServiceRequest</a>: An encounter in which this request is made</li>
+<li><a href="visionprescription.html">VisionPrescription</a>: Return prescriptions with this encounter identifier</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>based-on</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-based-on</div><p>Reference to the service request.</p>
+</td>
+</tr>
+<tr>
+<td>category</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-category</div><p>The classification of the type of observation</p>
+</td>
+</tr>
+<tr>
+<td>combo-code</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-combo-code</div><p>The code of the observation type or component type</p>
+</td>
+</tr>
+<tr>
+<td>combo-data-absent-reason</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-combo-data-absent-reason</div><p>The reason why the expected value in the element Observation.value[x] or Observation.component.value[x] is missing.</p>
+</td>
+</tr>
+<tr>
+<td>combo-value-concept</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-combo-value-concept</div><p>The value or component value of the observation, if the value is a CodeableConcept</p>
+</td>
+</tr>
+<tr>
+<td>combo-value-quantity</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#quantity">quantity</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-combo-value-quantity</div><p>The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</p>
+</td>
+</tr>
+<tr>
+<td>component-code</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-component-code</div><p>The component code of the observation type</p>
+</td>
+</tr>
+<tr>
+<td>component-data-absent-reason</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-component-data-absent-reason</div><p>The reason why the expected value in the element Observation.component.value[x] is missing.</p>
+</td>
+</tr>
+<tr>
+<td>component-value-concept</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-component-value-concept</div><p>The value of the component observation, if the value is a CodeableConcept</p>
+</td>
+</tr>
+<tr>
+<td>component-value-quantity</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#quantity">quantity</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-component-value-quantity</div><p>The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</p>
+</td>
+</tr>
+<tr>
+<td>data-absent-reason</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-data-absent-reason</div><p>The reason why the expected value in the element Observation.value[x] is missing.</p>
+</td>
+</tr>
+<tr>
+<td>derived-from</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-derived-from</div><p>Related measurements the observation is made from</p>
+</td>
+</tr>
+<tr>
+<td>device</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-device</div><p>The Device that generated the observation data.</p>
+</td>
+</tr>
+<tr>
+<td>focus</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-focus</div><p>The focus of an observation when the focus is not the patient of record.</p>
+</td>
+</tr>
+<tr>
+<td>has-member</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-has-member</div><p>Related resource that belongs to the Observation group</p>
+</td>
+</tr>
+<tr>
+<td>method</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-method</div><p>The method used for the observation</p>
+</td>
+</tr>
+<tr>
+<td>part-of</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-part-of</div><p>Part of referenced event</p>
+</td>
+</tr>
+<tr>
+<td>performer</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-performer</div><p>Who performed the observation</p>
+</td>
+</tr>
+<tr>
+<td>specimen</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-specimen</div><p>Specimen used for this observation</p>
+</td>
+</tr>
+<tr>
+<td>status</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-status</div><p>The status of the observation</p>
+</td>
+</tr>
+<tr>
+<td>subject</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-subject</div><p>The subject that the observation is about</p>
+</td>
+</tr>
+<tr>
+<td>value-concept</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-value-concept</div><p>The value of the observation, if the value is a CodeableConcept</p>
+</td>
+</tr>
+<tr>
+<td>value-date</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#date">date</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-value-date</div><p>The value of the observation, if the value is a date or period of time</p>
+</td>
+</tr>
+<tr>
+<td>value-quantity</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#quantity">quantity</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-value-quantity</div><p>The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</p>
+</td>
+</tr>
+<tr>
+<td>value-string</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#string">string</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-value-string</div><p>The value of the observation, if the value is a string, and also searches in CodeableConcept.text</p>
+</td>
+</tr>
+<tr>
+<td>_id</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Resource-id</div><p>Logical id of this artifact</p>
+</td>
+</tr>
+<tr>
+<td>_lastUpdated</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#date">date</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Resource-lastUpdated</div><p>When the resource version last changed</p>
+</td>
+</tr>
+<tr>
+<td>_profile</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#uri">uri</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Resource-profile</div><p>Profiles this resource claims to conform to</p>
+</td>
+</tr>
+<tr>
+<td>_security</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Resource-security</div><p>Security Labels applied to this resource</p>
+</td>
+</tr>
+<tr>
+<td>_source</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#uri">uri</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Resource-source</div><p>Identifies where the resource comes from</p>
+</td>
+</tr>
+<tr>
+<td>_tag</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Resource-tag</div><p>Tags applied to this resource</p>
+</td>
+</tr>
+</table>
+<strong>Search includes</strong>
+<table class='table table-bordered table-condensed'>
+<tr><th width='15%'>Name</th></tr>
+<tr>
+<td>*</td>
+</tr>
+<tr>
+<td>Observation:patient</td>
+</tr>
+<tr>
+<td>Observation:encounter</td>
+</tr>
+<tr>
+<td>Observation:based-on</td>
+</tr>
+<tr>
+<td>Observation:derived-from</td>
+</tr>
+<tr>
+<td>Observation:device</td>
+</tr>
+<tr>
+<td>Observation:focus</td>
+</tr>
+<tr>
+<td>Observation:has-member</td>
+</tr>
+<tr>
+<td>Observation:part-of</td>
+</tr>
+<tr>
+<td>Observation:performer</td>
+</tr>
+<tr>
+<td>Observation:specimen</td>
+</tr>
+<tr>
+<td>Observation:subject</td>
+</tr>
+</table>
+<em>These are the _include parameters that are supported on searches</em>
+<br/><br/>
 </div>
