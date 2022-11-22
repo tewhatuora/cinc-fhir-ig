@@ -3,13 +3,13 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: fhir.ig.test
+id: cinc.fhir.ig
 canonical: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
-name: FHIR_IG_TEST
-title: Care In The Community COVID Care Plan API
-description: Care In The Community COVID Care Plan API
+name: CINC_FHIR_IG
+title: Care In The Community FHIR API
+description: Care In The Community FHIR API
 status: draft
-version: 0.1.0
+version: 0.1.1
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
