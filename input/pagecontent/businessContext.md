@@ -1,8 +1,13 @@
-**Placeholder**
+# Overview
 
-*The business context describes a business view for an IG and should contain content that describes the set of business concerns or problems that the implementation is trying to address. It should include the relevant history, context, and description of the problem domain and solution.*
+This project prototyped and then established the FHIR server to serve as a repository for CarePlan and related resources originating in COVID case management.
 
-For more information and examples please refer to:
+The repository stores information for COVID patients needing a planned tailored regime of care.  The information is modelled in FHIR 4.0.1, the main resource types being CarePlan, Encounter, Condition, QuestionnaireResponse and Consent.
 
-- [Health NZ Standard Implementation Guide Content](https://mohits.atlassian.net/wiki/spaces/AS/pages/3018948997/Standard+Implementation+Guide+Content)
-- [New Zealand NHI Implementation Guide](https://master.d3b08qop7whnnl.amplifyapp.com/)
+CarePlans are authored by practitioners, starting from a standard HNZ base PlanDefinition then tailoring to the specific needs of the patient and the case.
+
+Once stored at the FHIR repository, the CarePlan can then be accessed by other members of the care team as needed, via any system/application client that is authorised to consume the FHIR API.
+
+The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case management is done.
+
+![](sharedCarePlan.png)
