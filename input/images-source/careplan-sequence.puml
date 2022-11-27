@@ -1,0 +1,101 @@
+@startuml careplan-tailoring
+
+
+title "API sequence: CarePlan"
+footer "CarePlan FHIR API"
+
+autonumber "[00]"
+skinparam BoxPadding 10
+skinparam sequenceStyle uml2
+skinparam maxMessageSize 200
+skinparam ParticipantPadding 5
+skinparam roundcorner 20
+skinparam sequenceArrowThickness 2
+
+skinparam SequenceGroupBodyBackgroundColor #FFFFFF90
+skinparam responseMessageBelowArrow true
+
+
+skinparam dpi 300
+scale max 1024*1800
+
+
+actor "Care Plan Patient" as Patient #LightBlue
+
+actor "Health Sector user" as P #Orange
+
+participant "Health Sector Application" as APIC #PaleGreen
+
+box "FHIR resource APIs"
+boundary "Encounter" as EC #IndianRed
+boundary "Consent" as C #IndianRed
+
+entity "PlanDefinition" as PD #PaleVioletRed
+entity "CarePlan" as CP #PaleVioletRed
+entity "Questionnaire" as QD #PaleVioletRed
+entity "QuestionnaireResponse" as QR #PaleVioletRed
+entity "ActivityDefinition" as AD #PaleVioletRed
+entity "ServiceRequest" as SRA #IndianRed
+entity "Observation" as OB #IndianRed
+
+end box
+
+box "Health NZ Common API" #LightGray
+end box
+
+== Starting assumption: Health Sector Application has created a CarePlan FHIR resource in **draft** status ==
+
+Patient -> P : Initiate interration
+P -> APIC++: view CarePlan in progress
+autonumber stop
+alt Search for CarePlan
+  P -> APIC : Find active care plans for Patient
+  APIC -> CP : GET /CarePlan?status=active&subject:identifier={PatientIdentifier}
+  CP -> APIC : Return FHIR searchset containing active and consented care plans
+  APIC -> P : Return Care Plans
+end
+autonumber resume
+APIC -> CP++: retrieve CarePlan
+return CarePlan resource
+group #SkyBlue Tailor a care plan
+  opt Add another Questionnaire activity to the CarePlan
+    
+    P -> APIC ++: Choose to add a questionnaire activity
+    APIC -> QD ++: Search
+    return matching questionnaires
+
+    APIC -> P: Display questionnaire list
+
+    P -> APIC: Select a questionnaire type X
+
+    APIC -> APIC: Make new Questionnaire activity
+    return
+
+  end
+
+  opt Remove an activity from CarePlan
+    P -> APIC++: Choose to remove activity
+    APIC -> APIC: delete selected activity from care plan
+    return
+  end
+
+  opt Add Measurement (Observation) activity to the CarePlan
+    
+    P -> APIC ++: Choose to add an at home self monitor activity
+    APIC -> AD ++: GET /ActivityDefinition?identifier=COVID19MeasurementProcedureRequestTemplate
+    return Matching ActivityDefinition
+
+    APIC -> APIC: Make new ServiceRequest activity
+
+    APIC -> SRA : Create new ServiceRequest
+    SRA -> APIC : ServiceRequest ID
+
+    APIC -> C : Update Consent with ServiceRequest
+    return
+
+  end
+
+  ... **Repeat until tailoring complete** ...
+end
+
+@enduml
