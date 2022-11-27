@@ -1,4 +1,4 @@
-![CarePlan](./careplan-tailoring.png)
+<img src="./careplan-tailoring.png" width="1200" />
 
 # Definitions
 
@@ -18,11 +18,11 @@ The CarePlan Service API Sequence is only triggered when the following essential
 
 Refer to the “Create CarePlan” flow below for an illustration of the three typical scenarios by which the CarePlan Service API Sequence is Triggered.
 
-![Create CarePlan](./create-careplan-flow.jpg)
+<img src="./create-careplan-flow.jpg" width="1200" />
 
 The CarePlan Service API Sequence involves the following main steps:
 
-![Main Sequence](./careplan-main-sequence.jpg)
+<img src="./careplan-main-sequence.png" width="1200" />
 
 Fig. 1: Main steps of the API sequence
 
