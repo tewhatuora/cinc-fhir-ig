@@ -47,9 +47,9 @@ npm install markdown
 
 ## FHIR IG Auto-Builder
 
-In addition to the IG Publisher, the FHIR team also provide a [FHIR IG Auto-Builder](https://github.com/FHIR/auto-ig-builder) that allows IGs in public GitHub repositories to be auto-published to the FHIR Continuous Integration build service at https://build.fhir.org.  The appropriate webhook configuration has been set up for this project's GitHub repository and the auto-published IG can be viewed at the following URL:
+In addition to the IG Publisher, the FHIR team also provide a [FHIR IG Auto-Builder](https://github.com/FHIR/auto-ig-builder) that allows IGs in public GitHub repositories to be auto-published to the FHIR Continuous Integration build service at https://build.fhir.org.  The appropriate webhook configuration has been set up for this project's GitHub repository and the auto-published IG can be viewed at the following URL: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/
 
-https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/
+Build logs are available here https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/branches/master/build.log
 
 ## Simplifier.net IG Authoring/Publishing
 
