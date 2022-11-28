@@ -1,29 +1,30 @@
 Profile: CovidObservation
 Parent: Observation
+Id: CovidObservation
 Description: "The Care in the Community profile of the Observation resource"
-* identifier 0..0
+* ^version = "0.1.1"
+* identifier ..0
+* identifier.use ..0
+* identifier.value ..0
 * basedOn only Reference(ServiceRequest)
-* partOf 0..0
-* status 1..1
-* category 0..0
-* code only CodeableConcept
+* partOf ..0
+* category ..0
 * subject only Reference(Patient)
-* focus 0..0
-* encounter 0..0
-* effective[x] 0..1
-* issued 0..0
+* focus ..0
+* encounter ..0
+* issued ..0
 * performer only Reference(Patient)
-* value[x] 0..0
-* dataAbsentReason 0..0
-* interpretation 0..0
-* note 0..0
-* bodySite 0..0
-* method 0..0
-* specimen 0..0
-* device 0..0
-* referenceRange 0..0
-* hasMember 0..0
-* derivedFrom 0..0
-* component 0..*
-* component.code only CodeableConcept
-* component.valueString 1..1
+* value[x] ..0
+* dataAbsentReason ..0
+* interpretation ..0
+* note ..0
+* bodySite ..0
+* method ..0
+* specimen ..0
+* device ..0
+* referenceRange ..0
+* hasMember ..0
+* derivedFrom ..0
+* component.value[x] 1..
+* component.valueQuantity 1..1
+* component.valueQuantity only Quantity

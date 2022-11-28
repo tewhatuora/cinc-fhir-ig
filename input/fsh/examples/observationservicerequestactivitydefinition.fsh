@@ -1,4 +1,4 @@
-Instance: 8eea9262-f1dc-412d-b6d6-ee3958e13fa0
+Instance: ObservationServiceRequestActivityDefinition
 InstanceOf: ActivityDefinition
 Usage: #example
 * purpose = "Template for the description of the request to create a Vital Signs Observations"
