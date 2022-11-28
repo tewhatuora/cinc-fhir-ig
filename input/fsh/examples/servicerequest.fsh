@@ -1,4 +1,4 @@
-Instance: b69665f9-d347-40f5-aed1-2897dfad0148
+Instance: ExampleObservationsServiceRequest
 InstanceOf: ServiceRequest
 Usage: #example
 * subject.identifier.value = "ZXP7823"
