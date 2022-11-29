@@ -105,10 +105,11 @@ group Capture Observations
       The Observation Service Request now has another Observation resource linked to it.
     end note
 
+    return
+    
     end
-  end
 
-return
+  end
 
 deactivate APIC
 
