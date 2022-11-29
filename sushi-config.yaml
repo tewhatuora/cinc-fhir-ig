@@ -84,11 +84,13 @@ menu:
   Extensions: extensions.html
   Terminology: terminology.html
   Artifact Index: artifacts.html
+  FAQ: faq.html
   Support:
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
     Download IG : full-ig.zip
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
+    OpenAPI Specification: CareInTheCommunityCapabilityStatement.openapi.json
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
