@@ -1,0 +1,115 @@
+@startuml health-vitals-observation-patient-supplied
+
+title "FHIR API sequence - Health Vitals - PATIENT-SUPPLIED FIRST OBSERVATION"
+
+footer "Middleware NZ design for Health NZ, %date('yyyy.MM.dd')"
+
+autonumber "<b> 00"
+skinparam responseMessageBelowArrow true
+
+skinparam BoxPadding 10
+skinparam sequenceStyle uml2
+skinparam maxMessageSize 225
+skinparam ParticipantPadding 5
+skinparam roundcorner 5
+skinparam sequenceArrowThickness 2
+
+' semi-transparent sequence groups!
+' see https://sarafian.github.io/tips/2021/03/11/plantuml-tips-tricks-1.html#:~:text=responseMessageBelowArrow-,Semi,-transparent%20group%20backgrounds
+skinparam SequenceGroupBodyBackgroundColor #FFFFFF90
+skinparam responseMessageBelowArrow true
+
+
+skinparam dpi 300
+scale max 1280 width
+
+actor "Care Plan Patient" as Patient #LightBlue
+actor "Health Sector User" as P #Orange
+participant "Health Sector Application" as APIC #PaleGreen
+
+box "FHIR resource APIs"
+
+'entity "Encounter" as EC #LightSalmon
+'entity "Consent\n(CarePlan)" as C1 #LightSalmon
+'entity "Activity\nDefinition" as AD #OrangeRed
+
+entity "Obs Consent\n[Consent]\n(for vital signs\ndata collection)" as ObsC #LightSalmon
+entity "CarePlan" as CPA #LightSalmon
+entity "Obs ServiceRequest\n[ServiceRequest]" as SR #LightSalmon
+entity "Observation\n(vital signs data)" as Ob #LightSalmon
+entity "Questionnaire\nResponse" as QR #LightSalmon
+entity "Questionnaire (consent)\n//QuestionTemplate-CitC//-\n//COVID19-MeasurementCollection//" as Q #OrangeRed
+
+end box
+
+
+group #PaleTurquoise SETUP for PATIENT DIRECT DATA SUPPLY
+
+  Patient -> APIC++ : Log into app
+
+  group Locate Service Requst from Care Plan
+
+    APIC -> CPA++ : Search for active care plans by subject
+  
+    note right of CPA #Yellow
+      This search returns CarePlans for the patient (subject) 
+      and includes any active ServiceRequests referenced 
+      by activities in these CarePlans.
+    end note
+    
+    return searchset bundle
+
+    APIC -> APIC : Find active ServiceRequest coded \n SNOMED 61746007 and linked to\n CarePlan
+
+  end
+
+  return Offer patient option to supply own vital signs data 
+
+  Patient -> APIC++: Patient elects to supply own vital signs data
+
+  group Establish Consent
+
+    APIC -> Q++: Lookup consent Questionaire using well-known identifier
+    note left of Q #Yellow: Defines patient consent questions for vital signs collection
+
+    return Consent / privacy statements
+
+    APIC -> Patient++: Seek user acceptance of consent/privacy statement
+    return : Patient consents
+
+    APIC -> QR: Create QuestionnaireResponse for patient's answers
+    APIC -> APIC: Prepare new Consent resource and link to Obs Service Request
+    APIC -> ObsC: Create Obs Consent resource
+  end
+  
+  return App ready to capture patient vital signs
+
+end
+
+
+group Capture Observations
+
+  loop #SkyBlue for-each: vital signs collection patient task
+
+    Patient -> APIC++: Enter / scan vital signs data
+
+    APIC -> APIC: Formulate Observation resource from scan data
+    APIC -> APIC: link Observation to Obs Service Request (//basedOn//)
+    APIC -> Ob++ : CREATE Observation resource
+    return Obs id
+
+    ' link consent to cover new resource   
+    APIC -> ObsC : Link Obs Consent to new Observation
+
+    note right of APIC #Yellow
+      The Observation Service Request now has another Observation resource linked to it.
+    end note
+
+    end
+  end
+
+return
+
+deactivate APIC
+
+@enduml
