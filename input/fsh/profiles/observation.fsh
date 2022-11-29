@@ -13,7 +13,7 @@ Description: "The Care in the Community profile of the Observation resource"
 * focus ..0
 * encounter ..0
 * issued 1..1
-* performer only Reference(Patient)
+* performer only Reference(Patient or Practitioner)
 * value[x] ..0
 * dataAbsentReason ..0
 * interpretation ..0
