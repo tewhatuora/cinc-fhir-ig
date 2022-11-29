@@ -3,16 +3,16 @@ Parent: Observation
 Id: CovidObservation
 Description: "The Care in the Community profile of the Observation resource"
 * ^version = "0.1.1"
-* identifier ..0
-* identifier.use ..0
-* identifier.value ..0
+* identifier 1..1
+* identifier.use 1..1
+* identifier.value 1..1
 * basedOn only Reference(ServiceRequest)
 * partOf ..0
-* category ..0
+* category 1..1
 * subject only Reference(Patient)
 * focus ..0
 * encounter ..0
-* issued ..0
+* issued 1..1
 * performer only Reference(Patient)
 * value[x] ..0
 * dataAbsentReason ..0
