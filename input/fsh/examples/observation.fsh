@@ -1,18 +1,20 @@
-Instance: ObservationExample
+Instance: Covid19Observations
 InstanceOf: CovidObservation
-Title: "ObservationExample"
-Description: "An example COVID Vital Signs Observation (set of measurements)"
 Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2022-11-28T04:39:32.824Z"
-* basedOn.reference = "ServiceRequest/f89f54f7-9391-4c13-89b2-c840d6ce9e14"
+* identifier.use = #secondary
+* identifier.value = "d319f222-4e01-483c-9a8f-70337a0a090e"
+* basedOn = Reference(ServiceRequest/f89f54f7-9391-4c13-89b2-c840d6ce9e14)
 * status = #final
+* category = $observation-category#vital-signs
 * code = $sct#122869004 "Measurement procedure (procedure)"
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
+* issued = "2022-11-28T04:39:32.215Z"
 * performer.type = "Patient"
 * performer.identifier.use = #official
 * performer.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
