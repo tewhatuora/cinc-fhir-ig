@@ -35,7 +35,7 @@ box "FHIR resource APIs"
 
 entity "Obs Consent\n[Consent]\n(for vital signs\ndata collection)" as ObsC #LightSalmon
 entity "CarePlan" as CPA #LightSalmon
-entity "Obs ServiceRequest\n[ServiceRequest]" as SR #LightSalmon
+'entity "Obs ServiceRequest\n[ServiceRequest]" as SR #LightSalmon
 entity "Observation\n(vital signs data)" as Ob #LightSalmon
 entity "Questionnaire\nResponse" as QR #LightSalmon
 entity "Questionnaire (consent)\n//QuestionTemplate-CitC//-\n//COVID19-MeasurementCollection//" as Q #OrangeRed
@@ -77,12 +77,17 @@ group #PaleTurquoise SETUP for PATIENT DIRECT DATA SUPPLY
     APIC -> Patient++: Seek user acceptance of consent/privacy statement
     return : Patient consents
 
-    APIC -> QR: Create QuestionnaireResponse for patient's answers
+    APIC -> QR **: Create QuestionnaireResponse for patient's answers
+    QR --> APIC: resource id
+
     APIC -> APIC: Prepare new Consent resource and link to Obs Service Request
-    APIC -> ObsC: Create Obs Consent resource
+    
+    APIC -> ObsC**: Create Obs Consent resource
+    ObsC --> APIC: resource id
+
   end
   
-  return App ready to capture patient vital signs
+  APIC -> Patient-- : App ready to capture patient vital signs
 
 end
 
@@ -95,22 +100,22 @@ group Capture Observations
 
     APIC -> APIC: Formulate Observation resource from scan data
     APIC -> APIC: link Observation to Obs Service Request (//basedOn//)
+    
+    Create Ob
     APIC -> Ob++ : CREATE Observation resource
-    return Obs id
+    Ob --> APIC : resource id
 
     ' link consent to cover new resource   
     APIC -> ObsC : Link Obs Consent to new Observation
 
     note right of APIC #Yellow
-      The Observation Service Request now has another Observation resource linked to it.
+      At this point the Observation Service Request now has another Observation resource linking to it.
     end note
 
-    return
-    
+    APIC -> Patient--: ready for vital signs collection 
+
     end
 
   end
-
-deactivate APIC
 
 @enduml
