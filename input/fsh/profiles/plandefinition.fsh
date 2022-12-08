@@ -1,6 +1,7 @@
-Profile: CovidPlanDefinition
+Profile: ManaakiNgaTahiPlanDefinition
 Parent: PlanDefinition
 Description: "The Care in the Community profile of the PlanDefinition resource"
+* ^version = "0.1.2"
 * implicitRules 0..0
 * contained 0..0
 * extension 0..0

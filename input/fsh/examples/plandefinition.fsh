@@ -1,7 +1,7 @@
 Instance: PlanDefinitionExample
-InstanceOf: CovidPlanDefinition
+InstanceOf: ManaakiNgaTahiPlanDefinition
 Usage: #example
-Description: "An example COVID PlanDefinition"
+Description: "An example ManaakiNgaTahi PlanDefinition"
 * date = "2022-09-12"
 * subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient "Patient"
 * subjectCodeableConcept.text = "Patient"

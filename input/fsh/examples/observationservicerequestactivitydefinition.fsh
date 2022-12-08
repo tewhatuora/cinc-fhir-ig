@@ -1,6 +1,7 @@
 Instance: ObservationServiceRequestActivityDefinition
 InstanceOf: ActivityDefinition
 Usage: #example
+Description: "An example ManaakiNgaTahi ActivityDefinition"
 * purpose = "Template for the description of the request to create a Vital Signs Observations"
 * identifier.value = "COVID19ObservationVitalSignsRequestTemplate"
 * identifier.use = #usual

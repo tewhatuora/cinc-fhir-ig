@@ -4,44 +4,49 @@
 <table class='table table-bordered table-hover table-sm'>
 <tr><th>Id</th><th>Url</th><th>Description</th></tr>
 <tr>
-<td><a href='StructureDefinition-CovidCarePlan.html'>CovidCarePlan</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidCarePlan</td>
+<td><a href='StructureDefinition-ManaakiNgaTahiCarePlan.html'>ManaakiNgaTahiCarePlan</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiCarePlan</td>
 <td><p>The Care in the Community profile of the CarePlan resource</p></td>
 </tr>
 <tr>
-<td><a href='StructureDefinition-CovidCondition.html'>CovidCondition</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidCondition</td>
+<td><a href='StructureDefinition-ManaakiNgaTahiCondition.html'>ManaakiNgaTahiCondition</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiCondition</td>
 <td><p>The Care in the Community profile of the Condition resource</p></td>
 </tr>
 <tr>
-<td><a href='StructureDefinition-CovidConsent.html'>CovidConsent</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidConsent</td>
+<td><a href='StructureDefinition-ManaakiNgaTahiConsent.html'>ManaakiNgaTahiConsent</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiConsent</td>
 <td><p>The Care in the Community profile of the Consent resource</p></td>
 </tr>
 <tr>
-<td><a href='StructureDefinition-CovidEncounter.html'>CovidEncounter</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidEncounter</td>
+<td><a href='StructureDefinition-ManaakiNgaTahiEncounter.html'>ManaakiNgaTahiEncounter</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiEncounter</td>
 <td><p>The Care in the Community profile of the Encounter resource</p></td>
 </tr>
 <tr>
-<td><a href='StructureDefinition-CovidObservation.html'>CovidObservation</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidObservation</td>
+<td><a href='StructureDefinition-ManaakiNgaTahiObservation.html'>ManaakiNgaTahiObservation</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiObservation</td>
 <td><p>The Care in the Community profile of the Observation resource</p></td>
 </tr>
 <tr>
-<td><a href='StructureDefinition-CovidPlanDefinition.html'>CovidPlanDefinition</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidPlanDefinition</td>
+<td><a href='StructureDefinition-ManaakiNgaTahiPlanDefinition.html'>ManaakiNgaTahiPlanDefinition</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiPlanDefinition</td>
 <td><p>The Care in the Community profile of the PlanDefinition resource</p></td>
 </tr>
 <tr>
-<td><a href='StructureDefinition-CovidQuestionnaire.html'>CovidQuestionnaire</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidQuestionnaire</td>
+<td><a href='StructureDefinition-ManaakiNgaTahiQuestionnaire.html'>ManaakiNgaTahiQuestionnaire</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiQuestionnaire</td>
 <td><p>The Care in the Community profile of the Questionnaire resource</p></td>
 </tr>
 <tr>
-<td><a href='StructureDefinition-CovidQuestionnaireResponse.html'>CovidQuestionnaireResponse</a></td>
-<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/CovidQuestionnaireResponse</td>
+<td><a href='StructureDefinition-ManaakiNgaTahiQuestionnaireResponse.html'>ManaakiNgaTahiQuestionnaireResponse</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiQuestionnaireResponse</td>
 <td><p>The Care in the Community profile of the QuestionnaireResponse resource</p></td>
+</tr>
+<tr>
+<td><a href='StructureDefinition-ManaakiNgaTahiServiceRequest.html'>ManaakiNgaTahiServiceRequest</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiServiceRequest</td>
+<td><p>The Care in the Community profile of the ServiceRequest for measurement capture resource</p></td>
 </tr>
 </table>
 </div>

@@ -1,5 +1,6 @@
-Instance: Covid19Observations
-InstanceOf: CovidObservation
+Instance: ObservationExample
+InstanceOf: ManaakiNgaTahiObservation
+Description: "An example ManaakiNgaTahi Observation"
 Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2022-11-28T04:39:32.824Z"

@@ -1,6 +1,7 @@
-Profile: CovidCarePlan
+Profile: ManaakiNgaTahiCarePlan
 Parent: CarePlan
 Description: "The Care in the Community profile of the CarePlan resource"
+* ^version = "0.1.2"
 * implicitRules 0..0
 * language 0..0
 * extension 0..0

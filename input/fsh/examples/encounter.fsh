@@ -1,7 +1,7 @@
 Instance: EncounterExample
-InstanceOf: CovidEncounter
+InstanceOf: ManaakiNgaTahiEncounter
 Usage: #example
-Description: "An example COVID Encounter"
+Description: "An example ManaakiNgaTahi Encounter"
 * status = #in-progress
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#VR "virtual"
 * serviceType = http://terminology.hl7.org/CodeSystem/service-type#124 "General Practice"

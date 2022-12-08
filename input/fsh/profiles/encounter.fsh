@@ -1,6 +1,7 @@
-Profile: CovidEncounter
+Profile: ManaakiNgaTahiEncounter
 Parent: Encounter
 Description: "The Care in the Community profile of the Encounter resource"
+* ^version = "0.1.2"
 * implicitRules 0..0
 * language 0..0
 * contained 0..0

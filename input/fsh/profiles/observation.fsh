@@ -1,8 +1,12 @@
-Profile: CovidObservation
+Profile: ManaakiNgaTahiObservation
 Parent: Observation
-Id: CovidObservation
+Id: ManaakiNgaTahiObservation
 Description: "The Care in the Community profile of the Observation resource"
-* ^version = "0.1.1"
+* ^version = "0.1.2"
+* implicitRules 0..0
+* language 0..0
+* extension 0..0
+* modifierExtension 0..0
 * identifier 1..1
 * identifier.use 1..1
 * identifier.value 1..1

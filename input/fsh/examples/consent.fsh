@@ -1,7 +1,7 @@
 Instance: ConsentExample
-InstanceOf: CovidConsent
+InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
-Description: "An example COVID Consent"
+Description: "An example ManaakiNgaTahi Consent"
 * status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 * scope.text = "Privacy Consent"
