@@ -1,7 +1,7 @@
 Instance: QuestionnaireExample
-InstanceOf: CovidQuestionnaire
+InstanceOf: ManaakiNgaTahiQuestionnaire
 Usage: #example
-Description: "An example COVID Questionnaire"
+Description: "An example ManaakiNgaTahi Questionnaire"
 * identifier.period.start = "2022-09-12"
 * identifier.use = #usual
 * identifier.value = "QuestionTemplate-CitC-COVID19-PrivacyStatementQuestion"

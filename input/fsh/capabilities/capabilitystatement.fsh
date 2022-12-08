@@ -7,10 +7,10 @@ Usage: #definition
 * status = #active
 * date = "2022-09-15"
 * publisher = "Te Whatu Ora"
-* description = "The Care In The Community COVID Care Plan FHIR v4.0.1 API"
+* description = "The Manaaki Nga Tahi - Care In The Community Care Plan FHIR v4.0.1 API"
 * kind = #instance
-* implementation.description = "The Care In The Community COVID Care Plan FHIR v4.0.1 API"
-* implementation.url = "https://api.integration.covid19.health.nz/cinc/fhir/R4"
+* implementation.description = "The Care In The Community Manaaki Nga Tahi Care Plan FHIR v4.0.1 API"
+* implementation.url = "https://fhir.ap1.digital.health.nz/R4"
 * fhirVersion = #4.0.1
 * format = #json
 * rest.mode = #server
@@ -22,7 +22,7 @@ Usage: #definition
 * rest.security.extension.extension[+].url = "authorize"
 * rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/authorize"
 * rest.resource[0].type = #CarePlan
-* rest.resource[=].profile = Canonical(CovidCarePlan)
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiCarePlan)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update
@@ -55,7 +55,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[+].type = #Condition
-* rest.resource[=].profile = Canonical(CovidCondition)
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiCondition)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update
@@ -82,7 +82,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[+].type = #Encounter
-* rest.resource[=].profile = Canonical(CovidEncounter)
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiEncounter)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update
@@ -115,7 +115,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[+].type = #QuestionnaireResponse
-* rest.resource[=].profile = Canonical(CovidQuestionnaireResponse)
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiQuestionnaireResponse)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update
@@ -153,7 +153,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[+].type = #Questionnaire
-* rest.resource[=].profile = Canonical(CovidQuestionnaire)
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiQuestionnaire)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update
@@ -192,7 +192,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[+].type = #Consent
-* rest.resource[=].profile = Canonical(CovidConsent)
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiConsent)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update
@@ -229,7 +229,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[+].type = #PlanDefinition
-* rest.resource[=].profile = Canonical(CovidPlanDefinition)
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update

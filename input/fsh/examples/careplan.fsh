@@ -1,7 +1,7 @@
 Instance: CarePlanExample
-InstanceOf: CovidCarePlan
+InstanceOf: ManaakiNgaTahiCarePlan
 Usage: #example
-Description: "An example COVID Care Plan"
+Description: "An example ManaakiNgaTahi Care Plan"
 * contained = goal0
 * instantiatesCanonical = "https://api.integration-uat.covid19.health.nz/cinc/fhir/R4/PlanDefinition/7894edcd-fb89-4413-affd-091c5c6da733"
 * status = #active

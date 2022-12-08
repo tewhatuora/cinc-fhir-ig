@@ -1,19 +1,27 @@
 Instance: ExampleObservationsServiceRequest
-InstanceOf: ServiceRequest
+InstanceOf: ManaakiNgaTahiServiceRequest
 Usage: #example
-* subject.identifier.value = "ZXP7823"
+Description: "An example ManaakiNgaTahi ServiceRequest"
+* instantiatesCanonical = "https://fhir.api-dev.digital.health.nz/R4/ActivityDefinition/a284d0f3-c459-4527-8c0f-6b20dbaae4b0"
+* status = #active
+* intent = #order
+* priority = #urgent
+* doNotPerform = false
+* code = http://snomed.info/sct#122869004 "Measurement procedure (procedure)"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* authoredOn = "2022-10-31"
-* instantiatesCanonical = "https://api.integration-uat.covid19.health.nz/cinc/fhir/R4/tenant/moh/ActivityDefinition/be729ee9-cc9c-44bf-910b-c920ecabc717"
-* meta.lastUpdated = "2022-10-31T04:15:13.309Z"
-* meta.versionId = "1"
-* status = #active
-* priority = #urgent
-* intent = #order
-* code.text = "Request for Mobile App Performed Observations"
-* doNotPerform = false
-* basedOn = Reference(CarePlan/4ea290a2-97f7-4298-add5-c640d2df4bed)
-* requester.identifier.value = "99ZZFX"
+* subject.identifier.value = "ZXP7823"
+* authoredOn = "2022-12-08"
 * requester.identifier.use = #official
 * requester.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
+* requester.identifier.value = "99ZZFX"
+* occurrenceTiming.repeat.frequency = 3
+* occurrenceTiming.repeat.frequencyMax = 3
+* occurrenceTiming.repeat.period = 1
+* occurrenceTiming.repeat.periodUnit = #d
+* occurrenceTiming.repeat.boundsPeriod.start = "2022-12-09"
+* occurrenceTiming.repeat.boundsPeriod.end = "2023-01-08"
+* basedOn = Reference(CarePlan/dbb9bf8b-8278-4645-ada6-db03f023d10c)
+* performerType = http://snomed.info/sct#159002008 "Practice nurse (occupation)"
+* meta.versionId = "1"
+* meta.lastUpdated = "2022-12-08T20:58:28.205Z"

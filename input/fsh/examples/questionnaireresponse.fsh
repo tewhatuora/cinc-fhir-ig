@@ -1,7 +1,7 @@
 Instance: QuestionnaireResponseExample
-InstanceOf: CovidQuestionnaireResponse
+InstanceOf: ManaakiNgaTahiQuestionnaireResponse
 Usage: #example
-Description: "An example COVID QuestionnaireResponse"
+Description: "An example ManaakiNgaTahi QuestionnaireResponse"
 * questionnaire = Canonical(QuestionnaireExample)
 * status = #completed
 * subject.type = "Patient"

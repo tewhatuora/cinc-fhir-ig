@@ -1,6 +1,7 @@
-Profile: CovidQuestionnaire
+Profile: ManaakiNgaTahiQuestionnaire
 Parent: Questionnaire
 Description: "The Care in the Community profile of the Questionnaire resource"
+* ^version = "0.1.2"
 * implicitRules 0..0
 * contained 0..0
 * extension 0..0

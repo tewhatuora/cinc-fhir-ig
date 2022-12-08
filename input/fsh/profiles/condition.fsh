@@ -1,6 +1,7 @@
-Profile: CovidCondition
+Profile: ManaakiNgaTahiCondition
 Parent: Condition
 Description: "The Care in the Community profile of the Condition resource"
+* ^version = "0.1.2"
 * implicitRules 0..0
 * language 0..0
 * contained 0..0

@@ -18,7 +18,7 @@ This is the Implementation Guide for the [HL7® FHIR©](http://hl7.org/fhir) int
 
 - [Artifact Index](artifacts.html): A page with all artifacts (Logical Models, Profiles, Extensions, Terminology and others) defined in this guide. This page largely duplicates information in the Profiles and Extensions tab.
 
-- [Support](./support.html): Links to the FHIR spec and downloads.
+- Support: Links to the FHIR spec and downloads.
 
 - [FAQ](./faq.html): Frequently Asked Questions
 

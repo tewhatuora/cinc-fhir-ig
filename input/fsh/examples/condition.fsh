@@ -1,7 +1,7 @@
 Instance: ConditionExample
-InstanceOf: CovidCondition
+InstanceOf: ManaakiNgaTahiCondition
 Usage: #example
-Description: "An example COVID Condition"
+Description: "An example ManaakiNgaTahi Condition"
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * clinicalStatus.text = "Active"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"
