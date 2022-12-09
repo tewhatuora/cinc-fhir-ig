@@ -4,6 +4,11 @@
 <table class='table table-bordered table-hover table-sm'>
 <tr><th>Id</th><th>Url</th><th>Description</th></tr>
 <tr>
+<td><a href='StructureDefinition-ManaakiNgaTahiActivityDefinition.html'>ManaakiNgaTahiActivityDefinition</a></td>
+<td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiActivityDefinition</td>
+<td><p>The Care in the Community profile of the ActivityDefinition resource</p></td>
+</tr>
+<tr>
 <td><a href='StructureDefinition-ManaakiNgaTahiCarePlan.html'>ManaakiNgaTahiCarePlan</a></td>
 <td>https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiCarePlan</td>
 <td><p>The Care in the Community profile of the CarePlan resource</p></td>

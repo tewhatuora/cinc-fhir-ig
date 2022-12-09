@@ -25,7 +25,7 @@ Description: "Service request FHIR resource for Manaaki Nga Tahi"
 * occurrenceTiming 1..1
 * asNeeded[x] 0..0
 * requester 0..1
-* performerType 0..1
+* performerType from $sct (required)
 * performer 0..0
 * locationCode 0..0
 * locationReference 0..0

@@ -1,5 +1,5 @@
 Instance: ObservationServiceRequestActivityDefinition
-InstanceOf: ActivityDefinition
+InstanceOf: ManaakiNgaTahiActivityDefinition
 Usage: #example
 Description: "An example ManaakiNgaTahi ActivityDefinition"
 * purpose = "Template for the description of the request to create a Vital Signs Observations"
