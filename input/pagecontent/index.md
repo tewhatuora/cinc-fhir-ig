@@ -21,5 +21,7 @@ This is the Implementation Guide for the [HL7® FHIR©](http://hl7.org/fhir) int
 - Support: Links to the FHIR spec and downloads.
 
 - [FAQ](./faq.html): Frequently Asked Questions
+  
+- [Developer Guide](./developerGuide.html): Guidance for integration developers
 
 - [General notes](./generalNotes.html): Common notes about how the API and contents are organized
