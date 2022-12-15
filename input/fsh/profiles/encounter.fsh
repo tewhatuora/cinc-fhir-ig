@@ -1,6 +1,6 @@
 Profile: ManaakiNgaTahiEncounter
 Parent: Encounter
-Description: "The Care in the Community profile of the Encounter resource"
+Description: "Encounter FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.2"
 * implicitRules 0..0
 * language 0..0

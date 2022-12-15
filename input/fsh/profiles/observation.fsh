@@ -1,7 +1,7 @@
 Profile: ManaakiNgaTahiObservation
 Parent: Observation
 Id: ManaakiNgaTahiObservation
-Description: "The Care in the Community profile of the Observation resource"
+Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.2"
 * implicitRules 0..0
 * language 0..0
@@ -29,6 +29,7 @@ Description: "The Care in the Community profile of the Observation resource"
 * referenceRange ..0
 * hasMember ..0
 * derivedFrom ..0
-* component.value[x] 1..
-* component.valueQuantity 1..1
+* component.value[x] 0..1
+* component.valueQuantity 0..1
 * component.valueQuantity only Quantity
+* component.valueCodeableConcept only CodeableConcept

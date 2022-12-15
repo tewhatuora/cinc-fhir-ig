@@ -21,7 +21,7 @@ Description: "An example ManaakiNgaTahi ServiceRequest"
 * occurrenceTiming.repeat.periodUnit = #d
 * occurrenceTiming.repeat.boundsPeriod.start = "2022-12-09"
 * occurrenceTiming.repeat.boundsPeriod.end = "2023-01-08"
-* basedOn = Reference(CarePlan/dbb9bf8b-8278-4645-ada6-db03f023d10c)
+* basedOn = Reference(CarePlanExample)
 * performerType = http://snomed.info/sct#159002008 "Practice nurse (occupation)"
 * meta.versionId = "1"
 * meta.lastUpdated = "2022-12-08T20:58:28.205Z"

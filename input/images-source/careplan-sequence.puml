@@ -1,6 +1,5 @@
 @startuml careplan-tailoring
 
-
 title "API sequence: CarePlan"
 footer "CarePlan FHIR API"
 

@@ -1,6 +1,6 @@
 Profile: ManaakiNgaTahiCarePlan
 Parent: CarePlan
-Description: "The Care in the Community profile of the CarePlan resource"
+Description: "CarePlan FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.2"
 * implicitRules 0..0
 * language 0..0
