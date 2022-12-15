@@ -85,6 +85,7 @@ menu:
   Terminology: terminology.html
   Artifact Index: artifacts.html
   FAQ: faq.html
+  Developer Guide: developerGuide.html
   Support:
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
     Download IG : full-ig.zip
