@@ -6,8 +6,6 @@ Description: "ActivityDefinition FHIR resource for Manaaki Nga Tahi"
 * implicitRules 0..0
 * extension 0..0
 * modifierExtension 0..0
-* date 0..0
-* contact 0..0
 * useContext 0..0
 * copyright 0..0
 * approvalDate 0..0

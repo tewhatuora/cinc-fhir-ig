@@ -1,6 +1,6 @@
 Profile: ManaakiNgaTahiCondition
 Parent: Condition
-Description: "The Care in the Community profile of the Condition resource"
+Description: "Condition FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.2"
 * implicitRules 0..0
 * language 0..0

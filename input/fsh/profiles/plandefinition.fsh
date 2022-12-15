@@ -1,6 +1,6 @@
 Profile: ManaakiNgaTahiPlanDefinition
 Parent: PlanDefinition
-Description: "The Care in the Community profile of the PlanDefinition resource"
+Description: "PlanDefinition FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.2"
 * implicitRules 0..0
 * contained 0..0

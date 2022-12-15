@@ -14,4 +14,4 @@
 
 8. [Complete Care Plan](./completeCarePlan.html)
 
-9. [In Home Observations](./inHomeObservations.html)
+9. [Collect Measurements](./collectMeasurements.html)
