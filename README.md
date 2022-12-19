@@ -33,7 +33,7 @@ The published IG content can be found in the `output` folder and can be viewed b
 
 ### Additional Content Generation
 
-Some of the Implementation Guide page content is also generated content - specifically the contents of `input/pagecontent/capabilityStatement.xml` and `input/pagecontent/profiles.xml`.  These files can be re-generated as required with the following commands once SUSHI pre-processing is complete:
+Some of the Implementation Guide page content is also generated content - specifically the contents of `input/pagecontent/capabilityStatement.xml`.  These files can be re-generated as required with the following commands once SUSHI pre-processing is complete:
 
 ```bash
 # Install dependencies - there is currently no package.json for these scripts
@@ -42,7 +42,6 @@ npm install markdown
 
 # Generate content (these scripts have been copied and tweaked from the NHI IG Github repo)
 ./localscripts/makeCapabilityStatement.js
-./localscripts/makeProfiles.js
 ```
 
 ## FHIR IG Auto-Builder
