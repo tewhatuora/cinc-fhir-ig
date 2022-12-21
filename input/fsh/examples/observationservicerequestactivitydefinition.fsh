@@ -3,7 +3,7 @@ InstanceOf: ManaakiNgaTahiActivityDefinition
 Usage: #example
 Description: "An example ManaakiNgaTahi ActivityDefinition"
 * purpose = "Template for the description of the request to create a Vital Signs Observations"
-* identifier.value = "COVID19ObservationVitalSignsRequestTemplate"
+* identifier.value = "COVID19MeasurementProcedureRequestTemplate"
 * identifier.use = #usual
 * meta.lastUpdated = "2022-11-02T01:12:30.454Z"
 * meta.versionId = "2"
