@@ -79,7 +79,7 @@ menu:
   Home: index.html
   Business Context: businessContext.html
   Use Cases: useCases.html
-  Profiles: profiles.html
+  Profiles: artifacts.html#structures-resource-profiles
   API: capabilityStatement.html
   Extensions: extensions.html
   Terminology: terminology.html
