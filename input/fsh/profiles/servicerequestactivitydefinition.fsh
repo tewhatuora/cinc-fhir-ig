@@ -1,13 +1,19 @@
-Profile: ManaakiNgaTahiActivityDefinition
+Profile: ServiceRequestActivityDefinition
 Parent: ActivityDefinition
-Id: ManaakiNgaTahiActivityDefinition
-Description: "ActivityDefinition FHIR resource for Manaaki Nga Tahi"
+Id: ServiceRequestActivityDefinition
+Description: "ActivityDefinition resource which creates (templates) ServiceRequests"
 * ^version = "0.1.2"
 * identifier 1..
 * identifier.use 1..1
 * identifier.use = http://hl7.org/fhir/identifier-use#usual
 * identifier.value 1..1
-* identifier.value = "COVID19MeasurementProcedureRequestTemplate"
+* identifier.value from ActivityDefinitionTemplatesVS (preferred)
+// "COVID19MeasurementProcedureRequestTemplate"
+* kind 1..1
+* kind = http://hl7.org/fhir/request-resource-types#ServiceRequest
+* status 1..1
+* subjectCodeableConcept = http://hl7.org/fhir/resource-type#Patient
+* participant.type = http://hl7.org/fhir/action-participant-type#patient
 * approvalDate 0..0
 * author 0..0
 * bodySite 0..0

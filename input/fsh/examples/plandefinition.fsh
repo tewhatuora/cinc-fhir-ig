@@ -3,7 +3,7 @@ InstanceOf: ManaakiNgaTahiPlanDefinition
 Usage: #example
 Description: "An example ManaakiNgaTahi PlanDefinition"
 * date = "2022-09-12"
-* subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient "Patient"
+* subjectCodeableConcept = http://hl7.org/fhir/resource-type#Patient "Patient"
 * subjectCodeableConcept.text = "Patient"
 * purpose = "A care plan which supports a patient who has tested positive for COVID-19 infection and will isolate at home and self serve as appropriate as they recover."
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"

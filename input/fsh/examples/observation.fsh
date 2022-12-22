@@ -2,7 +2,7 @@ Instance: ObservationExample
 InstanceOf: ManaakiNgaTahiObservation
 Description: "An example ManaakiNgaTahi Observation"
 Usage: #example
-* basedOn = Reference(ServiceRequestExample)
+* basedOn = Reference(ObservationsServiceRequestExample)
 * identifier.use = #secondary
 * identifier.value = "84078e9c-6a70-47e0-9f8e-bf77109c32a0 (CarePlan which requested Obs)"
 * status = #final

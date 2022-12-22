@@ -2,6 +2,11 @@ Profile: ManaakiNgaTahiQuestionnaire
 Parent: Questionnaire
 Description: "The Care in the Community profile of the Questionnaire resource"
 * ^version = "0.1.2"
+* identifier 1..
+* identifier.use 1..1
+* identifier.use = http://hl7.org/fhir/identifier-use#usual
+* identifier.value 1..1
+* identifier.value from QuestionTemplatesVS (preferred)
 * implicitRules 0..0
 * contained 0..0
 * extension 0..0
