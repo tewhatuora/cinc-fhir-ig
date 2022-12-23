@@ -19,7 +19,7 @@ Description: "Example of an ActivityDefinition which makes a ManaakiNgaTahi Serv
 * doNotPerform = false
 * publisher = "Te Whatu Ora - Health New Zealand"
 * kind = #ServiceRequest
-* subjectCodeableConcept = http://hl7.org/fhir/resource-type#Patient "Patient"
+* subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient "Patient"
 * subjectCodeableConcept.text = "Patient"
 * usage = "ServiceRequests created from this resource are used to link Observation resources to a CarePlan resource."
 * version = "1.0.0"

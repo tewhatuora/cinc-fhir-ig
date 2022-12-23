@@ -25,8 +25,10 @@ Description: "Service request FHIR resource for Manaaki Nga Tahi"
 * occurrenceTiming 1..1
 * asNeeded[x] 0..0
 * requester 0..1
-* performerType from $sct (required)
-* performer 0..0
+* performerType 0..1
+// * performerType from $sct (required)     // Note this profile does not REQUIRE a performer element
+* performerType from http://hl7.org/fhir/ValueSet/participant-role (required)     // Note this profile does not REQUIRE a performer element
+* performer 0..1
 * locationCode 0..0
 * locationReference 0..0
 * reasonCode 0..0

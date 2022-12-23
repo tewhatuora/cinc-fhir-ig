@@ -2,6 +2,9 @@ CodeSystem: TemplateIdentifiersCS
 Id: Nz-template-identifier-code-system
 Title: "Canonical definition resource identifiers for Manaaki Nga Tahi / Care in the Community"
 Description:  "Defines identifiers of PlanDefinition, ActivityDefinition and Questionnaire template resources."
+* ^experimental = false
+* ^caseSensitive = true
+* ^hierarchyMeaning = http://hl7.org/fhir/codesystem-hierarchy-meaning#grouped-by
 * #ActivityDefinition "Identifiers of well-known ActivityDefinitions"
 * #ActivityDefinition #COVID19MeasurementProcedureRequestTemplate "Template for a ServiceRequest that seeks supply of vital signs observations."
 * #PlanDefinition "Identifiers of PlanDefinition templates"

@@ -11,7 +11,7 @@ Description: "PlanDefinition template which creates Manaaki Nga Tahi (Care in th
 * identifier.value from PlanDefinitionTemplatesVS (preferred)
 * status 1..1
 * subject[x] only CodeableConcept
-* subjectCodeableConcept = http://hl7.org/fhir/resource-type#Patient
+* subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient
 * implicitRules 0..0
 * contained 0..0
 * extension 0..0

@@ -12,7 +12,7 @@ Description: "ActivityDefinition resource which creates (templates) ServiceReque
 * kind 1..1
 * kind = http://hl7.org/fhir/request-resource-types#ServiceRequest
 * status 1..1
-* subjectCodeableConcept = http://hl7.org/fhir/resource-type#Patient
+* subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient
 * participant.type = http://hl7.org/fhir/action-participant-type#patient
 * approvalDate 0..0
 * author 0..0
