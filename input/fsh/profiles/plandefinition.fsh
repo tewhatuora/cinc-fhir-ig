@@ -1,7 +1,17 @@
 Profile: ManaakiNgaTahiPlanDefinition
 Parent: PlanDefinition
-Description: "PlanDefinition FHIR resource for Manaaki Nga Tahi"
+Description: "PlanDefinition template which creates Manaaki Nga Tahi (Care in the Community) CarePlans"
 * ^version = "0.1.2"
+* action.subject[x] only CodeableConcept
+* action.definition[x] only Canonical(ActivityDefinition or Questionnaire)
+* identifier 1..
+* identifier.use 1..1
+* identifier.use = http://hl7.org/fhir/identifier-use#usual
+* identifier.value 1..1
+* identifier.value from PlanDefinitionTemplatesVS (preferred)
+* status 1..1
+* subject[x] only CodeableConcept
+* subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient
 * implicitRules 0..0
 * contained 0..0
 * extension 0..0
@@ -34,6 +44,3 @@ Description: "PlanDefinition FHIR resource for Manaaki Nga Tahi"
 * action.transform 0..0
 * action.dynamicValue 0..0
 * action.action 0..0
-* subject[x] only CodeableConcept
-* action.subject[x] only CodeableConcept
-* action.definition[x] only Canonical(ActivityDefinition or Questionnaire)

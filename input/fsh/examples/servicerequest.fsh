@@ -1,4 +1,4 @@
-Instance: ExampleObservationsServiceRequest
+Instance: ObservationsServiceRequestExample
 InstanceOf: ManaakiNgaTahiServiceRequest
 Usage: #example
 Description: "An example ManaakiNgaTahi ServiceRequest"

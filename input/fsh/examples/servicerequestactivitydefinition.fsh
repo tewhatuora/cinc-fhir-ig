@@ -1,13 +1,13 @@
-Instance: ObservationServiceRequestActivityDefinition
-InstanceOf: ManaakiNgaTahiActivityDefinition
+Instance: ServiceRequestActivityDefinition
+InstanceOf: ServiceRequestActivityDefinition
 Usage: #example
-Description: "An example ManaakiNgaTahi ActivityDefinition"
-* purpose = "Template for the description of the request to create a Vital Signs Observations"
+Description: "Example of an ActivityDefinition which makes a ManaakiNgaTahi ServiceRequest for vital signs observation capture"
+* purpose = "Template for a request seeking vital signs Observations"
 * identifier.value = "COVID19MeasurementProcedureRequestTemplate"
 * identifier.use = #usual
-* meta.lastUpdated = "2022-11-02T01:12:30.454Z"
+* meta.lastUpdated = "2022-12-22T01:12:30.454Z"
 * meta.versionId = "2"
-* status = #active
+* status = 	http://hl7.org/fhir/publication-status#active
 * intent = #order
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
 * jurisdiction.text = "New Zealand"
@@ -21,10 +21,10 @@ Description: "An example ManaakiNgaTahi ActivityDefinition"
 * kind = #ServiceRequest
 * subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient "Patient"
 * subjectCodeableConcept.text = "Patient"
-* usage = "Used to support ease of creation of COVID-19 Care in the Community Careplans with an Observations request activity."
+* usage = "ServiceRequests created from this resource are used to link Observation resources to a CarePlan resource."
 * version = "1.0.0"
 * priority = #urgent
-* subtitle = "COVID-19 Request for Vital Signs Observation Collection"
-* description = "COVID-19 Request for Vital Signs Observation Collection"
+* subtitle = "Requests collection of vital signs as part of Care Plan monitoring"
+* description = "Requests collection of vital signs as part of Care Plan monitoring"
 * participant.type = #patient
-* title = "COVID-19 Observation Vital Signs Request"
+* title = "Vital Signs Observation Service Request"

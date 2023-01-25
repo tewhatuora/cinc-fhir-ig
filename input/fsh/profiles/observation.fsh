@@ -10,14 +10,14 @@ Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * category 1..1
 * category from http://hl7.org/fhir/ValueSet/observation-category (required)
 * code 1..1
-* code from http://snomed.info/sct/122869004 (required)
+* code from $sct (example)
 * issued 1..1
 * performer only Reference(Patient or Practitioner)
 * status 1..1
 * subject only Reference(Patient)
-* component.value[x] 0..1
 * component.valueQuantity 0..1
 * component.valueQuantity only Quantity
+* component.value[x] 0..1
 * component.valueCodeableConcept only CodeableConcept
 * bodySite ..0
 * dataAbsentReason ..0
