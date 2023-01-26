@@ -11,6 +11,7 @@ Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * category from http://hl7.org/fhir/ValueSet/observation-category (required)
 * code 1..1
 * code from $sct (example)
+* effectiveDateTime 1..1
 * issued 1..1
 * performer only Reference(Patient or Practitioner)
 * status 1..1

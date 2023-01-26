@@ -6,7 +6,7 @@
 
 4. [Manage Consent](./manageConsent.html)
 
-5. [Initial Assesment](./initialAssesment.html)
+5. [Initial Assessment](./initialAssesment.html)
 
 6. [Health Checks](./healthChecks.html)
 
