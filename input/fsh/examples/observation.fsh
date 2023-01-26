@@ -19,6 +19,7 @@ Usage: #example
 * performer.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * performer.identifier.value = "99ZZFX"
 * performer.display = "Dottie McStuffins"
+* effectiveDateTime = "2022-12-12T04:22:55.965Z"
 * component[0].code = $loinc#8480-6 "Systolic blood pressure"
 * component[=].valueQuantity = 73 'mm[Hg]' "mmHg"
 * component[+].code = $loinc#8462-4 "Diastolic blood pressure"
@@ -41,4 +42,4 @@ Usage: #example
 * component[+].code = $loinc#80296-7 "Patient Mood"
 * component[=].valueQuantity = 8 '{ScoreOf}' "ScoreOf"
 * meta.versionId = "1"
-* meta.lastUpdated = "2022-12-12T04:22:56.607Z"
+* meta.lastUpdated = "2023-01-26T00:21:56.607Z"
