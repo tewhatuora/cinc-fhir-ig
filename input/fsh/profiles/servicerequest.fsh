@@ -8,7 +8,7 @@ Description: "Service request FHIR resource for Manaaki Nga Tahi"
 * code 0..1
 * instantiatesCanonical only Canonical(ActivityDefinition)
 * intent 1..1
-* occurrence[x] 0..1
+* occurrence[x] 1..1
 * occurrence[x] only dateTime or Period or Timing
 * occurrenceDateTime obeys fhir-hnz-dateTime-utc-1
 * occurrencePeriod obeys fhir-hnz-period-utc-1
