@@ -5,11 +5,11 @@ Usage: #definition
 * name = "CareInTheCommunityCapabilityStatement"
 * title = "Care In The Community FHIR Server Capability Statement"
 * status = #active
-* date = "2022-09-15"
+* date = "2023-02-14"
 * publisher = "Te Whatu Ora"
-* description = "The Manaaki Nga Tahi - Care In The Community Care Plan FHIR v4.0.1 API"
+* description = "The Manaaki Nga Tahi - Care In The Community FHIR API"
 * kind = #instance
-* implementation.description = "The Care In The Community Manaaki Nga Tahi Care Plan FHIR v4.0.1 API"
+* implementation.description = "The Care In The Community Manaaki Nga Tahi FHIR API"
 * implementation.url = "https://fhir.ap1.digital.health.nz/R4"
 * fhirVersion = #4.0.1
 * format = #json
@@ -50,6 +50,38 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CarePlan-subject"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the care plan is for"
+* rest.resource[=].searchParam[+].name = "_id"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+* rest.resource[+].type = #AllergyIntolerance
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiAllergyIntolerance)
+* rest.resource[=].interaction[0].code = #create
+* rest.resource[=].interaction[+].code = #read
+* rest.resource[=].interaction[+].code = #update
+* rest.resource[=].interaction[+].code = #delete
+* rest.resource[=].interaction[+].code = #vread
+* rest.resource[=].interaction[+].code = #search-type
+* rest.resource[=].versioning = #versioned
+* rest.resource[=].readHistory = false
+* rest.resource[=].updateCreate = false
+* rest.resource[=].conditionalCreate = false
+* rest.resource[=].conditionalRead = #not-supported
+* rest.resource[=].conditionalUpdate = false
+* rest.resource[=].conditionalDelete = #not-supported
+* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who the sensitivity is for"
+* rest.resource[=].searchParam[+].name = "recorder"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-practitioner"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who recorded the sensitivity"
+* rest.resource[=].searchParam[+].name = "clinical-status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-clinicalStatus"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "active | inactive | resolved"
 * rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
@@ -270,6 +302,7 @@ Usage: #definition
 * rest.resource[=].operation[0].name = "apply"
 * rest.resource[=].operation[=].definition = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/OperationDefinition/PlanDefinition-apply"
 * rest.resource[+].type = #Observation
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update
