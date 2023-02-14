@@ -71,21 +71,33 @@ Usage: #definition
 * rest.resource[=].conditionalDelete = #not-supported
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/patient.html"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the sensitivity is for"
 * rest.resource[=].searchParam[+].name = "recorder"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-practitioner"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who recorded the sensitivity"
-* rest.resource[=].searchParam[+].name = "clinical-status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-clinicalStatus"
+* rest.resource[=].searchParam[+].name = "code"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/ValueSet/allergyintolerance-code"
 * rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "active | inactive | resolved"
+* rest.resource[=].searchParam[=].documentation = "Code that identifies the allergy or intolerance"
+* rest.resource[=].searchParam[+].name = "category"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/ValueSet/allergy-intolerance-category"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Must be one of \n* food\n* medication\n* environment\n* biologic"
+* rest.resource[=].searchParam[+].name = "clinical-status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/valueset-allergyintolerance-clinical.html"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Must be one of \n* active\n * inactive\n * resolved"
 * rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+* rest.resource[=].searchParam[+].name = "_lastUpdated"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
 * rest.resource[+].type = #Condition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiCondition)
 * rest.resource[=].interaction[0].code = #create
@@ -319,7 +331,7 @@ Usage: #definition
 * rest.resource[=].searchParam[0].name = "code"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
 * rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Multiple Resources: \r\n\r\n* [AllergyIntolerance](allergyintolerance.html): Code that identifies the allergy or intolerance\r\n* [Condition](condition.html): Code for the condition\r\n* [DeviceRequest](devicerequest.html): Code for what is being requested/ordered\r\n* [DiagnosticReport](diagnosticreport.html): The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result\r\n* [FamilyMemberHistory](familymemberhistory.html): A search by a condition code\r\n* [List](list.html): What the purpose of this list is\r\n* [Medication](medication.html): Returns medications for a specific code\r\n* [MedicationAdministration](medicationadministration.html): Return administrations of this medication code\r\n* [MedicationDispense](medicationdispense.html): Returns dispenses of this medicine code\r\n* [MedicationRequest](medicationrequest.html): Return prescriptions of this medication code\r\n* [MedicationStatement](medicationstatement.html): Return statements of this medication code\r\n* [Observation](observation.html): The code of the observation type\r\n* [Procedure](procedure.html): A code to identify a  procedure\r\n* [ServiceRequest](servicerequest.html): What is being requested/ordered\r\n"
+* rest.resource[=].searchParam[=].documentation = ""
 * rest.resource[=].searchParam[+].name = "date"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-date"
 * rest.resource[=].searchParam[=].type = #date
@@ -344,74 +356,14 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-category"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "The classification of the type of observation"
-* rest.resource[=].searchParam[+].name = "combo-code"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-combo-code"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The code of the observation type or component type"
-* rest.resource[=].searchParam[+].name = "combo-data-absent-reason"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-combo-data-absent-reason"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The reason why the expected value in the element Observation.value[x] or Observation.component.value[x] is missing."
-* rest.resource[=].searchParam[+].name = "combo-value-concept"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-combo-value-concept"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The value or component value of the observation, if the value is a CodeableConcept"
-* rest.resource[=].searchParam[+].name = "combo-value-quantity"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-combo-value-quantity"
-* rest.resource[=].searchParam[=].type = #quantity
-* rest.resource[=].searchParam[=].documentation = "The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"
-* rest.resource[=].searchParam[+].name = "component-code"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-component-code"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The component code of the observation type"
-* rest.resource[=].searchParam[+].name = "component-data-absent-reason"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-component-data-absent-reason"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The reason why the expected value in the element Observation.component.value[x] is missing."
-* rest.resource[=].searchParam[+].name = "component-value-concept"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-component-value-concept"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The value of the component observation, if the value is a CodeableConcept"
-* rest.resource[=].searchParam[+].name = "component-value-quantity"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-component-value-quantity"
-* rest.resource[=].searchParam[=].type = #quantity
-* rest.resource[=].searchParam[=].documentation = "The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"
-* rest.resource[=].searchParam[+].name = "data-absent-reason"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-data-absent-reason"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The reason why the expected value in the element Observation.value[x] is missing."
 * rest.resource[=].searchParam[+].name = "derived-from"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-derived-from"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Related measurements the observation is made from"
-* rest.resource[=].searchParam[+].name = "device"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-device"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The Device that generated the observation data."
-* rest.resource[=].searchParam[+].name = "focus"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-focus"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The focus of an observation when the focus is not the patient of record."
-* rest.resource[=].searchParam[+].name = "has-member"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-has-member"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Related resource that belongs to the Observation group"
-* rest.resource[=].searchParam[+].name = "method"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-method"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The method used for the observation"
-* rest.resource[=].searchParam[+].name = "part-of"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-part-of"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Part of referenced event"
 * rest.resource[=].searchParam[+].name = "performer"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-performer"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who performed the observation"
-* rest.resource[=].searchParam[+].name = "specimen"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-specimen"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Specimen used for this observation"
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-status"
 * rest.resource[=].searchParam[=].type = #token
@@ -444,22 +396,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
-* rest.resource[=].searchParam[+].name = "_profile"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-profile"
-* rest.resource[=].searchParam[=].type = #uri
-* rest.resource[=].searchParam[=].documentation = "Profiles this resource claims to conform to"
-* rest.resource[=].searchParam[+].name = "_security"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-security"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Security Labels applied to this resource"
-* rest.resource[=].searchParam[+].name = "_source"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-source"
-* rest.resource[=].searchParam[=].type = #uri
-* rest.resource[=].searchParam[=].documentation = "Identifies where the resource comes from"
-* rest.resource[=].searchParam[+].name = "_tag"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-tag"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Tags applied to this resource"
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "Observation:patient"
 * rest.resource[=].searchInclude[+] = "Observation:encounter"
