@@ -2,19 +2,23 @@ Profile: ManaakiNgaTahiCondition
 Parent: Condition
 Description: "Condition FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.2"
-* implicitRules 0..0
-* language 0..0
-* contained 0..0
-* extension 0..0
-* modifierExtension 0..0
-* identifier 0..0
-* bodySite 0..0
-* encounter 0..0
-* asserter 0..0
-* stage 0..0
-* evidence 0..0
-* note 0..0
+// elements modified'
 * subject only Reference(Patient)
 * onset[x] only dateTime
+* onsetDateTime obeys fhir-hnz-dateTime-utc-1
 * abatement[x] only dateTime
+* abatementDateTime obeys fhir-hnz-dateTime-utc-1
 * recorder only Reference(Practitioner)
+// elements prohibited
+* asserter 0..0
+* bodySite 0..0
+* contained 0..0
+* encounter 0..0
+* evidence 0..0
+* extension 0..0
+* identifier 0..0
+* implicitRules 0..0
+* language 0..0
+* modifierExtension 0..0
+* note 0..0
+* stage 0..0

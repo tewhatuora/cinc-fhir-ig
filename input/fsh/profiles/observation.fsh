@@ -3,23 +3,27 @@ Parent: Observation
 Id: ManaakiNgaTahiObservation
 Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.2"
-* identifier 1..
-* identifier.use 1..1
-* identifier.value 1..1
+// elements modified
 * basedOn only Reference(ServiceRequest)
 * category 1..1
 * category from http://hl7.org/fhir/ValueSet/observation-category (required)
 * code 1..1
 * code from $sct (example)
+* component.value[x] 0..1
+* component.valueCodeableConcept only CodeableConcept
+* component.valueQuantity 0..1
+* component.valueQuantity only Quantity
 * effectiveDateTime 1..1
+* effectiveDateTime obeys fhir-hnz-dateTime-utc-1
+* identifier 1..
+* identifier.use 1..1
+* identifier.value 1..1
 * issued 1..1
+* issued obeys fhir-hnz-instant-utc-1
 * performer only Reference(Patient or Practitioner)
 * status 1..1
 * subject only Reference(Patient)
-* component.valueQuantity 0..1
-* component.valueQuantity only Quantity
-* component.value[x] 0..1
-* component.valueCodeableConcept only CodeableConcept
+// elements prohibited
 * bodySite ..0
 * dataAbsentReason ..0
 * derivedFrom ..0

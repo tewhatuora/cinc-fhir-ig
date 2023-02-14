@@ -11,3 +11,11 @@ FHIR resources - these resources aim to define the information contents and stru
 The Condition resource will be recorded/created at different steps of the “Create CarePlan” flow.
 
 The points at which the Condition resource could be recorded / created (posted) are highlighted below:
+
+## Condition dateTime values
+
+The HNZ FHIR server standardises on UTC for all dateTime values under management.
+
+If the client application seeks to create a Condition resource with values for Condition.onset[x] or Condition.abatement[x] these must be UTC dateTime values.
+
+The client application is responsible for converting UTC dateTimes to the timezone of the user and formatting the date and time display according to the user's locale preference.
