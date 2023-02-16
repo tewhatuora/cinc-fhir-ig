@@ -61,3 +61,12 @@ Response body:
 ```
 
 In this request example, a request is made to a single resource which does not have an associated `Consent`. This returned a 401 error.
+
+
+## Consent period dates
+
+The HNZ FHIR server standardises on UTC for all dateTime values under management.
+
+The client application must supply UTC dateTime values for consent.period.start | end to the FHIR server.
+
+The client application is responsible for converting UTC dateTimes to the timezone of the user and formatting the date and time display according to the user's selected locale.

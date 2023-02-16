@@ -43,3 +43,5 @@ Description: "CarePlan FHIR resource for Manaaki Nga Tahi"
 * author only Reference(Practitioner)
 * activity.detail.instantiatesCanonical only Canonical(Questionnaire)
 * activity.detail.scheduled[x] only Timing
+* period 0..1 
+* period obeys fhir-hnz-period-utc-1
