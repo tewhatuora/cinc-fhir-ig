@@ -162,7 +162,7 @@ Usage: #example
 * title = "AntiViral Eligibility Review"
 * subjectType = #Patient
 * version = "1.0.0"
-* url = "https://fhir.api-dev.digital.health.nz/R4/Questionnaire/b0c248e0-8f85-471b-913d-2f75444cfee1"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-AntiViralEligibilityQuestionnaire.html"
 * meta.lastUpdated = "2023-03-14T04:51:54.576Z"
 * meta.versionId = "2"
 * name = "AntiViralEligibilityQuestionTemplate"
