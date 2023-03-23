@@ -9,7 +9,6 @@ Description: "CarePlan FHIR resource for Manaaki Nga Tahi"
 * encounter only Reference(Encounter)     // v0.1.3 make sure the reference is to correct type
 // elements modified from base profile
 * activity 0..*
-* activity obeys fhir-hnz-careplan-activity-mixture-1
 * activity.detail.instantiatesCanonical only Canonical(Questionnaire)
 * activity.detail.scheduled[x] only Timing
 * author only Reference(Practitioner)

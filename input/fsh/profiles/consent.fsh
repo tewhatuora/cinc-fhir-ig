@@ -7,7 +7,7 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * policy 1..*     // v0.1.3 policy element now required (uri and authority)
 * provision.period 1..1 
 * provision.period obeys fhir-hnz-period-utc-1
-* source[x] only Reference(QuestionnaireResponse)
+* sourceReference only Reference(QuestionnaireResponse)
 // elements prohibited
 * contained 0..0
 * extension 0..0
@@ -39,3 +39,4 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * verification.id 0..0
 * verification.modifierExtension 0..0
 * verification.verificationDate 0..0
+// v0.1.3 restored policyRule, formerly a prohibited element 
