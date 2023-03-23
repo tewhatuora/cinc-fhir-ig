@@ -1,8 +1,10 @@
 Profile: ManaakiNgaTahiConsent
 Parent: Consent
 Description: "Consent FHIR resource for Manaaki Nga Tahi"
-* ^version = "0.1.2"
+* ^version = "0.1.3"
 // elements modified
+* patient 1..1    // v0.1.3 patient reference now required
+* policy 1..*     // v0.1.3 policy element now required (uri and authority)
 * provision.period 1..1 
 * provision.period obeys fhir-hnz-period-utc-1
 * source[x] only Reference(QuestionnaireResponse)
