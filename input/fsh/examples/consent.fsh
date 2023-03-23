@@ -18,7 +18,7 @@ Description: "An example ManaakiNgaTahi Consent"
 * performer[=].identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * performer[=].identifier.value = "99ZZFX"
 * performer[=].display = "Dottie McStuffins"
-* performer[+].type = "Patient"
+* performer[1].type = "Patient"
 * performer[=].identifier.use = #official
 * performer[=].identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * performer[=].identifier.value = "ZXP7823"
