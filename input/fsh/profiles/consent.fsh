@@ -19,7 +19,6 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * policy.extension 0..0
 * policy.id 0..0
 * policy.modifierExtension 0..0
-* policyRule 0..0
 * provision.action 0..0
 * provision.actor 0..0
 * provision.class 0..0
