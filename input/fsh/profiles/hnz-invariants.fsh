@@ -1,6 +1,5 @@
 Invariant: fhir-hnz-period-utc-1
 Description: "period start and end must be dateTime values in UTC Coordinated Universal Time (not New Zealand time)"
-Expression: "period.start only dateTime and period.end only dateTime"
 Severity: #warning
 
 Invariant: fhir-hnz-dateTime-utc-1

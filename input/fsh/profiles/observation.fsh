@@ -8,7 +8,7 @@ Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * category 1..1
 * category from http://hl7.org/fhir/ValueSet/observation-category (required)
 * code 1..1
-* code from $sct (example)
+* code from http://hl7.org/fhir/ValueSet/observation-codes (example)
 * component.value[x] 0..1
 * component.valueCodeableConcept only CodeableConcept
 * component.valueQuantity 0..1

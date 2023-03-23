@@ -1,6 +1,7 @@
-Instance: AntiViralEligibilityQuestionnaire
+Instance: AntiViralEligibilityQuestionnaireExample
 InstanceOf: Questionnaire
 Usage: #example
+* id = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * identifier.period.start = "2023-03-07"
 * identifier.use = #usual
 * identifier.value = "QuestionTemplate-AntiViral-Eligibility"
