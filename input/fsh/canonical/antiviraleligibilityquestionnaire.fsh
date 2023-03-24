@@ -1,6 +1,6 @@
 Instance: AntiViralEligibilityQuestionnaireExample
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * id = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * identifier.period.start = "2023-03-07"
 * identifier.use = #usual
