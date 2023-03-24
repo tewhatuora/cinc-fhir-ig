@@ -3,7 +3,7 @@ InstanceOf: QuestionnaireResponse
 Usage: #example
 * status = #completed
 * authored = "2023-03-20"
-* questionnaire = "ttps://fhir.api-uat.digital.health.nz/R4/Questionnaire/f5b470d9-c214-4160-b946-80cb84d3057d"
+* questionnaire = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-AntiViralEligibilityQuestionnaire"
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
