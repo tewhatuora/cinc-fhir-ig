@@ -163,7 +163,7 @@ Usage: #definition
 * title = "AntiViral Eligibility Review"
 * subjectType = #Patient
 * version = "1.0.0"
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-AntiViralEligibilityQuestionnaire"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/Questionnaire-AntiViralEligibilityQuestionnaire"
 * meta.lastUpdated = "2023-03-14T04:51:54.576Z"
 * meta.versionId = "2"
 * name = "AntiViralEligibilityQuestionTemplate"
