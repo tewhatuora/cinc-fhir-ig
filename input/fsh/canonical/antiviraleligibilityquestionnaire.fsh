@@ -155,6 +155,11 @@ Usage: #definition
 * item[=].item[=].linkId = "GPEDI"
 * item[=].item[=].type = #string
 * item[=].item[=].required = false
+* item[+].text = "Send note to GP Inbox?"
+* item[=].linkId = "SendToGP"
+* item[=].type = #boolean
+* item[=].required = false
+* item[=].initial.valueBoolean = false
 * purpose = "Anti Viral medication eligibility questionnaire"
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
 * jurisdiction.text = "New Zealand"
