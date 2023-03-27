@@ -1,4 +1,4 @@
-Instance: AntiViralEligibilityQuestionnaireExample
+Instance: AntiViralEligibilityQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
 * id = "Questionnaire-AntiViralEligibilityQuestionnaire"
