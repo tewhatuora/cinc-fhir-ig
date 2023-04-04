@@ -3,4 +3,4 @@ Id:  rf-pathway-status
 Title: "Rheumatic fever patient pathway status"
 Description: "Captures a patient's present registration status on the rheumatic fever pathway"
 * value[x] only code
-* valueCode from RheumaticFeverPathwayStates (required)
+* valueCode from LongTermConditionPathwayStates (required)

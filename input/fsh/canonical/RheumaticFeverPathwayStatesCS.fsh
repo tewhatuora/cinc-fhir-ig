@@ -1,19 +1,19 @@
-CodeSystem: RheumaticFeverPathwayStateCodes
-Id: rf-pathway-state-cs
-Title: "HNZ rheumatic fever patient pathway state codes"
-Description:  "Each code represents a possible pathway status for rheumatic fever patients"
+CodeSystem: LongTermConditionPathwayStateCodes
+Id: longterm-pathway-state-cs
+Title: "Managed pathway statuses for New Zealand patients with long-term conditions"
+Description:  "Each code represents a possible pathway status"
 * #registered "registered"
-    "The patient is registered with the NZ Rheumatic Fever Service"
+    "The patient is registered with Health New Zealand as having a long term disease / health condition"
 * #allocated "allocated"
-    "The patient is allocated to a nurse"
+    "The patient is allocated to a health practitioner/provider."
 * #on-hold "on-hold"
-    "Patient is overseas / in hospital / residing in a facility that provides healthcare"
+    "Patient management is suspended because the patient is overseas, in hospital or resident in a facility that provides healthcare"
 * #pending-discharge "pending discharge"
-   "Awaiting final ECHO / clinic review prior to patient discharge"
+   "A final clinical assessemnt/review is awaited prior to patient discharge"
 * #discharged "discharged"
-   "Patient is discharged from rheumatic fever care"
+   "Patient has been discharged from long-term condition management"
 * #closed "closed"
-    "Closed case: all alerts and escalations ceased"
+    "All alerts and escalations for the patient have ceased"
 * ^publisher = "Te Whatu Ora / Health New Zealand"
-* ^purpose = "Enables HNZ Rheumatic Fever Service to manage patient registration and care pathway"
+* ^purpose = "Enables HNZ to register and manage patients with long term health conditions such as rheumatic fever disorder."
 * ^status = #draft
