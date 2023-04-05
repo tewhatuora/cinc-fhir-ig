@@ -125,25 +125,28 @@ Usage: #definition
 * item[=].item[=].linkId = "PharmacyID"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
-* item[=].item[+].linkId = "PharmacyAddress"
-* item[=].item[=].type = #group
-* item[=].item[=].text = "Pharmacy address details"
-* item[=].item[=].item[0].text = "Street number + Street Name"
-* item[=].item[=].item[=].linkId = "StreetNumberName"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = false
-* item[=].item[=].item[+].text = "Suburb"
-* item[=].item[=].item[=].linkId = "Suburb"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = false
-* item[=].item[=].item[+].text = "Town/City"
-* item[=].item[=].item[=].linkId = "TownCity"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = false
-* item[=].item[=].item[+].text = "Postcode"
-* item[=].item[=].item[=].linkId = "Postcode"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = false
+// * item[=].item[+].linkId = "PharmacyAddress"
+// * item[=].item[=].type = #group
+// * item[=].item[=].text = "Pharmacy address details"
+// * item[=].item[=].item[0].text = "Street number + Street Name"
+// * item[=].item[=].item[=].linkId = "StreetNumberName"
+// * item[=].item[=].item[=].type = #string
+// * item[=].item[=].item[=].required = false
+// * item[=].item[=].item[+].text = "Suburb"
+// * item[=].item[=].item[=].linkId = "Suburb"
+// * item[=].item[=].item[=].type = #string
+// * item[=].item[=].item[=].required = false
+// * item[=].item[=].item[+].text = "Town/City"
+// * item[=].item[=].item[=].linkId = "TownCity"
+// * item[=].item[=].item[=].type = #string
+// * item[=].item[=].item[=].required = false
+// * item[=].item[=].item[+].text = "Postcode"
+// * item[=].item[=].item[=].linkId = "Postcode"
+// * item[=].item[=].item[=].type = #string
+// * item[=].item[=].item[=].required = false
+* item[=].item[+].linkId = "PharmacyAddress"          // fix
+* item[=].item[=].type = #text                        // fix
+* item[=].item[=].text = "Pharmacy address details"   // fix
 * item[+].linkId = "GeneralPracticeInformation"
 * item[=].type = #group
 * item[=].text = "Please provide details about the patient's general practice"
