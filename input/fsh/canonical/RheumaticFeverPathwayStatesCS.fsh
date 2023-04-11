@@ -16,6 +16,6 @@ Description:  "Each code represents a possible pathway status"
     "All alerts and escalations for the patient have ceased"
 * ^publisher = "Te Whatu Ora / Health New Zealand"
 * ^experimental = false
-* ^case-sensitive = true
+// * ^case-sensitive = true
 * ^purpose = "Enables HNZ to register and manage patients with long term health conditions such as rheumatic fever disorder."
 * ^status = #draft
