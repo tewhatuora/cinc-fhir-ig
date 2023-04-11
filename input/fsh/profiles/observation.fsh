@@ -2,7 +2,7 @@ Profile: ManaakiNgaTahiObservation
 Parent: Observation
 Id: ManaakiNgaTahiObservation
 Description: "Observation FHIR resource for Manaaki Nga Tahi"
-* ^version = "0.1.2"
+* ^version = "0.1.3"
 // elements modified
 * basedOn only Reference(ServiceRequest)
 * category 1..1
@@ -29,7 +29,7 @@ Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * derivedFrom ..0
 * device ..0
 * encounter ..0
-* extension 0..0
+// * extension 0..0   v0.1.3 relief from prohibition of CarePlan extension
 * focus ..0
 * hasMember ..0
 * implicitRules 0..0

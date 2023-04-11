@@ -1,7 +1,7 @@
 Profile: ManaakiNgaTahiQuestionnaire
 Parent: Questionnaire
 Description: "The Care in the Community profile of the Questionnaire resource"
-* ^version = "0.1.2"
+* ^version = "0.1.3"
 // elements modified
 * identifier 1..
 * identifier.use = http://hl7.org/fhir/identifier-use#usual
@@ -18,7 +18,7 @@ Description: "The Care in the Community profile of the Questionnaire resource"
 * copyright 0..0
 * derivedFrom 0..0
 * effectivePeriod 0..0
-* extension 0..0
+// * extension 0..0   v0.1.3 relief from prohibition of CarePlan extension
 * implicitRules 0..0
 * item.answerOption.extension 0..0
 * item.answerOption.id 0..0
