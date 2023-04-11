@@ -10,7 +10,7 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * sourceReference only Reference(QuestionnaireResponse)
 // elements prohibited
 * contained 0..0
-* extension 0..0
+//  * extension 0..0    v0.1.3 relief from prohibition of CarePlan extension
 * identifier 0..0
 * implicitRules 0..0
 * language 0..0

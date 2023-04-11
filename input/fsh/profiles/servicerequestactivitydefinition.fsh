@@ -2,7 +2,7 @@ Profile: ServiceRequestActivityDefinition
 Parent: ActivityDefinition
 Id: ServiceRequestActivityDefinition
 Description: "ActivityDefinition resource which creates (templates) ServiceRequests"
-* ^version = "0.1.2"
+* ^version = "0.1.3"
 * identifier 1..
 * identifier.use 1..1
 * identifier.use = http://hl7.org/fhir/identifier-use#usual
@@ -23,7 +23,7 @@ Description: "ActivityDefinition resource which creates (templates) ServiceReque
 * editor 0..0
 * effectivePeriod 0..0
 * endorser 0..0
-* extension 0..0
+// * extension 0..0  v0.1.3 relief from prohibition of CarePlan extension
 * implicitRules 0..0
 * lastReviewDate 0..0
 * library 0..0

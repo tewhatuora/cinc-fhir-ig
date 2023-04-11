@@ -1,7 +1,7 @@
 Profile: ManaakiNgaTahiPlanDefinition
 Parent: PlanDefinition
 Description: "PlanDefinition template which creates Manaaki Nga Tahi (Care in the Community) CarePlans"
-* ^version = "0.1.2"
+* ^version = "0.1.3"
 * action.subject[x] only CodeableConcept
 * action.definition[x] only Canonical(ActivityDefinition or Questionnaire)
 * identifier 1..
@@ -14,7 +14,7 @@ Description: "PlanDefinition template which creates Manaaki Nga Tahi (Care in th
 * subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient
 * implicitRules 0..0
 * contained 0..0
-* extension 0..0
+// * extension 0..0  v0.1.3 relief from prohibition of CarePlan extension
 * modifierExtension 0..0
 * useContext 0..0
 * copyright 0..0
