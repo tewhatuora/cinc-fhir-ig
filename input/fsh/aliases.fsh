@@ -18,3 +18,4 @@ Alias: $action-type = http://terminology.hl7.org/CodeSystem/action-type
 Alias: $definition-topic = http://terminology.hl7.org/CodeSystem/definition-topic
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
+Alias: $pathway-status-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/longterm-pathway-state-cs

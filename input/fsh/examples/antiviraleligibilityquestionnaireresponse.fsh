@@ -1,5 +1,6 @@
 Instance: AntiViralEligibilityQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "An example QuestionnaireResponse payload demonstrating data collected in a pharmacy eligibility review"
 Usage: #example
 * status = #completed
 * authored = "2023-03-27T20:15:56.592Z"

@@ -1,5 +1,6 @@
 Extension:  RheumaticFeverCaseManagement
 Id:         nz-careplan-rf-case-management
+Description: "Extends care plan with optional elements for capturing NZ Rheumatic Fever Service case management data"
 Title: "Additional elements for NZ Rheumatic Fever Service case management"
 * extension contains
   pathwayStatus 0..1 and
