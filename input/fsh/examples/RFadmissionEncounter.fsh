@@ -23,7 +23,7 @@ Description: "An example Encounter for a patient being admitted to NZ Rheumatic 
 * period.end = "2023-04-10T16:22:42.836Z"
 * reasonCode = http://snomed.info/sct#3457005 "Patient referral"
 * reasonCode.text = "Patient referral"
-* diagnosis.condition = Reference(Condition/9c71b43e-f35e-4e69-b651-823688339849)
+* diagnosis.condition = Reference(RFConditionExample)
 * diagnosis.use = http://terminology.hl7.org/CodeSystem/diagnosis-role#AD "Admission diagnosis"
 * diagnosis.use.text = "Admission diagnosis"
 * diagnosis.rank = 1

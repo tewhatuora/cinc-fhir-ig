@@ -1,9 +1,10 @@
 Instance: AntiViralEligibilityQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "An example QuestionnaireResponse payload demonstrating data collected in a pharmacy eligibility review"
 Usage: #example
 * status = #completed
 * authored = "2023-03-27T20:15:56.592Z"
-* questionnaire = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/Questionnaire-AntiViralEligibilityQuestionnaire"
+* questionnaire = "https://fhir.api.digital.health.nz/R4/Questionnaire?identifier=QuestionTemplate-AntiViral-Eligibility"
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"

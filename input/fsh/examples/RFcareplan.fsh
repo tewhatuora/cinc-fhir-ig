@@ -1,7 +1,7 @@
 Instance: RFCarePlanExample
 Usage: #example
 Description: "An example Rheumatic Fever Care Plan"
-InstanceOf: CarePlan
+InstanceOf: RheumaticFeverCarePlan
 * identifier.use = #usual
 * identifier.system = "https://standards.digital.health.nz/ns/rheumatic-fever-case-id"
 * identifier.value = "RF/1"
@@ -9,10 +9,11 @@ InstanceOf: CarePlan
 * title = "Rheumatic fever care plan - Pania Sorethroat"
 * status = #draft
 * intent = #plan
-* category = http://snomed.info/sct#58718002 "Rheumatic fever (disorder)"
+* category = http://snomed.info/sct#734163000 "Care plan (record artifact)"
 * extension.url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-careplan-rf-case-management"
 * extension.extension.url = "pathwayStatus"
-* extension.extension.valueCoding.code = #registration
+* extension.extension.valueCoding.system = $pathway-status-codes
+* extension.extension.valueCoding.code = #registered
 * addresses = Reference(RFConditionExample)
 * encounter = Reference(RFAdmissionEncounterExample)
 * subject = Reference(NzPatientExample) "Pania Sorethroat"
@@ -27,10 +28,10 @@ InstanceOf: CarePlan
 * note[=].text = "## Language / residency\n****Preferred language**:   English\n**Interpreter required**:  no\n**Residency status**:   NZ citizen\n**Usual Country of Residence**: New Zealand\n"
 * note[+].time = "2023-04-11"
 * note[=].text = "##Occupation\n**Occupation type**:    Work\n**Occupation**:    Aircraft ground service technician\n**Name of employer/school/ECEC**:    Auckland International Airport\nWorkplace/school/ECEC address**:    Ray Emery Drive, Māngere, Auckland 2022\n"
-* goal = Reference(goal1)
-* contained = goal1
+* goal = Reference(rf-patient-goal0)
+* contained = rf-patient-goal0
 
-Instance: goal1
+Instance: rf-patient-goal0
 InstanceOf: Goal
 Usage: #inline
 * lifecycleStatus = #proposed
@@ -38,7 +39,7 @@ Usage: #inline
 * priority = http://terminology.hl7.org/CodeSystem/goal-priority#medium-priority "Medium Priority"
 * priority.text = "Medium Priority"
 * description.text = "A nurse records the patient's goals in the care plan as part of recording their goals and preferences."
-* subject = Reference(NZPatientExample) "Pania Sorethroat"
+* subject = Reference(NzPatientExample) "Pania Sorethroat"
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"

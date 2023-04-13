@@ -2,8 +2,7 @@ Profile: ManaakiNgaTahiCarePlan
 Parent: CarePlan
 Description: "CarePlan FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.3"
-// updates for v0.1.3
-* category 0..*     // v0.1.3 now encouraged but not required yet 
+// updates for v0.1.3   
 * status 1..1       // v0.1.3 introduced requirement
 * encounter only Reference(Encounter)     // v0.1.3 make sure the reference is to correct type
 // elements modified from base profile
@@ -42,10 +41,10 @@ Description: "CarePlan FHIR resource for Manaaki Nga Tahi"
 * activity.progress 0..0
 * activity.reference 0..0
 * basedOn 0..0
-* category 0..0
+// * category 0..0      v0.1.3 category now encouraged but not yet required
 * contributor 0..0
 // * extension 0..0     v0.1.3 relief from prohibition of CarePlan extension
-* identifier 0..0
+// * identifier 0..0    v0.1.3 needed for association of related resources
 * implicitRules 0..0
 * instantiatesUri 0..0
 * language 0..0
