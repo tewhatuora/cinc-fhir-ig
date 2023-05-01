@@ -8,7 +8,7 @@ This is the Implementation Guide for the [HL7® FHIR©](http://hl7.org/fhir) int
 
 - [Use Cases](./useCases.html): Expected Use Cases that the National Shared Care Planupports
 
-- [Profiles](./profiles.html): A list of the profiles that are defined by the guide.
+- [Profiles](./artifacts.html#structures-resource-profiles): A list of the profiles that are defined by the guide.
 
 - [API](./capabilityStatement.html): The specific API features supported by National Shared Care Plan
 
@@ -23,5 +23,3 @@ This is the Implementation Guide for the [HL7® FHIR©](http://hl7.org/fhir) int
 - [FAQ](./faq.html): Frequently Asked Questions
   
 - [Developer Guide](./developerGuide.html): Guidance for integration developers
-
-- [General notes](./generalNotes.html): Common notes about how the API and contents are organized

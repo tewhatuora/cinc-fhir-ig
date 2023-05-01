@@ -28,7 +28,6 @@ Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * dataAbsentReason ..0
 * derivedFrom ..0
 * device ..0
-* encounter ..0
 * extension 0..0
 * focus ..0
 * hasMember ..0
@@ -37,7 +36,6 @@ Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * language 0..0
 * method ..0
 * modifierExtension 0..0
-* note ..0
 * partOf ..0
 * referenceRange ..0
 * specimen ..0

@@ -1,5 +1,6 @@
 Instance: AntiViralEligibilityQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "This is an example QuestionnaireResponse for the active AntiViralEligibility Questionnaire."
 Usage: #example
 * status = #completed
 * authored = "2023-03-27T20:15:56.592Z"

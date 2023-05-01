@@ -3,6 +3,7 @@ InstanceOf: ManaakiNgaTahiObservation
 Description: "An example ManaakiNgaTahi Observation"
 Usage: #example
 * basedOn = Reference(ObservationsServiceRequestExample)
+* encounter = Reference(EncounterExample)
 * identifier.use = #secondary
 * identifier.value = "84078e9c-6a70-47e0-9f8e-bf77109c32a0 (CarePlan which requested Obs)"
 * status = #final
@@ -20,6 +21,13 @@ Usage: #example
 * performer.identifier.value = "99ZZFX"
 * performer.display = "Dottie McStuffins"
 * effectiveDateTime = "2022-12-12T04:22:55.965Z"
+* note.authorReference.type = "Practitioner"
+* note.authorReference.identifier.use = #official
+* note.authorReference.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
+* note.authorReference.identifier.value = "99ZZFX"
+* note.authorReference.display = "Dottie McStuffins"
+* note.time = "2023-04-30T22:55:31.987Z"
+* note.text = "Patient appears confused"
 * component[0].code = $loinc#8480-6 "Systolic blood pressure"
 * component[=].valueQuantity = 73 'mm[Hg]' "mmHg"
 * component[+].code = $loinc#8462-4 "Diastolic blood pressure"
