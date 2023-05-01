@@ -71,23 +71,23 @@ Usage: #definition
 * rest.resource[=].conditionalDelete = #not-supported
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/patient.html"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the sensitivity is for \n [Patient](http://hl7.org/fhir/R4/patient.html)"
 * rest.resource[=].searchParam[+].name = "recorder"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-recorder"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who recorded the sensitivity \n [AllergyIntolerance.recorder](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder)"
 * rest.resource[=].searchParam[+].name = "code"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/ValueSet/allergyintolerance-code"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Code that identifies the allergy or intolerance \n [AllergyIntolerance Code ValueSet](http://hl7.org/fhir/ValueSet/allergyintolerance-code)"
 * rest.resource[=].searchParam[+].name = "category"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/ValueSet/allergy-intolerance-category"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-category"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Must be one of \n* food\n* medication\n* environment\n* biologic \n [AllergyIntolerance Category ValueSet](http://hl7.org/fhir/ValueSet/allergy-intolerance-category)"
 * rest.resource[=].searchParam[+].name = "clinical-status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/valueset-allergyintolerance-clinical.html"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-clinical-status"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Must be one of \n* active\n * inactive\n * resolved\n[AllergyIntolerance Clinical Status ValueSet](http://hl7.org/fhir/R4/valueset-allergyintolerance-clinical.html)"
 * rest.resource[=].searchParam[+].name = "_id"
@@ -96,7 +96,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].searchParam[+].name = "_lastUpdated"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/search.html#lastUpdated"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
 * rest.resource[+].type = #Condition
@@ -330,25 +330,29 @@ Usage: #definition
 * rest.resource[=].conditionalUpdate = false
 * rest.resource[=].conditionalDelete = #not-supported
 * rest.resource[=].searchParam[0].name = "code"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/observation-definitions.html#Observation.code"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Describes what was observed. Sometimes this is called the observation 'name'"
 * rest.resource[=].searchParam[+].name = "date"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/search.html#date"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-date"
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "Observation.effective \n Obtained date/time. If the obtained element is a period, a date that falls in the period"
 * rest.resource[=].searchParam[+].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "A unique identifier assigned to this observation."
 * rest.resource[=].searchParam[+].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/R4/patient.html"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the observation is for \n [Patient](http://hl7.org/fhir/R4/patient.html)"
 * rest.resource[=].searchParam[+].name = "based-on"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-based-on"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Reference to the service request."
+* rest.resource[=].searchParam[+].name = "encounter"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-encounter"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "The Encounter resource associated with the Observation."
 * rest.resource[=].searchParam[+].name = "category"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-category"
 * rest.resource[=].searchParam[=].type = #token
