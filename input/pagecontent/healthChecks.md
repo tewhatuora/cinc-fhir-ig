@@ -1,1 +1,1 @@
-![](./ManaakiNgaTahiMeasurementsExample.svg)
+![](./ManaakiNgaTahiMeasurementsExample.png)

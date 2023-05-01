@@ -109,28 +109,28 @@
 <tr>
 <td>patient</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
-<td><div>Definition: http://hl7.org/fhir/R4/patient.html</div><p>Who the sensitivity is for
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-patient</div><p>Who the sensitivity is for
 <a href="http://hl7.org/fhir/R4/patient.html">Patient</a></p>
 </td>
 </tr>
 <tr>
 <td>recorder</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
-<td><div>Definition: http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder</div><p>Who recorded the sensitivity
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/AllergyIntolerance-recorder</div><p>Who recorded the sensitivity
 <a href="http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder">AllergyIntolerance.recorder</a></p>
 </td>
 </tr>
 <tr>
 <td>code</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
-<td><div>Definition: http://hl7.org/fhir/ValueSet/allergyintolerance-code</div><p>Code that identifies the allergy or intolerance
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-code</div><p>Code that identifies the allergy or intolerance
 <a href="http://hl7.org/fhir/ValueSet/allergyintolerance-code">AllergyIntolerance Code ValueSet</a></p>
 </td>
 </tr>
 <tr>
 <td>category</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
-<td><div>Definition: http://hl7.org/fhir/ValueSet/allergy-intolerance-category</div><p>Must be one of</p>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/AllergyIntolerance-category</div><p>Must be one of</p>
 <ul>
 <li>food</li>
 <li>medication</li>
@@ -143,7 +143,7 @@
 <tr>
 <td>clinical-status</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
-<td><div>Definition: http://hl7.org/fhir/R4/valueset-allergyintolerance-clinical.html</div><p>Must be one of</p>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/AllergyIntolerance-clinical-status</div><p>Must be one of</p>
 <ul>
 <li>active</li>
 <li>inactive</li>
@@ -161,7 +161,7 @@
 <tr>
 <td>_lastUpdated</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#date">date</a></td>
-<td><div>Definition: http://hl7.org/fhir/R4/search.html#lastUpdated</div><p>When the resource version last changed</p>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/Resource-lastUpdated</div><p>When the resource version last changed</p>
 </td>
 </tr>
 </table>
@@ -627,26 +627,26 @@
 <tr>
 <td>code</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
-<td><div>Definition: http://hl7.org/fhir/R4/observation-definitions.html#Observation.code</div><p>Describes what was observed. Sometimes this is called the observation 'name'</p>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-code</div><p>Describes what was observed. Sometimes this is called the observation 'name'</p>
 </td>
 </tr>
 <tr>
 <td>date</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#date">date</a></td>
-<td><div>Definition: http://hl7.org/fhir/R4/search.html#date</div><p>Observation.effective
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-date</div><p>Observation.effective
 Obtained date/time. If the obtained element is a period, a date that falls in the period</p>
 </td>
 </tr>
 <tr>
 <td>identifier</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#token">token</a></td>
-<td><div>Definition: http://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier</div><p>A unique identifier assigned to this observation.</p>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-identifier</div><p>A unique identifier assigned to this observation.</p>
 </td>
 </tr>
 <tr>
 <td>patient</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
-<td><div>Definition: http://hl7.org/fhir/R4/patient.html</div><p>Who the observation is for
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-patient</div><p>Who the observation is for
 <a href="http://hl7.org/fhir/R4/patient.html">Patient</a></p>
 </td>
 </tr>
@@ -654,6 +654,12 @@ Obtained date/time. If the obtained element is a period, a date that falls in th
 <td>based-on</td>
 <td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
 <td><div>Definition: http://hl7.org/fhir/SearchParameter/Observation-based-on</div><p>Reference to the service request.</p>
+</td>
+</tr>
+<tr>
+<td>encounter</td>
+<td><a target='_blank' href="http://hl7.org/fhir/search.html#reference">reference</a></td>
+<td><div>Definition: http://hl7.org/fhir/SearchParameter/clinical-encounter</div><p>The Encounter resource associated with the Observation.</p>
 </td>
 </tr>
 <tr>
