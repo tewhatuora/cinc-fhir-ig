@@ -1,7 +1,7 @@
 Profile: ManaakiNgaTahiCondition
 Parent: Condition
 Description: "Condition FHIR resource for Manaaki Nga Tahi"
-* ^version = "0.1.2"
+* ^version = "0.1.3"
 // elements modified'
 * subject only Reference(Patient)
 * onset[x] only dateTime
@@ -15,7 +15,7 @@ Description: "Condition FHIR resource for Manaaki Nga Tahi"
 * contained 0..0
 * encounter 0..0
 * evidence 0..0
-* extension 0..0
+//* extension 0..0    v0.1.3 relief from prohibition of CarePlan extension
 * identifier 0..0
 * implicitRules 0..0
 * language 0..0

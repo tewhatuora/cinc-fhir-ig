@@ -2,7 +2,7 @@ Profile: ManaakiNgaTahiServiceRequest
 Parent: ServiceRequest
 Id: ManaakiNgaTahiServiceRequest
 Description: "Service request FHIR resource for Manaaki Nga Tahi"
-* ^version = "0.1.2"
+* ^version = "0.1.3"
 // elements modified
 * basedOn only Reference(CarePlan)
 * code 0..1
@@ -25,7 +25,7 @@ Description: "Service request FHIR resource for Manaaki Nga Tahi"
 * bodySite 0..0
 * category 0..0
 * encounter 0..0
-* extension 0..0
+// * extension 0..0  v0.1.3 relief from prohibition of CarePlan extension
 * identifier 0..0
 * implicitRules 0..0
 * instantiatesUri 0..0

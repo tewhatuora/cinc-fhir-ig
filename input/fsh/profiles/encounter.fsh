@@ -1,7 +1,7 @@
 Profile: ManaakiNgaTahiEncounter
 Parent: Encounter
 Description: "Encounter FHIR resource for Manaaki Nga Tahi"
-* ^version = "0.1.2"
+* ^version = "0.1.3"
 // elements modified
 * diagnosis.condition only Reference(Condition)
 * participant.individual only Reference(Practitioner)
@@ -18,7 +18,7 @@ Description: "Encounter FHIR resource for Manaaki Nga Tahi"
 * diagnosis.id 0..0
 * diagnosis.modifierExtension 0..0
 * episodeOfCare 0..0
-* extension 0..0
+// * extension 0..0     v0.1.3 relief from prohibition of CarePlan extension
 * hospitalization 0..0
 * identifier 0..0
 * implicitRules 0..0
