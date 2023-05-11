@@ -209,7 +209,7 @@ Usage: #definition
 
 * item[=].item[0].text = "Please select the conditions you have"
 * item[=].item[=].linkId = "LongTermConditions.Selected"
-* item[=].item[=].enableWhen.question = "LongTermCondition"
+* item[=].item[=].enableWhen.question = "LongTermConditions"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #all
