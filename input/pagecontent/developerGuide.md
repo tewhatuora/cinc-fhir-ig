@@ -39,6 +39,9 @@ The FHIR server supports certain FHIR resource fields to be provided in the crea
 The currently supported fields for this feature are:
 - "subject.identifier.value"
 - "subject.display"
+- "patient.birthDate"
+- "patient.gender"
+- "patient.telecom"
 
 When this feature is used, applicable request properties can be provided to the server as an encrypted value, where **the value is stored within the FHIR server unencrypted**. When the FHIR resource is subsequently read, the plain text value will be returned.
 
