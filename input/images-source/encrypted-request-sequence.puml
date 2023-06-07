@@ -1,0 +1,73 @@
+@startuml Encrypted request properties
+
+title "Encrypted request properties"
+
+autonumber "[00]"
+skinparam BoxPadding 10
+skinparam sequenceStyle uml2
+
+skinparam ParticipantPadding 5
+skinparam roundcorner 20
+skinparam sequenceArrowThickness 2
+
+skinparam SequenceGroupBodyBackgroundColor #FFFFFF90
+skinparam responseMessageBelowArrow true
+
+
+skinparam dpi 300
+scale max 1024*1800
+
+participant "API client 1" as client1 #LightBlue
+participant "API client 2" as client2 #LightBlue
+participant "HNZ FHIR Server" as server #PaleGreen
+participant "HNZ FHIR Server Database" as db #PaleGreen
+
+client1 -> server: GET: /.well-known/jwks.json - Retrieve FHIR server public key/s
+client1 -> client1: Encrypt request properties using public key
+
+rnote right client1
+**Request-Context header**
+  {
+    "encryptedClaims": ["subject.identifier.value", "subject.display"],
+    "encryptionKid": "01"
+  }
+end note
+
+rnote right client1
+**Request payload containing encrypted property values**
+  {
+   ...
+    "subject": {
+      "type": "Patient",
+      "identifier": {
+        "use": "official",
+        "system": "https://standards.digital.health.nz/ns/nhi-id",
+        "value": <font color="red">"fG/fjxlWUk9+lvGtkVqjjWW+"</font>
+      },
+      "display": <font color="red">"9vUQ+t5ZjAImjEf8sUfLxrzYGD2+B6j/XnKHoQ="</font>
+    }
+  }
+end note
+
+client1 -> server: POST: /Encounter
+server -> db: Decrypt resource property and store as plain text
+server -> client1: Return response with encrypted value/s, as provided in request.
+rnote right client1
+**Response-Context header**
+  {
+    "decryptedClaims": ["subject.identifier.value", "subject.display"]
+  }
+end note
+
+autonumber stop
+
+== Resource created and stored as plain text ==
+
+
+client1 -> server: GET /Encounter/:id
+server -> client1: Return response with plain text value
+
+client2 -> server: GET /Encounter/:id
+server -> client2: Return response with plain text value
+
+@enduml
