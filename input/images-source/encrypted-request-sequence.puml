@@ -51,13 +51,7 @@ end note
 
 client1 -> server: POST: /Encounter
 server -> db: Decrypt resource property and store as plain text
-server -> client1: Return response with encrypted value/s, as provided in request.
-rnote right client1
-**Response-Context header**
-  {
-    "decryptedClaims": ["subject.identifier.value", "subject.display"]
-  }
-end note
+server -> client1: Return response, which will be as stored on the FHIR server (decrypted values)
 
 autonumber stop
 

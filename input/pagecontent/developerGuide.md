@@ -19,7 +19,8 @@ In order to make requests against this API clients must:
     "system": "https://standards.digital.health.nz/ns/hpi-person-id",
     "value": "99ZZFX"
   },
-  "encryptedClaims": []
+  "encryptedClaims": [],
+  "encryptedKid": "01"
 }
 ```
 
@@ -39,7 +40,7 @@ The currently supported fields for this feature are:
 - "subject.identifier.value"
 - "subject.display"
 
-When this feature is used, applicable request and response properties can be provided to the server as an encrypted value, but **the value is stored within the FHIR server unencrypted**. When the FHIR resource is subsequently read, the plain text value will be returned.
+When this feature is used, applicable request properties can be provided to the server as an encrypted value, where **the value is stored within the FHIR server unencrypted**. When the FHIR resource is subsequently read, the plain text value will be returned.
 
 To use this feature, the request must include the below attributes:
 
@@ -47,6 +48,43 @@ To use this feature, the request must include the below attributes:
 - the `Request-Context` header MUST contain an `encryptionKid` string to indicate which public key has been used for encryption, which should be the `kid` of the key used.
 - the fields indicated in the `encryptedClaims` array MUST be encrypted using a valid public key as provided by the FHIR server JWKS endpoint, with base64 encoding. If the value cannot be decrypted successfully, due to a client encryption error or invalid public key, an error will be returned.
 
-When the FHIR server successfully decrypts and stores or updates a resource, the `Response-Context` header will be added, which contains a base64 encoded JSON payload which contains a `decryptedClaims` array, to provide the client a way to confirm the field was successfully decrypted and stored as plain text.
+### Field encryption code sample in Node.js
 
-![](request-encryption.png)
+```js
+// Node.js 18+
+
+const crypto = require("crypto");
+const jose = require("node-jose"); // v2.2.0
+
+const FHIR_SERVER_BASE_URL = "https://fhir.example.com"; // replace with real FHIR server url
+
+const getPublicKey = async () => {
+  return fetch(`${FHIR_SERVER_BASE_URL}/.well-known/jwks.json`)
+    .then((response) => response.json())
+    .then(async (body) => {
+      const key = await jose.JWK.asKey(body.keys[0]);
+      return key.toPEM();
+    });
+};
+
+const encryptText = async (plainText) => {
+  const encrypted = crypto.publicEncrypt(
+    {
+      key: await getPublicKey(),
+      padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
+      oaepHash: "sha256",
+    },
+    Buffer.from(plainText)
+  );
+  return Buffer.from(encrypted).toString("base64");
+};
+
+(async function () {
+  const stringToEncrypt = "Carey Carrington";
+  console.log(`Encrypting string: ${stringToEncrypt}`);
+  const encrypted = await encryptText(stringToEncrypt);
+  console.log(`Encrypted value as Base64: ${encrypted}`);
+})();
+```
+
+<img src="request-encryption.png" width="800">
