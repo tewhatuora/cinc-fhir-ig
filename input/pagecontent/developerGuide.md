@@ -51,6 +51,8 @@ To use this feature, the request must include the below attributes:
 - the `Request-Context` header MUST contain an `encryptionKid` string to indicate which public key has been used for encryption, which should be the `kid` of the key used.
 - the fields indicated in the `encryptedClaims` array MUST be encrypted using a valid public key as provided by the FHIR server JWKS endpoint, with base64 encoding. If the value cannot be decrypted successfully, due to a client encryption error or invalid public key, an error will be returned.
 
+It is recommended to cache the response from the JWKS endpoint to avoid performance impacts.
+
 ### Field encryption code sample in Node.js
 
 ```js
