@@ -3,12 +3,12 @@ Alias: $sct = http://snomed.info/sct
 Instance: Questionnaire-COVID-PublicHealthHistory
 InstanceOf: Questionnaire
 Usage: #definition
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/Questionnaire-COVID-PublicHealthHistory"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-PublicHealthHistory"
 * identifier.use = #usual
 * identifier.value = "Questionnaire-COVID-PublicHealthHistory"
 * identifier.period.start = "2023-07-01"
 * version = "1.0.0"
-* name = "Questionnaire-COVID-PublicHealthHistory"
+* name = "Questionnaire_COVID_PublicHealthHistory"
 * title = "COVID19 Public Health History Questionnaire"
 * status = #draft
 * subjectType = #Patient
@@ -32,67 +32,142 @@ Usage: #definition
 
 * item[=].item[0].type = #text
 * item[=].item[=].linkId = "p01-q01-PlacesVisitedRecently"
-* item[=].item[=].prefix = "page 1 question 1"
+* item[=].item[=].prefix = "question 1"
 * item[=].item[=].text = "Places visited in last 14 days"
 * item[=].item[=].required = false
 
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p01-q02-PrevPositive"
-* item[=].item[=].prefix = "page 1 question 2"
+* item[=].item[=].prefix = "question 2"
 * item[=].item[=].text = "Previous positive COVID-19 test?"
 * item[=].item[=].required = true
 
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p01-q03-HighSuspicionOfCOVID"
-* item[=].item[=].prefix = "page 1 question 3"
+* item[=].item[=].prefix = "question 3"
 * item[=].item[=].text = "High suspicion of prev. COVID-19?"
 * item[=].item[=].required = true
 
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p01-q04-PotentialCloseContact"
-* item[=].item[=].prefix = "page 1 question 4"
+* item[=].item[=].prefix = "question 4"
 * item[=].item[=].text = "Potential close contact with a COVID-19 positive person in the last 14 days?"
 * item[=].item[=].required = true
 
-* item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q05-COVID19Vaccine"
-* item[=].item[=].prefix = "page 1 question 5"
-* item[=].item[=].text = "COVID-19 vaccine?"
+* item[=].item[+].type = #integer
+* item[=].item[=].linkId = "p01-q05-COVID19Vaccine-doses"
+* item[=].item[=].prefix = "question 5"
+* item[=].item[=].text = "How many COVID-19 vaccine doses?"
 * item[=].item[=].required = true
-* item[=].item[=].answerOption[0].valueCoding.display = "Full"
-* item[=].item[=].answerOption[+].valueCoding.display = "Partial"
-* item[=].item[=].answerOption[+].valueCoding.display = "Nil"
 
 * item[=].item[+].type = #date
-* item[=].item[=].linkId = "p01-q06-dose-date"
-* item[=].item[=].prefix = "page 1 question 6 dose date"
-* item[=].item[=].text = "Dose Date"
+* item[=].item[=].linkId = "p01-q06-dose1-date"
+* item[=].item[=].prefix = "question 6 1st Dose"
+* item[=].item[=].text = "Date given"
 * item[=].item[=].required = false
-* item[=].item[=].repeats = true
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q05-COVID19Vaccine-doses"
+* item[=].item[=].enableWhen.operator = #>
+* item[=].item[=].enableWhen.answerInteger = 0
+* item[=].item[=].enableBehavior = #any
 
 * item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q06-dose-vaccine"
-* item[=].item[=].prefix = "page 1 question 6 dose vaccine"
-* item[=].item[=].text = "Vaccine given in dose"
+* item[=].item[=].linkId = "p01-q06-dose1-vaccine"
+* item[=].item[=].prefix = "question 6 1st Dose"
+* item[=].item[=].text = "Vaccine given"
 * item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
 * item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
 * item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
 * item[=].item[=].required = false
-* item[=].item[=].repeats = true
-* item[=].item[=].enableWhen.question = "p01-q06-dose-date"
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q06-dose1-date"
 * item[=].item[=].enableWhen.operator = #exists
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #any
 
 * item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q06-dose-country"
-* item[=].item[=].prefix = "page 1 question 6 country of vaccination"
-* item[=].item[=].text = "Country of vaccination"
+* item[=].item[=].linkId = "p01-q06-dose1-country"
+* item[=].item[=].prefix = "question 6 1st Dose"
+* item[=].item[=].text = "Country where vaccinated"
 * item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/iso3166-1-2"
 * item[=].item[=].required = false
-* item[=].item[=].repeats = true
-* item[=].item[=].enableWhen.question = "p01-q06-dose-date"
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q06-dose1-date"
 * item[=].item[=].enableWhen.operator = #exists
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #any
 
+* item[=].item[+].type = #date
+* item[=].item[=].linkId = "p01-q06-dose2-date"
+* item[=].item[=].prefix = "question 6 2nd Dose"
+* item[=].item[=].text = "2nd Dose Date"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q05-COVID19Vaccine-doses"
+* item[=].item[=].enableWhen.operator = #>
+* item[=].item[=].enableWhen.answerInteger = 1
+* item[=].item[=].enableBehavior = #any
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "p01-q06-dose2-vaccine"
+* item[=].item[=].prefix = "question 6 2nd Dose"
+* item[=].item[=].text = "Vaccine given"
+* item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
+* item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
+* item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q06-dose2-date"
+* item[=].item[=].enableWhen.operator = #exists
+* item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[=].enableBehavior = #any
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "p01-q06-dose2-country"
+* item[=].item[=].prefix = "question 6 2nd Dose"
+* item[=].item[=].text = "Country where vaccinated"
+* item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/iso3166-1-2"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q06-dose2-date"
+* item[=].item[=].enableWhen.operator = #exists
+* item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[=].enableBehavior = #any
+
+
+* item[=].item[+].type = #date
+* item[=].item[=].linkId = "p01-q06-dose3-date"
+* item[=].item[=].prefix = "question 6 3rd Dose"
+* item[=].item[=].text = "3rd Dose Date"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q05-COVID19Vaccine-doses"
+* item[=].item[=].enableWhen.operator = #>
+* item[=].item[=].enableWhen.answerInteger = 2
+* item[=].item[=].enableBehavior = #any
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "p01-q06-dose3-vaccine"
+* item[=].item[=].prefix = "question 6 3rd Dose"
+* item[=].item[=].text = "Vaccine given"
+* item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
+* item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
+* item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q06-dose2-date"
+* item[=].item[=].enableWhen.operator = #exists
+* item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[=].enableBehavior = #any
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "p01-q06-dose3-country"
+* item[=].item[=].prefix = "question 6 3rd Dose"
+* item[=].item[=].text = "Country where vaccinated"
+* item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/iso3166-1-2"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p01-q06-dose2-date"
+* item[=].item[=].enableWhen.operator = #exists
+* item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[=].enableBehavior = #any
