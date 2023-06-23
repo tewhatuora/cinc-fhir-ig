@@ -64,78 +64,35 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding.display = "Nil"
 
 * item[=].item[+].type = #date
-* item[=].item[=].linkId = "p01-q06-dose01-date"
-* item[=].item[=].prefix = "page 1 question 6 first dose date"
-* item[=].item[=].text = "1st Dose Date"
+* item[=].item[=].linkId = "p01-q06-dose-date"
+* item[=].item[=].prefix = "page 1 question 6 dose date"
+* item[=].item[=].text = "Dose Date"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = true
+
 * item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q06-dose01-vaccine"
-* item[=].item[=].prefix = "page 1 question 6 vaccine first dose"
-* item[=].item[=].text = "First dose vaccine"
+* item[=].item[=].linkId = "p01-q06-dose-vaccine"
+* item[=].item[=].prefix = "page 1 question 6 dose vaccine"
+* item[=].item[=].text = "Vaccine given in dose"
 * item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
 * item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
 * item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
-* item[=].item[=].enableWhen.question = "p01-q06-dose01-date"
-* item[=].item[=].enableWhen.operator = #exists
-* item[=].item[=].enableWhen.answerBoolean = true
-* item[=].item[=].enableBehavior = #any
-* item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q06-dose01-country"
-* item[=].item[=].prefix = "page 1 question 6 first vaccine country"
-* item[=].item[=].text = "Country"
-* item[=].item[=].answerOption[0].valueCoding.system = "urn:iso:std:iso:3166"
-* item[=].item[=].initial[0].valueCoding = #NZ "New Zealand"
-* item[=].item[=].enableWhen.question = "p01-q06-dose01-date"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = true
+* item[=].item[=].enableWhen.question = "p01-q06-dose-date"
 * item[=].item[=].enableWhen.operator = #exists
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #any
 
-
-* item[=].item[+].type = #date
-* item[=].item[=].linkId = "p01-q06-dose02-date"
-* item[=].item[=].prefix = "page 1 question 6 dose 2"
-* item[=].item[=].text = "2nd Dose Date"
 * item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q06-dose02-vaccine"
-* item[=].item[=].prefix = "page 1 question 6 vaccine second dose"
-* item[=].item[=].text = "Second dose vaccine"
-* item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
-* item[=].item[=].enableWhen.question = "p01-q06-dose02-date"
+* item[=].item[=].linkId = "p01-q06-dose-country"
+* item[=].item[=].prefix = "page 1 question 6 country of vaccination"
+* item[=].item[=].text = "Country of vaccination"
+* item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/iso3166-1-2"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = true
+* item[=].item[=].enableWhen.question = "p01-q06-dose-date"
 * item[=].item[=].enableWhen.operator = #exists
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #any
-* item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q06-dose02-country"
-* item[=].item[=].prefix = "page 1 question 6 2nd vaccine country"
-* item[=].item[=].text = "Country"
-* item[=].item[=].answerOption[0].valueCoding.system = "urn:iso:std:iso:3166"
-* item[=].item[=].initial[0].valueCoding = #NZ "New Zealand"
-* item[=].item[=].enableWhen.question = "p01-q06-dose02-date"
-* item[=].item[=].enableWhen.operator = #exists
-* item[=].item[=].enableWhen.answerBoolean = true
 
-* item[=].item[+].type = #date
-* item[=].item[=].linkId = "p01-q06-dose03-date"
-* item[=].item[=].prefix = "page 1 question 6 dose 3"
-* item[=].item[=].text = "3rd Dose Date"
-* item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q06-dose03-vaccine"
-* item[=].item[=].prefix = "page 1 question 6 vaccine third dose"
-* item[=].item[=].text = "Third dose vaccine"
-* item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
-* item[=].item[=].enableWhen.question = "p01-q06-dose03-date"
-* item[=].item[=].enableWhen.operator = #exists
-* item[=].item[=].enableWhen.answerBoolean = true
-* item[=].item[=].enableBehavior = #any
-* item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p01-q06-dose03-country"
-* item[=].item[=].prefix = "page 1 question 6 third vaccine country"
-* item[=].item[=].text = "Country"
-* item[=].item[=].answerOption[0].valueCoding.system = "urn:iso:std:iso:3166"
-* item[=].item[=].initial[0].valueCoding = #NZ "New Zealand"
-* item[=].item[=].enableWhen.question = "p01-q06-dose03-date"
-* item[=].item[=].enableWhen.operator = #exists
-* item[=].item[=].enableWhen.answerBoolean = true
