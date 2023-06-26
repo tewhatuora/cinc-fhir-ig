@@ -4,7 +4,7 @@ Usage: #definition
 * id = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * identifier.period.start = "2023-03-07"
 * identifier.use = #usual
-* identifier.value = "QuestionTemplate-AntiViral-Eligibility"
+* identifier.value = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * item[0].text = "Current Date/Time"
 * item[=].type = #dateTime
 * item[=].linkId = "CurrentDate"
@@ -167,13 +167,13 @@ Usage: #definition
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
 * jurisdiction.text = "New Zealand"
 * description = "A questionnaire to capture eligibility criteria for anti viral medication"
-* title = "AntiViral Eligibility Review"
+* title = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * subjectType = #Patient
 * version = "1.0.0"
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/Questionnaire-AntiViralEligibilityQuestionnaire"
 * meta.lastUpdated = "2023-03-14T04:51:54.576Z"
 * meta.versionId = "2"
-* name = "AntiViralEligibilityQuestionTemplate"
+* name = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * publisher = "Te Whatu Ora"
 * useContext.valueCodeableConcept.text = "AntiViral Eligibility Assessment"
 * useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#workflow "Workflow Setting"

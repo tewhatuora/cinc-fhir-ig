@@ -9,7 +9,7 @@ Usage: #definition
 * identifier.value = "Questionnaire-COVID-VaccinationSurveyQuestionnaire"
 * identifier.period.start = "2023-05-12"
 * version = "1.0.0"
-* name = "COVID19 Vaccination side effects survey"
+* name = "Questionnaire-COVID-VaccinationSurveyQuestionnaire"
 * title = "COVID19 Vaccination Side Effects Questionnaire"
 * status = #draft
 * subjectType = #Patient
