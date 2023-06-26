@@ -54,30 +54,34 @@ Usage: #definition
 * item[=].item[=].text = "Potential close contact with a COVID-19 positive person in the last 14 days?"
 * item[=].item[=].required = true
 
-* item[=].item[+].type = #integer
-* item[=].item[=].linkId = "p01-q05-COVID19Vaccine-doses"
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "p01-q05-COVID19Vaccine"
 * item[=].item[=].prefix = "question 5"
-* item[=].item[=].text = "How many COVID-19 vaccine doses?"
+* item[=].item[=].text = "COVID-19 vaccine?"
 * item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding.display = "Full"
+* item[=].item[=].answerOption[+].valueCoding.display = "Partial"
+* item[=].item[=].answerOption[+].valueCoding.display = "Nil"
 
 * item[=].item[+].type = #date
 * item[=].item[=].linkId = "p01-q06-dose1-date"
-* item[=].item[=].prefix = "question 6 1st Dose"
-* item[=].item[=].text = "Date given"
+* item[=].item[=].prefix = "question 6 - 1st Dose"
+* item[=].item[=].text = "Date"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
-* item[=].item[=].enableWhen.question = "p01-q05-COVID19Vaccine-doses"
-* item[=].item[=].enableWhen.operator = #>
-* item[=].item[=].enableWhen.answerInteger = 0
-* item[=].item[=].enableBehavior = #any
 
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p01-q06-dose1-vaccine"
-* item[=].item[=].prefix = "question 6 1st Dose"
+* item[=].item[=].prefix = "question 6 - 1st Dose"
 * item[=].item[=].text = "Vaccine given"
-* item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
+* item[=].item[=].answerOption[0].valueCoding = #111534 "Moderna"
+* item[=].item[=].answerOption[+].valueCoding = #111523 "Pfizer/BioNtech"
+* item[=].item[=].answerOption[+].valueCoding = #111539 "AstraZeneca / Covishield"
+* item[=].item[=].answerOption[+].valueCoding = #111535 "Novavax"
+* item[=].item[=].answerOption[+].valueCoding = #111538 "Janssen"
+* item[=].item[=].answerOption[+].valueCoding = #111536 "Sputnik V"
+* item[=].item[=].answerOption[+].valueCoding = #111533 "Sinopharm"
+* item[=].item[=].answerOption[+].valueCoding = #111537 "CoronaVac"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 * item[=].item[=].enableWhen.question = "p01-q06-dose1-date"
@@ -87,7 +91,7 @@ Usage: #definition
 
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p01-q06-dose1-country"
-* item[=].item[=].prefix = "question 6 1st Dose"
+* item[=].item[=].prefix = "question 6 - 1st Dose"
 * item[=].item[=].text = "Country where vaccinated"
 * item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/iso3166-1-2"
 * item[=].item[=].required = false
@@ -99,22 +103,23 @@ Usage: #definition
 
 * item[=].item[+].type = #date
 * item[=].item[=].linkId = "p01-q06-dose2-date"
-* item[=].item[=].prefix = "question 6 2nd Dose"
-* item[=].item[=].text = "2nd Dose Date"
+* item[=].item[=].prefix = "question 6 - 2nd Dose"
+* item[=].item[=].text = "Date"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
-* item[=].item[=].enableWhen.question = "p01-q05-COVID19Vaccine-doses"
-* item[=].item[=].enableWhen.operator = #>
-* item[=].item[=].enableWhen.answerInteger = 1
-* item[=].item[=].enableBehavior = #any
 
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p01-q06-dose2-vaccine"
-* item[=].item[=].prefix = "question 6 2nd Dose"
+* item[=].item[=].prefix = "question 6 - 2nd Dose"
 * item[=].item[=].text = "Vaccine given"
-* item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
+* item[=].item[=].answerOption[0].valueCoding = #111534 "Moderna"
+* item[=].item[=].answerOption[+].valueCoding = #111523 "Pfizer/BioNtech"
+* item[=].item[=].answerOption[+].valueCoding = #111539 "AstraZeneca / Covishield"
+* item[=].item[=].answerOption[+].valueCoding = #111535 "Novavax"
+* item[=].item[=].answerOption[+].valueCoding = #111538 "Janssen"
+* item[=].item[=].answerOption[+].valueCoding = #111536 "Sputnik V"
+* item[=].item[=].answerOption[+].valueCoding = #111533 "Sinopharm"
+* item[=].item[=].answerOption[+].valueCoding = #111537 "CoronaVac"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 * item[=].item[=].enableWhen.question = "p01-q06-dose2-date"
@@ -124,7 +129,7 @@ Usage: #definition
 
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p01-q06-dose2-country"
-* item[=].item[=].prefix = "question 6 2nd Dose"
+* item[=].item[=].prefix = "question 6 - 2nd Dose"
 * item[=].item[=].text = "Country where vaccinated"
 * item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/iso3166-1-2"
 * item[=].item[=].required = false
@@ -137,37 +142,38 @@ Usage: #definition
 
 * item[=].item[+].type = #date
 * item[=].item[=].linkId = "p01-q06-dose3-date"
-* item[=].item[=].prefix = "question 6 3rd Dose"
-* item[=].item[=].text = "3rd Dose Date"
+* item[=].item[=].prefix = "question 6 - 3rd Dose"
+* item[=].item[=].text = "Date"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
-* item[=].item[=].enableWhen.question = "p01-q05-COVID19Vaccine-doses"
-* item[=].item[=].enableWhen.operator = #>
-* item[=].item[=].enableWhen.answerInteger = 2
-* item[=].item[=].enableBehavior = #any
 
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p01-q06-dose3-vaccine"
-* item[=].item[=].prefix = "question 6 3rd Dose"
+* item[=].item[=].prefix = "question 6 - 3rd Dose"
 * item[=].item[=].text = "Vaccine given"
-* item[=].item[=].answerOption[0].valueCoding.display = "Pfizer"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmite"
-* item[=].item[=].answerOption[+].valueCoding.display = "Marmalade"
+* item[=].item[=].answerOption[0].valueCoding = #111534 "Moderna"
+* item[=].item[=].answerOption[+].valueCoding = #111523 "Pfizer/BioNtech"
+* item[=].item[=].answerOption[+].valueCoding = #111539 "AstraZeneca / Covishield"
+* item[=].item[=].answerOption[+].valueCoding = #111535 "Novavax"
+* item[=].item[=].answerOption[+].valueCoding = #111538 "Janssen"
+* item[=].item[=].answerOption[+].valueCoding = #111536 "Sputnik V"
+* item[=].item[=].answerOption[+].valueCoding = #111533 "Sinopharm"
+* item[=].item[=].answerOption[+].valueCoding = #111537 "CoronaVac"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
-* item[=].item[=].enableWhen.question = "p01-q06-dose2-date"
+* item[=].item[=].enableWhen.question = "p01-q06-dose3-date"
 * item[=].item[=].enableWhen.operator = #exists
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #any
 
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p01-q06-dose3-country"
-* item[=].item[=].prefix = "question 6 3rd Dose"
+* item[=].item[=].prefix = "question 6 - 3rd Dose"
 * item[=].item[=].text = "Country where vaccinated"
 * item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/iso3166-1-2"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
-* item[=].item[=].enableWhen.question = "p01-q06-dose2-date"
+* item[=].item[=].enableWhen.question = "p01-q06-dose3-date"
 * item[=].item[=].enableWhen.operator = #exists
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #any
