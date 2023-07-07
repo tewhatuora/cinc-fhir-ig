@@ -7,7 +7,7 @@ Usage: #definition
 * purpose = "Request for genome sequencing of a sample."
 * version = "1.0.5"
 * identifier.value = "Questionnaire-GenomeSequencingRequest"
-* identifier.use = #genome-sequencing-request
+* identifier.use = #usual
 * identifier.period.start = "2023-07-05"
 * status = #draft
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
