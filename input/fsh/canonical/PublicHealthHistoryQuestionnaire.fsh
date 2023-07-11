@@ -7,7 +7,7 @@ Usage: #definition
 * identifier.use = #usual
 * identifier.value = "Questionnaire-COVID-PublicHealthHistory"
 * identifier.period.start = "2023-07-01"
-* version = "1.0.0"
+* version = "1.0.2"
 * name = "Questionnaire_COVID_PublicHealthHistory"
 * title = "COVID19 Public Health History Questionnaire"
 * status = #draft
@@ -41,6 +41,49 @@ Usage: #definition
 * item[=].item[=].prefix = "question 2"
 * item[=].item[=].text = "Previous positive COVID-19 test?"
 * item[=].item[=].required = true
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "p01-q02-1-PrevPositiveMonth"
+* item[=].item[=].prefix = "question 2-1 "
+* item[=].item[=].text = "Month of positive COVID-19 test?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueString = "January"
+* item[=].item[=].answerOption[+].valueString = "February"
+* item[=].item[=].answerOption[+].valueString = "March"
+* item[=].item[=].answerOption[+].valueString = "April"
+* item[=].item[=].answerOption[+].valueString = "May"
+* item[=].item[=].answerOption[+].valueString = "June"
+* item[=].item[=].answerOption[+].valueString = "July"
+* item[=].item[=].answerOption[+].valueString = "August"
+* item[=].item[=].answerOption[+].valueString = "September"
+* item[=].item[=].answerOption[+].valueString = "October"
+* item[=].item[=].answerOption[+].valueString = "November"
+* item[=].item[=].answerOption[+].valueString = "December"
+* item[=].item[=].enableWhen.question = "p01-q02-PrevPositive"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[=].enableBehavior = #any
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "p01-q02-2-PrevPositiveYear"
+* item[=].item[=].prefix = "question 2-2 "
+* item[=].item[=].text = "Year of positive COVID-19 test?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueDate = "2020"
+* item[=].item[=].answerOption[+].valueDate = "2021"
+* item[=].item[=].answerOption[+].valueDate = "2022"
+* item[=].item[=].answerOption[+].valueDate = "2023"
+* item[=].item[=].answerOption[+].valueDate = "2024"
+* item[=].item[=].answerOption[+].valueDate = "2025"
+* item[=].item[=].answerOption[+].valueDate = "2026"
+* item[=].item[=].answerOption[+].valueDate = "2027"
+* item[=].item[=].answerOption[+].valueDate = "2028"
+* item[=].item[=].answerOption[+].valueDate = "2029"
+* item[=].item[=].answerOption[+].valueDate = "2030"
+* item[=].item[=].enableWhen.question = "p01-q02-PrevPositive"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[=].enableBehavior = #any
 
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p01-q03-HighSuspicionOfCOVID"
