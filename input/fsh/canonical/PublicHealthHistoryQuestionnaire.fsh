@@ -1,14 +1,13 @@
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
-Instance: Questionnaire-COVID-PublicHealthHistory
+Instance: COVIDPublicHealthHistoryQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-PublicHealthHistory"
 * identifier.use = #usual
-* identifier.value = "Questionnaire-COVID-PublicHealthHistory"
+* identifier.value = "COVIDPublicHealthHistoryQuestionnaire"
 * identifier.period.start = "2023-07-01"
 * version = "1.0.2"
-* name = "Questionnaire_COVID_PublicHealthHistory"
+* name = "COVIDPublicHealthHistoryQuestionnaire"
 * title = "COVID19 Public Health History Questionnaire"
 * status = #draft
 * subjectType = #Patient

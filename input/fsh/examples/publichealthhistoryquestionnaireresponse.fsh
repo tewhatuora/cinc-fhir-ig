@@ -3,7 +3,7 @@ InstanceOf: QuestionnaireResponse
 Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-06-26T00:46:14.000-04:00"
-* questionnaire = Canonical(Questionnaire-COVID-PublicHealthHistory)
+* questionnaire = Canonical(COVIDPublicHealthHistoryQuestionnaire)
 * status = #completed
 * subject.type = "Patient"
 * subject.identifier.use = #official
