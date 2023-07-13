@@ -4,7 +4,7 @@ Description: "An example QuestionnaireResponse payload demonstrating data collec
 Usage: #example
 * status = #completed
 * authored = "2023-07-06T03:18:06.523Z"
-* questionnaire = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-GenomeSequencingRequest"
+* questionnaire = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/GenomeSequencingRequestQuestionnaire"
 * item[0].linkId = "p02"
 * item[=].text = "Patient Information"
 * item[=].item[0].linkId = "p02-q01-PostMortem"

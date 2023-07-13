@@ -3,17 +3,17 @@ Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context
 Instance: GenomeSequencingRequestQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-GenomeSequencingRequestQuestionnaire"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/GenomeSequencingRequestQuestionnaire"
 * purpose = "Request for genome sequencing of a sample."
 * version = "1.0.5"
-* identifier.value = "Questionnaire-GenomeSequencingRequest"
+* identifier.value = "GenomeSequencingRequestQuestionnaire"
 * identifier.use = #usual
 * identifier.period.start = "2023-07-05"
 * status = #draft
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
 * jurisdiction.text = "New Zealand"
 * experimental = false
-* name = "Questionnaire-GenomeSequencingRequest"
+* name = "GenomeSequencingRequestQuestionnaire"
 * language = #en-NZ
 * useContext.valueCodeableConcept.text = "Genome Sequencing Request"
 * useContext.code = $usage-context-type#workflow "Workflow Setting"
