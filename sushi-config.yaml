@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Care In The Community FHIR API
 description: Care In The Community FHIR API
 status: draft
-version: 0.1.4
+version: 0.1.5
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use

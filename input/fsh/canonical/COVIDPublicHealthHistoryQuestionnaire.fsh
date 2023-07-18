@@ -3,10 +3,12 @@ Alias: $sct = http://snomed.info/sct
 Instance: COVIDPublicHealthHistoryQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
+
 * identifier.use = #usual
 * identifier.value = "COVIDPublicHealthHistoryQuestionnaire"
 * identifier.period.start = "2023-07-01"
-* version = "1.0.2"
+
+* version = "0.1.5"
 * name = "COVIDPublicHealthHistoryQuestionnaire"
 * title = "COVID19 Public Health History Questionnaire"
 * status = #draft
@@ -43,7 +45,7 @@ Usage: #definition
 
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p01-q02-1-PrevPositiveMonth"
-* item[=].item[=].prefix = "question 2-1 "
+* item[=].item[=].prefix = "question 2-1"
 * item[=].item[=].text = "Month of positive COVID-19 test?"
 * item[=].item[=].required = true
 * item[=].item[=].answerOption[0].valueString = "January"
@@ -65,7 +67,7 @@ Usage: #definition
 
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p01-q02-2-PrevPositiveYear"
-* item[=].item[=].prefix = "question 2-2 "
+* item[=].item[=].prefix = "question 2-2"
 * item[=].item[=].text = "Year of positive COVID-19 test?"
 * item[=].item[=].required = true
 * item[=].item[=].answerOption[0].valueDate = "2020"
