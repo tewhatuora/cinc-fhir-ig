@@ -1,10 +1,31 @@
+Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
+Alias: $sct = http://snomed.info/sct
 Instance: AntiViralEligibilityQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
-* id = "Questionnaire-AntiViralEligibilityQuestionnaire"
-* identifier.period.start = "2023-03-07"
-* identifier.use = #usual
-* identifier.value = "Questionnaire-AntiViralEligibilityQuestionnaire"
+
+* identifier[0].use = #official
+* identifier[=].value = "AntiViralEligibilityQuestionnaire"
+* identifier[=].period.start = "2023-07-19"
+* identifier[+].use = #temp
+* identifier[=].value = "Questionnaire-AntiViralEligibilityQuestionnaire"
+* identifier[=].period.end = "2023-07-19"
+
+* version = "0.1.5"
+* name = "AntiViralEligibilityQuestionnaire"
+* title = "Anti Viral medication eligibility questionnaire"
+
+* purpose = "Assess a patient's eligibility against criteria for anti-viral medication"
+* jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
+* jurisdiction.text = "New Zealand"
+* description = "A questionnaire defining eligibility criteria for anti-viral medication"
+* subjectType = #Patient
+
+* publisher = "Te Whatu Ora"
+* useContext.valueCodeableConcept.text = "AntiViral Eligibility Assessment"
+* useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#workflow "Workflow Setting"
+* status = #draft
+
 * item[0].text = "Current Date/Time"
 * item[=].type = #dateTime
 * item[=].linkId = "CurrentDate"
@@ -163,18 +184,3 @@ Usage: #definition
 * item[=].type = #boolean
 * item[=].required = false
 * item[=].initial.valueBoolean = false
-* purpose = "Anti Viral medication eligibility questionnaire"
-* jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
-* jurisdiction.text = "New Zealand"
-* description = "A questionnaire to capture eligibility criteria for anti viral medication"
-* title = "Questionnaire-AntiViralEligibilityQuestionnaire"
-* subjectType = #Patient
-* version = "1.0.0"
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/Questionnaire-AntiViralEligibilityQuestionnaire"
-* meta.lastUpdated = "2023-03-14T04:51:54.576Z"
-* meta.versionId = "2"
-* name = "Questionnaire-AntiViralEligibilityQuestionnaire"
-* publisher = "Te Whatu Ora"
-* useContext.valueCodeableConcept.text = "AntiViral Eligibility Assessment"
-* useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#workflow "Workflow Setting"
-* status = #draft

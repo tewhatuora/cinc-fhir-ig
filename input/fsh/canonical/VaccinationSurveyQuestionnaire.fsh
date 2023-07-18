@@ -1,6 +1,5 @@
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
-Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-control
 Instance: COVIDVaccinationSurveyQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
@@ -25,6 +24,7 @@ Usage: #definition
 * jurisdiction.text = "New Zealand"
 * purpose = "Survey of side effects experienced after COVID-19 vaccination"
 * code = $sct#293104008 "Vaccine adverse reaction"
+
 * item[0].type = #display
 * item[=].linkId = "p01"
 * item[=].prefix = "page 1"
