@@ -24,7 +24,7 @@ Usage: #definition
 * publisher = "Te Whatu Ora"
 * description = "Gather the status of a patient who is self isolating"
 * useContext.code = $usage-context-type#workflow "Workflow Setting"
-* useContext.valueCodeableConcept.text = "COVID Initial Health Assessment"
+* useContext.valueCodeableConcept.text = "COVID-19 Regular Health Check"
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
 * jurisdiction.text = "New Zealand"
 * purpose = "Template for the description of a phone or online video health check to gather the status of a set of conditions for a patient who is self isolating."
@@ -355,7 +355,6 @@ Usage: #definition
 * item[=].item[=].text = "Regular health check note"
 * item[=].item[=].type = #string
 * item[=].item[=].required = false
-
 * item[=].item[+].linkId = "4.3"
 * item[=].item[=].prefix = "4.3."
 * item[=].item[=].text = "Care Management Plan"

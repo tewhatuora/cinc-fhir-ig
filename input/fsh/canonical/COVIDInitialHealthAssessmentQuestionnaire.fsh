@@ -18,7 +18,7 @@ Usage: #definition
 * status = #draft
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
-* description = "Questions about a patient's recent COVID-19 history"
+* description = "An initial assessment for a patient who has tested positive for COVID-19"
 * useContext.code = $usage-context-type#workflow "Workflow Setting"
 * useContext.valueCodeableConcept.text = "COVID Initial Health Assessment"
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
