@@ -3,6 +3,7 @@ Alias: $sct = http://snomed.info/sct
 Instance: COVIDInitialHealthAssessmentQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDInitialHealthAssessmentQuestionnaire"
 
 * identifier[0].use = #official
 * identifier[=].value = "COVIDInitialHealthAssessmentQuestionnaire"
@@ -25,18 +26,25 @@ Usage: #definition
 * purpose = "Gather status and conditions for a patient who is self-isolating."
 * code = $sct#292508471000119105 "History of disease caused by severe acute respiratory syndrome coronavirus 2 (situation)"
 
-* item[0].item[0].linkId = "1.1"
+* item[0].linkId = "1"
+* item[=].prefix = "1."
+* item[=].text = "Past Health and Wellbeing History - ask questions to find out about:"
+* item[=].type = #group
+
+* item[=].item[0].linkId = "1.1"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.1."
 * item[=].item[=].text = "Hypertension?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.2"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.2."
 * item[=].item[=].text = "Diabetes?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.2.1"
 * item[=].item[=].enableWhen.question = "1.2"
 * item[=].item[=].enableWhen.operator = #=
@@ -45,24 +53,28 @@ Usage: #definition
 * item[=].item[=].text = "If using insulin please provide details?"
 * item[=].item[=].type = #string
 * item[=].item[=].required = false
+
 * item[=].item[+].linkId = "1.3"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.3."
 * item[=].item[=].text = "Asthma?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.4"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.4."
 * item[=].item[=].text = "Previous stroke?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.5"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.5."
 * item[=].item[=].text = "Cancer?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.5.1"
 * item[=].item[=].enableWhen.question = "1.5"
 * item[=].item[=].enableWhen.operator = #=
@@ -71,23 +83,15 @@ Usage: #definition
 * item[=].item[=].text = "Please provide cancer details"
 * item[=].item[=].type = #text
 * item[=].item[=].required = false
+
 * item[=].item[+].linkId = "1.6"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.6."
 * item[=].item[=].text = "Current/recent pregnancy?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
-* item[=].item[+].item[0].linkId = "1.6.1"
-* item[=].item[=].item[=].prefix = "1.6.1"
-* item[=].item[=].item[=].text = "Gestation (number of weeks)"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = false
-* item[=].item[=].item[+].linkId = "1.6.2"
-* item[=].item[=].item[=].prefix = "1.6.2"
-* item[=].item[=].item[=].text = "Postpartum (number of weeks)"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = false
-* item[=].item[=].linkId = "1.6.a"
+
+* item[=].item[+].linkId = "1.6.a"
 * item[=].item[=].enableWhen.question = "1.6"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerBoolean = true
@@ -95,12 +99,26 @@ Usage: #definition
 * item[=].item[=].text = "Pregnancy assessment"
 * item[=].item[=].type = #group
 * item[=].item[=].required = false
+
+* item[=].item[=].item[0].linkId = "1.6.1"
+* item[=].item[=].item[=].prefix = "1.6.1"
+* item[=].item[=].item[=].text = "Gestation (number of weeks)"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = false
+
+* item[=].item[=].item[+].linkId = "1.6.2"
+* item[=].item[=].item[=].prefix = "1.6.2"
+* item[=].item[=].item[=].text = "Postpartum (number of weeks)"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = false
+
 * item[=].item[+].linkId = "1.7"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.7."
 * item[=].item[=].text = "Immunocompromised?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.7.1"
 * item[=].item[=].enableWhen.question = "1.7"
 * item[=].item[=].enableWhen.operator = #=
@@ -109,42 +127,49 @@ Usage: #definition
 * item[=].item[=].text = "Specify immunocompromised further details"
 * item[=].item[=].type = #text
 * item[=].item[=].required = false
+
 * item[=].item[+].linkId = "1.8"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.8."
 * item[=].item[=].text = "Previous heart attack or heart failure?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.9"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.9."
 * item[=].item[=].text = "Epilepsy?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.10"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.10."
 * item[=].item[=].text = "Other respiratory disease?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.11"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.11."
 * item[=].item[=].text = "Mental health and/or addiction?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.12"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.12."
 * item[=].item[=].text = "Kidney disease?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.13"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "1.13."
 * item[=].item[=].text = "CPAP device used?"
 * item[=].item[=].type = #boolean
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.14"
 * item[=].item[=].prefix = "1.14."
 * item[=].item[=].text = "Weight?"
@@ -154,22 +179,19 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueString = "Over"
 * item[=].item[=].answerOption[+].valueString = "Obese"
 * item[=].item[=].required = true
+
 * item[=].item[+].linkId = "1.15"
 * item[=].item[=].prefix = "1.15."
 * item[=].item[=].text = "Other"
 * item[=].item[=].type = #string
 * item[=].item[=].required = false
-* item[=].linkId = "1"
-* item[=].prefix = "1."
-* item[=].text = "Past Health and Wellbeing History - ask questions to find out about:"
-* item[=].type = #group
 
-* item[+].item[0].linkId = "2.1"
-* item[=].linkId = "2"
+* item[+].linkId = "2"
 * item[=].prefix = "2."
 * item[=].text = "Medication and Allergies"
 * item[=].type = #group
 
+* item[=].item[0].linkId = "2.1"
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].prefix = "2.1."
 * item[=].item[=].text = "Smoking?"

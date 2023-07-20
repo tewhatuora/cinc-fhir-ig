@@ -3,6 +3,7 @@ Alias: $sct = http://snomed.info/sct
 Instance: COVIDVaccinationSurveyQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDVaccinationSurveyQuestionnaire"
 
 * identifier[0].use = #official
 * identifier[=].value = "COVIDVaccinationSurveyQuestionnaire"

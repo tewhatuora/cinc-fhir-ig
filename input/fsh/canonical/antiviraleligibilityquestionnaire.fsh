@@ -3,6 +3,7 @@ Alias: $sct = http://snomed.info/sct
 Instance: AntiViralEligibilityQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire"
 
 * identifier[0].use = #official
 * identifier[=].value = "AntiViralEligibilityQuestionnaire"
@@ -124,28 +125,35 @@ Usage: #definition
 * item[=].enableWhen[=].answerCoding.display = "Yes"
 * item[=].enableBehavior = #all
 * item[=].answerOption.valueCoding.display = "confirm"
+
 * item[+].linkId = "PharmacistInformation"
 * item[=].type = #group
 * item[=].text = "Please provide pharmacist details"
+
 * item[=].item[0].text = "Pharmacist Name"
 * item[=].item[=].linkId = "PharmacistName"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
+
 * item[=].item[+].text = "Pharmacist ID"
 * item[=].item[=].linkId = "PharmacistID"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
+
 * item[+].linkId = "PharmacyInformation"
 * item[=].type = #group
 * item[=].text = "Please provide details about the pharmacy organisation"
+
 * item[=].item[0].text = "Pharmacy Name"
 * item[=].item[=].linkId = "PharmacyName"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
+
 * item[=].item[+].text = "Pharmacy ID"
 * item[=].item[=].linkId = "PharmacyID"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
+
 // * item[=].item[+].linkId = "PharmacyAddress"
 // * item[=].item[=].type = #group
 // * item[=].item[=].text = "Pharmacy address details"
@@ -165,9 +173,12 @@ Usage: #definition
 // * item[=].item[=].item[=].linkId = "Postcode"
 // * item[=].item[=].item[=].type = #string
 // * item[=].item[=].item[=].required = false
+
 * item[=].item[+].linkId = "PharmacyAddress"          // fix
 * item[=].item[=].type = #text                        // fix
 * item[=].item[=].text = "Pharmacy address details"   // fix
+
+
 * item[+].linkId = "GeneralPracticeInformation"
 * item[=].type = #group
 * item[=].text = "Please provide details about the patient's general practice"
