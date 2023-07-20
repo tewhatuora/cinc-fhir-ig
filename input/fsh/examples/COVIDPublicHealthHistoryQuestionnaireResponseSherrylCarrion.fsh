@@ -1,8 +1,6 @@
-Instance: PublicHealthHistorySherrylCarrion
+Instance: COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
 InstanceOf: QuestionnaireResponse
 Usage: #example
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-06-26T00:46:14.000-04:00"
 * questionnaire = Canonical(COVIDPublicHealthHistoryQuestionnaire)
 * status = #completed
 * subject.type = "Patient"
@@ -67,4 +65,4 @@ Usage: #example
 * item.item[=].answer.valueCoding = #210 "AstraZeneca / Covishield"
 * item.item[+].linkId = "p01-q06-dose3-country"
 * item.item[=].text = "Country where vaccinated"
-* item.item[=].answer.valueCoding = urn:iso:std:iso:3166#GB "United Kingdom"
+* item.item[=].answer.valueCoding = urn:iso:std:iso:3166#GB "United Kingdom of Great Britain and Northern Ireland"

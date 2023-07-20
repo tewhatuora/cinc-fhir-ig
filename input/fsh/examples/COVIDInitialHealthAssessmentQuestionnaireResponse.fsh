@@ -1,14 +1,14 @@
-Instance: InitialHealthCheckQuestionnaireResponse
+Instance: COVIDInitialHealthAssessmentQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
 Usage: #example
-* questionnaire = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-Questionnaire-InitialHealthCheckQuestionnaire"
+* questionnaire = Canonical(COVIDInitialHealthAssessmentQuestionnaire)
+* basedOn = Reference(CarePlanExample)
 * status = #completed
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
-* encounter = Reference(Encounter/fac19845-d79a-42d1-a480-f1cb89c6b524)
 * authored = "2022-08-29"
 * author.type = "Practitioner"
 * author.identifier.use = #official
@@ -63,7 +63,7 @@ Usage: #example
 * item[=].item[=].answer.valueBoolean = false
 * item[=].item[+].linkId = "1.14"
 * item[=].item[=].text = "Weight?"
-* item[=].item[=].answer.valueCoding.display = "Average"
+* item[=].item[=].answer.valueString = "Average"
 * item[=].item[+].linkId = "1.15"
 * item[=].item[=].text = "Other"
 * item[=].item[=].answer.valueString = "Nothing of note"
@@ -101,5 +101,3 @@ Usage: #example
 * item[=].item.linkId = "3.1"
 * item[=].item.text = "Individual assessment plan / guideline"
 * item[=].item.answer.valueString = "Standard Plan"
-* meta.versionId = "1"
-* meta.lastUpdated = "2022-08-29T20:39:47.904Z"

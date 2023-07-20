@@ -1,10 +1,32 @@
+Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
+Alias: $sct = http://snomed.info/sct
 Instance: AntiViralEligibilityQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
-* id = "Questionnaire-AntiViralEligibilityQuestionnaire"
-* identifier.period.start = "2023-03-07"
-* identifier.use = #usual
-* identifier.value = "Questionnaire-AntiViralEligibilityQuestionnaire"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire"
+
+* identifier[0].use = #official
+* identifier[=].value = "AntiViralEligibilityQuestionnaire"
+* identifier[=].period.start = "2023-07-19"
+* identifier[+].use = #temp
+* identifier[=].value = "Questionnaire-AntiViralEligibilityQuestionnaire"
+* identifier[=].period.end = "2023-07-19"
+
+* version = "0.1.5"
+* name = "AntiViralEligibilityQuestionnaire"
+* title = "Anti Viral medication eligibility questionnaire"
+
+* purpose = "Assess a patient's eligibility against criteria for anti-viral medication"
+* jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
+* jurisdiction.text = "New Zealand"
+* description = "A questionnaire defining eligibility criteria for anti-viral medication"
+* subjectType = #Patient
+
+* publisher = "Te Whatu Ora"
+* useContext.valueCodeableConcept.text = "AntiViral Eligibility Assessment"
+* useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#workflow "Workflow Setting"
+* status = #draft
+
 * item[0].text = "Current Date/Time"
 * item[=].type = #dateTime
 * item[=].linkId = "CurrentDate"
@@ -103,28 +125,35 @@ Usage: #definition
 * item[=].enableWhen[=].answerCoding.display = "Yes"
 * item[=].enableBehavior = #all
 * item[=].answerOption.valueCoding.display = "confirm"
+
 * item[+].linkId = "PharmacistInformation"
 * item[=].type = #group
 * item[=].text = "Please provide pharmacist details"
+
 * item[=].item[0].text = "Pharmacist Name"
 * item[=].item[=].linkId = "PharmacistName"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
+
 * item[=].item[+].text = "Pharmacist ID"
 * item[=].item[=].linkId = "PharmacistID"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
+
 * item[+].linkId = "PharmacyInformation"
 * item[=].type = #group
 * item[=].text = "Please provide details about the pharmacy organisation"
+
 * item[=].item[0].text = "Pharmacy Name"
 * item[=].item[=].linkId = "PharmacyName"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
+
 * item[=].item[+].text = "Pharmacy ID"
 * item[=].item[=].linkId = "PharmacyID"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
+
 // * item[=].item[+].linkId = "PharmacyAddress"
 // * item[=].item[=].type = #group
 // * item[=].item[=].text = "Pharmacy address details"
@@ -144,9 +173,12 @@ Usage: #definition
 // * item[=].item[=].item[=].linkId = "Postcode"
 // * item[=].item[=].item[=].type = #string
 // * item[=].item[=].item[=].required = false
+
 * item[=].item[+].linkId = "PharmacyAddress"          // fix
 * item[=].item[=].type = #text                        // fix
 * item[=].item[=].text = "Pharmacy address details"   // fix
+
+
 * item[+].linkId = "GeneralPracticeInformation"
 * item[=].type = #group
 * item[=].text = "Please provide details about the patient's general practice"
@@ -163,18 +195,3 @@ Usage: #definition
 * item[=].type = #boolean
 * item[=].required = false
 * item[=].initial.valueBoolean = false
-* purpose = "Anti Viral medication eligibility questionnaire"
-* jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
-* jurisdiction.text = "New Zealand"
-* description = "A questionnaire to capture eligibility criteria for anti viral medication"
-* title = "Questionnaire-AntiViralEligibilityQuestionnaire"
-* subjectType = #Patient
-* version = "1.0.0"
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/Questionnaire-AntiViralEligibilityQuestionnaire"
-* meta.lastUpdated = "2023-03-14T04:51:54.576Z"
-* meta.versionId = "2"
-* name = "Questionnaire-AntiViralEligibilityQuestionnaire"
-* publisher = "Te Whatu Ora"
-* useContext.valueCodeableConcept.text = "AntiViral Eligibility Assessment"
-* useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#workflow "Workflow Setting"
-* status = #draft

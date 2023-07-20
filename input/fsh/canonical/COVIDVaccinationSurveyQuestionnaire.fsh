@@ -1,15 +1,19 @@
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
-Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-control
 Instance: COVIDVaccinationSurveyQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-VaccinationSurveyQuestionnaire"
-* identifier.use = #usual
-* identifier.value = "Questionnaire-COVID-VaccinationSurveyQuestionnaire"
-* identifier.period.start = "2023-05-12"
-* version = "1.0.0"
-* name = "Questionnaire-COVID-VaccinationSurveyQuestionnaire"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDVaccinationSurveyQuestionnaire"
+
+* identifier[0].use = #official
+* identifier[=].value = "COVIDVaccinationSurveyQuestionnaire"
+* identifier[=].period.start = "2023-07-19"
+* identifier[+].use = #temp
+* identifier[=].value = "Questionnaire-COVID-VaccinationSurveyQuestionnaire"
+* identifier[=].period.end = "2023-07-19"
+
+* version = "0.1.5"
+* name = "COVIDVaccinationSurveyQuestionnaire"
 * title = "COVID19 Vaccination Side Effects Questionnaire"
 * status = #draft
 * subjectType = #Patient
@@ -21,6 +25,7 @@ Usage: #definition
 * jurisdiction.text = "New Zealand"
 * purpose = "Survey of side effects experienced after COVID-19 vaccination"
 * code = $sct#293104008 "Vaccine adverse reaction"
+
 * item[0].type = #display
 * item[=].linkId = "p01"
 * item[=].prefix = "page 1"

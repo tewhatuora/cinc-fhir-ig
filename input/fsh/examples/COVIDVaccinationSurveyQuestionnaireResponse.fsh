@@ -5,7 +5,7 @@ Description: "An example QuestionnaireResponse payload demonstrating data collec
 Usage: #example
 * status = #completed
 * authored = "2023-05-15T01:58:00.504Z"
-* questionnaire = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-VaccinationSurveyQuestionnaire"
+* questionnaire = Canonical(COVIDVaccinationSurveyQuestionnaire)
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
