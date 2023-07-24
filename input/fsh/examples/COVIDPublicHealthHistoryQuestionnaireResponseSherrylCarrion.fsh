@@ -1,5 +1,6 @@
 Instance: COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
 InstanceOf: QuestionnaireResponse
+Description: "Demonstrates responses collected for COVIDPublicHealthHistoryQuestionnaire in relation to example patient Sherryl Carrion"
 Usage: #example
 * questionnaire = Canonical(COVIDPublicHealthHistoryQuestionnaire)
 * status = #completed

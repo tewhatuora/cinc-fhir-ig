@@ -28,4 +28,26 @@
   https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-PublicHealthHistory
 
 
+# v0.1.6 (2023-07-25) More Questionnaire improvements
+**New definitional resources**
+1. Created new **PlanDefinition** definition resource *COVIDMVPCareplanTemplate* based on similar example resource.
+2. Created new **ActivityDefinition** definition resource *MeasurementProcedureRequestTemplate*, starting with current seed JSON payload in MeasurementProcedureActivityDefinition converted to fsh.
 
+**Corrected canonical URLs**
+- In PlanDefinition corrected *COVIDMVPCarePlanTemplate.definitionCanonical*'s incorrect reference to a Canonical(COVIDRegularHealthCheckQuestionnaire)
+- In ActivityDefinition *MeasurementProcedureRequestTemplate.url* corrected missing official URL.
+ 
+**Identifier changes**
+- PlanDefinition *COVIDMVPCarePlanTemplate* now has the official identifier *COVIDMVPCarePlanTemplate* in addition to its legacy identifier
+- ActivityDefinition *MeasurementProcedureRequestTemplate* now has the official identifier *MeasurementProcedureRequestTemplate* in addition to its legacy identifier
+
+**file changes**
+- PlanDefinition *MeasurementProcedureRequestTemplate* resource is now defined in file *PlanDefinition-COVIDMVPCarePlanTemplate* (same as IG) whereas formerly it was seeded from file *MeasurementProcedureActivityDefinition.json*
+
+- ActivityDefinition *MeasurementProcedureRequestTemplate* resource is now defined in file *ActivityDefinition-MeasurementProcedureRequestTemplate* (same as IG) whereas formerly it was seeded from file *MeasurementProcedureActivityDefinition*
+
+**name changes**
+None.
+
+**minor**
+- Fixed IG publisher INFO warnings by adding Descriptions to QuestionnaireResponse examples
