@@ -1,9 +1,8 @@
-Instance: PublicHealthHistorySherrylCarrion
+Instance: COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
 InstanceOf: QuestionnaireResponse
+Description: "Demonstrates responses collected for COVIDPublicHealthHistoryQuestionnaire in relation to example patient Sherryl Carrion"
 Usage: #example
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-06-26T00:46:14.000-04:00"
-* questionnaire = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-PublicHealthHistory"
+* questionnaire = Canonical(COVIDPublicHealthHistoryQuestionnaire)
 * status = #completed
 * subject.type = "Patient"
 * subject.identifier.use = #official
@@ -23,7 +22,15 @@ Usage: #example
 * item.item[=].answer.valueString = "London, Lower Hutt, Lagos"
 * item.item[+].linkId = "p01-q02-PrevPositive"
 * item.item[=].text = "Previous positive COVID-19 test?"
-* item.item[=].answer.valueBoolean = false
+* item.item[=].answer.valueBoolean = true
+
+* item.item[+].linkId = "p01-q02-1-PrevPositiveMonth"
+* item.item[=].text = "Month of positive COVID-19 test?"
+* item.item[=].answer.valueString = "May"
+* item.item[+].linkId = "p01-q02-2-PrevPositiveYear"
+* item.item[=].text = "Year of positive COVID-19 test?"
+* item.item[=].answer.valueDate = "2022"
+
 * item.item[+].linkId = "p01-q03-HighSuspicionOfCOVID"
 * item.item[=].text = "High suspicion of prev. COVID-19?"
 * item.item[=].answer.valueBoolean = true
@@ -59,4 +66,4 @@ Usage: #example
 * item.item[=].answer.valueCoding = #210 "AstraZeneca / Covishield"
 * item.item[+].linkId = "p01-q06-dose3-country"
 * item.item[=].text = "Country where vaccinated"
-* item.item[=].answer.valueCoding = urn:iso:std:iso:3166#GB "United Kingdom"
+* item.item[=].answer.valueCoding = urn:iso:std:iso:3166#GB "United Kingdom of Great Britain and Northern Ireland"
