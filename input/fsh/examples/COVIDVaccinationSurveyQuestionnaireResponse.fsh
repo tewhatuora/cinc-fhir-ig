@@ -1,7 +1,7 @@
 Alias: $sct = http://snomed.info/sct
 Instance: COVIDVaccinationSurveyQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
-Description: "An example QuestionnaireResponse payload demonstrating data collected in a post COVID vaccination adverse reaction survey."
+Description: "Example payload demonstrating data collected in a post COVID vaccination adverse reaction survey."
 Usage: #example
 * status = #completed
 * authored = "2023-05-15T01:58:00.504Z"

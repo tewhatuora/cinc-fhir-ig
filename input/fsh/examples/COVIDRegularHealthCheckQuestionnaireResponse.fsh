@@ -1,5 +1,6 @@
 Instance: COVIDRegularHealthCheckQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "Demonstrates responses collected for COVIDRegularHealthCheckQuestionnaire"
 Usage: #example
 * questionnaire = Canonical(COVIDRegularHealthCheckQuestionnaire)
 * basedOn = Reference(CarePlanExample)
