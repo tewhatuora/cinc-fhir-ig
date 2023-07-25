@@ -13,6 +13,10 @@ Usage: #definition
 * identifier[=].period.end = "2023-07-19"
 
 * version = "0.1.5"
+* date = "2023-07-19"
+* status = #draft
+* experimental = false
+
 * name = "AntiViralEligibilityQuestionnaire"
 * title = "Anti Viral medication eligibility questionnaire"
 
@@ -25,7 +29,6 @@ Usage: #definition
 * publisher = "Te Whatu Ora"
 * useContext.valueCodeableConcept.text = "AntiViral Eligibility Assessment"
 * useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#workflow "Workflow Setting"
-* status = #draft
 
 * item[0].text = "Current Date/Time"
 * item[=].type = #dateTime

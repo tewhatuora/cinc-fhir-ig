@@ -1,17 +1,21 @@
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
 Instance: COVIDPublicHealthHistoryQuestionnaire
-InstanceOf: Questionnaire
+InstanceOf: ManaakiNgaTahiQuestionnaire
 Usage: #definition
 
-* identifier.use = #usual
-* identifier.value = "COVIDPublicHealthHistoryQuestionnaire"
-* identifier.period.start = "2023-07-01"
+* identifier[0].use = #official
+* identifier[=].value = "COVIDRegularHealthCheckQuestionnaire"
+* identifier[=].period.start = "2023-07-01"
 
 * version = "0.1.5"
+* date = "2023-07-19"
+* status = #draft
+* experimental = false
+
 * name = "COVIDPublicHealthHistoryQuestionnaire"
 * title = "COVID19 Public Health History Questionnaire"
-* status = #draft
+
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
 * description = "Questions about a patient's recent COVID-19 history"

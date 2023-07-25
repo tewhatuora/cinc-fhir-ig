@@ -1,7 +1,7 @@
 Profile: ManaakiNgaTahiQuestionnaireResponse
 Parent: QuestionnaireResponse
 Description: "The Care in the Community profile of the QuestionnaireResponse resource"
-* ^version = "0.1.3"
+* ^version = "0.1.7"
 // elements struck out
 * contained 0..0
 // * extension 0..0  v0.1.3 relief from prohibition of CarePlan extension
