@@ -2,6 +2,7 @@ Instance: ConsentExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
 Description: "An example ManaakiNgaTahi Consent based on policies (but not involving a Questionnaire)"
+// * ^version = "0.1.7"  -- v0.1.8 apparently ^version doesn't work in Consent resources
 * status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 * scope.text = "Privacy Consent"
@@ -39,7 +40,4 @@ Description: "An example ManaakiNgaTahi Consent based on policies (but not invol
 * provision.data[=].reference = Reference(ConditionExample)
 * provision.data[+].meaning = #instance
 * provision.data[=].reference = Reference(EncounterExample)
-* provision.data[+].meaning = #instance
-* provision.data[=].reference = Reference(QuestionnaireResponseExample)
-* meta.versionId = "1"
-* meta.lastUpdated = "2022-09-20T02:30:37.161Z"
+// v0.1.7 remove third data reference to deleted exampleQR

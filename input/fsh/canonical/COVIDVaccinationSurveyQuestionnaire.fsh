@@ -1,7 +1,7 @@
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
 Instance: COVIDVaccinationSurveyQuestionnaire
-InstanceOf: Questionnaire
+InstanceOf: ManaakiNgaTahiQuestionnaire
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDVaccinationSurveyQuestionnaire"
 
@@ -13,9 +13,12 @@ Usage: #definition
 * identifier[=].period.end = "2023-07-19"
 
 * version = "0.1.5"
+* date = "2023-07-19"
+* status = #draft
+* experimental = false
+
 * name = "COVIDVaccinationSurveyQuestionnaire"
 * title = "COVID19 Vaccination Side Effects Questionnaire"
-* status = #draft
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
 * description = "Te Whatu Ora post COVID-19 vaccination survey."

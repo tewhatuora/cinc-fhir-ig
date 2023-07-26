@@ -1,7 +1,7 @@
 Profile: ManaakiNgaTahiQuestionnaireResponse
 Parent: QuestionnaireResponse
 Description: "The Care in the Community profile of the QuestionnaireResponse resource"
-* ^version = "0.1.3"
+* ^version = "0.1.8"
 // elements struck out
 * contained 0..0
 // * extension 0..0  v0.1.3 relief from prohibition of CarePlan extension
@@ -22,6 +22,10 @@ Description: "The Care in the Community profile of the QuestionnaireResponse res
 * author only Reference(Practitioner)
 * authored obeys fhir-hnz-dateTime-utc-1
 * basedOn only Reference(CarePlan)
-* item.answer.value[x] only boolean or decimal or integer or string
+
+//* item.answer.value[x] only boolean or decimal or integer or string   
+// v0.1.8 restored answer datatypes date,dateTime,Coding
+* item.answer.value[x] only boolean or decimal or integer or string or date or dateTime or Coding
+
 * source only Reference(Patient)
 * subject only Reference(Patient)
