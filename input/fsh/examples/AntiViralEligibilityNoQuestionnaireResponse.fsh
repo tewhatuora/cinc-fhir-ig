@@ -1,5 +1,6 @@
 Instance: AntiViralEligibilityNoQuestionnaireResponse
-InstanceOf: ManaakiNgaTahiQuestionnaireResponse
+//InstanceOf: ManaakiNgaTahiQuestionnaireResponse
+InstanceOf: QuestionnaireResponse
 Description: "Demonstrating payload for a pharmacy eligibility review where patient not eligible"
 Usage: #example
 * status = #completed
