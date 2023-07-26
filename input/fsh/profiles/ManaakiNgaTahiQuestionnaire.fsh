@@ -7,8 +7,13 @@ Description: "The Care in the Community profile of the Questionnaire resource"
 * identifier.use 1..1
 * identifier.value 1..1
 * identifier.value from QuestionTemplatesVS (preferred)
-* item.answerOption.value[x] only integer or string
-* item.enableWhen.answer[x] only boolean or decimal or integer or string
+
+// * item.answerOption.value[x] only integer or string -- v0.1.8 restored Coding as needed by AntiViralEligibilityQuestionnaire
+* item.answerOption.value[x] only integer or string or Coding 
+
+// * item.enableWhen.answer[x] only boolean or decimal or integer or string -- v0.1.8 restored Coding as needed by AntiViralEligibilityQuestionnaire
+* item.enableWhen.answer[x] only boolean or decimal or integer or string or Coding
+
 * item.initial.value[x] only boolean or decimal or integer or string
 // elements prohibited
 * approvalDate 0..0
@@ -25,7 +30,7 @@ Description: "The Care in the Community profile of the Questionnaire resource"
 * item.answerValueSet 0..0
 * item.code 0..0
 * item.definition 0..0
-* item.enableBehavior 0..0
+// * item.enableBehavior 0..0  -- v0.1.8 restored because needed by AntiViralEligibilityQuestionnaire
 * item.enableWhen.extension 0..0
 * item.enableWhen.id 0..0
 * item.enableWhen.modifierExtension 0..0
@@ -35,6 +40,6 @@ Description: "The Care in the Community profile of the Questionnaire resource"
 * item.initial.modifierExtension 0..0
 * item.maxLength 0..0
 * item.modifierExtension 0..0
-* item.readOnly 0..0
+// * item.readOnly 0..0 -- v0.1.8 restored because needed by AntiViralEligibilityQuestionnaire
 * lastReviewDate 0..0
 * modifierExtension 0..0

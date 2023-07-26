@@ -27,6 +27,15 @@
       Questionnaire at URL:
   https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-PublicHealthHistory
 
+# v0.1.8 (2023-07-26) Updates to Antiviral Eligibility Questionnaire
+
+**AntiViralEligibiltyQuestionnaire**
+- Updated Questionnaire items as per business requirements CFFF-889 and tested form in SDC viewer
+- Fixed the two sample Yes|No QuestionnaireResponses to match
+- Renamed fsh file
+- Made InstanceOf: *ManaakiNgaTahiQuestionnaire* instead of *Questionnaire*
+- Adjusted profile of *ManaakiNgaTahiQuestionnaire* to restore Coding elements required by this questionnaire (which had been excluded)
+- Set start date on period of original (#temp) identifier
 
 # v0.1.7 (2023-07-25) More Questionnaire improvements
 **New definitional resources**

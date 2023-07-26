@@ -2,7 +2,7 @@ Instance: ConsentExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
 Description: "An example ManaakiNgaTahi Consent based on policies (but not involving a Questionnaire)"
-* ^version = "0.1.7"
+// * ^version = "0.1.7"  -- v0.1.8 apparently ^version doesn't work in Consent resources
 * status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 * scope.text = "Privacy Consent"
