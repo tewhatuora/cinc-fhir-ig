@@ -13,7 +13,6 @@ Usage: #definition
 * identifier[=].value = "QuestionTemplate-CitC-COVID19-InitialAssessment"
 * identifier[=].period.end = "2023-07-19"
 
-* version = "0.1.5"
 * date = "2023-07-19"
 * status = #draft
 * experimental = false

@@ -14,7 +14,6 @@ Description: "A response to this questionnaire is used by Consent resources that
 * identifier[=].period.start = "2022-08-01"
 * identifier[=].period.end = "2023-07-25"
 
-* version = "0.1.7"
 * date = "2023-07-25"
 * status = #draft
 * experimental = false

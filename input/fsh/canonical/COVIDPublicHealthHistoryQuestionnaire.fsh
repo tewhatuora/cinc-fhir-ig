@@ -8,7 +8,6 @@ Usage: #definition
 * identifier[=].value = "COVIDRegularHealthCheckQuestionnaire"
 * identifier[=].period.start = "2023-07-01"
 
-* version = "0.1.5"
 * date = "2023-07-19"
 * status = #draft
 * experimental = false

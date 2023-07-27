@@ -5,12 +5,11 @@ Description: "Example payload demonstrating data collected in a post COVID vacci
 Usage: #example
 * status = #completed
 * authored = "2023-05-15T01:58:00.504Z"
-* questionnaire = Canonical(COVIDVaccinationSurveyQuestionnaire)
+* questionnaire = Canonical(COVIDVaccinationSurveyQuestionnaire|0.2.0)
+
+* subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
-* subject.display = "Carey Carrington"
+
 * author.type = "Practitioner"
 * author.identifier.use = #official
 * author.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"

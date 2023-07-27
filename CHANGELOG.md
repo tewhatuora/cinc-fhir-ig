@@ -1,5 +1,24 @@
 # Changelog
 
+# v0.2.0 (2023-07-27)
+
+**General updates**
+- *CareyCarrington* has been defined as an example Patient instance and is now Reference()'d by other examples instead of duplicating. 
+- Canonical references in the following example types now **explicitly include the IG version** eg. ```|0.2.0```
+  - QuestionnaireResponse: questionnaire = Canonical({Questionnaire})
+  - CarePlan: activity.detail.instantiatesCanonical
+  - PlanDefinition: action.definitionCanonical
+- The *version* element (business version) has been removed from all canonical Questionnaire instances: it is not of any practical use at present because the IG publisher overwrites it with the IG version on publishing.
+
+**AntiViralEligibiltyQuestionnaire** further updates
+- Introduced CodeSystem and Valueset terminology for three options for when patient's COVID symptoms started, as assessed for eligibility
+- Introduced CodeSystem and Valueset terminology for nine types of patient health situations, as assessed for eligibility
+- New panel/group for *Case Definition*
+  - Added a group so that Case Definition guidance information always displays
+  - Moved item with linkId **COVID19-Positive** *down one level* into this new group
+- Changed two yes/no *answerCoding* items into *answerBoolean* items
+- Adjusted the example Yes|No QuestionnaireResponses to match the above changes
+
 # v0.1.9 (2023-07-27)
 
 - Removed ManaakiNgaTahi `Questionnaire` and `QuestionnaireResponse` profiles as these are not required. A `QuestionnaireResponse` is defined by it's parent `Questionnaire` therefore the profile is not required.

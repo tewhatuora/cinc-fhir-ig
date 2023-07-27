@@ -1,15 +1,18 @@
+Alias: $antiviral-eligiblity-whenstarted = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-whenstarted-codes|0.2.0
+Alias: $antiviral-eligiblity-situations = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-situation-codes|0.2.0
+
 Instance: AntiViralEligibilityNoQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
-Description: "Demonstrating payload for a pharmacy eligibility review where patient not eligible"
+Description: "Demonstrating payload for a pharmacy eligibility review where patient IS NOT eligible"
 Usage: #example
+
+* questionnaire = Canonical(AntiViralEligibilityQuestionnaire|0.2.0)
 * status = #completed
-* authored = "2023-07-26T06:15:06.063Z"
-* questionnaire = Canonical(AntiViralEligibilityQuestionnaire)
+* subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
-* subject.display = "Carey Carrington"
+
+* authored = "2023-07-26T06:15:06.063Z"
+
 * author.type = "Practitioner"
 * author.identifier.use = #official
 * author.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
@@ -24,24 +27,25 @@ Usage: #example
 * item[=].text = "Date Review Performed"
 * item[=].answer.valueDate = "2023-03-27"
 
-* item[+].linkId = "COVID19-Positive"
-* item[=].text = "Is the patient a COVID-19 case as per the case definition or clinical criteria?"
-* item[=].answer.valueCoding.display = "Yes"
+* item[+].linkId = "case-definition-panel"
+* item[=].item[0].linkId = "COVID19-Positive"
+* item[=].item[=].text = "Is the patient a COVID-19 case as per the case definition or clinical criteria?"
+* item[=].item[=].answer.valueBoolean = true
 
 * item[+].linkId = "criteria-panel"
 * item[=].text = "Does the patient meet the current Pharmac criteria for COVID-19 Antivitals?"
 
 * item[=].item[0].linkId = "SymptomsStart"
 * item[=].item[=].text = "1. Symptoms started:"
-* item[=].item[=].answer.valueCoding.display = "More than 7 days ago"
+* item[=].item[=].answer.valueCoding = $antiviral-eligiblity-whenstarted#not-recent
 
 * item[=].item[+].linkId = "supoxygen"
 * item[=].item[=].text = "2. My patient requires supplemental oxygen"
-* item[=].item[=].answer.valueCoding.display = "Yes"
+* item[=].item[=].answer.valueBoolean = true
 
 * item[=].item[+].linkId = "criteria"
 * item[=].item[=].text = "3. My patient's condition or circumstance (choose one):"
-* item[=].item[=].answer.valueCoding.display = "none of the above"
+* item[=].item[=].answer.valueCoding = $antiviral-eligiblity-situations#none-of-the-above
 
 * item[+].linkId = "eligible-no"
 * item[=].text = "Assessment: No - the patient IS NOT eligible for COVID-19 Antivirals"
@@ -70,7 +74,6 @@ Usage: #example
 * item[=].item[+].linkId = "PharmacyAddress"
 * item[=].item[=].text = "Pharmacy address details"
 * item[=].item[=].answer.valueString = "FROM HPI e.g. 133 Molesworth Street, Thorndon 6011, Wellington"
-
 
 * item[+].linkId = "GeneralPracticeInformation"
 * item[=].text = "Please provide details about the patient's general practice"

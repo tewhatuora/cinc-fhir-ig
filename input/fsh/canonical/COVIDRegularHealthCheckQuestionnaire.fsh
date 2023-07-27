@@ -16,7 +16,6 @@ Usage: #definition
 * identifier[=].period.start = "2022-09-12"
 * identifier[=].period.end = "2023-07-19"
 
-* version = "0.1.5"
 * date = "2023-07-19"
 * status = #draft
 * experimental = false

@@ -11,7 +11,7 @@ Description:  "Each code represents a recognised COVID-19 vaccine"
 * #510 "Sinopharm"
 * #511 "CoronaVac"
 * ^publisher = "Te Whatu Ora / Health New Zealand"
-* ^experimental = false
+* ^experimental = true
 * ^caseSensitive = true
 * ^purpose = "Enables recording of vaccination doses as part of capturing a patient's public health history."
 * ^status = #draft

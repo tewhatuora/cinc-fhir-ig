@@ -7,11 +7,10 @@ Description: "An example ManaakiNgaTahi Consent by policy"
 * scope.text = "Privacy Consent"
 * category = http://loinc.org#57016-8 "Privacy policy acknowledgement Doc"
 * category.text = "Privacy policy acknowledgement Document"
+
+* patient = Reference(CareyCarrington) "Carey Carrington"
 * patient.type = "Patient"
-* patient.identifier.use = #official
-* patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* patient.identifier.value = "ZXP7823"
-* patient.display = "Carey Carrington"
+
 * dateTime = "2022-09-20T02:30:35.982Z"
 * policy[0].authority = "https://www.privacy.org.nz"
 * policy[=].uri = "https://www.privacy.org.nz/privacy-act-2020/"

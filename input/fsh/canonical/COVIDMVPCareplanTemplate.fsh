@@ -78,4 +78,4 @@ Usage: #definition
 * action.requiredBehavior = #must
 * action.precheckBehavior = #yes
 * action.cardinalityBehavior = #multiple
-* action.definitionCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire)
+* action.definitionCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire|0.2.0)
