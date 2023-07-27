@@ -1,5 +1,5 @@
 Instance: COVIDPrivacyStatementQuestionTemplate
-InstanceOf: ManaakiNgaTahiQuestionnaire
+InstanceOf: Questionnaire
 Usage: #definition
 Description: "A response to this questionnaire is used by Consent resources that enable access to other FHIR resources."
 
