@@ -1,7 +1,7 @@
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
 Instance: COVIDVaccinationSurveyQuestionnaire
-InstanceOf: ManaakiNgaTahiQuestionnaire
+InstanceOf: Questionnaire
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDVaccinationSurveyQuestionnaire"
 

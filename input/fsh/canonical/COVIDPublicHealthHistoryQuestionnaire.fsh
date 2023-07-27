@@ -1,7 +1,7 @@
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
 Instance: COVIDPublicHealthHistoryQuestionnaire
-InstanceOf: ManaakiNgaTahiQuestionnaire
+InstanceOf: Questionnaire
 Usage: #definition
 
 * identifier[0].use = #official

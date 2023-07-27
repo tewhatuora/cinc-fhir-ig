@@ -160,7 +160,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[+].type = #QuestionnaireResponse
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiQuestionnaireResponse)
+//* rest.resource[=].profile = canonical(QuestionnaireResponse)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update
@@ -198,7 +198,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[+].type = #Questionnaire
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiQuestionnaire)
+//* rest.resource[=].profile = canonical(Questionnaire)
 * rest.resource[=].interaction[0].code = #create
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[+].code = #update

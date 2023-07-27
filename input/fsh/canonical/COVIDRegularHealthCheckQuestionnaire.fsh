@@ -3,7 +3,7 @@ Alias: $unitsofmeasure = http://unitsofmeasure.org
 Alias: $sct = http://snomed.info/sct
 
 Instance: COVIDRegularHealthCheckQuestionnaire
-InstanceOf: ManaakiNgaTahiQuestionnaire
+InstanceOf: Questionnaire
 
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDRegularHealthCheckQuestionnaire"

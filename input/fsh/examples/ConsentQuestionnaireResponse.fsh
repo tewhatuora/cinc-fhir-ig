@@ -1,5 +1,5 @@
 Instance: ConsentQuestionnaireResponseExample
-InstanceOf: ManaakiNgaTahiQuestionnaireResponse
+InstanceOf: QuestionnaireResponse
 Usage: #example
 Description: "An example ManaakiNgaTahi QuestionnaireResponse"
 * questionnaire = Canonical(COVIDPrivacyStatementQuestionTemplate)

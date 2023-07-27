@@ -7,7 +7,7 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * policy 1..*     // v0.1.3 policy element now required (uri and authority)
 * provision.period 1..1 
 * provision.period obeys fhir-hnz-period-utc-1
-* sourceReference only Reference(ManaakiNgaTahiQuestionnaireResponse) // v0.1.7 fixed to refer to profiled type instead of specific instance
+* sourceReference only Reference(QuestionnaireResponse)
 // elements prohibited
 * contained 0..0
 //  * extension 0..0    v0.1.3 relief from prohibition of CarePlan extension
