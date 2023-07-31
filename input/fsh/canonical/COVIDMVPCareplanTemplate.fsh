@@ -6,25 +6,24 @@ Alias: $sct = http://snomed.info/sct
 Alias: $loinc = http://loinc.org
 Alias: $action-type = http://terminology.hl7.org/CodeSystem/action-type
 
-Instance: COVIDMVPCareplanTemplate
+Instance: COVIDMVPCarePlanTemplate
 InstanceOf: PlanDefinition
 Usage: #definition
 * language = #en-NZ
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/PlanDefinition/COVIDMVPCareplanTemplate"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/PlanDefinition/COVIDMVPCarePlanTemplate"
 * name = "COVIDMVPCarePlanTemplate"
 * identifier[0].use = #official
-* identifier[=].value = "COVIDMVPCareplanTemplate"
+* identifier[=].value = "COVIDMVPCarePlanTemplate"
 * identifier[=].period.start = "2023-07-25"
 * identifier[+].use = #temp
 * identifier[=].value = "CareplanTemplate-CitC-COVID19-CCCM"
 * identifier[=].period.end = "2023-07-25"
-* version = "0.1.6"
 
 * title = "Template for COVID-19 Care in the Community CCCM MVP Careplans"
 * subtitle = "Care in the Community plans to handle low risk COVID-19 cases"
 * type = $plan-definition-type#order-set "Order Set"
 * type.text = "Order Set"
-* date = "2023-07-25"
+* date = "2023-07-31"
 * status = #active
 * experimental = true
 * subjectCodeableConcept = $resource-types#Patient "Patient"
@@ -78,4 +77,4 @@ Usage: #definition
 * action.requiredBehavior = #must
 * action.precheckBehavior = #yes
 * action.cardinalityBehavior = #multiple
-* action.definitionCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire|0.2.0)
+* action.definitionCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire)

@@ -3,7 +3,7 @@ InstanceOf: ManaakiNgaTahiCarePlan
 Usage: #example
 Description: "An example ManaakiNgaTahi Care Plan"
 * contained = goal0
-* instantiatesCanonical = Canonical(COVIDMVPCareplanTemplate)
+* instantiatesCanonical = Canonical(COVIDMVPCarePlanTemplate)
 * status = #draft
 * intent = #plan
 * title = "COVID-19 Omicron Response - Carey Carrington"

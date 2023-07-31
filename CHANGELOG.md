@@ -4,11 +4,9 @@
 
 **General updates**
 - *CareyCarrington* has been defined as an example Patient instance and is now Reference()'d by other examples instead of duplicating. 
-- Canonical references in the following example types now **explicitly include the IG version** eg. ```|0.2.0```
-  - QuestionnaireResponse: questionnaire = Canonical({Questionnaire})
-  - CarePlan: activity.detail.instantiatesCanonical
-  - PlanDefinition: action.definitionCanonical
-- The *version* element (business version) has been removed from all canonical Questionnaire instances: it is not of any practical use at present because the IG publisher overwrites it with the IG version on publishing.
+- The *version* element (business version) has been removed from all canonical definitions: it is not of any practical use at present because the IG publisher overwrites it with the IG version on publishing.
+- *COVIDMVPCarePlanTemplate* PlanDefinition instance: capitalisation made consistent between instance name, official URL, name and official identifier.
+- Deleted no longer needed ValueSet / CodeSet of CINC template identifiers.
 
 **AntiViralEligibiltyQuestionnaire** further updates
 - Introduced CodeSystem and Valueset terminology for three options for when patient's COVID symptoms started, as assessed for eligibility

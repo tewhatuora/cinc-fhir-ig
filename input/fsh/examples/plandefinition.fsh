@@ -19,7 +19,7 @@ Description: "An example ManaakiNgaTahi PlanDefinition"
 * endorser.telecom.value = "CinC Fit for Future Project"
 * action.textEquivalent = "Health check to monitor conditions and enable ability to make decisions on continuing with care plan"
 * action.cardinalityBehavior = #multiple
-* action.definitionCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire) // "https://api.integration-uat.covid19.health.nz/cinc/fhir/R4/Questionnaire/ce04db3b-9382-4051-91c0-f798da0ffe75"
+* action.definitionCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire)
 * action.goalId = "covid-recovery"
 * action.subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient "Patient"
 * action.subjectCodeableConcept.text = "Patient"
