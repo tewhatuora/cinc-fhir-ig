@@ -81,25 +81,6 @@ Usage: #definition
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[=].required = true
 
-// // v0.1.8 expanded display text
-// * item[=].item.type = #display
-// * item[=].item.linkId = "COVID19-Positive_helpText"
-// * item[=].item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
-// * item[=].item.extension.valueCodeableConcept.text = "Help-Button"
-// * item[=].item.extension.valueCodeableConcept = http://hl7.org/fhir/questionnaire-item-control#help "Help-Button"
-// * item[=].item.text = """
-//   The transition from PCR to RATs as a primary mode of testing requires the clinical criteria
-//   to be applied thoughtfully and practically alongside the Case Definition. The case definitions were based upon
-//   PCR tests being the primary mode of diagnosis and the focus has now changed to clinical decision making based on
-//   a RAT result in the majority of cases.
-
-//   Clinical discretion should be applied to household contacts who test negative by RAT but are presenting with 
-//   symptoms typical of COVID-19 infection. Although this population is not defined by the Case Definition^, clinical
-//   discretion may support recognition as a likely case and initiation of treatment, where indicated.
-
-//   ^For definition see https://www.tewhatuora.govt.nz/for-the-health-sector/covid-19-information-for-health-professionals/case-definition-and-clinical-testing-guidelines-for-covid-19#:~:text=Case%20definitions&text=A%20case%20that%20has%20laboratory,a%20validated%20NAAT%20(PCR)
-//   """
-
 * item[+].type = #group
 * item[=].linkId = "criteria-panel"
 * item[=].text = "Does the patient meet the current Pharmac criteria for COVID-19 Antivitals?"
@@ -109,7 +90,7 @@ Usage: #definition
 * item[=].item[0].text = "1. Symptoms started:"
 * item[=].item[=].linkId = "SymptomsStart"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySymptomsStartedValueSet|0.2.0)  // v0.2.0 choice options coded in local ValueSet
+* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySymptomsStartedValueSet)  // v0.2.0 choice options coded in local ValueSet
 * item[=].item[=].required = true
 //* item[=].item[=].enableWhen.question = "COVID19-Positive"  -- v0.1.8 removed conditional
 //* item[=].item[=].enableWhen.operator = #=                  -- v0.1.8 removed conditional
@@ -133,7 +114,7 @@ Usage: #definition
 * item[=].item[+].text = "3. My patient's condition or circumstance (choose one):"   // v0.1.8
 * item[=].item[=].linkId = "criteria"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySituationValueSet|0.2.0)  // v0.2.0 choice options coded in local codesystem
+* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySituationValueSet)  // v0.2.0 choice options coded in local codesystem
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
 

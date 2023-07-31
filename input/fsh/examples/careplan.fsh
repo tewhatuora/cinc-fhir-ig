@@ -3,7 +3,7 @@ InstanceOf: ManaakiNgaTahiCarePlan
 Usage: #example
 Description: "An example ManaakiNgaTahi Care Plan"
 * contained = goal0
-* instantiatesCanonical = Canonical(COVIDMVPCareplanTemplate|0.2.0)
+* instantiatesCanonical = Canonical(COVIDMVPCareplanTemplate)
 * status = #draft
 * intent = #plan
 * title = "COVID-19 Omicron Response - Carey Carrington"
@@ -17,7 +17,7 @@ Description: "An example ManaakiNgaTahi Care Plan"
 * author.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * author.identifier.value = "99ZZFX"
 * goal = Reference(goal0)
-* activity.detail.instantiatesCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire|0.2.0)
+* activity.detail.instantiatesCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire)
 * activity.detail.status = #not-started
 
 Instance: goal0

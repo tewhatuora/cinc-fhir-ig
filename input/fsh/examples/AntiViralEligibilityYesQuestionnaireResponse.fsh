@@ -1,12 +1,12 @@
-Alias: $antiviral-eligiblity-whenstarted = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-whenstarted-codes|0.2.0
-Alias: $antiviral-eligiblity-situations = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-situation-codes|0.2.0
+Alias: $antiviral-eligiblity-whenstarted = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-whenstarted-codes
+Alias: $antiviral-eligiblity-situations = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-situation-codes
 
 Instance: AntiViralEligibilityYesQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
 Description: "Demonstrating payload for a pharmacy eligibility review where patient IS eligible"
 Usage: #example
 
-* questionnaire = Canonical(AntiViralEligibilityQuestionnaire|0.2.0)
+* questionnaire = Canonical(AntiViralEligibilityQuestionnaire)
 * status = #completed
 * subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"

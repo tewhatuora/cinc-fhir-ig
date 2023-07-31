@@ -2,7 +2,7 @@ Instance: ConsentQuestionnaireResponseExample
 InstanceOf: QuestionnaireResponse
 Usage: #example
 Description: "An example ManaakiNgaTahi QuestionnaireResponse"
-* questionnaire = Canonical(COVIDPrivacyStatementQuestionTemplate|0.2.0)
+* questionnaire = Canonical(COVIDPrivacyStatementQuestionTemplate)
 * status = #completed
 * subject.type = "Patient"
 * subject.identifier.use = #official

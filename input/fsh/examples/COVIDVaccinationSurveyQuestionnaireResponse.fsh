@@ -5,7 +5,7 @@ Description: "Example payload demonstrating data collected in a post COVID vacci
 Usage: #example
 * status = #completed
 * authored = "2023-05-15T01:58:00.504Z"
-* questionnaire = Canonical(COVIDVaccinationSurveyQuestionnaire|0.2.0)
+* questionnaire = Canonical(COVIDVaccinationSurveyQuestionnaire)
 
 * subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"

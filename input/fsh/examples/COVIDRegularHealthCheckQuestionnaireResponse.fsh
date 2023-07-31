@@ -2,7 +2,7 @@ Instance: COVIDRegularHealthCheckQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
 Description: "Demonstrates responses collected for COVIDRegularHealthCheckQuestionnaire"
 Usage: #example
-* questionnaire = Canonical(COVIDRegularHealthCheckQuestionnaire|0.2.0)
+* questionnaire = Canonical(COVIDRegularHealthCheckQuestionnaire)
 * basedOn = Reference(CarePlanExample)
 * status = #completed
 
