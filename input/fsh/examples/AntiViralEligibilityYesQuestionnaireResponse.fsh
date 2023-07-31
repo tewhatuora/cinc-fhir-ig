@@ -1,15 +1,21 @@
+Alias: $antiviral-eligiblity-whenstarted = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-whenstarted-codes
+Alias: $antiviral-eligiblity-situations = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-situation-codes
+
 Instance: AntiViralEligibilityYesQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
 Description: "Demonstrating payload for a pharmacy eligibility review where patient IS eligible"
 Usage: #example
-* status = #completed
-* authored = "2023-07-26T06:15:06.063Z"
+
 * questionnaire = Canonical(AntiViralEligibilityQuestionnaire)
-* subject.type = "Patient"
+* status = #completed
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
+* subject.type = "Patient"
+
+* authored = "2023-07-26T06:15:06.063Z"
+
 * author.type = "Practitioner"
 * author.identifier.use = #official
 * author.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
@@ -24,24 +30,25 @@ Usage: #example
 * item[=].text = "Date Review Performed"
 * item[=].answer.valueDate = "2023-03-27"
 
-* item[+].linkId = "COVID19-Positive"
-* item[=].text = "Is the patient a COVID-19 case as per the case definition or clinical criteria?"
-* item[=].answer.valueCoding.display = "Yes"
+* item[+].linkId = "case-definition-panel"
+* item[=].item[0].linkId = "COVID19-Positive"
+* item[=].item[=].text = "Is the patient a COVID-19 case as per the case definition or clinical criteria?"
+* item[=].item[=].answer.valueBoolean = true
 
 * item[+].linkId = "criteria-panel"
 * item[=].text = "Does the patient meet the current Pharmac criteria for COVID-19 Antivitals?"
 
 * item[=].item[0].linkId = "SymptomsStart"
 * item[=].item[=].text = "1. Symptoms started:"
-* item[=].item[=].answer.valueCoding.display = "Within the last 7 days (if considering remdesivir)"
+* item[=].item[=].answer.valueCoding = $antiviral-eligiblity-whenstarted#within-seven-days
 
 * item[=].item[+].linkId = "supoxygen"
 * item[=].item[=].text = "2. My patient requires supplemental oxygen"
-* item[=].item[=].answer.valueCoding.display = "No"
+* item[=].item[=].answer.valueBoolean = false
 
 * item[=].item[+].linkId = "criteria"
 * item[=].item[=].text = "3. My patient's condition or circumstance (choose one):"
-* item[=].item[=].answer.valueCoding.display = "has Down syndrome"
+* item[=].item[=].answer.valueCoding = $antiviral-eligiblity-situations#down-syndrome
 
 * item[+].linkId = "eligible-yes"
 * item[=].text = "Assessment: Yes - the patient IS eligible for COVID-19 Antivirals"

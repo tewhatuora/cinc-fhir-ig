@@ -1,7 +1,9 @@
+Alias: $antiviral-eligiblity-whenstarted = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-whenstarted-codes
+Alias: $antiviral-eligiblity-situations = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-situation-codes
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
+
 Instance: AntiViralEligibilityQuestionnaire
-//InstanceOf: ManaakiNgaTahiQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire"
@@ -14,8 +16,7 @@ Usage: #definition
 * identifier[=].period.start = "2023-03-07"
 * identifier[=].period.end = "2023-07-26"
 
-* version = "0.1.8"
-* date = "2023-07-26"
+* date = "2023-01-08"
 * status = #draft
 * experimental = false
 
@@ -57,20 +58,11 @@ Usage: #definition
 * item[=].item.extension.valueCodeableConcept.text = "Help-Button"
 * item[=].item.extension.valueCodeableConcept = http://hl7.org/fhir/questionnaire-item-control#help "Help-Button"
 
-* item[+].text = "Is the patient a COVID-19 case as per the case definition or clinical criteria?"    // v0.1.8
-* item[=].linkId = "COVID19-Positive"
-* item[=].type = #choice
-* item[=].answerOption[0].valueCoding.display = "Yes"
-* item[=].answerOption[+].valueCoding.display = "No"
-* item[=].required = true
 
- // v0.1.8 expanded display text
-* item[=].item.type = #display
-* item[=].item.linkId = "COVID19-Positive_helpText"
-* item[=].item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
-* item[=].item.extension.valueCodeableConcept.text = "Help-Button"
-* item[=].item.extension.valueCodeableConcept = http://hl7.org/fhir/questionnaire-item-control#help "Help-Button"
-* item[=].item.text = """
+// v0.2.0 introduced group so case definition guidance always displays instead of via help button
+* item[+].type = #group
+* item[=].linkId = "case-definition-panel"
+* item[=].text = """CASE DEFINITION
   The transition from PCR to RATs as a primary mode of testing requires the clinical criteria
   to be applied thoughtfully and practically alongside the Case Definition. The case definitions were based upon
   PCR tests being the primary mode of diagnosis and the focus has now changed to clinical decision making based on
@@ -83,29 +75,34 @@ Usage: #definition
   ^For definition see https://www.tewhatuora.govt.nz/for-the-health-sector/covid-19-information-for-health-professionals/case-definition-and-clinical-testing-guidelines-for-covid-19#:~:text=Case%20definitions&text=A%20case%20that%20has%20laboratory,a%20validated%20NAAT%20(PCR)
   """
 
+* item[=].item[0].linkId = "COVID19-Positive"
+* item[=].item[=].text = "Is the patient a COVID-19 case as per the case definition or clinical criteria?"    // v0.1.8
+* item[=].item[=].type = #boolean
+* item[=].item[=].initial.valueBoolean = false
+* item[=].item[=].required = true
+
 * item[+].type = #group
 * item[=].linkId = "criteria-panel"
 * item[=].text = "Does the patient meet the current Pharmac criteria for COVID-19 Antivitals?"
 
 // v0.1.8 item 1 now nested in the group
+// v0.2.0 three options now coded in local codesystem
 * item[=].item[0].text = "1. Symptoms started:"
 * item[=].item[=].linkId = "SymptomsStart"
 * item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySymptomsStartedValueSet)  // v0.2.0 three options moved into local codesystem/valueset
 * item[=].item[=].required = true
+
 //* item[=].item[=].enableWhen.question = "COVID19-Positive"  -- v0.1.8 removed conditional
 //* item[=].item[=].enableWhen.operator = #=                  -- v0.1.8 removed conditional
 //* item[=].item[=].enableWhen.answerCoding.display = "Yes"   -- v0.1.8 removed conditional
 //* item[=].item[=].enableBehavior = #all                     -- v0.1.8 removed conditional
-* item[=].item[=].answerOption[0].valueCoding.display = "Within the last 5 days (if considering nirmatrelvir with ritonavir or molnupiravir)"
-* item[=].item[=].answerOption[+].valueCoding.display = "Within the last 7 days (if considering remdesivir)"
-* item[=].item[=].answerOption[+].valueCoding.display = "More than 5 days ago if assessing for nirmaltrelvir with ritonavir; and molnupiravir, OR more than 7 days ago if assessing for remdesivir"   // v0.1.8
+
 
 // v0.1.8 item 2 now nested in the group
 * item[=].item[+].text = "2. My patient requires supplemental oxygen"
 * item[=].item[=].linkId = "supoxygen"
-* item[=].item[=].type = #choice
-* item[=].item[=].answerOption[0].valueCoding.display = "Yes"
-* item[=].item[=].answerOption[+].valueCoding.display = "No"
+* item[=].item[=].type = #boolean
 * item[=].item[=].repeats = false
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = false
@@ -114,19 +111,11 @@ Usage: #definition
 * item[=].item[+].text = "3. My patient's condition or circumstance (choose one):"   // v0.1.8
 * item[=].item[=].linkId = "criteria"
 * item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySituationValueSet)  // v0.2.0 choice options moved into local codesystem
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
-* item[=].item[=].answerOption[0].valueCoding.display = "is immunocompromised[1] and not expected to reliably mount an adequate immune response to COVID-19 vaccination or SARS-CoV-2 infection, regardless of vaccination status"
-* item[=].item[=].answerOption[+].valueCoding.display = "has Down syndrome"
-* item[=].item[=].answerOption[+].valueCoding.display = "has sickle cell disease"
-* item[=].item[=].answerOption[+].valueCoding.display = "has had a previous admission to critical or high dependency care as a result of COVID-19"
-* item[=].item[=].answerOption[+].valueCoding.display = "is 65 years old or older"
-* item[=].item[=].answerOption[+].valueCoding.display = "is 50 years old or older and is of Māori or Pacific ethnicity"
-* item[=].item[=].answerOption[+].valueCoding.display = "is 50 years old or older and has not completed a primary course of vaccination [2]"
-* item[=].item[=].answerOption[+].valueCoding.display = "has 3 or more high-risk conditions, as defined by the Ministry of Health [3]"
-* item[=].item[=].answerOption[+].valueCoding.display = "none of the above"
 
-// v0.1.8 added guidance for 3 of the options
+// v0.1.8 add footnote guidance about some of the options
 * item[=].item[=].item.text = """
   [1]For definition of Ministry of Health criteria of ‘severe immunocompromise’ for third primary dose see: https://www.health.govt.nz/covid-19-novel-coronavirus/covid-19-vaccines/covid-19-vaccine-severely-immunocompromised-people#criteria
   [2]A primary dose for most people is 2 vaccinations
@@ -144,13 +133,13 @@ Usage: #definition
 * item[=].text = "Assessment: No - the patient IS NOT eligible for COVID-19 Antivirals"
 * item[=].enableWhen[0].question = "SymptomsStart"
 * item[=].enableWhen[=].operator = #=
-* item[=].enableWhen[=].answerCoding.display = "More than 5 days ago if assessing for nirmaltrelvir with ritonavir; and molnupiravir, OR more than 7 days ago if assessing for remdesivir"
+* item[=].enableWhen[=].answerCoding.code = $antiviral-eligiblity-whenstarted#not-recent          // v0.2.0
 * item[=].enableWhen[+].question = "criteria"
 * item[=].enableWhen[=].operator = #=
-* item[=].enableWhen[=].answerCoding.display = "none of the above"
+* item[=].enableWhen[=].answerCoding.code = $antiviral-eligiblity-situations#none-of-the-above    // v0.2.0
 * item[=].enableWhen[+].question = "supoxygen"
 * item[=].enableWhen[=].operator = #=
-* item[=].enableWhen[=].answerCoding.display = "Yes"
+* item[=].enableWhen[=].answerBoolean = true
 * item[=].enableBehavior = #any
 * item[=].answerOption.valueCoding.display = "confirm"
 
@@ -160,13 +149,13 @@ Usage: #definition
 * item[=].text = "Assessment: Yes - the patient IS eligible for COVID-19 Antivirals"
 * item[=].enableWhen[0].question = "SymptomsStart"
 * item[=].enableWhen[=].operator = #!=
-* item[=].enableWhen[=].answerCoding.display = "More than 5 days ago if assessing for nirmaltrelvir with ritonavir; and molnupiravir, OR more than 7 days ago if assessing for remdesivir"
+* item[=].enableWhen[=].answerCoding.code = $antiviral-eligiblity-whenstarted#not-recent          // v0.2.0
 * item[=].enableWhen[+].question = "criteria"
 * item[=].enableWhen[=].operator = #!=
-* item[=].enableWhen[=].answerCoding.display = "none of the above"
+* item[=].enableWhen[=].answerCoding.code = $antiviral-eligiblity-situations#none-of-the-above    // v0.2.0 
 * item[=].enableWhen[+].question = "supoxygen"
 * item[=].enableWhen[=].operator = #!=
-* item[=].enableWhen[=].answerCoding.display = "Yes"
+* item[=].enableWhen[=].answerBoolean = true
 * item[=].enableBehavior = #all
 * item[=].answerOption.valueCoding.display = "confirm"
 
