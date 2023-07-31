@@ -1,13 +1,17 @@
 # Changelog
 
-# v0.1.9 (2023-07-27)
+## v0.2.0 (2023-08-01)
+- Updated **AntiViralEligibility** Questionnaire to align with CCCM per ticket CFFF-889 and also codify two of the criteria
+- See the [v0.2.0 release note](/releaseNotes/v0.2.0.md) for detail on breaking changes to QuestionnaireResponses from this Questionnaire update
+
+## v0.1.9 (2023-07-27)
 
 - Removed ManaakiNgaTahi `Questionnaire` and `QuestionnaireResponse` profiles as these are not required. A `QuestionnaireResponse` is defined by it's parent `Questionnaire` therefore the profile is not required.
 - Removed unused Questionnaire for MeasureMents consent
 - Updated examples and CapbilityStatement to reflect the above.
 
 
-# v0.1.8 (2023-07-26) Updates to Antiviral Eligibility Questionnaire
+## v0.1.8 (2023-07-26) Updates to Antiviral Eligibility Questionnaire
 
 **AntiViralEligibiltyQuestionnaire**
 - Updated Questionnaire items as per business requirements CFFF-889 and tested form in SDC viewer
@@ -17,7 +21,7 @@
 - Adjusted profile of *ManaakiNgaTahiQuestionnaire* to restore Coding elements required by this questionnaire (which had been excluded)
 - Set start date on period of original (#temp) identifier
 
-# v0.1.7 (2023-07-25) More Questionnaire improvements
+## v0.1.7 (2023-07-25) More Questionnaire improvements
 **New definitional resources**
 1. Created new **Questionnaire** definition resource *COVIDPrivacyStatementQuestionTemplate* based on de facto seed resource in use.
 2. Created new **Questionnaire** definition resource *PrivacyStatementMeasurementCollectionTemplate* based on de facto seed resource in use.
@@ -29,7 +33,7 @@
 - Added an example QuestionnaireResponse to demonstrate a completed *COVIDPrivacyStatementQuestionTemplate* questionnaire
 - Deleted an old example QuestionnaireResponse which was confusing
 
-# v0.1.6 (2023-07-25) More Questionnaire improvements
+## v0.1.6 (2023-07-25) More Questionnaire improvements
 **New definitional resources**
 1. Created new **PlanDefinition** definition resource *COVIDMVPCareplanTemplate* based on similar example resource.
 2. Created new **ActivityDefinition** definition resource *MeasurementProcedureRequestTemplate*, starting with current seed JSON payload in MeasurementProcedureActivityDefinition converted to fsh.
@@ -53,7 +57,7 @@ None.
 **minor**
 - Fixed IG publisher INFO warnings by adding Descriptions to QuestionnaireResponse examples
 
-# v0.1.5 (2023-07-19) COVID Questionnaire improvements
+## v0.1.5 (2023-07-19) COVID Questionnaire improvements
 
 - Revised, and made consistent, canonical identifiers for three COVID-related Questionnaires
   - `COVIDInitialHealthAssessmentQuestionnaire` [was QuestionTemplate-CitC-COVID19-InitialAssessment]
@@ -73,7 +77,7 @@ None.
       Questionnaire at URL:
   https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-PublicHealthHistory
 
-# v0.1.4 (2023-05-01)
+## v0.1.4 (2023-05-01)
 
 - Fixed a number of errors with the build
 - Added `Observation.note` to the Observation resource
