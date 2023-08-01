@@ -8,7 +8,10 @@ Usage: #example
 
 * questionnaire = Canonical(AntiViralEligibilityQuestionnaire)
 * status = #completed
-* subject = Reference(CareyCarrington) "Carey Carrington"
+* subject.identifier.use = #official
+* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
+* subject.identifier.value = "ZXP7823"
+* subject.display = "Carey Carrington"
 * subject.type = "Patient"
 
 * authored = "2023-07-26T06:15:06.063Z"

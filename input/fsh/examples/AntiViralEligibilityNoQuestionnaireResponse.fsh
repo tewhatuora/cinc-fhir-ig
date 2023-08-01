@@ -11,8 +11,6 @@ Usage: #example
 * subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"
 
-* authored = "2023-07-26T06:15:06.063Z"
-
 * author.type = "Practitioner"
 * author.identifier.use = #official
 * author.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"

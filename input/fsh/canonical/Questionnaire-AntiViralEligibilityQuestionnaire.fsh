@@ -16,7 +16,7 @@ Usage: #definition
 * identifier[=].period.start = "2023-03-07"
 * identifier[=].period.end = "2023-07-26"
 
-* date = "2023-07-31"
+* date = "2023-01-08"
 * status = #draft
 * experimental = false
 
@@ -90,17 +90,14 @@ Usage: #definition
 * item[=].item[0].text = "1. Symptoms started:"
 * item[=].item[=].linkId = "SymptomsStart"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySymptomsStartedValueSet)  // v0.2.0 choice options coded in local ValueSet
+* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySymptomsStartedValueSet)  // v0.2.0 three options moved into local codesystem/valueset
 * item[=].item[=].required = true
+
 //* item[=].item[=].enableWhen.question = "COVID19-Positive"  -- v0.1.8 removed conditional
 //* item[=].item[=].enableWhen.operator = #=                  -- v0.1.8 removed conditional
 //* item[=].item[=].enableWhen.answerCoding.display = "Yes"   -- v0.1.8 removed conditional
 //* item[=].item[=].enableBehavior = #all                     -- v0.1.8 removed conditional
 
-// v0.2.0 three options now coded with local codes
-// * item[=].item[=].answerOption[0].valueCoding = #within-five-days "Within the last 5 days (if considering nirmatrelvir with ritonavir or molnupiravir)"
-// * item[=].item[=].answerOption[+].valueCoding = #within-seven-days "Within the last 7 days (if considering remdesivir)"
-// * item[=].item[=].answerOption[+].valueCoding = #not-recent "More than 5 days ago if assessing for nirmaltrelvir with ritonavir; and molnupiravir, OR more than 7 days ago if assessing for remdesivir"
 
 // v0.1.8 item 2 now nested in the group
 * item[=].item[+].text = "2. My patient requires supplemental oxygen"
@@ -114,20 +111,9 @@ Usage: #definition
 * item[=].item[+].text = "3. My patient's condition or circumstance (choose one):"   // v0.1.8
 * item[=].item[=].linkId = "criteria"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySituationValueSet)  // v0.2.0 choice options coded in local codesystem
+* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySituationValueSet)  // v0.2.0 choice options moved into local codesystem
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
-
-// v0.2.0 choice options coded in local codesystem
-// * item[=].item[=].answerOption[0].valueCoding = #immunocompromised "is immunocompromised[1] and not expected to reliably mount an adequate immune response to COVID-19 vaccination or SARS-CoV-2 infection, regardless of vaccination status"
-// * item[=].item[=].answerOption[+].valueCoding = #down-syndrome "has Down syndrome"
-// * item[=].item[=].answerOption[+].valueCoding = #sickle-cell "has sickle cell disease"
-// * item[=].item[=].answerOption[+].valueCoding = #covid-prior-admission "has had a previous admission to critical or high dependency care as a result of COVID-19"
-// * item[=].item[=].answerOption[+].valueCoding = #sixty-five-plus "is 65 years old or older"
-// * item[=].item[=].answerOption[+].valueCoding = #fifty-plus-ethnicity "is 50 years old or older and is of Māori or Pacific ethnicity"
-// * item[=].item[=].answerOption[+].valueCoding = #fifty-plus-no-vax "is 50 years old or older and has not completed a primary course of vaccination [2]"
-// * item[=].item[=].answerOption[+].valueCoding = #multi-conditions "has 3 or more high-risk conditions, as defined by the Ministry of Health [3]"
-// * item[=].item[=].answerOption[+].valueCoding = #none-of-the-above "none of the above"
 
 // v0.1.8 add footnote guidance about some of the options
 * item[=].item[=].item.text = """
