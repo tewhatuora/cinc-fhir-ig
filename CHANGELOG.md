@@ -6,6 +6,8 @@
 - The *version* element (business version) has been removed from all canonical definitions: it is not of any practical use at present because the IG publisher overwrites it with the IG version on publishing.
 - *COVIDMVPCarePlanTemplate* PlanDefinition instance: capitalisation made consistent between instance name, official URL, name and official identifier.
 - Deleted unused local ValueSet / CodeSet containing old CINC template identifiers.
+- Deleted prototype rheumatic fever profiles / examples not needed at this point.
+
 ## v0.2.0 (2023-08-01)
 - Updated **AntiViralEligibility** Questionnaire to align with CCCM per ticket CFFF-889 and also codify two of the criteria
 - See the [v0.2.0 release note](/releaseNotes/v0.2.0.md) for detail on breaking changes to QuestionnaireResponses from this Questionnaire update
