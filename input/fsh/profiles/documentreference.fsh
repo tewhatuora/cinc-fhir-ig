@@ -1,0 +1,21 @@
+Profile: ManaakiNgaTahiDocumentReference
+Parent: DocumentReference
+Description: "DocumentReference FHIR resource for Manaaki Nga Tahi"
+* ^version = "0.1.3"
+// elements modified
+* context.encounter only Reference(Encounter)
+* author only Reference(Practitioner)
+// * period 0..1
+// * period obeys fhir-hnz-period-utc-1
+* subject only Reference(Patient)
+// elements prohibited
+* implicitRules 0..0
+* language 0..0
+* masterIdentifier 0..0
+* identifier 0..0
+* category 0..0
+* authenticator 0..0
+* custodian 0..0
+* relatesTo 0..0
+* description 0..0
+* securityLabel 0..0
