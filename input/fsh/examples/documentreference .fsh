@@ -6,9 +6,9 @@ Description: "An example ManaakiNgaTahi DocumentReference"
 * status = #current
 * docStatus = #preliminary
 
-* type.coding.system = "http://loinc.org"
-* type.coding.code = #34748-4
-* type.coding.display = "Telephone encounter Note"
+* type.coding.system = "http://snomed.info/sct"
+* type.coding.code = #866144008
+* type.coding.display = "Encounter note"
 
 * subject.type = "Patient"
 * subject.identifier.use = #official
@@ -26,17 +26,17 @@ Description: "An example ManaakiNgaTahi DocumentReference"
 
 * description = "A note generated during an Encounter"
 
-* content.attachment.contentType = #markdown
+* content.attachment.contentType = #text/arkdown
 * content.attachment.language = #en-nz
-* content.attachment.data = "Thisisaencounternote"
-* content.attachment.size = 3654
-* content.attachment.hash = "2jmj7l5rSw0yVb/vlWAYkK/YBwk\u003d"
-* content.attachment.title = "Physical"
-* content.attachment.creation = "2005-12-24T09:35:00+11:00"
+* content.attachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+//* content.attachment.size = 3654
+//* content.attachment.hash = "2jmj7l5rSw0yVb/vlWAYkK/YBwk\u003d"
+* content.attachment.title = "Telephone Encounter Notes"
+* content.attachment.creation = "2023-08-01T09:35:00+11:00"
 
-* context.encounter.reference = "encounterid"
-* context.period.start = "2022-09-20"
-* context.period.end = "2022-09-27"
+* context.encounter = Reference(EncounterExample)
+//* context.period.start = "2023-08-01"
+//* context.period.end = "2022-09-27"
 
 
 * meta.versionId = "1"
