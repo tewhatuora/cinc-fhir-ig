@@ -10,10 +10,7 @@ Description: "DocumentReference FHIR resource for Manaaki Nga Tahi"
 * subject only Reference(Patient)
 // elements prohibited
 * implicitRules 0..0
-* language 0..0
 * masterIdentifier 0..0
-* identifier 0..0
-* category 0..0
 * authenticator 0..0
 * custodian 0..0
 * securityLabel 0..0

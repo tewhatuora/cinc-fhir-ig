@@ -26,9 +26,9 @@ Description: "An example ManaakiNgaTahi DocumentReference"
 
 * description = "A note generated during an Encounter"
 
-* content.attachment.contentType = #application/hl7-v3+xml
+* content.attachment.contentType = #markdown
 * content.attachment.language = #en-nz
-* content.attachment.url = "exampleurl.com"
+* content.attachment.data = "Thisisaencounternote"
 * content.attachment.size = 3654
 * content.attachment.hash = "2jmj7l5rSw0yVb/vlWAYkK/YBwk\u003d"
 * content.attachment.title = "Physical"
