@@ -34,10 +34,6 @@ Description: "An example ManaakiNgaTahi DocumentReference"
 * content.attachment.title = "Physical"
 * content.attachment.creation = "2005-12-24T09:35:00+11:00"
 
-* content.format.system = "urn:oid:1.3.6.1.4.1.19376.1.2.3"
-* content.format.code = #urn:ihe:pcc:handp:2008
-* content.format.display = "History and Physical Specification"
-
 * context.encounter.reference = "encounterid"
 * context.period.start = "2022-09-20"
 * context.period.end = "2022-09-27"
