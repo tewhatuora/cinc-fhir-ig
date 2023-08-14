@@ -14,3 +14,4 @@ Description:  "Defines identifiers of PlanDefinition, ActivityDefinition and Que
 * #Questionnaire #QuestionTemplate-CitC-COVID19-MeasurementCollection "Patient consent questionnaire for HNZ to collect personal health information (Information Collection and Disclosure)"
 * #Questionnaire #QuestionTemplate-CitC-COVID19-InitialAssessment "Questionnaire for COVID-19 initial health assessment"
 * #Questionnaire #QuestionTemplate-CitC-COVID19-RegularHealthCheck "Questionnaire for COVID-19 regular health check"
+* #Questionnaire #COVIDVaccinationSurveyQuestionnaire "Questionnaire for POST COVID-19 vaccine adverse reactions"

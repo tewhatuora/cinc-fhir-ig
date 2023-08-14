@@ -1,16 +1,16 @@
-Instance: QuestionnaireResponseExample
-InstanceOf: ManaakiNgaTahiQuestionnaireResponse
+Instance: ConsentQuestionnaireResponseExample
+InstanceOf: QuestionnaireResponse
 Usage: #example
 Description: "An example ManaakiNgaTahi QuestionnaireResponse"
-* questionnaire = Canonical(QuestionnaireExample)
+* questionnaire = Canonical(COVIDPrivacyStatementQuestionTemplate)
 * status = #completed
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
-* encounter = Reference(EncounterExample)
-* authored = "2022-09-20T02:26:04.565Z"
+* encounter = Reference(EncounterExample)   // reference fixed to profiled type instead of specific instance 
+* authored = "2022-08-29T20:39:27.360Z"
 * author.type = "Practitioner"
 * author.identifier.use = #official
 * author.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
@@ -24,5 +24,3 @@ Description: "An example ManaakiNgaTahi QuestionnaireResponse"
 * item.linkId = "1"
 * item.text = "Please assure that person that all information discussed is strictly confidential and will only be used to support them while they are isolating.  It will only be shared and visible to other health professionals when and if required."
 * item.answer.valueBoolean = true
-* meta.versionId = "1"
-* meta.lastUpdated = "2022-09-20T02:26:05.646Z"

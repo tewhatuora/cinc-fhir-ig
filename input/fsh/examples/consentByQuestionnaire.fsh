@@ -17,7 +17,7 @@ Description: "An example ManaakiNgaTahi Consent by policy"
 * policy[=].uri = "https://www.privacy.org.nz/privacy-act-2020/"
 * policy[+].authority = "https://www.privacy.org.nz"
 * policy[=].uri = "https://www.privacy.org.nz/privacy-act-2020/codes-of-practice/hipc2020/"
-* sourceReference = Reference(QuestionnaireResponseExample)
+* sourceReference = Reference(ConsentQuestionnaireResponseExample) // v0.1.7 now refers to purpose-built example
 * verification.verified = true
 * verification.verifiedWith.type = "Patient"
 * verification.verifiedWith.identifier.use = #official
@@ -30,7 +30,4 @@ Description: "An example ManaakiNgaTahi Consent by policy"
 * provision.data[=].reference = Reference(ConditionExample)
 * provision.data[+].meaning = #instance
 * provision.data[=].reference = Reference(EncounterExample)
-* provision.data[+].meaning = #instance
-* provision.data[=].reference = Reference(QuestionnaireResponseExample)
-* meta.versionId = "1"
-* meta.lastUpdated = "2022-09-20T02:30:37.161Z"
+// v0.1.7 removed third data reference to generic exampleQR now deleted

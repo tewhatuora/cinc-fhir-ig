@@ -1,5 +1,6 @@
 Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
 Alias: $sct = http://snomed.info/sct
+
 Instance: COVIDInitialHealthAssessmentQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
@@ -13,9 +14,13 @@ Usage: #definition
 * identifier[=].period.end = "2023-07-19"
 
 * version = "0.1.5"
+* date = "2023-07-19"
+* status = #draft
+* experimental = false
+
 * name = "COVIDInitialHealthAssessmentQuestionnaire"
 * title = "COVID19 Initial Health Assessment Questionnaire"
-* status = #draft
+
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
 * description = "An initial assessment for a patient who has tested positive for COVID-19"
@@ -24,7 +29,6 @@ Usage: #definition
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
 * jurisdiction.text = "New Zealand"
 * purpose = "Gather status and conditions for a patient who is self-isolating."
-* code = $sct#292508471000119105 "History of disease caused by severe acute respiratory syndrome coronavirus 2 (situation)"
 
 * item[0].linkId = "1"
 * item[=].prefix = "1."
