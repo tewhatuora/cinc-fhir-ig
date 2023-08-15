@@ -4,7 +4,7 @@ Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-cont
 
 Instance: ActiveMonitoringDay7Survey
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * meta.tag.code = #"lformsVersion: 33.3.2"
 * meta.profile = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
 * version = "0.1.6"

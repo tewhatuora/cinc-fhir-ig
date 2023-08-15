@@ -1,12 +1,22 @@
 Alias: $sct = http://snomed.info/sct
 
-Instance: undefined
+Instance: ActiveMonitoring42DayQuestionnaireRespose
 InstanceOf: QuestionnaireResponse
+Description: "Example payload demonstrating data collected in a Active Monitoring 42 Day Questionnaire Respose."
 Usage: #example
-* meta.profile = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
-* meta.tag.code = #"lformsVersion: 33.3.2"
 * status = #completed
-* authored = "2023-08-15T21:50:43.121Z"
+* authored = "2023-05-15T01:58:00.504Z"
+* questionnaire = Canonical(ActiveMonitoringDay42Survey)
+* subject.type = "Patient"
+* subject.identifier.use = #official
+* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
+* subject.identifier.value = "ZXP7823"
+* subject.display = "Carey Carrington"
+* author.type = "Practitioner"
+* author.identifier.use = #official
+* author.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
+* author.identifier.value = "99ZZFX"
+* author.display = "Dottie McStuffins"
 * item[0].linkId = "4230730008382"
 * item[=].text = "Did you receive a dose of the COVID-19  bivalent or flu vaccine about six weeks ago?"
 * item[=].answer.valueCoding.display = "Yes, both"

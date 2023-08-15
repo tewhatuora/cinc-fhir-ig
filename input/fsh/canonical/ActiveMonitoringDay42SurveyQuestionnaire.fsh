@@ -3,7 +3,7 @@ Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context
 
 Instance: ActiveMonitoringDay42Survey
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay42Survey"
 
