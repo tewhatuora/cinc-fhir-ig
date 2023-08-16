@@ -1,9 +1,6 @@
-Alias: $antiviral-eligiblity-whenstarted = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-whenstarted-codes
-Alias: $antiviral-eligiblity-situations = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-situation-codes
-
-Instance: AntiViralEligibilityNoQuestionnaireResponse
+Instance: AntiviralEligibilityNoQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
-Description: "Demonstrating payload for a pharmacy eligibility review where patient IS NOT eligible"
+Description: "Demonstrates payload for a pharmacy review where patient IS NOT eligible for antivirals"
 Usage: #example
 
 * questionnaire = Canonical(AntiViralEligibilityQuestionnaire)
@@ -35,7 +32,7 @@ Usage: #example
 
 * item[=].item[0].linkId = "SymptomsStart"
 * item[=].item[=].text = "1. Symptoms started:"
-* item[=].item[=].answer.valueCoding = $antiviral-eligiblity-whenstarted#not-recent
+* item[=].item[=].answer.valueCoding = $AVE-whenstarted#not-recent
 
 * item[=].item[+].linkId = "supoxygen"
 * item[=].item[=].text = "2. My patient requires supplemental oxygen"
@@ -43,7 +40,7 @@ Usage: #example
 
 * item[=].item[+].linkId = "criteria"
 * item[=].item[=].text = "3. My patient's condition or circumstance (choose one):"
-* item[=].item[=].answer.valueCoding = $antiviral-eligiblity-situations#none-of-the-above
+* item[=].item[=].answer.valueCoding =  $AVE-whenstarted#none-of-the-above
 
 * item[+].linkId = "eligible-no"
 * item[=].text = "Assessment: No - the patient IS NOT eligible for COVID-19 Antivirals"

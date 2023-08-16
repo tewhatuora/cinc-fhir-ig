@@ -1,6 +1,15 @@
 # Changelog
+## v0.2.2 (2023-08-16)
+**AntiViralEligibiltyQuestionnaire**
+- Questionnaire now uses NZ published terminology for eligibility criteria questions 1 and 3
+    - Permitted answers for these questions are now defined in answerValueSets instead of local codes in no CodeSystem
+    - enableWhen logic comparator operands now use codes instead of valueStrings
+    - valueSet references utilise a StructureDataCapture extension for specifiying the preferred terminology server.  This lets FHIR clients such as the NLM Form Builder obtain codes correctly using ValueSet `$expand` operation.
+- Fixed casing of 'antiviral' in #official identifier to AntiviralEligibilityQuestionnaire
+- Revised the two sample Yes|No QuestionnaireResponses to correctly use published CodeSystem codes
+- Added SDC to IG dependencies to resolve 'terminology not known and not valid here' publisher errors
+- Remove ValueSets / CodeSystems from IG which are now published on NZ Health Terminology Service
 ## v0.2.1 (2023-08-01)
-
 **General updates**
 - *CareyCarrington* has been defined as an example Patient instance and is now Reference()'d by other examples instead of duplicating. 
 - The *version* element (business version) has been removed from all canonical definitions: it is not of any practical use at present because the IG publisher overwrites it with the IG version on publishing.
