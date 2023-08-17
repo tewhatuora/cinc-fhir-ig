@@ -13,11 +13,10 @@ Description: "An example ManaakiNgaTahi Condition"
 * severity.text = "Moderate"
 * code = http://snomed.info/sct#840539006 "COVID-19"
 * code.text = "COVID-19"
+
+* subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
-* subject.display = "Carey Carrington"
+
 * onsetDateTime = "2022-09-20"
 * recordedDate = "2022-09-20"
 * recorder.type = "Practitioner"

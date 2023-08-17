@@ -3,21 +3,21 @@ InstanceOf: ManaakiNgaTahiCarePlan
 Usage: #example
 Description: "An example ManaakiNgaTahi Care Plan"
 * contained = goal0
-* instantiatesCanonical = "https://fhir.api.digital.health.nz/R4/PlanDefinition/ec8fe3ad-fd16-4719-bfda-68daa7a4bbd0"
+* instantiatesCanonical = Canonical(COVIDMVPCarePlanTemplate)
 * status = #draft
 * intent = #plan
 * title = "COVID-19 Omicron Response - Carey Carrington"
+
+* subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
+
 * encounter = Reference(EncounterExample)
 * created = "2022-12-14"
 * author.identifier.use = #official
 * author.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * author.identifier.value = "99ZZFX"
 * goal = Reference(goal0)
-* activity.detail.instantiatesCanonical = "https://fhir.api.digital.health.nz/R4/Questionnaire/08c09670-25ad-4d77-83f2-3f958d1237c5"
+* activity.detail.instantiatesCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire)
 * activity.detail.status = #not-started
 
 Instance: goal0

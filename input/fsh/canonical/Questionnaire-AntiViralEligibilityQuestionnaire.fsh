@@ -1,27 +1,22 @@
-Alias: $antiviral-eligiblity-whenstarted = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-whenstarted-codes
-Alias: $antiviral-eligiblity-situations = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/nz-covid19-antiviraleligiblity-situation-codes
-Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
-Alias: $sct = http://snomed.info/sct
-
 Instance: AntiViralEligibilityQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire"
 
 * identifier[0].use = #official
-* identifier[=].value = "AntiViralEligibilityQuestionnaire"
-* identifier[=].period.start = "2023-07-19"
+* identifier[=].value = "AntiviralEligibilityQuestionnaire"
+* identifier[=].period.start = "2023-08-16"
 * identifier[+].use = #temp
 * identifier[=].value = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * identifier[=].period.start = "2023-03-07"
 * identifier[=].period.end = "2023-07-26"
 
-* date = "2023-01-08"
+* date = "2023-08-16"
 * status = #draft
 * experimental = false
 
 * name = "AntiViralEligibilityQuestionnaire"
-* title = "Anti viral medication eligibility questionnaire"
+* title = "Antiviral medication eligibility questionnaire"
 
 * purpose = "Assess a patient's eligibility against criteria for anti-viral medication"
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
@@ -85,12 +80,12 @@ Usage: #definition
 * item[=].linkId = "criteria-panel"
 * item[=].text = "Does the patient meet the current Pharmac criteria for COVID-19 Antivitals?"
 
-// v0.1.8 item 1 now nested in the group
-// v0.2.0 three options now coded in local codesystem
 * item[=].item[0].text = "1. Symptoms started:"
 * item[=].item[=].linkId = "SymptomsStart"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySymptomsStartedValueSet)  // v0.2.0 three options moved into local codesystem/valueset
+* item[=].item[=].answerValueSet = "https://nzhts.digital.health.nz/fhir/ValueSet/antiviral-eligibility-symptoms-started"
+* item[=].item[=].extension.url = $termServerExtension
+* item[=].item[=].extension.valueUrl = $preferredTermServer
 * item[=].item[=].required = true
 
 //* item[=].item[=].enableWhen.question = "COVID19-Positive"  -- v0.1.8 removed conditional
@@ -98,8 +93,6 @@ Usage: #definition
 //* item[=].item[=].enableWhen.answerCoding.display = "Yes"   -- v0.1.8 removed conditional
 //* item[=].item[=].enableBehavior = #all                     -- v0.1.8 removed conditional
 
-
-// v0.1.8 item 2 now nested in the group
 * item[=].item[+].text = "2. My patient requires supplemental oxygen"
 * item[=].item[=].linkId = "supoxygen"
 * item[=].item[=].type = #boolean
@@ -107,11 +100,12 @@ Usage: #definition
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = false
 
-// v0.1.8 item 3 now nested in the group
 * item[=].item[+].text = "3. My patient's condition or circumstance (choose one):"   // v0.1.8
 * item[=].item[=].linkId = "criteria"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = Canonical(AntiViralEligiblitySituationValueSet)  // v0.2.0 choice options moved into local codesystem
+* item[=].item[=].answerValueSet = "https://nzhts.digital.health.nz/fhir/ValueSet/COVID19-antiviral-eligibility-criteria"
+* item[=].item[=].extension.url = $termServerExtension
+* item[=].item[=].extension.valueUrl = $preferredTermServer
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
 
@@ -133,13 +127,15 @@ Usage: #definition
 * item[=].text = "Assessment: No - the patient IS NOT eligible for COVID-19 Antivirals"
 * item[=].enableWhen[0].question = "SymptomsStart"
 * item[=].enableWhen[=].operator = #=
-* item[=].enableWhen[=].answerCoding.code = $antiviral-eligiblity-whenstarted#not-recent          // v0.2.0
-* item[=].enableWhen[+].question = "criteria"
-* item[=].enableWhen[=].operator = #=
-* item[=].enableWhen[=].answerCoding.code = $antiviral-eligiblity-situations#none-of-the-above    // v0.2.0
+* item[=].enableWhen[=].answerCoding.system = $AVE-whenstarted
+* item[=].enableWhen[=].answerCoding.code = #not-recent
 * item[=].enableWhen[+].question = "supoxygen"
 * item[=].enableWhen[=].operator = #=
 * item[=].enableWhen[=].answerBoolean = true
+* item[=].enableWhen[+].question = "criteria"
+* item[=].enableWhen[=].operator = #=
+* item[=].enableWhen[=].answerCoding.system = $AVE-criteria    // v0.2.2
+* item[=].enableWhen[=].answerCoding.code = #none-of-the-above    // v0.2.2
 * item[=].enableBehavior = #any
 * item[=].answerOption.valueCoding.display = "confirm"
 
@@ -149,13 +145,15 @@ Usage: #definition
 * item[=].text = "Assessment: Yes - the patient IS eligible for COVID-19 Antivirals"
 * item[=].enableWhen[0].question = "SymptomsStart"
 * item[=].enableWhen[=].operator = #!=
-* item[=].enableWhen[=].answerCoding.code = $antiviral-eligiblity-whenstarted#not-recent          // v0.2.0
-* item[=].enableWhen[+].question = "criteria"
-* item[=].enableWhen[=].operator = #!=
-* item[=].enableWhen[=].answerCoding.code = $antiviral-eligiblity-situations#none-of-the-above    // v0.2.0 
+* item[=].enableWhen[=].answerCoding.system = $AVE-whenstarted    // v0.2.2
+* item[=].enableWhen[=].answerCoding.code = #not-recent
 * item[=].enableWhen[+].question = "supoxygen"
 * item[=].enableWhen[=].operator = #!=
 * item[=].enableWhen[=].answerBoolean = true
+* item[=].enableWhen[+].question = "criteria"
+* item[=].enableWhen[=].operator = #!=
+* item[=].enableWhen[=].answerCoding.system = $AVE-criteria    // v0.2.2
+* item[=].enableWhen[=].answerCoding.code = #none-of-the-above    // v0.2.2
 * item[=].enableBehavior = #all
 * item[=].answerOption.valueCoding.display = "confirm"
 

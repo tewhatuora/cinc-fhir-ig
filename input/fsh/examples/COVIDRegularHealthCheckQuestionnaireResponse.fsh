@@ -5,11 +5,10 @@ Usage: #example
 * questionnaire = Canonical(COVIDRegularHealthCheckQuestionnaire)
 * basedOn = Reference(CarePlanExample)
 * status = #completed
+
+* subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
-* subject.display = "Carey Carrington"
+
 * authored = "2022-08-29"
 * author.type = "Practitioner"
 * author.identifier.use = #official

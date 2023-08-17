@@ -8,7 +8,6 @@ Description: "PlanDefinition template which creates Manaaki Nga Tahi (Care in th
 * identifier.use 1..1
 * identifier.use = http://hl7.org/fhir/identifier-use#usual
 * identifier.value 1..1
-* identifier.value from PlanDefinitionTemplatesVS (preferred)
 * status 1..1
 * subject[x] only CodeableConcept
 * subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient
