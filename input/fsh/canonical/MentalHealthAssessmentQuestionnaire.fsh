@@ -1,8 +1,8 @@
 Alias: $sct = http://snomed.info/sct
 
-Instance: undefined
+Instance: MentalHealthAssessmentSurveyQuestionnaire
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * item[0].item[0].type = #text
 * item[=].item[=].linkId = "p01-q01-IssueDescription"
 * item[=].item[=].prefix = "page 1 question 1"
@@ -42,7 +42,7 @@ Usage: #example
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "8567918990548"
+* item[=].item[=].linkId = "p01-q06-SuicideAttemptHistory"
 * item[=].item[=].code = $sct#23233009 "Previous known suicide attempt"
 * item[=].item[=].prefix = "page 1 question 6"
 * item[=].item[=].text = "Have there been any previous suicide attempts?"
@@ -113,13 +113,13 @@ Usage: #example
 * item[=].prefix = "page 1"
 * item[=].text = "History and Examination"
 * item[+].item[0].type = #boolean
-* item[=].item[=].linkId = "p02-q01"
+* item[=].item[=].linkId = "p02-q01-SuicidalIntent"
 * item[=].item[=].code = $sct#304594002 "Suicidal intent"
 * item[=].item[=].prefix = "page 2 question 1"
 * item[=].item[=].text = "Suicidal Intent?"
 * item[=].item[=].required = true
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "p02-q02"
+* item[=].item[=].linkId = "p02-q02-HarmfulThoughts"
 * item[=].item[=].code = $sct#285261008 "Dangerous and harmful thoughts"
 * item[=].item[=].prefix = "page 2 question 2"
 * item[=].item[=].text = "Threat to others?"
