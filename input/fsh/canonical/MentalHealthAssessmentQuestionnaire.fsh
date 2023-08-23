@@ -130,37 +130,37 @@ Usage: #definition
 * item[=].prefix = "page 2"
 * item[=].text = "Risk Assessment"
 * item[+].item.item[0].type = #text
-* item[=].item.item[=].linkId = "p03-g01-q01"
+* item[=].item.item[=].linkId = "p03-g01-q01-AddDiagnosis.Diagnosis"
 * item[=].item.item[=].code = $sct#404684003 "Clinical finding"
 * item[=].item.item[=].prefix = "page 3 group 1 question 1"
 * item[=].item.item[=].text = "Diagnosis"
 * item[=].item.item[=].required = true
 * item[=].item.item[=].repeats = false
 * item[=].item.item[+].type = #date
-* item[=].item.item[=].linkId = "p03-g01-q02"
+* item[=].item.item[=].linkId = "p03-g01-q02-AddDiagnosis.Year"
 * item[=].item.item[=].prefix = "page 3 group 1 question 2"
 * item[=].item.item[=].text = "Year of Diagnosis"
 * item[=].item.item[=].required = true
 * item[=].item.item[=].repeats = false
 * item[=].item.item[+].type = #string
-* item[=].item.item[=].linkId = "p03-g01-q03"
+* item[=].item.item[=].linkId = "p03-g01-q03-AddDiagnosis.Place"
 * item[=].item.item[=].prefix = "page 3 group 1 question 3"
 * item[=].item.item[=].text = "Place of Diagnosis"
 * item[=].item.item[=].required = true
 * item[=].item.item[=].repeats = false
 * item[=].item.item[+].type = #boolean
-* item[=].item.item[=].linkId = "p03-g01-q04"
+* item[=].item.item[=].linkId = "p03-g01-q04-AddDiagnosis.Hospitalisation"
 * item[=].item.item[=].prefix = "page 3 group 1 question 4"
 * item[=].item.item[=].text = "Hospitalisation?"
 * item[=].item.item[=].required = true
 * item[=].item.item[=].repeats = false
 * item[=].item.item[+].type = #boolean
-* item[=].item.item[=].linkId = "p03-g01-q05"
+* item[=].item.item[=].linkId = "p03-g01-q05-AddDiagnosis.Active"
 * item[=].item.item[=].prefix = "page 3 group 1 question 5"
 * item[=].item.item[=].text = "Active?"
 * item[=].item.item[=].required = true
 * item[=].item.type = #group
-* item[=].item.linkId = "p03-g01"
+* item[=].item.linkId = "p03-g01-AddDiagnosis"
 * item[=].item.prefix = "page 3 group 1"
 * item[=].item.text = "Add Diagnosis"
 * item[=].item.required = false
@@ -170,20 +170,20 @@ Usage: #definition
 * item[=].prefix = "page 3"
 * item[=].text = "Current and past psychiatric diagnosis"
 * item[+].item[0].type = #boolean
-* item[=].item[=].linkId = "p04-q01"
+* item[=].item[=].linkId = "p04-q01-SendNote"
 * item[=].item[=].prefix = "page 4 question 1"
 * item[=].item[=].text = "Send note to GP Inbox?"
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
 * item[=].item[=].initial.valueBoolean = false
 * item[=].item[+].type = #string
-* item[=].item[=].linkId = "p04-q02"
+* item[=].item[=].linkId = "p04-q02-PracticeName"
 * item[=].item[=].prefix = "page 4 question 2"
 * item[=].item[=].text = "GP Practice Name"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 * item[=].item[+].type = #string
-* item[=].item[=].linkId = "p04-q03"
+* item[=].item[=].linkId = "p04-q03-PracticeEDI"
 * item[=].item[=].prefix = "page 4 question 3"
 * item[=].item[=].text = "Practice EDI"
 * item[=].item[=].required = false
