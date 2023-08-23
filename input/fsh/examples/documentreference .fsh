@@ -26,7 +26,7 @@ Description: "An example ManaakiNgaTahi DocumentReference"
 
 * description = "A note generated during an Encounter"
 
-* content.attachment.contentType = #text/arkdown
+* content.attachment.contentType = #text/markdown
 * content.attachment.language = #en-nz
 * content.attachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
 //* content.attachment.size = 3654
