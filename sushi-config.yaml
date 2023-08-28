@@ -6,8 +6,8 @@
 id: cinc.fhir.ig
 canonical: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
 name: CINC_FHIR_IG
-title: Care In The Community FHIR API
-description: Care In The Community FHIR API
+title: Care In The Community FHIR API - UPDATED
+description: Care In The Community FHIR API - UPDATED
 status: draft
 version: 0.2.2
 fhirVersion: 4.0.1
