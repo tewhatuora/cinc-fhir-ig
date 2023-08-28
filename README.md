@@ -21,7 +21,9 @@ sushi .
 
 When invoked, SUSHI converts the FSH content in `input/fsh` into FHIR artifacts, including an `ImplementationGuide` resource, which can be found in the `fsh-generated` folder.  These artifacts are inputs into the FHIR IG Publication in the next step.
 
-## FHIR IG Publication
+# FHIR IG Publication
+
+## FHIR IG Publisher tool
 
 The FHIR team provides an IG publishing tool that takes the implementation guide content and converts it into a set of published HTML files - for more information please refer to the [FHIR IG Publisher Documentation](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation).  Publishing an IG requires the following:
 
@@ -49,6 +51,26 @@ npm install markdown
 In addition to the IG Publisher, the FHIR team also provide a [FHIR IG Auto-Builder](https://github.com/FHIR/auto-ig-builder) that allows IGs in public GitHub repositories to be auto-published to the FHIR Continuous Integration build service at https://build.fhir.org.  The appropriate webhook configuration has been set up for this project's GitHub repository and the auto-published IG can be viewed at the following URL: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/
 
 Build logs are available here https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/branches/master/build.log
+
+## Publishing CINC FHIR draft IG updates from git branches
+
+Normally the master branch of this repo contains the CINC FHIR Implementation Guide which is the **production** API specification of HNZ's FHIR repository.
+
+While a project is doing major revisions to the master IG this is best done on a branch off master.  The branch can be published as a separate draft / experimental IG at the Url
+``https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/branches/feature/{{branch-name}}``
+
+This means the project can review or acceptance test the IG without the mainline production Implementation Guide being affected in anyway.
+
+### Setting up a webhook for automatic branch publishing
+Say a draft IG is on the branch **rheumatic-fever**
+Configure a webhook for automatic publication using the following command
+```bash
+curl -X POST  "https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger" \
+  -H "Content-type: application/json" \
+  --data '{"ref": "refs/heads/rheumatic-fever", "repository": {"full_name": "tewhatuora/cinc-fhir-ig"}}'
+```
+Note that branch names can only contain characters in the regex ```[A-Za-z0-9_-]```
+ 
 
 ## Simplifier.net IG Authoring/Publishing
 
