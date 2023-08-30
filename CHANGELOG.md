@@ -1,4 +1,10 @@
 # Changelog
+
+## v0.2.3 (2023-08-30)
+- Published 2 new questionnaires.
+  - Pregnancy Assessment Questionnaire
+  - Mental Health Questionnaire
+- Updated README with guidance on branch publishing steps.
 ## v0.2.2 (2023-08-16)
 **AntiViralEligibiltyQuestionnaire**
 - Questionnaire now uses NZ published terminology for eligibility criteria questions 1 and 3
