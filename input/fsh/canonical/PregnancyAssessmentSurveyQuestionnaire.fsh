@@ -61,7 +61,6 @@ Usage: #definition
 * item[=].item[=].item.extension.valueCodeableConcept.text = "Help-Button"
 * item[=].item[=].item.extension.valueCodeableConcept = $questionnaire-item-control#help "Help-Button"
 * item[=].item[+].type = #integer
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unit"
 * item[=].item[=].linkId = "p01-q03-Gravida"
 * item[=].item[=].code = $sct#161732006 "Gravida"
 * item[=].item[=].prefix = "page 1 question 3"
@@ -83,7 +82,7 @@ Usage: #definition
 * item[=].item[=].text = "Midwife Contact"
 * item[=].item[=].required = true
 * item[=].type = #group
-* item[=].linkId = "p01"
+* item[=].linkId = "p02"
 * item[=].prefix = "page 2"
 * item[=].text = "Midwife Information"
 * item[+].item[0].type = #text
@@ -108,7 +107,7 @@ Usage: #definition
 * item[=].item[=].linkId = "p04-q01-1-CurrentComplications.Details"
 * item[=].item[=].prefix = "page 4 question 1.1"
 * item[=].item[=].text = "Please explain your pregnancy complications"
-* item[=].item[=].enableWhen.question = "p04-q01-p04-q01-CurrentComplications"
+* item[=].item[=].enableWhen.question = "p04-q01-CurrentComplications"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #all
@@ -251,7 +250,7 @@ Usage: #definition
 * item[=].linkId = "p06"
 * item[=].prefix = "page 6"
 * item[=].text = "Post 23 Week Information"
-* item[=].enableWhen.question = "p01-q01-1"
+* item[=].enableWhen.question = "p01-q01-1-PregnancyStatus.Gestation"
 * item[=].enableWhen.operator = #>=
 * item[=].enableWhen.answerInteger = 23
 * item[=].enableBehavior = #all
@@ -276,6 +275,7 @@ Usage: #definition
 * title = "Pregnancy Assessment Survey"
 * status = #draft
 * description = "Te Whatu Ora pregnancy assessment survey."
+* name = "PregnancyAssessmentSurveyQuestionnaire"
 
 * identifier[0].use = #official
 * identifier[=].value = "PregnancyAssessmentSurveyQuestionnaire"

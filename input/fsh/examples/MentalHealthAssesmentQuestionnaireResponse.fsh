@@ -3,6 +3,7 @@ InstanceOf: QuestionnaireResponse
 Description: "Demonstrates responses collected for MentalHealthAssessmentSurveyQuestionnaire"
 Usage: #example
 * status = #completed
+* questionnaire = Canonical(MentalHealthAssessmentSurveyQuestionnaire)
 * authored = "2023-08-22T22:35:07.054Z"
 * item[0].linkId = "p01"
 * item[=].text = "History and Examination"

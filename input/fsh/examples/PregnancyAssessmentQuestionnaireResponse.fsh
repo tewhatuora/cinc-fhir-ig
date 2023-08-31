@@ -1,5 +1,6 @@
 Instance: PregnancyAssessmentSurveyQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "Demonstrates responses collected for Pregnancy Assessment Survey Questionnaire"
 Usage: #example
 * status = #completed
 * questionnaire = Canonical(PregnancyAssessmentSurveyQuestionnaire)
@@ -91,4 +92,4 @@ Usage: #example
 * item[=].answer.item[=].text = "Send note to GP Inbox?"
 * item[=].answer.item[=].answer.valueBoolean = true
 
-* description = "Demonstrates responses collected for Pregnancy Assessment Survey Questionnaire"
+ 

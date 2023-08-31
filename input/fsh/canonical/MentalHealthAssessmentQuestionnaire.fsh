@@ -195,8 +195,8 @@ Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MentalHealthAssessmentSurveyQuestionnaire"
 * title = "Mental Health Assessment Survey"
 * status = #draft
-* description = "Te Whatu Ora Mental health Assessment Survey"
-
+* description = "Te Whatu Ora Mental Health Assessment Survey"
+* name = "MentalHealthAssessmentSurveyQuestionnaire"
 
 * identifier[0].use = #official
 * identifier[=].value = "MentalHealthAssessmentSurveyQuestionnaire"
