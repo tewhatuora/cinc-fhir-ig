@@ -192,7 +192,16 @@ Usage: #definition
 * item[=].linkId = "p04"
 * item[=].prefix = "page 4"
 * item[=].text = "General Practice Information"
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay7Survey"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MentalHealthAssessmentSurveyQuestionnaire"
 * title = "Mental Health Assessment Survey"
 * status = #draft
-* description = "Te Whatu Ora Mental health Assessment Survey"
+* description = "Te Whatu Ora Mental Health Assessment Survey"
+* name = "MentalHealthAssessmentSurveyQuestionnaire"
+
+* identifier[0].use = #official
+* identifier[=].value = "MentalHealthAssessmentSurveyQuestionnaire"
+* identifier[=].period.start = "2023-08-16"
+* identifier[+].use = #temp
+* identifier[=].value = "Questionnaire-MentalHealthAssessmentSurveyQuestionnaire"
+* identifier[=].period.start = "2023-03-07"
+* identifier[=].period.end = "2023-07-26"
