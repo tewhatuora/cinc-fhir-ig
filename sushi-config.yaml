@@ -96,6 +96,7 @@ menu:
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
     OpenAPI Specification: CareInTheCommunityCapabilityStatement.openapi.json
+    Version History: history.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
