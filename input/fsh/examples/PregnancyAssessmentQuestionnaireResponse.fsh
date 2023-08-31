@@ -90,3 +90,5 @@ Usage: #example
 * item[=].answer.item[+].linkId = "p07-q03-GPSend"
 * item[=].answer.item[=].text = "Send note to GP Inbox?"
 * item[=].answer.item[=].answer.valueBoolean = true
+
+* description = "Demonstrates responses collected for Pregnancy Assessment Survey Questionnaire"

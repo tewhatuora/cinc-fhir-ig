@@ -272,7 +272,15 @@ Usage: #definition
 * item[=].linkId = "p07"
 * item[=].prefix = "page 7"
 * item[=].text = "General Practice Information"
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/PregnancyAssessmentSurvey"
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/PregnancyAssessmentSurveyQuestionnaire"
 * title = "Pregnancy Assessment Survey"
 * status = #draft
 * description = "Te Whatu Ora pregnancy assessment survey."
+
+* identifier[0].use = #official
+* identifier[=].value = "PregnancyAssessmentSurveyQuestionnaire"
+* identifier[=].period.start = "2023-08-16"
+* identifier[+].use = #temp
+* identifier[=].value = "Questionnaire-PregnancyAssessmentSurveyQuestionnaire"
+* identifier[=].period.start = "2023-03-07"
+* identifier[=].period.end = "2023-07-26"

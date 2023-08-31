@@ -278,7 +278,7 @@ Usage: #Definition
 * identifier[=].value = "Questionnaire-ActiveMonitoring-Day42SurveyQuestionnaire"
 * identifier[=].period.end = "2023-07-19"
 * version = "0.1.6"
-* name = "ActiveMonitoringDay7Survey"
+* name = "ActiveMonitoringDay42Survey"
 * title = "Influenza and COVID-19 Booster Vaccination 42 Day Review Questionnaire"
 * status = #draft
 * subjectType = #Patient
