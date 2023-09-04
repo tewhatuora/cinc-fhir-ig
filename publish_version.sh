@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-git config user.name Kyle Martin
-git config user.email kyle-mwnz@github.com
+git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+git config user.name "github-actions[bot]"
 
 # get the current IG version number
 CURRENT_VERSION=$(yq '.version' sushi-config.yaml)
@@ -19,7 +19,7 @@ then
 
   # add the history.md update to git master branch, so the entry is stored
   git add input/pagecontent/history.md
-  git commit -m "Updated IG history.md"
+  git commit -m "[skip ci] Updated IG history.md"
   git push origin master
 fi
 
