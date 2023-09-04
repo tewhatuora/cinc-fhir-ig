@@ -1,5 +1,4 @@
 name: Publish Implementation Guide version history
-# branch protection rules in place mean this will only trigger on merge
 on:
   push:
     branches:
