@@ -8,11 +8,10 @@ Description: "An example ManaakiNgaTahi Encounter"
 * serviceType.text = "General Practice"
 * priority = http://terminology.hl7.org/CodeSystem/v3-ActPriority#T "timing critical"
 * priority.text = "Timing Critical"
+
+* subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
-* subject.display = "Carey Carrington"
+
 * participant.type = http://terminology.hl7.org/CodeSystem/v3-ParticipationType#CON "consultant"
 * participant.type.text = "Consultant"
 * participant.period.start = "2022-09-20T01:23:34.459Z"

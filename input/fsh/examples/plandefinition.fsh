@@ -2,7 +2,7 @@ Instance: PlanDefinitionExample
 InstanceOf: ManaakiNgaTahiPlanDefinition
 Usage: #example
 Description: "An example ManaakiNgaTahi PlanDefinition"
-* date = "2022-09-12"
+* date = "2023-07-27"
 * subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient "Patient"
 * subjectCodeableConcept.text = "Patient"
 * purpose = "A care plan which supports a patient who has tested positive for COVID-19 infection and will isolate at home and self serve as appropriate as they recover."
@@ -19,7 +19,7 @@ Description: "An example ManaakiNgaTahi PlanDefinition"
 * endorser.telecom.value = "CinC Fit for Future Project"
 * action.textEquivalent = "Health check to monitor conditions and enable ability to make decisions on continuing with care plan"
 * action.cardinalityBehavior = #multiple
-* action.definitionCanonical = "https://api.integration-uat.covid19.health.nz/cinc/fhir/R4/Questionnaire/ce04db3b-9382-4051-91c0-f798da0ffe75"
+* action.definitionCanonical = Canonical(COVIDRegularHealthCheckQuestionnaire)
 * action.goalId = "covid-recovery"
 * action.subjectCodeableConcept = http://hl7.org/fhir/resource-types#Patient "Patient"
 * action.subjectCodeableConcept.text = "Patient"
@@ -56,7 +56,7 @@ Description: "An example ManaakiNgaTahi PlanDefinition"
 * reviewer.telecom.system = #other
 * reviewer.telecom.value = "CinC Fit for Future Project"
 * version = "1.0.0"
-* url = "https://api.integration-uat.covid19.health.nz/cinc/fhir/R4/PlanDefinition/7894edcd-fb89-4413-affd-091c5c6da733"
+
 * lastReviewDate = "2022-08-04"
 * meta.lastUpdated = "2022-09-12T04:46:55.848Z"
 * meta.versionId = "3"

@@ -12,10 +12,12 @@ Usage: #definition
 * identifier[=].value = "Questionnaire-COVID-VaccinationSurveyQuestionnaire"
 * identifier[=].period.end = "2023-07-19"
 
-* version = "0.1.5"
+* date = "2023-07-19"
+* status = #draft
+* experimental = false
+
 * name = "COVIDVaccinationSurveyQuestionnaire"
 * title = "COVID19 Vaccination Side Effects Questionnaire"
-* status = #draft
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
 * description = "Te Whatu Ora post COVID-19 vaccination survey."

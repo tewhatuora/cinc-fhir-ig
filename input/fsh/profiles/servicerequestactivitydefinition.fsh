@@ -7,7 +7,7 @@ Description: "ActivityDefinition resource which creates (templates) ServiceReque
 * identifier.use 1..1
 * identifier.use = http://hl7.org/fhir/identifier-use#usual
 * identifier.value 1..1
-* identifier.value from ActivityDefinitionTemplatesVS (preferred)
+//* identifier.value from ActivityDefinitionTemplatesVS (preferred)
 // "COVID19MeasurementProcedureRequestTemplate"
 * kind 1..1
 * kind = http://hl7.org/fhir/request-resource-types#ServiceRequest

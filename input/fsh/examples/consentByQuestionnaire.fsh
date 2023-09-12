@@ -7,17 +7,16 @@ Description: "An example ManaakiNgaTahi Consent by policy"
 * scope.text = "Privacy Consent"
 * category = http://loinc.org#57016-8 "Privacy policy acknowledgement Doc"
 * category.text = "Privacy policy acknowledgement Document"
+
+* patient = Reference(CareyCarrington) "Carey Carrington"
 * patient.type = "Patient"
-* patient.identifier.use = #official
-* patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* patient.identifier.value = "ZXP7823"
-* patient.display = "Carey Carrington"
+
 * dateTime = "2022-09-20T02:30:35.982Z"
 * policy[0].authority = "https://www.privacy.org.nz"
 * policy[=].uri = "https://www.privacy.org.nz/privacy-act-2020/"
 * policy[+].authority = "https://www.privacy.org.nz"
 * policy[=].uri = "https://www.privacy.org.nz/privacy-act-2020/codes-of-practice/hipc2020/"
-* sourceReference = Reference(QuestionnaireResponseExample)
+* sourceReference = Reference(ConsentQuestionnaireResponseExample) // v0.1.7 now refers to purpose-built example
 * verification.verified = true
 * verification.verifiedWith.type = "Patient"
 * verification.verifiedWith.identifier.use = #official
@@ -30,7 +29,4 @@ Description: "An example ManaakiNgaTahi Consent by policy"
 * provision.data[=].reference = Reference(ConditionExample)
 * provision.data[+].meaning = #instance
 * provision.data[=].reference = Reference(EncounterExample)
-* provision.data[+].meaning = #instance
-* provision.data[=].reference = Reference(QuestionnaireResponseExample)
-* meta.versionId = "1"
-* meta.lastUpdated = "2022-09-20T02:30:37.161Z"
+// v0.1.7 removed third data reference to generic exampleQR now deleted

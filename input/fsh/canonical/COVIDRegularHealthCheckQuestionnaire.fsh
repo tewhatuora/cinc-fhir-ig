@@ -13,13 +13,16 @@ Usage: #definition
 * identifier[=].period.start = "2023-07-19"
 * identifier[+].use = #temp
 * identifier[=].value = "QuestionTemplate-CitC-COVID19-RegularHealthCheck"
+* identifier[=].period.start = "2022-09-12"
 * identifier[=].period.end = "2023-07-19"
 
-* version = "0.1.5"
+* date = "2023-07-19"
+* status = #draft
+* experimental = false
+
 * name = "COVIDRegularHealthCheckQuestionnaire"
 * title = "Question Template for COVID-19 Regular Health Check"
 
-* status = #draft
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
 * description = "Gather the status of a patient who is self isolating"

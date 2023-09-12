@@ -2,16 +2,16 @@ Instance: ConsentExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
 Description: "An example ManaakiNgaTahi Consent based on policies (but not involving a Questionnaire)"
+
 * status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 * scope.text = "Privacy Consent"
 * category = http://loinc.org#57016-8 "Privacy policy acknowledgment Doc"
 * category.text = "Privacy policy acknowledgement Document"
+
+* patient = Reference(CareyCarrington) "Carey Carrington"
 * patient.type = "Patient"
-* patient.identifier.use = #official
-* patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* patient.identifier.value = "ZXP7823"
-* patient.display = "Carey Carrington"
+
 * dateTime = "2022-09-20T02:30:35.982Z"
 * performer[0].type = "Practitioner"
 * performer[=].identifier.use = #official
@@ -39,7 +39,4 @@ Description: "An example ManaakiNgaTahi Consent based on policies (but not invol
 * provision.data[=].reference = Reference(ConditionExample)
 * provision.data[+].meaning = #instance
 * provision.data[=].reference = Reference(EncounterExample)
-* provision.data[+].meaning = #instance
-* provision.data[=].reference = Reference(QuestionnaireResponseExample)
-* meta.versionId = "1"
-* meta.lastUpdated = "2022-09-20T02:30:37.161Z"
+// v0.1.7 remove third data reference to deleted exampleQR
