@@ -1,6 +1,6 @@
 Alias: $sct = http://snomed.info/sct
 
-Instance: RemoteMonitoringHeartFailureSymptomSurveyQuestionnaireResponse
+Instance: RemoteMonitoringFeedbackSurveyQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
 Usage: #example
 * status = #completed
@@ -16,12 +16,10 @@ Usage: #example
 * author.identifier.value = "ZXP7823"
 * author.display = "Carey Carrington"
 * item.linkId = "p01"
-* item.text = "Welcome to today's survey, this is your chance to tell us about any symptoms you have had with your heart failure in the last 24 hours"
-* item.item[0].linkId = "p01-q01-Symptoms"
-* item.item[=].text = "Think about what symptoms you have had in the last 24 hours?"
-* item.item[=].answer[0].valueCoding = $sct#84229001 "Tiredness or Weakness"
-* item.item[=].answer[+].valueCoding = $sct#29857009 "Chest Pain"
-* item.item[=].answer[+].valueCoding = $sct#49727002 "Cough"
-* item.item[+].linkId = "p01-q01-OtherInfo"
-* item.item[=].text = "Is there anything else you want to tell us about the last 24 hours?"
-* item.item[=].answer.valueString = "Not at this time\n"
+* item.text = "Welcome to a weekly feedback survey, this is your chance to tell us about any ideas you have about this experience. Things you want us to capture or change that would make this better."
+* item.item[0].linkId = "p01-q01-Rating"
+* item.item[=].text = "How do you rate the solution out of 5 (5 is best)?"
+* item.item[=].answer.valueCoding.display = "3 - All Right"
+* item.item[+].linkId = "p01-q02-Feedback"
+* item.item[=].text = "Can you tell us what we could do to make it better?"
+* item.item[=].answer.valueString = "Nothing to say right now!"
