@@ -4,14 +4,14 @@ Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire"
 
 * identifier[0].use = #official
-* identifier[=].value = "AntiviralEligibilityQuestionnaire"
-* identifier[=].period.start = "2023-08-16"
+* identifier[=].value = "AntiViralEligibilityQuestionnaire"
+* identifier[=].period.start = "2023-09-19"
 * identifier[+].use = #temp
 * identifier[=].value = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * identifier[=].period.start = "2023-03-07"
-* identifier[=].period.end = "2023-07-26"
+* identifier[=].period.end = "2023-09-19"
 
-* date = "2023-08-16"
+* date = "2023-09-19"
 * status = #draft
 * experimental = false
 

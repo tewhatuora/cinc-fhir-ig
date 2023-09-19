@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.4 (2023-09-19)
+- Reverted casing of identifier of AntiViralEligibilityQuestionnaire (reversing the change introduced in v0.2.2)
+  - Casing now the same as the Questionnaire's official Url
+
 ## v0.2.3 (2023-08-30)
 - Published 2 new questionnaires.
   - Pregnancy Assessment Questionnaire
