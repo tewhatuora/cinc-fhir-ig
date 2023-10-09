@@ -4,8 +4,8 @@ Usage: #example
 Description: "An example ManaakiNgaTahi Encounter"
 * status = #in-progress
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#VR "virtual"
-* serviceType = http://terminology.hl7.org/CodeSystem/service-type#124 "General Practice"
-* serviceType.text = "General Practice"
+// * serviceType = http://terminology.hl7.org/CodeSystem/service-type#124 "General Practice"
+// * serviceType.text = "General Practice"
 * priority = http://terminology.hl7.org/CodeSystem/v3-ActPriority#T "timing critical"
 * priority.text = "Timing Critical"
 
@@ -26,10 +26,10 @@ Description: "An example ManaakiNgaTahi Encounter"
 * length = 7 'd' "days"
 * reasonCode = http://snomed.info/sct#270427003 "patient-initiated encounter"
 * reasonCode.text = "Patient Initiated Encounter"
-* diagnosis.condition = Reference(ConditionExample)
-* diagnosis.use = http://terminology.hl7.org/CodeSystem/diagnosis-role#CC "Chief complaint"
-* diagnosis.use.text = "Chief Complaint"
-* diagnosis.rank = 1
+// * diagnosis.condition = Reference(ConditionExample)
+// * diagnosis.use = http://terminology.hl7.org/CodeSystem/diagnosis-role#CC "Chief complaint"
+// * diagnosis.use.text = "Chief Complaint"
+// * diagnosis.rank = 1
 * location.location.type = "Location"
 * location.location.identifier.use = #official
 * location.location.identifier.system = "https://standards.digital.health.nz/ns/hpi-facility-id"

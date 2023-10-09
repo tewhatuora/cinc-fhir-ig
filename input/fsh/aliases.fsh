@@ -1,4 +1,6 @@
 Alias: $sct = http://snomed.info/sct
+Alias: $nzmt = http://nzmt.org.nz
+Alias: $UoM = http://unitsofmeasure.org
 Alias: $resource-types = http://hl7.org/fhir/resource-types
 Alias: $restful-security-service = http://terminology.hl7.org/CodeSystem/restful-security-service
 Alias: $goal-priority = http://terminology.hl7.org/CodeSystem/goal-priority

@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Care In The Community FHIR API
 description: Care In The Community FHIR API
 status: draft
-version: 0.2.4
+version: 0.3.0
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -34,6 +34,9 @@ publisher:
 dependencies:
   fhir.org.nz.ig.base: 2.0.0
   hl7.fhir.uv.sdc: 3.0.0
+  # hl7.org.nz.fhir.ig.hpi:
+  #  uri: 'https://hpi-ig.hip-uat.digital.health.nz'   
+  #  version: 1.2.0
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can

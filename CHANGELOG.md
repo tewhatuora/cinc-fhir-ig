@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.3.0 (2023-10-09)
+
+**Added pilot FHIR support for rheumatic fever national care coordination solution**
+
+- New resource profiles (extensions)
+  - RheumaticFeverCarePlan
+  - RheumaticFeverCondition
+  - RheumaticFeverPatient
+- Terminology
+  - Five ValueSets and two CodeSystems covering rheumatic fever terminology
+- Examples of rheumatic fever instances
+  - RheumaticFeverCarePlan: 4 states
+  - NzPatient: 4 examples
+  - secondary prophylaxis information: Encounter, Appointment, MedicationRequest, MedicationStatement
+  - supporting examples: Organization, CareTeam 
+
+
 ## v0.2.4 (2023-09-19)
 - Reverted casing of identifier of AntiViralEligibilityQuestionnaire (reversing the change introduced in v0.2.2)
   - Casing now the same as the Questionnaire's official Url
