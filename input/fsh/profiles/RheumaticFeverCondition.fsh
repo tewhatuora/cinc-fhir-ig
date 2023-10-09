@@ -1,7 +1,12 @@
 Profile: RheumaticFeverCondition
 Parent: NzCondition
 Description: "This profile contains diagnosis code and adds rheumatic heart disease severity and diagnosis certainty extensions to the base NzCondition resource."
-* ^version = "1.0.0"
+Id: cinc-rheumaticfever-condition
+
+* ^jurisdiction = urn:iso:std:iso:3166#NZ
+* ^purpose = "Profiles a condition to add severity and diagnostic certainty classifiers used in NZ rheumatic fever secondary secondary prevention"
+* ^meta.tag.code = #rheumatic-fever
+
 // elements modified'
 * subject only Reference(Patient)
 * onset[x] only dateTime

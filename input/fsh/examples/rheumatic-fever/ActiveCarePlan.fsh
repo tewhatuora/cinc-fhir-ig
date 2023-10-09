@@ -3,6 +3,8 @@ InstanceOf: RheumaticFeverCarePlan
 Usage: #example
 Description: "Example of an RF care plan where setup is complete but no secondary prevention activities yet planned."
 
+* meta.tag.code = #rheumatic-fever
+
 * meta.profile = Canonical(RheumaticFeverCarePlan)
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"

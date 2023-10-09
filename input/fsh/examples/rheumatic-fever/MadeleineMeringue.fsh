@@ -1,6 +1,6 @@
 Instance: MadeleineMeringue
 InstanceOf: RheumaticFeverPatient
-Description: "Example of a rheumatic fever patient who is NZ European ethnicity"
+Description: "Example of a teenager patient who is NZ European ethnicity but speaks tagalog"
 Usage: #example
 
 * meta.profile = Canonical(RheumaticFeverPatient)

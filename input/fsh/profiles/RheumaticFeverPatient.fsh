@@ -3,9 +3,11 @@ Alias: $nz-interpreter = http://hl7.org/fhir/StructureDefinition/patient-interpr
 Profile: RheumaticFeverPatient
 Parent: NzPatient
 Description: "NzPatient-based FHIR resource for representing rheumatic fever patients"
-* ^version = "1.0.0"
+Id: cinc-rheumaticfever-patient
+
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a New Zealand patient with rheumatic fever (extends NzPatient resource)"
+* ^meta.tag.code = #rheumatic-fever
 
 // elements modified from base profile
 * name 1..1

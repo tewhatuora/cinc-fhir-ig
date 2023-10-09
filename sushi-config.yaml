@@ -182,6 +182,36 @@ menu:
 #     - StructureDefinition/bark-control
 #     - StructureDefinition/bee-sting
 #
+groups:
+  RheumaticFeverProfiles:
+    name: Rheumatic Fever definitions
+    description: All rheumatic fever FHIR profiles and terminology
+    resources:
+    - StructureDefinition/cinc-rheumaticfever-careplan
+    - StructureDefinition/cinc-rheumaticfever-condition
+    - StructureDefinition/cinc-rheumaticfever-patient
+  RheumaticFeverExamples:
+    name: Rheumatic Fever examples
+    description: All rheumatic fever example FHIR instances
+    resources:
+    - ActiveCarePlan
+    - BasicCarePlan
+    - CarePlanWithOneAppointmentCompleted
+    - CarePlanWithSecondaryProphylaxisPlanned
+    - MadeleineMeringue
+    - PaniaPunga
+    - SevereRfConditionExample
+    - PlannedMedicationRequestExample
+    - SecondaryProphylaxisMedicationExample
+    - SecondaryProphylaxisAppointment-August-Booked
+    - SecondaryProphylaxisAppointment-August-Fulfilled
+    - SecondaryProphylaxisAppointment-September-Booked
+    - SecondaryProphylaxisAppointment-Encounter
+    - SecondaryProphylaxisCareTeam
+    - TeTaiTokerauRFSecondaryPreventionService
+    - WaikatoRFSecondaryPreventionService
+    - WhanauCareTeam
+
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and
