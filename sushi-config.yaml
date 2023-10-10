@@ -190,6 +190,7 @@ groups:
     - StructureDefinition/cinc-rheumaticfever-careplan
     - StructureDefinition/cinc-rheumaticfever-condition
     - StructureDefinition/cinc-rheumaticfever-patient
+    - PatientMedicationAllergyQuestionnaire
   RheumaticFeverExamples:
     name: Rheumatic Fever examples
     description: All rheumatic fever example FHIR instances
@@ -207,10 +208,12 @@ groups:
     - SecondaryProphylaxisAppointment-August-Fulfilled
     - SecondaryProphylaxisAppointment-September-Booked
     - SecondaryProphylaxisAppointment-Encounter
+    - MedicationStatement-August
     - SecondaryProphylaxisCareTeam
     - TeTaiTokerauRFSecondaryPreventionService
     - WaikatoRFSecondaryPreventionService
     - WhanauCareTeam
+    - PatientMedicationAllergyQuestionnaireResponse
 
 #
 # The ImplementationGuide resource defines several other properties

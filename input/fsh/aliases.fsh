@@ -1,4 +1,5 @@
 Alias: $sct = http://snomed.info/sct
+Alias: $sctNZ = http://snomed.info/sct/21000210109
 Alias: $nzmt = http://nzmt.org.nz
 Alias: $UoM = http://unitsofmeasure.org
 Alias: $resource-types = http://hl7.org/fhir/resource-types
