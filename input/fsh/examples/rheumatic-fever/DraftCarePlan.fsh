@@ -1,4 +1,4 @@
-Instance: ActiveCarePlan
+Instance: DraftCarePlan
 InstanceOf: RheumaticFeverCarePlan
 Usage: #example
 Description: "Example of an RF care plan where setup is complete but no secondary prevention activities yet planned."
@@ -14,6 +14,7 @@ Description: "Example of an RF care plan where setup is complete but no secondar
 
 * addresses = Reference(SevereRfConditionExample)
 
+* title = "Draft care plan for Madeleine Meringue (no secondary prevention planned)"
 * category = $sct#734163000 // placeholder - will change to code for "Rheumatic fever secondary prevention care plan"
 * created = "2023-09-08"
 
@@ -28,8 +29,8 @@ Description: "Example of an RF care plan where setup is complete but no secondar
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)
 
-* status = #active
-* title = "Care plan set up but no activities yet"
+* status = #draft
+
 
 // * extension[0].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-careplan-onhold-reason"
 // * extension[=].valueString = "Patient on holiday overseas"

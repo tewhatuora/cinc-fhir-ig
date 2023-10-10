@@ -7,7 +7,7 @@ Description: "Example of an RF care plan after the first secondary prophylaxis a
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
-* title = "Care plan with medication planned and appointments booked"
+* title = "Care plan underway for Madeleine Meringue with one appointment completed"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
 * identifier[case] insert SalesforceCaseNumber(00073469)

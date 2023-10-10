@@ -195,8 +195,8 @@ groups:
     name: Rheumatic Fever examples
     description: All rheumatic fever example FHIR instances
     resources:
-    - ActiveCarePlan
     - BasicCarePlan
+    - DraftCarePlan
     - CarePlanWithOneAppointmentCompleted
     - CarePlanWithSecondaryProphylaxisPlanned
     - MadeleineMeringue

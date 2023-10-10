@@ -8,7 +8,7 @@ Usage: #example
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 * author insert ReferencePractitioner(99ZAAA,[[Isabel Injecta]])
-* basedOn = Reference(ActiveCarePlan)
+* basedOn = Reference(DraftCarePlan)
 
 * item[0] insert answerItem(MedicationAllergies,[[Medication allergies? (Yes/No/Unknown)]])
 * item[=].answer.valueString = "Yes"
