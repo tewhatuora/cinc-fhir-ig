@@ -34,6 +34,9 @@ Description: "Example of an RF care plan after the first secondary prophylaxis a
 
 * status = #active
 
+* supportingInfo[0] = Reference(PatientMedicationAllergyQuestionnaireResponse)
+* supportingInfo[+] = Reference(MedicationsAndFollowUpGuidanceQuestionnaireResponse)
+* supportingInfo[+] = Reference(PatientWhanauGoalsPreferencesQuestionnaireResponse)
 
 // * extension[0].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-careplan-onhold-reason"
 // * extension[=].valueString = "Patient on holiday overseas"

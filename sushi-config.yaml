@@ -192,6 +192,7 @@ groups:
     - StructureDefinition/cinc-rheumaticfever-patient
     - PatientMedicationAllergyQuestionnaire
     - MedicationsAndFollowUpGuidanceQuestionnaire
+    - PatientWhanauGoalsPreferencesQuestionnaire
   RheumaticFeverExamples:
     name: Rheumatic Fever examples
     description: All rheumatic fever example FHIR instances
@@ -215,6 +216,9 @@ groups:
     - WaikatoRFSecondaryPreventionService
     - WhanauCareTeam
     - PatientMedicationAllergyQuestionnaireResponse
+    - MedicationsAndFollowUpGuidanceQuestionnaireResponse
+    - PatientWhanauGoalsPreferencesQuestionnaireResponse
+
 
 #
 # The ImplementationGuide resource defines several other properties

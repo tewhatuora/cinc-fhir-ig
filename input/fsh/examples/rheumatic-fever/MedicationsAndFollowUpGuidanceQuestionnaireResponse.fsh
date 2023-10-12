@@ -7,8 +7,10 @@ Usage: #example
 * questionnaire = Canonical(MedicationsAndFollowUpGuidanceQuestionnaire)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
-* author insert ReferencePractitioner(99ZAAA,[[Isabel Injecta]])
+* author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * basedOn = Reference(DraftCarePlan)
+
+// NOTE: item numbering does not have to match the Questionnaire because answers relate to questions through link_id
 
 * item[0] insert answerItem(SourceOfOralMedications,[[Source of oral medications? (choose one)]])
 * item[=].answer.valueString = "Monthly visit from a nurse"

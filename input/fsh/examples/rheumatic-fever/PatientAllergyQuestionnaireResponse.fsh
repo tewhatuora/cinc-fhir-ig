@@ -7,12 +7,13 @@ Usage: #example
 * questionnaire = Canonical(PatientMedicationAllergyQuestionnaire)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
-* author insert ReferencePractitioner(99ZAAA,[[Isabel Injecta]])
+* author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * basedOn = Reference(DraftCarePlan)
+
+// NOTE: item numbering does not have to match the Questionnaire because answers relate to questions through link_id
 
 * item[0] insert answerItem(MedicationAllergies,[[Medication allergies? (Yes/No/Unknown)]])
 * item[=].answer.valueString = "Yes"
 
 * item[+] insert answerItem(AllergyDetails,[[If yes, select which substances apply]])
-* item[=].answer[0].valueCoding = $sct#22005007 "Ethyl chloride"
-//* item[=].answer[0].valueCoding.system = Canonical(RheumaticFeverMedicationAllergyCodeSystem)     // TODO: this will need to change to an NZHTS reference and add the termserver extension
+* item[=].answer.valueCoding = $sct#22005007 "Ethyl chloride"

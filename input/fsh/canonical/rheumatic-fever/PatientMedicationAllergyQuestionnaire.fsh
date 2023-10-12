@@ -20,12 +20,14 @@ Description: "Describes any known patient allergies to medications used in rheum
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
 
-* item[0] insert singleChoiceQuestion(MedicationAllergies,[[question 1]],[[Medication allergies? (Yes/No/Unknown)]])
+* item[0] insert pageDisplayItem(page1,[[page1]],[[Please complete this questionnaire to record a patient's allergies to secondary prophylaxis medication.]])
+
+* item[+] insert singleChoiceQuestion(MedicationAllergies,[[1)]],[[Medication allergies? (Yes/No/Unknown)]])
 * item[=].answerOption[0].valueString = "Yes"
 * item[=].answerOption[+].valueString = "No"
 * item[=].answerOption[+].valueString = "Unknown"
 
-* item[+] insert multiChoiceQuestion(AllergyDetails,[[question 2]],[[If yes, select which substances apply]])
+* item[+] insert multiChoiceQuestion(AllergyDetails,[[1.1]],[[If yes, select which substances apply]])
 * item[=].enableWhen.question = "MedicationAllergies"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerString = "Yes"
