@@ -190,9 +190,10 @@ groups:
     - StructureDefinition/cinc-rheumaticfever-careplan
     - StructureDefinition/cinc-rheumaticfever-condition
     - StructureDefinition/cinc-rheumaticfever-patient
-    - PatientMedicationAllergyQuestionnaire
     - MedicationsAndFollowUpGuidanceQuestionnaire
+    - PatientMedicationAllergyQuestionnaire
     - PatientWhanauGoalsPreferencesQuestionnaire
+    - SecondaryProphylaxisHealthAssessmentQuestionnaire
   RheumaticFeverExamples:
     name: Rheumatic Fever examples
     description: All rheumatic fever example FHIR instances
@@ -215,9 +216,10 @@ groups:
     - TeTaiTokerauRFSecondaryPreventionService
     - WaikatoRFSecondaryPreventionService
     - WhanauCareTeam
-    - PatientMedicationAllergyQuestionnaireResponse
     - MedicationsAndFollowUpGuidanceQuestionnaireResponse
+    - PatientMedicationAllergyQuestionnaireResponse
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
+    - RFPatientHealthAssessmentQuestionnaireResponse
 
 
 #

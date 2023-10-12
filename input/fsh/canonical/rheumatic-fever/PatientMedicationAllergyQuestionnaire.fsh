@@ -8,9 +8,9 @@ Description: "Describes any known patient allergies to medications used in rheum
 
 * identifier[0].use = #official
 * identifier[=].value = "PatientMedicationAllergyQuestionnaire"
-* identifier[=].period.start = "2023-10-10"
+* identifier[=].period.start = "2023-10-16"
 
-* date = "2023-10-10"
+* date = "2023-10-16"
 * status = #draft
 * experimental = false
 

@@ -1,26 +1,26 @@
-Instance: MedicationsAndFollowUpGuidanceQuestionnaire
+Instance: SecondaryProphylaxisHealthAssessmentQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
 
-Description: "Gathers information in secondary prophylaxis planning which guides subsequent medication appointments and follow-up"
+Description: "Gathers information about patient health at a secondary prophylaxis medication appointment"
 
-* url = Canonical(MedicationsAndFollowUpGuidanceQuestionnaire)
+* url = Canonical(SecondaryProphylaxisHealthAssessmentQuestionnaire)
 
 * identifier[0].use = #official
-* identifier[=].value = "MedicationsAndFollowUpGuidanceQuestionnaire"
+* identifier[=].value = "SecondaryProphylaxisHealthAssessmentQuestionnaire"
 * identifier[=].period.start = "2023-10-16"
 
 * date = "2023-10-16"
 * status = #draft
 * experimental = false
 
-* name = "MedicationsAndFollowUpGuidanceQuestionnaire"
-* title = "Medications and Follow-up Guidance Questionnaire"
-* purpose = "Gathers information in secondary prophylaxis planning which guides subsequent medication appointments and follow-up"
+* name = "SecondaryProphylaxisHealthAssessmentQuestionnaire"
+* title = "Secondary Prophylaxis Health Assessment Questionnaire"
+* purpose = "Gathers information about patient health at a secondary prophylaxis medication appointment"
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
 
-* item[0] insert pageDisplayItem(page1,[[page1]],[[Please complete this questionnaire to guide practitioners carrying out rheumatic fever secondary prophylaxis.]])
+* item[0] insert pageDisplayItem(page1,[[page1]],[[Please complete this questionnaire at the secondary prophylaxis appointment to assess a rheumatic fever patient's health.]])
 
 * item[+] insert singleChoiceQuestion(SourceOfOralMedications,[[1)]],[[Source of oral medications? (choose one)]])
 * item[=].answerOption[0].valueString = "GP prescription"

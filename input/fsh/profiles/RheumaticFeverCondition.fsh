@@ -1,5 +1,6 @@
 Profile: RheumaticFeverCondition
 Parent: NzCondition
+Title: "Rheumatic Fever Condition"
 Description: "This profile contains diagnosis code and adds rheumatic heart disease severity and diagnosis certainty extensions to the base NzCondition resource."
 Id: cinc-rheumaticfever-condition
 

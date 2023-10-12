@@ -1,7 +1,7 @@
 Alias: $nhi-use-code = https://nzhts.digital.health.nz/fhir/ValueSet/nhi-use-code
-
 Profile: RheumaticFeverCarePlan
 Parent: CarePlan
+Title: "Rheumatic Fever CarePlan"
 Description: "Profiles shared care plans used in NZ for provision of rheumatic fever secondary prevention"
 Id: cinc-rheumaticfever-careplan
 
