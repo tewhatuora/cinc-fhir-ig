@@ -191,6 +191,7 @@ groups:
     - StructureDefinition/cinc-rheumaticfever-condition
     - StructureDefinition/cinc-rheumaticfever-patient
     - PatientMedicationAllergyQuestionnaire
+    - MedicationsAndFollowUpGuidanceQuestionnaire
   RheumaticFeverExamples:
     name: Rheumatic Fever examples
     description: All rheumatic fever example FHIR instances

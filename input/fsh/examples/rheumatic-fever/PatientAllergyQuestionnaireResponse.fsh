@@ -14,5 +14,5 @@ Usage: #example
 * item[=].answer.valueString = "Yes"
 
 * item[+] insert answerItem(AllergyDetails,[[If yes, select which substances apply]])
-* item[=].answer[0].valueCoding = #ethylchloride-spray "Ethylchloride spray (if used)"
-* item[=].answer[0].valueCoding.system = Canonical(RheumaticFeverMedicationAllergyCodeSystem)     // TODO: this will need to change to an NZHTS reference and add the termserver extension
+* item[=].answer[0].valueCoding = $sct#22005007 "Ethyl chloride"
+//* item[=].answer[0].valueCoding.system = Canonical(RheumaticFeverMedicationAllergyCodeSystem)     // TODO: this will need to change to an NZHTS reference and add the termserver extension

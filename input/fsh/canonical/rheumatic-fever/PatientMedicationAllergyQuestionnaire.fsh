@@ -20,15 +20,15 @@ Description: "Describes any known patient allergies to medications used in rheum
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"
 
-* item[0] insert choiceQuestion(MedicationAllergies,[[question 1]],[[Medication allergies? (Yes/No/Unknown)]])
+* item[0] insert singleChoiceQuestion(MedicationAllergies,[[question 1]],[[Medication allergies? (Yes/No/Unknown)]])
 * item[=].answerOption[0].valueString = "Yes"
 * item[=].answerOption[+].valueString = "No"
 * item[=].answerOption[+].valueString = "Unknown"
 
-* item[+] insert choiceQuestion(AllergyDetails,[[question 2]],[[If yes, select which substances apply]])
+* item[+] insert multiChoiceQuestion(AllergyDetails,[[question 2]],[[If yes, select which substances apply]])
 * item[=].enableWhen.question = "MedicationAllergies"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerString = "Yes"
-* item[=].answerValueSet = Canonical(RheumaticFeverMedicationAllergyValueSet)
+* item[=].answerValueSet = "https://nzhts.digital.health.nz/fhir/ValueSet/Rheumatic-fever-medication-allergy"
 * item[=].extension.url = $termServerExtension
 * item[=].extension.valueUrl = $preferredTermServer

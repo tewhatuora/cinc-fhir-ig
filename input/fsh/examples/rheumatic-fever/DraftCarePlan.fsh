@@ -30,7 +30,8 @@ Description: "Example of an RF care plan where setup is complete but no secondar
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)
 
 * status = #draft
-
+* supportingInfo[0] = Reference(PatientMedicationAllergyQuestionnaireResponse)
+* supportingInfo[+] = Reference(MedicationsAndFollowUpGuidanceQuestionnaireResponse)
 
 // * extension[0].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-careplan-onhold-reason"
 // * extension[=].valueString = "Patient on holiday overseas"
