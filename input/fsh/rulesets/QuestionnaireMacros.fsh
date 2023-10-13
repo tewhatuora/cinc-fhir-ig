@@ -25,6 +25,13 @@ RuleSet: multiChoiceQuestion(link_id,prefix,item_text)
 * repeats = true
 * required = true
 
+RuleSet: optionalBooleanQuestion(link_id,prefix,item_text)
+* linkId = "{link_id}"
+* text = "{item_text}"
+* type = #boolean
+* prefix = "{prefix}"
+* required = false
+
 
 RuleSet: booleanQuestion(link_id,prefix,item_text)
 * linkId = "{link_id}"

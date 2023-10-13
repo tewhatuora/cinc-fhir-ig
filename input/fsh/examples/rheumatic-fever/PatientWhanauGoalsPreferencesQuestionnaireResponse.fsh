@@ -22,7 +22,7 @@ Usage: #example
 * item[=].answer.valueString = "text message"
 
 * item[+] insert answerItemX(AppointmentsContact,[[4)]],[[I know who to contact about my appointments? (choose one)]])
-* item[=].answer.valueString = "Yes"
+* item[=].answer.valueBoolean = true
 
 * item[+] insert answerItemX(PreferredAppointmentsLocation,[[5)]],[[What location do I prefer to receive injected antibiotics at? (choose one)]])
 * item[=].answer.valueString = "Home"

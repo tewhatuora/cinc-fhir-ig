@@ -31,10 +31,7 @@ Description: "Gathers patient and whanau preferences and goals for rheumatic fev
 * item[=].answerOption[+].valueString = "text message"
 * item[=].answerOption[+].valueString = "email"
 
-* item[+] insert singleChoiceQuestion(AppointmentsContact,[[4)]],[[I know who to contact about my appointments? (choose one)]])
-* item[=].answerOption[0].valueString = "Yes"
-* item[=].answerOption[+].valueString = "No"
-* item[=].answerOption[+].valueString = "Not sure"
+* item[+] insert optionalBooleanQuestion(AppointmentsContact,[[4)]],[[I know who to contact about my appointments? (choose one)]])
 * item[=] insert attachHelpText(AppointmentsContactHelp,[[I understand who I should phone or text if I need to change my appointments, OR if I am going to be away, OR if I have questions.]])
 
 * item[+] insert singleChoiceQuestion(PreferredAppointmentsLocation,[[5)]],[[What location do I prefer to receive injected antibiotics at? (choose one)]])

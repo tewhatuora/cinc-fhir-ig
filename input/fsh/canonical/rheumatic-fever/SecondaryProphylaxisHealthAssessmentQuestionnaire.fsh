@@ -33,18 +33,11 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 
 * item[+] insert textQuestion(OverdueInjectionOtherDetail,[[3)]],[[Details for overdue injections? (enter text)]])
 
-* item[+] insert singleChoiceQuestion(DentalIssues,[[4)]],[[Any dental issues? sore teeth etc. (choose one)]])
-* item[=].answerOption[0].valueString = "Yes"
-* item[=].answerOption[+].valueString = "No"
-* item[=].answerOption[+].valueString = "Unknown"
+* item[+] insert optionalBooleanQuestion(DentalIssues,[[4)]],[[Any dental issues? sore teeth etc. (Yes/No/Not answered)]])
 
-* item[+] insert singleChoiceQuestion(OngoingHealthConcerns,[[5)]],[[Are there other ongoing health concerns? (choose one)]])
-* item[=].answerOption[0].valueString = "Yes"
-* item[=].answerOption[+].valueString = "No"
-* item[=].answerOption[+].valueString = "Unknown"
+* item[+] insert optionalBooleanQuestion(OngoingHealthConcerns,[[5)]],[[Are there other ongoing health concerns? (Yes/No/Not answered)]])
 
-* item[+] insert booleanQuestion(NewlyPregnant,[[6)]],[[Newly pregnant?]])
-* item[=].initial.valueBoolean = false
+* item[+] insert optionalBooleanQuestion(NewlyPregnant,[[6)]],[[Newly pregnant?]])
 
 * item[+] insert dateQuestion(EstDueDate,[[6.1)]],[[Estimated Due Date?]])
 * item[=].enableWhen.question = "NewlyPregnant"
@@ -110,8 +103,7 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerString = "Other"
 
-* item[+] insert booleanQuestion(RecentOrUpcomingAppointments,[[16)]],[[Any recent or upcoming follow-up appointments?]])
-* item[=].initial.valueBoolean = false
+* item[+] insert optionalBooleanQuestion(RecentOrUpcomingAppointments,[[16)]],[[Any recent or upcoming follow-up appointments?]])
 
 * item[+] insert textQuestion(RecentOrUpcomingAppointmentsDetails,[[16.1)]],[[Enter details and dates of any recent or upcoming follow-up appointments (enter text)]])
 * item[=].enableWhen.question = "RecentOrUpcomingAppointments"

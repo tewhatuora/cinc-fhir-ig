@@ -22,11 +22,11 @@ Usage: #example
 * item[+] insert answerItemX(OverdueInjectionOtherDetail,[[3)]],[[Details for overdue injections? (enter text)]])
 * item[=].answer.valueString = "The patient couldn't find a park for the classic Hilux."
 
-* item[+] insert answerItemX(DentalIssues,[[4)]],[[Any dental issues? sore teeth etc. (choose one)]])
-* item[=].answer.valueString = "No"
+* item[+] insert answerItemX(DentalIssues,[[4)]],[[Any dental issues? sore teeth etc. (Yes/No/Not answered)]])
+* item[=].answer.valueBoolean = false
 
-* item[+] insert answerItemX(OngoingHealthConcerns,[[5)]],[[Are there other ongoing health concerns? (choose one)]])
-* item[=].answer.valueString = "No"
+* item[+] insert answerItemX(OngoingHealthConcerns,[[5)]],[[Are there other ongoing health concerns? (Yes/No/Not answered)]])
+* item[=].answer.valueBoolean = false
 
 * item[+] insert answerItemX(NewlyPregnant,[[6)]],[[Newly pregnant?]])
 * item[=].answer.valueBoolean = true
