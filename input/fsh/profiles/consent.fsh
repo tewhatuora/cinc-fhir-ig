@@ -11,7 +11,16 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 // elements prohibited
 * contained 0..0
 //  * extension 0..0    v0.1.3 relief from prohibition of CarePlan extension
-* identifier 0..0
+
+// DG 13/10/2023 identifier element publishing error
+// A persistent IG publisher error arises on the identifier element: "if identifier.system is 'urn:ietf:rfc:3986', then the identifier.value must be a full URI (e.g. start with a scheme), not 'Local eCMS identifier'"
+// The error reported means the string 'Local eCMS identifier' is not a proper Uri.
+// The cause of the error seems to be that the IG Publisher is expecting the example of an identifier to be a valid Identifier with a proper system Uri.
+// So quite a stickler for the rules...!
+// The following attempts to suppress the error have all failed
+// * identifier 0..0
+// * identifier ^example.label = ""  
+
 * implicitRules 0..0
 * language 0..0
 * modifierExtension 0..0

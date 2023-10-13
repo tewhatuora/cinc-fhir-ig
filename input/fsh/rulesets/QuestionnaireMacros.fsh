@@ -7,9 +7,8 @@ RuleSet: pageDisplayItem(link_id,prefix,display_text)
 * text = "{display_text}"
 
 // **** **** **** **** **** ****
-// Questionnaire questions
+// Set up Questionnaire questions of various datatypes
 
-// sets up a type #choice Questionnaire item
 RuleSet: singleChoiceQuestion(link_id,prefix,item_text)
 * linkId = "{link_id}"
 * text = "{item_text}"
@@ -18,7 +17,6 @@ RuleSet: singleChoiceQuestion(link_id,prefix,item_text)
 * repeats = false
 * required = true
 
-// sets up a type #choice Questionnaire item
 RuleSet: multiChoiceQuestion(link_id,prefix,item_text)
 * linkId = "{link_id}"
 * text = "{item_text}"
@@ -28,7 +26,6 @@ RuleSet: multiChoiceQuestion(link_id,prefix,item_text)
 * required = true
 
 
-// sets up a type #boolean Questionnaire item
 RuleSet: booleanQuestion(link_id,prefix,item_text)
 * linkId = "{link_id}"
 * text = "{item_text}"
@@ -36,13 +33,34 @@ RuleSet: booleanQuestion(link_id,prefix,item_text)
 * prefix = "{prefix}"
 * required = true
 
-// sets up a type #text Questionnaire item for a free text question
+RuleSet: dateQuestion(link_id,prefix,question_text)
+* linkId = "{link_id}"
+* text = "{question_text}"
+* type = #date
+* prefix = "{prefix}"
+* required = true
+
+RuleSet: integerQuestion(link_id,prefix,question_text)
+* linkId = "{link_id}"
+* text = "{question_text}"
+* type = #integer
+* prefix = "{prefix}"
+* required = true
+
+RuleSet: stringQuestion(link_id,prefix,question_text)
+* linkId = "{link_id}"
+* text = "{question_text}"
+* type = #string
+* prefix = "{prefix}"
+* required = true
+
+
 RuleSet: textQuestion(link_id,prefix,question_text)
 * linkId = "{link_id}"
 * text = "{question_text}"
 * type = #text
 * prefix = "{prefix}"
-// * required = true
+* required = true
 
 // **** **** **** **** **** ****
 // answer macros

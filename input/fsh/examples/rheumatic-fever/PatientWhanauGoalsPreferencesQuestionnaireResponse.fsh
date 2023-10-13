@@ -3,7 +3,7 @@ InstanceOf: QuestionnaireResponse
 Description: "Example payload demonstrating patient/whanau expressed preferences and goals for rheumatic fever care."
 Usage: #example
 * status = #completed
-* authored = "2023-10-10T03:08:00.504Z"
+* authored = "2023-06-19T03:08:00.504Z"
 * questionnaire = Canonical(PatientWhanauGoalsPreferencesQuestionnaire)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])

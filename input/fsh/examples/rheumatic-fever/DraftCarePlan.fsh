@@ -16,23 +16,24 @@ Description: "Example of an RF care plan where setup is complete but no secondar
 
 * title = "Draft care plan for Madeleine Meringue (no secondary prevention planned)"
 * category = $sct#734163000 // placeholder - will change to code for "Rheumatic fever secondary prevention care plan"
-* created = "2023-09-08"
+* created = "2023-06-12"
 
 // * encounter = Reference(EncounterExample)
 
 * intent = #plan
 
-* period.start = "2023-10-15"
-* period.end = "2033-10-14"
+* created = "2023-06-12"
+* period.start = "2023-08-01"
+* period.end = "2033-07-31"
+* status = #draft
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)
 
-* status = #draft
-* supportingInfo[0] = Reference(PatientMedicationAllergyQuestionnaireResponse)
-* supportingInfo[+] = Reference(MedicationsAndFollowUpGuidanceQuestionnaireResponse)
-* supportingInfo[+] = Reference(PatientWhanauGoalsPreferencesQuestionnaireResponse)
+* supportingInfo[0] = Reference(PatientMedicationAllergyQuestionnaireResponse)          // ****
+* supportingInfo[+] = Reference(MedicationsAndFollowUpGuidanceQuestionnaireResponse)    // ****
+* supportingInfo[+] = Reference(PatientWhanauGoalsPreferencesQuestionnaireResponse)     // ****
 
 // * extension[0].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-careplan-onhold-reason"
 // * extension[=].valueString = "Patient on holiday overseas"

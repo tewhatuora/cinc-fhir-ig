@@ -3,9 +3,8 @@ InstanceOf: QuestionnaireResponse
 Description: "Example payload demonstrating guidance defined for secondary prophylaxis patient medication and follow-up."
 Usage: #example
 * status = #completed
-* authored = "2023-10-10T03:08:00.504Z"
+* authored = "2023-06-26T02:08:00.504Z"
 * questionnaire = Canonical(MedicationsAndFollowUpGuidanceQuestionnaire)
-
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * basedOn = Reference(DraftCarePlan)

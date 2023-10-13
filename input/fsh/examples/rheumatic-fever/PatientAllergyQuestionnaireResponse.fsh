@@ -3,7 +3,7 @@ InstanceOf: QuestionnaireResponse
 Description: "Example payload demonstrating data collected about a patient's allergies to RF medication."
 Usage: #example
 * status = #completed
-* authored = "2023-10-10T03:08:00.504Z"
+* authored = "2023-06-19T02:08:00.504Z"
 * questionnaire = Canonical(PatientMedicationAllergyQuestionnaire)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])

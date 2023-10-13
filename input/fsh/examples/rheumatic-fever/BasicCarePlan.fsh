@@ -13,22 +13,21 @@ Description: "Example of the most basic RF care plan: not fully setup and indica
 * addresses = Reference(SevereRfConditionExample)
 
 * category = $sct#734163000 // placeholder - will change to code for "Rheumatic fever secondary prevention care plan"
-* created = "2023-09-08"
 * title = "Basic care plan representing only the registration of Madeleine Meringue"
 
 // * encounter = Reference(EncounterExample)
 
 * intent = #plan
 
-* period.start = "2023-10-15"
-* period.end = "2033-10-14"
+* created = "2023-06-12"
+* period.start = "2023-08-01"
+* period.end = "2033-07-31"
+* status = #draft
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)
-
-* status = #draft
 
 // * extension[0].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-careplan-onhold-reason"
 // * extension[=].valueString = "Patient on holiday overseas"

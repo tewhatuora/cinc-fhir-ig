@@ -1,9 +1,9 @@
 Instance: RFPatientHealthAssessmentQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
-Description: "Example payload demonstrating health assessment details from a secondary prophylaxis appointment."
+Description: "Example assessment of Madeleine's health at her August secondary prophylaxis appointment."
 Usage: #example
 * status = #completed
-* authored = "2023-10-10T03:08:00.504Z"
+* authored = "2023-08-08T01:08:00.504Z"   // UTC, assumed to be the time of information collection during the appointment
 * questionnaire = Canonical(SecondaryProphylaxisHealthAssessmentQuestionnaire)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
@@ -12,60 +12,75 @@ Usage: #example
 
 // NOTE: item numbering does not have to match the Questionnaire because answers relate to questions through link_id
 
-* item[0] insert answerItemX(ImportantToMe,[[1)]],[[What things that are important to me and my family that support my health and wellbeing? (enter text)]])
-* item[=].answer.valueString = "I want to avoid getting rheumatic heart disease so I can take over from Dad running our adventure tourism company, when he wants to retire."
+* item[0] insert answerItemX(AppointmentIncompleteReason,[[1)]],[[Reason appointment was not completed? (if applicable)]])
+* item[=].answer.valueString = "The patient was too late for the appointment."
 
-* item[+] insert answerItemX(WhanauInvolvement,[[2)]],[[How would I like my whanau and support persons to be involved? (enter text)]])
-* item[=].answer.valueString = "I want my sisters to be with me at the injection appointments to support and distract me."
+* item[+] insert answerItemX(ReasonsInjectionOverdue,[[2)]],[[Reason(s) injection overdue? (multiple choice)]])
+* item[=].answer[0].valueString = "Patient Not Available"
+* item[=].answer[+].valueString = "Other"
 
-* item[+] insert answerItemX(BestWayToCommunicate,[[3)]],[[The best way to communicate with me is…? (choose one)]])
-* item[=].answer.valueString = "text message"
+* item[+] insert answerItemX(OverdueInjectionOtherDetail,[[3)]],[[Details for overdue injections? (enter text)]])
+* item[=].answer.valueString = "The patient couldn't find a park for the classic Hilux."
 
-* item[+] insert answerItemX(AppointmentsContact,[[4)]],[[I know who to contact about my appointments? (choose one)]])
-* item[=].answer.valueString = "Yes"
-
-* item[+] insert answerItemX(PreferredAppointmentsLocation,[[5)]],[[What location do I prefer to receive injected antibiotics at? (choose one)]])
-* item[=].answer.valueString = "Home"
-
-* item[+] insert answerItemX(InjectionLocationDetail,[[6)]],[[More detail about this location (eg. at school during term time, but at home with Dad if out of term time)? (enter text)]])
-* item[=].answer.valueString = "We have an emu on our property which can be quite aggressive on Wednesdays and Thursdays in summer and doesn't like Audis so watch out for that!"
-
-* item[+] insert answerItemX(ImportantDuringInjectionVisits,[[7)]],[[What things that are important to me during my injection visits eg. karakia, kaiawhina support? (enter text)]])
-* item[=].answer.valueString = "I appreciate having chats with the district nurse at my appointments and I find this helps distract me from the injections"
-
-* item[+] insert answerItemX(InjectionVisitsNoNos,[[8)]],[[What things don't work well for me during my injection visits? (enter text)]])
-* item[=].answer.valueString = """I prefer not to know anything about the dose of medication in my injections.
-Also I don't like having the injection in the same part of my thigh on each appointment.  It would be good if the nurse can mix it up a bit."""
-
-* item[+] insert answerItemX(MakingInjectionsComfortable,[[9)]],[[What things do I like to have with my injections to make them more comfortable? (multiple choice)]])
-* item[=].answer[0].valueString = "Lignocaine"
-* item[=].answer[+].valueString = "Ice pack"
-* item[=].answer[+].valueString = "Numbing spray"
-* item[=].answer[+].valueString = "Distraction"
-
-* item[+] insert answerItemX(InjectionOtherComfort,[[10)]],[[What other things make my injections more comfortable? (enter text)]])
-* item[=].answer.valueString = "Ice cream always works well!"
-
-* item[+] insert answerItemX(MedsPreferredSupplyMethod,[[11)]],[[I would prefer to get my oral antibiotic medicines from? (choose one)]])
-* item[=].answer.valueString = "Other"
-
-* item[+] insert answerItemX(MedsSupplyOtherDetail,[[11.1)]],[[If other, enter details]])
-* item[=].answer.valueString = "Please can you supply my medications in two-month packs?"
-
-* item[+] insert answerItemX(EasierToGetToAppointments,[[12)]],[[What things make it easier for me to get to hospital appointments? (multiple choice)]])
-* item[=].answer.valueString = "Morning appointments"
-
-* item[+] insert answerItemX(HospitalAppointmentsImportant,[[13)]],[[More detail about the things that are important to me about hospital appointments (enter text)]])
-* item[=].answer.valueString = "I would like my hospital injections in a room with a view of the mountains."
-
-* item[+] insert answerItemX(HospitalAppointmentsNoNos,[[14)]],[[Things that don't work well for me about hospital appointments (enter text)]])
-* item[=].answer.valueString = "I prefer it if there are not heaps of trainee medics watching me get my injections."
-
-* item[+] insert answerItemX(SupportGettingToHospitalAppointments,[[15)]],[[Do I need support getting to and from hospital appointment? (choose one)]])
+* item[+] insert answerItemX(DentalIssues,[[4)]],[[Any dental issues? sore teeth etc. (choose one)]])
 * item[=].answer.valueString = "No"
 
-* item[+] insert answerItemX(HospitalAppointmentsTransportSupport,[[question 16]],[[Which transport support option do I need? (choose one)]])
-* item[=].answer.valueString = "Other"
+* item[+] insert answerItemX(OngoingHealthConcerns,[[5)]],[[Are there other ongoing health concerns? (choose one)]])
+* item[=].answer.valueString = "No"
 
-* item[+] insert answerItemX(HospitalAppointmentsTransportOtherDetail,[[question 17]],[[What other details are there about getting to hospital appointments? (enter text)]])
-* item[=].answer.valueString = "Please can I have a reserved park space to park Dad's '73 Hilux?  This will help me get to my appointments on time."
+* item[+] insert answerItemX(NewlyPregnant,[[6)]],[[Newly pregnant?]])
+* item[=].answer.valueBoolean = true
+
+* item[+] insert answerItemX(EstDueDate,[[6.1)]],[[Estimated Due Date?]])
+* item[=].answer.valueDate = "2024-02-10"
+
+* item[+] insert answerItemX(Weight,[[7)]],[[Weight (kg)?]])
+* item[=].answer.valueInteger = 63
+
+* item[+] insert answerItemX(ConsentChecked,[[8)]],[[Pre-injection consent checked?]])
+* item[=].answer.valueBoolean = true
+
+* item[+] insert answerItemX(MedicationChecked,[[9)]],[[Pre-injection medication checked with a second person?]])
+* item[=].answer.valueBoolean = true
+
+* item[+] insert answerItemX(BenzathineBrandOtherDetails,[[10)]],[[Details of other Benzathine brand, if used (enter text)]])
+* item[=].answer.valueString = "Normal benzathine brand used"
+
+* item[+] insert answerItemX(OtherPainManagementToolsUsed,[[11)]],[[Pain management tools used? (multiple choice)]])
+* item[=].answer[0].valueString = "Ice pack"
+* item[=].answer[+].valueString = "Numbing spray"
+* item[=].answer[+].valueString = "Distraction"
+* item[=].answer[+].valueString = "Other"
+
+* item[+] insert answerItemX(PainManagementOtherDetails,[[11.1)]],[[Details of other pain management (enter text)]])
+* item[=].answer.valueString = "We discovered in this appointment that Chocolate Chip Cookie ice cream helps a lot!"
+
+* item[+] insert answerItemX(PostInjectionConcern,[[12)]],[[Post injection concern or possible reaction identified?]])
+* item[=].answer.valueBoolean = true
+
+* item[+] insert answerItemX(PostInjectionConcernDetails,[[12.1)]],[[Enter details of concern / reaction / actions taken (enter text)]])
+* item[=].answer.valueString = "Madeleine had a bit more than the usual sensitivity at the injection site so we dished out extra ice cream, which was nice."
+
+* item[+] insert answerItemX(PostInjectionMedsGiven,[[13)]],[[Post-injection medications given?]])
+* item[=].answer.valueBoolean = true
+
+* item[+] insert answerItemX(PostInjectionMedsDetails,[[13.1)]],[[Enter details of post-injection medications and reason (enter text)]])
+* item[=].answer.valueString = "Only ice cream."
+
+* item[+] insert answerItemX(Comments,[[14)]],[[Enter any further comments about the secondary prophylaxis appointment here (enter text)]])
+* item[=].answer.valueString = "No comment"
+
+* item[+] insert answerItemX(HealthEducationTopicsDiscussed,[[15)]],[[Health education topics discussed? (multiple choice)]])
+* item[=].answer[0].valueString = "Secondary prophylaxis"
+* item[=].answer[+].valueString = "Nutrition"
+* item[=].answer[+].valueString = "Other"
+
+* item[+] insert answerItemX(HealthEducationOtherDetail,[[15.1)]],[[Enter details of other health education topic discussed (enter text)]])
+* item[=].answer.valueString = "Madeleine and I discussed the importance of punctuality and the benefits of planning ahead; I showed her the basics of iOS calendars.."
+
+* item[+] insert answerItemX(RecentOrUpcomingAppointments,[[16)]],[[Any recent or upcoming follow-up appointments?]])
+* item[=].answer.valueBoolean = true
+
+* item[+] insert answerItemX(RecentOrUpcomingAppointmentsDetails,[[16.1)]],[[Enter details and dates of any recent or upcoming follow-up appointments (enter text)]])
+* item[=].answer.valueString = "Madeleine has an upcoming follow-up appointment on The importance of punctuality and the benefits of planning ahead; iOS calendar basics"
+
