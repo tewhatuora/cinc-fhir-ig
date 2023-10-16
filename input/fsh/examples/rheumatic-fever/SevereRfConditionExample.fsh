@@ -7,6 +7,8 @@ Description: "An example of a rheumatic fever Condition"
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
+* identifier[RFNCS] insert ConditionNumber(00015101)
+
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * clinicalStatus.text = "Active"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"
@@ -25,10 +27,10 @@ Description: "An example of a rheumatic fever Condition"
 * recorder insert ReferencePractitioner(99ZZFX,[[Dottie McStuffins]])
 
 * extension[rhdSeverity].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-condition-rhdseverity"
-* extension[rhdSeverity].valueCode = $sct#1255665007 "Severe (severity modifier) (qualifier value)"
+* extension[rhdSeverity].valueCoding = $sct#24484000 "Severe (severity modifier) (qualifier value)"
 
 * extension[diagnosticCertainty].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-condition-diagnosticcertainty"
-* extension[diagnosticCertainty].valueCode = #probable "probable"
+* extension[diagnosticCertainty].valueCoding = $RFdiagnosticCertaintyCS#probable "probable"
 
 * meta.versionId = "1"
-* meta.lastUpdated = "2022-09-20T02:21:06.157Z"
+* meta.lastUpdated = "2022-10-16T04:48:06.157Z"

@@ -8,14 +8,14 @@ Description: "Example of the most basic RF care plan: not fully setup and indica
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
-* identifier[case] insert SalesforceCaseNumber(00073469)
+* identifier[case] insert CaseNumber(00073469)
 
 * addresses = Reference(SevereRfConditionExample)
 
-* category = $sct#734163000 // placeholder - will change to code for "Rheumatic fever secondary prevention care plan"
-* title = "Basic care plan representing only the registration of Madeleine Meringue"
+// codesystem will need to change when code published in SNOMED in 2024
+* category = $CarePlanCategoryCS#320721000210102 "Rheumatic fever secondary prevention care plan" 
 
-// * encounter = Reference(EncounterExample)
+* title = "Basic care plan representing only the registration of Madeleine Meringue"
 
 * intent = #plan
 

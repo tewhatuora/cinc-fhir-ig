@@ -7,7 +7,6 @@ Id: cinc-rheumaticfever-careplan
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a secondary prevention care plan for a NZ rheumatic fever patient"
-* ^meta.tag.code = #rheumatic-fever
 
 // elements modified from base profile
 
@@ -20,7 +19,10 @@ Id: cinc-rheumaticfever-careplan
 * addresses only Reference(RheumaticFeverCondition)
 
 * category 1..1
-// * category = $sct#xxx  TODO: correct and apply the invariant when the new code has been assigned
+
+// The category code is due to appear in SNOMED in 2024 but is temporarily published in an NZHTS codesystem 
+// However, there is an ValueSet defined at a Url that will endure that contains the code(s), so we bind that
+* category from $CarePlanCategoryVS
 
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
@@ -35,7 +37,7 @@ Id: cinc-rheumaticfever-careplan
 
 * identifier[case].use = #usual
 * identifier[case].system 1..
-* identifier[case].system = "https://salesforce.digital.health.nz/ns/rheumatic-fever-case-management" (exactly)
+* identifier[case].system = "https://standards.digital.health.nz/ns/rheumatic-fever-case-id" (exactly)
 
 * instantiatesCanonical only Canonical(PlanDefinition)
 

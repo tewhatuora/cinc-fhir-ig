@@ -6,15 +6,24 @@ Id: cinc-rheumaticfever-condition
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a condition to add severity and diagnostic certainty classifiers used in NZ rheumatic fever secondary secondary prevention"
-* ^meta.tag.code = #rheumatic-fever
 
-// elements modified'
+// elements modified
 * subject only Reference(Patient)
 * onset[x] only dateTime
 * onsetDateTime obeys fhir-hnz-dateTime-utc-1
 * recordedDate obeys fhir-hnz-dateTime-utc-1
 * recorder only Reference(Practitioner)
-// bind code to the permissible Rf diagnosis at registration codes.
+
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier contains RFNCS 1..1
+
+* identifier[RFNCS].use = #usual
+* identifier[RFNCS].system 1..
+* identifier[RFNCS].system = "https://standards.digital.health.nz/ns/rheumatic-fever-condition-id" (exactly)
+
+// bind code to the permissible Rf diagnosis-at-registration codes.
 * code 1..1
 * code from RheumaticFeverConditionDiagnosisAtRegistrationValueSet (required)
 * severity 1..1
@@ -22,7 +31,7 @@ Id: cinc-rheumaticfever-condition
 // extensions
 * extension contains
   RfConditionRhdSeverityExtension named rhdSeverity 1..1 and
-  RfConditionRfConditionDiagnosticCertaintyExtension named diagnosticCertainty 1..1
+  RfConditionDiagnosticCertaintyExtension named diagnosticCertainty 1..1
 
 // elements prohibited
 * contained 0..0

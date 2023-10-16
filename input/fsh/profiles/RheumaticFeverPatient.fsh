@@ -8,7 +8,6 @@ Id: cinc-rheumaticfever-patient
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a New Zealand patient with rheumatic fever (extends NzPatient resource)"
-* ^meta.tag.code = #rheumatic-fever
 
 // elements modified from base profile
 * name 1..1

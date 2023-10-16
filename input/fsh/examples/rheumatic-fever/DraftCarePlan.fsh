@@ -3,22 +3,21 @@ InstanceOf: RheumaticFeverCarePlan
 Usage: #example
 Description: "Example of an RF care plan where setup is complete but no secondary prevention activities yet planned."
 
-* meta.tag.code = #rheumatic-fever
-
 * meta.profile = Canonical(RheumaticFeverCarePlan)
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
-* identifier[case] insert SalesforceCaseNumber(00073469)
+* identifier[case] insert CaseNumber(00073469)
 
 * addresses = Reference(SevereRfConditionExample)
 
 * title = "Draft care plan for Madeleine Meringue (no secondary prevention planned)"
-* category = $sct#734163000 // placeholder - will change to code for "Rheumatic fever secondary prevention care plan"
-* created = "2023-06-12"
 
-// * encounter = Reference(EncounterExample)
+// codesystem will need to change when code published in SNOMED in 2024
+* category = $CarePlanCategoryCS#320721000210102 "Rheumatic fever secondary prevention care plan" 
+
+* created = "2023-06-12"
 
 * intent = #plan
 

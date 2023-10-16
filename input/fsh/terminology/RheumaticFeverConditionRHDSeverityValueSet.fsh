@@ -5,6 +5,7 @@ Description:  "This value set defines codes for the severity of rheumatic heart 
 * ^version = "1.0"
 * ^experimental = false
 * ^url = "https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-rheumatic-heart-disease-severity"
+
 * $sct#260413007 "None (qualifier value)"
 * $sct#300171000210106 "Trivial (qualifier value)"
 * $sct#255604002 "Mild (qualifier value)"

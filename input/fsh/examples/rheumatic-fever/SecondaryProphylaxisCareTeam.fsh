@@ -1,5 +1,5 @@
 Instance: SecondaryProphylaxisCareTeam
-InstanceOf: CareTeam
+InstanceOf: RheumaticFeverCareTeam
 Description: "Example of secondary prophylaxis care team membership"
 Usage: #example
 
@@ -7,8 +7,8 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
-* category = $loinc#LA27977-0 "Episode of care-focused care team"   // placeholder - update when new SNOMED codes known
-// "Secondary Prophylaxis Team"
+// * category = $loinc#LA27977-0 "Episode of care-focused care team"   // placeholder - update when new SNOMED codes known
+* category = $CareTeamCategoryCS#320721000210108 "Secondary Prophylaxis Team"
 
 * name = "Madeleine Meringue's secondary prophylaxis team"
 * status = #active

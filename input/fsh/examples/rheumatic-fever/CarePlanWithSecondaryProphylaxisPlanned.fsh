@@ -10,13 +10,12 @@ Description: "Example of an RF care plan with secondary prophylaxis medication p
 * title = "Active care plan with medication planned and appointments booked for Madeleine Meringue"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
-* identifier[case] insert SalesforceCaseNumber(00073469)
+* identifier[case] insert CaseNumber(00073469)
 
 * addresses = Reference(SevereRfConditionExample)
 
-* category = $sct#734163000 // placeholder - will change to code for "Rheumatic fever secondary prevention care plan"
-
-// * encounter = Reference(EncounterExample)
+// codesystem will need to change when code published in SNOMED in 2024
+* category = $CarePlanCategoryCS#320721000210102 "Rheumatic fever secondary prevention care plan" 
 
 * intent = #plan
 

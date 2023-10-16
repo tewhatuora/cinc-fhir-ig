@@ -188,6 +188,7 @@ groups:
     description: All rheumatic fever FHIR profiles and terminology
     resources:
     - StructureDefinition/cinc-rheumaticfever-careplan
+    - StructureDefinition/cinc-rheumaticfever-careteam
     - StructureDefinition/cinc-rheumaticfever-condition
     - StructureDefinition/cinc-rheumaticfever-patient
     - MedicationsAndFollowUpGuidanceQuestionnaire
