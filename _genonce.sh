@@ -7,6 +7,7 @@ curl -sSf tx.fhir.org > /dev/null
 if [ $? -eq 0 ]; then
 	echo "Online"
 	txoption=""
+	#txoption="-tx https://nzhts.digital.health.nz/fhir"
 else
 	echo "Offline"
 	txoption="-tx n/a"
