@@ -11,7 +11,12 @@ Id: cinc-rheumaticfever-careteam
 
 * category 1..1
 
-* category from $CareTeamCategoryVS
+// * category from https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-care-team-category
+// The category code is defined in the above ValueSet on NZHTS but there are problems relating to the 
+// fact that the code is in a temporary codesystem while we wait for SNOMED NZ edition April 2024 to roll around
+// So for now, this profile requires that the canonical ValueSet will be the one defined in this IG
+
+* category from rf-careteam-category-code (required)
 // The ValueSet is defined at an enduring Url so the code binding is stable
 // The category code is due to appear in SNOMED in 2024 but until then is published temporarily in an NZHTS codesystem 
 

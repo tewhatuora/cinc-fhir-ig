@@ -5,5 +5,6 @@ Description:  "This value set defines the codes that represent the certainty of 
 * ^version = "1.0"
 * ^experimental = false
 * ^url = "https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-diagnostic-certainty"
+* ^status = #active
 
-* include codes from system RheumaticFeverConditionDiagnosticCertaintyCodeSystem
+* include codes from system rf-condition-diagnosticcertainty-codesystem

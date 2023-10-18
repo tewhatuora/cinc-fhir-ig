@@ -28,6 +28,7 @@ Description: "Describes any known patient allergies to medications used in rheum
 * item[=].enableWhen.question = "MedicationAllergies"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true
-* item[=].answerValueSet = "https://nzhts.digital.health.nz/fhir/ValueSet/Rheumatic-fever-medication-allergy"
+// future "https://nzhts.digital.health.nz/fhir/ValueSet/Rheumatic-fever-medication-allergy"
+* item[=].answerValueSet = Canonical(RheumaticFeverMedicationAllergyValueSet)  
 * item[=].extension.url = $termServerExtension
 * item[=].extension.valueUrl = $preferredTermServer

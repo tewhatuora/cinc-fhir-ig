@@ -21,17 +21,17 @@ Id: cinc-rheumaticfever-condition
 
 * identifier[RFNCS].use = #usual
 * identifier[RFNCS].system 1..
-* identifier[RFNCS].system = "https://standards.digital.health.nz/ns/rheumatic-fever-condition-id" (exactly)
+* identifier[RFNCS].system = "https://standards.digital.health.nz/rheumatic-fever-identifiers"
 
-// bind code to the permissible Rf diagnosis-at-registration codes.
+// bind to the permissible SNOMED codes for RF diagnosis at registration.
 * code 1..1
-* code from RheumaticFeverConditionDiagnosisAtRegistrationValueSet (required)
+* code from rf-condition-diagnosisatregistration-code (required)
 * severity 1..1
 
 // extensions
 * extension contains
-  RfConditionRhdSeverityExtension named rhdSeverity 1..1 and
-  RfConditionDiagnosticCertaintyExtension named diagnosticCertainty 1..1
+  RfConditionRhdSeverityExtension named rhdSeverity 0..1 and
+  RfConditionDiagnosticCertaintyExtension named diagnosticCertainty 0..1
 
 // elements prohibited
 * contained 0..0

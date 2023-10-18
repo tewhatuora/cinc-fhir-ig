@@ -1,13 +1,13 @@
-Instance: CarePlanWithOneAppointmentCompleted
+Instance: CarePlanClosed
 InstanceOf: RheumaticFeverCarePlan
 Usage: #example
-Description: "Example of an RF care plan after the first secondary prophylaxis appointment has been attended."
+Description: "Example of an RF care plan that has gone on-hold, after the first secondary prophylaxis appointment has been attended."
 
 * meta.profile = Canonical(RheumaticFeverCarePlan)
 * meta.versionId = "1"
-* meta.lastUpdated = "2023-10-06T08:00:00Z"
+* meta.lastUpdated = "2023-10-18T01:00:00Z"
 
-* title = "Care plan underway for Madeleine Meringue with one appointment completed"
+* title = "Care plan closed with only one appointment completed"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
 * identifier[case] insert CaseNumber(00073469)
@@ -21,7 +21,7 @@ Description: "Example of an RF care plan after the first secondary prophylaxis a
 * created = "2023-06-12"
 * period.start = "2023-08-01"
 * period.end = "2033-07-31"
-* status = #active
+* status = #revoked
 
 * activity[0].reference = Reference(PlannedMedicationRequestExample)
 * activity[+].reference = Reference(SecondaryProphylaxisAppointment-August-Fulfilled)
@@ -37,8 +37,8 @@ Description: "Example of an RF care plan after the first secondary prophylaxis a
 * supportingInfo[+] = Reference(RFPatientHealthAssessmentQuestionnaireResponse)       //  *****
 
 // * extension[0].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-careplan-onhold-reason"
-// * extension[=].valueString = "Patient on holiday overseas"
+// * extension[=].valueString = "Patient has gone on big OE"
 
-// * extension[+].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-careplan-closure-reason"
-// * extension[=].valueString = "Patient left New Zealand"
+* extension[+].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-careplan-closure-reason"
+* extension[=].valueString = "Patient has left New Zealand and now lives in Nepal"
 

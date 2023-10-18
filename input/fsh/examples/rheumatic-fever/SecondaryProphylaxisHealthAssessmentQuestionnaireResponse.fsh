@@ -31,8 +31,9 @@ Usage: #example
 * item[+] insert answerItemX(NewlyPregnant,[[6)]],[[Newly pregnant?]])
 * item[=].answer.valueBoolean = true
 
-* item[+] insert answerItemX(EstDueDate,[[6.1)]],[[Estimated Due Date?]])
-* item[=].answer.valueDate = "2024-02-10"
+// 18/10/2023 placed on hold
+// * item[+] insert answerItemX(EstDueDate,[[6.1)]],[[Estimated Due Date?]])
+// * item[=].answer.valueDate = "2024-02-10"
 
 * item[+] insert answerItemX(Weight,[[7)]],[[Weight (kg)?]])
 * item[=].answer.valueInteger = 63

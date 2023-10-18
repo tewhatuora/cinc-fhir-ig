@@ -7,7 +7,7 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
-* description = "monthly injection September 2023"
+* description = "monthly injection August 2023"
 
 * start = "2023-08-08T02:00:00Z"    // UTC equivalent of a start time at 2pm NZ Standard Time on August 8th 2023
 * end = "2023-08-08T03:00:00Z"      //  UTC equivalent of a finish time of 3pm NZ Standard Time on August 8th 2023

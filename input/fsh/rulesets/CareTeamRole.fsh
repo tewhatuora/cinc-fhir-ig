@@ -1,5 +1,5 @@
 RuleSet: CareTeamRole(snomed-code,display)
-// makes a codeable concept identifying a role
+// inserts a SNOMED coding identifying the role
 
 * coding.system = $sct
 * coding.code = #"{snomed-code}"

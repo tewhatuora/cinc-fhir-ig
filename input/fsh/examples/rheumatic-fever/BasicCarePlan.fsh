@@ -12,8 +12,7 @@ Description: "Example of the most basic RF care plan: not fully setup and indica
 
 * addresses = Reference(SevereRfConditionExample)
 
-// codesystem will need to change when code published in SNOMED in 2024
-* category = $CarePlanCategoryCS#320721000210102 "Rheumatic fever secondary prevention care plan" 
+* category = $sct#320721000210102 "Rheumatic fever secondary prevention care plan" 
 
 * title = "Basic care plan representing only the registration of Madeleine Meringue"
 

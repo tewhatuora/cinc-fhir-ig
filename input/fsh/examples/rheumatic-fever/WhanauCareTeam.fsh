@@ -7,8 +7,7 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
-//* category = $loinc#LA27977-0 "Episode of care-focused care team"   // placeholder - update when new SNOMED codes known
-* category = $CareTeamCategoryCS#320721000210106 "Whānau and/or trusted delegate team" 
+* category = $sct#320721000210106 "Whānau and/or trusted delegate team" 
 
 * name = "Madeleine Meringue's whanau and delegates team"
 * status = #active

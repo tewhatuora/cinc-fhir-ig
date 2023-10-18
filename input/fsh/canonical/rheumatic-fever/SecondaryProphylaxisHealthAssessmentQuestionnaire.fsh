@@ -39,10 +39,11 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 
 * item[+] insert optionalBooleanQuestion(NewlyPregnant,[[6)]],[[Newly pregnant?]])
 
-* item[+] insert dateQuestion(EstDueDate,[[6.1)]],[[Estimated Due Date?]])
-* item[=].enableWhen.question = "NewlyPregnant"
-* item[=].enableWhen.operator = #=
-* item[=].enableWhen.answerBoolean = true
+// 18/10/2023 placed on hold
+// * item[+] insert dateQuestion(EstDueDate,[[6.1)]],[[Estimated Due Date?]])
+// * item[=].enableWhen.question = "NewlyPregnant"
+// * item[=].enableWhen.operator = #=
+// * item[=].enableWhen.answerBoolean = true
 
 * item[+] insert integerQuestion(Weight,[[7)]],[[Weight (kg)?]])
 

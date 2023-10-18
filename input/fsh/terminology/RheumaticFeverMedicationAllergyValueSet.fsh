@@ -4,6 +4,9 @@ Title: "Rheumatic fever medication allergy codes"
 Description:  "This value set includes codes for the RF secondary prophylaxis medications / substances a patient has an allergic reaction to"
 * ^version = "1.0"
 * ^experimental = false
+* ^status = #draft
+
+//18/10/2023 Won't use NZHTS until the SNOMED licensing and terminology publishing issues sorted out so the codes can actually be used!
 //* ^url = "https://nzhts.digital.health.nz/fhir/ValueSet/Rheumatic-fever-medication-allergy"
 * $sct#372725003 "Phenoxymethylpenicillin (substance)"  // Penicillin V
 * $sct#12578001 "Erythromycin ethyl succinate"      // Erythromycin ethyl succinate

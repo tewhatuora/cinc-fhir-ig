@@ -14,8 +14,7 @@ Description: "Example of an RF care plan where setup is complete but no secondar
 
 * title = "Draft care plan for Madeleine Meringue (no secondary prevention planned)"
 
-// codesystem will need to change when code published in SNOMED in 2024
-* category = $CarePlanCategoryCS#320721000210102 "Rheumatic fever secondary prevention care plan" 
+* category = $sct#320721000210102 "Rheumatic fever secondary prevention care plan" 
 
 * created = "2023-06-12"
 

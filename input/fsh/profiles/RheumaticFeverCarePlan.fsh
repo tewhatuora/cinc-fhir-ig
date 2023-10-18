@@ -20,9 +20,11 @@ Id: cinc-rheumaticfever-careplan
 
 * category 1..1
 
-// The category code is due to appear in SNOMED in 2024 but is temporarily published in an NZHTS codesystem 
-// However, there is an ValueSet defined at a Url that will endure that contains the code(s), so we bind that
-* category from $CarePlanCategoryVS
+// * category from https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-care-plan-category
+// The category code is defined in a ValueSet on NZHTS but there are problems relating to the 
+// fact that the code is in a temporary codesystem while we wait for SNOMED NZ edition April 2024 to roll around
+// So for now, this profile requires that the canonical ValueSet will be the one defined in this IG
+* category from rf-careplan-category-code (required)
 
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
@@ -37,7 +39,7 @@ Id: cinc-rheumaticfever-careplan
 
 * identifier[case].use = #usual
 * identifier[case].system 1..
-* identifier[case].system = "https://standards.digital.health.nz/ns/rheumatic-fever-case-id" (exactly)
+* identifier[case].system = "https://standards.digital.health.nz/rheumatic-fever-identifiers"
 
 * instantiatesCanonical only Canonical(PlanDefinition)
 
