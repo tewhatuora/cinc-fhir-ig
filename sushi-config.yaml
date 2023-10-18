@@ -34,9 +34,6 @@ publisher:
 dependencies:
   fhir.org.nz.ig.base: 2.0.0
   hl7.fhir.uv.sdc: 3.0.0
-  # hl7.org.nz.fhir.ig.hpi:
-  #  uri: 'https://hpi-ig.hip-uat.digital.health.nz'   
-  #  version: 1.2.0
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can

@@ -11,8 +11,4 @@ Usage: #example
 * identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
 * identifier.value = "GOM087-D"
 
-// * identifier[orgId].use = #official
-// * identifier[orgId].system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-// * identifier[orgId].value = "GOM087-D"
-
 * name = "Waikato Rheumatic Fever Secondary Prevention Service"
