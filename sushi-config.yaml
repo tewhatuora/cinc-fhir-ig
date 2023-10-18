@@ -201,6 +201,8 @@ groups:
     - DraftCarePlan
     - CarePlanWithOneAppointmentCompleted
     - CarePlanWithSecondaryProphylaxisPlanned
+    - CarePlanWentOnHold
+    - CarePlanClosed
     - MadeleineMeringue
     - PaniaPunga
     - SevereRfConditionExample
