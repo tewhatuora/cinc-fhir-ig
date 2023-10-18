@@ -19,7 +19,7 @@ Usage: #example
 * item[=].text = "Side Effects"
 * item[=].item[0].linkId = "p02-q01-SideEffects"
 * item[=].item[=].text = "Select all the side effects you experienced after your recent COVID-19 vaccination"
-* item[=].item[=].answer[0].valueCoding = $sct#386661006 "Fever or high temperature"
+* item[=].item[=].answer[0].valueCoding = $sct#386661006 "Fever"
 * item[=].item[=].answer[+].valueCoding = $sct#68962001 "Muscle pain"
 * item[=].item[=].answer[+].valueCoding = $sct#57676002 "Joint pain"
 * item[=].item[=].answer[+].valueCoding = $sct#422587007 "Nausea"
@@ -65,7 +65,7 @@ Usage: #example
 * item[=].item[=].answer[0].valueCoding = $sct#363346000 "Cancer"
 * item[=].item[=].answer[+].valueCoding = $sct#195967001 "Asthma"
 * item[=].item[=].answer[+].valueCoding = $sct#73211009 "Diabetes"
-* item[=].item[=].answer[+].valueCoding = $sct#770924008 "Gout"
+* item[=].item[=].answer[+].valueCoding = $sct#770924008 "Acute gout"
 * item[=].item[+].linkId = "p04-q02-1-LongTermConditions.Other"
 * item[=].item[=].text = "Other or not listed long term condition?"
 * item[=].item[=].answer.valueBoolean = true

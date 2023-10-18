@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Care In The Community FHIR API
 description: Care In The Community FHIR API
 status: draft
-version: 0.2.4
+version: 0.3.0
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -84,6 +84,7 @@ menu:
   Business Context: businessContext.html
   Use Cases: useCases.html
   Profiles: artifacts.html#structures-resource-profiles
+  Rheumatic Fever Data: rheumatic-fever-data.html
   API: capabilityStatement.html
   Extensions: extensions.html
   Terminology: terminology.html
@@ -179,6 +180,49 @@ menu:
 #     - StructureDefinition/bark-control
 #     - StructureDefinition/bee-sting
 #
+groups:
+  RheumaticFeverProfiles:
+    name: Rheumatic Fever definitions
+    description: All rheumatic fever FHIR profiles and terminology
+    resources:
+    - StructureDefinition/cinc-rheumaticfever-careplan
+    - StructureDefinition/cinc-rheumaticfever-careteam
+    - StructureDefinition/cinc-rheumaticfever-condition
+    - StructureDefinition/cinc-rheumaticfever-patient
+    - MedicationsAndFollowUpGuidanceQuestionnaire
+    - PatientMedicationAllergyQuestionnaire
+    - PatientWhanauGoalsPreferencesQuestionnaire
+    - SecondaryProphylaxisHealthAssessmentQuestionnaire
+  RheumaticFeverExamples:
+    name: Rheumatic Fever examples
+    description: All rheumatic fever example FHIR instances
+    resources:
+    - BasicCarePlan
+    - DraftCarePlan
+    - CarePlanWithOneAppointmentCompleted
+    - CarePlanWithSecondaryProphylaxisPlanned
+    - CarePlanWentOnHold
+    - CarePlanClosed
+    - MadeleineMeringue
+    - PaniaPunga
+    - SevereRfConditionExample
+    - PlannedMedicationRequestExample
+    - SecondaryProphylaxisMedicationExample
+    - SecondaryProphylaxisAppointment-August-Booked
+    - SecondaryProphylaxisAppointment-August-Fulfilled
+    - SecondaryProphylaxisAppointment-September-Booked
+    - SecondaryProphylaxisAppointment-Encounter
+    - MedicationStatement-August
+    - SecondaryProphylaxisCareTeam
+    - TeTaiTokerauRFSecondaryPreventionService
+    - WaikatoRFSecondaryPreventionService
+    - WhanauCareTeam
+    - MedicationsAndFollowUpGuidanceQuestionnaireResponse
+    - PatientMedicationAllergyQuestionnaireResponse
+    - PatientWhanauGoalsPreferencesQuestionnaireResponse
+    - RFPatientHealthAssessmentQuestionnaireResponse
+
+
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

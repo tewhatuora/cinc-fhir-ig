@@ -5,7 +5,7 @@ Description: "An example ManaakiNgaTahi Consent by policy"
 * status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 * scope.text = "Privacy Consent"
-* category = http://loinc.org#57016-8 "Privacy policy acknowledgement Doc"
+* category = http://loinc.org#57016-8 "Privacy policy acknowledgment Document"
 * category.text = "Privacy policy acknowledgement Document"
 
 * patient = Reference(CareyCarrington) "Carey Carrington"

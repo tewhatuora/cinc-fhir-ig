@@ -1,0 +1,168 @@
+@startuml flow-FHIR-rheumaticfever-lifecycle
+
+title "Rheumatic fever FHIR resource creation phases and checkpoints"
+footer "Middleware NZ design for Health NZ, %date('yyyy.MM.dd')"
+
+skinparam BoxPadding 10
+skinparam ParticipantPadding 5
+skinparam roundcorner 10
+
+skinparam sequenceArrowThickness 2
+
+skinparam dpi 400
+scale 250 width
+
+[*] -d-> P : Patient not registered /no FHIR records.
+
+state patient_registration_phase #OrangeRed/White {
+  
+  state "NzPatient created/updated" as P {
+    state NzPatient #LightSalmon
+  }
+
+  state "**CarePlan** created" as CP {
+    state CarePlan #LightSalmon
+    state Condition #LightSalmon
+  }
+
+  state "**Consent** created\nand linked" as CONSENT {
+    state Consent #LightSalmon
+  }
+
+  state "CarePlan -> **#draft**" as REG_COMPLETE #OrangeRed ##[bold]
+  note left of REG_COMPLETE 
+    When registration complete, CarePlan
+    can be published in **#draft** state.
+    This lets integrated sector health 
+    applications see that the patient is
+    on NZ Rheumatic Fever register.
+  endnote
+
+  P -r-> CP : ok
+  CP -d-> CONSENT : ok
+  CONSENT -l-> REG_COMPLETE : ok
+
+}
+
+state SETUP <<fork>>
+
+REG_COMPLETE -d-> SETUP
+
+state careplan_setup_phase #PaleGreen/White {
+
+  state "Initial diagnosis completed" as DIAG {
+    state "Condition (updated)" #LightSalmon
+  }
+
+  state "CareTeam defined" as CARETEAM {
+    state CareTeam #LightSalmon
+  }
+  state "Allergies recorded" as ALLERGY {
+    state "Questionnaire\nResponse type A" #LightSalmon
+  }
+
+  state "Medications & Follow-up\nGuidance captured" as FOLLOW {
+    state "Questionnaire\nResponse type B" #LightSalmon
+  }
+  
+  state "Patient / Whanau \n Goals & Prefs\n recorded" as GOALS {
+    state "Questionnaire\nResponse type C" #LightSalmon
+  }
+
+  SETUP --> DIAG
+  SETUP --> CARETEAM
+  SETUP --> ALLERGY
+  SETUP --> FOLLOW  
+  SETUP --> GOALS
+
+  state ALLSETUP <<join>>
+  
+  DIAG -d-> ALLSETUP
+  CARETEAM --> ALLSETUP
+  ALLERGY --> ALLSETUP
+  FOLLOW --> ALLSETUP
+  GOALS --> ALLSETUP
+
+  note right of ALLSETUP 
+    go back and repeat if necessary
+  end note
+
+}
+
+ALLSETUP -d-> ACT1
+
+
+state "Medication planning" as MEDPLAN #SkyBlue/White {
+  state "Plan period of medication (say 2023)" as ACT1 {
+    state "Medication\nRequest 2023" #LightSalmon
+    state "Medication (Benzathine)" #LightSalmon
+  }
+
+  state "Book appointments" as ACT2 {
+    state "Appointment 1\n**#booked**" #LightSalmon
+    state "Appointment 2\n**#booked**" #LightSalmon
+    state "Appointment N\n**#booked**" #LightSalmon
+  }
+
+  state "MedicationRequest --> **#active** /\n appointments **#booked**" as PLANDONE #White/RoyalBlue ##[bold]
+
+  note left of PLANDONE
+    When sufficient medication 
+    planning has been done
+  end note
+
+  state "CarePlan --> **#active**" as CPA #PaleGreen ##[bold]
+
+  PLANDONE --> CPA
+
+  note left of CPA
+    CarePlan moves into **#active**
+    status signifying care planned and underway
+  end note
+
+  ACT1 -l-> ACT2
+  ACT2 -d-> PLANDONE
+}
+
+CPA --> APPT1
+
+state "Medication appintment recording" as APPOINTMENTS #white/MediumPurple {
+  state "First appointment data capture (say March 2023)" as APPT1 {
+    state "Medication\nStatement (1)" #LightSalmon
+    state "Questionnaire\nResponse type D (1)" #LightSalmon
+    state "Appt\nEncounter (1)" #LightSalmon
+  }
+
+  state "Second appointment data capture (say April 2023)" as APPT2 {
+    state "Medication\nStatement (2)" #LightSalmon
+    state "Questionnaire\nResponse type D (2)" #LightSalmon
+    state "Appt\nEncounter (2)" #LightSalmon
+  }
+
+  APPT1 --> APPT2
+
+  state "... resource triples for further appointments ..." as APPTX {
+  }
+
+  APPT2 -d-> APPTX
+
+}
+
+
+state "Patient care continues\nCarePlan --> **#active**" as CPA2 #PaleGreen ##[bold]
+state "Patient care suspended\nCarePlan --> **#on-hold**" as CPH #PaleGreen ##[bold]
+state "Patient care plan closed\nCarePlan --> **#revoked**" as CPR #PaleGreen ##[bold]
+
+APPTX -d-> CPA2
+note left of CPA2  
+  FHIR resources accumulate
+   as rheumatic fever patient
+   care continues.
+end note
+
+CPA2 -> CPH
+CPH -> CPR
+CPA2 -> [*]
+CPR -> [*]
+
+@enduml

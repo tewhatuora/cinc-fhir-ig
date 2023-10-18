@@ -1,7 +1,8 @@
 Profile: ManaakiNgaTahiEncounter
 Parent: Encounter
 Description: "Encounter FHIR resource for Manaaki Nga Tahi"
-* ^version = "0.1.3"
+* ^version = "0.3.0"
+
 // elements modified
 * diagnosis.condition only Reference(Condition)
 * participant.individual only Reference(Practitioner)
@@ -10,7 +11,7 @@ Description: "Encounter FHIR resource for Manaaki Nga Tahi"
 * subject only Reference(Patient)
 // elements prohibited
 * account 0..0
-* appointment 0..0
+// * appointment 0..0     // v0.3.0 re-enabled for rheumatic fever
 * basedOn 0..0
 * classHistory 0..0
 * contained 0..0

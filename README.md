@@ -78,6 +78,30 @@ Authoring and publishing IGs using the [Simplifier](https://simplifier.net/) inf
 
 Unlike the FHIR IG Publisher, which outputs a fully rendered IG with merged in FHIR artifacts and Markdown content, the Simplifier IG Editor just provides some shorthand notation for rendering FHIR artifacts.  Apart from that, the entire IG, including the structure and layout, would need to be manually authored in the IG Editor.  The FHIR artifacts output by SUSHI can be imported into Simplifier but all of the Markdown content and FHIR IG Publisher output would need to be manually created/re-created.
 
+# FHIR IG Quality Guidelines
+
+## Terminology data quality
+
+The following principles are useful when considering how to approach modelling of terminology in a new FHIR IG.
+
+Controlled terminology in data representations can represent a tricky area of the IG developer because the 
+terms necessary for new solutions frequently don't exist in estalished codesystems and there is inevitable delay in introducing new terminology into official systems.
+
+Due to these factors, the IG developer is likely to be faced with decisions about how to define and publish terminology that is entirely new or a hybrid of new and existing.
+
+Principles to apply to IG terminology definition (most important first):
+
+1. A FHIR IG MUST constrain representations to coded data, wherever possible, using **Profiles** and **Questionnaires**.  The codes must be well-defined and available in a discoverable and API-accessible codesystem.
+
+1. A FHIR IG MUST **illustrate proper usage of coded data types** through examples, and where applicable definitional resource instances, with fully-formed Coding (code, system and display) references.
+
+1. A FHIR IG SHOULD preferably define all **expected terminology it requires** through integral ValueSets (canonical Url being the IG itself) even where those ValueSets are also officially published on *NZHTS*.  This is to give developers 'one-stop shop' convenience so that IG is as self-contained as possible.
+
+1. A FHIR IG SHOULD preferably publish free of 'code/system not found' type terminology errors.  
+  (Note this principle is impossible to accomplish when ValueSets include
+    - SNOMED terms that are new in the New Zealand Edition which as of October 2023 is not syndicated with tx.fhir.org -- the global terminology server -- that the IG publisher validates against.
+    - NZMT terms which also are not syndicated into the global terminology server.
+
 ## Other Health Projects
 
 It's interesting to note that most other FHIR projects in the New Zealand health sector appear to be using the FHIR IG Publisher to produce their implementation guides, with Simplifier being used as a simple repository of FHIR artifacts rather than as an IG authoring/publishing tool.  Using the NHI FHIR API as an example:

@@ -1,0 +1,317 @@
+@startuml FHIR-resource-careplan-rheumaticfever-pilot
+!include plantuml-include/std-skinparams-classdiagram.iuml
+
+top to bottom direction
+
+skinparam dpi 400
+
+scale 500 width
+
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype ortho
+
+title "Rheumatic fever FHIR resources (pilot phase)"
+
+frame "Resource types under management in HNZ FHIR server" as HNZMain {
+
+  ' class "**AllergyIntolerance**" as Allergy #LightSalmon ##[bold] {
+  '   Represents a patient allergy or
+  '   intolerance relating to R/F
+  '   penicillin medications.
+  '   ----
+  '   +code: SNOMED
+  '   +category: SNOMED
+  '   +reference: subject (patient)
+  '   +reference: asserter (source)
+  '   +complex[]: reaction
+  '
+  ' }
+  
+  class "**:Appointment**\nsecondary prophylaxis" as APPT #GhostWhite ##[bold] {
+    Appointments for administration of
+    preventative (prophylactic)
+    medication
+    ----
+    * text "Secondary prophylaxis appointment"
+    * status: ""#booked | #arrived""
+    * start: instant (UTC)
+    * end: instance (UTC)
+    * participant: Reference(Practitioner)
+  }
+
+
+  class "**:RheumaticFeverCarePlan** (CarePlan)" as CP #LightSalmon ##[bold] {
+    Tailored plan of care for a
+    rheumatic fever patient
+    ---
+    *identifier[NHI] (official): NHI
+    *identifier[case] (usual): case Id (salesforce)
+    ---
+    * title "Rheumatic fever care plan for patient X"
+    * status: ""#active"" etc.
+    * period: date range
+    * category: SNOMED ""#tbc"" "RF secondary prevention care plan"
+    * intent: ""#Plan"" etc.
+    * activity[]: 
+      \tReference(MedicationRequest or Appointment) **only**
+    -- extensions --
+      + **onHoldReason**: string
+      + **closureReason**: string
+  }
+
+  class "**:RheumaticFeverPatient**\n(NzPatient)" as RfPatient #LightSalmon ##[bold] {
+    Captures patient info needed
+    for RF and not in NHI
+    ---
+    *identifier[NHI] (official): NHI
+    ---
+    *name: HumanName
+    *birthDate: date
+    *communication.language
+    *gender: code
+    *deceasedBoolean: boolean
+    *telecom: ContactPoint[]
+    *address: Address[]
+    +iwi: code
+    +ethnicity 0..*: code[]
+    +nzCitizen: code
+    .. (extensions)..
+    +**interpreterRequired**: boolean
+  }
+
+  'class "**ServiceRequest**" as ServiceRequest  #LightSalmon ##[bold] {
+    '     status
+    '    + performer -> Patient (or Nurse) ref.
+    '    + performerType -> SNOMED
+    '    + code -> SNOMED
+    '
+    '}
+
+  class "**:CareTeam**" as CareTeam #LightSalmon ##[bold] {
+    All participants in
+    care plan coordination
+    and delivery.
+    ---
+    * category: 
+      <size:12>""**Whānau and/or Trusted Delegates**""
+      <size:12>""| **Secondary Prophylaxis Team**""
+    * participant[].role
+  }
+
+  class "**:Consent**^\ndata collection" as Consent #GhostWhite ##[bold] {
+      Represents provisional patient
+      consent to RF service collection 
+      and use of data.
+      ----
+      * status: ""#proposed""
+      * scope: ""#patient-privacy""
+      * dateTime: date
+      * period: date range
+      * policy: uri
+  }
+
+
+  class "**:RfCondition** (NzCondition)" as Condition #LightSalmon ##[bold] {
+    ---
+    *identifier (usual): {{salesforce diagnosis Id}}
+    ---
+     * code: SNOMED diagnosis code
+     * severity: ""#mild | #moderate | #severe""
+     * clinicalStatus: #active etc.
+     * recordedDate: date
+    -- extensions --
+      * **rhdSeverity**: code (dedicated ValueSet)
+      * **diagnosticCertainty**: code (dedicated ValueSet)
+  }
+
+  class "**:Medication**" as MED #GhostWhite ##[bold] {
+    * code: SNOMED (brand)
+    * ingredient: SNOMED (type)
+  }
+
+  class "**:MedicationRequest**\nplanned medication" as MEDREQ #GhostWhite ##[bold] {
+    *status: code //medicationRequestStatus//
+    *intent: ""#plan""
+    *authoredOn: dateTime
+    *validityPeriod: dateTime
+    * dosageInstruction:
+      \troute: SNOMED
+      \tsite: SNOMED
+      \tdoseAndRate
+      \tadditionalInstruction: SNOMED [frequency]
+  }
+
+  
+  class "**:MedicationStatement**" as MEDSTMT #GhostWhite  ##[bold] {
+    Detail of benzathine etc.
+    actually administered
+    --
+    status: ""#completed""
+    code: NZMT
+    note: brand of benzathine used
+  }
+
+  class "**:MedicationStatement**" as CONTMEDSTMT #GhostWhite  ##[bold] {
+    Strength of lignocaine 
+    administered, if applicable
+    --
+    medicationCodeableConcept: NZMT
+  }
+
+
+  class "<size:12>**:Questionnaire**\n(FOUR canonical definitions)" as Questionnaire <<canonical>> #OrangeRed {
+    Collect groups of semi-structured RF data items
+    --Questionnaire canonical instances--
+    * ""Patient Medication Allergies""
+    * ""Medications and Follow-up Guidance""
+    * ""Patient & Whanau Goals and Preferences""
+    * ""Secondary Prophylaxis Health Assessment""
+
+  }
+
+  class "**:QuestionnaireResponse**\nAt least four types of QR per CarePlan" as QR #GhostWhite ##[bold] {
+    Collects a group of related
+    items as defined by a
+    canonical Questionnaire
+    ----
+    * value[x]: item[].answer
+  }
+
+  ' class "**:DiagnosticReport**" as DIAG #GhostWhite ##[bold] {
+  '   * status: ..
+  '   * code: SNOMED..
+  '   ...
+  '   Any diagnosis 
+  '    detail as required
+  '   ...
+  '   +category
+  ' }
+
+  note as DiagNote #Yellow
+    DiagnosticReport may also be 
+    used in future to capture
+    diagnosis detail.
+  end note
+
+  DiagNote .l. Condition
+
+  class "**:Encounter**\nsecondary prophylaxis " as Encounter #GhostWhite ##[bold] {
+    * class: ""#AMB"" "ambulatory"
+    * status: ""#planned | #finished""
+    * participant[]: Reference[Patient, Practitioner]
+    * period: datetime range
+    * location: Reference[HPI facility]
+  }
+
+  ' class "**Encounter**\n(registration instance)" as EncounterR #LightSalmon ##[bold] {
+  '   * code: SNOMED
+  '   * period: dateTime
+  '   + diagnosis: Condition code 
+  '       <size:12>[if no DiagnosticReport]
+  ' }
+
+}
+
+' ********
+' * Entities outside main frame represent
+' * resources managed by other systems.
+
+class "**Patient** (NHI)" as Patient <<logical resource>> #SkyBlue {
+  * logical id: NHI
+}
+
+class "**RelatedPerson**" as Related <<logical resource>> #SkyBlue {
+  * logical id: name
+}
+
+class "**HPI**" as HPI <<logical resource>> #SkyBlue {
+  logical identifier formats:
+  + ""NNXXXX"" - 
+    \tpractitioner CPNs
+  + ""GXXNNN-C""
+    \tHPI Org Id - orgs
+  + ""FXXNNN-C""
+    \tHPI Facility Id - locs
+}
+
+class "**RF Case Number**\n(salesforce)" as RFCaseId <<logical resource>> #SkyBlue {
+  * logical id: CaseId
+}
+
+class "**NZMT terminology**" as NZMT <<logical resource>> #SkyBlue {
+  * medication coding
+}
+
+' ********
+' plantuml positioning
+
+' ********
+' * resource linkages
+
+APPT "supportingInformation\n<size:18>1" -- "appointment\n<size:18>1" Encounter: <>
+
+'Condition "1" - "1" DIAG: > "stage.\nassessment"
+
+CP "addresses" -[#SlateGray]u-{ Condition : >
+CP "supportingInfo" }--{ "basedOn" QR: <>
+CP "subject" - "1" RfPatient
+CP "activity.\nreference" -[#SlateGray,thickness=4]d---{ "basedOn" MEDREQ: >
+CP "1" .[#SkyBlue]u. "1" RFCaseId : > "<color:RoyalBlue>identifier (use:#usual)"
+CP "careTeam" ---{ CareTeam
+CP " activity.\nreference" -[#SlateGray,thickness=4]l-{ APPT: >
+CP "author" }.[#SkyBlue,dashed]. HPI : > ""CarePlan.**author**"" \nidentifies Lead Provider
+
+
+CareTeam "participant.member" }.[#SkyBlue,norank].{ HPI
+CareTeam "participant.member" }.[#SkyBlue]..{ Related
+
+Condition .[#SkyBlue]. "1" Patient : > subject
+
+Consent "patient" .[#SkyBlue]. "1" Patient : >
+Consent "performer" .[#SkyBlue,norank]. "1" HPI : >
+
+'DIAG "basedOn" }-- CP
+
+Encounter .[#SkyBlue,norank]. "1" HPI: > "participant,\nserviceProvider" 
+
+MEDREQ "medication[x]" }-d- "1" MED : >
+MEDREQ "requester" .[#SkyBlue,norank]. "1" HPI
+MEDREQ "subject" .[#SkyBlue,norank]. "1" Patient
+
+
+MEDSTMT -l-* "partOf" CONTMEDSTMT: <
+MEDSTMT "1" -l- "1" Encounter: > context
+MEDSTMT "basedOn" }- MEDREQ : >
+MEDSTMT "medication\nReference" }--"1" MED: > 
+
+MED "code\ningredient" .[#SkyBlue]d- NZMT
+CONTMEDSTMT "lignocaine\nconcentration\ncoding".[#SkyBlue,norank]d- NZMT
+
+RfPatient "1"  .[#SkyBlue]r. "1" Patient
+
+QR "encounter" --> Encounter
+QR "<color:Red>questionnaire" }.[#Red]l.. Questionnaire: > \n\n\n\n
+
+skinparam LegendBackgroundColor #LightYellow
+skinparam LegendFontName Helvetica
+skinparam LegendFontSize 16
+
+legend left
+  **Notes**
+  - This model describes the general structure of interchangeable FHIR data collected by the rheumatic fever national coordination solution.
+  - Arrows show direction of FHIR reference.
+  - Solid/open dots indicate mandatory/optional attributes.
+  - ^ Consent-protected resource linkage not shown: refer to separate FHIR model.
+  
+  The model is indicative and remains subject to changes in datatypes or relations, and detailing of supply arrangements.
+
+  **Key to class colours**
+  |= colour |= stereotype |
+  | <back:#GhostWhite>ghost white\n | Standard FHIR resource in Health NZ's repository |
+  | <back:#LightSalmon>salmon\n | Profiled FHIR resource in Health NZ's repository  |
+  | <back:#OrangeRed>orange red\n | Shared canonical resource defined by Health NZ  |
+  | <back:#SkyBlue>sky blue\n| Reference by logical identifier to records in other systems |
+endlegend
+
+@enduml
