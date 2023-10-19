@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.1 (2023-10-19)
+- Extended Capability Statement with RheumaticFever profiled resource API
+- Fixed rendering of data model design images in rheumatic fever data page
+
 ## v0.3.0 (2023-10-09)
 
 **Added pilot FHIR support for rheumatic fever national care coordination solution**
