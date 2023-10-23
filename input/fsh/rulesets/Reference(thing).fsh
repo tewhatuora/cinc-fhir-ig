@@ -1,13 +1,4 @@
 // ****************************************************************************
-// sets up a Reference(Patient) to a local NzPatient resource as a logical reference by NHI
-RuleSet: NzPatientRef(nhi-id, patient-name)
-
-
-* type = "Patient"
-* reference = "NzPatient/{nhi-id}"
-* display = "{patient-name}"
-
-// ****************************************************************************
 // sets up a logical reference to an HPI organisation by HPI org number (GXXNNN-C)
 RuleSet: ReferenceOrganisation(hpi-organisation-id, org-name)
 

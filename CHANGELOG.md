@@ -2,6 +2,7 @@
 
 ## v0.3.1 (2023-10-19)
 - Extended Capability Statement with RheumaticFever profiled resource API
+- Changed subject reference in CarePlan examples from an NHI logical reference to a local Patient instance reference
 - Fixed rendering of data model design images in rheumatic fever data page
 
 ## v0.3.0 (2023-10-09)
