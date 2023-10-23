@@ -29,7 +29,7 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * policy.id 0..0
 * policy.modifierExtension 0..0
 * provision.action 0..0
-* provision.actor 0..0
+// * provision.actor 0..0         v0.3.1 re-enabled for #proposed consent-based access control
 * provision.class 0..0
 * provision.code 0..0
 * provision.data.extension 0..0
@@ -40,9 +40,9 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * provision.id 0..0
 * provision.modifierExtension 0..0
 * provision.provision 0..0
-* provision.purpose 0..0
+// * provision.purpose 0..0       v0.3.1 re-enabled for #proposed consent-based access control
 * provision.securityLabel 0..0
-* provision.type 0..0
+// * provision.type 0..0          v0.3.1 re-enabled for #proposed consent-based access control
 * verification.extension 0..0
 * verification.id 0..0
 * verification.modifierExtension 0..0

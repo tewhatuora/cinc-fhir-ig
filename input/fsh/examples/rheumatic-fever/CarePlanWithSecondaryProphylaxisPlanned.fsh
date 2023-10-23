@@ -27,7 +27,7 @@ Description: "Example of an RF care plan with secondary prophylaxis medication p
 * activity[+].reference = Reference(SecondaryProphylaxisAppointment-August-Booked)
 * activity[+].reference = Reference(SecondaryProphylaxisAppointment-September-Booked)
 
-* subject = Reference(MadeleineMeringue)
+* insert PatientInstanceReference(subject,MadeleineMeringue)
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)
 

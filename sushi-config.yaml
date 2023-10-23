@@ -190,6 +190,10 @@ groups:
     - StructureDefinition/cinc-rheumaticfever-careteam
     - StructureDefinition/cinc-rheumaticfever-condition
     - StructureDefinition/cinc-rheumaticfever-patient
+    - StructureDefinition/rf-careplan-closure-reason
+    - StructureDefinition/rf-careplan-onhold-reason
+    - StructureDefinition/rf-condition-diagnosticcertainty
+    - StructureDefinition/rf-condition-rhdseverity
     - MedicationsAndFollowUpGuidanceQuestionnaire
     - PatientMedicationAllergyQuestionnaire
     - PatientWhanauGoalsPreferencesQuestionnaire
@@ -222,7 +226,9 @@ groups:
     - PatientMedicationAllergyQuestionnaireResponse
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
     - RFPatientHealthAssessmentQuestionnaireResponse
-
+    - LeadProvidersGroup
+    - ProvConsentBaseExample
+    - ProvConsentCoverageExample
 
 #
 # The ImplementationGuide resource defines several other properties

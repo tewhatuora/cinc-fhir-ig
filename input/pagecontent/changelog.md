@@ -1,9 +1,19 @@
 # Changelog
 
 ## v0.3.1 (2023-10-24)
+- Added Provisional patient Consent specifications for pilot
+  - `ManaakiTahiConsent` profile updated to reactivate some data elements of *provision.**
+  - Added two new `Consent` examples illustrating how **provisional consent** can be represented to enable pilot Salesforce/Mulesoft access to FHIR data ('*ProvConsentBaseExample*', '*ProvConsentCoverageExample*')
+  - Added `CareTeam` example identifying the group of all rheumatic fever lead-provider organisations
+  
+- Updated API **Capability Statement** with RheumaticFever profiled resource API
+
 - Added (this) *Changelog* page, linked from IG Support tab
-- Extended Capability Statement with RheumaticFever profiled resource API
-- Changed subject references in CarePlan examples from NHI logical references to a local Patient resource references
+
+- Changed *subject* references in CarePlan examples to be relative references to the local Rheumatic Fever Patient (`Patient`) instance, instead of NHI identifer-based logical refs.
+
+- Added the four extensions to the Rheumatic Fever group at the top of the Profiles tab.
+
 - Fixed image rendering of data model designs in rheumatic fever data page
 
 ## v0.3.0 (2023-10-09)

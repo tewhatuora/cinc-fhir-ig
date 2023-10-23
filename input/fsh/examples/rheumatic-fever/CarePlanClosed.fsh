@@ -27,7 +27,7 @@ Description: "Example of an RF care plan that has gone on-hold, after the first 
 * activity[+].reference = Reference(SecondaryProphylaxisAppointment-August-Fulfilled)
 * activity[+].reference = Reference(SecondaryProphylaxisAppointment-September-Booked)
 
-* subject = Reference(MadeleineMeringue)
+* insert PatientInstanceReference(subject,MadeleineMeringue)
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)
 
