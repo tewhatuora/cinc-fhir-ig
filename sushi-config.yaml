@@ -94,6 +94,7 @@ menu:
   Support:
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
     Download IG : full-ig.zip
+    Changelog : changelog.html
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
     OpenAPI Specification: CareInTheCommunityCapabilityStatement.openapi.json

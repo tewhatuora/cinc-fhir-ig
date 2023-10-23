@@ -1,9 +1,10 @@
 # Changelog
 
-## v0.3.1 (2023-10-19)
+## v0.3.1 (2023-10-24)
+- Added (this) *Changelog* page, linked from IG Support tab
 - Extended Capability Statement with RheumaticFever profiled resource API
-- Changed subject reference in CarePlan examples from an NHI logical reference to a local Patient instance reference
-- Fixed rendering of data model design images in rheumatic fever data page
+- Changed subject references in CarePlan examples from NHI logical references to a local Patient resource references
+- Fixed image rendering of data model designs in rheumatic fever data page
 
 ## v0.3.0 (2023-10-09)
 
