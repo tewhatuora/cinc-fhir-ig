@@ -2,6 +2,11 @@ Instance: RFPatientHealthAssessmentQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
 Description: "Example assessment of Madeleine's health at her August secondary prophylaxis appointment."
 Usage: #example
+
+* meta.profile = Canonical(QuestionnaireResponse)
+* meta.versionId = "1"
+* meta.lastUpdated = "2023-10-24T03:00:00Z"
+
 * status = #completed
 * authored = "2023-08-08T01:08:00.504Z"   // UTC, assumed to be the time of information collection during the appointment
 * questionnaire = Canonical(SecondaryProphylaxisHealthAssessmentQuestionnaire)

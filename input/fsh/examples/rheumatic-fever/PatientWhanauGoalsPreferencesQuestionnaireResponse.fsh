@@ -2,6 +2,11 @@ Instance: PatientWhanauGoalsPreferencesQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
 Description: "Example payload demonstrating patient/whanau expressed preferences and goals for rheumatic fever care."
 Usage: #example
+
+* meta.profile = Canonical(QuestionnaireResponse)
+* meta.versionId = "1"
+* meta.lastUpdated = "2023-10-24T03:00:00Z"
+
 * status = #completed
 * authored = "2023-06-19T03:08:00.504Z"
 * questionnaire = Canonical(PatientWhanauGoalsPreferencesQuestionnaire)
