@@ -1,16 +1,6 @@
-// ****************************************************************************
-// sets up a Reference(Patient) to a local NzPatient resource as a logical reference by NHI
-RuleSet: NzPatientRef(nhi-id, patient-name)
-
-
-* type = "Patient"
-* reference = "NzPatient/{nhi-id}"
-* display = "{patient-name}"
-
-// ****************************************************************************
-// sets up a logical reference to an HPI organisation by HPI org number (GXXNNN-C)
+////////////////////////////////////////////////////
+// sets up a logical ref. to Organisation resource in another server using HPI org ID as identifier (GXXNNN-C)
 RuleSet: ReferenceOrganisation(hpi-organisation-id, org-name)
-
 
 * type = "NzOrganization"
 * identifier.use = #official
@@ -18,8 +8,8 @@ RuleSet: ReferenceOrganisation(hpi-organisation-id, org-name)
 * identifier.value = "{hpi-organisation-id}"
 * display = "{org-name}"
 
-// ****************************************************************************
-// sets up a logical reference to a pracititioner by HPI CPN number (NNXXXX)
+////////////////////////////////////////////////////
+// sets up a logical ref. to Practitioner resource in another server using HPI CPN as identifier (NNXXXX)
 RuleSet: ReferencePractitioner(hpi-practitioner-cpn, practitioner-name)
 
 * type = "Practitioner"
@@ -28,9 +18,37 @@ RuleSet: ReferencePractitioner(hpi-practitioner-cpn, practitioner-name)
 * identifier.value = "{hpi-practitioner-cpn}"
 * display = "{practitioner-name}"
 
-// ****************************************************************************
+
+////////////////////////////////////////////////////
 // sets up a Reference(RelatedPerson) using the display name of the person only
 RuleSet: ReferenceRelatedPerson(person-name)
 
 * type = "RelatedPerson"
 * display = "{person-name}"
+
+
+////////////////////////////////////////////////////
+// makes a Patient-type reference, using specified element name and local patient instance
+RuleSet: PatientInstanceReference(element-name,instance-path)
+
+* {element-name} = Reference({instance-path})
+* {element-name}.type = "Patient"
+
+
+////////////////////////////////////////////////////
+// adds a Consent.data.reference as a relative reference to the instance specified by the path expression
+RuleSet: ConsentInstanceDataRef(instance-path)
+
+* data[+].meaning = #instance
+* data[=].reference = Reference({instance-path})
+
+
+////////////////////////////////////////////////////
+// sets up a logical reference to a Patient resource in another server using the NHI as logical identifier
+RuleSet: NHIPatientRef(nhi-id, patient-name)
+
+* type = "Patient"
+* identifier.use = #official
+* identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
+* identifier.value = "{nhi-id}"
+* display = "{patient-name}"

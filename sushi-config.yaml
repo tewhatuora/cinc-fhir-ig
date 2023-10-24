@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Care In The Community FHIR API
 description: Care In The Community FHIR API
 status: draft
-version: 0.3.0
+version: 0.3.1
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -94,6 +94,7 @@ menu:
   Support:
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
     Download IG : full-ig.zip
+    Changelog : changelog.html
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
     OpenAPI Specification: CareInTheCommunityCapabilityStatement.openapi.json
@@ -189,6 +190,10 @@ groups:
     - StructureDefinition/cinc-rheumaticfever-careteam
     - StructureDefinition/cinc-rheumaticfever-condition
     - StructureDefinition/cinc-rheumaticfever-patient
+    - StructureDefinition/rf-careplan-closure-reason
+    - StructureDefinition/rf-careplan-onhold-reason
+    - StructureDefinition/rf-condition-diagnosticcertainty
+    - StructureDefinition/rf-condition-rhdseverity
     - MedicationsAndFollowUpGuidanceQuestionnaire
     - PatientMedicationAllergyQuestionnaire
     - PatientWhanauGoalsPreferencesQuestionnaire
@@ -221,7 +226,9 @@ groups:
     - PatientMedicationAllergyQuestionnaireResponse
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
     - RFPatientHealthAssessmentQuestionnaireResponse
-
+    - LeadProvidersGroup
+    - ProvConsentBaseExample
+    - ProvConsentCoverageExample
 
 #
 # The ImplementationGuide resource defines several other properties

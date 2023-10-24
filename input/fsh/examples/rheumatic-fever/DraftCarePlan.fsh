@@ -25,7 +25,7 @@ Description: "Example of an RF care plan where setup is complete but no secondar
 * period.end = "2033-07-31"
 * status = #draft
 
-* subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* insert PatientInstanceReference(subject,MadeleineMeringue)
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)
 

@@ -23,7 +23,12 @@ Description: "Example of the most basic RF care plan: not fully setup and indica
 * period.end = "2033-07-31"
 * status = #draft
 
-* subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* insert PatientInstanceReference(subject,MadeleineMeringue)
+
+// * subject = Reference(MadeleineMeringue)
+// * subject.type = https://hl7.org/fhir/R4B/codesystem-resource-types.html#resource-types-Patient
+// * subject.display = "Madeleine Meringue"
+
 
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)

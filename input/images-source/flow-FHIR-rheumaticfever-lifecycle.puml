@@ -149,9 +149,10 @@ state "Medication appintment recording" as APPOINTMENTS #white/MediumPurple {
 }
 
 
-state "Patient care continues\nCarePlan --> **#active**" as CPA2 #PaleGreen ##[bold]
-state "Patient care suspended\nCarePlan --> **#on-hold**" as CPH #PaleGreen ##[bold]
-state "Patient care plan closed\nCarePlan --> **#revoked**" as CPR #PaleGreen ##[bold]
+state "CarePlan **#active**" as CPA2 #PaleGreen ##[bold]
+state "CarePlan **#on-hold**" as CPH #PaleGreen ##[bold]
+state "CarePlan cancelled (**#revoked**)" as CPR #PaleGreen ##[bold]
+state "CarePlan closed (**#completed**)" as CPC #PaleGreen ##[bold]
 
 APPTX -d-> CPA2
 note left of CPA2  
@@ -161,8 +162,11 @@ note left of CPA2
 end note
 
 CPA2 -> CPH
+CPA2 <- CPH
+CPA2 -d-> CPC
 CPH -> CPR
-CPA2 -> [*]
+CPH <- CPA2
 CPR -> [*]
+CPC -> [*]
 
 @enduml

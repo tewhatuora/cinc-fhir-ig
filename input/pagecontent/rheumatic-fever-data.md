@@ -1,18 +1,14 @@
-# Rheumatic fever design
-This page gives an overview of the design of the FHIR representation to record and interchange rheumatic fever information.
+# Rheumatic fever data interchange
+This section provides an overview of the design of the FHIR data representations that authorized applications can use to record and interchange rheumatic fever information.
 
-## Data models
+## FHIR resource model (Pilot phase)
 
-This section provides models of rheumatic fever data that authorized applications will stored and interchange through the Health NZ FHIR repository and API.
+<img src="FHIR-resource-careplan-rheumaticfever-pilot.png" width="1280"/>
 
-### FHIR resource model (Pilot phase)
+## FHIR careplan lifecycle (Pilot phase)
 
-![](FHIR-resource-careplan-rheumaticfever-pilot.png)
+<img src="flow-FHIR-rheumaticfever-lifecycle.png" width="1280"/>
 
-### FHIR careplan lifecycle (Pilot phase)
+## Secondary Prophylaxis Appointment FHIR objects (Pilot phase)
 
-![](flow-FHIR-rheumaticfever-lifecycle.png)
-
-### Secondary Prophylaxis Appointment FHIR objects (Pilot phase)
-
-![](obj-FHIR-data-rheumaticfever-appointment.png)
+<img src="obj-FHIR-data-rheumaticfever-appointment.png" width="1280"/>

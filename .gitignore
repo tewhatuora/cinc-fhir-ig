@@ -7,3 +7,5 @@ Thumbs.db
 /template
 /gofsh
 /out
+/localscripts/node_modules
+/localscripts/package-lock.json
