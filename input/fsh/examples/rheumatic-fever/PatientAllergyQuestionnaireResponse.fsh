@@ -21,8 +21,8 @@ Usage: #example
 * item[=].answer.valueCoding = $sct#373066001 "Yes (qualifier value)"
 
 * item[+] insert answerItem(AllergyDetails,[[If yes, select which substances apply]])
-* item[=].answer[0].valueCoding = $sct#91931000 "Allergy to erythromycin (finding)"
-* item[=].answer[+].valueCoding = $sct#419511003 "Propensity to adverse reactions to drug (finding)"
+* item[=].answer[0].valueCoding = $sct#91931000 "Allergy to erythromycin"
+* item[=].answer[+].valueCoding = $sct#419511003 "Propensity to adverse reactions to drug (finding)"  // a.k.a "Other"
 
 * item[+] insert answerItemX(OtherAllergyDetail,[[2)]],[[Other Allergies (enter text)]])
-* item[=].answer.valueString = "Patient has allergy to peanuts"
+* item[=].answer.valueString = "Patient also has an allergy to paracetamol"
