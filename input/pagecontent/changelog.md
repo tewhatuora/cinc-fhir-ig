@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.3.2 (2023-10-26)
+
+- Renamed the API described by this Implementation Guide from *Care In The Community* FHIR API to **Te Whatu Ora Shared Care** FHIR API reflecting recent expansion.
+
+- [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html) revised questions to codify 
+   answer yes|no|unknown, and add third question to capture Other Allergy detail as free text.
+
+- New general purpose terminology [QualifiedYesNoAnswerValueSet](ValueSet-nz-questionnaireresponse-qualifiedyesno-code.html) introduced.  This SNOMED-codes answers to
+  yes/no-type questions where it is important to also allow an 'unknown' response to be recorded where data not available.
+
+- All Rheumatic fever terminology now appears in the *rheumatic fever* section of the **Profiles** tab.  
+
+- Added **Consent** tab describing patient-consent-based access controls implemented by the Te Whatu Ora Shared Care API. 
+
 ## v0.3.1 (2023-10-24)
 - Added Provisional patient Consent specifications for pilot
   - `ManaakiTahiConsent` profile updated to reactivate some data elements of *provision.**
@@ -62,7 +76,6 @@
 
 ## v0.2.0 (2023-08-01)
 - Updated **AntiViralEligibility** Questionnaire to align with CCCM per ticket CFFF-889 and also codify two of the criteria
-- See the [v0.2.0 release note](/releaseNotes/v0.2.0.md) for detail on breaking changes to QuestionnaireResponses from this Questionnaire update
 
 ## v0.1.9 (2023-07-27)
 

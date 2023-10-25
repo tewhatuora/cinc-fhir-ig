@@ -6,10 +6,10 @@
 id: cinc.fhir.ig
 canonical: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
 name: CINC_FHIR_IG
-title: Care In The Community FHIR API
-description: Care In The Community FHIR API
-status: draft
-version: 0.3.1
+title: Te Whatu Ora Shared Care FHIR API
+description: Te Whatu Ora Shared Care FHIR API
+status: active
+version: 0.3.2
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -85,6 +85,7 @@ menu:
   Use Cases: useCases.html
   Profiles: artifacts.html#structures-resource-profiles
   Rheumatic Fever Data: rheumatic-fever-data.html
+  Consent: consent.html
   API: capabilityStatement.html
   Extensions: extensions.html
   Terminology: terminology.html
@@ -230,6 +231,19 @@ groups:
     - ProvConsentBaseExample
     - ProvConsentCoverageExample
 
+  RheumaticFeverTerminology:
+    name: Rheumatic Fever terminology
+    description: All rheumatic fever ValueSets and CodeSystems
+    resources:
+    - RheumaticFeverConditionDiagnosticCertaintyCodeSystem
+    - RheumaticFeverConditionDiagnosticCertaintyValueSet
+    - RheumaticFeverConditionDiagnosisAtRegistrationValueSet
+    - RheumaticFeverConditionRHDSeverityValueSet
+    - RheumaticFeverMedicationAllergyValueSet
+    - RheumaticFeverCarePlanCategoryValueSet
+    - RheumaticFeverCareTeamCategoryValueSet
+    - RheumaticFeverCareTeamParticipantRoleValueSet
+    - QualifiedYesNoAnswerValueSet
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

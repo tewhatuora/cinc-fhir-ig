@@ -22,13 +22,20 @@ Description: "Describes any known patient allergies to medications used in rheum
 
 * item[0] insert pageDisplayItem(page1,[[page1]],[[Please complete this questionnaire to record a patient's allergies to secondary prophylaxis medication.]])
 
-* item[+] insert optionalBooleanQuestion(MedicationAllergies,[[1)]],[[Medication allergies? (Yes/No/Not answered)]])
+* item[+] insert singleChoiceQuestion(MedicationAllergies,[[1)]],[[Medication allergies? (Yes/No/Unknown)]])
+* item[=].answerValueSet = Canonical(QualifiedYesNoAnswerValueSet)  
+* item[=].initial.valueCoding = $sct#261665006 "Unknown (qualifier value)"
+// * item[=].extension.url = $termServerExtension
+// * item[=].extension.valueUrl = $preferredTermServer
 
 * item[+] insert multiChoiceQuestion(AllergyDetails,[[1.1]],[[If yes, select which substances apply]])
 * item[=].enableWhen.question = "MedicationAllergies"
 * item[=].enableWhen.operator = #=
-* item[=].enableWhen.answerBoolean = true
+* item[=].enableWhen.answerCoding = $sct#373066001 "Yes (qualifier value)"
+
 // future "https://nzhts.digital.health.nz/fhir/ValueSet/Rheumatic-fever-medication-allergy"
 * item[=].answerValueSet = Canonical(RheumaticFeverMedicationAllergyValueSet)  
 * item[=].extension.url = $termServerExtension
 * item[=].extension.valueUrl = $preferredTermServer
+
+* item[+] insert textQuestion(OtherAllergyDetail,[[2)]],[[Other Allergies (enter text)]])
