@@ -19,7 +19,7 @@ Developers should refer to the [Consent profile](StructureDefinition-ManaakiNgaT
 
 The image below illustrates a correct FHIR data structure to represent patient consent and permit data access/sharing
 
-<img src="obj-FHIR-data-consent-active.png" width="1100"/>
+<img src="obj-FHIR-data-consent-active.png" width="100%"/>
 
 ---
 
@@ -115,4 +115,4 @@ If these two conditions are met the Te Whatu Ora Shared Care API will permit acc
 
 The model below shows a Consent in `#proposed` status and the linked FHIR data needed for the Te Whatu Ora Shared Care API to grant an authorized application provisional access to protected FHIR data.
 
-<img src="obj-FHIR-data-consent-proposed.png" width="1024"/>
+<img src="obj-FHIR-data-consent-proposed.png" width="100%"/>

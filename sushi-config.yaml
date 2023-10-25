@@ -81,17 +81,19 @@ parameters:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Business Context: businessContext.html
-  Use Cases: useCases.html
-  Profiles: artifacts.html#structures-resource-profiles
-  Rheumatic Fever Data: rheumatic-fever-data.html
-  Consent: consent.html
-  API: capabilityStatement.html
-  Extensions: extensions.html
-  Terminology: terminology.html
+  Business context: businessContext.html
+  Rheumatic fever care plans:
+    Data models: rheumatic-fever-data.html
+    Structure Definitions and Questionnaires: artifacts.html#rheumatic-fever-definitions
+    Examples: artifacts.html#rheumatic-fever-examples
+    Terminology overview: terminology.html
+    Terminology definitions: artifacts.html#rheumatic-fever-terminology
+  Shared Care FHIR API:
+    Developer Guide: developerGuide.html
+    Consent: consent.html
+    API: capabilityStatement.html
   Artifact Index: artifacts.html
   FAQ: faq.html
-  Developer Guide: developerGuide.html
   Support:
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
     Download IG : full-ig.zip
