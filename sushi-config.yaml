@@ -83,7 +83,7 @@ menu:
   Home: index.html
   Business context: businessContext.html
   Rheumatic fever care plans:
-    Data models: rheumatic-fever-data.html
+    Data translation and models: rheumatic-fever-data.html
     Structure Definitions and Questionnaires: artifacts.html#rheumatic-fever-definitions
     Examples: artifacts.html#rheumatic-fever-examples
     Terminology overview: terminology.html

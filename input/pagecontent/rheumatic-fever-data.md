@@ -31,7 +31,7 @@ Notes
 
 Applies to **patient's preferred language**.
 
-Patient language is to be represented in the `Patient.communication.language` element.
+Patient language is represented in the `Patient.communication.language` element.
 
 Two character codes in the preferred *CommonLanguages* binding are not sufficient to encode the patient languages available in Salesforce.
 
@@ -96,7 +96,7 @@ The translation between the Salesforce RHD severity value and FHIR representatio
 |“Unknown”|do not map|**#261665006** Unknown (qualifier value)|TRUE |
 
 
-^ Note: the NzCondition profile of FHIR Condition includes a long-term condition flag which is to be used as rheumatic fever is considered a long term condition.
+^ Note: The FHIR representation of rheumatic fever condition includes setting the [long-term condition extension](https://fhir.org.nz/ig/base/StructureDefinition-NzCondition-definitions.html#Condition.extension:long-term-condition) as the disease is considered in NZ a long term condition.
 
 ---
 
