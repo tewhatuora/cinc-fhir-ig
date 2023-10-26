@@ -39,7 +39,7 @@ Id: cinc-rheumaticfever-careplan
 
 * identifier[case].use = #usual
 * identifier[case].system 1..
-* identifier[case].system = "https://standards.digital.health.nz/rheumatic-fever-identifiers"
+* identifier[case].system = "https://standards.digital.health.nz/ns/rheumatic-fever-identifiers"
 
 * instantiatesCanonical only Canonical(PlanDefinition)
 

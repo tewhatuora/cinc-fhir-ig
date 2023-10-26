@@ -21,7 +21,7 @@ Id: cinc-rheumaticfever-condition
 
 * identifier[RFNCS].use = #usual
 * identifier[RFNCS].system 1..
-* identifier[RFNCS].system = "https://standards.digital.health.nz/rheumatic-fever-identifiers"
+* identifier[RFNCS].system = "https://standards.digital.health.nz/ns/rheumatic-fever-identifiers"
 
 // bind to the permissible SNOMED codes for RF diagnosis at registration.
 * code 1..1
