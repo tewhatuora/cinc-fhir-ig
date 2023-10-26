@@ -12,10 +12,14 @@
 - [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html) revised questions in line with data dictionary changes, 
  and [QuestionnaireResponse example]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match. 
 
+- Corrected rheumatic heart disease severity [ValueSet](ValueSet-rf-condition-rhdseverity-code.html) to add missing code `#301561000210102 History of heart valve replacement (situation)`
+
 - Introduced new terminology [QualifiedYesNoAnswerValueSet](ValueSet-nz-questionnaireresponse-qualifiedyesno-code.html).  This set of SNOMED codes applies
  to yes/no-type questions where it is important to be able to record an 'unknown' or 'information not available' response in a FHIR QuestionnareResponse item.
 
 - All Rheumatic fever terminology now appears in the *rheumatic fever* section of the **Profiles** tab.  
+
+- Key **salesforce<->FHIR mappings** are now defined in the [rheumatic fever data](rheumatic-fever-data.html) page. 
 
 - Added **Consent** tab describing patient-consent-based access controls implemented by the Te Whatu Ora Shared Care API.
 

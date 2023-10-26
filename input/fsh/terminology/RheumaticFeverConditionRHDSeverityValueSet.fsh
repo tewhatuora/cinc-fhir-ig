@@ -19,4 +19,5 @@ Description:  "This value set defines codes for the severity of rheumatic heart 
 * $sct#1255665007 "Moderate (qualifier value)"
 * $sct#24484000 "Severe (severity modifier) (qualifier value)"
 * $sct#59391000119102 "History of heart valve repair (situation)"
+* $sct#301561000210102 "History of heart valve replacement (situation)"
 * $sct#261665006 "Unknown (qualifier value)"
