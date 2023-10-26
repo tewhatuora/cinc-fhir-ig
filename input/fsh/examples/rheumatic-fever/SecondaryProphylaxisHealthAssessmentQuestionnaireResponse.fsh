@@ -74,11 +74,11 @@ Usage: #example
 * item[=].answer[+].valueString = "Other"
 
 * item[+] insert answerItemX(HealthEducationOtherDetail,[[14.1)]],[[Enter details of other health education topic discussed (enter text)]])
-* item[=].answer.valueString = "Madeleine and I discussed the importance of punctuality and the benefits of planning ahead; I showed her the basics of iOS calendars.."
+* item[=].answer.valueString = "Madeleine and I discussed the importance of punctuality and the benefits of planning ahead."
 
 * item[+] insert answerItemX(RecentOrUpcomingAppointments,[[15)]],[[Any recent or upcoming follow-up appointments?]])
 * item[=].answer.valueBoolean = true
 
 * item[+] insert answerItemX(RecentOrUpcomingAppointmentsDetails,[[15.1)]],[[Enter details and dates of any recent or upcoming follow-up appointments (enter text)]])
-* item[=].answer.valueString = "Madeleine has an upcoming follow-up appointment on The importance of punctuality and the benefits of planning ahead; iOS calendar basics"
+* item[=].answer.valueString = "Madeleine has an upcoming follow-up appointment covering iOS calendar basics"
 
