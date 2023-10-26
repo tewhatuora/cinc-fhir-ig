@@ -9,6 +9,9 @@
 - [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html) revised questions to codify 
    answer yes|no|unknown, and add third question to capture Other Allergy detail as free text.
 
+- [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html) revised questions in line with data dictionary changes, 
+ and [QuestionnaireResponse example]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match. 
+
 - Introduced new terminology [QualifiedYesNoAnswerValueSet](ValueSet-nz-questionnaireresponse-qualifiedyesno-code.html).  This set of SNOMED codes applies
  to yes/no-type questions where it is important to be able to record an 'unknown' or 'information not available' response in a FHIR QuestionnareResponse item.
 
