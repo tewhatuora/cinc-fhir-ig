@@ -24,33 +24,26 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 
 * item[+] insert stringQuestion(AppointmentIncompleteReason,[[1)]],[[Reason appointment was not completed? (if applicable)]])
 
-* item[+] insert multiChoiceQuestion(ReasonsInjectionOverdue,[[2)]],[[Reason(s) injection overdue? (multiple choice)]])
+* item[+] insert multiChoiceQuestion(ReasonsInjectionOverdue,[[2)]],[[Reason(s) injection was give late? (multiple choice)]])
+
 * item[=].answerOption[0].valueString = "Previously Care On-Hold"
 * item[=].answerOption[+].valueString = "Unable to Contact Patient"
-* item[=].answerOption[+].valueString = "Patient Not Available"
-* item[=].answerOption[+].valueString = "INR too high"
+* item[=].answerOption[+].valueString = "Patient Not Available on the Day"
+* item[=].answerOption[+].valueString = "Patient Declined Treatment"
+* item[=].answerOption[+].valueString = "INR Too High"
+* item[=].answerOption[+].valueString = "Patient Lost to Follow-Up"
+* item[=].answerOption[+].valueString = "Service Delayed To Follow-Up" 
+* item[=].answerOption[+].valueString = "Service Unavailable on the Day" 
+* item[=].answerOption[+].valueString = "Service Error"
 * item[=].answerOption[+].valueString = "Other"
 
-* item[+] insert textQuestion(OverdueInjectionOtherDetail,[[3)]],[[Details for overdue injections? (enter text)]])
 
-* item[+] insert optionalBooleanQuestion(DentalIssues,[[4)]],[[Any dental issues? sore teeth etc. (Yes/No/Not answered)]])
+* item[+] insert textQuestion(OverdueInjectionOtherDetail,[[3)]],[[Other details for late injection (enter text)]])
 
-* item[+] insert optionalBooleanQuestion(OngoingHealthConcerns,[[5)]],[[Are there other ongoing health concerns? (Yes/No/Not answered)]])
-
-* item[+] insert optionalBooleanQuestion(NewlyPregnant,[[6)]],[[Newly pregnant?]])
-
-// 18/10/2023 placed on hold
-// * item[+] insert dateQuestion(EstDueDate,[[6.1)]],[[Estimated Due Date?]])
-// * item[=].enableWhen.question = "NewlyPregnant"
-// * item[=].enableWhen.operator = #=
-// * item[=].enableWhen.answerBoolean = true
-
-* item[+] insert integerQuestion(Weight,[[7)]],[[Weight (kg)?]])
-
-* item[+] insert booleanQuestion(ConsentChecked,[[8)]],[[Pre-injection consent checked?]])
+* item[+] insert booleanQuestion(ConsentChecked,[[4)]],[[Pre-injection consent checked?]])
 * item[=].initial.valueBoolean = false
 
-* item[+] insert booleanQuestion(MedicationChecked,[[9)]],[[Pre-injection medication checked with a second person?]])
+* item[+] insert booleanQuestion(MedicationChecked,[[5)]],[[Pre-injection medication checked with a second person?]])
 * item[=].initial.valueBoolean = false
 
 * item[+] insert textQuestion(BenzathineBrandOtherDetails,[[10)]],[[Details of other Benzathine brand, if used (enter text)]])
@@ -72,22 +65,32 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 * item[+] insert booleanQuestion(PostInjectionConcern,[[12)]],[[Post injection concern or possible reaction identified?]])
 * item[=].initial.valueBoolean = false
 
-* item[+] insert textQuestion(PostInjectionConcernDetails,[[12.1)]],[[Enter details of concern / reaction / actions taken (enter text)]])
+* item[+] insert textQuestion(PostInjectionConcernDetails,[[12.1)]],[[If Yes, Record Details, Symptoms, Actions Taken and Follow-Up Plan (enter text)]])
 * item[=].enableWhen.question = "PostInjectionConcern"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true
 
-* item[+] insert booleanQuestion(PostInjectionMedsGiven,[[13)]],[[Post-injection medications given?]])
+// removed 26/10/2023 on BA advice 
+// * item[+] insert booleanQuestion(PostInjectionMedsGiven,[[13)]],[[Post-injection medications given?]])
+// * item[=].initial.valueBoolean = false
+
+// * item[+] insert textQuestion(PostInjectionMedsDetails,[[13.1)]],[[Enter details of post-injection medications and reason (enter text)]])
+// * item[=].enableWhen.question = "PostInjectionMedsGiven"
+// * item[=].enableWhen.operator = #=
+// * item[=].enableWhen.answerBoolean = true
+
+// * item[+] insert textQuestion(Comments,[[14)]],[[Enter any further comments about the secondary prophylaxis appointment here (enter text)]])
+
+* item[+] insert booleanQuestion(AnyOtherConcerns,[[13)]],[[Were There Any Other Concerns or Issues Identified During the Visit?]])
 * item[=].initial.valueBoolean = false
 
-* item[+] insert textQuestion(PostInjectionMedsDetails,[[13.1)]],[[Enter details of post-injection medications and reason (enter text)]])
-* item[=].enableWhen.question = "PostInjectionMedsGiven"
+* item[+] insert textQuestion(OtherConcernsDetail,[[13.1)]],[[If yes, describe details, actions taken, and follow-up planned (enter text)]])
+* item[=].enableWhen.question = "AnyOtherConcerns"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true
 
-* item[+] insert textQuestion(Comments,[[14)]],[[Enter any further comments about the secondary prophylaxis appointment here (enter text)]])
 
-* item[+] insert multiChoiceQuestion(HealthEducationTopicsDiscussed,[[15)]],[[Health education topics discussed? (multiple choice)]])
+* item[+] insert multiChoiceQuestion(HealthEducationTopicsDiscussed,[[14)]],[[Health education topics discussed? (multiple choice)]])
 * item[=].answerOption[0].valueString = "Secondary prophylaxis"
 * item[=].answerOption[+].valueString = "Sore Throat Management"
 * item[=].answerOption[+].valueString = "Skin Infection Management"
@@ -99,14 +102,14 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 * item[=].answerOption[+].valueString = "Sexual Health"
 * item[=].answerOption[+].valueString = "Other"
 
-* item[+] insert textQuestion(HealthEducationOtherDetail,[[15.1)]],[[Enter details of other health education topic discussed (enter text)]])
+* item[+] insert textQuestion(HealthEducationOtherDetail,[[14.1)]],[[Enter details of other health education topic discussed (enter text)]])
 * item[=].enableWhen.question = "HealthEducationTopicsDiscussed"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerString = "Other"
 
-* item[+] insert optionalBooleanQuestion(RecentOrUpcomingAppointments,[[16)]],[[Any recent or upcoming follow-up appointments?]])
+* item[+] insert booleanQuestion(RecentOrUpcomingAppointments,[[15)]],[[Any recent or upcoming follow-up appointments?]])
 
-* item[+] insert textQuestion(RecentOrUpcomingAppointmentsDetails,[[16.1)]],[[Enter details and dates of any recent or upcoming follow-up appointments (enter text)]])
+* item[+] insert textQuestion(RecentOrUpcomingAppointmentsDetails,[[15.1)]],[[Enter details and dates of any recent or upcoming follow-up appointments (enter text)]])
 * item[=].enableWhen.question = "RecentOrUpcomingAppointments"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true

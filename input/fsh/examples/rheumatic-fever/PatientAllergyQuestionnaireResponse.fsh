@@ -17,8 +17,12 @@ Usage: #example
 
 // NOTE: item numbering does not have to match the Questionnaire because answers relate to questions through link_id
 
-* item[0] insert answerItem(MedicationAllergies,[[Medication allergies? (Yes/No/Not answered)]])
-* item[=].answer.valueBoolean = true
+* item[0] insert answerItem(MedicationAllergies,[[Medication allergies? (Yes/No/Unknown)]])
+* item[=].answer.valueCoding = $sct#373066001 "Yes (qualifier value)"
 
 * item[+] insert answerItem(AllergyDetails,[[If yes, select which substances apply]])
-* item[=].answer.valueCoding = $sct#22005007 "Ethyl chloride"
+* item[=].answer[0].valueCoding = $sct#91931000 "Allergy to erythromycin"
+* item[=].answer[+].valueCoding = $sct#419511003 "Propensity to adverse reactions to drug (finding)"  // a.k.a "Other"
+
+* item[+] insert answerItemX(OtherAllergyDetail,[[2)]],[[Other Allergies (enter text)]])
+* item[=].answer.valueString = "Patient also has an allergy to paracetamol"

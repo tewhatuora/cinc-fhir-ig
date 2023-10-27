@@ -8,19 +8,13 @@ This is the Implementation Guide for the [HL7® FHIR©](http://hl7.org/fhir) int
 This IG brings together all the artifacts necessary to understand and use the FHIR API. It is based on [FHIR R4](http://hl7.org/fhir/) and NZBase IG 2.0
 ## Description of tabs
 
-- [Business Context](./businessContext.html): Business context of National Shared Care Plan
-
-- [Use Cases](./useCases.html): Expected use cases that this API is intended to support
+- [Business Context](./businessContext.html): Overview of shared care scenarios and use cases this API is intended to support
 
 - [Profiles](./artifacts.html#structures-resource-profiles): A list of the profiles that are defined by the guide.
 
-- [Rheumatic Fever design](./rheumatic-fever-design.html): An overview of the design of the FHIR representation to record and interchange rheumatic fever information.
+- Rheumatic Fever care plans - Group of links to rheumatic fever data specifications and models
 
-- [API capability](./capabilityStatement.html): The API capability statement and specific API features
-
-- [Extensions](./extensions.html): A list of the extensions defined by the guide, and extensions that are defined elsewhere.
-
-- [Terminology](./terminology.html): List of the FHIR terminology artifacts defined within this implementation guide For other FHIR terminology see the HL7® FHIR® New Zealand Base Implementation Guide. Links can be found from each of the artifacts in the patient and address profiles).
+- Shared Care FHIR API - Links to general API guidance and developer information for the Te Whatu Ora Shared Care FHIR API
 
 - [Artifact Index](artifacts.html): A page with all artifacts (Logical Models, Profiles, Extensions, Terminology and others) defined in this guide. This page largely duplicates information in the Profiles and Extensions tab.
 

@@ -33,7 +33,7 @@ Usage: #example
 * address[=].city = "Lower Hutt"
 * address[=].postalCode = "5012"
 * address[=].country = "NZL"
-* address[=].period.start = "2010-04-01"
+* address[=].period.start = "2023-08-01"
 
 * birthDate = "2008-11-24"
 

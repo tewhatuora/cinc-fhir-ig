@@ -27,19 +27,45 @@ Id: cinc-rheumaticfever-careplan
 * category from rf-careplan-category-code (required)
 
 * identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.discriminator.path = "use"
 * identifier ^slicing.rules = #open
-* identifier contains 
-  NHI 1..1 and
-  case 0..1
+* identifier contains NHI 1..1 and NationalSystem 0..*   // We allow here for any 1 or more references to identifiers in external 'national' systems.  This allows for refs to salesforce, Episurv, etc,. 
+
+// SLICE NUMBER ONE - an NHI reference as the OFFICIAL identifier with system properly set
+* identifier[NHI] ^short = "This allows a rheumatic fever careplan to link to the corresponding object in salesforce"
 
 * identifier[NHI].use from $nhi-use-code (required)
-* identifier[NHI].system 1..
+* identifier[NHI].use = #official
+* identifier[NHI].system 1..1
 * identifier[NHI].system = "https://standards.digital.health.nz/ns/nhi-id" (exactly)
+* identifier[NHI].value 1..1
+* identifier[NHI].value insert MakeProfileIdentifierExample([[National Health Index]],[[SCF7824]])
+* identifier[NHI].id 0..0       // don't want this kind of thing
+* identifier[NHI].extension 0..0       // don't want this kind of thing
 
-* identifier[case].use = #usual
-* identifier[case].system 1..
-* identifier[case].system = "https://standards.digital.health.nz/rheumatic-fever-identifiers"
+
+
+// SLICE NUMBER TWO
+// This slice allows (0 or more) use=USUAL identifier references to link to external 'national' systems.  
+
+* identifier[NationalSystem] ^short = "This slice lets clients link FHIR rheumatic fever care plans to corresponding records in Salesforce, Episurv etc."
+
+* identifier[NationalSystem].use 1..1
+* identifier[NationalSystem].use = #usual
+
+* identifier[NationalSystem].system 0..1        // system Uri may (SHOULD) be specified but it's up to clients to do this.
+* identifier[NationalSystem].system insert MakeProfileIdentifierSystemExample([[Uri that defines the type of external identifier]])
+
+// In this slice, clients MUST set a type taken from known external identifier type codes
+* identifier[NationalSystem].type 1..1      
+* identifier[NationalSystem].type from ExternalSystemIdentifierTypeValueSet
+
+// a value MUST be given and we give an example here
+* identifier[NationalSystem].value 1..1
+* identifier[NationalSystem].value insert MakeProfileIdentifierExample([[Some Salesforce CarePlan object id]],[[CTM-0000144]])
+
+* identifier[NationalSystem].id 0..0       // don't want this kind of thing
+* identifier[NationalSystem].extension 0..0       // don't want this kind of thing
 
 * instantiatesCanonical only Canonical(PlanDefinition)
 

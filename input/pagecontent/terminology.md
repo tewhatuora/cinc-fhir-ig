@@ -1,14 +1,6 @@
-# Terminology
+## Rheumatic Fever API terminology overview
 
 This page provides an overview of the terminology systems that are depended on, or have been created, for use in this FHIR API.
-
-The actual terminology bindings appear in the relevant sections of the IG mainly in resource profiles, extensions and examples.
-
-## Care in the community core FHIR API
-
-...
-
-## Rheumatic Fever FHIR API
 
 The Rheumatic Fever FHIR resources make use of established SNOMED (International and NZ Editions) and NZMT (New Zealand Medication Terminology) codesystems, and defines new terminology needed to code the certainty of a rheumatic fever diagnosis.
 

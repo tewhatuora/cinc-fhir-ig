@@ -20,33 +20,17 @@ Usage: #example
 * item[0] insert answerItemX(AppointmentIncompleteReason,[[1)]],[[Reason appointment was not completed? (if applicable)]])
 * item[=].answer.valueString = "The patient was too late for the appointment."
 
-* item[+] insert answerItemX(ReasonsInjectionOverdue,[[2)]],[[Reason(s) injection overdue? (multiple choice)]])
-* item[=].answer[0].valueString = "Patient Not Available"
+* item[+] insert answerItemX(ReasonsInjectionOverdue,[[2)]],[[Reason(s) injection was give late? (multiple choice)]])
+* item[=].answer[0].valueString = "Patient Not Available on the Day"
 * item[=].answer[+].valueString = "Other"
 
-* item[+] insert answerItemX(OverdueInjectionOtherDetail,[[3)]],[[Details for overdue injections? (enter text)]])
+* item[+] insert answerItemX(OverdueInjectionOtherDetail,[[3)]],[[Other details for late injection (enter text)]])
 * item[=].answer.valueString = "The patient couldn't find a park for the classic Hilux."
 
-* item[+] insert answerItemX(DentalIssues,[[4)]],[[Any dental issues? sore teeth etc. (Yes/No/Not answered)]])
-* item[=].answer.valueBoolean = false
-
-* item[+] insert answerItemX(OngoingHealthConcerns,[[5)]],[[Are there other ongoing health concerns? (Yes/No/Not answered)]])
-* item[=].answer.valueBoolean = false
-
-* item[+] insert answerItemX(NewlyPregnant,[[6)]],[[Newly pregnant?]])
+* item[+] insert answerItemX(ConsentChecked,[[4)]],[[Pre-injection consent checked?]])
 * item[=].answer.valueBoolean = true
 
-// 18/10/2023 placed on hold
-// * item[+] insert answerItemX(EstDueDate,[[6.1)]],[[Estimated Due Date?]])
-// * item[=].answer.valueDate = "2024-02-10"
-
-* item[+] insert answerItemX(Weight,[[7)]],[[Weight (kg)?]])
-* item[=].answer.valueInteger = 63
-
-* item[+] insert answerItemX(ConsentChecked,[[8)]],[[Pre-injection consent checked?]])
-* item[=].answer.valueBoolean = true
-
-* item[+] insert answerItemX(MedicationChecked,[[9)]],[[Pre-injection medication checked with a second person?]])
+* item[+] insert answerItemX(MedicationChecked,[[5)]],[[Pre-injection medication checked with a second person?]])
 * item[=].answer.valueBoolean = true
 
 * item[+] insert answerItemX(BenzathineBrandOtherDetails,[[10)]],[[Details of other Benzathine brand, if used (enter text)]])
@@ -64,29 +48,37 @@ Usage: #example
 * item[+] insert answerItemX(PostInjectionConcern,[[12)]],[[Post injection concern or possible reaction identified?]])
 * item[=].answer.valueBoolean = true
 
-* item[+] insert answerItemX(PostInjectionConcernDetails,[[12.1)]],[[Enter details of concern / reaction / actions taken (enter text)]])
+* item[+] insert answerItemX(PostInjectionConcernDetails,[[12.1)]],[[If Yes, Record Details, Symptoms, Actions Taken and Follow-Up Plan (enter text)]])
 * item[=].answer.valueString = "Madeleine had a bit more than the usual sensitivity at the injection site so we dished out extra ice cream, which was nice."
 
-* item[+] insert answerItemX(PostInjectionMedsGiven,[[13)]],[[Post-injection medications given?]])
+// removed 26/10/2023 on BA advice
+// * item[+] insert answerItemX(PostInjectionMedsGiven,[[13)]],[[Post-injection medications given?]])
+// * item[=].answer.valueBoolean = true
+
+// * item[+] insert answerItemX(PostInjectionMedsDetails,[[13.1)]],[[Enter details of post-injection medications and reason (enter text)]])
+// * item[=].answer.valueString = "Only ice cream."
+
+// * item[+] insert answerItemX(Comments,[[14)]],[[Enter any further comments about the secondary prophylaxis appointment here (enter text)]])
+// * item[=].answer.valueString = "No comment"
+
+* item[+] insert answerItemX(AnyOtherConcerns,[[13)]],[[Were There Any Other Concerns or Issues Identified During the Visit?]])
 * item[=].answer.valueBoolean = true
 
-* item[+] insert answerItemX(PostInjectionMedsDetails,[[13.1)]],[[Enter details of post-injection medications and reason (enter text)]])
-* item[=].answer.valueString = "Only ice cream."
+* item[+] insert answerItemX(OtherConcernsDetail,[[13.1)]],[[If yes, describe details, actions taken, and follow-up planned (enter text)]])
+* item[=].answer.valueString = "A shortage of ice cream in our freezer led to some unnecessary worries for Madeleine."
 
-* item[+] insert answerItemX(Comments,[[14)]],[[Enter any further comments about the secondary prophylaxis appointment here (enter text)]])
-* item[=].answer.valueString = "No comment"
 
-* item[+] insert answerItemX(HealthEducationTopicsDiscussed,[[15)]],[[Health education topics discussed? (multiple choice)]])
+* item[+] insert answerItemX(HealthEducationTopicsDiscussed,[[14)]],[[Health education topics discussed? (multiple choice)]])
 * item[=].answer[0].valueString = "Secondary prophylaxis"
 * item[=].answer[+].valueString = "Nutrition"
 * item[=].answer[+].valueString = "Other"
 
-* item[+] insert answerItemX(HealthEducationOtherDetail,[[15.1)]],[[Enter details of other health education topic discussed (enter text)]])
-* item[=].answer.valueString = "Madeleine and I discussed the importance of punctuality and the benefits of planning ahead; I showed her the basics of iOS calendars.."
+* item[+] insert answerItemX(HealthEducationOtherDetail,[[14.1)]],[[Enter details of other health education topic discussed (enter text)]])
+* item[=].answer.valueString = "Madeleine and I discussed the importance of punctuality and the benefits of planning ahead."
 
-* item[+] insert answerItemX(RecentOrUpcomingAppointments,[[16)]],[[Any recent or upcoming follow-up appointments?]])
+* item[+] insert answerItemX(RecentOrUpcomingAppointments,[[15)]],[[Any recent or upcoming follow-up appointments?]])
 * item[=].answer.valueBoolean = true
 
-* item[+] insert answerItemX(RecentOrUpcomingAppointmentsDetails,[[16.1)]],[[Enter details and dates of any recent or upcoming follow-up appointments (enter text)]])
-* item[=].answer.valueString = "Madeleine has an upcoming follow-up appointment on The importance of punctuality and the benefits of planning ahead; iOS calendar basics"
+* item[+] insert answerItemX(RecentOrUpcomingAppointmentsDetails,[[15.1)]],[[Enter details and dates of any recent or upcoming follow-up appointments (enter text)]])
+* item[=].answer.valueString = "Madeleine has an upcoming follow-up appointment covering iOS calendar basics"
 
