@@ -1,9 +1,11 @@
 # Changelog
 
-## v0.3.2 (2023-10-26)
+## v0.3.2 (2023-10-27)
 
 - Renamed the API described by this Implementation Guide from *Care In The Community* FHIR API to **Te Whatu Ora Shared Care** FHIR API reflecting recent expansion.
 
+- Revised Identifier slicing in CarePlan, Condition and CareTeam resource profiles to allow multiple references to external identifiers and capture the types of identifier being referred to. 
+- 
 - Revised the [patient medication allergy ValueSet](ValueSet-rf-medicationallergy-code.html) to now use SNOMED terminology which pinpoints the medication allergy instead of substance concepts.
 
 - [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html) revised questions to codify 
@@ -16,6 +18,9 @@
 
 - Introduced new terminology [QualifiedYesNoAnswerValueSet](ValueSet-nz-questionnaireresponse-qualifiedyesno-code.html).  This set of SNOMED codes applies
  to yes/no-type questions where it is important to be able to record an 'unknown' or 'information not available' response in a FHIR QuestionnareResponse item.
+
+- Introduced new terminology [ExternalSystemIdentifierTypeValueSet](ValueSet-external-system-identifier-type-code.html).  This extends the set of FHIR 
+ Identifier type codes to define new codes for known external identifiers in NZ national systems that integrate with the Te Whatu Ora Shared Care FHIR API.
 
 - All Rheumatic fever terminology now appears in the *rheumatic fever* section of the **Profiles** tab.  
 

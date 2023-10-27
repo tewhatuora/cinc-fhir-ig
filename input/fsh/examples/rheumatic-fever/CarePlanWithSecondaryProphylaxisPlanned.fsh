@@ -10,8 +10,8 @@ Description: "Example of an RF care plan with secondary prophylaxis medication p
 * title = "Active care plan with medication planned and appointments booked for Madeleine Meringue"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
-* identifier[NationalSystem] insert NationalSystemExternalIdentifer(00073693)
-* identifier[episurv] insert EpisurvNumber(21-383414-AK)
+* identifier[NationalSystem][0] insert SalesforceCarePlanIdentifier(00073693)
+* identifier[NationalSystem][+] insert  EpisurvNumber(21-383414-AK)
 
 * addresses = Reference(SevereRfConditionExample)
 

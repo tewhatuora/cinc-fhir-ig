@@ -7,7 +7,8 @@ Description: "An example of a rheumatic fever Condition"
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
-* identifier[NationalSystem] insert NationalSystemExternalIdentifer(CON-0206)
+// only one external identifier needed, although muliple allowed
+* identifier[NationalSystem] insert SalesforceConditionIdentifier([[CON-0206]])
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * clinicalStatus.text = "Active"
