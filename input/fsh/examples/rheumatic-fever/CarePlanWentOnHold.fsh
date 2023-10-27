@@ -10,7 +10,8 @@ Description: "Example of an RF care plan that has gone on-hold, after the first 
 * title = "Care plan went on hold after first appointment completed"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
-* identifier[case] insert CaseNumber(00073469)
+* identifier[NationalSystem] insert NationalSystemExternalIdentifer(00073693)
+* identifier[episurv] insert EpisurvNumber(21-383414-AK)
 
 * addresses = Reference(SevereRfConditionExample)
 

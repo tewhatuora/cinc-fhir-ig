@@ -16,8 +16,10 @@ Id: cinc-rheumaticfever-careteam
 * identifier contains NationalSystem 0..*
 
 * identifier[NationalSystem].use = #usual
-* identifier[NationalSystem].system 1..
-* identifier[NationalSystem].system = $NationalCareCoordinationSystem
+* identifier[NationalSystem].system insert MakeProfileIdentifierSystemExample([[Uri that defines the type of external identifier]])
+* identifier[NationalSystem].system 1..1
+* identifier[NationalSystem].type 0..0
+* identifier[NationalSystem].value 1..1
 * identifier[NationalSystem].value insert MakeProfileIdentifierExample([[Salesforce object id]],[[CTM-0000144]])
 
 // * category from https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-care-team-category

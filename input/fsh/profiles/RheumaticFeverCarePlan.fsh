@@ -31,22 +31,29 @@ Id: cinc-rheumaticfever-careplan
 * identifier ^slicing.rules = #open
 * identifier contains 
   NHI 1..1 and
-  case 0..1 and
+  NationalSystem 0..1 and
   episurv 0..1
 
 * identifier[NHI].use from $nhi-use-code (required)
 * identifier[NHI].system 1..
 * identifier[NHI].system = "https://standards.digital.health.nz/ns/nhi-id" (exactly)
+* identifier[NHI].type 0..0
+* identifier[NHI].value 1..1
+* identifier[NHI].value insert MakeProfileIdentifierExample([[National Health Index]],[[SCF7824]])
 
-* identifier[case].use = #usual
-* identifier[case].system 1..
-* identifier[case].system = "https://standards.digital.health.nz/ns/rheumatic-fever-identifiers"
-* identifier[case].value insert MakeProfileIdentifierExample([[Salesforce case number object id]],[[00073693]])
+* identifier[NationalSystem].use = #usual
+* identifier[NationalSystem].system insert MakeProfileIdentifierSystemExample([[Uri that defines the salesforce number type]])
+* identifier[NationalSystem].system 1..1
+* identifier[NationalSystem].type 0..0
+* identifier[NationalSystem].value 1..1
+* identifier[NationalSystem].value insert MakeProfileIdentifierExample([[Salesforce case number object id]],[[00073693]])
 
 * identifier[episurv].use = #usual
-* identifier[episurv].system 1..
-* identifier[episurv].system = "https://standards.digital.health.nz/ns/episurv-identifier"
-* identifier[episurv].value insert MakeProfileIdentifierExample([[Episurv identifier]],[[example value TBC]])
+* identifier[episurv].system insert MakeProfileIdentifierSystemExample([[Uri that defines the episurv number type]])
+* identifier[episurv].system 1..1
+* identifier[episurv].type 0..0
+* identifier[episurv].value 1..1
+* identifier[episurv].value insert MakeProfileIdentifierExample([[Episurv No.]],[[21-383414-AK]])
 
 * instantiatesCanonical only Canonical(PlanDefinition)
 
