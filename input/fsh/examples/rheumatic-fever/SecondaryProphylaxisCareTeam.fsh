@@ -9,6 +9,8 @@ Usage: #example
 
 * category = $sct#320721000210108 "Secondary Prophylaxis Team"
 
+* identifier[NationalSystem] insert SalesforceId([[CTM-0016606]])
+
 * name = "Madeleine Meringue's secondary prophylaxis team"
 * status = #active
 // lead provider

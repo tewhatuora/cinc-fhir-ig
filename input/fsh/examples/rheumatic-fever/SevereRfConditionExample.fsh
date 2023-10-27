@@ -7,8 +7,7 @@ Description: "An example of a rheumatic fever Condition"
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-10-06T08:00:00Z"
 
-* identifier[RFNCS] insert ConditionNumber(00015101)
-* identifier[RFNCS] insert ConditionNumber(00015101)
+* identifier[NationalSystem] insert SalesforceId(CON-0206)
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * clinicalStatus.text = "Active"

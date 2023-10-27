@@ -31,7 +31,8 @@ Id: cinc-rheumaticfever-careplan
 * identifier ^slicing.rules = #open
 * identifier contains 
   NHI 1..1 and
-  case 0..1
+  case 0..1 and
+  episurv 0..1
 
 * identifier[NHI].use from $nhi-use-code (required)
 * identifier[NHI].system 1..
@@ -40,6 +41,12 @@ Id: cinc-rheumaticfever-careplan
 * identifier[case].use = #usual
 * identifier[case].system 1..
 * identifier[case].system = "https://standards.digital.health.nz/ns/rheumatic-fever-identifiers"
+* identifier[case].value insert MakeProfileIdentifierExample([[Salesforce case number object id]],[[00073693]])
+
+* identifier[episurv].use = #usual
+* identifier[episurv].system 1..
+* identifier[episurv].system = "https://standards.digital.health.nz/ns/episurv-identifier"
+* identifier[episurv].value insert MakeProfileIdentifierExample([[Episurv identifier]],[[example value TBC]])
 
 * instantiatesCanonical only Canonical(PlanDefinition)
 

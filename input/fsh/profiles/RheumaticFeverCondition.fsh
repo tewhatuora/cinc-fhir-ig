@@ -17,11 +17,13 @@ Id: cinc-rheumaticfever-condition
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
-* identifier contains RFNCS 1..1
+* identifier contains NationalSystem 0..*
 
-* identifier[RFNCS].use = #usual
-* identifier[RFNCS].system 1..
-* identifier[RFNCS].system = "https://standards.digital.health.nz/ns/rheumatic-fever-identifiers"
+* identifier[NationalSystem].use = #usual
+* identifier[NationalSystem].system 1..
+* identifier[NationalSystem].system = $NationalCareCoordinationSystem
+* identifier[NationalSystem].value insert MakeProfileIdentifierExample([[Salesforce object id]],[[CON-0206]])
+
 
 // bind to the permissible SNOMED codes for RF diagnosis at registration.
 * code 1..1

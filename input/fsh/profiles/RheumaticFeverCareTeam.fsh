@@ -8,8 +8,17 @@ Id: cinc-rheumaticfever-careteam
 * ^purpose = "Profiles CareTeam to require categorisation (two types of care team that arise in rheumatic fever care)"
 
 // elements modified from base profile
-
 * category 1..1
+
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier contains NationalSystem 0..*
+
+* identifier[NationalSystem].use = #usual
+* identifier[NationalSystem].system 1..
+* identifier[NationalSystem].system = $NationalCareCoordinationSystem
+* identifier[NationalSystem].value insert MakeProfileIdentifierExample([[Salesforce object id]],[[CTM-0000144]])
 
 // * category from https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-care-team-category
 // The category code is defined in the above ValueSet on NZHTS but there are problems relating to the 

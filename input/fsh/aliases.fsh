@@ -25,3 +25,5 @@ Alias: $AVE-whenstarted =  https://standards.digital.health.nz/ns/antiviral-elig
 Alias: $AVE-criteria =  https://standards.digital.health.nz/ns/antiviral-eligibility-criteria-codes
 Alias: $termServerExtension = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-preferredTerminologyServer
 Alias: $preferredTermServer = https://nzhts.digital.health.nz/fhir
+
+Alias: $NationalCareCoordinationSystem = https://standards.digital.health.nz/ns/rheumatic-fever-identifiers
