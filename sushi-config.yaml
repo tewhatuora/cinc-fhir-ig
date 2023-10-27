@@ -246,6 +246,8 @@ groups:
     - RheumaticFeverCareTeamCategoryValueSet
     - RheumaticFeverCareTeamParticipantRoleValueSet
     - QualifiedYesNoAnswerValueSet
+    - ExternalSystemIdentifierTypeValueSet
+    - ExternalSystemIdentifierTypeCodeSystem
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and
