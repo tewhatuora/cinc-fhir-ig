@@ -15,7 +15,7 @@ Id: cinc-rheumaticfever-careplan
 
 * activity.reference only Reference(MedicationRequest or Appointment)
 
-* addresses 1..*
+* addresses 0..*
 * addresses only Reference(RheumaticFeverCondition)
 
 * category 1..1
