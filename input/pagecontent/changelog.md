@@ -1,5 +1,11 @@
 # Changelog
 
+
+## v0.3.3 (2023-11-xx)
+
+- `RheumaticFeverCarePlan.addresses` profile no longer requires a minimum cardinality of RheumaticFeverCondition to be referenced.  Cardinality is now `0..*`
+
+
 ## v0.3.2 (2023-10-27)
 
 - Renamed the API described by this Implementation Guide from *Care In The Community* FHIR API to **Te Whatu Ora Shared Care** FHIR API reflecting recent expansion.

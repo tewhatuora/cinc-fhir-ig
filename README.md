@@ -78,6 +78,16 @@ Authoring and publishing IGs using the [Simplifier](https://simplifier.net/) inf
 
 Unlike the FHIR IG Publisher, which outputs a fully rendered IG with merged in FHIR artifacts and Markdown content, the Simplifier IG Editor just provides some shorthand notation for rendering FHIR artifacts.  Apart from that, the entire IG, including the structure and layout, would need to be manually authored in the IG Editor.  The FHIR artifacts output by SUSHI can be imported into Simplifier but all of the Markdown content and FHIR IG Publisher output would need to be manually created/re-created.
 
+
+# Notes on compiling the Implementation Guide for server IG validation
+ 
+As documented in [Using FHIR Implementation Guides]() this Implementation Guide must be compiled before it can be deployed into FHIRWorks for use with the HapiValidator.
+
+Notes on compiling:
+
+1. After cloning the Git repo to create a local copy of FHIRworks  
+
+
 # FHIR IG Quality Guidelines
 
 ## Terminology data quality
