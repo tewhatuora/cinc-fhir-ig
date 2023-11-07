@@ -4,14 +4,13 @@ Usage: #example
 Description: "Example of the most basic RF care plan: not fully setup and indicates only that a patient registered with RF service."
 
 * meta.profile = Canonical(RheumaticFeverCarePlan)
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-10-06T08:00:00Z"
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-07T04:00:00Z"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
 * identifier[NationalSystem][0] insert SalesforceCarePlanIdentifier(00073693)
-* identifier[NationalSystem][+] insert  EpisurvNumber(21-383414-AK)
 
-* addresses = Reference(SevereRfConditionExample)
+* insert AddressesConditionExample(SevereRfConditionExample)
 
 * category = $sct#320721000210102 "Rheumatic fever secondary prevention care plan" 
 
