@@ -32,57 +32,57 @@ Usage: #definition
 * item[=].text = "Please complete this health check form. If you feel very sick right now contact your doctor or Healthline on 0800 611 116 for medical help. If it is an emergency call 111 and tell them you have been in contact with someone with measles."
 
 * item[+].item[0].type = #boolean
-* item[=].item[=].linkId = "p02-q02-Symptoms"
+* item[=].item[=].linkId = "p02-q01-Symptoms"
 * item[=].item[=].prefix = "page 2 question 1"
 * item[=].item[=].text = "Do you currently have any measles symptoms?"
 * item[=].item[=].item.text = "For example: fever, red blotchy rash, cough, runny nose, sore red eyes."
 * item[=].item[=].item.type = #display
-* item[=].item[=].item.linkId = "p02-q02-Symptoms_helpText"
+* item[=].item[=].item.linkId = "p02-q01-Symptoms_helpText"
 * item[=].item[=].item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].item.extension.valueCodeableConcept.text = "Help-Button"
 * item[=].item[=].item.extension.valueCodeableConcept = $questionnaire-item-control#help "Help-Button"
 
 * item[=].item[+].type = #choice
-* item[=].item[=].linkId = "p02-q02-1-Symptoms.Which"
+* item[=].item[=].linkId = "p02-q01-1-Symptoms.Which"
 * item[=].item[=].prefix = "page 2 question 1.1"
 * item[=].item[=].text = "What symptoms do you currently have? "
-* item[=].item[=].enableWhen.question = "p02-q02-Symptoms"
+* item[=].item[=].enableWhen.question = "p02-q01-Symptoms"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].required = true
 * item[=].item[=].repeats = true
-* item[=].item[=].answerOption[0].valueCoding = $sct#386661006 "Fever "
-* item[=].item[=].answerOption[+].valueCoding = $sct#725119006 "Red Blotchy Rash"
-* item[=].item[=].answerOption[+].valueCoding = $sct#49727002 "Cough"
-* item[=].item[=].answerOption[+].valueCoding = $sct#397811005 "Runny Nose"
-* item[=].item[=].answerOption[+].valueCoding = $sct#703630003 "Sore Red Eyes"
+* item[=].item[=].answerOption[+].valueCoding.display = "Fever "
+* item[=].item[=].answerOption[+].valueCoding.display = "Red Blotchy Rash"
+* item[=].item[=].answerOption[+].valueCoding.display = "Cough"
+* item[=].item[=].answerOption[+].valueCoding.display = "Runny Nose"
+* item[=].item[=].answerOption[+].valueCoding.display = "Sore Red Eyes"
 * item[=].item[=].answerOption[+].valueCoding.display = "Other"
 
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "p02-q02-2-Symptoms.FeverStart"
-* item[=].item[=].prefix = "page 2 question 1.2"
+* item[=].item[=].linkId = "p02-q01-1-1-Symptoms.RashFever"
+* item[=].item[=].prefix = "page 2 question 1.1.1"
 * item[=].item[=].text = "Did you have a fever when you first noticed the rash?"
-* item[=].item[=].enableWhen.question = "p02-q02-Symptoms"
+* item[=].item[=].enableWhen.question = "p02-q01-1-Symptoms.Which"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerCoding.display = "Red Blotchy Rash"
 * item[=].item[=].enableBehavior = #all
 
 * item[=].item[+].type = #date
-* item[=].item[=].linkId = "p02-q02-3-Symptoms.FeverWhen"
-* item[=].item[=].prefix = "page 2 question 1.3"
+* item[=].item[=].linkId = "p02-q01-1-2--Symptoms.RashWhen"
+* item[=].item[=].prefix = "page 2 question 1.1.2"
 * item[=].item[=].text = "When did the rash appear?"
-* item[=].item[=].enableWhen.question = "p02-q02-Symptoms"
+* item[=].item[=].enableWhen.question = "p02-q01-1-Symptoms.Which"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerCoding.display = "Red Blotchy Rash"
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
 
 * item[=].item[+].type = #string
-* item[=].item[=].linkId = "p02-q02-4-Symptoms.FeverWhere"
-* item[=].item[=].prefix = "page 2 question 1.4"
+* item[=].item[=].linkId = "p02-q01-1-3-Symptoms.RashWhere"
+* item[=].item[=].prefix = "page 2 question 1.1.3"
 * item[=].item[=].text = "Where on your body did the rash start?"
-* item[=].item[=].enableWhen.question = "p02-q02-Symptoms"
+* item[=].item[=].enableWhen.question = "p02-q01-1-Symptoms.Which"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerCoding.display = "Red Blotchy Rash"
 * item[=].item[=].enableBehavior = #all
@@ -90,10 +90,10 @@ Usage: #definition
 * item[=].item[=].repeats = false
 
 * item[=].item[+].type = #text
-* item[=].item[=].linkId = "p02-q02-5-Symptoms.FeverSpread"
-* item[=].item[=].prefix = "page 2 question 1.5"
+* item[=].item[=].linkId = "p02-q01-1-4-Symptoms.RashSpread"
+* item[=].item[=].prefix = "page 2 question 1.1.4"
 * item[=].item[=].text = "If the rash has spread, provide details of where it was spread to?"
-* item[=].item[=].enableWhen.question = "p02-q02-Symptoms"
+* item[=].item[=].enableWhen.question = "p02-q01-1-Symptoms.Which"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerCoding.display = "Red Blotchy Rash"
 * item[=].item[=].enableBehavior = #all
@@ -101,21 +101,21 @@ Usage: #definition
 * item[=].item[=].repeats = false
 
 * item[=].item[+].type = #text
-* item[=].item[=].linkId = "p02-q02-1-1-Symptoms.Which.Other"
-* item[=].item[=].prefix = "page 2 question 1.1.1"
+* item[=].item[=].linkId = "p02-q01-1-5-Symptoms.Which.Other"
+* item[=].item[=].prefix = "page 2 question 1.1.5"
 * item[=].item[=].text = "Provide details of your other symptoms:"
-* item[=].item[=].enableWhen.question = "p02-q02-1-Symptoms.Which"
+* item[=].item[=].enableWhen.question = "p02-q01-1-Symptoms.Which"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[=].enableWhen.answerCoding.display = "Red Blotchy Rash"
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "p02-q02-6-Symptoms.Worsened"
-* item[=].item[=].prefix = "page 2 question 1.6"
+* item[=].item[=].linkId = "p02-q01-2-Symptoms.Worsened"
+* item[=].item[=].prefix = "page 2 question 1.2"
 * item[=].item[=].text = "Have any of your symptoms worsened since your last health check?"
-* item[=].item[=].enableWhen.question = "p02-q02-Symptoms"
+* item[=].item[=].enableWhen.question = "p02-q01-Symptoms"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #all
@@ -123,10 +123,10 @@ Usage: #definition
 * item[=].item[=].repeats = false
 
 * item[=].item[+].type = #text
-* item[=].item[=].linkId = "p02-q02-6-1-Symptoms.Worsened.Details"
-* item[=].item[=].prefix = "page 2 question 1.6.1"
+* item[=].item[=].linkId = "p02-q01-2-1-Symptoms.Worsened.Details"
+* item[=].item[=].prefix = "page 2 question 1.2.1"
 * item[=].item[=].text = "What are the details of your worsening symptoms?"
-* item[=].item[=].enableWhen.question = "p02-q02-6-Symptoms.Worsened"
+* item[=].item[=].enableWhen.question = "p02-q01-2-Symptoms.Worsened"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #all
@@ -195,4 +195,4 @@ Usage: #definition
 * item[=].type = #group
 * item[=].linkId = "p04"
 * item[=].prefix = "page 4"
-* item[=].text = "Quarantine "
+* item[=].text = "Quarantine"
