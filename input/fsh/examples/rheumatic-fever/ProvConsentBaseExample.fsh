@@ -18,6 +18,7 @@ See [*ProvConsentCoverageExample*](Consent-ProvConsentCoverageExample.html) for 
 * dateTime = "2023-06-12T02:30:35.982Z"
 
 * patient insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* organization insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * performer insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 * policy[0].authority = "https://www.privacy.org.nz"

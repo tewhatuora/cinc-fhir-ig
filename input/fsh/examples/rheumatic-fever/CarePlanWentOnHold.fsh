@@ -4,16 +4,15 @@ Usage: #example
 Description: "Example of an RF care plan that has gone on-hold, after the first secondary prophylaxis appointment has been attended."
 
 * meta.profile = Canonical(RheumaticFeverCarePlan)
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-10-18T01:00:00Z"
-
-* title = "Care plan went on hold after first appointment completed"
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-07T04:00:00Z"
 
 * identifier[NHI] insert NHIIdentifier(SCF7824)
 * identifier[NationalSystem][0] insert SalesforceCarePlanIdentifier(00073693)
-* identifier[NationalSystem][+] insert  EpisurvNumber(21-383414-AK)
 
-* addresses = Reference(SevereRfConditionExample)
+* title = "Care plan went on hold after first appointment completed"
+
+* insert AddressesConditionExample(SevereRfConditionExample)
 
 * category = $sct#320721000210102 "Rheumatic fever secondary prevention care plan" 
 

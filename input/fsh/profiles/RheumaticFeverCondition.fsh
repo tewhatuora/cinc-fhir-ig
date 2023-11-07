@@ -2,7 +2,7 @@ Profile: RheumaticFeverCondition
 Parent: NzCondition
 Title: "Rheumatic Fever Condition"
 Description: "This profile contains diagnosis code and adds rheumatic heart disease severity and diagnosis certainty extensions to the base NzCondition resource."
-Id: cinc-rheumaticfever-condition
+Id: nz-sharedcare-rheumaticfever-condition
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a condition to add severity and diagnostic certainty classifiers used in NZ rheumatic fever secondary secondary prevention"
@@ -21,7 +21,7 @@ Id: cinc-rheumaticfever-condition
 
 // This slice allows (0 or more) use=USUAL identifier references for linking to external 'national' systems.  
 
-* identifier[NationalSystem] ^short = "This slice lets clients link rheumatic fever conditions to corresponding records in external systems eg. Salesforce"
+* identifier[NationalSystem] ^short = "This slice lets clients link rheumatic fever conditions to corresponding records in external systems eg. Salesforce, EPISurv"
 
 * identifier[NationalSystem].use 1..1
 * identifier[NationalSystem].use = #usual
@@ -53,7 +53,5 @@ Id: cinc-rheumaticfever-condition
   RfConditionDiagnosticCertaintyExtension named diagnosticCertainty 0..1
 
 // elements prohibited
-* contained 0..0
 * implicitRules 0..0
 * language 0..0
-* modifierExtension 0..0

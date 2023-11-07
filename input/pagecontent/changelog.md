@@ -1,5 +1,36 @@
 # Changelog
 
+
+## v0.3.3 (2023-11-07)
+
+#### rheumatic fever fixes and changes
+
+- `Consent` resource examples
+
+  - Examples now include the `.organization` element as the custodian of the consent, set to the same org as `.performer`
+
+  - An example of an `#active` status Consent has been added.  This [Active Consent Example](Consent-ActiveConsentExample.html) demonstrates clients should form a valid Consent instance when a patient's consent has been obtained and can be represented as such in FHIR.
+
+- In the `RheumaticFeverCarePlan` resource profile, `.addresses` now has cardinality zero to many (`0..*`)
+
+- In the `RheumaticFeverCondition` resource profile, the `diagnosticCertainty` extension now uses codes defined in a **code system in this IG** because the validators do not recognise the code system 
+    (https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-diagnostic-certainty) used by the published ValueSet on NZ Health Terminology Server (code system not in global FHIR registry).
+
+- In the four rheumatic fever **extensions** defined by this IG, the **context**, which constrains which type(s) the extension 
+    can be used on has been changed to the applicable base type instead of the profiled type.  This change means clients can use
+    the extensions without encountering hapi validator errors / Bad Request 400 errors.
+
+- Identifiers from **EPISurv**, the national system which tracks notifiable disease events, are no longer to be recored on `RheumaticFeverCarePlan` and have moved to `RheumaticFeverCondition` resources.  Relevant example instances have been updated.
+
+- *validation errors in example resources* -- updates to address certain errors raised by the [FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator):
+  
+  - In example resources which have a Reference(Organization) the reference type is now the base type `Organization` instead of `"type" : "NzOrganization"`
+
+  - In CarePlan examples, `subject` references are now of base `"type" : "Patient"` instead of `"type" : "NzPatient"`
+  
+  - Also in CarePlan examples, `addresses` has changed from a singleton reference to an array of References (length 1) with each entry of `"type": "Condition"`
+  
+
 ## v0.3.2 (2023-10-27)
 
 - Renamed the API described by this Implementation Guide from *Care In The Community* FHIR API to **Te Whatu Ora Shared Care** FHIR API reflecting recent expansion.

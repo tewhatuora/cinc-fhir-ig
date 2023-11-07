@@ -3,7 +3,7 @@ Profile: RheumaticFeverCarePlan
 Parent: CarePlan
 Title: "Rheumatic Fever CarePlan"
 Description: "Profiles shared care plans used in NZ for provision of rheumatic fever secondary prevention"
-Id: cinc-rheumaticfever-careplan
+Id: nz-sharedcare-rheumaticfever-careplan
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a secondary prevention care plan for a NZ rheumatic fever patient"
@@ -15,8 +15,8 @@ Id: cinc-rheumaticfever-careplan
 
 * activity.reference only Reference(MedicationRequest or Appointment)
 
-* addresses 1..*
-* addresses only Reference(RheumaticFeverCondition)
+* addresses 0..*
+* addresses only Reference(nz-sharedcare-rheumaticfever-condition)
 
 * category 1..1
 
@@ -48,7 +48,7 @@ Id: cinc-rheumaticfever-careplan
 // SLICE NUMBER TWO
 // This slice allows (0 or more) use=USUAL identifier references to link to external 'national' systems.  
 
-* identifier[NationalSystem] ^short = "This slice lets clients link FHIR rheumatic fever care plans to corresponding records in Salesforce, Episurv etc."
+* identifier[NationalSystem] ^short = "This slice is for clients to link FHIR RF care plans to corresponding records in national systems eg. RFCCS (Salesforce)"
 
 * identifier[NationalSystem].use 1..1
 * identifier[NationalSystem].use = #usual
@@ -72,7 +72,7 @@ Id: cinc-rheumaticfever-careplan
 * period 1..1
 * period obeys fhir-hnz-period-utc-1
 
-* subject only Reference(NzPatient)
+* subject only Reference(nz-sharedcare-rheumaticfever-patient)
 
 * title 1..1
 
@@ -84,11 +84,5 @@ Id: cinc-rheumaticfever-careplan
 // elements prohibited
 * activity.detail 0..0
 * activity.modifierExtension 0..0
-* contained 0..0
-
-* partOf 0..0
-
 * implicitRules 0..0
-* instantiatesUri 0..0
 * language 0..0
-* modifierExtension 0..0
