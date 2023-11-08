@@ -1,5 +1,35 @@
 # Changelog
 
+## v0.3.4 (2023-11-09)
+
+#### rheumatic fever changes
+
+- CareTeam refactor - whanau care teams are now represented directly in the `RheumaticFeverPatient` resource, as `.contact[]` members. 
+
+  1. The `RheumaticFeverCareTeam` profile resource will now be used only for *secondary prophylaxis* care teams.
+    All instances of `RheumaticFeverCareTeam` resources are categorised sct#320721000210108 "Secondary prophylaxis team"
+
+  1. The example `SecondaryProphylaxisCareTeam` has been adjusted to properly represent a secondary prophylaxis care team
+
+  1. The example `WhanauCareTeam` has been deleted and replaced by a new example  `RheumaticFeverPatient`:
+    **[MadeleineMeringueAndWhanau](Patient-MadeleineMeringueAndWhanau.html)** shows how whanau care team members are defined in `Patient.contact[]`s with role and relationship.
+
+- `RheumaticFeverPatient` profile changes
+
+  - `.contact` has two new extensions defined on it to capture the role (coded) and relationship (string) of each contact w.r.t the subject patient.
+  
+  - `.identifier` has a new slice to permit 'usual' identifiers in external national systems, to match other resources profiled in this IG
+
+- other minor changes
+
+  - The example rheumatic fever patient **[MadeleineMeringue](Patient-MadeleineMeringue.html)** now has sample ContactPoint entries in `Patient.telecom[]`.
+
+  - The [Terminology overview](terminology.html) page has been updated.
+
+- IG *FHIR Shorthand (fsh)* source code improvements
+  - Extension definitions now combined into single files for each resource type
+  - New ruleset for generation of `ContactPoint` elements needed for `patient.telecom` and `patient.contact.telecom` examples.
+
 
 ## v0.3.3 (2023-11-07)
 

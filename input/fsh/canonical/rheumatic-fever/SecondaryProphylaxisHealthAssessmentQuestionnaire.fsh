@@ -22,8 +22,6 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 
 * item[0] insert pageDisplayItem(page1,[[page1]],[[Please complete this questionnaire at the secondary prophylaxis appointment to assess a rheumatic fever patient's health.]])
 
-* item[+] insert stringQuestion(AppointmentIncompleteReason,[[1)]],[[Reason appointment was not completed? (if applicable)]])
-
 * item[+] insert multiChoiceQuestion(ReasonsInjectionOverdue,[[2)]],[[Reason(s) injection was give late? (multiple choice)]])
 
 * item[=].answerOption[0].valueString = "Previously Care On-Hold"
@@ -46,8 +44,6 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 * item[+] insert booleanQuestion(MedicationChecked,[[5)]],[[Pre-injection medication checked with a second person?]])
 * item[=].initial.valueBoolean = false
 
-* item[+] insert textQuestion(BenzathineBrandOtherDetails,[[10)]],[[Details of other Benzathine brand, if used (enter text)]])
-
 * item[+] insert multiChoiceQuestion(OtherPainManagementToolsUsed,[[11)]],[[Pain management tools used? (multiple choice)]])
 * item[=].answerOption[0].valueString = "Ice pack"
 * item[=].answerOption[+].valueString = "Buzzy bee"
@@ -69,17 +65,6 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 * item[=].enableWhen.question = "PostInjectionConcern"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true
-
-// removed 26/10/2023 on BA advice 
-// * item[+] insert booleanQuestion(PostInjectionMedsGiven,[[13)]],[[Post-injection medications given?]])
-// * item[=].initial.valueBoolean = false
-
-// * item[+] insert textQuestion(PostInjectionMedsDetails,[[13.1)]],[[Enter details of post-injection medications and reason (enter text)]])
-// * item[=].enableWhen.question = "PostInjectionMedsGiven"
-// * item[=].enableWhen.operator = #=
-// * item[=].enableWhen.answerBoolean = true
-
-// * item[+] insert textQuestion(Comments,[[14)]],[[Enter any further comments about the secondary prophylaxis appointment here (enter text)]])
 
 * item[+] insert booleanQuestion(AnyOtherConcerns,[[13)]],[[Were There Any Other Concerns or Issues Identified During the Visit?]])
 * item[=].initial.valueBoolean = false

@@ -4,8 +4,8 @@ Description: "Example assessment of Madeleine's health at her August secondary p
 Usage: #example
 
 * meta.profile = Canonical(QuestionnaireResponse)
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-10-24T03:00:00Z"
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-07T20:00:00Z"
 
 * status = #completed
 * authored = "2023-08-08T01:08:00.504Z"   // UTC, assumed to be the time of information collection during the appointment
@@ -16,9 +16,6 @@ Usage: #example
 * basedOn = Reference(DraftCarePlan)
 
 // NOTE: item numbering does not have to match the Questionnaire because answers relate to questions through link_id
-
-* item[0] insert answerItemX(AppointmentIncompleteReason,[[1)]],[[Reason appointment was not completed? (if applicable)]])
-* item[=].answer.valueString = "The patient was too late for the appointment."
 
 * item[+] insert answerItemX(ReasonsInjectionOverdue,[[2)]],[[Reason(s) injection was give late? (multiple choice)]])
 * item[=].answer[0].valueString = "Patient Not Available on the Day"
@@ -32,9 +29,6 @@ Usage: #example
 
 * item[+] insert answerItemX(MedicationChecked,[[5)]],[[Pre-injection medication checked with a second person?]])
 * item[=].answer.valueBoolean = true
-
-* item[+] insert answerItemX(BenzathineBrandOtherDetails,[[10)]],[[Details of other Benzathine brand, if used (enter text)]])
-* item[=].answer.valueString = "Normal benzathine brand used"
 
 * item[+] insert answerItemX(OtherPainManagementToolsUsed,[[11)]],[[Pain management tools used? (multiple choice)]])
 * item[=].answer[0].valueString = "Ice pack"
@@ -50,16 +44,6 @@ Usage: #example
 
 * item[+] insert answerItemX(PostInjectionConcernDetails,[[12.1)]],[[If Yes, Record Details, Symptoms, Actions Taken and Follow-Up Plan (enter text)]])
 * item[=].answer.valueString = "Madeleine had a bit more than the usual sensitivity at the injection site so we dished out extra ice cream, which was nice."
-
-// removed 26/10/2023 on BA advice
-// * item[+] insert answerItemX(PostInjectionMedsGiven,[[13)]],[[Post-injection medications given?]])
-// * item[=].answer.valueBoolean = true
-
-// * item[+] insert answerItemX(PostInjectionMedsDetails,[[13.1)]],[[Enter details of post-injection medications and reason (enter text)]])
-// * item[=].answer.valueString = "Only ice cream."
-
-// * item[+] insert answerItemX(Comments,[[14)]],[[Enter any further comments about the secondary prophylaxis appointment here (enter text)]])
-// * item[=].answer.valueString = "No comment"
 
 * item[+] insert answerItemX(AnyOtherConcerns,[[13)]],[[Were There Any Other Concerns or Issues Identified During the Visit?]])
 * item[=].answer.valueBoolean = true

@@ -37,7 +37,6 @@ This example includes sample `data.references` which identify the FHIR resource 
 // setup a boatload of example data references to consent-protected resource instances
 * provision insert ConsentInstanceDataRef( LeadProvidersGroup )
 * provision insert ConsentInstanceDataRef( SevereRfConditionExample )
-* provision insert ConsentInstanceDataRef( WhanauCareTeam )
 * provision insert ConsentInstanceDataRef( SecondaryProphylaxisCareTeam )
 * provision insert ConsentInstanceDataRef( SecondaryProphylaxisAppointment-Encounter )
 

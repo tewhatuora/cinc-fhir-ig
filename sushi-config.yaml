@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Te Whatu Ora Shared Care FHIR API
 description: Te Whatu Ora Shared Care FHIR API
 status: active
-version: 0.3.3
+version: 0.3.4
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -224,7 +224,7 @@ groups:
     - SecondaryProphylaxisCareTeam
     - TeTaiTokerauRFSecondaryPreventionService
     - WaikatoRFSecondaryPreventionService
-    - WhanauCareTeam
+    - MadeleineMeringueAndWhanau
     - MedicationsAndFollowUpGuidanceQuestionnaireResponse
     - PatientMedicationAllergyQuestionnaireResponse
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
