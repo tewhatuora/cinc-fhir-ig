@@ -8,28 +8,36 @@
 
   1. Whanau care teams are now represented directly in the `RheumaticFeverPatient` resource, as `.contact[]` members.
 
-  1. The `RheumaticFeverCareTeam` profile resource will now be used only for *secondary prophylaxis* care teams.  So all instances of `RheumaticFeverCareTeam` resources are categorised sct#320721000210108 "Secondary prophylaxis team"
+  1. The `RheumaticFeverCareTeam` resource profile will now be used only for *secondary prophylaxis* care teams.  So all instances of `RheumaticFeverCareTeam` resources are categorised sct#320721000210108 "Secondary prophylaxis team"
 
   1. The example `SecondaryProphylaxisCareTeam` has been adjusted to properly represent a secondary prophylaxis care team
 
   1. The example `WhanauCareTeam` has been deleted.
 
-  1. A new example `RheumaticFeverPatient` has been added showing how to model whanau members as contacts
+  1. A new example `RheumaticFeverPatient` instance has been added showing how to model whanau members as contacts
     **[MadeleineMeringueAndWhanau](Patient-MadeleineMeringueAndWhanau.html)**
 
 - `RheumaticFeverPatient` profile changes
 
-  - `Patient.contact` now has extensions defined on it to capture the role (coded), relationship (string) and primary contact nature for each member of a patient's whanau/trusted delegates care team.
+  - `Patient.contact` now has three new extensions capturing role (coded), relationship (string) and primary contact nature for each member of a patient's whanau/trusted delegates care team.
 
 - `Appointment` examples updated to reflect changes to data dictionary, including the addition of another code for salesforce CarePlanActivity identifiers in [ExternalSystemIdentifierTypeValueSet](ValueSet-external-system-identifier-type-code.html).
+
+- Questionnaire updates
+
+  - [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html)  
+      Various items removed and one new item added [Example QR]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match.
+
+  - [Medications and Follow-Up Guidance Questionnaire](Questionnaire-MedicationsAndFollowUpGuidanceQuestionnaire.html)  
+      One item changed from boolean to yes/no/unknown coded answer. [Example QR](QuestionnaireResponse-MedicationsAndFollowUpGuidanceQuestionnaireResponse.html) updated to match.
+
+  - [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html)  
+        One item removed. [Example QR](QuestionnaireResponse-PatientMedicationAllergyQuestionnaireResponse.html) updated to match.
 
 - Other RF IG changes
   - Three new extensions defined for use on `Patient.contact`
   
-  - Some items removed and one new item added to the [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html)  
-      and [QuestionnaireResponse example]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match.
-  
-  - The example rheumatic fever patient **[MadeleineMeringue](Patient-MadeleineMeringue.html)** now also has ContactPoint example entries in `Patient.telecom[]`.
+  - The example rheumatic fever patient **[MadeleineMeringue](Patient-MadeleineMeringue.html)** also now has some sample ContactPoint entries in `Patient.telecom[]`.
 
   - The [Terminology overview](terminology.html) and [Data translation and models](rheumatic-fever-data.html) pages have been updated.
 
