@@ -36,7 +36,7 @@ Description: "Gathers information in secondary prophylaxis planning which guides
 * item[+] insert singleChoiceQuestion(WarfarinSupervisionService,[[2.1)]],[[Warfarin supervision service (choose one)]])
 * item[=].enableWhen.question = "CaseOnWarfarin"
 * item[=].enableWhen.operator = #=
-* item[=].enableWhen.answerBoolean = true
+* item[=].enableWhen.answerCoding = $sct#373066001 "Yes (qualifier value)"
 * item[=].answerOption[0].valueString = "GP"
 * item[=].answerOption[+].valueString = "Pharmacy"
 * item[=].answerOption[+].valueString = "Hospital service"
