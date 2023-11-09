@@ -10,7 +10,7 @@ Description: "Gathers information in secondary prophylaxis planning which guides
 * identifier[=].value = "MedicationsAndFollowUpGuidanceQuestionnaire"
 * identifier[=].period.start = "2023-10-16"
 
-* date = "2023-10-16"
+* date = "2023-11-10"
 * status = #draft
 * experimental = false
 
@@ -29,8 +29,9 @@ Description: "Gathers information in secondary prophylaxis planning which guides
 * item[=].answerOption[+].valueString = "Pick-up from a pharmacy"
 * item[=].answerOption[+].valueString = "Other"
 
-* item[+] insert booleanQuestion(CaseOnWarfarin,[[2)]],[[Case on warfarin?]])
-* item[=].initial.valueBoolean = false
+
+* item[+] insert singleChoiceQuestion(CaseOnWarfarin,[[2)]],[[Case on warfarin? (Yes/No/Unknown)]])
+* item[=].answerValueSet = Canonical(QualifiedYesNoAnswerValueSet)      // Unknown is meaningful to the RF service
 
 * item[+] insert singleChoiceQuestion(WarfarinSupervisionService,[[2.1)]],[[Warfarin supervision service (choose one)]])
 * item[=].enableWhen.question = "CaseOnWarfarin"
