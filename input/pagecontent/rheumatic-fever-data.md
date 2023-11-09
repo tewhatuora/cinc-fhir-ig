@@ -27,6 +27,21 @@ Notes
 
 ---
 
+#### Mapping members of whanau care team to `Patient.contact[]`
+
+As a rheumatic fever patient's whanau care team members need to have contact details, role and relationship to the patient captured, this IG uses `Patient.contact` rather than an instance of `CareTeam` resource.  The data mapping between the national system and FHIR is given by the following table.
+
+|Business data field (national system)|FHIR element of `Patient` resource|FHIR data type|translation|FHIR data example 1|FHIR data example 2|
+|:----|:----|:----|:-----|:----|:----|
+|care team member role|`.whanauMemberCareRole` **extension**|coding (SNOMED)|-|**$sct#58626002** *Legal Guardian*|**$sct#394738000** *Other related persons (person)*|
+|care team member relationship to patient (freetext)|`.whanauMemberCareRelationship` **extension**|string|-|`"mother"`|`"brother in law"`|
+|first name|`name.given`|string|-|`"Beryl"`|`"Mike"`|
+|last name|`name.family`|string|-|`"Hackett"`|`"Meringue"`|
+|primary contact (yes/no)|`.whanauMemberCarePrimary` **extension**|boolean|-|`true`|`false`|
+|status (active/inactive)|`.period.start` - `period.end`|datetime x2|Consider member an ACTIVE contact unless BOTH dates are in the past, in which case INACTIVE|`"2023-06-01"` to `"2026-05-31"`|`"2021-01-01"` to `"2021-01-01"`|
+
+---
+
 #### Language mapping
 
 Applies to **patient's preferred language**.

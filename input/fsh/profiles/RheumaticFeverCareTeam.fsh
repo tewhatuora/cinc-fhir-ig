@@ -6,6 +6,7 @@ Id: nz-sharedcare-rheumaticfever-careteam
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Controls CareTeam representations to model care teams involved in rheumatic fever secondary prophylaxis (preventative treatment)"
+* insert metaContactDetail([[David Grainger]],[[david.grainger@middleware.co.nz]])
 
 // elements modified from base profile
 * category 1..1

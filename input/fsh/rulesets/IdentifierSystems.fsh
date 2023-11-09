@@ -1,9 +1,3 @@
-RuleSet: CaseNumber(case-id)
-// sets up a USUAL identifier to hold an external (salesforce) identifier of an object
-
-* use = #usual
-* system = "https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_case.htm"   // this is just an example and probably incorrect
-* value = "{case-id}"
 
 // sets up logical ref to an external identifier as the specified NHI number
 RuleSet: NHIIdentifier(nhi-id)
@@ -13,8 +7,18 @@ RuleSet: NHIIdentifier(nhi-id)
 // * type = $BaseIdentifierTypeCS#JHN    // dont think we need to go this far
 
 
+////// ///// /////  ///// /////  ///// /////  ///// ///// 
+
 // sets up ref to an external identifier as the specified salesforce care team object id
 RuleSet: SalesforceCarePlanIdentifier(salesforce-id)
+
+* system = "https://developer.salesforce.com/docs"      // this is just an example and probably incorrect
+* value = "{salesforce-id}"
+* type = $ExternalIdentifierTypeCS#salesforce-careplanactivity-id
+
+
+// sets up ref to an external identifier as the specified salesforce careplanactivity object id (used for SF Encounters which represent Appointments - go figure)
+RuleSet: SalesforceCarePlanActivityIdentifier(salesforce-id)
 
 * system = "https://developer.salesforce.com/docs"      // this is just an example and probably incorrect
 * value = "{salesforce-id}"
@@ -44,6 +48,8 @@ RuleSet: EpisurvNumber(episurv-id)
 * value = "{episurv-id}"
 * type = $ExternalIdentifierTypeCS#episurv-number
 
+
+////// ///// /////  ///// /////  ///// /////  ///// ///// 
 
 // Set up an Identifier element value example with the specified label and value 
 // Replaces any existing example.

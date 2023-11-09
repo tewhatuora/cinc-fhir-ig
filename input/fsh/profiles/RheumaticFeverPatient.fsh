@@ -8,6 +8,7 @@ Id: nz-sharedcare-rheumaticfever-patient
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a New Zealand patient with rheumatic fever (extends NzPatient resource)"
+* insert metaContactDetail([[David Grainger]],[[david.grainger@middleware.co.nz]])
 
 // elements modified from base profile
 * name 1..1
@@ -23,7 +24,8 @@ Id: nz-sharedcare-rheumaticfever-patient
 // extensions to Patient.contact to track the role and relationship of whanau member in contact[]s
 * contact.extension contains
   RfPatientWhanauMemberRoleExtension named whanauMemberCareRole 0..1 and
-  RfPatientWhanauMemberRelationshipExtension named whanauMemberCareRelationship 0..1
+  RfPatientWhanauMemberRelationshipExtension named whanauMemberCareRelationship 0..1 and
+  RfPatientWhanauMemberPrimaryExtension named whanauMemberCarePrimary 0..1
 
 // elements removed by this profile
 * implicitRules 0..0

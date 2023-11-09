@@ -41,15 +41,11 @@ Usage: #example
 * communication[0].language.coding[0].code = #tgl
 * communication[0].language.coding[0].display = "Tagalog"
 
-* contact[0] insert WhanauCareTeamMember( 1,$sct#58626002,[[Mother]],[[Beryl]],[[Smith]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 111]],[[person1@gmail.com]] )             // legal guardian / mother 
-* contact[+] insert WhanauCareTeamMember( 1,$sct#58626002,[[Spouse]],[[Matt]],[[Meringue]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 222]],[[person2@gmail.com]] )           // caregiver / spouse
-* contact[+] insert WhanauCareTeamMember( 2,$sct#320731000210100,[[Aunt]],[[Delina]],[[Donut]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 333]],[[person3@gmail.com]] )       // support person / aunt
-* contact[+] insert WhanauCareTeamMember( 3,$sct#74964007,[[Father]],[[Cyril]],[[Smith]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 444]],[[person4@gmail.com]] )             // other related person / father
-* contact[+] insert WhanauCareTeamMember( 3,$sct#74964007,[[Brother in law]],[[Mike]],[[Meringue]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 555]],[[person5@gmail.com]] )   // other related person / brother (inactive)
-
-// null out the activity dates on the last WhanauCareTeamMember to indicate it is an INACTIVE member
-* contact[=].period
-
+* contact[0] insert WhanauCareTeamMember( true,$sct#58626002,[[Mother]],[[Beryl]],[[Hackett]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 111]],[[person1@gmail.com]] )            // legal guardian / mother 
+* contact[+] insert WhanauCareTeamMember( true,$sct#58626002,[[Spouse]],[[Matt]],[[Meringue]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 222]],[[person2@gmail.com]] )            // caregiver / spouse
+* contact[+] insert WhanauCareTeamMember( false,$sct#320731000210100,[[Aunt]],[[Delina]],[[Donut]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 333]],[[person3@gmail.com]] )       // support person / aunt
+* contact[+] insert WhanauCareTeamMember( false,$sct#394738000,[[Father]],[[Cyril]],[[Hackett]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 444]],[[person4@gmail.com]] )           // other / father
+* contact[+] insert WhanauCareTeamMember( false,$sct#394738000,[[Brother in law]],[[Mike]],[[Meringue]],[[2021-01-01]],[[2021-01-01]],[[+64 21 111 555]],[[person5@gmail.com]] )   // other / brother (inactive)
 
 * deceasedBoolean = false
 

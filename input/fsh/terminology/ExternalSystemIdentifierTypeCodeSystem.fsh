@@ -8,7 +8,8 @@ Description:  "Identifier type codes for differentiating types of external ident
 * ^purpose = "These codes are used in the types of identifiers which are copied in FHIR but originate in external systems.  The purpose of designating these type codes is to provude a slicing.discrimator for use in FHIR resource profiles which have multiple slices on identifier"
 * ^status = #active
 
-* #salesforce-careplan-id "Identifier of a CarePlan (case number) object in Te Whatu Ora Salesforce"
-* #salesforce-condition-id "Identifier of a patient Condition object in Te Whatu Ora Salesforce"
-* #salesforce-careteam-id "Identifier of a CareTeam object in Te Whatu Ora Salesforce"
-* #episurv-number "Identifier of a case in ESR EpiSurv"
+* #salesforce-careplan-id "Identifies a CarePlan (case number) object in Te Whatu Ora's national RF Care Coordination System"
+* #salesforce-careplanactivity-id "Identifies a CarePlanActivity object in Te Whatu Ora's national RF Care Coordination System"
+* #salesforce-condition-id "Identifies a patient Condition object in Te Whatu Ora's national RF Care Coordination System"
+* #salesforce-careteam-id "Identifies a CareTeam object in Te Whatu Ora's national RF Care Coordination System"
+* #episurv-number "Identifies a notifiable disease surveillance case number in ESR's EpiSurv system"

@@ -7,6 +7,7 @@ Id: nz-sharedcare-rheumaticfever-careplan
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a secondary prevention care plan for a NZ rheumatic fever patient"
+* insert metaContactDetail([[David Grainger]],[[david.grainger@middleware.co.nz]])
 
 // elements modified from base profile
 

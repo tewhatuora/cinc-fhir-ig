@@ -8,9 +8,10 @@ RuleSet: CareTeamRole(snomed-code,display)
 
 
 // inserts a Patient.contact identifying a whanau care team member with role and relationship SNOMED-coded
-RuleSet: WhanauCareTeamMember(id,role-code,relationship-text,first,last,period-start,period-end,contact-phone,contact-email)
+RuleSet: WhanauCareTeamMember(primary-flag,role-code,relationship-text,first,last,period-start,period-end,contact-phone,contact-email)
 
-* id = "{id}"
+* extension[whanauMemberCarePrimary].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-patient-whanaumember-primary"
+* extension[whanauMemberCarePrimary].valueBoolean = {primary-flag}
 
 * extension[whanauMemberCareRole].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-patient-whanaumember-role"
 * extension[whanauMemberCareRole].valueCoding = {role-code}
@@ -24,5 +25,5 @@ RuleSet: WhanauCareTeamMember(id,role-code,relationship-text,first,last,period-s
 * period.start = "{period-start}"
 * period.end = "{period-end}"
 
-* telecom[0] insert ContactPoint(phone,{contact-phone},1)
-* telecom[+] insert ContactPoint(email,{contact-email},2)
+* telecom[0] insert ContactPoint(phone,{contact-phone},1)     // uses macro in ContactMacros.fsh
+* telecom[+] insert ContactPoint(email,{contact-email},2)     // uses macro in ContactMacros.fsh
