@@ -38,11 +38,11 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 
 * item[+] insert textQuestion(OverdueInjectionOtherDetail,[[3)]],[[Other details for late injection (enter text)]])
 
-* item[+] insert booleanQuestion(ConsentChecked,[[4)]],[[Pre-injection consent checked?]])
-* item[=].initial.valueBoolean = false
+// * item[+] insert booleanQuestion(ConsentChecked,[[4)]],[[Pre-injection consent checked?]])
+// * item[=].initial.valueBoolean = false
 
-* item[+] insert booleanQuestion(MedicationChecked,[[5)]],[[Pre-injection medication checked with a second person?]])
-* item[=].initial.valueBoolean = false
+// * item[+] insert booleanQuestion(MedicationChecked,[[5)]],[[Pre-injection medication checked with a second person?]])
+// * item[=].initial.valueBoolean = false
 
 * item[+] insert multiChoiceQuestion(OtherPainManagementToolsUsed,[[11)]],[[Pain management tools used? (multiple choice)]])
 * item[=].answerOption[0].valueString = "Ice pack"
@@ -99,3 +99,4 @@ Description: "Gathers information about patient health at a secondary prophylaxi
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true
 
+* item[+] insert textQuestion(PlanForNextMedicationAppointment,[[16)]],[[Comments for the next appointment (enter text)]])

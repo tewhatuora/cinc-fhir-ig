@@ -24,11 +24,11 @@ Usage: #example
 * item[+] insert answerItemX(OverdueInjectionOtherDetail,[[3)]],[[Other details for late injection (enter text)]])
 * item[=].answer.valueString = "The patient couldn't find a park for the classic Hilux."
 
-* item[+] insert answerItemX(ConsentChecked,[[4)]],[[Pre-injection consent checked?]])
-* item[=].answer.valueBoolean = true
+// * item[+] insert answerItemX(ConsentChecked,[[4)]],[[Pre-injection consent checked?]])
+// * item[=].answer.valueBoolean = true
 
-* item[+] insert answerItemX(MedicationChecked,[[5)]],[[Pre-injection medication checked with a second person?]])
-* item[=].answer.valueBoolean = true
+// * item[+] insert answerItemX(MedicationChecked,[[5)]],[[Pre-injection medication checked with a second person?]])
+// * item[=].answer.valueBoolean = true
 
 * item[+] insert answerItemX(OtherPainManagementToolsUsed,[[11)]],[[Pain management tools used? (multiple choice)]])
 * item[=].answer[0].valueString = "Ice pack"
@@ -66,3 +66,5 @@ Usage: #example
 * item[+] insert answerItemX(RecentOrUpcomingAppointmentsDetails,[[15.1)]],[[Enter details and dates of any recent or upcoming follow-up appointments (enter text)]])
 * item[=].answer.valueString = "Madeleine has an upcoming follow-up appointment covering iOS calendar basics"
 
+* item[+] insert answerItemX(PlanForNextMedicationAppointment,[[16)]],[[Comments for the next appointment (enter text)]])
+* item[=].answer.valueString = "The plan for the next medication appointment is to keep up the good work"

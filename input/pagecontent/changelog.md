@@ -24,8 +24,10 @@
 - `Appointment` examples updated to reflect changes to data dictionary, including the addition of another code for salesforce CarePlanActivity identifiers in [ExternalSystemIdentifierTypeValueSet](ValueSet-external-system-identifier-type-code.html).
 
 - Other RF IG changes
-
-  - Three new extensions (on `Patient.contact`)
+  - Three new extensions defined for use on `Patient.contact`
+  
+  - Some items removed and one new item added to the [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html)  
+      and [QuestionnaireResponse example]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match.
   
   - The example rheumatic fever patient **[MadeleineMeringue](Patient-MadeleineMeringue.html)** now also has ContactPoint example entries in `Patient.telecom[]`.
 

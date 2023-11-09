@@ -187,7 +187,7 @@ menu:
 groups:
   RheumaticFeverProfiles:
     name: Rheumatic Fever definitions
-    description: All rheumatic fever FHIR profiles and terminology
+    description: FHIR profiles, extensions and canonical Questionnaires
     resources:
     - StructureDefinition/rf-patient-whanaumember-role
     - StructureDefinition/rf-patient-whanaumember-relationship

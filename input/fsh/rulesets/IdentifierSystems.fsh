@@ -1,6 +1,7 @@
 
 // sets up logical ref to an external identifier as the specified NHI number
 RuleSet: NHIIdentifier(nhi-id)
+
 * use = #official
 * system = "https://standards.digital.health.nz/ns/nhi-id"
 * value = "{nhi-id}"
@@ -14,7 +15,8 @@ RuleSet: SalesforceCarePlanIdentifier(salesforce-id)
 
 * system = "https://developer.salesforce.com/docs"      // this is just an example and probably incorrect
 * value = "{salesforce-id}"
-* type = $ExternalIdentifierTypeCS#salesforce-careplanactivity-id
+* use = #usual
+* type = $ExternalIdentifierTypeCS#salesforce-careplan-id
 
 
 // sets up ref to an external identifier as the specified salesforce careplanactivity object id (used for SF Encounters which represent Appointments - go figure)
@@ -22,14 +24,15 @@ RuleSet: SalesforceCarePlanActivityIdentifier(salesforce-id)
 
 * system = "https://developer.salesforce.com/docs"      // this is just an example and probably incorrect
 * value = "{salesforce-id}"
-* type = $ExternalIdentifierTypeCS#salesforce-careplan-id
-
+* use = #usual
+* type = $ExternalIdentifierTypeCS#salesforce-careplanactivity-id
 
 // sets up ref to an external identifier as the specified salesforce care team object id
 RuleSet: SalesforceConditionIdentifier(salesforce-id)
 
 * system = "https://developer.salesforce.com/docs"      // this is just an example and probably incorrect
 * value = "{salesforce-id}"
+* use = #usual
 * type = $ExternalIdentifierTypeCS#salesforce-condition-id
 
 
@@ -38,6 +41,7 @@ RuleSet: SalesforceCareTeamIdentifier(salesforce-id)
 
 * system = "https://developer.salesforce.com/docs"      // this is just an example and probably incorrect
 * value = "{salesforce-id}"
+* use = #usual
 * type = $ExternalIdentifierTypeCS#salesforce-careteam-id
 
 
