@@ -82,6 +82,9 @@ parameters:
 menu:
   Home: index.html
   Business context: businessContext.html
+  COVID care in the community:
+    Structure Definitions and Questionnaires: artifacts.html#care-in-the-community-definitions
+    Examples: artifacts.html#care-in-the-community-examples
   Rheumatic fever care plans:
     Data translation and models: rheumatic-fever-data.html
     Structure Definitions and Questionnaires: artifacts.html#rheumatic-fever-definitions
@@ -90,7 +93,6 @@ menu:
     Terminology definitions: artifacts.html#rheumatic-fever-terminology
   Shared Care FHIR API:
     Developer Guide: developerGuide.html
-    Consent: consent.html
     API: capabilityStatement.html
   Data Consent:
     Consent-based resource access control: consentBasedAccessControl.html
@@ -188,6 +190,54 @@ menu:
 #     - StructureDefinition/bee-sting
 #
 groups:
+  CINCProfiles:
+    name: Care in the Community definitions
+    description: FHIR profiles, canonical Questionnaires and Definitions 
+    resources:
+    - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
+    - StructureDefinition/ManaakiNgaTahiCarePlan
+    - StructureDefinition/ManaakiNgaTahiCondition
+    - StructureDefinition/ManaakiNgaTahiDocumentReference
+    - StructureDefinition/ManaakiNgaTahiEncounter
+    - StructureDefinition/ManaakiNgaTahiEpisodeOfCare
+    - StructureDefinition/ManaakiNgaTahiObservation
+    - StructureDefinition/ManaakiNgaTahiPlanDefinition
+    - StructureDefinition/ManaakiNgaTahiServiceRequest
+    - StructureDefinition/ServiceRequestActivityDefinition
+    - ActivityDefinition/MeasurementProcedureRequestTemplate
+    - PlanDefinition/COVIDMVPCarePlanTemplate
+    - OperationDefinition/ActivityDefinition-apply
+    - OperationDefinition/PlanDefinition-apply
+    - ActiveMonitoringDay42Survey
+    - ActiveMonitoringDay7Survey
+    - AntiViralEligibilityQuestionnaire
+    - COVIDInitialHealthAssessmentQuestionnaire
+    - COVIDPublicHealthHistoryQuestionnaire
+    - COVIDRegularHealthCheckQuestionnaire
+    - COVIDVaccinationSurveyQuestionnaire
+    - MentalHealthAssessmentSurveyQuestionnaire
+    - PregnancyAssessmentSurveyQuestionnaire
+  CINCExamples: 
+    name: Care in the Community examples
+    resources:
+    - CarePlanExample
+    - ConditionExample
+    - DocumentReferenceExample
+    - EncounterExample
+    - ObservationExample
+    - CareyCarrington
+    - DrDottyMcStuffins
+    - ActiveMonitoring42DayQuestionnaireRespose
+    - ActiveMonitoring7DayQuestionnaireRespose
+    - AntiviralEligibilityNoQuestionnaireResponse
+    - AntiviralEligibilityYesQuestionnaireResponse
+    - COVIDInitialHealthAssessmentQuestionnaireResponse
+    - COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
+    - COVIDRegularHealthCheckQuestionnaireResponse
+    - COVIDVaccinationSurveyQuestionnaireResponse
+    - MentalHealthAssessmentSurveyQuestionnaireResponse
+    - PregnancyAssessmentSurveyQuestionnaireResponse
+    - ObservationsServiceRequestExample
   RheumaticFeverProfiles:
     name: Rheumatic Fever definitions
     description: FHIR profiles, extensions and canonical Questionnaires

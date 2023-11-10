@@ -36,7 +36,7 @@
 
 - Updates to examples
 
-  - An new example has been added demonstrating **consent by a person related to a patient**. See **[ConsentByRelatedPersonExample](Consent-ConsentByRelatedPersonExample.html)**.
+  - A new example has been added demonstrating **consent by a person related to a patient**. See **[ConsentByRelatedPersonExample](Consent-ConsentByRelatedPersonExample.html)**.
   
   - The example rheumatic fever patient **[MadeleineMeringue](Patient-MadeleineMeringue.html)** also now has some sample ContactPoint entries in `Patient.telecom[]`.
 
@@ -46,6 +46,8 @@
 ### Other IG changes
 
 - Reorganised Consent documentation and examples into its own tab.
+
+- Added a COVID Care in the Community tab for existing CINC definitions and examples.
 
 - The IG now allows for `.contained` resource instances in Consents ([ManaakiNgaTahiConsent](StructureDefinition-ManaakiNgaTahiConsent.html) )
     This is needed for rheumatic fever in which consent is commonly obtained from the patient's parent or another relative.
