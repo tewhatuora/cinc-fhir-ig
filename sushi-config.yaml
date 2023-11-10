@@ -91,12 +91,12 @@ menu:
     Examples: artifacts.html#rheumatic-fever-examples
     Terminology overview: terminology.html
     Terminology definitions: artifacts.html#rheumatic-fever-terminology
-  Shared Care FHIR API:
-    Developer Guide: developerGuide.html
-    API: capabilityStatement.html
   Data Consent:
     Consent-based resource access control: consentBasedAccessControl.html
     Examples: artifacts.html#data-consent-examples
+  API Developer Guide:
+    Developer Guide: developerGuide.html
+    API capability statement: capabilityStatement.html
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
