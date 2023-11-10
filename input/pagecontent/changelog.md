@@ -4,7 +4,7 @@
 
 ### rheumatic fever changes
 
-1. Refactored whanau care team into `Patient.contact[]`
+#### Refactored whanau care team into `Patient.contact[]`
 
 - Whanau care teams are now represented directly in the `RheumaticFeverPatient` resource, as `.contact[]` members.
 
@@ -13,11 +13,11 @@
 - A new example `RheumaticFeverPatient` instance has been added showing how to model whanau members as contacts
   **[MadeleineMeringueAndWhanau](Patient-MadeleineMeringueAndWhanau.html)**
 
-1. `RheumaticFeverPatient` profile changes
+#### `RheumaticFeverPatient` profile changes
 
 - `Patient.contact` now has three new extensions capturing role (coded), relationship (string) and primary contact nature for each member of a patient's whanau/trusted delegates care team.
 
-1. Questionnaire updates
+#### Questionnaire updates
 
 - [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html)  
     Various items removed and one new item added [Example QR]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match.
@@ -28,7 +28,7 @@
 - [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html)  
       One item removed. [Example QR](QuestionnaireResponse-PatientMedicationAllergyQuestionnaireResponse.html) updated to match.
 
-1. Updates to examples
+#### Updates to examples
 
 - The example `SecondaryProphylaxisCareTeam` has been adjusted to properly represent a secondary prophylaxis care team
 
@@ -43,11 +43,9 @@
 - documentation  
   - The [Terminology overview](terminology.html) and [Data translation and models](rheumatic-fever-data.html) pages have been updated.
 
-### Other IG changes
+### Other IG changes in v0.3.4
 
-- Reorganised Consent documentation and examples into its own tab.
-
-- Added a COVID Care in the Community tab for existing CINC definitions and examples.
+- Reorganised top nav with two new sections for COVID CINC artifacts and Consent documentation and examples.
 
 - The IG now allows for `.contained` resource instances in Consents ([ManaakiNgaTahiConsent](StructureDefinition-ManaakiNgaTahiConsent.html) )
     This is needed for rheumatic fever in which consent is commonly obtained from the patient's parent or another relative.
@@ -160,7 +158,7 @@
   - Mental Health Questionnaire
 - Updated README with guidance on branch publishing steps.
 
-## v0.2.2 (2023-08-16) **AntiViralEligibiltyQuestionnaire**
+## v0.2.2 (2023-08-16) AntiViralEligibiltyQuestionnaire
 
 - Questionnaire now uses NZ published terminology for eligibility criteria questions 1 and 3
 
@@ -175,7 +173,7 @@
 - Added SDC to IG dependencies to resolve 'terminology not known and not valid here' publisher errors
 - Remove ValueSets / CodeSystems from IG which are now published on NZ Health Terminology Service
 
-## v0.2.1 (2023-08-01) **General updates**
+## v0.2.1 (2023-08-01) General updates
 
 - *CareyCarrington* has been defined as an example Patient instance and is now Reference()'d by other examples instead of duplicating.
 - The *version* element (business version) has been removed from all canonical definitions: it is not of any practical use at present because the IG publisher overwrites it with the IG version on publishing.
