@@ -14,7 +14,9 @@ This IG brings together all the artifacts necessary to understand and use the FH
 
 - Rheumatic Fever care plans - Group of links to rheumatic fever data specifications and models
 
-- Shared Care FHIR API - Links to general API guidance and developer information for the Te Whatu Ora Shared Care FHIR API
+- Shared Care FHIR API - Links to general API guidance and developer information for the *Te Whatu Ora Shared Care FHIR API*
+
+- Data Consent - Describes the measures *Te Whatu Ora Shared Care FHIR API* implements to protect FHIR resources from access based on the status of patient consent. 
 
 - [Artifact Index](artifacts.html): A page with all artifacts (Logical Models, Profiles, Extensions, Terminology and others) defined in this guide. This page largely duplicates information in the Profiles and Extensions tab.
 

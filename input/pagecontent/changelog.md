@@ -34,12 +34,23 @@
   - [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html)  
         One item removed. [Example QR](QuestionnaireResponse-PatientMedicationAllergyQuestionnaireResponse.html) updated to match.
 
-- Other RF IG changes
-  - Three new extensions defined for use on `Patient.contact`
+- Updates to examples
+
+  - An new example has been added demonstrating **consent by a person related to a patient**. See **[ConsentByRelatedPersonExample](Consent-ConsentByRelatedPersonExample.html)**.
   
   - The example rheumatic fever patient **[MadeleineMeringue](Patient-MadeleineMeringue.html)** also now has some sample ContactPoint entries in `Patient.telecom[]`.
 
+- documentation  
   - The [Terminology overview](terminology.html) and [Data translation and models](rheumatic-fever-data.html) pages have been updated.
+
+### Other IG changes
+
+- Reorganised Consent documentation and examples into its own tab.
+
+- The IG now allows for `.contained` resource instances in Consents ([ManaakiNgaTahiConsent](StructureDefinition-ManaakiNgaTahiConsent.html) )
+    This is needed for rheumatic fever in which consent is commonly obtained from the patient's parent or another relative.
+
+- Three new extensions defined for use on `Patient.contact`
 
 - IG *FHIR Shorthand (fsh)* source code improvements
   - Separate extension definitions now combined into single files by resource type

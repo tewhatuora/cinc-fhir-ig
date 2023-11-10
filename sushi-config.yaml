@@ -92,6 +92,9 @@ menu:
     Developer Guide: developerGuide.html
     Consent: consent.html
     API: capabilityStatement.html
+  Data Consent:
+    Consent-based resource access control: consentBasedAccessControl.html
+    Examples: artifacts.html#data-consent-examples
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
@@ -233,9 +236,6 @@ groups:
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
     - RFPatientHealthAssessmentQuestionnaireResponse
     - LeadProvidersGroup
-    - ProvConsentBaseExample
-    - ProvConsentCoverageExample
-    - ActiveConsentExample
 
   RheumaticFeverTerminology:
     name: Rheumatic Fever terminology
@@ -252,6 +252,26 @@ groups:
     - QualifiedYesNoAnswerValueSet
     - ExternalSystemIdentifierTypeValueSet
     - ExternalSystemIdentifierTypeCodeSystem
+
+  ConsentDefinitions:
+    name: Data consent definitions 
+    description: FHIR resource profile and definitional resources relating to patient data consent
+    resources:
+    - StructureDefinition/nz-sharedcare-consent
+    - COVIDPrivacyStatementQuestionTemplate
+
+  ConsentExamples:
+    name: Data consent examples
+    description: All example Consent FHIR instances
+    resources:
+    - ConsentExample
+    - ProposedConsentBaseExample
+    - ProposedConsentCoverageExample
+    - ConsentByRelatedPersonExample
+    - RheumaticFeverActiveConsentExample
+    - ConsentByQuestionnaireExample
+    - ConsentQuestionnaireResponseExample
+
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

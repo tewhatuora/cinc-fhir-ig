@@ -1,5 +1,6 @@
 Profile: ManaakiNgaTahiConsent
 Parent: Consent
+Id: nz-sharedcare-consent
 Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * ^version = "0.1.7"
 // elements modified
@@ -9,7 +10,7 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * provision.period obeys fhir-hnz-period-utc-1
 * sourceReference only Reference(QuestionnaireResponse)
 // elements disabled
-* contained 0..0
+// * contained 0..0       renabled in IGv0.3.4 so performer.Reference(RelatedPerson) can refer to an inline RelatedPerson instance.
 * implicitRules 0..0
 * language 0..0
 * modifierExtension 0..0

@@ -1,14 +1,11 @@
-Instance: ProvConsentCoverageExample
+Instance: RheumaticFeverActiveConsentExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
-Description: "Example of a provisional consent made by the Te Tai Tokerau Lead Provider organisation.
-These types of Consent are a provisional arrangement by which a lead provider org. -- Te Tai Tokerau in this case -- 
-can store and access patient data in FHIR before the patient's consent has actually been obtained and 
-recorded as a FHIR #active Consent instance.
+Description: "Example of an active patient consent as recorded by the Te Tai Tokerau Rheumatic Fever Service.
 
-This example includes sample `data.references` which identify the FHIR resource instances to be protected."
+This example includes sample `data.references` which identify the actual FHIR resource instances to be protected."
 
-* status = #proposed
+* status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 
 * category = http://terminology.hl7.org/CodeSystem/consentcategorycodes#npp "Notice of Privacy Practices"

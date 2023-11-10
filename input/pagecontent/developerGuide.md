@@ -92,4 +92,4 @@ const encryptText = async (plainText) => {
 })();
 ```
 
-<img src="request-encryption.png" width="800">
+<img src="request-encryption.png" width="100%">

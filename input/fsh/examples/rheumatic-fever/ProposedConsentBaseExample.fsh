@@ -1,16 +1,17 @@
-Instance: ActiveConsentExample
+Instance: ProposedConsentBaseExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
-Description: "Example of an active patient consent recorded by the Te Tai Tokerau Lead Provider organisation.
+Description: "Example of a provisional consent created for Te Tai Tokerau Rheumatic Fever Service.
 
-Patient consents are expected to be in a provisional (*#proposed* status) initially, because the consent is 
-commonly not obtained until the first secondary prophylaxis appointment which is sometime after registration
-and care plan setup.  Once obtained clients are expected to upgrade the Consent instance to an *#active* status 
-like this example.
+These types of Consent are a provisional arrangement by which a lead provider org. -- Te Tai Tokerau in this case -- 
+can store and access patient data in FHIR before the patient's consent has actually been obtained and 
+recorded as a FHIR #active Consent instance.
 
-This example includes sample `data.references` which identify the FHIR resource instances to be protected."
+This base example is before any `data.references` have been added for the protected FHIR resources.
 
-* status = #active
+See [*ProvConsentCoverageExample*](Consent-ProvConsentCoverageExample.html) for an example with resources proected by data.references"
+
+* status = #proposed
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 
 * category = http://terminology.hl7.org/CodeSystem/consentcategorycodes#npp "Notice of Privacy Practices"
@@ -36,18 +37,8 @@ This example includes sample `data.references` which identify the FHIR resource 
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
 * provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 
-// setup a boatload of example data references to consent-protected resource instances
-* provision insert ConsentInstanceDataRef( LeadProvidersGroup )
-* provision insert ConsentInstanceDataRef( SevereRfConditionExample )
-* provision insert ConsentInstanceDataRef( SecondaryProphylaxisCareTeam )
-* provision insert ConsentInstanceDataRef( SecondaryProphylaxisAppointment-Encounter )
-
-* provision insert ConsentInstanceDataRef( PatientMedicationAllergyQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( MedicationsAndFollowUpGuidanceQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( PatientWhanauGoalsPreferencesQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( RFPatientHealthAssessmentQuestionnaireResponse )
-
-* provision insert ConsentInstanceDataRef( CarePlanWithOneAppointmentCompleted ) 
-
-
+// * provision.data[0].meaning = #instance
+// * provision.data[=].reference = Reference(ConditionExample)
+// * provision.data[+].meaning = #instance
+// * provision.data[=].reference = Reference(EncounterExample)
 
