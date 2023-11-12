@@ -1,12 +1,14 @@
-### Salesforce - FHIR data translation
+### Translating data between FHIR and the national rheumatic fever care coordination solution (RFCCS)
 
-This section defines mappings that apply to translate between the Salesforce Rheumatic Fever National Care Coordination app and the Te Whatu Ora Shared Care API FHIR representation.
+This section defines mappings to apply between data in RFCCS and the Te Whatu Ora Shared Care API FHIR representations.
+
+The mappings are intended to be bi-directional, that is sector applications can update FHIR representations that can then flow through (Mulesoft) to updates in the RFCCS datastore. 
 
 #### Patient's Current Address -- type, use and currency
 
 Applies to **patient's current address**.
 
-|Salesforce value|Code in FHIR [Address.use](https://fhir.org.nz/ig/base/StructureDefinition-NzAddress-definitions.html#Address.use)|Code in FHIR [Address.type](https://fhir.org.nz/ig/base/StructureDefinition-NzAddress-definitions.html#Address.type)|Date(s) in FHIR [Address.period](https://fhir.org.nz/ig/base/StructureDefinition-NzAddress-definitions.html#Address.period)|
+|RFCCS value|Code in FHIR [Address.use](https://fhir.org.nz/ig/base/StructureDefinition-NzAddress-definitions.html#Address.use)|Code in FHIR [Address.type](https://fhir.org.nz/ig/base/StructureDefinition-NzAddress-definitions.html#Address.type)|Date(s) in FHIR [Address.period](https://fhir.org.nz/ig/base/StructureDefinition-NzAddress-definitions.html#Address.period)|
 |:----|:----|:----|:----|
 |*Home*|`#home`|none|`period.start` SHOULD be set to date when patient registered / address recorded $|
 |*Work*|`#work`|none|`period.start` SHOULD be set to date when patient registered / address recorded $|
@@ -23,7 +25,7 @@ Notes
 
 1. $ It makes sense to use the date of patient registration as the default value for Address.period.start
 
-1. ^ When there is neither a **use** nor **type** code and `Address.period` is present with the current date in range, this maps to ‘Current’ in Salesforce.  If `Address.period` is missing, the address shall be mapped to 'Inactive'
+1. ^ When there is neither a **use** nor **type** code and `Address.period` is present with the current date in range, this maps to ‘Current’ in RFCCS.  If `Address.period` is missing, the address shall be mapped to 'Inactive'
 
 ---
 
@@ -48,13 +50,13 @@ Applies to **patient's preferred language**.
 
 Patient language is represented in the `Patient.communication.language` element.
 
-Two character codes in the preferred *CommonLanguages* binding are not sufficient to encode the patient languages available in Salesforce.
+Two character codes in the preferred *CommonLanguages* binding are not sufficient to encode the patient languages available in RFCCS.
 
 Therefore the Te Whatu Ora Shared Care API uses **ISO 639-3 three character language codes** which is allowed by the *AllLanguages* (maximum) binding on [Patient.communication.language](StructureDefinition-cinc-rheumaticfever-patient-definitions.html#Patient.communication.language.html).
 
-The translation between Salesforce language and FHIR is given in the table below. 
+The translation between RFCCS language and FHIR is given in the table below. 
 
-|English name of language|ISO 639-3 language code to use for FHIR mapping|Salesforce Health Cloud language|IANA primary language SUBTAG (BCP47)|
+|English name of language|ISO 639-3 language code to use for FHIR mapping|RFCCS Health Cloud language|IANA primary language SUBTAG (BCP47)|
 |:----|:----|:----|:----|
 |English|eng|English|en|
 |Spanish (Castilian)|spa|Spanish|es|
@@ -91,15 +93,15 @@ See the [example patient Madeleine Meringue](Patient-MadeleineMeringue.json.html
 
 Rheumatic heart disease severity is the driving factor for severity of a patient's rheumatic fever diagnosis.
 
-To adequately encode the severity values supported by the Salesforce application two FHIR elements are used:
+To adequately encode the severity values supported by the RFCCS application two FHIR elements are used:
 
 1. `Condition.severity`: this is the basic severity classifier from a FHIR Condition
 
 1. `RheumaticFeverCondition.rhdSeverity`` - this is a profile extension to Condition which allows a specific SNOMED code matching the patient's rheumatic heart disease situation.  
 
-The translation between the Salesforce RHD severity value and FHIR representation is given in the following table. 
+The translation between the RFCCS RHD severity value and FHIR representation is given in the following table. 
 
-|Salesforce - Rheumatic Heart Disease Severity|FHIR [Condition.severity](StructureDefinition-cinc-rheumaticfever-condition-definitions.html#Condition.severity) (SNOMED)| [*rhdSeverity*](StructureDefinition-rf-condition-rhdseverity.html) extension in RheumaticFeverCondition / [ValueSet](ValueSet-rf-condition-rhdseverity-code.html)|FHIR NzCondition.long-term-condition indicator ^|
+|RFCCS - Rheumatic Heart Disease Severity|FHIR [Condition.severity](StructureDefinition-cinc-rheumaticfever-condition-definitions.html#Condition.severity) (SNOMED)| [*rhdSeverity*](StructureDefinition-rf-condition-rhdseverity.html) extension in RheumaticFeverCondition / [ValueSet](ValueSet-rf-condition-rhdseverity-code.html)|FHIR NzCondition.long-term-condition indicator ^|
 |:----|:----|:----|:----|
 |“none”|do not map|**#260413007** None (qualifier value)|TRUE|
 |“trivial”|do not map|**#300171000210106** Trivial (qualifier value)|TRUE|

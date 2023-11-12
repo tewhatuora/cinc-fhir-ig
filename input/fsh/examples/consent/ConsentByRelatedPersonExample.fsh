@@ -36,6 +36,8 @@ a `RelatedPerson` FHIR resource.
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
 * provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 
+* provision insert ConsentInstanceDataRef( PatientMedicationAllergyQuestionnaireResponse )
+
 // * provision.data[0].meaning = #instance
 // * provision.data[=].reference = Reference(blah blah)
 
