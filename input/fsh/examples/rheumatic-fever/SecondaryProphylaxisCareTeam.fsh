@@ -4,10 +4,8 @@ Description: "Example of secondary prophylaxis care team membership"
 Usage: #example
 
 * meta.profile = Canonical(CareTeam)
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-10-06T08:00:00Z"
-
-* category = $sct#320721000210108 "Secondary Prophylaxis Team"
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-08T07:20:00Z"
 
 * identifier[NationalSystem] insert SalesforceCareTeamIdentifier([[CTM-0016606]])
 

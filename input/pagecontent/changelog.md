@@ -1,9 +1,71 @@
 # Changelog
 
+## v0.3.4 (2023-11-09)
+
+### Advance warning of change to Official URL
+
+Current official URL: `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/`
+In an upcoming version of this IG, the Official URL (aka canonical URL) will change to a different hostname in the `digital.health.nz` domain.  In addition the name of this IG will change.
+
+Developers of client applications are advised to parameterise all instances of the official URL to prepare for this upcoming change.
+
+### rheumatic fever changes
+
+#### Refactored whanau care team into `Patient.contact[]`
+
+- Whanau care teams are now represented directly in the `RheumaticFeverPatient` resource, as `.contact[]` members.
+
+- The `RheumaticFeverCareTeam` resource profile will now be used only for *secondary prophylaxis* care teams.  So all instances of `RheumaticFeverCareTeam` resources are categorised sct#320721000210108 "Secondary prophylaxis team"
+
+- A new example `RheumaticFeverPatient` instance has been added showing how to model whanau members as contacts
+  **[MadeleineMeringueAndWhanau](Patient-MadeleineMeringueAndWhanau.html)**
+
+#### `RheumaticFeverPatient` profile changes
+
+- `Patient.contact` now has three new extensions capturing role (coded), relationship (string) and primary contact nature for each member of a patient's whanau/trusted delegates care team.
+
+#### Questionnaire updates
+
+- [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html)  
+    Various items removed and one new item added [Example QR]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match.
+
+- [Medications and Follow-Up Guidance Questionnaire](Questionnaire-MedicationsAndFollowUpGuidanceQuestionnaire.html)  
+    One item changed from boolean to yes/no/unknown coded answer. [Example QR](QuestionnaireResponse-MedicationsAndFollowUpGuidanceQuestionnaireResponse.html) updated to match.
+
+- [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html)  
+      One item removed. [Example QR](QuestionnaireResponse-PatientMedicationAllergyQuestionnaireResponse.html) updated to match.
+
+#### Updates to examples
+
+- The example `SecondaryProphylaxisCareTeam` has been adjusted to properly represent a secondary prophylaxis care team
+
+- The example `WhanauCareTeam` has been deleted.
+
+- `Appointment` examples updated to reflect changes to data dictionary, including the addition of another code for salesforce CarePlanActivity identifiers in [ExternalSystemIdentifierTypeValueSet](ValueSet-external-system-identifier-type-code.html).
+
+- A new example has been added demonstrating **consent by a person related to a patient**. See **[ConsentByRelatedPersonExample](Consent-ConsentByRelatedPersonExample.html)**.
+
+- The example rheumatic fever patient **[MadeleineMeringue](Patient-MadeleineMeringue.html)** also now has some sample ContactPoint entries in `Patient.telecom[]`.
+
+- documentation  
+  - The [Terminology overview](terminology.html) and [Data translation and models](rheumatic-fever-data.html) pages have been updated.
+
+### Other IG changes in v0.3.4
+
+- Reorganised top nav with two new sections for COVID CINC artifacts and Consent documentation and examples.
+
+- The IG now allows for `.contained` resource instances in Consents ([ManaakiNgaTahiConsent](StructureDefinition-ManaakiNgaTahiConsent.html) )
+    This is needed for rheumatic fever in which consent is commonly obtained from the patient's parent or another relative.
+
+- Three new extensions defined for use on `Patient.contact`
+
+- IG *FHIR Shorthand (fsh)* source code improvements
+  - Separate extension definitions now combined into single files by resource type
+  - New ruleset for generation of `ContactPoint` elements used by `patient.telecom` and `patient.contact.telecom` examples.
 
 ## v0.3.3 (2023-11-07)
 
-#### rheumatic fever fixes and changes
+### rheumatic fever fixes and changes
 
 - `Consent` resource examples
 
@@ -13,10 +75,10 @@
 
 - In the `RheumaticFeverCarePlan` resource profile, `.addresses` now has cardinality zero to many (`0..*`)
 
-- In the `RheumaticFeverCondition` resource profile, the `diagnosticCertainty` extension now uses codes defined in a **code system in this IG** because the validators do not recognise the code system 
-    (https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-diagnostic-certainty) used by the published ValueSet on NZ Health Terminology Server (code system not in global FHIR registry).
+- In the `RheumaticFeverCondition` resource profile, the `diagnosticCertainty` extension now uses codes defined in a **code system in this IG** because clients cannot expand the ValueSet
+   published on the [New Zealand Health Terminology Service](https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-diagnostic-certainty) to codes at this time.
 
-- In the four rheumatic fever **extensions** defined by this IG, the **context**, which constrains which type(s) the extension 
+- In the four rheumatic fever **extensions** defined by this IG, the **context**, which constrains which type(s) the extension
     can be used on has been changed to the applicable base type instead of the profiled type.  This change means clients can use
     the extensions without encountering hapi validator errors / Bad Request 400 errors.
 
@@ -30,32 +92,31 @@
   
   - Also in CarePlan examples, `addresses` has changed from a singleton reference to an array of References (length 1) with each entry of `"type": "Condition"`
   
-
 ## v0.3.2 (2023-10-27)
 
 - Renamed the API described by this Implementation Guide from *Care In The Community* FHIR API to **Te Whatu Ora Shared Care** FHIR API reflecting recent expansion.
 
-- Revised Identifier slicing in CarePlan, Condition and CareTeam resource profiles to allow multiple references to external identifiers and capture the types of identifier being referred to. 
-- 
+- Revised Identifier slicing in CarePlan, Condition and CareTeam resource profiles to allow multiple references to external identifiers and capture the types of identifier being referred to.
+
 - Revised the [patient medication allergy ValueSet](ValueSet-rf-medicationallergy-code.html) to now use SNOMED terminology which pinpoints the medication allergy instead of substance concepts.
 
-- [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html) revised questions to codify 
-   answer yes|no|unknown, and add third question to capture Other Allergy detail as free text.
+- [Patient Medication Allergy Questionnaire](Questionnaire-PatientMedicationAllergyQuestionnaire.html) revised questions to codify
+    answer yes|no|unknown, and add third question to capture Other Allergy detail as free text.
 
-- [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html) revised questions in line with data dictionary changes, 
- and [QuestionnaireResponse example]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match. 
+- [Secondary Prophylaxis Health Assessment Questionnaire](Questionnaire-SecondaryProphylaxisHealthAssessmentQuestionnaire.html) revised questions in line with
+    data dictionary changes, and [QuestionnaireResponse example]QuestionnaireResponse-RFPatientHealthAssessmentQuestionnaireResponse.html) updated to match.
 
 - Corrected rheumatic heart disease severity [ValueSet](ValueSet-rf-condition-rhdseverity-code.html) to add missing code `#301561000210102 History of heart valve replacement (situation)`
 
 - Introduced new terminology [QualifiedYesNoAnswerValueSet](ValueSet-nz-questionnaireresponse-qualifiedyesno-code.html).  This set of SNOMED codes applies
- to yes/no-type questions where it is important to be able to record an 'unknown' or 'information not available' response in a FHIR QuestionnareResponse item.
+    to yes/no-type questions where it is important to be able to record an 'unknown' or 'information not available' response in a FHIR QuestionnaireResponse item.
 
-- Introduced new terminology [ExternalSystemIdentifierTypeValueSet](ValueSet-external-system-identifier-type-code.html).  This extends the set of FHIR 
- Identifier type codes to define new codes for known external identifiers in NZ national systems that integrate with the Te Whatu Ora Shared Care FHIR API.
+- Introduced new terminology [ExternalSystemIdentifierTypeValueSet](ValueSet-external-system-identifier-type-code.html).  This extends the set of FHIR
+    Identifier type codes to define new codes for known external identifiers in NZ national systems that integrate with the Te Whatu Ora Shared Care FHIR API.
 
 - All Rheumatic fever terminology now appears in the *rheumatic fever* section of the **Profiles** tab.  
 
-- Key **salesforce<->FHIR mappings** are now defined in the [rheumatic fever data](rheumatic-fever-data.html) page. 
+- Key **salesforce <-> FHIR mappings** are now defined in the [rheumatic fever data](rheumatic-fever-data.html) page.
 
 - Added **Consent** tab describing patient-consent-based access controls implemented by the Te Whatu Ora Shared Care API.
 
@@ -70,7 +131,7 @@
 
 - Added (this) *Changelog* page, linked from IG Support tab
 
-- Changed *subject* references in CarePlan examples to be relative references to the local Rheumatic Fever Patient (`Patient`) instance, instead of NHI identifer-based logical refs.
+- Changed *subject* references in CarePlan examples to be relative references to the local Rheumatic Fever Patient (`Patient`) instance, instead of NHI identifier-based logical refs.
 
 - Added the four extensions to the Rheumatic Fever group at the top of the Profiles tab.
 
@@ -78,7 +139,7 @@
 
 ## v0.3.0 (2023-10-09)
 
-**Added pilot FHIR support for rheumatic fever national care coordination solution**
+### Added pilot FHIR support for rheumatic fever national care coordination solution
 
 - New resource profiles (extensions)
   - RheumaticFeverCarePlan
@@ -90,7 +151,7 @@
   - RheumaticFeverCarePlan: 4 states
   - NzPatient: 4 examples
   - secondary prophylaxis information: Encounter, Appointment, MedicationRequest, MedicationStatement
-  - supporting examples: Organization, CareTeam 
+  - supporting examples: Organization, CareTeam
 
 ## v0.2.4 (2023-09-19)
 
@@ -104,20 +165,24 @@
   - Mental Health Questionnaire
 - Updated README with guidance on branch publishing steps.
 
-## v0.2.2 (2023-08-16) **AntiViralEligibiltyQuestionnaire**
+## v0.2.2 (2023-08-16) AntiViralEligibiltyQuestionnaire
 
 - Questionnaire now uses NZ published terminology for eligibility criteria questions 1 and 3
-    - Permitted answers for these questions are now defined in answerValueSets instead of local codes in no CodeSystem
-    - enableWhen logic comparator operands now use codes instead of valueStrings
-    - valueSet references utilise a StructureDataCapture extension for specifiying the preferred terminology server.  This lets FHIR clients such as the NLM Form Builder obtain codes correctly using ValueSet `$expand` operation.
+
+  - Permitted answers for these questions are now defined in answerValueSets instead of local codes in no CodeSystem
+  
+  - enableWhen logic comparator operands now use codes instead of valueStrings
+  
+  - valueSet references utilise a StructureDataCapture extension for specifiying the preferred terminology server.  This lets FHIR clients such as the NLM Form Builder obtain codes correctly using ValueSet `$expand` operation.
+
 - Fixed casing of 'antiviral' in #official identifier to AntiviralEligibilityQuestionnaire
 - Revised the two sample Yes|No QuestionnaireResponses to correctly use published CodeSystem codes
 - Added SDC to IG dependencies to resolve 'terminology not known and not valid here' publisher errors
 - Remove ValueSets / CodeSystems from IG which are now published on NZ Health Terminology Service
 
-## v0.2.1 (2023-08-01) **General updates**
+## v0.2.1 (2023-08-01) General updates
 
-- *CareyCarrington* has been defined as an example Patient instance and is now Reference()'d by other examples instead of duplicating. 
+- *CareyCarrington* has been defined as an example Patient instance and is now Reference()'d by other examples instead of duplicating.
 - The *version* element (business version) has been removed from all canonical definitions: it is not of any practical use at present because the IG publisher overwrites it with the IG version on publishing.
 - *COVIDMVPCarePlanTemplate* PlanDefinition instance: capitalisation made consistent between instance name, official URL, name and official identifier.
 - Deleted unused local ValueSet / CodeSet containing old CINC template identifiers.
@@ -147,10 +212,11 @@
 1. Created new **Questionnaire** definition resource *COVIDPrivacyStatementQuestionTemplate* based on de facto seed resource in use.
 2. Created new **Questionnaire** definition resource *PrivacyStatementMeasurementCollectionTemplate* based on de facto seed resource in use.
 
-**Other changes**
-- Fixed publisher errors in Consent and ConsentQuestionnaireResponse examples
-- Changed date of definitional resources to reflect the date of last update
-- Added version to most definitional and profile resources 
+### Other changes
+
+- Fixed publisher errors in Consent and ConsentQuestionnaireResponse examples  
+- Changed date of definitional resources to reflect the date of last update  
+- Added version to most definitional and profile resources  
 - Added an example QuestionnaireResponse to demonstrate a completed *COVIDPrivacyStatementQuestionTemplate* questionnaire
 - Deleted an old example QuestionnaireResponse which was confusing
 
@@ -159,13 +225,16 @@
 1. Created new **PlanDefinition** definition resource *COVIDMVPCareplanTemplate* based on similar example resource.
 2. Created new **ActivityDefinition** definition resource *MeasurementProcedureRequestTemplate*, starting with current seed JSON payload in MeasurementProcedureActivityDefinition converted to fsh.
 
-**other changes**
-- In PlanDefinition corrected *COVIDMVPCarePlanTemplate.definitionCanonical*'s incorrect reference to a Canonical(COVIDRegularHealthCheckQuestionnaire)
-- In ActivityDefinition *MeasurementProcedureRequestTemplate.url* corrected missing official URL.
-- PlanDefinition *COVIDMVPCarePlanTemplate* now has the official identifier *COVIDMVPCarePlanTemplate* in addition to its legacy identifier
-- ActivityDefinition *MeasurementProcedureRequestTemplate* now has the official identifier *MeasurementProcedureRequestTemplate* in addition to its legacy identifier
-- PlanDefinition *MeasurementProcedureRequestTemplate* resource is now defined in file *PlanDefinition-COVIDMVPCarePlanTemplate* (same as IG) whereas formerly it was seeded from file *MeasurementProcedureActivityDefinition.json*
-- ActivityDefinition *MeasurementProcedureRequestTemplate* resource is now defined in file *ActivityDefinition-MeasurementProcedureRequestTemplate* (same as IG) whereas formerly it was seeded from file *MeasurementProcedureActivityDefinition*
+### Other minor changes
+
+- In the `PlanDefinition` instance `COVIDMVPCareplanTemplate` (renamed from prior file):
+  - corrected `.definitionCanonical` incorrect reference to a Canonical,
+  - official identifier `COVIDMVPCarePlanTemplate` added alongside legacy identifier `COVIDRegularHealthCheckQuestionnaire`  
+
+- In ActivityDefinition instance `MeasurementProcedureRequestTemplate` (renamed from prior file):
+  - `.url` element corrected to set an official URL.  
+  - official identifier `MeasurementProcedureRequestTemplate` added alongside legacy identifier
+
 - Fixed IG publisher INFO warnings by adding Descriptions to QuestionnaireResponse examples
 
 ## v0.1.5 (2023-07-19) COVID Questionnaire improvements
@@ -179,14 +248,13 @@
     The former legacy identifiers remain, but in "use":"temp" status with their use.period.**end** date set to `2023-07-19`
     After these revisions, all four COVID Questionnaires now have consistent identifier values (`COVIDPublicHealthHistoryQuestionnaire` being the fourth and most recent addition)
 
-- Revised **official URLs** for the same three COVID Questionnaires to:
-    https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/*Questionnaire-COVID-InitialHealthAssessment*
-    https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/*Questionnaire-COVID-RegularHealthCheck*
-    https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/*Questionnaire-COVID-VaccinationSurvey*
-  
-      These Official URLs are now more logical and also consistent with the recently added 
-      Questionnaire at URL:
-  https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-PublicHealthHistory
+- Revised **official URLs** for the same three COVID Questionnaires to:  
+  `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/*Questionnaire-COVID-InitialHealthAssessment`
+  `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/*Questionnaire-COVID-RegularHealthCheck`
+  `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/*Questionnaire-COVID-VaccinationSurvey`
+
+  ..to be consistent with the recently-added Questionnaire:  
+  `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire-COVID-PublicHealthHistory`
 
 ## v0.1.4 (2023-05-01)
 

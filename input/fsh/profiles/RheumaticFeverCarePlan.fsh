@@ -2,11 +2,12 @@ Alias: $nhi-use-code = https://nzhts.digital.health.nz/fhir/ValueSet/nhi-use-cod
 Profile: RheumaticFeverCarePlan
 Parent: CarePlan
 Title: "Rheumatic Fever CarePlan"
-Description: "Profiles shared care plans used in NZ for provision of rheumatic fever secondary prevention"
+Description: "Profiles shared care plans used in NZ for management of rheumatic fever cases with suspected acute rheumatic fever"
 Id: nz-sharedcare-rheumaticfever-careplan
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a secondary prevention care plan for a NZ rheumatic fever patient"
+* insert metaContactDetail([[David Grainger]],[[david.grainger@middleware.co.nz]])
 
 // elements modified from base profile
 

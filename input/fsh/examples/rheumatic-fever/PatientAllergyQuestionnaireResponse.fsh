@@ -4,8 +4,8 @@ Description: "Example payload demonstrating data collected about a patient's all
 Usage: #example
 
 * meta.profile = Canonical(QuestionnaireResponse)
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-10-24T03:00:00Z"
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-10T00:00:00Z"
 
 * status = #completed
 * authored = "2023-06-19T02:08:00.504Z"
@@ -24,5 +24,5 @@ Usage: #example
 * item[=].answer[0].valueCoding = $sct#91931000 "Allergy to erythromycin"
 * item[=].answer[+].valueCoding = $sct#419511003 "Propensity to adverse reactions to drug (finding)"  // a.k.a "Other"
 
-* item[+] insert answerItemX(OtherAllergyDetail,[[2)]],[[Other Allergies (enter text)]])
-* item[=].answer.valueString = "Patient also has an allergy to paracetamol"
+// * item[+] insert answerItemX(OtherAllergyDetail,[[2)]],[[Other Allergies (enter text)]])
+// * item[=].answer.valueString = "Patient also has an allergy to paracetamol"

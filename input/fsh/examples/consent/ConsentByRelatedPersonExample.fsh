@@ -1,12 +1,11 @@
-Instance: ProvConsentCoverageExample
+Instance: ConsentByRelatedPersonExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
-Description: "Example of a provisional consent made by the Te Tai Tokerau Lead Provider organisation.
-These types of Consent are a provisional arrangement by which a lead provider org. -- Te Tai Tokerau in this case -- 
-can store and access patient data in FHIR before the patient's consent has actually been obtained and 
-recorded as a FHIR #active Consent instance.
+Description: "Example of a patient consent given on a patient's behalf by a relative, recorded by the Te Tai Tokerau Rheumatic Fever Service.
 
-This example includes sample `data.references` which identify the FHIR resource instances to be protected."
+On-behalf consent can arises in rheumatic fever scenarios where patients are commonly children/teenagers.  This example shows how to identify the relative using a contained instance of 
+a `RelatedPerson` FHIR resource.
+"
 
 * status = #proposed
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
@@ -16,7 +15,10 @@ This example includes sample `data.references` which identify the FHIR resource 
 
 * patient insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 * organization insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
-* performer insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* performer[0] insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* performer[+] insert ReferenceRelatedPerson ( ...)
+
+* contained = contained-Related-Person  // contained resource identifies the relative who gave consent on patient's behalf
 
 * policy[0].authority = "https://www.privacy.org.nz"
 * policy[=].uri = "https://www.privacy.org.nz/privacy-act-2020/"
@@ -34,19 +36,22 @@ This example includes sample `data.references` which identify the FHIR resource 
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
 * provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 
-// setup a boatload of example data references to consent-protected resource instances
-* provision insert ConsentInstanceDataRef( LeadProvidersGroup )
-* provision insert ConsentInstanceDataRef( SevereRfConditionExample )
-* provision insert ConsentInstanceDataRef( WhanauCareTeam )
-* provision insert ConsentInstanceDataRef( SecondaryProphylaxisCareTeam )
-* provision insert ConsentInstanceDataRef( SecondaryProphylaxisAppointment-Encounter )
-
 * provision insert ConsentInstanceDataRef( PatientMedicationAllergyQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( MedicationsAndFollowUpGuidanceQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( PatientWhanauGoalsPreferencesQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( RFPatientHealthAssessmentQuestionnaireResponse )
 
-* provision insert ConsentInstanceDataRef( CarePlanWithOneAppointmentCompleted ) 
+// * provision.data[0].meaning = #instance
+// * provision.data[=].reference = Reference(blah blah)
 
+// //// //// //// //// //// //// //// //// ////
+// Make a contained resource identifying a RelatedPerson who gave Consent eg. patient's mum
 
+Alias: $relatedrelationshiptypeCS = http://terminology.hl7.org/CodeSystem/v3-RoleCode
 
+Instance: contained-Related-Person
+InstanceOf: RelatedPerson
+Usage: #inline
+Description: "An example of how to Madeleine's mum (relationshiptype code for parent = #PRN) as the RelatedPerson who gave consent on Maddie's behalf"
+
+* patient insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* name.given = "Beryl"
+* name.family = "Hackett"
+* relationship = 	$relatedrelationshiptypeCS#PRN

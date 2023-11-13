@@ -78,14 +78,21 @@ RuleSet: answerItem(link_id,item_text)
 * text = "{item_text}"
 
 
-// creates an answer item using the same parameters used to create the question item
+// Creates an answer item using the same method signature as the question item 
+// This lets QR examples be quickly created from Questionnaires.  For example, in VS Code: 
+// 1) Find the text "Question"
+// 2) (Cmd shift P) select all occurrences of find match
+// 3) (Cmd shift P) expand line selection
+// 4) copy
+// 5) create a new fsh file for the QR and paste in the lines
+// 6) replace instances of QuestionXXXXXItem(...) with AnswerItemX(....) leaving the args unchanged.
+// Inclusion of an unused parameter (prefix) does cause sushi to generate a harmless warning on this ruleset
+// If someone can think of a useless way of using prefix in the QR that will prevent these warnings...
+
 RuleSet: answerItemX(link_id,prefix,item_text)
 * linkId = "{link_id}"
 * text = "{item_text}"
-// * NO-OP = "{prefix}"       
-// It is a convenience to generate answers with the same ruleset parameters as those to create question items
-// However, not using the parameter does cause sushi to generate an 'unused parameter' warning on this ruleset
-// Maybe there will be a NO-OP command in future so unneeded params can be harmlessly consumed
+// *  "{prefix}" >> /dev/null        // oh for a NOP instruction in FSH!
 
 // **** **** **** **** **** ****
 // questionnaire help

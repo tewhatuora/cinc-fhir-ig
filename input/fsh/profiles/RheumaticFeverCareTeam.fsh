@@ -1,11 +1,12 @@
 Profile: RheumaticFeverCareTeam
 Parent: CareTeam
 Title: "Rheumatic Fever Care Team"
-Description: "FHIR resource for representing care teams comprising rheumatic fever practitioners or patient's whanau and/or nominated delegates"
+Description: "Identifies parties involved in secondary prophylaxis (preventative treatment) for a patient.  Members typically comprise rheumatic fever service Organizations and Practitioners especially nurses"
 Id: nz-sharedcare-rheumaticfever-careteam
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
-* ^purpose = "Profiles CareTeam to require categorisation (two types of care team that arise in rheumatic fever care)"
+* ^purpose = "Controls CareTeam representations to model care teams involved in rheumatic fever secondary prophylaxis (preventative treatment)"
+* insert metaContactDetail([[David Grainger]],[[david.grainger@middleware.co.nz]])
 
 // elements modified from base profile
 * category 1..1
@@ -13,11 +14,14 @@ Id: nz-sharedcare-rheumaticfever-careteam
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "use"
 * identifier ^slicing.rules = #open
+// We allow here for 1 NHI ref and 0..* external refs 'national' systems. 
+// This allows for mulesoft to keep and track refs between FHIR and Salesforce objects, etc. 
 * identifier contains NationalSystem 0..*
 
-// This slice allows (0 or more) use=USUAL identifier references for linking to external 'national' systems.  
+// SLICE
+// This slice allows clients to link (0 or more) use=USUAL identifiers to reference resources in external 'national' systems.  
 
-* identifier[NationalSystem] ^short = "This slice lets clients link FHIR rheumatic fever care teams to corresponding records in external systems eg. Salesforce"
+* identifier[NationalSystem] ^short = "This allows a rheumatic fever patient resource to link with corresponding objects in systems like salesforce"
 
 * identifier[NationalSystem].use 1..1
 * identifier[NationalSystem].use = #usual
@@ -43,7 +47,6 @@ Id: nz-sharedcare-rheumaticfever-careteam
 // So for now, this profile requires that the canonical ValueSet will be the one defined in this IG
 
 * category from rf-careteam-category-code (required)
-// The ValueSet is defined at an enduring Url so the code binding is stable
-// The category code is due to appear in SNOMED in 2024 but until then is published temporarily in an NZHTS codesystem 
+* category = $sct#320721000210108 "Secondary prophylaxis team"
 
-// elements from base profile prohibited
+// elements from base profile prohibited - NONE

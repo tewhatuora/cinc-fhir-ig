@@ -15,7 +15,7 @@ In this example, all source for the IG can be found in the `input` folder.  Ther
 
 SUSHI is a command-line interpreter/compiler for FSH that can be installed by following the instructions at [SUSHI Installation](https://fshschool.org/docs/sushi/installation/).  Once installed, it can be executed as follows:
 
-```
+```sh
 sushi .
 ```
 
@@ -27,9 +27,9 @@ When invoked, SUSHI converts the FSH content in `input/fsh` into FHIR artifacts,
 
 The FHIR team provides an IG publishing tool that takes the implementation guide content and converts it into a set of published HTML files - for more information please refer to the [FHIR IG Publisher Documentation](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation).  Publishing an IG requires the following:
 
-1.  Ensure all pre-requisite software is installed - refer to the [IG Publisher Quick Start](https://confluence.hl7.org/pages/viewpage.action?pageId=35718627#IGPublisherDocumentation-QuickStart)
-2.  If the publisher has not yet been installed, execute `./_updatePublisher.sh` to download and install the publisher locally
-3.  Execute `./_genonce.bat` to generate the published IG.
+1. Ensure all pre-requisite software is installed - refer to the [IG Publisher Quick Start](https://confluence.hl7.org/pages/viewpage.action?pageId=35718627#IGPublisherDocumentation-QuickStart)
+2. If the publisher has not yet been installed, execute `./_updatePublisher.sh` to download and install the publisher locally
+3. Execute `./_genonce.bat` to generate the published IG.
 
 The published IG content can be found in the `output` folder and can be viewed by opening `output/index.html` in a web browser.
 
@@ -48,9 +48,9 @@ npm install markdown
 
 ## FHIR IG Auto-Builder
 
-In addition to the IG Publisher, the FHIR team also provide a [FHIR IG Auto-Builder](https://github.com/FHIR/auto-ig-builder) that allows IGs in public GitHub repositories to be auto-published to the FHIR Continuous Integration build service at https://build.fhir.org.  The appropriate webhook configuration has been set up for this project's GitHub repository and the auto-published IG can be viewed at the following URL: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/
+In addition to the IG Publisher, the FHIR team also provide a [FHIR IG Auto-Builder](https://github.com/FHIR/auto-ig-builder) that allows IGs in public GitHub repositories to be auto-published to the FHIR Continuous Integration build service at [https://build.fhir.org](https://build.fhir.org).  The appropriate webhook configuration has been set up for this project's GitHub repository and the auto-published IG can be viewed at the following URL: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/
 
-Build logs are available here https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/branches/master/build.log
+A useful output of the build is the [Build log](https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/branches/master/build.log)
 
 ## Publishing CINC FHIR draft IG updates from git branches
 
@@ -64,13 +64,14 @@ This means the project can review or acceptance test the IG without the mainline
 ### Setting up a webhook for automatic branch publishing
 Say a draft IG is on the branch **rheumatic-fever**
 Configure a webhook for automatic publication using the following command
+
 ```bash
 curl -X POST  "https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger" \
   -H "Content-type: application/json" \
   --data '{"ref": "refs/heads/rheumatic-fever", "repository": {"full_name": "tewhatuora/cinc-fhir-ig"}}'
 ```
+
 Note that branch names can only contain characters in the regex ```[A-Za-z0-9_-]```
- 
 
 ## Simplifier.net IG Authoring/Publishing
 
@@ -78,26 +79,27 @@ Authoring and publishing IGs using the [Simplifier](https://simplifier.net/) inf
 
 Unlike the FHIR IG Publisher, which outputs a fully rendered IG with merged in FHIR artifacts and Markdown content, the Simplifier IG Editor just provides some shorthand notation for rendering FHIR artifacts.  Apart from that, the entire IG, including the structure and layout, would need to be manually authored in the IG Editor.  The FHIR artifacts output by SUSHI can be imported into Simplifier but all of the Markdown content and FHIR IG Publisher output would need to be manually created/re-created.
 
+## Notes on compiling the Implementation Guide for server IG validation
 
-# Notes on compiling the Implementation Guide for server IG validation
- 
-As documented in [Using FHIR Implementation Guides]() this Implementation Guide must be compiled before it can be deployed into FHIRWorks for use with the HapiValidator.
+The definitions in the [FHIR Implementation Guide](https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/) must be compiled before to be deployed into FHIRWorks in the HapiValidator.
+
+See the other README dedicated to this [here](fhir-works-on-aws-deployment/COMPILING_IMPLEMENTATION_GUIDES_FOR_VALIDATOR.md).
 
 Notes on compiling:
 
 1. After cloning the Git repo to create a local copy of FHIRworks  
 
+## FHIR IG Quality Guidelines
 
-# FHIR IG Quality Guidelines
-
-## Terminology data quality
+### New controlled terminology
 
 The following principles are useful when considering how to approach modelling of terminology in a new FHIR IG.
 
-Controlled terminology in data representations can represent a tricky area of the IG developer because the 
-terms necessary for new solutions frequently don't exist in estalished codesystems and there is inevitable delay in introducing new terminology into official systems.
+Controlled terminology in data representations can be tricky for the IG developer because where terms needed by
+  don't exist in established code systems, there is inevitable delay due to official processes in introducing new terminology.
 
-Due to these factors, the IG developer is likely to be faced with decisions about how to define and publish terminology that is entirely new or a hybrid of new and existing.
+Due to these factors, the IG developer is often faced with decisions about whether to define and publish new terminology, and
+  whether to go with a ValueSet that includes only new terminology or a hybrid of new and existing.
 
 Principles to apply to IG terminology definition (most important first):
 

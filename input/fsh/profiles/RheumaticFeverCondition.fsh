@@ -6,6 +6,7 @@ Id: nz-sharedcare-rheumaticfever-condition
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a condition to add severity and diagnostic certainty classifiers used in NZ rheumatic fever secondary secondary prevention"
+* insert metaContactDetail([[David Grainger]],[[david.grainger@middleware.co.nz]])
 
 // elements modified
 * subject only Reference(Patient)

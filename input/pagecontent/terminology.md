@@ -5,13 +5,15 @@ This page provides an overview of the terminology systems that are depended on, 
 The Rheumatic Fever FHIR resources make use of established SNOMED (International and NZ Editions) and NZMT (New Zealand Medication Terminology) codesystems, and defines new terminology needed to code the certainty of a rheumatic fever diagnosis.
 
 
-### New terminology for diagnostic certainty
+### New terminology for severity and certainty of rheumatic fever diagnosis
 
-This IG introduces new terminology (a CodeSystem and ValueSet) defining the possible values of **certainty of a rheumatic fever diagnosis**.  This terminology is specific to NZ's management of rheumatic-fever-affected patients.
+This IG introduces new terminology (a CodeSystem and ValueSet) defining the possible values of **severity** and **certainty** of a **rheumatic fever diagnosis**.  This terminology is specific to and important for NZ's care of patients with rheumatic fever.
 
-The new codes are used in an *extension* to the FHIR `Condition` resource type.  See *Rheumatic Fever Condition* in the Profiles section.
+The terminology is used two coded *extensions* to the FHIR `Condition` resource type.  See *Rheumatic Fever Condition* in the Profiles section.
 
-These new codes are published in a CodeSystem and ValueSet on the New Zealand Health Terminology Server (NZHTS).  To see all codes valid for use, clients can [expand the ValueSet](https://nzhts.digital.health.nz/fhir/ValueSet/$expand?url=https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-Diagnostic-Certainty) in the normal way.
+These new codes are published for the time being in this IG.
+
+In future it is anticipated that the New Zealand Health Terminology Server (NZHTS) will host the official published versions however there are currently problems with this meaning clients cannot expand ValueSets for [DiagnosticCertainty](https://nzhts.digital.health.nz/fhir/ValueSet/$expand?url=https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-Diagnostic-Certainty) or [RHD severity](https://nzhts.digital.health.nz/fhir/ValueSet/$expand?url=https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-rheumatic-heart-disease-severity).
 
 ### New SNOMED-based ValueSets
 
@@ -50,3 +52,29 @@ NZMT codes are used in rheumatic fever for:
 3.secondary prophylaxis **strength/concentration of lignocaine** pain relief medication 
 
 - eg. `#10747581000116100` | lidocaine hydrochloride anhydrous 1% (20 mg/2 mL) injection, ampoule [`MedicationStatement.medicationCodeableConcept`)]
+
+### Coding of external national system identifier types
+
+Some FHIR resources in this IG need to be capable of holding identifiers to resources in other Te Whatu Ora national systems and applications.  Examples of this class of *national system* identifiers in FHIR include:
+
+- `RheumaticFeverCareplan`s recording a *Salesforce case identifier*.
+
+- `RheumaticFeverCondition`s recording a *Salesforce case identifier* and an *EPISurv number*.
+
+It's a convention in this IG that all such external national identifiers will be recorded in a **NationalSystem slice on identifier** element of the resource.  The slicing uses the elements of the FHIR Identifier datatype as follows
+
+```json
+"identifier" : [
+  {
+    "use" : "usual",
+    "type" : {
+      "coding" : "{{Code defined in this IG for the type of national identifier}}"
+    },
+    "system" : "{{Url describing the identifier in the national system specification",
+    "value" : "{{external identifier value}}"
+  },
+  ...
+]
+```
+
+See the [external identifier types ValueSet](ValueSet-external-system-identifier-type-code.html) for the codes this IG defines for the slice on identifier.

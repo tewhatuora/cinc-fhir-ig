@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Te Whatu Ora Shared Care FHIR API
 description: Te Whatu Ora Shared Care FHIR API
 status: active
-version: 0.3.3
+version: 0.3.4
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -67,7 +67,10 @@ dependencies:
 parameters:
   show-inherited-invariants: false
   bundle-references-resolve: false
-
+  default-contact: true              # DG 13/11/2023: publish contact info for all resources (using canonical meta contact where specified)
+  default-version: true              # DG 13/11/2023: versions of canonicals that specify their own version no longer overwritten by the IG publisher
+  suppressed-ids: $examples          # DG 13/11/2023: stop IG publisher generating ids for all example resource instances
+  display-warnings: true             # DG 13/11/2023: stop IG publisher reporting terminology problems as errors
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #
@@ -82,16 +85,21 @@ parameters:
 menu:
   Home: index.html
   Business context: businessContext.html
+  COVID care in the community:
+    Structure Definitions and Questionnaires: artifacts.html#care-in-the-community-definitions
+    Examples: artifacts.html#care-in-the-community-examples
   Rheumatic fever care plans:
     Data translation and models: rheumatic-fever-data.html
     Structure Definitions and Questionnaires: artifacts.html#rheumatic-fever-definitions
     Examples: artifacts.html#rheumatic-fever-examples
     Terminology overview: terminology.html
     Terminology definitions: artifacts.html#rheumatic-fever-terminology
-  Shared Care FHIR API:
+  Data Consent:
+    Consent-based resource access control: consentBasedAccessControl.html
+    Examples: artifacts.html#data-consent-examples
+  API Developer Guide:
     Developer Guide: developerGuide.html
-    Consent: consent.html
-    API: capabilityStatement.html
+    API capability statement: capabilityStatement.html
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
@@ -112,12 +120,12 @@ menu:
 # contact directly and follow the format outlined in the ImplementationGuide resource and
 # ContactDetail.
 #
-# contact:
-#   - name: Bob Smith
-#     telecom:
-#       - system: email # phone | fax | email | pager | url | sms | other
-#         value: bobsmith@example.org
-#         use: work
+contact:
+   - name: David Grainger
+     telecom:
+       - system: email 
+         value: david.grainger@middleware.co.nz
+         use: work
 #
 #
 # The global property corresponds to the IG.global property, but it
@@ -185,18 +193,69 @@ menu:
 #     - StructureDefinition/bee-sting
 #
 groups:
+  CINCProfiles:
+    name: Care in the Community definitions
+    description: FHIR profiles, canonical Questionnaires and Definitions 
+    resources:
+    - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
+    - StructureDefinition/ManaakiNgaTahiCarePlan
+    - StructureDefinition/ManaakiNgaTahiCondition
+    - StructureDefinition/ManaakiNgaTahiDocumentReference
+    - StructureDefinition/ManaakiNgaTahiEncounter
+    - StructureDefinition/ManaakiNgaTahiEpisodeOfCare
+    - StructureDefinition/ManaakiNgaTahiObservation
+    - StructureDefinition/ManaakiNgaTahiPlanDefinition
+    - StructureDefinition/ManaakiNgaTahiServiceRequest
+    - StructureDefinition/ServiceRequestActivityDefinition
+    - ActivityDefinition/MeasurementProcedureRequestTemplate
+    - PlanDefinition/COVIDMVPCarePlanTemplate
+    - OperationDefinition/ActivityDefinition-apply
+    - OperationDefinition/PlanDefinition-apply
+    - ActiveMonitoringDay42Survey
+    - ActiveMonitoringDay7Survey
+    - AntiViralEligibilityQuestionnaire
+    - COVIDInitialHealthAssessmentQuestionnaire
+    - COVIDPublicHealthHistoryQuestionnaire
+    - COVIDRegularHealthCheckQuestionnaire
+    - COVIDVaccinationSurveyQuestionnaire
+    - MentalHealthAssessmentSurveyQuestionnaire
+    - PregnancyAssessmentSurveyQuestionnaire
+  CINCExamples: 
+    name: Care in the Community examples
+    resources:
+    - CarePlanExample
+    - ConditionExample
+    - DocumentReferenceExample
+    - EncounterExample
+    - ObservationExample
+    - CareyCarrington
+    - DrDottyMcStuffins
+    - ActiveMonitoring42DayQuestionnaireRespose
+    - ActiveMonitoring7DayQuestionnaireRespose
+    - AntiviralEligibilityNoQuestionnaireResponse
+    - AntiviralEligibilityYesQuestionnaireResponse
+    - COVIDInitialHealthAssessmentQuestionnaireResponse
+    - COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
+    - COVIDRegularHealthCheckQuestionnaireResponse
+    - COVIDVaccinationSurveyQuestionnaireResponse
+    - MentalHealthAssessmentSurveyQuestionnaireResponse
+    - PregnancyAssessmentSurveyQuestionnaireResponse
+    - ObservationsServiceRequestExample
   RheumaticFeverProfiles:
     name: Rheumatic Fever definitions
-    description: All rheumatic fever FHIR profiles and terminology
+    description: FHIR profiles, extensions and canonical Questionnaires
     resources:
-    - StructureDefinition/nz-sharedcare-rheumaticfever-careplan
-    - StructureDefinition/nz-sharedcare-rheumaticfever-careteam
-    - StructureDefinition/nz-sharedcare-rheumaticfever-condition
-    - StructureDefinition/nz-sharedcare-rheumaticfever-patient
+    - StructureDefinition/rf-patient-whanaumember-role
+    - StructureDefinition/rf-patient-whanaumember-relationship
+    - StructureDefinition/rf-patient-whanaumember-primary
     - StructureDefinition/rf-careplan-closure-reason
     - StructureDefinition/rf-careplan-onhold-reason
     - StructureDefinition/rf-condition-diagnosticcertainty
     - StructureDefinition/rf-condition-rhdseverity
+    - StructureDefinition/nz-sharedcare-rheumaticfever-careplan
+    - StructureDefinition/nz-sharedcare-rheumaticfever-careteam
+    - StructureDefinition/nz-sharedcare-rheumaticfever-condition
+    - StructureDefinition/nz-sharedcare-rheumaticfever-patient
     - MedicationsAndFollowUpGuidanceQuestionnaire
     - PatientMedicationAllergyQuestionnaire
     - PatientWhanauGoalsPreferencesQuestionnaire
@@ -224,15 +283,12 @@ groups:
     - SecondaryProphylaxisCareTeam
     - TeTaiTokerauRFSecondaryPreventionService
     - WaikatoRFSecondaryPreventionService
-    - WhanauCareTeam
+    - MadeleineMeringueAndWhanau
     - MedicationsAndFollowUpGuidanceQuestionnaireResponse
     - PatientMedicationAllergyQuestionnaireResponse
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
     - RFPatientHealthAssessmentQuestionnaireResponse
     - LeadProvidersGroup
-    - ProvConsentBaseExample
-    - ProvConsentCoverageExample
-    - ActiveConsentExample
 
   RheumaticFeverTerminology:
     name: Rheumatic Fever terminology
@@ -249,6 +305,26 @@ groups:
     - QualifiedYesNoAnswerValueSet
     - ExternalSystemIdentifierTypeValueSet
     - ExternalSystemIdentifierTypeCodeSystem
+
+  ConsentDefinitions:
+    name: Data consent definitions 
+    description: FHIR resource profile and definitional resources relating to patient data consent
+    resources:
+    - StructureDefinition/nz-sharedcare-consent
+    - COVIDPrivacyStatementQuestionTemplate
+
+  ConsentExamples:
+    name: Data consent examples
+    description: All example Consent FHIR instances
+    resources:
+    - ConsentExample
+    - ProposedConsentBaseExample
+    - ProposedConsentCoverageExample
+    - ConsentByRelatedPersonExample
+    - RheumaticFeverActiveConsentExample
+    - ConsentByQuestionnaireExample
+    - ConsentQuestionnaireResponseExample
+
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

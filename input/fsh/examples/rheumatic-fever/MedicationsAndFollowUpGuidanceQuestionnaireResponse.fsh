@@ -4,8 +4,8 @@ Description: "Example payload demonstrating guidance defined for secondary proph
 Usage: #example
 
 * meta.profile = Canonical(QuestionnaireResponse)
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-10-24T03:00:00Z"
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-10T00:00:00Z"
 
 * status = #completed
 * authored = "2023-06-26T02:08:00.504Z"
@@ -16,17 +16,17 @@ Usage: #example
 
 // NOTE: item numbering does not have to match the Questionnaire because answers relate to questions through link_id
 
-* item[0] insert answerItem(SourceOfOralMedications,[[Source of oral medications? (choose one)]])
+* item[0] insert answerItemX(SourceOfOralMedications,[[1)]],[[Source of oral medications? (choose one)]])
 * item[=].answer.valueString = "Monthly visit from a nurse"
 
-* item[+] insert answerItem(CaseOnWarfarin,[[Case on warfarin?]])
-* item[=].answer.valueBoolean = true
+* item[+] insert answerItemX(CaseOnWarfarin,[[2)]],[[Case on warfarin? (Yes/No/Unknown)]])
+* item[=].answer.valueCoding = $sct#373066001 "Yes (qualifier value)"
 
-* item[+] insert answerItem(WarfarinSupervisionService,[[Warfarin supervision service (choose one)]])
+* item[+] insert answerItemX(WarfarinSupervisionService,[[2.1)]],[[Warfarin supervision service (choose one)]])
 * item[=].answer.valueString = "Pharmacy"
 
-* item[+] insert answerItem(MonitoringResultSource,[[International normalised ratio (INR) monitoring result source (choose one)]])
+* item[+] insert answerItemX(MonitoringResultSource,[[3)]],[[International normalised ratio (INR) monitoring result source (choose one)]])
 * item[=].answer.valueString = "Éclair"
 
-* item[+] insert answerItem(FollowUpClinicalService,[[Follow-up clinical service? (choose one)]])
+* item[+] insert answerItemX(FollowUpClinicalService,[[4)]],[[Follow-up clinical service? (choose one)]])
 * item[=].answer.valueString = "GP"

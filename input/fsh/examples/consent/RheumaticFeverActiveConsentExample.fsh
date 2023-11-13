@@ -1,14 +1,9 @@
-Instance: ActiveConsentExample
+Instance: RheumaticFeverActiveConsentExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
-Description: "Example of an active patient consent recorded by the Te Tai Tokerau Lead Provider organisation.
+Description: "Example of an active patient consent as recorded by the Te Tai Tokerau Rheumatic Fever Service.
 
-Patient consents are expected to be in a provisional (*#proposed* status) initially, because the consent is 
-commonly not obtained until the first secondary prophylaxis appointment which is sometime after registration
-and care plan setup.  Once obtained clients are expected to upgrade the Consent instance to an *#active* status 
-like this example.
-
-This example includes sample `data.references` which identify the FHIR resource instances to be protected."
+This example includes sample `data.references` which identify the actual FHIR resource instances to be protected."
 
 * status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
@@ -39,7 +34,6 @@ This example includes sample `data.references` which identify the FHIR resource 
 // setup a boatload of example data references to consent-protected resource instances
 * provision insert ConsentInstanceDataRef( LeadProvidersGroup )
 * provision insert ConsentInstanceDataRef( SevereRfConditionExample )
-* provision insert ConsentInstanceDataRef( WhanauCareTeam )
 * provision insert ConsentInstanceDataRef( SecondaryProphylaxisCareTeam )
 * provision insert ConsentInstanceDataRef( SecondaryProphylaxisAppointment-Encounter )
 

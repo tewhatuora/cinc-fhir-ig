@@ -38,4 +38,4 @@ Description: "Describes any known patient allergies to medications used in rheum
 * item[=].extension.url = $termServerExtension
 * item[=].extension.valueUrl = $preferredTermServer
 
-* item[+] insert textQuestion(OtherAllergyDetail,[[2)]],[[Other Allergies (enter text)]])
+// * item[+] insert textQuestion(OtherAllergyDetail,[[2)]],[[Other Allergies (enter text)]])

@@ -8,13 +8,14 @@ Description:  "This value set includes codes for the roles participants can perf
 
 // 18/10/2023 this valueset is defined entirely from codes included from SNOMED, however 
 //  one code is new in the SNOMED NZ edition and not officially published until April 2024
-// As a result the valueset published on NZHTS does not work correctly as the codes cannot be looked up.
-// (This may be caused by SNOMED licensing or inclusion of SNOMED terms that are in a temporary codesystem)
-// We will consider moving to NZHTS canonical in the future but for the meantime this IG is the canonical definition of this valueset
+//  This means the valueset published on NZHTS does not work expand so client cannot lookup the codes
+//
+// This ValueSet has to be published in this IG until clients can expand the valueset on NZHTS
 
 // * ^url = "https://nzhts.digital.health.nz/fhir/ValueSet/rheumatic-fever-care-team-participant-role"
 
 * $sct#133932002 "Caregiver (person)"
 * $sct#58626002 "Legal guardian (person)"
 * $sct#320731000210100 "Support person"
-* $sct#224535009 "Registered nurse (occupation)"
+* $sct#394738000 "Other related persons (person)"
+// * $sct#224535009 "Registered nurse (occupation)"
