@@ -67,7 +67,10 @@ dependencies:
 parameters:
   show-inherited-invariants: false
   bundle-references-resolve: false
-
+  default-contact: true              # DG 13/11/2023: publish contact info for all resources (using canonical meta contact where specified)
+  default-version: true              # DG 13/11/2023: versions of canonicals that specify their own version no longer overwritten by the IG publisher
+  suppressed-ids: $examples          # DG 13/11/2023: stop IG publisher generating ids for all example resource instances
+  display-warnings: true             # DG 13/11/2023: stop IG publisher reporting terminology problems as errors
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #
@@ -117,12 +120,12 @@ menu:
 # contact directly and follow the format outlined in the ImplementationGuide resource and
 # ContactDetail.
 #
-# contact:
-#   - name: Bob Smith
-#     telecom:
-#       - system: email # phone | fax | email | pager | url | sms | other
-#         value: bobsmith@example.org
-#         use: work
+contact:
+   - name: David Grainger
+     telecom:
+       - system: email 
+         value: david.grainger@middleware.co.nz
+         use: work
 #
 #
 # The global property corresponds to the IG.global property, but it

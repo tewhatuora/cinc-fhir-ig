@@ -46,6 +46,9 @@ Usage: #example
 * communication[0].language.coding[0].code = #tgl
 * communication[0].language.coding[0].display = "Tagalog"
 
+* contact[0] insert WhanauCareTeamMember( true,$sct#58626002,[[Mother]],[[Beryl]],[[Hackett]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 111]],[[person1@gmail.com]] )            // legal guardian / mother 
+* contact[+] insert WhanauCareTeamMember( true,$sct#58626002,[[Spouse]],[[Matt]],[[Meringue]],[[2023-06-01]],[[2026-01-01]],[[+64 21 111 222]],[[person2@gmail.com]] )            // caregiver / spouse
+
 * deceasedBoolean = false
 
 * link.other insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])

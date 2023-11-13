@@ -35,6 +35,11 @@ Usage: #example
 * address[=].country = "NZL"
 * address[=].period.start = "2023-08-01"
 
+* telecom[0] insert ContactPoint(phone,[[+64 22 134 1304]],1)
+* telecom[+] insert ContactPoint(phone,[[+64 22 134 1304]],1)
+* telecom[+] insert ContactPoint(phone,[[+64 9 379 1357]],2)
+* telecom[+] insert ContactPoint(email,[[sugarhit@gmail.com]],3)
+
 * birthDate = "2008-11-24"
 
 * communication[0].language.coding[0].system = "urn:ietf:bcp:47"

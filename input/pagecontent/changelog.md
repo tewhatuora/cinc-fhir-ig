@@ -2,6 +2,13 @@
 
 ## v0.3.4 (2023-11-09)
 
+### Advance warning of change to Official URL
+
+Current official URL: `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/`
+In an upcoming version of this IG, the Official URL (aka canonical URL) will change to a different hostname in the `digital.health.nz` domain.  In addition the name of this IG will change.
+
+Developers of client applications are advised to parameterise all instances of the official URL to prepare for this upcoming change.
+
 ### rheumatic fever changes
 
 #### Refactored whanau care team into `Patient.contact[]`
