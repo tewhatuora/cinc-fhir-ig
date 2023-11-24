@@ -1,4 +1,4 @@
-@startuml obj-FHIR-data-rheumatic-fever-appointment
+@startuml obj-FHIR-data-rheumaticfever-appointment
 
 title "Rheumatic fever -- secondary prophylaxis medication planning and appointments"
 

@@ -89,7 +89,8 @@ menu:
     Structure Definitions and Questionnaires: artifacts.html#care-in-the-community-definitions
     Examples: artifacts.html#care-in-the-community-examples
   Rheumatic fever care plans:
-    Data translation and models: rheumatic-fever-data.html
+    Data mappings and translation: rheumatic-fever-data.html
+    FHIR data models: rheumatic-fever-data-models.html
     Structure Definitions and Questionnaires: artifacts.html#rheumatic-fever-definitions
     Examples: artifacts.html#rheumatic-fever-examples
     Terminology overview: terminology.html
@@ -281,7 +282,7 @@ groups:
     - SecondaryProphylaxisAppointment-August-Booked
     - SecondaryProphylaxisAppointment-August-Fulfilled
     - SecondaryProphylaxisAppointment-September-Booked
-    - SecondaryProphylaxisAppointment-Encounter
+    - Encounter-SecondaryProphylaxisAppointment
     - MedicationStatement-August
     - SecondaryProphylaxisCareTeam
     - TeTaiTokerauRFSecondaryPreventionService

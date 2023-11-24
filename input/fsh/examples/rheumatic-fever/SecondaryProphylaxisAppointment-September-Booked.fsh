@@ -22,4 +22,4 @@ Usage: #example
 * participant[=].status = #accepted
 
 * supportingInformation[0] insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
-* comment = "The plan for this appointment is... "
+* comment = "The plan for this appointment is..."

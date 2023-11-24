@@ -42,7 +42,7 @@ This example includes sample `data.references` which identify the FHIR resource 
 * provision insert ConsentInstanceDataRef( LeadProvidersGroup )
 * provision insert ConsentInstanceDataRef( SevereRfConditionExample )
 * provision insert ConsentInstanceDataRef( SecondaryProphylaxisCareTeam )
-* provision insert ConsentInstanceDataRef( SecondaryProphylaxisAppointment-Encounter )
+* provision insert ConsentInstanceDataRef( Encounter-SecondaryProphylaxisAppointment )
 
 * provision insert ConsentInstanceDataRef( PatientMedicationAllergyQuestionnaireResponse )
 * provision insert ConsentInstanceDataRef( MedicationsAndFollowUpGuidanceQuestionnaireResponse )

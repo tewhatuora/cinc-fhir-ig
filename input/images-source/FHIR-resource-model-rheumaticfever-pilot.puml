@@ -1,5 +1,4 @@
-@startuml FHIR-resource-careplan-rheumaticfever-pilot
-'!include plantuml-include/std-skinparams-classdiagram.iuml
+@startuml FHIR-resource-model-rheumaticfever-pilot
 
 top to bottom direction
 scale 800 width
@@ -133,8 +132,8 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
      * clinicalStatus: #active etc.
      * recordedDate: date
     -- extensions --
-      * **rhdSeverity**: code (dedicated ValueSet)
-      * **diagnosticCertainty**: code (dedicated ValueSet)
+      * **rhdSeverity**: code (in dedicated ValueSet)
+      * **diagnosticCertainty**: code (in dedicated ValueSet)
   }
 
   class ":Medication" as MED <<MEDICATION>> #GhostWhite ##[bold] {
@@ -142,7 +141,7 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
     * ingredient: SNOMED (type)
   }
 
-  class ":MedicationRequest" as MEDREQ <<NZMEDICATIONREQUEST>> #GhostWhite ##[bold] {
+  class ":RheumaticFeverMedicationRequest" as MEDREQ <<NZMEDICATIONREQUEST>> #LightSalmon ##[bold] {
     Medication that is planned for RF prevention
     ---
     *status: code //medicationRequestStatus//
@@ -154,6 +153,8 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
       \tsite: SNOMED
       \tdoseAndRate
       \tadditionalInstruction: SNOMED [frequency]
+    -- extensions --
+      * **medicationFrequency**: code (in dedicated ValueSet)
   }
 
   

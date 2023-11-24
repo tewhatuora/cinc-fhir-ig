@@ -33,7 +33,11 @@ Improvements to *FHIR Resource Data Model*:
 
 - Base FHIR type is now consistently identified using the UML stereotype of the class
 
-- MedicationRequest and MedicationStatement resources are now documented as using the NZ Base IG profiles of these resources.
+- New profile structure, extension and ValueSet definitions introduced for `RheumaticFeverMedicationRequest``
+
+  - MedicationRequest example adjusted to now claim profile conformance with RheumaticFeverMedicationRequest  
+
+- MedicationStatement resource are now documented as using the NZ Base IG profiles of these resources.
 
 - Usage of *sliced* identifiers in profiled resources is now shown more clearly.
 
