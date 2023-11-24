@@ -11,6 +11,10 @@ This base example is before any `data.references` have been added for the protec
 
 See [*ProvConsentCoverageExample*](Consent-ProvConsentCoverageExample.html) for an example with resources proected by data.references"
 
+* meta.profile = Canonical(ManaakiNgaTahiConsent)    // see the profile for ManaakiTahiConsent in this IG 
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-24T00:10:00Z" // UTC datetime
+
 * status = #proposed
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 

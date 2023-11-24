@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Te Whatu Ora Shared Care FHIR API
 description: Te Whatu Ora Shared Care FHIR API
 status: active
-version: 0.3.4
+version: 0.3.5
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -252,14 +252,17 @@ groups:
     - StructureDefinition/rf-careplan-onhold-reason
     - StructureDefinition/rf-condition-diagnosticcertainty
     - StructureDefinition/rf-condition-rhdseverity
+    - StructureDefinition/rf-medicationrequest-medicationfrequency
     - StructureDefinition/nz-sharedcare-rheumaticfever-careplan
     - StructureDefinition/nz-sharedcare-rheumaticfever-careteam
     - StructureDefinition/nz-sharedcare-rheumaticfever-condition
     - StructureDefinition/nz-sharedcare-rheumaticfever-patient
+    - StructureDefinition/nz-sharedcare-rheumaticfever-medicationrequest
     - MedicationsAndFollowUpGuidanceQuestionnaire
     - PatientMedicationAllergyQuestionnaire
     - PatientWhanauGoalsPreferencesQuestionnaire
     - SecondaryProphylaxisHealthAssessmentQuestionnaire
+
   RheumaticFeverExamples:
     name: Rheumatic Fever examples
     description: All rheumatic fever example FHIR instances
@@ -302,6 +305,7 @@ groups:
     - RheumaticFeverCarePlanCategoryValueSet
     - RheumaticFeverCareTeamCategoryValueSet
     - RheumaticFeverCareTeamParticipantRoleValueSet
+    - RheumaticFeverMedicationRequestMedicationFrequencyValueSet
     - QualifiedYesNoAnswerValueSet
     - ExternalSystemIdentifierTypeValueSet
     - ExternalSystemIdentifierTypeCodeSystem

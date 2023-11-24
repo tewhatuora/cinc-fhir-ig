@@ -5,6 +5,10 @@ Description: "Example of an active patient consent as recorded by the Te Tai Tok
 
 This example includes sample `data.references` which identify the actual FHIR resource instances to be protected."
 
+* meta.profile = Canonical(ManaakiNgaTahiConsent)    // see the profile for ManaakiTahiConsent in this IG 
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-24T00:10:00Z" // UTC datetime
+
 * status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 

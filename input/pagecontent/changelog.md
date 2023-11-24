@@ -1,5 +1,44 @@
 # Changelog
 
+## v0.3.5 (2023-11-24)
+
+### Advance warning of change to Official URL
+
+Current official URL: `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/`
+In an upcoming version of this IG, the Official URL (aka canonical URL) will change to a different hostname in the `digital.health.nz` domain.  In addition the name of this IG will change.
+
+Developers of client applications are advised to parameterise all instances of the official URL to prepare for this upcoming change.
+
+### Rheumatic Fever data
+
+#### Profiles and terminology
+
+As a result of a design decision to constrain values of medication frequency to a standard set of frequencies (coded) used in NZ rheumatic fever secondary prophylaxis:
+
+1. A new ValueSet xxxxx has been introduced into this IG to define the SNOMED codes of valid SP medication frequencies, and  
+1. An new **extension** has been introduced on MedicationRequest to capture this specific value (one of the codes in ValueSet (1) above) instead of using the general purpose element `Dosage.additionalInstruction` which was general-purpose and suboptimal,  
+1. A new profile `RheumaticFeverMedicationRequest` has been introduced to incorporate the new extension from (2).
+
+#### Examples
+
+- The examples `MedicationRequest` and `MedicationStatement` now claim conformance with the NZ Base IG resource types
+([NzMedicationRequest](https://fhir.org.nz/ig/base/StructureDefinition-NzMedicationRequest.html) | [NzMedicationStatement](https://fhir.org.nz/ig/base/StructureDefinition-NzMedicationStatement.html) )  
+This change is non-impacting for clients because the NZ Base profiles only add optional elements to the base FHIR resource.
+
+- The various Consent resource examples now claim conformance with the ManaakiNgaTahiConsent profile in this IG.
+
+#### IG Documentation
+
+Improvements to *FHIR Resource Data Model*:
+
+- Base FHIR type is now consistently identified using the UML stereotype of the class
+
+- MedicationRequest and MedicationStatement resources are now documented as using the NZ Base IG profiles of these resources.
+
+- Usage of *sliced* identifiers in profiled resources is now shown more clearly.
+
+- The model now shows references going from the `RheumaticFeverCondition` resource to the *Episurv* national notifiable disease system.
+
 ## v0.3.4 (2023-11-09)
 
 ### Advance warning of change to Official URL

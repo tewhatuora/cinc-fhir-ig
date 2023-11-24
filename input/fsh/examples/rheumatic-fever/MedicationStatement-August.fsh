@@ -4,9 +4,9 @@ InstanceOf: MedicationStatement
 Description: "Illustrates details of secondary prophylaxis medication given to a patient at an appointment"
 Usage: #example
 
-* meta.profile = Canonical(MedicationStatement)
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-10-10T00:10:00Z" // UTC datetime
+* meta.profile = Canonical(http://hl7.org.nz/fhir/StructureDefinition/NzMedicationStatement)
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-24T00:10:00Z" // UTC datetime
 
 * contained = contained-Lignocaine-dose  // contained resource signifies lignocaine given too
 
