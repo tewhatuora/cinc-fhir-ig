@@ -13,7 +13,7 @@ Practitioner -> Practitioner : Determines measurements required
 Practitioner -> Patient : Discuss consent to capture and record measurements
 Practitioner -> PMS
 PMS -> API : Record consent (Consent)
-Practitioner <-> Patient : Take measurements (Pule, temp etc.)
+Practitioner <-> Patient : Take measurements (Pulse, temp etc.)
 Practitioner -> PMS : Record measurements
 PMS -> API : Record measurements (Observation)
 ... Some time passes ...

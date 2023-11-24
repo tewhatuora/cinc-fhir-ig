@@ -1,17 +1,40 @@
 @startuml obj-FHIR-data-consent-proposed
 
-!include plantuml-include/std-skinparams-objectdiagram.iuml
-
 top to bottom direction
+skinparam dpi 300
+allow_mixing
+scale 500 width
 
+skinparam ActivityDiamondBackgroundColor #RoyalBlue
+skinparam ArrowColor #SlateGrey   
+skinparam ArrowFontColor #RoyalBlue
+skinparam ArrowFontColor #SlateGrey  
+skinparam ArrowFontSize 12
+skinparam ArrowMessageAlignment left
+skinparam BoxPadding 10
+skinparam linetype ortho
 skinparam nodesep 30
 skinparam ranksep 30
+skinparam roundcorner 5
+skinparam sequenceArrowThickness 2
 
-skinparam dpi 300
-scale 300 width
-skinparam linetype ortho
-skinparam ArrowFontColor #RoyalBlue
-allow_mixing
+caption FHIR instance data model
+
+
+!procedure $Coding($Alias,$System,$Code,$Display)
+  object "<color:GhostWhite>$System" as $Alias #MediumPurple {
+    <color:GhostWhite><size:11>**$Code**-$Display
+  }
+!endprocedure
+
+!procedure $ObjectDiagramLegendWithNote($heading,$noteline)
+
+  legend bottom
+    **$heading**
+    $noteline
+  endlegend
+
+!endprocedure
 
 ' 
 title "Extension to FHIR consent-based access control - PROPOSED consent"

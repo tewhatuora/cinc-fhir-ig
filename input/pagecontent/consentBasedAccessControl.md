@@ -15,10 +15,10 @@ It is up to the specific health organisation using FHIR to store/share health in
 
 #### Access control measure
 When a client application, authorized by TWO to access this FHIR API (by NIA API key and client credentials), tries to access an instance of  
-  a FHIR resource of a protected type  
+  a FHIR resource of a protected type at a Url like:  
   
-```HTTP
-  {{FHIR_API_URL}}/{{resource-type}}/{{instance id X}}
+```bash
+  FHIR_API_URL/resource-type/instance-identifier
 ```  
 
 - Access to X is permitted when a valid Consent instance is found that references X - this allows all FHIR client applications authorized by Te Whatu Ora to access the resource instance.  
@@ -28,17 +28,19 @@ When a client application, authorized by TWO to access this FHIR API (by NIA API
 
 The *Te Whatu Ora Shared Care API* applies consent-based data access control to all instances of the following FHIR resources types (includes profiled variants):
 
-- `Appointment`,
-- `CarePlan`,
-- `Condition`,
-- `Encounter`,
-- `ServiceRequest`,
-- `QuestionnaireResponse`,
-- `Goal`,
-- `Observation`,
-- `Patient`,
-- `Person`,
-- `EpisodeOfCare`
+```bash
+- Appointment
+- CarePlan
+- Condition
+- Encounter
+- ServiceRequest
+- QuestionnaireResponse
+- Goal
+- Observation
+- Patient
+- Person
+- EpisodeOfCare
+```
 
 ### ACTIVE consent validity
 
