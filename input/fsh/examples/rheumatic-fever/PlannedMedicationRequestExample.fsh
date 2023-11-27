@@ -26,7 +26,7 @@ Usage: #example
 * dosageInstruction.site insert SNOMEDCoding(78333006,[[Structure of gluteus medius muscle (body structure)]])
 * dosageInstruction.route insert SNOMEDCoding(78421000,[[Intramuscular route (qualifier value)]])
 * dosageInstruction.doseAndRate[0].doseQuantity insert UnitOfMeasureQuantity(25,[[mg]],[[mg]]) 
-//* dosageInstruction.additionalInstruction insert SNOMEDCoding(1511000175108,[[Every twenty eight days (qualifier value)]]) 
+//* moved to extension below -- dosageInstruction.additionalInstruction insert SNOMEDCoding(1511000175108,[[Every twenty eight days (qualifier value)]]) 
 
 * extension[medicationFrequency].url = Canonical(rf-medicationrequest-medicationfrequency)
 * extension[medicationFrequency].valueCoding = $sct#1511000175108 "Every twenty eight days (qualifier value)"

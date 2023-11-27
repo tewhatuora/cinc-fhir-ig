@@ -7,7 +7,7 @@
 Current official URL: `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/`
 In an upcoming version of this IG, the Official URL (aka canonical URL) will change to a different hostname in the `digital.health.nz` domain.  In addition the name of this IG will change.
 
-Developers of client applications are advised to parameterise all instances of the official URL to prepare for this upcoming change.
+Developers of client applications are advised to parameterize all instances of the official URL to prepare for this upcoming change.
 
 ### Rheumatic Fever data
 
@@ -15,33 +15,41 @@ Developers of client applications are advised to parameterise all instances of t
 
 As a result of a design decision to constrain values of medication frequency to a standard set of frequencies (coded) used in NZ rheumatic fever secondary prophylaxis:
 
-1. A new ValueSet xxxxx has been introduced into this IG to define the SNOMED codes of valid SP medication frequencies, and  
-1. An new **extension** has been introduced on MedicationRequest to capture this specific value (one of the codes in ValueSet (1) above) instead of using the general purpose element `Dosage.additionalInstruction` which was general-purpose and suboptimal,  
-1. A new profile `RheumaticFeverMedicationRequest` has been introduced to incorporate the new extension from (2).
+1. A new [ValueSet](ValueSet-rf-medicationrequest-frequency-code.html) has been added to define the SNOMED codes of valid secondary prophylaxis medication frequencies (appointment intervals), and  
+1. An new **extension** has been introduced on MedicationRequest to capture a code from the ValueSet in (1). (The general purpose element `Dosage.additionalInstruction` is no longer to be used for medication frequency).
+1. A new profile for `MedicationRequest` named **RheumaticFeverMedicationRequest** has been introduced to incorporate the new extension from (2).  It builds on NzMedicationRequest from the NZ Base IG.
 
 #### Examples
 
-- The examples `MedicationRequest` and `MedicationStatement` now claim conformance with the NZ Base IG resource types
-([NzMedicationRequest](https://fhir.org.nz/ig/base/StructureDefinition-NzMedicationRequest.html) | [NzMedicationStatement](https://fhir.org.nz/ig/base/StructureDefinition-NzMedicationStatement.html) )  
-This change is non-impacting for clients because the NZ Base profiles only add optional elements to the base FHIR resource.
+- The example `MedicationRequest` now claims conformance with its new profile in this IG as outlined above.
+
+- The example `MedicationStatement` now claims conformance with [NzMedicationStatement](https://fhir.org.nz/ig/base/StructureDefinition-NzMedicationStatement.html) from the **NZ Base IG**.
+
+  - This example also now has a `partOf` reference to its contained instance to avoid a Publisher QA FHIR validation error.
+
+- There is now a new example [Bundle](Bundle-SecondaryProphylaxisAugustEncounterBundle.html) showing how secondary prophylaxis encounter info can be created as three POST requests in one *transaction* (Encounter + MedicationStatement + QuestionnaireResponse).
 
 - The various Consent resource examples now claim conformance with the ManaakiNgaTahiConsent profile in this IG.
 
 #### IG Documentation
 
-Improvements to *FHIR Resource Data Model*:
+- Added a section to the *API Developer Guide* about validation of FHIR resource references. 
 
-- Base FHIR type is now consistently identified using the UML stereotype of the class
+- Updates to *FHIR Resource Data Model*:
 
-- New profile structure, extension and ValueSet definitions introduced for `RheumaticFeverMedicationRequest``
+  - Base FHIR type is now consistently identified using the UML stereotype of the class
+  
+  - MedicationRequest resource is now shown as profiled `RheumaticFeverMedicationRequest``
+  
+  - Usage of *sliced* identifiers in profiled resources is now shown more clearly.
+  
+  - The model now shows references going from the `RheumaticFeverCondition` resource to the *Episurv* national notifiable disease system.
 
-  - MedicationRequest example adjusted to now claim profile conformance with RheumaticFeverMedicationRequest  
+- Tweaked the RF [Terminology](terminology.html) page.
 
-- MedicationStatement resource are now documented as using the NZ Base IG profiles of these resources.
+- Added a few resource types to server [Capability Statement](capabilityStatement.html)
 
-- Usage of *sliced* identifiers in profiled resources is now shown more clearly.
-
-- The model now shows references going from the `RheumaticFeverCondition` resource to the *Episurv* national notifiable disease system.
+---
 
 ## v0.3.4 (2023-11-09)
 

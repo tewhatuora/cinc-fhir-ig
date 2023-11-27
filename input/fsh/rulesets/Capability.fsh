@@ -1,4 +1,4 @@
-RuleSet: GenericCRUDInteractions()
+RuleSet: GenericCRUDInteractions
 // makes REST resource generic capability 
 
 * interaction[0].code = #create

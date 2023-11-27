@@ -55,26 +55,26 @@ NZMT codes are used in rheumatic fever for:
 
 ### Coding of external national system identifier types
 
-Some FHIR resources in this IG need to be capable of holding identifiers to resources in other Te Whatu Ora national systems and applications.  Examples of this class of *national system* identifiers in FHIR include:
+Some FHIR resources in this IG need to be capable of holding identifiers to resources in other Te Whatu Ora applications and national applications.  Examples of this class of *national system* identifiers in FHIR include:
 
-- `RheumaticFeverCareplan`s recording a *Salesforce case identifier*.
+- `RheumaticFeverCareplan`s recording a *Salesforce case identifier* (Te Whatu Ora application)
 
-- `RheumaticFeverCondition`s recording a *Salesforce case identifier* and an *EPISurv number*.
+- `RheumaticFeverCondition`s recording a *Salesforce case identifier* and an *EPISurv number* (ESR system)
 
-It's a convention in this IG that all such external national identifiers will be recorded in a **NationalSystem slice on identifier** element of the resource.  The slicing uses the elements of the FHIR Identifier datatype as follows
+The convention in this IG that all such external 'national identifiers' will be recorded in a **[*NationalSystem*] slice** on the *identifier* resource element.  This slicing requires FHIR Identifiers to be represented as follows:
 
 ```json
 "identifier" : [
   {
     "use" : "usual",
     "type" : {
-      "coding" : "{{Code defined in this IG for the type of national identifier}}"
+      "coding" : "SHOULD be a code defined by this IG for the type of national identifier"
     },
-    "system" : "{{Url describing the identifier in the national system specification",
-    "value" : "{{external identifier value}}"
+    "system" : "Url identifying the Naming System of these identifiers, for example https://standards.digital.health.nz/ns/nhi-id",
+    "value" : "The actual external identifier value"
   },
   ...
 ]
 ```
 
-See the [external identifier types ValueSet](ValueSet-external-system-identifier-type-code.html) for the codes this IG defines for the slice on identifier.
+See the [ValueSet of external identifier types](ValueSet-external-system-identifier-type-code.html) which defines the codes API consumers can give for identifiers which use the [*NationalSystem*] slice.

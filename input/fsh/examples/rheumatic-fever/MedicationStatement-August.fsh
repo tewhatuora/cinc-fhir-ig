@@ -26,6 +26,9 @@ Usage: #example
 
 * note insert markdownAnnotation([[Benzathine Brand used:**Bicillin L-A**]])
 
+ // NOTE: We only do this to avoid a FHIR validator error about linkage to/from contained resource
+* partOf.reference = "#contained-Lignocaine-dose"  
+
 // *************
 Instance: contained-Lignocaine-dose
 InstanceOf: MedicationStatement

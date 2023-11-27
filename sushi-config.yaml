@@ -293,7 +293,8 @@ groups:
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
     - RFPatientHealthAssessmentQuestionnaireResponse
     - LeadProvidersGroup
-
+    - SecondaryProphylaxisAugustEncounterBundle
+    
   RheumaticFeverTerminology:
     name: Rheumatic Fever terminology
     description: All rheumatic fever ValueSets and CodeSystems

@@ -1,16 +1,16 @@
-## Authentication/Authorisation
+<!-- markdownlint-disable MD010 MD041 MD033-->
+
+## Authentication / Authorization
 
 In order to make requests against this API clients must:
 
+- Obtain an access token from the OAuth token endpoint using the client credentials issued to their organisation,  
 
-- Obtain an access token from the OAuth token endpoint using the client credentials issued to their organisation.
-
-- Pass the access token as a bearer token in the `Authorization` header of all requests, along with an API key in the `X-Api-Key` header.
+- Pass the access token as a bearer token in the `Authorization` header of all requests, along with an API key in the `X-Api-Key` header,  
 
 - Include a `Request-Context` header containing a Base64-encoded JSON object detailing the user making the request in the following structure:
 
-
-```
+```json
 {
   "userIdentifier": "11AAbb@#",
   "userRole": "Practitioner",
@@ -28,28 +28,31 @@ In order to make requests against this API clients must:
 
 ## Well Known Resource Identifiers
 
-
-Some resources (Plan Definitions and Questionnaires) are defined by Te Whatu Ora and can be searched for using their well-known identifiers.  Please refer to the example `identifier` parameters that can be supplied to the `GET /PlanDefinition` and `GET /Questionnaire` operations for the current set of well-known identifiers.
-
+Some resources (Plan Definitions and Questionnaires) are defined by Te Whatu Ora and can be searched for using their well-known identifiers.  
+Please refer to the example `identifier` parameters that can be supplied to the `GET /PlanDefinition` and `GET /Questionnaire` operations for
+the current set of well-known identifiers.
 
 ## Field level request encryption
 
 The FHIR server supports certain FHIR resource fields to be provided in the create or update request in an encrypted format, to prevent certain data such as PII being transmitted in plain text.
 
 The currently supported fields for this feature are:
+
 - "subject.identifier.value"
 - "subject.display"
 - "patient.birthDate"
 - "patient.gender"
 - "patient.telecom"
 
-When this feature is used, applicable request properties can be provided to the server as an encrypted value, where **the value is stored within the FHIR server unencrypted**. When the FHIR resource is subsequently read, the plain text value will be returned.
+When this feature is used, applicable request properties can be provided to the server as an encrypted value, where **the value is stored within the FHIR server unencrypted**.
+When the FHIR resource is subsequently read, the plain text value will be returned.
 
 To use this feature, the request must include the below attributes:
 
 - the `Request-Context` header MUST contain an `encryptedClaims` array, which MUST include valid fields supported by the server. A request with unsupported claims will be rejected
 - the `Request-Context` header MUST contain an `encryptionKid` string to indicate which public key has been used for encryption, which should be the `kid` of the key used.
-- the fields indicated in the `encryptedClaims` array MUST be encrypted using a valid public key as provided by the FHIR server JWKS endpoint, with base64 encoding. If the value cannot be decrypted successfully, due to a client encryption error or invalid public key, an error will be returned.
+- the fields indicated in the `encryptedClaims` array MUST be encrypted using a valid public key as provided by the FHIR server JWKS endpoint, with base64 encoding. If the value
+  cannot be decrypted successfully, due to a client encryption error or invalid public key, an error will be returned.
 
 It is recommended to cache the response from the JWKS endpoint to avoid performance impacts.
 
@@ -91,5 +94,87 @@ const encryptText = async (plainText) => {
   console.log(`Encrypted value as Base64: ${encrypted}`);
 })();
 ```
-
+<!-- markdownlint-disable MD033 -->
 <img src="request-encryption.png" width="100%">
+
+## FHIR Resource references
+
+FHIR [Resource References](https://build.fhir.org/references.html) are commonplace and necessary to represent real health information over a range of FHIR resource types.
+
+### Types of FHIR references
+
+The following examples of FHIR references are acceptable in POST/PUT payloads sent by consumers of the *Te Whatu Ora Shared Care* API.
+
+#### Relative literal RESTful references
+
+`"reference": "Patient/"e5d44ac6-cc79-4e80-bea4-225e5a93a8b7"`
+
+This API **DOES NOT** resolve the reference (test if the instance exists) or check that the resource type is actually supported by the API.  API consumers are expected to ensure that the referenced RESTful resource path is correct when POST/PUTing a payload.
+
+#### Absolute Url references
+
+`"reference": "https://fhir.example.org/base/Patient/123"`
+
+This API **DOES NOT** resolve absolute Urls (that is, it does not check that the referenced instance exists or is reachable).  API consumers are expected to ensure that all such references are correct when POST/PUTing payloads.
+
+#### References by logical external identifier
+
+```json
+ "author" : {
+    "type" : "Organization",
+    "identifier" : {
+      "use" : "official",
+      "system" : "https://standards.digital.health.nz/ns/hpi-organisation-id",
+      "value" : "GOM086-B"
+    },
+    "display" : "Te Tai Tokerau Rheumatic Fever Secondary Prevention Service"
+  },
+```
+
+This API **DOES NOT** resolve external logical identifier references.  API consumers are expected to ensure that all such references are correct when POST/PUTing payloads.
+
+#### urn:uuid references in Bundles
+
+These are commonly [used in Bundles](https://build.fhir.org/bundle.html#references) to make links between instances in the same Bundle.
+
+This API does support inter-instance linking in POSTed FHIR Bundles, using `urn:uuid` style references.
+
+The following excerpt shows valid use of `urn:uuid`s in a POST Bundle which creates an Encounter and a QuestionnaireResponse instance, and lets the API form the reference from the QR to the Encounter.
+
+<!-- markdownlint-disable MD010 -->
+```json
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+  {
+    "fullUrl": "urn:uuid:Encounter-temporary-id",
+    "resource": {
+      "resourceType": "Encounter",
+      ...
+    }
+  },
+  {
+    "fullUrl": "urn:uuid:QR-temporary-id",
+    "resource": {
+      "resourceType": "QuestionnaireResponse",
+      "encounter": {
+        "reference": "urn:uuid:Encounter-temporary-id"
+      },
+      ...
+    }
+  },
+  ...
+}
+```
+
+### Reference validation in the Te Whatu Ora Shared Care API
+
+The *Te Whatu Ora Shared Care* API does a limited amount of validation of references.  API consumers that send payloads containing the following errors will get `400 Bad Request` errors.
+
+| Type of reference | Invalid example | Response | Client's recourse |
+| :-------------- | :----------------------------- | :--------- | :-------------- |
+| null relative literal reference | `"reference": "Patient/"` | 400 Bad Request Error | Fix the id and resubmit. |
+| invalid Id in relative literal ref | `"reference": "Patient/A2A3-B7B"` (not a valid FHIRWorks UUID) | 400 Bad Request Error | Fix the id and resubmit. |
+| wrong resource type in reference path | `"reference": "CareTeam/{{Patient UUID}}` in a Reference(Patient) element | 400 Bad Request Error | Fix the resource type path and resubmit. |
+| mismatched type to reference path | `"type": "CareTeam",`<br>`"reference": "Patient/{{valid existing Patient UUID}},` | 400 Bad Request Error | Fix `"type":"xx"` and resubmit. |
