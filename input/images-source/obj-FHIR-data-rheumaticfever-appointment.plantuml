@@ -1,8 +1,8 @@
 @startuml obj-FHIR-data-rheumaticfever-appointment
 
-title "Rheumatic fever -- secondary prophylaxis medication planning and appointments"
+title "Rheumatic fever -- secondary prophylaxis medication planning and appointment recording"
 
-top to bottom direction
+left to right direction
 skinparam dpi 200
 allow_mixing
 scale 800 width
@@ -16,11 +16,12 @@ skinparam ArrowMessageAlignment left
 skinparam BoxPadding 10
 skinparam linetype ortho
 skinparam nodesep 30
-skinparam ranksep 30
+skinparam ranksep 60
 skinparam roundcorner 5
 skinparam sequenceArrowThickness 2
+skinparam TitleFontSize 20
 
-caption FHIR instance data model
+caption FHIR resource instances object model
 
 !procedure $Coding($Alias,$System,$Code,$Display)
   object "<color:GhostWhite>$System" as $Alias #MediumPurple {
@@ -38,7 +39,7 @@ caption FHIR instance data model
 !endprocedure
 
 ' Codesystems defined by others
-package "terminology" as CODING {
+package "Medication definition" as CODING {
   $Coding(MedCoding,"medication ingredient","NZMT ..6105","benzathine penicillin")
   $Coding(MedCoding,"medication ingredient","NZMT ..6107","amoxicillin")
   $Coding(MedCoding,"medication ingredient","NZMT ..6109","penicillin VK")
@@ -48,34 +49,39 @@ package "terminology" as CODING {
   $Coding(MedBrand,"Benzathine brand","NZMT tbc","Tardocillin")
   $Coding(MedBrand,"Benzathine brand","NZMT tbc","Lentocillin")
 
-  $Coding(Route,"Medication route (SNOMED)","..1000","Intramuscular route")
-  $Coding(Route,"Medication route","..3006","Oral route")
+  $Coding(Route,"Med. route","SNOMED..1000","Intramuscular route")
+  $Coding(Route,"Med. route","SNOMED..3006","Oral route")
 
-  $Coding(Site,"Medication site (SNOMED)","..10101","Left ventrogluteal region")
-  $Coding(Site,"Medication site (SNOMED)","...","etc.")
+  $Coding(Site,"Med. site","SNOMED..10101","Left ventrogluteal ..")
+  $Coding(Site,"Med. site","...","etc.")
 
-  MedCoding -[hidden]d- MedBrand
-  MedBrand -[hidden]d-- Route
-  Route -[hidden]d- Site
+  object ":**Medication**" as MED <<Medication>> #SkyBlue {
+    Planned secondary prophylaxis medication brand and ingredient
+  }
 
+  'MedCoding -[hidden]d- MedBrand
+  MedBrand -[hidden]d- MED
+  MED -[hidden]d- Route
+  Route -[hidden]r- Site
+
+  MED "code" -[#MediumPurple,norank]> MedCoding
+  MED "\ningredient" -[#MediumPurple,norank]d-> MedBrand
 }
 
-package "Planning and recording of secondary prophylaxis medication activity" as HNZFHIRREPO #Snow {
+frame "Planning and recording of secondary prophylaxis medication activity" as HNZFHIRREPO #Snow {
   
-  object "<size:16>:CarePlan" as CP #OrangeRed {
-    * status: //**#active**//
-    ...
-    ...
-    ...
-    ...
+  object "<size:16>:RheumaticFeverCarePlan" as CP <<CarePlan>> #OrangeRed {
+    Each CarePlan defines a list
+    of planned and completed 
+    activities ...
   }
 
   package """<CarePlan.activity[].reference>""" as Activities #White/SkyBlue { 
     
     'object "secondary prophylaxis\nmedication planning" as PLAN_BENZA_2023 #LightSalmon
   
-    object "<size:15>CURRENT:**MedicationRequest**" as MR1 #LightSalmon {
-      * text: **"Benzathine medication plan 2023"**
+    object "<size:15>:**RheumaticFeverMedicationRequest**" as MR1 <<MedicationRequest>> #MediumPurple {
+      * text: "Benzathine medication plan 2023"
       * status: //**#active**//
       * intent: //#plan//
       * dosageInstruction
@@ -85,164 +91,172 @@ package "Planning and recording of secondary prophylaxis medication activity" as
         \t-doseAndRate:Dosage
       * performer: Ref(Practitioner)
       * validityPeriod: eg. **2023-01 to 2023-12**
+      --- extension ---
+      * medicationFrequency: **Every twenty eight days**
     }
 
     ' completed appointments    
-    object "<size:16>March2023:**Appointment**" as MARCH_APPT #GhostWhite/OrangeRed {
+    object "<size:16>July2023:**Appointment**" as JULY_APPT #LightYellow {
+      *identifier[case] (usual): case Id (salesforce)
+      ---
       * status: //**#fulfilled**//
-      * start: **2023-03-20**
+      * start: **2023-07-11**
+      * supportingInfo: service provider Ref(HPI org)
+      * participant: Reference(Practitioner)
     }
 
-    object "<size:16>April2023:**Appointment**" as APRIL_APPT #GhostWhite/OrangeRed {
+    object "<size:16>August2023:**Appointment**" as AUGUST_APPT #PaleGoldenRod {
+      *identifier: type #CarePlanActivityId (SF)
+      ---
       * status: //**#fulfilled**//
-      * start: **2023-04-17**
+      * start: **2023-08-08**
+      * supportingInfo: service provider Ref(HPI org)
+      * participant: Reference(Practitioner)
     }
     
-    ' planned appointments
-    object "<size:14>May2023:**Appointment**" as MAY_APPT #Orange {
+    ' planned appointment
+    object "<size:14>September2023:**Appointment**" as SEPTEMBER_APPT #pink {
+      *identifier: type #CarePlanActivityId (SF)
+      ---
       * status: //**#booked**//
-      * start: **2023-05-15**
+      * start: **2023-09-05**
+      * supportingInfo: service provider Ref(HPI org)
       * participant: Reference(Practitioner)
     }
 
-    object "<size:14>June2023:**Appointment**" as JUNE_APPT #Orange {
+    object "<size:14>October2023:**Appointment**" as OCTOBER_APPT #pink {
+      *identifier: type #CarePlanActivityId (SF)
+      ---
       * status: //**#booked**//
-      * start: **2023-06-12**
+      * start: **2023-10-03**
+      * supportingInfo: service provider Ref(HPI org)
       * participant: Reference(Practitioner)
     }
 
-    object "<size:14>July2023:**Appointment**" as JULY_APPT #Orange {
-      * status: //**#booked**//
-      * start: **2023-07-10**
-      * participant: Reference(Practitioner)
-    }
-
-    object "<size:14>OLD:**MedicationRequest**" as MR2 #LightSalmon {
-      * text: **"Benzathine medication plan 2022"**
-      * status: //**#completed**//
-      * intent: //#plan//
-      * dosageInstruction*
-      [Previous instructions]...
-      * performer: Ref(Practitioner)
-      * validityPeriod: eg. **2022-01 to 2022-12**
-    }
-
-    'arrange vertically
-    MAY_APPT -[hidden]d- JUNE_APPT
-    JUNE_APPT -[hidden]d- JULY_APPT
-    JULY_APPT -[hidden]d- MR2
-    MR2 -[hidden]d- MR1
-    MR1 -[hidden]d- MARCH_APPT
-    MARCH_APPT -[hidden]d- APRIL_APPT
-
+    'arrange activities in line
+    AUGUST_APPT -[hidden]r- MR1
+    MR1 -[hidden]r- JULY_APPT
+    SEPTEMBER_APPT -[hidden]r- OCTOBER_APPT
+    OCTOBER_APPT -[hidden]r- SEPTEMBER_APPT
   }
 
-  object "planned:**Medication**" as MED #SkyBlue {
-    Planned medication
-    brand and ingredient
-    etc.
-  }
-
-
-  package "March 2023 completed appointment detail" as MARCH #FloralWhite/White {
+  package "July 2023 completed appointment detail" as JULY #FloralWhite/LightYellow {
   
-    object "<size:14>march2023:Encounter" as EInj2 #SpringGreen {
+    object "<size:14>july2023:Encounter" as EInj2 #Yellow {
       * status: //**#finished**//
-      * period: 2023-03-20
+      * period: 2023-07-11
       * participant: Ref(Practitioner)
       * serviceProvider: Ref(Organisation)
     }
 
-    object "<size:14>:MedicationStatement\n(Benzathine)" as MEDSTMT2 #SkyBlue {
+    object "<size:14>:MedicationStatement\n(Benzathine)" as MEDSTMT2 #LightGreen {
       * status: //**#completed**//
-      * effectiveDateTime: 2023-03-20
+      * effectiveDateTime: 2023-07-11
       * dosage: Dosage 
           // actual dose quantity,site,route
     }
 
-    object "<size:14>:QuestionnaireResponse\n(health assessment)" as QR2 #MediumPurple {
+    object "<size:14>:QuestionnaireResponse\n(health assessment)" as QR2 #SkyBlue {
       * questionnaire: Canonical(SPHA)
       * status: //**#completed**//
-      * authored: 2023-03-20
+      * authored: 2023-07-11
       * item.*: responses
     }
 
-    EInj2 <-u- MEDSTMT2: < context
-    MEDSTMT2 -[#Gray]-* MEDSTMT2: <size:10>Lignocaine (contained)\n<size:10>MedicationStatement
+    
+    EInj2 <-[norank]r- MEDSTMT2: < context
+    ' MEDSTMT2 -[#Gray]-* MEDSTMT2: <size:10>Lignocaine (contained)\n<size:10>MedicationStatement
     ' MEDSTMT2 "derivedFrom" -d-> QR2
-    QR2 "encounter" --> EInj2 
-
+    QR2 "encounter" -[norank]--> EInj2 
   }
 
-  package "April 2023 completed appointment detail" as APRIL #FloralWhite/White {
+  package "August 2023 completed appointment detail" as AUGUST #PaleGoldenRod/FloralWhite {
 
-    object "<size:14>april2023:Encounter" as EInj1 #SpringGreen {
+    object "<size:14>august2023:Encounter" as EInj1 #yellow {
       * status: //**#finished**//
-      * period: 2023-04-17
+      * period: 2023-08-08
       * participant: Ref(Practitioner)
       * serviceProvider: Ref(Organisation)
     }
 
-    object "<size:14>:MedicationStatement\n(Benzathine)" as MEDSTMT1 #SkyBlue {
+    object "<size:14>:MedicationStatement\n(Benzathine)" as MEDSTMT1 #LightGreen {
       * status: //**#completed**//
-      * effectiveDateTime: 2023-04-17
+      * effectiveDateTime: 2023-08-08
       * dosage: Dosage 
         // actual dose quantity,site,route
     }
 
-    object "<size:14>:QuestionnaireResponse\n(health assessment)" as QR1 #MediumPurple {
+    object "<size:14>:QuestionnaireResponse\n(health assessment)" as QR1 #SkyBlue {
       * questionnaire: Canonical(SPHA)
       * status: //**#completed**//
-      * authored: 2023-04-17
+      * authored: 2023-08-08
       * item.*: responses
     }
 
-    EInj1 <--u- MEDSTMT1: < context
-    MEDSTMT1 -[#Gray]-* MEDSTMT1: <size:10>Lignocaine (contained)\n<size:10>MedicationStatement
+    EInj1 <-[norank]l- MEDSTMT1: < context
+    ' MEDSTMT1 -[#Gray,norank]-* MEDSTMT1: <size:10>Lignocaine (contained)\n<size:10>MedicationStatement
     ' MEDSTMT1 "derivedFrom" -d-> QR1
-    QR1 "encounter" -u-> EInj1
+    QR1 "encounter" -[norank]r-> EInj1
   }
 
+  ' positioning
 
   ' connectors
-  CP "activity" *-d--> Activities
-  'CP "<color:#Red> activity.outcomeReference" .[#Red].> EParent
+  CP "activity" *-u-> Activities
 
-  MARCH_APPT "<color:OrangeRed>supportingInfo" -l-> EInj2
-  EInj2 "appointment" --> MARCH_APPT
+  JULY_APPT "supportingInfo" -u-> EInj2
+  EInj2 "appointment" -[thickness=3,norank]-> JULY_APPT
 
-  APRIL_APPT "<color:OrangeRed>supportingInfo" -r-> EInj1
-  EInj1 "appointment" --> APRIL_APPT
+  AUGUST_APPT "supportingInfo" -d-> EInj1
+  EInj1 "appointment" -[thickness=3,norank]-> AUGUST_APPT
 
-  MED "code" -[thickness=3,dotted,#MediumPurple,norank]-> MedCoding
-  MED "\ningredient" -[thickness=3,dotted,#MediumPurple]-> MedBrand
-  
-  MR1 "medication[x]\n<size:14>1" -[dashed,norank]> "1" MED
-  MR1 "route" -[thickness=3,dotted,#MediumPurple]> Route
-  MR1 "site" -[thickness=3,dotted,#MediumPurple]> Site
+  MR1 "medication[x]\n<size:14>1" -[norank]-> "1" MED
+  MR1 "<color:MediumPurple><size:14>route" .[#MediumPurple,dotted,norank].> Route
+  MR1 "<color:MediumPurple><size:14>site" .[#MediumPurple,dotted,norank].> Site
 
-  MEDSTMT1 "<color:RoyalBlue>basedOn" -[thickness=3,#RoyalBlue,norank]l-> MR1
-  MEDSTMT2 "<color:RoyalBlue>basedOn" -[thickness=3,#RoyalBlue,norank]l--> MR1
+  MEDSTMT1 "basedOn" -[thickness=3,norank]--> MR1
+  MEDSTMT2 "basedOn" -[thickness=3,norank]--> MR1
 
-  MEDSTMT1 "\n\t<color:SkyBlue>medicationReference" -[thickness=3,dashed,#SkyBlue,norank]-> MED
-  MEDSTMT2 "<color:SkyBlue>medicationReference" -[thickness=3,dashed,#SkyBlue,norank]-> MED 
+  MEDSTMT1 -[norank]u-> MED : > medicationReference
+  MEDSTMT2 "medication\nReference" -[norank]> MED 
 
   'notes
   note as N1
-    These instances capture detail from completion 
-      of a specific medication appointment:
-    - **Encounter** who administered the meds etc.
-    - **MedicationStatement** actual meds patient received
-    - **QuestionnaireResponse** general health assessment
+    These three instances, added to the
+      original Appointment instance, capture
+      detail from a **completed**
+      secondary prophylaxis appointment:
+    - **Encounter** the who / what / where etc.
+    - **MedicationStatement** the actual meds given
+    - **QuestionnaireResponse** health assessment
   end note
 
-  N1 ... MARCH
+  N1 .u. JULY
+
+  note as N2
+    Before attendance Appointments in #booked
+      status represent the planned patient
+      visits for secondary prophylaxis medication.
+      Each appointment identifies the nurse who
+      is planned to see the patient as a 
+      participant in the appointment.   
+      
+      After the appointment is attended, its 
+      status will update to #fulfilled and
+      medication administered and other details 
+      from the encounter will be captured in 
+      additional FHIR resource instances as
+      shown above.
+  end note
+
+  N2 .. SEPTEMBER_APPT
 
 }
 
 legend bottom
   **Legend**
   1) Arrows indicate direction of FHIR reference
+  2) Object colour shading reflects colours used in //Data Dictionary// mapping.
 endlegend
 
 
