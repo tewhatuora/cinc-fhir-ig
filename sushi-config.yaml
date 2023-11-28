@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Te Whatu Ora Shared Care FHIR API
 description: Te Whatu Ora Shared Care FHIR API
 status: active
-version: 0.3.4
+version: 0.3.5
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -89,7 +89,8 @@ menu:
     Structure Definitions and Questionnaires: artifacts.html#care-in-the-community-definitions
     Examples: artifacts.html#care-in-the-community-examples
   Rheumatic fever care plans:
-    Data translation and models: rheumatic-fever-data.html
+    Data mappings and translation: rheumatic-fever-data.html
+    FHIR data models: rheumatic-fever-data-models.html
     Structure Definitions and Questionnaires: artifacts.html#rheumatic-fever-definitions
     Examples: artifacts.html#rheumatic-fever-examples
     Terminology overview: terminology.html
@@ -252,14 +253,17 @@ groups:
     - StructureDefinition/rf-careplan-onhold-reason
     - StructureDefinition/rf-condition-diagnosticcertainty
     - StructureDefinition/rf-condition-rhdseverity
+    - StructureDefinition/rf-medicationrequest-medicationfrequency
     - StructureDefinition/nz-sharedcare-rheumaticfever-careplan
     - StructureDefinition/nz-sharedcare-rheumaticfever-careteam
     - StructureDefinition/nz-sharedcare-rheumaticfever-condition
     - StructureDefinition/nz-sharedcare-rheumaticfever-patient
+    - StructureDefinition/nz-sharedcare-rheumaticfever-medicationrequest
     - MedicationsAndFollowUpGuidanceQuestionnaire
     - PatientMedicationAllergyQuestionnaire
     - PatientWhanauGoalsPreferencesQuestionnaire
     - SecondaryProphylaxisHealthAssessmentQuestionnaire
+
   RheumaticFeverExamples:
     name: Rheumatic Fever examples
     description: All rheumatic fever example FHIR instances
@@ -278,7 +282,7 @@ groups:
     - SecondaryProphylaxisAppointment-August-Booked
     - SecondaryProphylaxisAppointment-August-Fulfilled
     - SecondaryProphylaxisAppointment-September-Booked
-    - SecondaryProphylaxisAppointment-Encounter
+    - Encounter-SecondaryProphylaxisAppointment
     - MedicationStatement-August
     - SecondaryProphylaxisCareTeam
     - TeTaiTokerauRFSecondaryPreventionService
@@ -289,7 +293,8 @@ groups:
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
     - RFPatientHealthAssessmentQuestionnaireResponse
     - LeadProvidersGroup
-
+    - SecondaryProphylaxisAugustEncounterBundle
+    
   RheumaticFeverTerminology:
     name: Rheumatic Fever terminology
     description: All rheumatic fever ValueSets and CodeSystems
@@ -302,6 +307,7 @@ groups:
     - RheumaticFeverCarePlanCategoryValueSet
     - RheumaticFeverCareTeamCategoryValueSet
     - RheumaticFeverCareTeamParticipantRoleValueSet
+    - RheumaticFeverMedicationRequestMedicationFrequencyValueSet
     - QualifiedYesNoAnswerValueSet
     - ExternalSystemIdentifierTypeValueSet
     - ExternalSystemIdentifierTypeCodeSystem

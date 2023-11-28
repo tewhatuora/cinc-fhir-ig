@@ -1,11 +1,65 @@
-Instance: RFPatientHealthAssessmentQuestionnaireResponse
-InstanceOf: QuestionnaireResponse
-Description: "Example assessment of Madeleine's health at her August secondary prophylaxis appointment."
-Usage: #example
+// makes the contents of Bundled instances used in RF secondary prophylaxis appointment recording
+RuleSet: makeEncounterContent
+* meta.profile = Canonical(ManaakiNgaTahiEncounter)
+* meta.lastUpdated = "2023-11-27T00:00:00Z"
 
+* status = #finished
+* appointment = Reference(SecondaryProphylaxisAppointment-August-Fulfilled)
+* class = http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB "ambulatory"
+* subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+
+* participant[0].individual insert ReferencePractitioner(99ZAAA,[[Isabel Injecta]])
+* participant[1].individual insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+
+* period.start = "2023-08-08T02:10:00Z"    // UTC datetime
+* period.end = "2023-08-08T03:15:00Z"    // UTC datetime
+
+* location.location.type = "Location"
+* location.location.identifier.use = #official
+* location.location.identifier.system = "https://standards.digital.health.nz/ns/hpi-facility-id"
+* location.location.identifier.value = "F3S457-C"
+* location.location.display = "PHNs Whangarei"
+
+* serviceProvider insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+
+// MedicationStatement: benzathine medication and associated lignocaine pain relief
+RuleSet: makeMedStmtContent
+
+* meta.profile = Canonical(http://hl7.org.nz/fhir/StructureDefinition/NzMedicationStatement)
+* meta.lastUpdated = "2023-11-27T00:00:00Z"
+
+// set up the contained instance that records lignocaine pain relief medication also given at this appointment
+* contained[0].resourceType = "MedicationStatement"
+* contained[0].id = "contained-Lignocaine-dose"     // special case of setting the id directly instance of via Instance FSH keyword 
+* contained[0].partOf.reference = "http://example.org/fhir/MedicationStatement/1"    // ***** ref to our containing instance above, to be fixed up by FHIRWorks
+* contained[0].status = #completed
+* contained[0].subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* contained[0].medicationCodeableConcept insert NZMTMedicationCoding(10747581000116100,[[lidocaine hydrochloride anhydrous 1% (20 mg/2 mL) injection, ampoule]])
+* contained[0].dosage.doseAndRate[0].doseQuantity insert UnitOfMeasureQuantity(0.25,[[ml]],[[ml]])
+
+* basedOn = Reference(PlannedMedicationRequestExample)
+* partOf.reference = "#contained-Lignocaine-dose"   // NOTE: We only make the container 'partOf' its contained resource to avoid FHIR validator errors
+* context.reference = "http://example.org/fhir/Encounter/1"    // ***** alpha instance in the Bundle  *****
+* medicationReference = Reference(SecondaryProphylaxisMedicationExample)
+* subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+
+* effectiveDateTime = "2023-08-08T03:15:00Z"    // UTC datetime
+* dateAsserted = "2023-08-18T03:15:00Z"    // UTC datetime
+
+* status = #completed
+
+// records the actual benzathine brand, site of injection and quantity administered.
+* dosage.site insert SNOMEDCoding(299151000210101,[[Structure of left ventrogluteal region (body structure)]])
+* dosage.route insert SNOMEDCoding(78421000,[[Intramuscular route (qualifier value)]])
+* dosage.doseAndRate[0].doseQuantity insert UnitOfMeasureQuantity(25,[[mg]],[[mg]]) 
+
+* note insert markdownAnnotation([[Benzathine Brand used:**Bicillin L-A**]])
+
+
+// QuestionnaireResponse: patient health assessment questions at appointment
+RuleSet: makeQRContent
 * meta.profile = Canonical(QuestionnaireResponse)
-* meta.versionId = "2"
-* meta.lastUpdated = "2023-11-07T20:00:00Z"
+* meta.lastUpdated = "2023-11-27T00:00:00Z"
 
 * status = #completed
 * authored = "2023-08-08T01:08:00.504Z"   // UTC, assumed to be the time of information collection during the appointment
@@ -13,8 +67,9 @@ Usage: #example
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 * author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
-* basedOn = Reference(DraftCarePlan)
-* encounter = Reference(Encounter-SecondaryProphylaxisAppointment)
+* basedOn = Reference(CarePlanWithOneAppointmentCompleted)
+
+* encounter.reference = "http://example.org/fhir/Encounter/1"    // ***** alpha instance in the Bundle  *****
 
 // NOTE: item numbering does not have to match the Questionnaire because answers relate to questions through link_id
 
@@ -69,3 +124,4 @@ Usage: #example
 
 * item[+] insert answerItemX(PlanForNextMedicationAppointment,[[16)]],[[Comments for the next appointment (enter text)]])
 * item[=].answer.valueString = "The plan for the next medication appointment is to keep up the good work"
+

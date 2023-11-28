@@ -1,0 +1,105 @@
+@startuml obj-FHIR-data-consent-active
+
+top to bottom direction
+skinparam dpi 300
+allow_mixing
+scale 500 width
+
+skinparam ActivityDiamondBackgroundColor #RoyalBlue
+skinparam ArrowColor #SlateGrey   
+skinparam ArrowFontColor #RoyalBlue
+skinparam ArrowFontColor #SlateGrey  
+skinparam ArrowFontSize 12
+skinparam ArrowMessageAlignment left
+skinparam BoxPadding 10
+skinparam linetype ortho
+skinparam nodesep 30
+skinparam ranksep 30
+skinparam roundcorner 5
+skinparam sequenceArrowThickness 2
+
+caption FHIR instance data model
+
+!procedure $Coding($Alias,$System,$Code,$Display)
+  object "<color:GhostWhite>$System" as $Alias #MediumPurple {
+    <color:GhostWhite><size:11>**$Code**-$Display
+  }
+!endprocedure
+
+!procedure $ObjectDiagramLegendWithNote($heading,$noteline)
+
+  legend bottom
+    **$heading**
+    $noteline
+  endlegend
+
+!endprocedure
+ 
+title "FHIR consent-based access control - ACTIVE consent"
+
+frame "HNZ FHIR API resources under management" as HNZMain {
+
+  package "<size:12>ACTIVE patient consent and provisions ^" as ACTIVE #Snow {
+      
+    object "activeConsentExample\n<size:16>**:Consent**" as CONSENT #GhostWhite/LightCoral {
+      * status: ""**#active**""
+      * scope: ""**#patient-privacy**""
+      * dateTime: ""2023-01-21""
+      * policy: reference to NZ Privacy Act / HIPC
+    }
+
+    object "data access provision:\n<size:15>Consent**.provision**" as DAP #GhostWhite {
+      * type: ""#permit""
+      * period: ""2023-01-21 to ..""
+    }
+
+  }
+
+  object "privacy questions\n<size:15>**:Questionnaire**" as Q #Red
+
+  package "<size:12>All resource instances protected by this consent" {
+    rectangle COVERED {
+      object "patient's responses\n<size:14>**:QuestionnaireResponse**" as QRC #LightSalmon
+      object "resource x<sub>1</sub>\n**<size:15>:X**" as AnyResource #LightGray
+      object "resource y<sub>1</sub>\n**<size:15>:Y**" as AnotherResource #LightGray
+    }
+    QRC -[hidden]d- AnyResource
+    AnyResource -[hidden]d- AnotherResource
+  }
+
+  ' connectors
+  'DAP "1" -[thickness=3,#RoyalBlue]l--{ COVERED : 0..*\ndata.references
+
+  DAP "data.reference" -[thickness=3,#RoyalBlue]l--{ COVERED 
+
+
+}
+
+' resources in other repos
+object "**Patient** (NHI)" as Patient <<logical resource>> #SkyBlue {
+  * logical id: NHI
+}
+
+object "HPI:**Organization**\nParty agreeing to privacy policy/rules" as HPI <<logical resource>> #SkyBlue {
+  HPI Org Id:+ GXXNNN
+}
+
+CONSENT -d-* DAP
+CONSENT "<color:#Black>sourceReference" -[dashed,#Black]l- QRC: >
+CONSENT "patient" -[dotted,#SkyBlue]r- Patient: >
+CONSENT "<color:#Black>performer" -[dashed,#Black]--- HPI: **Reference(Organization)** >
+QRC -[#LightGray]-- Q: questionnaire >
+
+  'notes
+  note as N1
+    Consent instances do not themselves need
+    to be covered by other Consents
+  end note
+ 
+N1 .d. CONSENT
+
+$ObjectDiagramLegendWithNote("Notes","(black dashed lines) An active consent MUST reference EITHER a QuestionnaireResponse OR an Organization")
+
+footer "Middleware NZ design for Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
+
+@enduml

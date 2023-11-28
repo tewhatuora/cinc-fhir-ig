@@ -1,4 +1,4 @@
-Instance: SecondaryProphylaxisAppointment-Encounter
+Instance: Encounter-SecondaryProphylaxisAppointment
 InstanceOf: ManaakiNgaTahiEncounter
 Usage: #example
 Description: "Example of a rheumatic fever patient/lead provider encounter for delivery of secondary prophylaxis meds"

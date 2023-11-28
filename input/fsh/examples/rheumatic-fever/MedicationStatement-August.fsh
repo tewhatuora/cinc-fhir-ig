@@ -4,14 +4,14 @@ InstanceOf: MedicationStatement
 Description: "Illustrates details of secondary prophylaxis medication given to a patient at an appointment"
 Usage: #example
 
-* meta.profile = Canonical(MedicationStatement)
-* meta.versionId = "1"
-* meta.lastUpdated = "2023-10-10T00:10:00Z" // UTC datetime
+* meta.profile = Canonical(http://hl7.org.nz/fhir/StructureDefinition/NzMedicationStatement)
+* meta.versionId = "2"
+* meta.lastUpdated = "2023-11-24T00:10:00Z" // UTC datetime
 
 * contained = contained-Lignocaine-dose  // contained resource signifies lignocaine given too
 
 * basedOn = Reference(PlannedMedicationRequestExample)
-* context = Reference(SecondaryProphylaxisAppointment-Encounter)
+* context = Reference(Encounter-SecondaryProphylaxisAppointment)
 * medicationReference = Reference(SecondaryProphylaxisMedicationExample)
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 
@@ -25,6 +25,9 @@ Usage: #example
 * dosage.doseAndRate[0].doseQuantity insert UnitOfMeasureQuantity(25,[[mg]],[[mg]]) 
 
 * note insert markdownAnnotation([[Benzathine Brand used:**Bicillin L-A**]])
+
+ // NOTE: We only do this to avoid a FHIR validator error about linkage to/from contained resource
+* partOf.reference = "#contained-Lignocaine-dose"  
 
 // *************
 Instance: contained-Lignocaine-dose
