@@ -3,7 +3,7 @@
 top to bottom direction
 skinparam dpi 300
 allow_mixing
-scale 500 width
+scale 400 width
 
 skinparam ActivityDiamondBackgroundColor #RoyalBlue
 skinparam ArrowColor #SlateGrey   
@@ -113,6 +113,6 @@ CONSENT "performer" -[dotted,#SkyBlue]--- HPI: **Reference(Organization)** >
 
 $ObjectDiagramLegendWithNote("Notes","^ Consent resource instances are always accessible and do not require Consent cover.")
 
-footer "Middleware NZ design for Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
+footer "Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
 
 @enduml

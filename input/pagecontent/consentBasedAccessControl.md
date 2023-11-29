@@ -161,14 +161,17 @@ The server will assess currency of a Consent for access purposes using a UTC tim
 The following diagrams show the required FHIR instance data structure for `#active` and ``#proposed` Consent instances.
 
 <figure>
-  <img src="obj-FHIR-data-consent-active.png" width="100%"/>
+  <!-- Generated from `input/images-source/obj-FHIR-data-consent-active.plantuml` -->
+  {% include obj-FHIR-data-consent-active.svg %}
   <figcaption>Figure: FHIR data representing an ACTIVE patient consent to record/share patient data in FHIR resource instances</figcaption>
 </figure>
+<br clear="all">
 
 ---
 
 <figure>
-  <img src="obj-FHIR-data-consent-proposed.png" width="100%"/>
-  <figcaption>Figure: FHIR data representing an ACTIVE patient consent to record/share patient data in FHIR resource instances</figcaption>
+  <!-- Generated from `input/images-source/obj-FHIR-data-consent-proposed.plantuml` -->
+  {% include obj-FHIR-data-consent-proposed.svg %}
+  <figcaption>Figure: FHIR data representing an PROPOSED patient consent (a provisional arrangement until patient consent can actually be obtained)</figcaption>
 </figure>
----  
+<br clear="all">

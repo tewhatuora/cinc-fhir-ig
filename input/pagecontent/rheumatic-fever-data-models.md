@@ -4,12 +4,24 @@ This section provides an overview of the design of the FHIR data representations
 
 #### FHIR resource model (Pilot phase)
 
-<img src="FHIR-resource-model-rheumaticfever-pilot.png" width="100%"/>
+<div width="90%">
+<!-- Generated from `input/images-source/FHIR-resource-model-rheumaticfever-pilot.plantuml` -->
+{% include FHIR-resource-model-rheumaticfever-pilot.svg %}
+</div>
+<br clear="all">
 
-#### FHIR careplan lifecycle (Pilot phase)
+#### FHIR careplan instance lifecycle (Pilot phase)
 
-<img src="flow-FHIR-rheumaticfever-lifecycle.png" width="100%"/>
+<div width="90%">
+<!-- Generated from `input/images-source/flow-FHIR-rheumaticfever-lifecycle.plantuml` -->
+{% include flow-FHIR-rheumaticfever-lifecycle.svg %}
+</div>
+<br clear="all">
 
-#### Secondary Prophylaxis Appointment FHIR objects (Pilot phase)
+#### Secondary prophylaxis appointment planning and recording -- FHIR objects (Pilot phase)
 
-<img src="obj-FHIR-data-rheumaticfever-appointment.png" width="100%"/>
+<div width="90%">
+<!-- Generated from `input/images-source/obj-FHIR-data-rheumaticfever-appointment.plantuml` -->
+{% include obj-FHIR-data-rheumaticfever-appointment.svg %}
+</div>
+<br clear="all">

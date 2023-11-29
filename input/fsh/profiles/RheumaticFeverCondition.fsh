@@ -46,7 +46,7 @@ Id: nz-sharedcare-rheumaticfever-condition
 // bind to the permissible SNOMED codes for RF diagnosis at registration.
 * code 1..1
 * code from rf-condition-diagnosisatregistration-code (required)
-* severity 1..1
+* severity 0..1
 
 // extensions
 * extension contains
