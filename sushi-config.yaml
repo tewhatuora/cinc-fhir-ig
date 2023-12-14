@@ -253,6 +253,7 @@ groups:
     - StructureDefinition/rf-careplan-onhold-reason
     - StructureDefinition/rf-condition-diagnosticcertainty
     - StructureDefinition/rf-condition-rhdseverity
+    - StructureDefinition/rf-condition-assessmentdate
     - StructureDefinition/rf-medicationrequest-medicationfrequency
     - StructureDefinition/nz-sharedcare-rheumaticfever-careplan
     - StructureDefinition/nz-sharedcare-rheumaticfever-careteam
