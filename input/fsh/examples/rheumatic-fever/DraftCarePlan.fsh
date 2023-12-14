@@ -26,7 +26,7 @@ Description: "Example of an RF care plan where setup is complete but no secondar
 * status = #draft
 
 * insert PatientInstanceReference(subject,MadeleineMeringue)
-* author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* author insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * careTeam[0] = Reference(SecondaryProphylaxisCareTeam)
 
 * supportingInfo[0] = Reference(PatientMedicationAllergyQuestionnaireResponse)          // ****

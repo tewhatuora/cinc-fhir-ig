@@ -21,6 +21,6 @@ Usage: #example
 * participant[+].actor insert ReferencePractitioner(99ZAAA,[[Isabel Injecta]])
 * participant[=].status = #accepted
 
-* supportingInformation[0] insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* supportingInformation[0] insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * supportingInformation[+] = Reference(Encounter-SecondaryProphylaxisAppointment)
 * comment = "The plan for this appointment is..."

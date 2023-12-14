@@ -27,5 +27,5 @@ Description: "Example of a rheumatic fever patient/lead provider encounter for d
 * location.location.identifier.value = "F3S457-C"
 * location.location.display = "PHNs Whangarei"
 
-* serviceProvider insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* serviceProvider insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 

@@ -12,7 +12,7 @@ Usage: #example
 * questionnaire = Canonical(PatientWhanauGoalsPreferencesQuestionnaire)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
-* author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* author insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * basedOn = Reference(DraftCarePlan)
 
 // NOTE: item numbering does not have to match the Questionnaire because answers relate to questions through link_id

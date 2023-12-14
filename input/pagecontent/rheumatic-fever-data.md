@@ -93,13 +93,15 @@ See the [example patient Madeleine Meringue](Patient-MadeleineMeringue.json.html
 
 Rheumatic heart disease severity is the driving factor for severity of a patient's rheumatic fever diagnosis.
 
-To adequately encode the severity values supported by the RFCCS application two FHIR elements are used:
+To adequately encode the severity values supported by the RFCCS application three FHIR elements are used:
 
-1. `Condition.severity`: this is the basic severity classifier from a FHIR Condition
+1. `Condition.severity`: this is the basic severity classifier in a stock FHIR Condition
 
-1. `RheumaticFeverCondition.rhdSeverity`` - this is a profile extension to Condition which allows a specific SNOMED code matching the patient's rheumatic heart disease situation.  
+1. `RheumaticFeverCondition.rhdSeverity` - this is a profile extension to Condition which allows a specific SNOMED code matching the patient's rheumatic heart disease situation.  
+ 
+1. `RheumaticFeverCondition.assessmentDate` - this is a profile extension to Condition which allows a specific date of assessment to be recorded (the stock `recordedDate` element of Condition is needed to capture the date of diagnosis).  
 
-The translation between the RFCCS RHD severity value and FHIR representation is given in the following table. 
+Translation between the RFCCS RHD severity value and FHIR representation is given by the following table. 
 
 |RFCCS - Rheumatic Heart Disease Severity|FHIR [Condition.severity](StructureDefinition-cinc-rheumaticfever-condition-definitions.html#Condition.severity) (SNOMED)| [*rhdSeverity*](StructureDefinition-rf-condition-rhdseverity.html) extension in RheumaticFeverCondition / [ValueSet](ValueSet-rf-condition-rhdseverity-code.html)|FHIR NzCondition.long-term-condition indicator ^|
 |:----|:----|:----|:----|
@@ -119,16 +121,4 @@ The translation between the RFCCS RHD severity value and FHIR representation is 
 
 ### FHIR data models
 
-This section provides an overview of the design of the FHIR data representations that authorized applications can use to record and interchange rheumatic fever information.
-
-#### FHIR resource model (Pilot phase)
-
-<img src="FHIR-resource-careplan-rheumaticfever-pilot.png" width="100%"/>
-
-#### FHIR careplan lifecycle (Pilot phase)
-
-<img src="flow-FHIR-rheumaticfever-lifecycle.png" width="100%"/>
-
-#### Secondary Prophylaxis Appointment FHIR objects (Pilot phase)
-
-<img src="obj-FHIR-data-rheumaticfever-appointment.png" width="100%"/>
+These diagrams have moved to a separate page.  See the rheumatic fever section of the navigation in this IG.

@@ -134,6 +134,7 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
     -- extensions --
       * **rhdSeverity**: code (in dedicated ValueSet)
       * **diagnosticCertainty**: code (in dedicated ValueSet)
+      * **assessmentDate**: date (UTC)
   }
 
   class ":Medication" as MED <<MEDICATION>> #GhostWhite ##[bold] {

@@ -125,7 +125,7 @@ This API **DOES NOT** resolve absolute Urls (that is, it does not check that the
     "identifier" : {
       "use" : "official",
       "system" : "https://standards.digital.health.nz/ns/hpi-organisation-id",
-      "value" : "GOM086-B"
+      "value" : "G0M086-B"
     },
     "display" : "Te Tai Tokerau Rheumatic Fever Secondary Prevention Service"
   },

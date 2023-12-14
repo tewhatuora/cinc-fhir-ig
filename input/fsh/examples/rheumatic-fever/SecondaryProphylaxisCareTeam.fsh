@@ -12,12 +12,12 @@ Usage: #example
 * name = "Madeleine Meringue's secondary prophylaxis team"
 * status = #active
 // lead provider
-* participant[0].member insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* participant[0].member insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 // lead nurse
 * participant[+].role[0] insert CareTeamRole(224535009,[[Registered nurse]])
 * participant[=].member insert ReferencePractitioner(99ZAAA,[[Isabel Injecta]])
-* participant[=].onBehalfOf insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* participant[=].onBehalfOf insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 // shared care provider
 * participant[+].member insert ReferenceOrganisation(G00030-C,[[Taranaki]])

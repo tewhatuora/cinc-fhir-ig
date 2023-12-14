@@ -17,7 +17,7 @@ Usage: #example
 
 * performer insert ReferencePractitioner(99ZAAA,[[Isabel Injecta]])
 
-* requester insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* requester insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 

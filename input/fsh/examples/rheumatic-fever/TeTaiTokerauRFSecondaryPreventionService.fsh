@@ -9,6 +9,6 @@ Usage: #example
 
 * identifier.use = #official
 * identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-* identifier.value = "GOM086-B"
+* identifier.value = "G0M086-B"
 
 * name = "Te Tai Tokerau Rheumatic Fever Secondary Prevention Service"

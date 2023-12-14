@@ -1,5 +1,31 @@
 # Changelog
 
+## v0.3.6 (2023-12-14)
+
+### Further extension of Condition in RheumaticFeverCondition profile
+
+One further extension is now defined, in the *RheumaticFeverCondition* profile of `Condition` resource.  The new extension named `assessmentDate` enables API consumers to record the date of RHD severity assessment separately from the date of diagnosis (`recordedDate`).
+
+The corresponding example instance has been updated to demonstrate usage of this extension.  The FHIR data model and rheumatic fever data documentation has been revised to show the additional extension element.  
+
+### Correction to rheumatic fever provider HPI identifiers
+
+All identifier references to the two HPI pilot service provider orgs have been corrected to `G0M086 / G0M087`.  Previously the second character of these identifiers was incorrectly specified as upper case letter 'O' rather than '0' zero.
+
+### Advance warning of change to Official URL
+
+A warning message about this is now displayed in the [IG home page](https://https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/) and in rheumatic fever resource profile pages.
+
+### Terminology
+
+One further type code has been added to the [ExternalSystemIdentifierTypeValueSet](ValueSet-external-system-identifier-type-code.html) ValueSet to enable clients to designate identifiers to external encounter objects.
+
+### Documentation
+
+In the rheumatic fever section of the documentation, the FHIR design diagrams (which were moved onto their own page in IG v0.3.5) are no longer duplicated on the rheumatic fever *data mappings and translation* page.
+
+---
+
 ## v0.3.5 (2023-11-24)
 
 ### Advance warning of change to Official URL
@@ -33,7 +59,7 @@ As a result of a design decision to constrain values of medication frequency to 
 
 #### IG Documentation
 
-- Added a section to the *API Developer Guide* about validation of FHIR resource references. 
+- Added a section to the *API Developer Guide* about validation of FHIR resource references.
 
 - Updates to *FHIR Resource Data Model*:
 
@@ -133,7 +159,7 @@ Developers of client applications are advised to parameterise all instances of t
     can be used on has been changed to the applicable base type instead of the profiled type.  This change means clients can use
     the extensions without encountering hapi validator errors / Bad Request 400 errors.
 
-- Identifiers from **EPISurv**, the national system which tracks notifiable disease events, are no longer to be recored on `RheumaticFeverCarePlan` and have moved to `RheumaticFeverCondition` resources.  Relevant example instances have been updated.
+- Identifiers from **EPISurv**, the national system which tracks notifiable disease events, are no longer to be recorded on `RheumaticFeverCarePlan` and have moved instead to the `RheumaticFeverCondition` profile.  Relevant example instances have been updated.
 
 - *validation errors in example resources* -- updates to address certain errors raised by the [FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator):
   
