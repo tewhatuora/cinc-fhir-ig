@@ -20,7 +20,7 @@ RuleSet: makeEncounterContent
 * location.location.identifier.value = "F3S457-C"
 * location.location.display = "PHNs Whangarei"
 
-* serviceProvider insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* serviceProvider insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 // MedicationStatement: benzathine medication and associated lignocaine pain relief
 RuleSet: makeMedStmtContent
@@ -66,7 +66,7 @@ RuleSet: makeQRContent
 * questionnaire = Canonical(SecondaryProphylaxisHealthAssessmentQuestionnaire)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
-* author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* author insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * basedOn = Reference(CarePlanWithOneAppointmentCompleted)
 
 * encounter.reference = "http://example.org/fhir/Encounter/1"    // ***** alpha instance in the Bundle  *****

@@ -1,42 +1,36 @@
 @startuml flow-FHIR-rheumaticfever-lifecycle
 
-title "Rheumatic fever FHIR resource creation phases and checkpoints"
-footer "Middleware NZ design for Health NZ, %date('yyyy.MM.dd')"
+title "Typical sequence of rheumatic fever FHIR resource instance creation"
+
+skinparam dpi 400
+scale 400 width
 
 skinparam BoxPadding 10
 skinparam ParticipantPadding 5
-skinparam roundcorner 10
-
+skinparam roundcorner 2
 skinparam sequenceArrowThickness 2
-
-skinparam dpi 400
-scale 250 width
+skinparam TitleFontSize 20
 
 [*] -d-> P : Patient not registered /no FHIR records.
+[*] ---> CP : Patient has an existing FHIR representation.
 
-state patient_registration_phase #OrangeRed/White {
+state "patient registration" as REGO #FloralWhite {
   
   state "NzPatient created/updated" as P {
-    state NzPatient #LightSalmon
+    state NzPatient #LightGray
   }
 
   state "**CarePlan** created" as CP {
-    state CarePlan #LightSalmon
-    state Condition #LightSalmon
+    state CarePlan #Red
+    state Condition #LimeGreen
   }
 
-  state "**Consent** created\nand linked" as CONSENT {
-    state Consent #LightSalmon
+  state "**Consent** created and linked" as CONSENT {
+    state Consent #Orange
   }
 
-  state "CarePlan -> **#draft**" as REG_COMPLETE #OrangeRed ##[bold]
-  note left of REG_COMPLETE 
-    When registration complete, CarePlan
-    can be published in **#draft** state.
-    This lets integrated sector health 
-    applications see that the patient is
-    on NZ Rheumatic Fever register.
-  endnote
+  state "CarePlan --> **#draft**" as REG_COMPLETE #Red ##[bold]
+  
 
   P -r-> CP : ok
   CP -d-> CONSENT : ok
@@ -44,29 +38,36 @@ state patient_registration_phase #OrangeRed/White {
 
 }
 
+note right of REG_COMPLETE 
+  On registration, CarePlan moves into **#draft** state.
+  Other sector health applications can interpret from this 
+  that a patient is "registered" with an NZ RF Secondary 
+  Prevention Service.
+endnote
+
 state SETUP <<fork>>
 
 REG_COMPLETE -d-> SETUP
 
-state careplan_setup_phase #PaleGreen/White {
+state "care plan setup" as SETUP #FloralWhite {
 
   state "Initial diagnosis completed" as DIAG {
-    state "Condition (updated)" #LightSalmon
+    state "Condition (updated)" #LimeGreen
   }
 
   state "CareTeam defined" as CARETEAM {
     state CareTeam #LightSalmon
   }
   state "Allergies recorded" as ALLERGY {
-    state "Questionnaire\nResponse type A" #LightSalmon
+    state "Questionnaire type A\nResponse" #SkyBlue
   }
 
   state "Medications & Follow-up\nGuidance captured" as FOLLOW {
-    state "Questionnaire\nResponse type B" #LightSalmon
+    state "Questionnaire type B\nResponse" #SkyBlue
   }
   
   state "Patient / Whanau \n Goals & Prefs\n recorded" as GOALS {
-    state "Questionnaire\nResponse type C" #LightSalmon
+    state "Questionnaire type C\nResponse" #SkyBlue
   }
 
   SETUP --> DIAG
@@ -84,89 +85,93 @@ state careplan_setup_phase #PaleGreen/White {
   GOALS --> ALLSETUP
 
   note right of ALLSETUP 
-    go back and repeat if necessary
+    when all parts ready
   end note
 
 }
 
-ALLSETUP -d-> ACT1
+state "CarePlan --> **#active**" as CPA #Red
 
+ALLSETUP -d-> CPA
 
-state "Medication planning" as MEDPLAN #SkyBlue/White {
-  state "Plan period of medication (say 2023)" as ACT1 {
-    state "Medication\nRequest 2023" #LightSalmon
-    state "Medication (Benzathine)" #LightSalmon
+CPA --> MEDPLAN
+
+state "Medication planning" as MEDPLAN #FloralWhite  {
+  state "Plan a period of medication (say **2023**)" as MEDREQUEST {
+    state "Medication\nRequest 2023" as MR #MediumPurple
+    state "Medication (Benzathine)" #CadetBlue
+    note bottom of MR
+      SP medication frequency 
+      is set (say every 28 days)
+    end note
   }
 
   state "Book appointments" as ACT2 {
-    state "Appointment 1\n**#booked**" #LightSalmon
-    state "Appointment 2\n**#booked**" #LightSalmon
-    state "Appointment N\n**#booked**" #LightSalmon
+    state "Appointment July 11\n**#booked**" as AP1 #OrangeRed
+    state "Appointment August 8 2023\n**#booked**" as AP2 #OrangeRed
+    state "Appointment Sept. 5 2023\n**#booked**" as AP3 #OrangeRed
+    state "more appointments..." as AP4 #OrangeRed
   }
 
-  state "MedicationRequest --> **#active** /\n appointments **#booked**" as PLANDONE #White/RoyalBlue ##[bold]
+  state "MedicationRequest --> **#active** \n& appointments planned" as PLANDONE #White/MediumPurple
 
   note left of PLANDONE
-    When sufficient medication 
-    planning has been done
+    When medication planned
+    for a sufficient period
   end note
 
-  state "CarePlan --> **#active**" as CPA #PaleGreen ##[bold]
+  state "CarePlan --> **#active**" as CPA #Red
 
-  PLANDONE --> CPA
-
-  note left of CPA
-    CarePlan moves into **#active**
-    status signifying care planned and underway
-  end note
-
-  ACT1 -l-> ACT2
+  MEDREQUEST --> ACT2
   ACT2 -d-> PLANDONE
 }
 
-CPA --> APPT1
+PLANDONE --> APPOINTMENTS
 
-state "Medication appintment recording" as APPOINTMENTS #white/MediumPurple {
-  state "First appointment data capture (say March 2023)" as APPT1 {
-    state "Medication\nStatement (1)" #LightSalmon
-    state "Questionnaire\nResponse type D (1)" #LightSalmon
-    state "Appt\nEncounter (1)" #LightSalmon
+state "Secondary prophylaxis activity recording" as APPOINTMENTS #FloralWhite {
+  state "First appointment data capture (say **August 2023**)" as APPT1 {
+    state "Medication\nStatement (aug)" #PaleGreen
+    state "Questionnaire type D\nResponse (aug)" #SkyBlue
+    state "Encounter of\n aug appointment" #Yellow
+    state "Appointment (aug)\n --> **#fulfilled**" #OrangeRed
   }
 
-  state "Second appointment data capture (say April 2023)" as APPT2 {
-    state "Medication\nStatement (2)" #LightSalmon
-    state "Questionnaire\nResponse type D (2)" #LightSalmon
-    state "Appt\nEncounter (2)" #LightSalmon
+  state "Second appointment data capture (say **September 2023**)" as APPT2 {
+    state "Medication\nStatement (sept)" #PaleGreen
+    state "Questionnaire type D\nResponse (sept)" #SkyBlue
+    state "Encounter of\n sept appointment" #Yellow
+    state "Appointment (sept)\n--> **#fulfilled**" #OrangeRed
   }
 
   APPT1 --> APPT2
 
-  state "... resource triples for further appointments ..." as APPTX {
+  state "Similar further instance sets ..." as APPTX {
   }
 
-  APPT2 -d-> APPTX
+  note left of APPTX 
+    FHIR resources accumulate
+    as rheumatic fever patient
+    care continues.
+  end note
 
+  APPT2 -d-> APPTX
 }
 
-
-state "CarePlan **#active**" as CPA2 #PaleGreen ##[bold]
-state "CarePlan **#on-hold**" as CPH #PaleGreen ##[bold]
-state "CarePlan cancelled (**#revoked**)" as CPR #PaleGreen ##[bold]
-state "CarePlan closed (**#completed**)" as CPC #PaleGreen ##[bold]
-
+state "ongoing care coordination" as ONGOING #FloralWhite {
+  state "CarePlan **#active**" as CPA2 #Red ##[bold]
+  state "CarePlan **#on-hold**" as CPH #Red ##[bold]
+  state "CarePlan cancelled (**#revoked**)" as CPR #Red ##[bold]
+  state "CarePlan closed (**#completed**)" as CPC #Red ##[bold]
+}
 APPTX -d-> CPA2
-note left of CPA2  
-  FHIR resources accumulate
-   as rheumatic fever patient
-   care continues.
-end note
 
 CPA2 -> CPH
 CPA2 <- CPH
 CPA2 -d-> CPC
-CPH -> CPR
-CPH <- CPA2
-CPR -> [*]
-CPC -> [*]
+CPH ---> CPR
+CPR --> [*]
+CPC --> [*]
+
+footer "Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
 
 @enduml

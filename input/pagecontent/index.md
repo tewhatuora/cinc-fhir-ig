@@ -11,6 +11,14 @@ This IG brings together all the artifacts necessary to understand and use the FH
 
 It is based on [FHIR R4](http://hl7.org/fhir/) and NZBase IG 2.0.
 
+### Warning: The official Url of this IG will soon be changing
+  
+The official Url of this Implementation Guide is expected to change in early 2024.
+
+The Url domain will move to `digital.health.nz` and the IG will likely be renamed.
+
+Developers of applications that consume this API are advised to make the official Url base configurable in their applications -- the base Url is currently `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/`
+
 ## Description of tabs
 
 - [Business Context](./businessContext.html): Overview of shared care scenarios and use cases this API is intended to support

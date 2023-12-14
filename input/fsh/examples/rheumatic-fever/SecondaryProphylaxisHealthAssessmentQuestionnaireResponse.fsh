@@ -12,7 +12,7 @@ Usage: #example
 * questionnaire = Canonical(SecondaryProphylaxisHealthAssessmentQuestionnaire)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
-* author insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* author insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * basedOn = Reference(DraftCarePlan)
 * encounter = Reference(Encounter-SecondaryProphylaxisAppointment)
 

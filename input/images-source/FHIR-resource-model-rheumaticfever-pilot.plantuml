@@ -1,7 +1,7 @@
 @startuml FHIR-resource-model-rheumaticfever-pilot
 
 top to bottom direction
-scale 800 width
+scale 400 width
 
 skinparam ActivityDiamondBackgroundColor #RoyalBlue
 skinparam ArrowColor #RoyalBlue   
@@ -134,6 +134,7 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
     -- extensions --
       * **rhdSeverity**: code (in dedicated ValueSet)
       * **diagnosticCertainty**: code (in dedicated ValueSet)
+      * **assessmentDate**: date (UTC)
   }
 
   class ":Medication" as MED <<MEDICATION>> #GhostWhite ##[bold] {
@@ -146,8 +147,8 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
     ---
     *status: code //medicationRequestStatus//
     *intent: ""#plan""
-    *authoredOn: dateTime
-    *validityPeriod: dateTime
+    *authoredOn: dateTime (UTC)
+    *validityPeriod: dateTime (UTC)
     * dosageInstruction:
       \troute: SNOMED
       \tsite: SNOMED
@@ -164,6 +165,7 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
     --
     status: ""#completed""
     code: NZMT
+    effectiveDatePeriod: UTC dateTime  
     note: brand of benzathine used
   }
 
@@ -331,5 +333,7 @@ legend left
   | <back:#OrangeRed>orange red\n | Canonical shared resource defined by TWO |
   | <back:#SkyBlue>sky blue\n| Logical identifier reference to records in other national systems |
 endlegend
+
+footer "Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
 
 @enduml

@@ -9,5 +9,5 @@ Usage: #example
 
 * name = "Group of lead rheumatic fever provider organisations"
 * status = #active
-* participant[0].member insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
-* participant[1].member insert ReferenceOrganisation(GOM087-D,[[Waikato Rheumatic Fever Secondary Prevention Service]])
+* participant[0].member insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* participant[1].member insert ReferenceOrganisation(G0M087-D,[[Waikato Rheumatic Fever Secondary Prevention Service]])

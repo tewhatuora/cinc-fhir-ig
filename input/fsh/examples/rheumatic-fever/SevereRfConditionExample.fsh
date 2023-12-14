@@ -32,3 +32,6 @@ Description: "An example of a rheumatic fever Condition"
 
 * extension[diagnosticCertainty].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-condition-diagnosticcertainty"
 * extension[diagnosticCertainty].valueCoding = $RFdiagnosticCertaintyCS#probable "probable"
+
+* extension[assessmentDate].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-condition-assessmentdate"
+* extension[assessmentDate].valueDate = "2022-04-14"

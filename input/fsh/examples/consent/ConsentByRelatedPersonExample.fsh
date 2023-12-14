@@ -18,8 +18,8 @@ a `RelatedPerson` FHIR resource.
 * dateTime = "2023-06-12T02:30:35.982Z"
 
 * patient insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
-* organization insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
-* performer[0] insert ReferenceOrganisation(GOM086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* organization insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
+* performer[0] insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * performer[+] insert ReferenceRelatedPerson ( ...)
 
 * contained = contained-Related-Person  // contained resource identifies the relative who gave consent on patient's behalf
