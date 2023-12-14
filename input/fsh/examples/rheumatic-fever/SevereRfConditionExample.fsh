@@ -4,8 +4,8 @@ Usage: #example
 Description: "An example of a rheumatic fever Condition"
 
 * meta.profile = Canonical(RheumaticFeverCondition)
-* meta.versionId = "2"
-* meta.lastUpdated = "2023-11-07T04:00:00Z"
+* meta.versionId = "3"
+* meta.lastUpdated = "2023-12-14T20:00:00Z"
 
 * identifier[NationalSystem][0] insert SalesforceConditionIdentifier([[CON-0206]])     // corresponding salesforce record
 * identifier[NationalSystem][+] insert  EpisurvNumber(21-383414-AK)                    // EPISurv nunber as notified to in diagnosis
