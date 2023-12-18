@@ -3,7 +3,7 @@ InstanceOf: RheumaticFeverPatient
 Description: "Example of a teenager patient who is NZ European ethnicity but speaks tagalog"
 Usage: #example
 
-* meta.profile = Canonical(RheumaticFeverPatient)
+* meta.profile = Canonical(RheumaticFeverPatient|1.0.0)
 * meta.versionId = "2"
 
 * extension[interpreterRequired].url = "http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired"

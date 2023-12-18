@@ -2,7 +2,7 @@
 
 ## v0.3.7 (2023-12-19)
 
-### Versioning of canonical definitions
+### Business versioning of canonical definitions
 
 #### Questionnaires
 All four rheumatic fever canonical Questionnaire instances now have a [business version]((https://build.fhir.org/resource.html#versions) set to "1.0.0".
@@ -11,9 +11,9 @@ The example `QuestionnaireResponse`s for these Questionnaires now use versioned 
 `"https:/build.fhir.org/ig/cinc-fhir-ig/Questionnaire/MedicationsAndFollowUpGuidanceQuestionnaire|1.0.0"`
 
 #### Profiles
-The five rheumatic fever resource profiles now have a [business version]((https://build.fhir.org/resource.html#versions) set to "1.0.0".
+The five rheumatic fever resource profiles of `CarePlan | Patient | Condition | CareTeam | MedicationRequest` now have a [business version]((https://build.fhir.org/resource.html#versions) set to "1.0.0" instead of the IG version.
 
-Corresponding example instances using these profiles now have a versioned FHIR canonical reference in their metadata eg.
+Corresponding example instances of these profiled types now use a versioned FHIR canonical reference in their metadata eg.
 
 ```json
 {
@@ -27,6 +27,13 @@ Corresponding example instances using these profiles now have a versioned FHIR c
   },
   ...
 ```
+
+### Example instance profile changes
+
+A couple of example instances now claim their resource profile as the profile (version "1.0.0") *in this IG* whereas previously they claimed the base FHIR R4B profile:
+
+- *SecondaryProphylaxisCareTeam* (`RheumaticFeverCareTeam`)
+- *PlannedMedicationRequestExample* (`RheumaticFeverMedicationRequest`)
 
 ---
 

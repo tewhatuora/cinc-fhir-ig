@@ -3,7 +3,7 @@ InstanceOf: RheumaticFeverPatient
 Usage: #example
 Description: "An example rheumatic fever patient who is Māori ethnicity and speaks Māori"
 
-* meta.profile = Canonical(RheumaticFeverPatient)
+* meta.profile = Canonical(RheumaticFeverPatient|1.0.0)
 * meta.versionId = "1"
 
 * extension[interpreterRequired].url = "http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired"

@@ -3,7 +3,7 @@ InstanceOf: RheumaticFeverCareTeam
 Description: "Example of secondary prophylaxis care team membership"
 Usage: #example
 
-* meta.profile = Canonical(CareTeam)
+* meta.profile = Canonical(RheumaticFeverCareTeam|1.0.0)
 * meta.versionId = "2"
 * meta.lastUpdated = "2023-11-08T07:20:00Z"
 

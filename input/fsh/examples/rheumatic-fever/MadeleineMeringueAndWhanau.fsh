@@ -3,7 +3,7 @@ InstanceOf: RheumaticFeverPatient
 Description: "Example of a teenager patient with whanau members defined as patient contacts"
 Usage: #example
 
-* meta.profile = Canonical(RheumaticFeverPatient)
+* meta.profile = Canonical(RheumaticFeverPatient|1.0.0)
 * meta.versionId = "1"
 
 * extension[interpreterRequired].url = "http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired"
