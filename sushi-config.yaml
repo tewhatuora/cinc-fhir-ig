@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Te Whatu Ora Shared Care FHIR API
 description: Te Whatu Ora Shared Care FHIR API
 status: active
-version: 0.3.6
+version: 0.3.7
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -68,6 +68,7 @@ parameters:
   show-inherited-invariants: false
   bundle-references-resolve: false
   default-contact: true              # DG 13/11/2023: publish contact info for all resources (using canonical meta contact where specified)
+  apply-version: false               # 19/12/2023: stop publisher from overwriting artefact-specific versions
   default-version: true              # DG 13/11/2023: versions of canonicals that specify their own version no longer overwritten by the IG publisher
   suppressed-ids: $examples          # DG 13/11/2023: stop IG publisher generating ids for all example resource instances
   display-warnings: true             # DG 13/11/2023: stop IG publisher reporting terminology problems as errors

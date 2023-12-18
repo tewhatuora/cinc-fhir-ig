@@ -3,7 +3,7 @@ InstanceOf: RheumaticFeverCarePlan
 Usage: #example
 Description: "Example of an RF care plan where setup is complete but no secondary prevention activities yet planned."
 
-* meta.profile = Canonical(RheumaticFeverCarePlan)
+* meta.profile = Canonical(RheumaticFeverCarePlan|1.0.0)
 * meta.versionId = "2"
 * meta.lastUpdated = "2023-11-07T04:00:00Z"
 

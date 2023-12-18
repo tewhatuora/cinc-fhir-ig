@@ -1,5 +1,35 @@
 # Changelog
 
+## v0.3.7 (2023-12-19)
+
+### Versioning of canonical definitions
+
+#### Questionnaires
+All four rheumatic fever canonical Questionnaire instances now have a [business version]((https://build.fhir.org/resource.html#versions) set to "1.0.0".
+
+The example `QuestionnaireResponse`s for these Questionnaires now use versioned FHIR "questionnaire" references eg.
+`"https:/build.fhir.org/ig/cinc-fhir-ig/Questionnaire/MedicationsAndFollowUpGuidanceQuestionnaire|1.0.0"`
+
+#### Profiles
+The five rheumatic fever resource profiles now have a [business version]((https://build.fhir.org/resource.html#versions) set to "1.0.0".
+
+Corresponding example instances using these profiles now have a versioned FHIR canonical reference in their metadata eg.
+
+```json
+{
+  "resourceType" : "CarePlan",
+  "meta" : {
+    "versionId" : "2",
+    "lastUpdated" : "2023-11-07T04:00:00Z",
+    "profile" : [
+      🔗 "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-careplan|1.0.0"
+    ]
+  },
+  ...
+```
+
+---
+
 ## v0.3.6 (2023-12-14)
 
 ### Further extension of Condition in RheumaticFeverCondition profile

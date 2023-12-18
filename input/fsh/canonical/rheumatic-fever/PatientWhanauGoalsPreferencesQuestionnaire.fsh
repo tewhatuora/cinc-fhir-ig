@@ -10,6 +10,7 @@ Description: "Gathers patient and whanau preferences and goals for rheumatic fev
 * identifier[=].value = "PatientWhanauGoalsPreferencesQuestionnaire"
 * identifier[=].period.start = "2023-10-16"
 
+* version = "1.0.0"
 * date = "2023-10-16"
 * status = #draft
 * experimental = false

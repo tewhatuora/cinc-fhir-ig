@@ -3,7 +3,7 @@ InstanceOf: RheumaticFeverCarePlan
 Usage: #example
 Description: "Example of an RF care plan that has gone on-hold, after the first secondary prophylaxis appointment has been attended."
 
-* meta.profile = Canonical(RheumaticFeverCarePlan)
+* meta.profile = Canonical(RheumaticFeverCarePlan|1.0.0)
 * meta.versionId = "2"
 * meta.lastUpdated = "2023-11-07T04:00:00Z"
 
