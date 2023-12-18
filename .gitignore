@@ -9,3 +9,5 @@ Thumbs.db
 /out
 /localscripts/node_modules
 /localscripts/package-lock.json
+*.index.db
+*.index.json

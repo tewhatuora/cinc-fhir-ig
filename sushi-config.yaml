@@ -65,6 +65,7 @@ dependencies:
 # https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
 #
 parameters:
+  apply-version: false
   show-inherited-invariants: false
   bundle-references-resolve: false
   default-contact: true              # DG 13/11/2023: publish contact info for all resources (using canonical meta contact where specified)

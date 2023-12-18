@@ -5,6 +5,7 @@ Description: "A response to this questionnaire is used by Consent resources that
 
 * language = #en-NZ
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDPrivacyStatementQuestionTemplate"
+* version = "9.9.9"
 
 * identifier[0].use = #official
 * identifier[=].value = "COVIDPrivacyStatementQuestionTemplate"
