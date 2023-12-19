@@ -2,7 +2,7 @@ ValueSet: RheumaticFeverCarePlanCategoryValueSet
 Id: rf-careplan-category-code
 Title: "Rheumatic fever care plan category codes"
 Description:  "This value set defines a single code for use as a canonical category for NZ rheumatic fever FHIR care plans"
-* ^version = "1.0"
+* ^version = "1.0.0"
 * ^experimental = false
 * ^status = #active
 

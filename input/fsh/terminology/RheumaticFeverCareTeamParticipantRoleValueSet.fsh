@@ -2,7 +2,7 @@ ValueSet: RheumaticFeverCareTeamParticipantRoleValueSet
 Id: rf-careteam-participant-role-code
 Title: "Rheumatic fever patient care team participant role codes"
 Description:  "This value set includes codes for the roles participants can perform in a rheumatic fever patient care team"
-* ^version = "1.0"
+* ^version = "1.0.0"
 * ^experimental = false
 * ^status = #active
 
