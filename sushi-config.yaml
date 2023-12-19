@@ -32,7 +32,7 @@ publisher:
 #     version: 1.0.0
 #
 dependencies:
-  fhir.org.nz.ig.base: 2.0.0
+  fhir.org.nz.ig.base: 3.0.0
   hl7.fhir.uv.sdc: 3.0.0
 
 #
