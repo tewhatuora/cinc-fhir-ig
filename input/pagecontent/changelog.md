@@ -2,6 +2,12 @@
 
 ## v0.3.7 (2023-12-19)
 
+### Fixed category code in CareTeams
+
+The SNOMED code required by the rheumatic fever profile of CareTeam was incorrect and has now been revised to `320741000210108`.
+
+Note this is a new SNOMED code for the New Zealand edition and is not yet visible in SNOMED CT browsers as of this update.
+
 ### Business versioning of canonical definitions
 
 As of this IG, a business version of "1.0.0" has been set in definitions and canonical instances.  Future updates from this point will increment these version numbers in the applicable artifacts using [semantic versioning](https://build.fhir.org/resource.html#versions).
@@ -137,7 +143,7 @@ Developers of client applications are advised to parameterise all instances of t
 
 - Whanau care teams are now represented directly in the `RheumaticFeverPatient` resource, as `.contact[]` members.
 
-- The `RheumaticFeverCareTeam` resource profile will now be used only for *secondary prophylaxis* care teams.  So all instances of `RheumaticFeverCareTeam` resources are categorised sct#320721000210108 "Secondary prophylaxis team"
+- The `RheumaticFeverCareTeam` resource profile will now be used only for *secondary prophylaxis* care teams.  So all instances of `RheumaticFeverCareTeam` resources are categorised sct#320741000210108 "Secondary prophylaxis team"
 
 - A new example `RheumaticFeverPatient` instance has been added showing how to model whanau members as contacts
   **[MadeleineMeringueAndWhanau](Patient-MadeleineMeringueAndWhanau.html)**

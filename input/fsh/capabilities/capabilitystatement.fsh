@@ -134,7 +134,7 @@ This server supports one subtype of FHIR CareTeam - refer to Profiles
 * rest.resource[=].searchParam[+].name = "category"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#CareTeam-category"
 * rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Rheumatic fever care teams will be found by one of two category (NZ SNOMED Edition) code category=http://snomed.sct/info|320751000210106 or #320741000210108"
+* rest.resource[=].searchParam[=].documentation = "Rheumatic fever care teams will be found by the category code (NZ SNOMED Edition) category=http://snomed.sct/info|320741000210108"
 * rest.resource[=].searchParam[+].name = "_profile"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
 * rest.resource[=].searchParam[=].type = #reference

@@ -48,6 +48,6 @@ Id: nz-sharedcare-rheumaticfever-careteam
 // So for now, this profile requires that the canonical ValueSet will be the one defined in this IG
 
 * category from rf-careteam-category-code (required)
-* category = $sct#320721000210108 "Secondary prophylaxis team"
+* category = $sct#320741000210108 "Secondary prophylaxis team"
 
 // elements from base profile prohibited - NONE
