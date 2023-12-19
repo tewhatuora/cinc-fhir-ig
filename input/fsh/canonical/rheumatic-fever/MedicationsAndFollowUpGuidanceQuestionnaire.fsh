@@ -13,6 +13,7 @@ Description: "Gathers information in secondary prophylaxis planning which guides
 * date = "2023-11-10"
 * status = #draft
 * experimental = false
+* version = "1.0.0"
 
 * name = "MedicationsAndFollowUpGuidanceQuestionnaire"
 * title = "Medications and Follow-up Guidance Questionnaire"

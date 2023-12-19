@@ -3,7 +3,7 @@ InstanceOf: RheumaticFeverCarePlan
 Usage: #example
 Description: "Example of the most basic RF care plan: not fully setup and indicates only that a patient registered with RF service."
 
-* meta.profile = Canonical(RheumaticFeverCarePlan)
+* meta.profile = Canonical(RheumaticFeverCarePlan|1.0.0)
 * meta.versionId = "2"
 * meta.lastUpdated = "2023-11-07T04:00:00Z"
 

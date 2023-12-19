@@ -2,7 +2,7 @@ ValueSet: ExternalSystemIdentifierTypeValueSet
 Id: external-system-identifier-type-code
 Title: "External identifier type codes"
 Description:  "This value set defines the codes that differentiate types of external identifiers held in FHIR resource Identifiers"
-* ^version = "1.0"
+* ^version = "1.0.0"
 * ^experimental = false
 // * ^url = "https://nzhts.digital.health.nz/fhir/ValueSet/xxxxx"
 * ^status = #active

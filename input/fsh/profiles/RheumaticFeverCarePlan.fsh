@@ -5,6 +5,7 @@ Title: "Rheumatic Fever CarePlan"
 Description: "Profiles shared care plans used in NZ for management of rheumatic fever cases with suspected acute rheumatic fever"
 Id: nz-sharedcare-rheumaticfever-careplan
 
+* ^version = "1.0.0"
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a secondary prevention care plan for a NZ rheumatic fever patient"
 * insert metaContactDetail([[David Grainger]],[[david.grainger@middleware.co.nz]])

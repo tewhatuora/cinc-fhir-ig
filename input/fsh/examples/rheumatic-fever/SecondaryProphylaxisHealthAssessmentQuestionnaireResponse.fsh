@@ -9,7 +9,7 @@ Usage: #example
 
 * status = #completed
 * authored = "2023-08-08T01:08:00.504Z"   // UTC, assumed to be the time of information collection during the appointment
-* questionnaire = Canonical(SecondaryProphylaxisHealthAssessmentQuestionnaire)
+* questionnaire = Canonical(SecondaryProphylaxisHealthAssessmentQuestionnaire|1.0.0)
 
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 * author insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])

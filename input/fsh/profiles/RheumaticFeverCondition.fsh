@@ -4,6 +4,7 @@ Title: "Rheumatic Fever Condition"
 Description: "This profile contains diagnosis code and adds rheumatic heart disease severity and diagnosis certainty extensions to the base NzCondition resource."
 Id: nz-sharedcare-rheumaticfever-condition
 
+* ^version = "1.0.0"
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Profiles a condition to add severity and diagnostic certainty classifiers and an extra assessment date for capture of NZ rheumatic fever case registration data"
 * insert metaContactDetail([[David Grainger]],[[david.grainger@middleware.co.nz]])

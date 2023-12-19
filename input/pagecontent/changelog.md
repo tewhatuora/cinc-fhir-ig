@@ -1,5 +1,50 @@
 # Changelog
 
+## v0.3.7 (2023-12-19)
+
+### Business versioning of canonical definitions
+
+As of this IG, a business version of "1.0.0" has been set in definitions and canonical instances.  Future updates from this point will increment these version numbers in the applicable artifacts using [semantic versioning](https://build.fhir.org/resource.html#versions).
+
+#### Questionnaires
+
+All four rheumatic fever canonical Questionnaire instances now have a [business version](https://build.fhir.org/resource.html#versions) set to "1.0.0".
+
+The example `QuestionnaireResponse`s for these Questionnaires now use versioned FHIR "questionnaire" references eg.
+`"https:/build.fhir.org/ig/cinc-fhir-ig/Questionnaire/MedicationsAndFollowUpGuidanceQuestionnaire|1.0.0"`
+
+#### Profiles
+
+The five rheumatic fever resource profiles of `CarePlan | Patient | Condition | CareTeam | MedicationRequest` now have a [business version](https://build.fhir.org/resource.html#versions) set to "1.0.0" instead of the IG version.
+
+Corresponding example instances of these profiled types now use a versioned FHIR canonical reference in their metadata eg.
+
+```json
+{
+  "resourceType" : "CarePlan",
+  "meta" : {
+    "versionId" : "2",
+    "lastUpdated" : "2023-11-07T04:00:00Z",
+    "profile" : [
+      🔗 "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-careplan|1.0.0"
+    ]
+  },
+  ...
+```
+
+#### ValueSets
+
+`ValueSet`s defined in this IG now have their own business version numbers set to "1.0.0" as of this IG release.
+
+### Example instance profile changes
+
+A couple of example instances now claim their resource profile as the profile (version "1.0.0") *in this IG* whereas previously they claimed the base FHIR R4B profile:
+
+- *SecondaryProphylaxisCareTeam* (`RheumaticFeverCareTeam`)
+- *PlannedMedicationRequestExample* (`RheumaticFeverMedicationRequest`)
+
+---
+
 ## v0.3.6 (2023-12-14)
 
 ### Further extension of Condition in RheumaticFeverCondition profile
@@ -12,7 +57,7 @@ The corresponding example instance has been updated to demonstrate usage of this
 
 All identifier references to the two HPI pilot service provider orgs have been corrected to `G0M086 / G0M087`.  Previously the second character of these identifiers was incorrectly specified as upper case letter 'O' rather than '0' zero.
 
-### Advance warning of change to Official URL
+### Second advance warning of change to Official URL
 
 A warning message about this is now displayed in the [IG home page](https://https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/) and in rheumatic fever resource profile pages.
 
@@ -79,7 +124,7 @@ As a result of a design decision to constrain values of medication frequency to 
 
 ## v0.3.4 (2023-11-09)
 
-### Advance warning of change to Official URL
+### Warning of change to Official URL
 
 Current official URL: `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/`
 In an upcoming version of this IG, the Official URL (aka canonical URL) will change to a different hostname in the `digital.health.nz` domain.  In addition the name of this IG will change.

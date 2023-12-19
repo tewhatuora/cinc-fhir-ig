@@ -2,7 +2,7 @@ ValueSet: RheumaticFeverMedicationRequestMedicationFrequencyValueSet
 Id: rf-medicationrequest-frequency-code
 Title: "Rheumatic fever planned medication frequency codes"
 Description:  "This value set defines codes for standard frequencies of secondary prophylaxis medication planning (that is, appointment intervals)"
-* ^version = "1.0"
+* ^version = "1.0.0"
 * ^experimental = false
 * ^status = #active
 

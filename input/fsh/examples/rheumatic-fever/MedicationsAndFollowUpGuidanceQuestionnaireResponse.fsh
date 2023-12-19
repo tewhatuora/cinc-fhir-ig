@@ -9,7 +9,7 @@ Usage: #example
 
 * status = #completed
 * authored = "2023-06-26T02:08:00.504Z"
-* questionnaire = Canonical(MedicationsAndFollowUpGuidanceQuestionnaire)
+* questionnaire = Canonical(MedicationsAndFollowUpGuidanceQuestionnaire|1.0.0)
 * subject insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 * author insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * basedOn = Reference(DraftCarePlan)
