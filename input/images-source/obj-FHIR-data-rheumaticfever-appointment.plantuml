@@ -3,9 +3,9 @@
 title "Rheumatic fever -- secondary prophylaxis medication planning and appointment recording"
 
 left to right direction
-'skinparam dpi 200
+skinparam dpi 200
 allow_mixing
-scale 400 width
+scale 500 width
 
 skinparam ActivityDiamondBackgroundColor #RoyalBlue
 skinparam ArrowColor #SlateGrey   
