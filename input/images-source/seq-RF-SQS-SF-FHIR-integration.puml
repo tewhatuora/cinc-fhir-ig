@@ -1,0 +1,139 @@
+@startuml seq-RF-SQS-SF-FHIR-integration
+
+
+autonumber "<b> 00"
+
+skinparam ArrowFontSize 16
+skinparam BoxPadding 10
+skinparam dpi 400
+skinparam maxMessageSize 224
+skinparam MaxMessageSize 250
+skinparam NoteFontSize 11
+skinparam ParticipantPadding 5
+skinparam responseMessageBelowArrow true
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 2
+skinparam SequenceMessageAlignment center
+skinparam sequenceStyle uml2
+
+' semi-transparent sequence groups!
+' see https://sarafian.github.io/tips/2021/03/11/plantuml-tips-tricks-1.html#:~:text=responseMessageBelowArrow-,Semi,-transparent%20group%20backgrounds
+skinparam SequenceGroupBodyBackgroundColor #FFFFFF90
+
+
+scale max 800 width
+
+' *******************
+' ** page 1
+title "Rheumatic Fever: Salesforce Health Cloud updates to HNZ FHIR"
+
+participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
+entity "Salesforce API" as SFAPI #YellowGreen
+participant "Mulesoft" as MULE #SkyBlue
+
+box "HNZ NIA integration components" #LightGrey
+  participant "FHIR>SF Q\n(AWS SQS)" as SFINQ #MediumOrchid
+  participant "SF>FHIR Q\n(AWS SQS)" as FHIRINQ #MediumOrchid
+  entity "Resource Sync Log" as SYNCLOG #Indigo
+  participant "Resource Event\nProcessor (AWS Lambda)" as ROSIE #MediumPurple
+  participant "Rheumatic Fever\nFHIR Projector (Lambda)" as WICKET #MediumPurple
+end box
+
+entity "**FHIR API**\n (HNZ FHIR repo)" as FHIRAPI #LightSalmon
+participant "FHIR Resource\nInterceptor" as FHIRINT #LightSalmon
+
+autonumber stop
+
+activate ROSIE #PaleTurquoise
+
+ROSIE -[dotted]> FHIRINQ : Monitor request queue
+
+autonumber "<b> 0"
+
+OLLIE -// FHIRINQ: PUT resource event message
+
+note left of ROSIE
+  **Resource event message**: sample payload
+    {
+      "metadata": {
+        "originSequenceNumber": "1", "resourceCount": "**2**" 
+      },
+      "resourceEvents": [ {
+          "businessResourceType": "**Patient**",
+          "originResourceReference": "**/connect/health/patients/001x0000005CQbtAAG**",
+          "resourceEventType": "**POST**"
+        }, {
+          "businessResourceType": "**CarePlan**",
+          "originResourceReference": "**/connect/health/careplan/002x0000005CQbtEEH**",
+          "resourceEventType": "**POST**"
+        } ]
+    }
+end note
+
+FHIRINQ -> ROSIE: READ resource event message
+
+loop for each origin resource event
+  ROSIE -> SFAPI++: Get HealthCloud resource by reference
+  return Health Cloud data
+  ROSIE -> WICKET++
+  
+  note right of WICKET
+    This projector contains translation logic specific
+    to conversion of RF data from Salesforce to FHIR.
+  end note
+  WICKET -> FHIRAPI: Create/Update/Delete\nFHIR resource(s)
+  return
+end
+
+ROSIE -> SYNCLOG : Log update processing outcome
+
+deactivate ROSIE
+'SFINQ -[dotted]-> OLLIE: acknowledged received by ollie
+
+' *******************
+' ** page 2
+newpage Rheumatic Fever: HNZ FHIR updates to Salesforce Health Cloud
+
+autonumber stop
+
+MULE -->> SFINQ : Monitor request queue
+
+autonumber "<b> 0"
+
+FHIRAPI --> FHIRINT: Intercepted FHIR\nresource update
+
+FHIRINT -// SFINQ: PUT resource event message
+
+note right of SFINQ
+ **Resource event message**: sample payload
+    {
+      "metadata": {
+        "originSequenceNumber": "6", "resourceCount": "**2**" 
+      },
+      "resourceEvents": [ {
+          "businessResourceType": "**CarePlan**",
+          "originResourceReference": "**/CarePlan/eb8f346c-1b05-40d1-9c37-b282436e764c**",
+          "resourceEventType": "**PUT**"
+        }, {
+          "businessResourceType": "**Encounter**",
+          "originResourceReference": "**/Encounter/7a7ba082-f237-4c84-9034-dd1f35f159ad**",
+          "resourceEventType": "**POST**"
+        } ]
+    }
+end note
+
+SFINQ -> MULE++: READ resource event message
+
+loop for each origin resource event
+  MULE -> FHIRAPI++: Get FHIR resource by reference
+  return FHIR resource repr.
+  MULE -> SFAPI++: Create/Update/Delete\nHealth Cloud resource(s)
+  SFAPI --> OLLIE
+  return
+end
+
+MULE -> SYNCLOG : Log update processing outcome
+
+deactivate MULE
+
+@enduml
