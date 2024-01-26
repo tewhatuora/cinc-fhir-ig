@@ -21,7 +21,7 @@ skinparam sequencegroupfontsize 14
 skinparam SequenceGroupBodyBackgroundColor #EEEEFF50
 
 
-scale max 500 width
+scale max 400 width
 
 
 '' ** page 1
@@ -29,7 +29,7 @@ title "Rheumatic Fever: Salesforce Health Cloud patient registration integration
 
 actor "RF Service user" as USER
 participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
-participant "Integration\n Error\nMonitor\n (DATADOG or SF)" as WATCHDOG #IndianRed
+database "Integration Error\n Log / Monitoring" as WATCHDOG #LightCyan
 entity "Salesforce API" as ROSIE #YellowGreen
 participant "Mulesoft" as TILLY #SkyBlue
 
@@ -45,8 +45,9 @@ autonumber stop
 TILLY -> WICKET++: OAUTH2.0 Client Credentials Flow(\n\t1. api-key\n\t2. service provider's client credentials) 
 return OAUTH token
 
-USER -> OLLIE++ #YellowGreen: Patient registration\ndata entry completed
+USER -> OLLIE++ #YellowGreen: Patient registration valid\n data entry completed
 OLLIE -/ TILLY++ #SkyBlue: <color:red>PATIENT-CHANGE (platform event)
+note over USER:  User now free to progress\n other RF service tasks
 deactivate OLLIE
 
 TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Salesforce REST API composite request)
@@ -59,7 +60,7 @@ alt No existing Patient
   TILLY -> TILLY: Form FHIR Patient payload\n from Salesforce H/C data
   TILLY -> PATIENT++: ""POST /Patient""
   PATIENT -> REPO: create new instance
-  PATIENT -> TILLY--: ""201 CREATED"" - instance representation
+  PATIENT -> TILLY--: ""201 CREATED"" - instance representation 
   TILLY -/ WATCHDOG: <color:red>CREATED PATIENT (platform event?)
 
 else Existing matching Patient
