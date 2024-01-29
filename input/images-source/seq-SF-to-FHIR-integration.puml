@@ -29,15 +29,17 @@ title "Rheumatic Fever: Salesforce Health Cloud patient registration integration
 
 actor "RF Service user" as USER
 participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
-database "Integration Error\n Log / Monitoring" as WATCHDOG #LightCyan
-entity "Salesforce API" as ROSIE #YellowGreen
+database "Integration Error Log\n(Datadog)" as WATCHDOG #LightCyan
 participant "Mulesoft" as TILLY #SkyBlue
 
 box "TWO FHIR Shared Care API" #LightGrey
   entity "NIA OAUTH service" as WICKET
+  entity "**HNZ FHIR API**\n(AWS FHIRWorks)" as FHIR #LightSalmon
   entity "**Patient FHIR API**\n(Rheumatic fever profile)" as PATIENT #LightSalmon
-  database "AWS DynamoDB/\nOpensearch" as REPO #Orange 
+  entity "**CarePlan FHIR API**\n(Rheumatic fever profile)" as CAREPLAN #LightSalmon
 end box
+
+entity "NHI FHIR API" as NHI
 
 autonumber stop
 
@@ -45,33 +47,65 @@ autonumber stop
 TILLY -> WICKET++: OAUTH2.0 Client Credentials Flow(\n\t1. api-key\n\t2. service provider's client credentials) 
 return OAUTH token
 
+activate USER
+USER -> OLLIE: start registering RF patient 
+USER -> OLLIE: enter patient name, NHI 
+OLLIE -> NHI: NHI search
+OLLIE -> USER: confirm correct NHI to use
+USER -> OLLIE: select correct NHI
+USER -> OLLIE: enter other registration data
 USER -> OLLIE++ #YellowGreen: Patient registration valid\n data entry completed
-OLLIE -/ TILLY++ #SkyBlue: <color:red>PATIENT-CHANGE (platform event)
-note over USER:  User now free to progress\n other RF service tasks
+
+OLLIE -> OLLIE: change object integration \nstatus to PENDING
+note right of OLLIE #Yellow
+  This **object integration status** field is to be updated by Mulesoft on successful completion.
+  A background process checks for and retries any incomplete integrations.
+endnote
+
+USER -> USER:  User is now free to \nprogress other RF tasks
+deactivate USER
+
+OLLIE -/ TILLY++ #SkyBlue: <color:red>PATIENT-CHANGE (sequence #, SF object IDs)\n<<platform event>>
+note right of TILLY #Yellow
+  The platform event starts the Mulesoft integration sequence over an internal channel Mulesoft shares with Salesforce.
+  The integration sequence is idempotent and can be restarted/repeated without loss of FHIR data integrity.
+  If it aborts for any technical reason, the sequence status in Salesforce will reflect that the sequence did not complete. 
+endnote
 deactivate OLLIE
 
-TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Salesforce REST API composite request)
-TILLY -> PATIENT++: ""GET /Patient?""\n""identifier=https://standards.digital.health.nz/ns/nhi-id|{{NHI}}&""\n""_profile={{RF Patient profile}}""
 
-PATIENT -> REPO: search
-PATIENT -> TILLY--: ""200 OK"" Searchset Bundle
+TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Salesforce REST API composite request)
+TILLY -> FHIR++: ""GET /Patient?""\n""identifier=https://standards.digital.health.nz/ns/nhi-id|{{NHI}}&""\n""_profile={{RF Patient profile}}""
+
+FHIR -> PATIENT: search
+FHIR -> TILLY--: ""200 OK"" Searchset Bundle
 
 alt No existing Patient
-  TILLY -> TILLY: Form FHIR Patient payload\n from Salesforce H/C data
-  TILLY -> PATIENT++: ""POST /Patient""
-  PATIENT -> REPO: create new instance
-  PATIENT -> TILLY--: ""201 CREATED"" - instance representation 
-  TILLY -/ WATCHDOG: <color:red>CREATED PATIENT (platform event?)
+  TILLY -> TILLY: Form FHIR Bundle payload from Patient, CarePlan \nand Consent data from Salesforce HealthCloud
+  TILLY -> FHIR++: ""POST /Bundle""
+  group transaction POST bundle
+    FHIR -> PATIENT: POST new instance
+    FHIR -> CAREPLAN: POST new instance
+  end
 
+  FHIR -> TILLY--: ""201 CREATED"" - instance representations 
 else Existing matching Patient
 
   TILLY -> TILLY: **Replace FHIR Patient payload**\n with data from Salesforce H/C
-  TILLY -> PATIENT++: ""PUT //Patient/{{existing id}}""
-  PATIENT -> REPO: update existing instance
-  PATIENT -> TILLY--: ""200 OK"" - instance representation
-  TILLY -/ WATCHDOG: <color:red>UPDATED PATIENT (platform event?)
+  TILLY -> FHIR++: ""POST /Bundle""
+  group transaction PUT bundle
+    FHIR -> PATIENT: update (PUT) instance at existing id
+    FHIR -> CAREPLAN: update (PUT) instance at existing id
+  end
+
+  FHIR -> TILLY--: ""200 OK"" - instance representations  
 end
 
+TILLY -/ WATCHDOG: Log FHIR operation outcomes
+TILLY -/ OLLIE: Result of integration sequence\n<size:10>(Salesforce REST API)
+deactivate TILLY 
+
+'deactivate OLLIE
 
 ' *******************
 ' ** page 2
