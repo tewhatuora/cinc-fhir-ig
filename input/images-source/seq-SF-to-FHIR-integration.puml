@@ -7,7 +7,7 @@ skinparam ArrowFontSize 16
 skinparam BoxPadding 10
 skinparam dpi 400
 skinparam MaxMessageSize 350
-skinparam NoteFontSize 11
+skinparam NoteFontSize 13
 skinparam ParticipantPadding 5
 skinparam responseMessageBelowArrow true
 skinparam roundcorner 15
@@ -29,7 +29,7 @@ title "Rheumatic Fever: Salesforce Health Cloud patient registration integration
 
 actor "RF Service user" as USER
 participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
-database "Integration Error Log\n(Datadog)" as WATCHDOG #LightCyan
+database "Integration Health \nMonitoring (Datadog)" as WATCHDOG #LightCyan
 participant "Mulesoft" as TILLY #SkyBlue
 
 box "TWO FHIR Shared Care API" #LightGrey
@@ -56,25 +56,19 @@ USER -> OLLIE: select correct NHI
 USER -> OLLIE: enter other registration data
 USER -> OLLIE++ #YellowGreen: Patient registration valid\n data entry completed
 
-OLLIE -> OLLIE: change object integration \nstatus to PENDING
-note right of OLLIE #Yellow
-  This **object integration status** field is to be updated by Mulesoft on successful completion.
-  A background process checks for and retries any incomplete integrations.
-endnote
-
 USER -> USER:  User is now free to \nprogress other RF tasks
 deactivate USER
 
-OLLIE -/ TILLY++ #SkyBlue: <color:red>PATIENT-CHANGE (sequence #, SF object IDs)\n<<platform event>>
+OLLIE -/ TILLY++ #SkyBlue: <color:red>PATIENT-CHANGE (SF object IDs)\n<<platform event>>
 note right of TILLY #Yellow
-  The platform event starts the Mulesoft integration sequence over an internal channel Mulesoft shares with Salesforce.
+  Salesforce fires platform event over internal channel shared with Mulesoft.  Mulesoft logs the event before starting the integration sequence.
   The integration sequence is idempotent and can be restarted/repeated without loss of FHIR data integrity.
   If it aborts for any technical reason, the sequence status in Salesforce will reflect that the sequence did not complete. 
 endnote
-deactivate OLLIE
-
+TILLY -/ WATCHDOG: Log platform event
 
 TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Salesforce REST API composite request)
+deactivate OLLIE
 TILLY -> FHIR++: ""GET /Patient?""\n""identifier=https://standards.digital.health.nz/ns/nhi-id|{{NHI}}&""\n""_profile={{RF Patient profile}}""
 
 FHIR -> PATIENT: search
@@ -83,29 +77,31 @@ FHIR -> TILLY--: ""200 OK"" Searchset Bundle
 alt No existing Patient
   TILLY -> TILLY: Form FHIR Bundle payload from Patient, CarePlan \nand Consent data from Salesforce HealthCloud
   TILLY -> FHIR++: ""POST /Bundle""
+  note left of TILLY: Mulesoft will retry the FHIR API call if needed 
   group transaction POST bundle
     FHIR -> PATIENT: POST new instance
     FHIR -> CAREPLAN: POST new instance
   end
 
   FHIR -> TILLY--: ""201 CREATED"" - instance representations 
+  TILLY -/ WATCHDOG: Log FHIR operation outcomes
 else Existing matching Patient
 
   TILLY -> TILLY: **Replace FHIR Patient payload**\n with data from Salesforce H/C
   TILLY -> FHIR++: ""POST /Bundle""
+  note left of TILLY: Mulesoft will retry the FHIR API call if needed 
   group transaction PUT bundle
     FHIR -> PATIENT: update (PUT) instance at existing id
     FHIR -> CAREPLAN: update (PUT) instance at existing id
   end
 
-  FHIR -> TILLY--: ""200 OK"" - instance representations  
+  FHIR -> TILLY--: ""200 OK"" - instance representations
+  TILLY -/ WATCHDOG: Log FHIR operation outcomes
+else FHIR operation error
+  TILLY -/ WATCHDOG: Log irrecoverable FHIR operation error  
 end
 
-TILLY -/ WATCHDOG: Log FHIR operation outcomes
-TILLY -/ OLLIE: Result of integration sequence\n<size:10>(Salesforce REST API)
 deactivate TILLY 
-
-'deactivate OLLIE
 
 ' *******************
 ' ** page 2
