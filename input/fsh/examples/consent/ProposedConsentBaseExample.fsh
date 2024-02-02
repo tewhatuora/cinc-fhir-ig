@@ -9,7 +9,7 @@ recorded as a FHIR #active Consent instance.
 
 This base example is before any `data.references` have been added for the protected FHIR resources.
 
-See [*ProvConsentCoverageExample*](Consent-ProvConsentCoverageExample.html) for an example with resources proected by data.references"
+See [*ProposedConsentCoverageExample*](Consent-ProposedConsentCoverageExample.html) for an example with resources proected by data.references"
 
 * meta.profile = Canonical(ManaakiNgaTahiConsent)    // see the profile for ManaakiTahiConsent in this IG 
 * meta.versionId = "2"

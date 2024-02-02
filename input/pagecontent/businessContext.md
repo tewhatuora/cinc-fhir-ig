@@ -17,7 +17,7 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 ### COVID-19 Care in the Community care plans
 
-1. [Record Consent](./consent.html)
+1. [Record Consent](./consentBasedAccessControl.html)
 
 2. [Create Condition](./createCondition.html)
 

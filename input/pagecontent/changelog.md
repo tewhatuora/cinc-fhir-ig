@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.3.8 (2024-02-02)
+
+### Documentation improvements
+
+- In [consent-based access control](consentBasedAccessControl.html), a diagram and description has been added for the Consent-on-behalf scenario (consent obtained from a related person).  Other minor improvements to the description.
+
+- In rheumatic fever data models, rendering of the diagram illustrating [appointment planning and recording](rheumatic-fever-data-models.html#secondary-prophylaxis-appointment-planning-and-recording--fhir-objects-pilot-phase) has been fixed.
+
+- Fixed a few broken links in this changelog.
+
+### Example change
+
+- The example showing [consent by a related person](Consent-ConsentByRelatedPersonExample.html) is now an `#active` rather than `#proposed` consent, to make it more realistic.
+
+---
+
 ## v0.3.7 (2023-12-19)
 
 ### Fixed category code in CareTeams
@@ -182,7 +198,7 @@ Developers of client applications are advised to parameterise all instances of t
 
 - Reorganised top nav with two new sections for COVID CINC artifacts and Consent documentation and examples.
 
-- The IG now allows for `.contained` resource instances in Consents ([ManaakiNgaTahiConsent](StructureDefinition-ManaakiNgaTahiConsent.html) )
+- The IG now allows for `.contained` resource instances in Consents ([ManaakiNgaTahiConsent](StructureDefinition-nz-sharedcare-consent.html) )
     This is needed for rheumatic fever in which consent is commonly obtained from the patient's parent or another relative.
 
 - Three new extensions defined for use on `Patient.contact`
@@ -199,7 +215,7 @@ Developers of client applications are advised to parameterise all instances of t
 
   - Examples now include the `.organization` element as the custodian of the consent, set to the same org as `.performer`
 
-  - An example of an `#active` status Consent has been added.  This [Active Consent Example](Consent-ActiveConsentExample.html) demonstrates clients should form a valid Consent instance when a patient's consent has been obtained and can be represented as such in FHIR.
+  - An example of an `#active` status Consent has been added.  [This example](Consent-RheumaticFeverActiveConsentExample.html) demonstrates how clients should form a valid Consent instance representing when a patient's consent has been actually obtained.
 
 - In the `RheumaticFeverCarePlan` resource profile, `.addresses` now has cardinality zero to many (`0..*`)
 
@@ -252,7 +268,7 @@ Developers of client applications are advised to parameterise all instances of t
 
 - Added Provisional patient Consent specifications for pilot
   - `ManaakiTahiConsent` profile updated to reactivate some data elements of *provision.**
-  - Added two new `Consent` examples illustrating how **provisional consent** can be represented to enable pilot Salesforce/Mulesoft access to FHIR data ('*ProvConsentBaseExample*', '*ProvConsentCoverageExample*')
+  - Added two new `Consent` examples illustrating how **provisional consent** can be represented to enable pilot Salesforce/Mulesoft access to FHIR data ('*ProposedConsentBaseExample*', '*ProposedConsentCoverageExample*')
   - Added `CareTeam` example identifying the group of all rheumatic fever lead-provider organisations
   
 - Updated API **Capability Statement** with RheumaticFever profiled resource API
