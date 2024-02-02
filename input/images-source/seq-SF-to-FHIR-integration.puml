@@ -1,0 +1,121 @@
+@startuml seq-SF-to-FHIR-integration
+
+
+autonumber "<b> 00"
+
+skinparam ArrowFontSize 16
+skinparam BoxPadding 10
+skinparam dpi 400
+skinparam MaxMessageSize 350
+skinparam NoteFontSize 13
+skinparam ParticipantPadding 5
+skinparam responseMessageBelowArrow true
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 2
+skinparam SequenceMessageAlignment left
+skinparam ArrowFontSize 12
+skinparam sequenceStyle uml2
+skinparam sequencegroupfontsize 14
+' semi-transparent sequence groups!
+' see https://sarafian.github.io/tips/2021/03/11/plantuml-tips-tricks-1.html#:~:text=responseMessageBelowArrow-,Semi,-transparent%20group%20backgrounds
+skinparam SequenceGroupBodyBackgroundColor #EEEEFF50
+
+
+scale max 400 width
+
+
+'' ** page 1
+title "Rheumatic Fever: Salesforce Health Cloud patient registration integration to Te Whatu Ora FHIR"
+
+actor "RF Service user" as USER
+participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
+database "Salesforce Mulesoft Connector\nplatform event" as SHIFTER #IndianRed
+database "Integration Health \nMonitoring (Datadog)" as WATCHDOG #LightCyan
+participant "Mulesoft" as TILLY #SkyBlue
+
+box "TWO FHIR Shared Care API" #LightGrey
+  entity "NIA OAUTH service" as WICKET
+  entity "**HNZ FHIR API**\n(AWS FHIRWorks)" as FHIR #LightSalmon
+  entity "**Patient FHIR API**\n(Rheumatic fever profile)" as PATIENT #LightSalmon
+  entity "**CarePlan FHIR API**\n(Rheumatic fever profile)" as CAREPLAN #LightSalmon
+end box
+
+entity "NHI FHIR API" as NHI
+
+autonumber stop
+
+?-> TILLY: init
+TILLY -> WICKET++: OAUTH2.0 Client Credentials Flow(\n\t1. api-key\n\t2. service provider's client credentials) 
+return OAUTH token
+
+activate USER
+USER -> OLLIE: start registering RF patient 
+USER -> OLLIE: enter patient name, NHI 
+OLLIE -> NHI: NHI search
+OLLIE -> USER: confirm correct NHI to use
+USER -> OLLIE: select correct NHI
+USER -> OLLIE: enter other registration data
+USER -> OLLIE++ #YellowGreen: Patient registration valid\n data entry completed
+
+USER -> USER:  User is now free to \nprogress other RF tasks
+deactivate USER
+
+OLLIE -/ SHIFTER #IndianRed: <color:red>PATIENT-CHANGE (SF obj. Ids)
+note right of SHIFTER #Yellow: Platform events stored \nfor up to 3 days for replay if needed
+TILLY -> SHIFTER #SkyBlue: <color:red>get next event (SF object IDs)
+activate TILLY #SkyBlue
+
+note left of SHIFTER #Yellow
+  Salesforce connector keeps track of
+  last platform event processed. 
+endnote
+
+note right of TILLY #Yellow
+  Salesforce fires platform event over internal channel shared with Mulesoft.  Mulesoft logs the event before starting the integration sequence.
+  The integration sequence is idempotent and can be restarted/repeated without loss of FHIR data integrity.
+  If it aborts for any technical reason, the sequence status in Salesforce will reflect that the sequence did not complete. 
+endnote
+TILLY -/ WATCHDOG: Log start of processing \nplatform event
+
+TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Salesforce REST API composite request)
+deactivate OLLIE
+TILLY -> FHIR++: ""GET /Patient?""\n""identifier=https://standards.digital.health.nz/ns/nhi-id|{{NHI}}&""\n""_profile={{RF Patient profile}}""
+
+FHIR -> PATIENT: search
+FHIR -> TILLY--: ""200 OK"" Searchset Bundle
+
+alt No existing Patient
+  TILLY -> TILLY: Form FHIR Bundle payload from Patient, CarePlan \nand Consent data from Salesforce HealthCloud
+  TILLY -> FHIR++: ""POST /Bundle""
+  note left of TILLY: Mulesoft retries \nFHIR API call if needed
+  group transaction POST bundle
+    FHIR -> PATIENT: POST new instance
+    FHIR -> CAREPLAN: POST new instance
+  end
+
+  FHIR -> TILLY--: ""201 CREATED"" - instance representations 
+  TILLY -/ WATCHDOG: Log FHIR operation outcomes
+else Existing matching Patient
+
+  TILLY -> TILLY: **Replace FHIR Patient payload**\n with data from Salesforce H/C
+  TILLY -> FHIR++: ""POST /Bundle""
+  note left of TILLY: Mulesoft retries \nFHIR API call if needed
+  group transaction PUT bundle
+    FHIR -> PATIENT: update (PUT) instance at existing id
+    FHIR -> CAREPLAN: update (PUT) instance at existing id
+  end
+
+  FHIR -> TILLY--: ""200 OK"" - instance representations
+  TILLY -/ WATCHDOG: Log FHIR operation outcomes
+else FHIR operation error
+  TILLY -/ WATCHDOG: Log irrecoverable FHIR operation error  
+end
+
+deactivate TILLY 
+
+' *******************
+' ** page 2
+'newpage Rheumatic Fever: HNZ FHIR updates to Salesforce Health Cloud
+
+
+@enduml

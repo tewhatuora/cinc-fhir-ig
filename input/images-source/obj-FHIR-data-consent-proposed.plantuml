@@ -18,8 +18,7 @@ skinparam ranksep 30
 skinparam roundcorner 5
 skinparam sequenceArrowThickness 2
 
-caption FHIR instance data model
-
+caption FHIR instance data model - provisional patient consent scenario
 
 !procedure $Coding($Alias,$System,$Code,$Display)
   object "<color:GhostWhite>$System" as $Alias #MediumPurple {
@@ -36,8 +35,6 @@ caption FHIR instance data model
 
 !endprocedure
 
-' 
-title "Extension to FHIR consent-based access control - PROPOSED consent"
 frame "HNZ FHIR API resources under management" as HNZMain {
 
   package "representation of provisional consent" as ACTIVE #Snow {
@@ -109,9 +106,9 @@ SActor1 "actor.reference" -[thickness=3,#RoyalBlue]- CARETEAM1: **Reference(Care
 SActor2 "actor.reference" -[dotted,#SkyBlue]- Patient:  >
 CARETEAM1 "\nparticipant.member.reference" -[dotted,#SkyBlue]d--{ HPI: **Reference(Organization)** >
 CONSENT "patient" -[dotted,#SkyBlue]-- Patient: >
-CONSENT "performer" -[dotted,#SkyBlue]--- HPI: **Reference(Organization)** >
+CONSENT "performer[0]" -[dotted,#SkyBlue]--- HPI: **Reference(Organization)** >
 
-$ObjectDiagramLegendWithNote("Notes","^ Consent resource instances are always accessible and do not require Consent cover.")
+$ObjectDiagramLegendWithNote("Notes","^ Consent resource instances are not subject to consent-based access control.")
 
 footer "Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
 

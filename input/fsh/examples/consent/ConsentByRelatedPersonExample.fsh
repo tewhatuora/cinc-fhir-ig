@@ -8,10 +8,10 @@ a `RelatedPerson` FHIR resource.
 "
 
 * meta.profile = Canonical(ManaakiNgaTahiConsent)    // see the profile for ManaakiTahiConsent in this IG 
-* meta.versionId = "2"
-* meta.lastUpdated = "2023-11-24T00:10:00Z" // UTC datetime
+* meta.versionId = "3"
+* meta.lastUpdated = "2024-02-01T23:00:00Z" // UTC datetime
 
-* status = #proposed
+* status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 
 * category = http://terminology.hl7.org/CodeSystem/consentcategorycodes#npp "Notice of Privacy Practices"

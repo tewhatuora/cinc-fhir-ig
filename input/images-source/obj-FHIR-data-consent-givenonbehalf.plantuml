@@ -1,4 +1,4 @@
-@startuml obj-FHIR-data-consent-active
+@startuml obj-FHIR-data-consent-givenonbehalf
 
 top to bottom direction
 skinparam dpi 300
@@ -18,7 +18,7 @@ skinparam ranksep 30
 skinparam roundcorner 5
 skinparam sequenceArrowThickness 2
 
-caption FHIR instance data model - active patient consent scenario
+caption FHIR instance data model - patient consent given on-behalf by related person scenario
 
 !procedure $Coding($Alias,$System,$Code,$Display)
   object "<color:GhostWhite>$System" as $Alias #MediumPurple {
@@ -35,9 +35,10 @@ caption FHIR instance data model - active patient consent scenario
 
 !endprocedure
 
+
 frame "HNZ FHIR API resources under management" as HNZMain {
 
-  package "<size:12>ACTIVE patient consent and provisions ^" as ACTIVE #Snow {
+  package "<size:12>active patient consent given on-behalf" as ACTIVE #Snow {
       
     object "activeConsentExample\n<size:16>**:Consent**" as CONSENT #GhostWhite/LightCoral {
       * status: ""**#active**""
@@ -50,6 +51,13 @@ frame "HNZ FHIR API resources under management" as HNZMain {
       * type: ""#permit""
       * period: ""2023-01-21 to ..""
     }
+
+    object "person giving consent\n<size:15>**RelatedPerson**" as RP #GhostWhite {
+      * name.given: Beryl
+      * name.family: Hackett
+      * relationship: ""#PRN""
+    }
+
 
   }
 
@@ -83,20 +91,23 @@ object "HPI:**Organization**\nParty agreeing to privacy policy/rules" as HPI <<l
 }
 
 CONSENT -d-* DAP
+CONSENT -d-* RP: <color:#Black>performer**[1]**
+RP "patient" -[dotted,#SkyBlue]r- Patient: >
 CONSENT "<color:#Black>sourceReference" -[dashed,#Black]l- QRC: >
 CONSENT "patient" -[dotted,#SkyBlue]r- Patient: >
-CONSENT "<color:#Black>performer[0]" -[dashed,#Black]--- HPI: **Reference(Organization)** >
+CONSENT -[dashed,#Black]u-- HPI: <color:#Black>performer[0]\n**Reference(Organization)**
 QRC -[#LightGray]-- Q: questionnaire >
 
   'notes
   note as N1
-    ^ Consent instances do not themselves need
-    to be covered by other Consents
+    Note how the RelatedPerson is a contained
+    resource of the consent and also linked as an 
+    **additional performer**.
   end note
  
-N1 .d. CONSENT
+N1 .u.. RP
 
-$ObjectDiagramLegendWithNote("Notes","(black dashed lines) An active consent MUST reference EITHER a QuestionnaireResponse OR an Organization")
+$ObjectDiagramLegendWithNote("Notes","(black dashed lines) An active consent MUST reference EITHER a source QuestionnaireResponse OR an Organization as one performer")
 
 footer "Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
 
