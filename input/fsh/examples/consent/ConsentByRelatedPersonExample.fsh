@@ -20,7 +20,9 @@ a `RelatedPerson` FHIR resource.
 * patient insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 * organization insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * performer[0] insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
-* performer[+] insert ReferenceRelatedPerson ( ...)
+* performer[+].type = "RelatedPerson"
+* performer[=].reference = "#contained-Related-Person"
+* performer[=].display = "{Beryl Hackett"
 
 * contained = contained-Related-Person  // contained resource identifies the relative who gave consent on patient's behalf
 
