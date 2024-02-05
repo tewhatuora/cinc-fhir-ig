@@ -24,13 +24,6 @@ RuleSet: AddressesConditionExample(example-name)
 * addresses[=].type = "Condition"
 
 
-// sets up a Reference(RelatedPerson) using the display name of the person only
-RuleSet: ReferenceRelatedPerson(person-name)
-
-* type = "RelatedPerson"
-* display = "{person-name}"
-
-
 // makes a Patient-type reference, using specified element name and local patient instance
 RuleSet: PatientInstanceReference(element-name,instance-path)
 
