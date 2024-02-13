@@ -96,6 +96,7 @@ menu:
     FHIR data models: rheumatic-fever-data-models.html
     Structure Definitions and Questionnaires: artifacts.html#rheumatic-fever-definitions
     Examples: artifacts.html#rheumatic-fever-examples
+    Cast of actors in the examples: rheumatic-fever-examples-cast.html
     Terminology overview: terminology.html
     Terminology definitions: artifacts.html#rheumatic-fever-terminology
   Data Consent:
