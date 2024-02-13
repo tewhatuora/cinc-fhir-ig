@@ -32,6 +32,36 @@ Some resources (Plan Definitions and Questionnaires) are defined by Te Whatu Ora
 Please refer to the example `identifier` parameters that can be supplied to the `GET /PlanDefinition` and `GET /Questionnaire` operations for
 the current set of well-known identifiers.
 
+## FHIR Profile versioning
+
+It is recommended that all resources created on the server claim conformance to a [profile](./artifacts.html) listed in this Implementation Guide. This allows the server to perform validation of the resource against the profile, rather than the generic FHIR specification of the resource.
+
+API Consumers should pass the profile canonical url in the `meta.profile` field of the resource.
+
+**Example:**
+
+```json
+"meta" : {
+  "profile" : ["https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition"]
+}
+```
+
+The server will support versioned profiles, such as `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition|1.0.0` as well as non-versioned profiles such as `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition`.
+
+When a non-versioned canonical url is provided, the resource will be validated against the version of that profile which is considered the latest version by the server.
+
+Once resources are created, they can then be retrieved by versioning profile by API clients.
+
+**Example:**
+
+Retrieve all condition resources using version 1.0.0:
+
+`GET /Condition?_profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition|1.0.0`
+
+Retrieve all condition resources using profile:
+
+`GET /Condition?_profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition`
+
 ## Field level request encryption
 
 The FHIR server supports certain FHIR resource fields to be provided in the create or update request in an encrypted format, to prevent certain data such as PII being transmitted in plain text.
