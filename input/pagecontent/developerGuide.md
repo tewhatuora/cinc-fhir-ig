@@ -32,11 +32,15 @@ Some resources (Plan Definitions and Questionnaires) are defined by Te Whatu Ora
 Please refer to the example `identifier` parameters that can be supplied to the `GET /PlanDefinition` and `GET /Questionnaire` operations for
 the current set of well-known identifiers.
 
-## FHIR Profile versioning
+## FHIR resource profile-based validation
 
-It is recommended that all resources created on the server claim conformance to a [profile](./artifacts.html) listed in this Implementation Guide. This allows the server to perform validation of the resource against the profile, rather than the generic FHIR specification of the resource.
+This FHIR server validates all instance payloads on FHIR resource creation/update requests.
 
-API Consumers should pass the profile canonical url in the `meta.profile` field of the resource.
+It is recommended that **all** resource instances created on this server **claim conformance to a [profile](./artifacts.html) in this Implementation Guide**. This lets the server perform validation of a resource creation/update payload against the IG profile, rather than using the generic FHIR R4 specification of the resource.
+
+### Claiming a profile in resource creation / update
+
+API Consumers SHOULD pass the profile canonical url in the `meta.profile` element of the instance payload.
 
 **Example:**
 
@@ -46,11 +50,18 @@ API Consumers should pass the profile canonical url in the `meta.profile` field 
 }
 ```
 
-The server will support versioned profiles, such as `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition|1.0.0` as well as non-versioned profiles such as `https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition`.
+### Profile Versioning behaviour
 
-When a non-versioned canonical url is provided, the resource will be validated against the version of that profile which is considered the latest version by the server.
+This server supports versioned profiles indicated by the **|n.n.n** FHIR semantic versioning syntax.
 
-Once resources are created, they can then be retrieved by versioning profile by API clients.
+A resource payload MAY claim a specific version of a resource profile if that instance representation relies on version-specific profile features.
+
+1. When a resource payload claims a *non-versioned* profile url, this server validates using the *latest profile version* in its server configuration.
+1. When a resource payload contains *no profile url* claim, this server validates using the standard HL7 FHIR R4 profile.
+1. If a resource payload claims a *non-existent* profile version url, this server will reject the operation with a `400 Bad Request` and message "Profile reference '{{URL}}' has not been checked because it is unknown"
+
+### Resource retrieval by profile
+Once resources are created, API consumers can retrieve by profile, and if desired, profile version.
 
 **Example:**
 
@@ -58,9 +69,11 @@ Retrieve all condition resources using version 1.0.0:
 
 `GET /Condition?_profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition|1.0.0`
 
-Retrieve all condition resources using profile:
+Retrieve all condition resources using any version of a profile:
 
 `GET /Condition?_profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition`
+
+---
 
 ## Field level request encryption
 
