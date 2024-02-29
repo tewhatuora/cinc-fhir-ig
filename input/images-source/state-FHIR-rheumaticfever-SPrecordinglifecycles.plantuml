@@ -1,0 +1,84 @@
+@startuml state-FHIR-rheumaticfever-SPrecordinglifecycles
+
+title "Secondary prophylaxis recording: FHIR instance lifecycles"
+
+skinparam dpi 400
+scale 400 width
+
+skinparam BoxPadding 10
+skinparam ParticipantPadding 5
+skinparam roundcorner 2
+skinparam sequenceArrowThickness 2
+skinparam TitleFontSize 20
+
+top to bottom direction
+
+frame "Planned **Appointment**" as appt {
+  state "PROPOSED" as proposed #LimeGreen
+  state "FINISHED" as finished #Orange
+  state "ENTERED-IN-ERROR" as error
+
+  proposed -> finished
+  proposed -[dashed]-> error
+  finished -[dashed]-> error
+
+  note as n2 #GhostWhite 
+     Patient's next SP treatment due
+     date is represented in FHIR by an
+     Appointment instance in their CarePlan
+  end note
+}
+
+state "secondary prophylaxis treatment records" as SPR {
+
+  frame "**Encounter**" as enc {
+
+    state "FINISHED" as finished2 #Orange
+    state "ENTERED-IN-ERROR" as error2
+
+    [*] -> finished2
+    [*] --> error2
+    finished2 -[dashed]-> error2
+  }
+
+  frame "**MedicationStatement**" as medstmt {
+
+    state "COMPLETED" as completed #Orange
+    state "ENTERED-IN-ERROR" as error3
+
+    [*] -> completed
+    [*] --> error3
+    completed -[dashed]-> error3
+  }
+
+  frame "**QuestionnaireResponse**" as qr {
+
+    state "COMPLETED" as completed4 #Orange
+    state "ENTERED-IN-ERROR" as error4
+
+    [*] -> completed4
+    [*] --> error4
+    completed4 -[dashed]-> error4
+  }
+
+  note as n1 #GhostWhite
+    After the treatment encounter takes place, 3 more FHIR resources record the details.
+    Typically these three instances are created directly in their terminal state.
+  end note
+
+  n1 -[hidden]u--> enc
+}
+
+appt -[hidden]down--> SPR
+
+
+legend bottom
+  | state colour | meaning |
+  | <back:#LimeGreen>lime green</back> | starting state (if applicable) |
+  | <back:#Orange>orange</back> | terminal state (if applicable) |
+endlegend
+
+
+footer "Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
+
+@enduml

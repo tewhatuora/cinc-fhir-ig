@@ -55,7 +55,7 @@ package "Medication definition" as CODING {
   $Coding(Site,"Med. site","SNOMED..10101","Left ventrogluteal ..")
   $Coding(Site,"Med. site","...","etc.")
 
-  object ":**Medication**" as MED <<Medication>> #SkyBlue {
+  object ":**Medication**" as MED <<Medication>> #GhostWhite {
     Planned secondary prophylaxis medication brand and ingredient
   }
 
@@ -71,16 +71,18 @@ package "Medication definition" as CODING {
 frame "Planning and recording of secondary prophylaxis medication activity" as HNZFHIRREPO #Snow {
   
   object "<size:16>:RheumaticFeverCarePlan" as CP <<CarePlan>> #OrangeRed {
-    Each CarePlan defines a list
-    of planned and completed 
-    activities ...
+    FHIR CarePlans contain a list
+      of (references to) activities.
+      FHIR activity types shown here
+      are Appointments and 
+      MedicationRequests.
   }
 
   package """<CarePlan.activity[].reference>""" as Activities #White/SkyBlue { 
     
     'object "secondary prophylaxis\nmedication planning" as PLAN_BENZA_2023 #LightSalmon
   
-    object "<size:15>:**RheumaticFeverMedicationRequest**" as MR1 <<MedicationRequest>> #MediumPurple {
+    object "<size:15>:**RheumaticFeverMedicationRequest**" as MR1 <<MedicationRequest>> #LightSalmon {
       * text: "Benzathine medication plan 2023"
       * status: //**#active**//
       * intent: //#plan//
@@ -96,7 +98,7 @@ frame "Planning and recording of secondary prophylaxis medication activity" as H
     }
 
     ' completed appointments    
-    object "<size:16>July2023:**Appointment**" as JULY_APPT #LightYellow {
+    object "<size:16>July2023:**Appointment**\n//completed care encounter//" as JULY_APPT #GhostWhite {
       *identifier[case] (usual): case Id (salesforce)
       ---
       * status: //**#fulfilled**//
@@ -105,7 +107,7 @@ frame "Planning and recording of secondary prophylaxis medication activity" as H
       * participant: Reference(Practitioner)
     }
 
-    object "<size:16>August2023:**Appointment**" as AUGUST_APPT #PaleGoldenRod {
+    object "<size:16>August2023:**Appointment**\n//completed care encounter//" as AUGUST_APPT #GhostWhite {
       *identifier: type #CarePlanActivityId (SF)
       ---
       * status: //**#fulfilled**//
@@ -114,8 +116,8 @@ frame "Planning and recording of secondary prophylaxis medication activity" as H
       * participant: Reference(Practitioner)
     }
     
-    ' planned appointment
-    object "<size:14>September2023:**Appointment**" as SEPTEMBER_APPT #pink {
+    ' planned care encounter
+    object "<size:14>September2023:**Appointment**\n//**planned** next care encounter//" as SEPTEMBER_APPT #GhostWhite {
       *identifier: type #CarePlanActivityId (SF)
       ---
       * status: //**#booked**//
@@ -124,23 +126,13 @@ frame "Planning and recording of secondary prophylaxis medication activity" as H
       * participant: Reference(Practitioner)
     }
 
-    object "<size:14>October2023:**Appointment**" as OCTOBER_APPT #pink {
-      *identifier: type #CarePlanActivityId (SF)
-      ---
-      * status: //**#booked**//
-      * start: **2023-10-03**
-      * supportingInfo: service provider Ref(HPI org)
-      * participant: Reference(Practitioner)
-    }
-
     'arrange activities in line
     AUGUST_APPT -[hidden]r- MR1
     MR1 -[hidden]r- JULY_APPT
-    SEPTEMBER_APPT -[hidden]r- OCTOBER_APPT
-    OCTOBER_APPT -[hidden]r- SEPTEMBER_APPT
+
   }
 
-  package "July 2023 completed appointment detail" as JULY #FloralWhite/LightYellow {
+  package "July 2023 completed appointment detail" as JULY #FloralWhite/GhostWhite {
   
     object "<size:14>july2023:Encounter" as EInj2 #Yellow {
       * status: //**#finished**//
@@ -170,7 +162,7 @@ frame "Planning and recording of secondary prophylaxis medication activity" as H
     QR2 "encounter" -[norank]--> EInj2 
   }
 
-  package "August 2023 completed appointment detail" as AUGUST #PaleGoldenRod/FloralWhite {
+  package "August 2023 completed appointment detail" as AUGUST #FloralWhite/GhostWhite {
 
     object "<size:14>august2023:Encounter" as EInj1 #yellow {
       * status: //**#finished**//
@@ -234,19 +226,18 @@ frame "Planning and recording of secondary prophylaxis medication activity" as H
   N1 .u. JULY
 
   note as N2
-    Before attendance Appointments in #booked
-      status represent the planned patient
-      visits for secondary prophylaxis medication.
-      Each appointment identifies the nurse who
-      is planned to see the patient as a 
-      participant in the appointment.   
+    The next planned patient secondary 
+      prophylaxis encounter is represented by 
+      this Appointment instance in **#booked** status.
+        
+    Its main purpose is to convey the due date,
+      to which adherence is important for effective RF care.
       
-      After the appointment is attended, its 
-      status will update to #fulfilled and
-      medication administered and other details 
-      from the encounter will be captured in 
-      additional FHIR resource instances as
-      shown above.
+    After the care encounter, the status updates 
+      to #fulfilled.  The medication administered and 
+      assessmention question responses are captured in 
+      other FHIR resource instances, as shown above for July
+      and August.
   end note
 
   N2 .. SEPTEMBER_APPT

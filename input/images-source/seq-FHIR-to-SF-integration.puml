@@ -1,4 +1,4 @@
-@startuml seq-FHIR-to-SF-integration
+@startuml seq-SF-to-FHIR-integration
 
 
 autonumber "<b> 00"
@@ -29,14 +29,18 @@ title "Rheumatic Fever: Salesforce Health Cloud patient registration integration
 
 actor "rheumatic fever collaborator" as USER
 participant "FHIR-integrated APP/UX" as APIC #Orange
+
+participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
 database "Salesforce Mulesoft Connector\nplatform event" as SHIFTER #IndianRed
 database "Integration Health \nMonitoring (Datadog)" as WATCHDOG #LightCyan
 participant "Mulesoft" as TILLY #SkyBlue
 
+box "TWO FHIR Shared Care API" #LightGrey
   entity "NIA OAUTH service" as WICKET
   entity "**HNZ FHIR API**\n(AWS FHIRWorks)" as FHIR #LightSalmon
-
-participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
+  entity "**Patient FHIR API**\n(Rheumatic fever profile)" as PATIENT #LightSalmon
+  entity "**CarePlan FHIR API**\n(Rheumatic fever profile)" as CAREPLAN #LightSalmon
+end box
 
 entity "NHI FHIR API" as NHI
 
@@ -77,25 +81,25 @@ TILLY -/ WATCHDOG: Log start of processing \nplatform event
 
 TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Salesforce REST API composite request)
 deactivate OLLIE
-TILLY -> FHIR++: ""GET /Patient?""\n""identifier=https://standards.digital.health.nz/ns/nhi-id|{{NHI}}&""\n""_profile={{RF Patient profile}}""
-FHIR -> TILLY--: ""200 OK"" bundle
+'TILLY -> FHIR++: ""GET /Patient?""\n""identifier=https://standards.digital.health.nz/ns/nhi-id|{{NHI}}&""\n""_profile={{RF Patient profile}}""
 
-  TILLY -> TILLY: Form FHIR Bundle payload from Patient, CarePlan \nand Consent data from Salesforce HealthCloud
-  TILLY -> FHIR++: ""POST /Bundle""
-  note left of TILLY: Mulesoft retries \nFHIR API call if needed
-  group transaction POST bundle
-    FHIR -> PATIENT: POST new instance
-    FHIR -> CAREPLAN: POST new instance
-  end
+TILLY -> TILLY: Form FHIR Bundle payload from Patient, CarePlan \nand Consent data from Salesforce HealthCloud
+TILLY -> FHIR++: ""GET /Bundle""
+note left of TILLY: Mulesoft retries \nFHIR API call if needed
+group transaction GET bundle
+  FHIR -> PATIENT: ""GET /Patient?""\n""identifier={{X}}&""\n""_profile={{RF Patient profile}}""
+  FHIR -> CAREPLAN: ""GET /CarePlan?""\n""identifier={{X}}&""\n""_profile={{RF CarePlan profile}}""
+end
 
-  FHIR -> TILLY--: ""201 CREATED"" - instance representations 
-  TILLY -/ WATCHDOG: Log FHIR operation outcomes
+FHIR -> TILLY--: ""201 CREATED"" - instance representations 
+TILLY -/ WATCHDOG: Log FHIR operation outcomes
+
+'  TILLY -/ WATCHDOG: Log irrecoverable FHIR operation error  
 
 deactivate TILLY 
 
 ' *******************
 ' ** page 2
 'newpage Rheumatic Fever: HNZ FHIR updates to Salesforce Health Cloud
-
 
 @enduml

@@ -1,18 +1,27 @@
 # Changelog
 
+## v0.3.9 (2024-02-29)
+
+### Documentation
+
+- Added [state transition diagrams](rheumatic-fever-data-models.html#rheumatic-fever-data-models.html#secondary-prophylaxis-appointment-planning-and-recording-states-model) for the expected states of secondary prophylaxis resources.
+
+- Update to existing diagram illustrating [appointment planning and recording](rheumatic-fever-data-models.html#secondary-prophylaxis-appointment-planning-and-recording-instances) the number of planned Appointments has been reduced to one.
+
+- Developer guidance expanded about validation of [resources using versioned profiles](developerGuide.html#fhir-profile-versioning)
+
+
 ## v0.3.8 (2024-02-02)
 
-### Documentation improvements
+### RF examples
+
+- The example showing [consent by a related person](Consent-ConsentByRelatedPersonExample.html) is now an `#active` rather than `#proposed` consent, to make it more realistic.
+
+### Documentation
 
 - In [consent-based access control](consentBasedAccessControl.html), a diagram and description has been added for the Consent-on-behalf scenario (consent obtained from a related person).  Other minor improvements to the description.
 
-- In rheumatic fever data models, rendering of the diagram illustrating [appointment planning and recording](rheumatic-fever-data-models.html#secondary-prophylaxis-appointment-planning-and-recording--fhir-objects-pilot-phase) has been fixed.
-
 - Fixed a few broken links in this changelog.
-
-### Example change
-
-- The example showing [consent by a related person](Consent-ConsentByRelatedPersonExample.html) is now an `#active` rather than `#proposed` consent, to make it more realistic.
 
 ---
 
