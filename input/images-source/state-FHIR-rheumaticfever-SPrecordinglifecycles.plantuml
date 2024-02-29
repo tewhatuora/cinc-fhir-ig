@@ -16,11 +16,13 @@ top to bottom direction
 frame "Planned **Appointment**" as appt {
   state "PROPOSED" as proposed #LimeGreen
   state "FINISHED" as finished #Orange
+  state "CANCELLED" as cancelled #Orange
   state "ENTERED-IN-ERROR" as error
 
   proposed -> finished
+  proposed --> cancelled
+  finished -[dashed]-> cancelled
   proposed -[dashed]-> error
-  finished -[dashed]-> error
 
   note as n2 #GhostWhite 
      Patient's next SP treatment due
