@@ -225,6 +225,8 @@ groups:
     - COVIDVaccinationSurveyQuestionnaire
     - MentalHealthAssessmentSurveyQuestionnaire
     - PregnancyAssessmentSurveyQuestionnaire
+    - StructureDefinition/nz-sharedcare-remotemonitoring-careteam
+
   CINCExamples: 
     name: Care in the Community examples
     resources:
