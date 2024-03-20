@@ -107,9 +107,9 @@ state "Medication planning" as MEDPLAN #FloralWhite  {
   }
 
   state "Book appointments" as ACT2 {
-    state "Appointment July 11\n**#booked**" as AP1 #OrangeRed
-    state "Appointment August 8 2023\n**#booked**" as AP2 #OrangeRed
-    state "Appointment Sept. 5 2023\n**#booked**" as AP3 #OrangeRed
+    state "Appointment \n(planned encounter)\n July 11\n**#booked**" as AP1 #OrangeRed
+    state "Appointment \n(planned encounter)\n August 8 2023\n**#booked**" as AP2 #OrangeRed
+    state "Appointment \n(planned encounter)\n Sept. 5 2023\n**#booked**" as AP3 #OrangeRed
     state "more appointments..." as AP4 #OrangeRed
   }
 

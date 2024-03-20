@@ -44,8 +44,9 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
   ' }
   
   class ":Appointment" as APPT <<APPOINTMENT>> #GhostWhite ##[bold] {
-    Appointments in which preventative 
-    (prophylactic) medication is administered.
+    An Appointment is a planned encounter. 
+    For example, administration of secondary 
+    prophylaxis (preventative)) medication.
     ----
     * text "Secondary prophylaxis appointment"
     * status: ""#booked | #arrived""
