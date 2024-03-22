@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="application integration - logical" id="CgKl9WXSub4n8yFwXTik">
-        <mxGraphModel dx="1594" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1370" dy="763" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -253,6 +253,9 @@
                 </mxCell>
                 <mxCell id="205" value="" style="shape=mxgraph.signs.people.construction;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;rounded=1;fontFamily=Courier New;fontSize=13;fontColor=#feffdb;" vertex="1" parent="1">
                     <mxGeometry x="102.96" y="260" width="44.44" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="207" value="Text" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Courier New;fontSize=13;fontColor=#feffdb;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="320" width="60" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
