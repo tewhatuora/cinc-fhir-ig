@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.3.9b (2024-03-22)
+
+### Antiviral eligibility questionnaire
+
+Updated [AntiviralEligibilityQuestionnaire](Questionnaire-AntiViralEligibilityQuestionnaire.html) to version 1.0.1
+  
+- The `answerValueSet` canonical Url in question 3 (link Id "criteria") has been corrected to have the hyphen `-` in 'COVID-19'
+- Corresponding `QuestionnaireResponse` examples [yes](QuestionnaireResponse-AntiviralEligibilityYesQuestionnaireResponse.html),[no](QuestionnaireResponse-AntiviralEligibilityNoQuestionnaireResponse.html) 
+   changed to use the *NZHTS* rather than *standards.digital.health.nz* form of canonical Url for the defined terminology ValueSets
+
 ## v0.3.9 (2024-02-29)
 
 ### Documentation

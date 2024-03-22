@@ -5,15 +5,16 @@ Usage: #definition
 
 * identifier[0].use = #official
 * identifier[=].value = "AntiViralEligibilityQuestionnaire"
-* identifier[=].period.start = "2023-09-19"
+* identifier[=].period.start = "2023-03-07"
 * identifier[+].use = #temp
 * identifier[=].value = "Questionnaire-AntiViralEligibilityQuestionnaire"
 * identifier[=].period.start = "2023-03-07"
-* identifier[=].period.end = "2023-09-19"
+* identifier[=].period.end = "2026-03-07"
 
-* date = "2023-09-19"
+* date = "2024-03-22"
 * status = #draft
 * experimental = false
+* version = "1.0.1"
 
 * name = "AntiViralEligibilityQuestionnaire"
 * title = "Antiviral medication eligibility questionnaire"
@@ -103,7 +104,7 @@ Usage: #definition
 * item[=].item[+].text = "3. My patient's condition or circumstance (choose one):"   // v0.1.8
 * item[=].item[=].linkId = "criteria"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "https://nzhts.digital.health.nz/fhir/ValueSet/COVID19-antiviral-eligibility-criteria"
+* item[=].item[=].answerValueSet = "https://nzhts.digital.health.nz/fhir/ValueSet/COVID-19-antiviral-eligibility-criteria"    // v0.3.9b
 * item[=].item[=].extension.url = $termServerExtension
 * item[=].item[=].extension.valueUrl = $preferredTermServer
 * item[=].item[=].required = true
