@@ -40,7 +40,7 @@ Usage: #example
 
 * item[=].item[+].linkId = "criteria"
 * item[=].item[=].text = "3. My patient's condition or circumstance (choose one):"
-* item[=].item[=].answer.valueCoding =  $AVE-whenstarted#none-of-the-above
+* item[=].item[=].answer.valueCoding =  $AVE-criteria#none-of-the-above
 
 * item[+].linkId = "eligible-no"
 * item[=].text = "Assessment: No - the patient IS NOT eligible for COVID-19 Antivirals"
