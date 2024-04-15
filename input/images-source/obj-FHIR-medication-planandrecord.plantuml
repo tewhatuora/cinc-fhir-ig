@@ -1,0 +1,229 @@
+@startuml obj-FHIR-medication-planandrecord
+
+top to bottom direction
+skinparam dpi 200
+allow_mixing
+scale 800 width
+
+skinparam ActivityDiamondBackgroundColor #RoyalBlue
+skinparam ArrowColor #SlateGrey   
+skinparam ArrowFontColor #RoyalBlue
+skinparam ArrowFontColor #SlateGrey  
+skinparam ArrowFontSize 12
+skinparam ArrowMessageAlignment left
+skinparam BoxPadding 10
+skinparam linetype ortho
+skinparam nodesep 30
+skinparam ranksep 60
+skinparam roundcorner 5
+skinparam sequenceArrowThickness 2
+skinparam TitleFontSize 20
+
+caption FHIR resource instance object model
+
+!procedure $Coding($Alias,$System,$Code,$Display)
+  object "<color:GhostWhite>$System" as $Alias #MediumPurple {
+    <color:GhostWhite><size:11>**$Code**-$Display
+  }
+!endprocedure
+
+!procedure $ObjectDiagramLegendWithNote($heading,$noteline)
+
+  legend bottom
+    **$heading**
+    $noteline
+  endlegend
+
+!endprocedure
+
+' ******** ******** ******** ******** ******** ******** ******** ******** 
+title "Secondary prophylaxis medication planning and recording"
+
+package "Activity resources in the CarePlan" as Activities #Snow { 
+  
+  'object "secondary prophylaxis\nmedication planning" as PLAN_BENZA_2023 #LightSalmon
+
+  object "<size:15>:**MEDICATIONREQUEST**\nplanned Benzathine med." as MR1 <<profiled>> #LightSalmon {
+    * text: "Benzathine medication plan 2023"
+    * status: ""**#active**""
+    * medication[x]: Ref(Benzathine)
+    * dosageInstruction
+      \t-route:SNOMED
+      \t-site:SNOMED
+      \t-additionalInstruction [frequency]
+      \t-doseAndRate:Dosage
+    * performer: Ref(Practitioner)
+    * validityPeriod: eg. **2023-01 to 2023-12**
+    --- extension ---
+    * medicationFrequency: **Every twenty eight days**
+  }
+
+  
+  object "<size:15>:**MEDICATIONREQUEST**\nplanned pain relief med." as MRinner <<profiled>> #LightSalmon {
+    * text: "Lignocaine medication plan 2023"
+    * status: ""**#active**""
+    * medication[x]: Ref(Lignocaine medication)
+    * dosageInstruction
+      \t-route:SNOMED
+      \t-site:SNOMED
+      \t-additionalInstruction [frequency]
+      \t-doseAndRate:Dosage
+    * performer: Ref(Practitioner)
+    * validityPeriod: eg. **2023-01 to 2023-12**
+    --- extension ---
+    * medicationFrequency: **Every twenty eight days**
+  }
+
+  object "August 2023 (latest) appointment\n:**APPOINTMENT**" as AUGUST_APPT #Red {
+    *identifier: type #CarePlanActivityId (SF)
+    ---
+    * status: ""**#fulfilled**""
+    * start: ""2023-08-08""
+    * supportingInfo: service provider Ref(HPI org)
+    * participant: Reference(Practitioner)
+  }
+  
+  object "next appointment (planned encounter)\n:**APPOINTMENT**" as FUTURE_APPT #Red {
+    *identifier[case] (usual): case Id (salesforce)
+    ---
+    * status: ""**#booked**""
+    * start: ""2023-09-05""
+    * supportingInfo: service provider Ref(HPI org)
+    * participant: Reference(Practitioner)
+  }
+
+  'arrange activities in box
+  MR1 -[hidden]r- FUTURE_APPT
+  FUTURE_APPT -[hidden]d- AUGUST_APPT
+
+}
+
+$Coding(Route,"Medication route","SNOMED #78421000","Intramuscular route")
+$Coding(Route,"Medication route","SNOMED #26643006","Oral route")
+
+$Coding(Site,"Medication site","SNOMED #78333006","Ventrogluteal")
+$Coding(Site,"Medication site","SNOMED #206007","Dorsogluteal")
+$Coding(Site,"Medication site","SNOMED #1403006","Vastus lateralis")
+
+
+object "August 2023 encounter\n:**ENCOUNTER**" as EInj1 #yellow {
+  * status: //**#finished**//
+  * period: 2023-08-08
+  * participant: Ref(Practitioner)
+  * serviceProvider: Ref(Organisation)
+}
+
+object "August 2023 benzathine given\n:**MEDICATIONSTATEMENT**" as MEDSTMT1 #LightGreen {
+  * status: //**#completed**//
+  * effectiveDateTime: 2023-08-08
+  * dosage: Dosage 
+    // actual dose quantity,site,route
+}
+
+object "August 2023 pain relief given\n:**MEDICATIONSTATEMENT**" as MEDSTMTinner #LightGreen {
+  * status: //**#completed**//
+  * effectiveDateTime: 2023-08-08
+  * dosage: Dosage 
+    // actual dose quantity,site,route
+}
+
+object "health assessment responses\n:**QUESTIONNAIRERESPONSE**" as QR1 #SkyBlue {
+  * questionnaire: Canonical(SPHA)
+  * status: //**#completed**//
+  * authored: 2023-08-08
+  * item.*: responses
+}
+
+$Coding(MedIngr,"medication ingredient","NZMT ..6105","benzathine penicillin")
+$Coding(MedIngr,"medication ingredient","NZMT ..6107","amoxicillin")
+$Coding(MedIngr,"medication ingredient","NZMT ..6109","penicillin VK")
+$Coding(MedIngr,"medication ingredient","NZMT ..6100","erythromycin")
+
+$Coding(MedBrand,"Benzathine brand","NZMT ..6108","Bicillin L-A")
+$Coding(MedBrand,"Benzathine brand","NZMT tbc",   "Tardocillin")
+$Coding(MedBrand,"Benzathine brand","NZMT tbc",   "Lentocillin")
+
+object ":**Medication**" as MED <<Medication>> #GhostWhite {
+  Planned secondary prophylaxis\nmedication brand and ingredient
+}
+
+$Coding(LIGNOCODE,"lignocaine strength","NZMT 1074...6105", "lidocaine hydrochloride anhydrous 0.5%" )
+$Coding(LIGNOCODE,"lignocaine strength","NZMT 1074...6110", "lidocaine hydrochloride anhydrous 1%" )
+$Coding(LIGNOCODE,"lignocaine strength","NZMT 1074...6101", "lidocaine hydrochloride anhydrous 2%" )
+
+
+' positioning
+
+' connectors
+MR1 "contained" -d-* MRinner
+
+MEDSTMTinner *-[norank]- "contained" MEDSTMT1 
+MEDSTMTinner "medicationCodeableConcept" -[#MediumPurple,dotted]d-> LIGNOCODE
+
+EInj1 <-[norank]l- MEDSTMT1: < context
+
+' MEDSTMT1 "derivedFrom" -d-> QR1
+
+QR1 "encounter" -> EInj1
+
+AUGUST_APPT "supportingInfo" -d-> EInj1
+EInj1 "appointment" -[thickness=3,norank]u--> AUGUST_APPT
+
+MR1 -[#MediumPurple,dotted]u-> "<color:MediumPurple><size:14>Dsage.route" Route
+MR1  -[#MediumPurple,dotted]u-> "<color:MediumPurple><size:14>Dosage.site" Site
+
+MEDSTMT1 "basedOn" -[thickness=3]r-> MR1
+MEDSTMT1 -[norank]r-> MED : > medicationReference
+
+MEDSTMTinner "basedOn" -[thickness=3]r-> MRinner
+
+
+MED "\ningredient" -[#MediumPurple]-> MedIngr
+MED "code" -[#MediumPurple]-> MedBrand
+
+
+'notes
+' note as N1
+'   These three instances, added to the
+'     original Appointment instance, capture
+'     detail from a **completed**
+'     secondary prophylaxis appointment:
+'   - **Encounter** the who / what / where etc.
+'   - **MedicationStatement** the actual meds given
+'   - **QuestionnaireResponse** health assessment
+' end note
+
+' N1 .u. AUGUST
+
+' note as N2
+'   The next planned patient secondary 
+'     prophylaxis encounter is represented by 
+'     this Appointment instance in **#booked** status.
+      
+'   Its main purpose is to convey the due date,
+'     to which adherence is important for effective RF care.
+    
+'   After the care encounter, the status updates 
+'     to #fulfilled.  The medication administered and 
+'     assessmention question responses are captured in 
+'     other FHIR resource instances, as shown above for July
+'     and August.
+' end note
+
+' N2 .. SEPTEMBER_APPT
+
+
+legend bottom
+  **Notes**
+  This model shows
+  a) medication planned in a patient's care plan (including lignocaine for pain relief)
+  b) records of medication actually administered for the patient's august encounter
+  c) two appointments representing the finished (august) and next planned encounters
+
+  **Legend** 
+  2) Arrows indicate direction of FHIR reference
+  3) Object colour shading reflects colours used in //Data Dictionary// mapping.
+endlegend
+
+
+@enduml

@@ -18,11 +18,11 @@ This section provides an overview of the design of the FHIR data representations
 </div>
 <br clear="all">
 
-#### Secondary prophylaxis appointment planning and recording instances
+#### Secondary prophylaxis medication planning and encounter recording
 
 <div width="100%">
-<!-- Generated from `input/images-source/obj-FHIR-data-rheumaticfever-appointment.plantuml` -->
-{% include obj-FHIR-data-rheumaticfever-appointment.svg %}
+<!-- Generated from `input/images-source/obj-FHIR-medication-planandrecord.plantuml` -->
+{% include obj-FHIR-medication-planandrecord.svg %}
 </div>
 <br clear="all">
 

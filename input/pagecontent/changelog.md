@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.4.0 Rheumatic Fever phase 2 (2024-04-15)
+
+### [Data models](rheumatic-fever-data-models.html)
+
+- Revised medication planning and recording model: Added nested lignocaine medication request and statement; simplified appointments.
+
+
+---
+
 ## v0.3.9b (2024-03-22)
 
 ### Antiviral eligibility questionnaire
