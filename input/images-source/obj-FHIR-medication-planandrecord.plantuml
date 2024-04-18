@@ -27,13 +27,17 @@ caption FHIR resource instance object model
   }
 !endprocedure
 
-!procedure $ObjectDiagramLegendWithNote($heading,$noteline)
+!procedure $Quantity($Alias,$Quantity,$Value,$Unit)
+  object "<color:GhostWhite><size:12>$Quantity</color>" as $Alias #DimGrey {
+    <color:GhostWhite><size:11>**$Value** ""$Unit""
+  }
+!endprocedure
 
+!procedure $ObjectDiagramLegendWithNote($heading,$noteline)
   legend bottom
     **$heading**
     $noteline
   endlegend
-
 !endprocedure
 
 ' ******** ******** ******** ******** ******** ******** ******** ******** 
@@ -46,7 +50,7 @@ package "Activity resources in the CarePlan" as Activities #Snow {
   object "<size:15>:**MEDICATIONREQUEST**\nplanned Benzathine med." as MR1 <<profiled>> #LightSalmon {
     * text: "Benzathine medication plan 2023"
     * status: ""**#active**""
-    * medication[x]: Ref(Benzathine)
+    * medicationReference: Ref(benzathine medication)
     * dosageInstruction
       \t-route:SNOMED
       \t-site:SNOMED
@@ -62,7 +66,7 @@ package "Activity resources in the CarePlan" as Activities #Snow {
   object "<size:15>:**MEDICATIONREQUEST**\nplanned pain relief med." as MRinner <<profiled>> #LightSalmon {
     * text: "Lignocaine medication plan 2023"
     * status: ""**#active**""
-    * medication[x]: Ref(Lignocaine medication)
+    * medicationCodeableConcept: lignocaine strength
     * dosageInstruction
       \t-route:SNOMED
       \t-site:SNOMED
@@ -98,13 +102,6 @@ package "Activity resources in the CarePlan" as Activities #Snow {
 
 }
 
-$Coding(Route,"Medication route","SNOMED #78421000","Intramuscular route")
-$Coding(Route,"Medication route","SNOMED #26643006","Oral route")
-
-$Coding(Site,"Medication site","SNOMED #78333006","Ventrogluteal")
-$Coding(Site,"Medication site","SNOMED #206007","Dorsogluteal")
-$Coding(Site,"Medication site","SNOMED #1403006","Vastus lateralis")
-
 
 object "August 2023 encounter\n:**ENCOUNTER**" as EInj1 #yellow {
   * status: //**#finished**//
@@ -134,6 +131,21 @@ object "health assessment responses\n:**QUESTIONNAIRERESPONSE**" as QR1 #SkyBlue
   * item.*: responses
 }
 
+
+object "benzathine\n:**MEDICATION**" as MED #GhostWhite {
+  Planned secondary prophylaxis\nmedication brand and ingredient
+}
+
+
+$Quantity(BDOSE,"benzathine dose planned","25","mg")
+
+$Coding(Route,"Medication route","SNOMED #78421000","Intramuscular route")
+$Coding(Route,"Medication route","SNOMED #26643006","Oral route")
+
+$Coding(Site,"Medication site","SNOMED #78333006","Ventrogluteal")
+$Coding(Site,"Medication site","SNOMED #206007","Dorsogluteal")
+$Coding(Site,"Medication site","SNOMED #1403006","Vastus lateralis")
+
 $Coding(MedIngr,"medication ingredient","NZMT ..6105","benzathine penicillin")
 $Coding(MedIngr,"medication ingredient","NZMT ..6107","amoxicillin")
 $Coding(MedIngr,"medication ingredient","NZMT ..6109","penicillin VK")
@@ -143,13 +155,11 @@ $Coding(MedBrand,"Benzathine brand","NZMT ..6108","Bicillin L-A")
 $Coding(MedBrand,"Benzathine brand","NZMT tbc",   "Tardocillin")
 $Coding(MedBrand,"Benzathine brand","NZMT tbc",   "Lentocillin")
 
-object ":**Medication**" as MED <<Medication>> #GhostWhite {
-  Planned secondary prophylaxis\nmedication brand and ingredient
-}
-
 $Coding(LIGNOCODE,"lignocaine strength","NZMT 1074...6105", "lidocaine hydrochloride anhydrous 0.5%" )
 $Coding(LIGNOCODE,"lignocaine strength","NZMT 1074...6110", "lidocaine hydrochloride anhydrous 1%" )
 $Coding(LIGNOCODE,"lignocaine strength","NZMT 1074...6101", "lidocaine hydrochloride anhydrous 2%" )
+
+$Quantity(LDOSE,"lignocaine dose planned","0.5","ml")
 
 
 ' positioning
@@ -158,12 +168,13 @@ $Coding(LIGNOCODE,"lignocaine strength","NZMT 1074...6101", "lidocaine hydrochlo
 MR1 "contained" -d-* MRinner
 
 MEDSTMTinner *-[norank]- "contained" MEDSTMT1 
-MEDSTMTinner "medicationCodeableConcept" -[#MediumPurple,dotted]d-> LIGNOCODE
+MEDSTMTinner  -[#MediumPurple,dotted]d--> LIGNOCODE : medicationCodeableConcept
+MRinner  -[#MediumPurple,dotted,norank]---> LIGNOCODE
+MRinner  -[dotted]d-> "<color:DimGray><size:14>Dosage.doseAndRate" LDOSE
 
 EInj1 <-[norank]l- MEDSTMT1: < context
 
 ' MEDSTMT1 "derivedFrom" -d-> QR1
-
 QR1 "encounter" -> EInj1
 
 AUGUST_APPT "supportingInfo" -d-> EInj1
@@ -171,12 +182,13 @@ EInj1 "appointment" -[thickness=3,norank]u--> AUGUST_APPT
 
 MR1 -[#MediumPurple,dotted]u-> "<color:MediumPurple><size:14>Dsage.route" Route
 MR1  -[#MediumPurple,dotted]u-> "<color:MediumPurple><size:14>Dosage.site" Site
+MR1  -[dotted]u-> "<color:DimGray><size:14>Dosage.doseAndRate" BDOSE
+MR1 -[norank]r-> MED : > medicationReference
 
 MEDSTMT1 "basedOn" -[thickness=3]r-> MR1
 MEDSTMT1 -[norank]r-> MED : > medicationReference
 
 MEDSTMTinner "basedOn" -[thickness=3]r-> MRinner
-
 
 MED "\ningredient" -[#MediumPurple]-> MedIngr
 MED "code" -[#MediumPurple]-> MedBrand
