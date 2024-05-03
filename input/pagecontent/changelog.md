@@ -1,4 +1,6 @@
 # Changelog
+## v0.3.9c (2024-05-03)
+Fixed Capability Statement broken links.
 
 ## v0.4.0 Rheumatic Fever phase 2 (2024-04-15)
 
