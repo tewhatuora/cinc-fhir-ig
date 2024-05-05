@@ -216,15 +216,17 @@ groups:
     - PlanDefinition/COVIDMVPCarePlanTemplate
     - OperationDefinition/ActivityDefinition-apply
     - OperationDefinition/PlanDefinition-apply
-    - ActiveMonitoringDay42Survey
-    - ActiveMonitoringDay7Survey
-    - AntiViralEligibilityQuestionnaire
-    - COVIDInitialHealthAssessmentQuestionnaire
-    - COVIDPublicHealthHistoryQuestionnaire
-    - COVIDRegularHealthCheckQuestionnaire
-    - COVIDVaccinationSurveyQuestionnaire
-    - MentalHealthAssessmentSurveyQuestionnaire
-    - PregnancyAssessmentSurveyQuestionnaire
+  CINCQuestionnaires:
+    name: Care in the Community Questionnaires
+    description: All Questionnaires used in the Care in the Community examples
+    resources:
+      - AntiViralEligibilityQuestionnaire
+      - COVIDInitialHealthAssessmentQuestionnaire
+      - COVIDPublicHealthHistoryQuestionnaire
+      - COVIDRegularHealthCheckQuestionnaire
+      - COVIDVaccinationSurveyQuestionnaire
+      - MentalHealthAssessmentSurveyQuestionnaire
+      - PregnancyAssessmentSurveyQuestionnaire
   CINCExamples: 
     name: Care in the Community examples
     resources:
@@ -235,8 +237,6 @@ groups:
     - ObservationExample
     - CareyCarrington
     - DrDottyMcStuffins
-    - ActiveMonitoring42DayQuestionnaireRespose
-    - ActiveMonitoring7DayQuestionnaireRespose
     - AntiviralEligibilityNoQuestionnaireResponse
     - AntiviralEligibilityYesQuestionnaireResponse
     - COVIDInitialHealthAssessmentQuestionnaireResponse
@@ -246,6 +246,7 @@ groups:
     - MentalHealthAssessmentSurveyQuestionnaireResponse
     - PregnancyAssessmentSurveyQuestionnaireResponse
     - ObservationsServiceRequestExample
+
   RheumaticFeverProfiles:
     name: Rheumatic Fever definitions
     description: FHIR profiles, extensions and canonical Questionnaires
