@@ -79,7 +79,7 @@ This status is intended to represent placeholders for patient consents that will
 
 Client FHIR API access to a resource protected by a `#proposed` Consent has the following additional requirements:
 
-1. The proposed consent MUST include a provision referencing a `CareTeam` which identifes the (HPI) organisations responsible for collecting and managing the patient data,
+1. The proposed consent MUST include a provision referencing a `CareTeam` which identifies the (HPI) organisations responsible for collecting and managing the patient data,
 2. The health application accessing the FHIR API MUST be using client credentials associated with one of the HPI organisations in the CareTeam described in (1).
 
 If these two conditions are not met API requests to resource instances covered by a `#proposed` consent will get an HTTP 403 Forbidden error, and those instances will be redacted in any FHIR search results.
@@ -172,7 +172,7 @@ The server will assess currency of a Consent for access purposes using a UTC tim
 
 ### Example data models
 
-#### Active consent obtained from the patient
+#### Patient normal data consent obtained
 
 <figure>
   <!-- Generated from `input/images-source/obj-FHIR-data-consent-active.puml` -->
@@ -192,10 +192,20 @@ The server will assess currency of a Consent for access purposes using a UTC tim
 
 ---
 
-#### Provisional consent (yet to be actually obtained from the patient)
+#### Patient opted out from data sharing
 
 <figure>
-  <!-- Generated from `input/images-source/obj-FHIR-data-consent-proposed.plantuml` -->
-  {% include obj-FHIR-data-consent-proposed.svg %}
+  <!-- Generated from `input/images-source/obj-FHIR-data-consent-optout.plantuml` -->
+  {% include obj-FHIR-data-consent-optout.svg %}
+</figure>
+<br clear="all">
+
+---
+
+#### Provisional consent (yet to be actually signed by the patient)
+
+<figure>
+  <!-- Generated from `input/images-source/obj-FHIR-data-consent-provisional.plantuml` -->
+  {% include obj-FHIR-data-consent-provisional.svg %}
 </figure>
 <br clear="all">

@@ -1,10 +1,14 @@
 # Changelog
 
-## v0.4.0 Rheumatic Fever phase 2 (2024-04-15)
+## v0.4.0 Rheumatic Fever phase 2 part 1 (May 2024)
 
 ### [Data models](rheumatic-fever-data-models.html)
 
 - Revised medication planning and recording model: Added nested lignocaine medication request and statement; simplified appointments.
+
+### Consent (2024-05-07)
+- In [consent-based access control](consentBasedAccessControl.html) added example instance data model showing patient opt-out of data sharing
+- Consistency and readability improvements to existing Consent example instance models
 
 ---
 ## v0.3.9c (2024-05-03)
@@ -24,9 +28,9 @@ Updated [AntiviralEligibilityQuestionnaire](Questionnaire-AntiViralEligibilityQu
 
 ### Documentation
 
-- Added [state transition diagrams](rheumatic-fever-data-models.html#rheumatic-fever-data-models.html#secondary-prophylaxis-appointment-planning-and-recording-states-model) for the expected states of secondary prophylaxis resources.
+- Added [state transition diagrams](rheumatic-fever-data-models.html#secondary-prophylaxis-appointment-planning-and-recording-states-model) for the expected states of secondary prophylaxis resources.
 
-- Update to existing diagram illustrating [appointment planning and recording](rheumatic-fever-data-models.html#secondary-prophylaxis-appointment-planning-and-recording-instances) the number of planned Appointments has been reduced to one.
+- Update to existing diagram illustrating [appointment planning and recording](rheumatic-fever-data-models.html#Secondary-prophylaxis-medication-planning-and-encounter-recording) the number of planned Appointments has been reduced to one.
 
 - Developer guidance expanded about validation of [resources using versioned profiles](developerGuide.html#fhir-profile-versioning)
 

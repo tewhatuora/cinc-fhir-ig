@@ -1,0 +1,104 @@
+@startuml obj-FHIR-data-consent-provisional
+
+top to bottom direction
+skinparam dpi 300
+allow_mixing
+scale 500 width
+
+skinparam ActivityDiamondBackgroundColor #RoyalBlue
+skinparam ArrowColor #SlateGrey   
+skinparam ArrowFontColor #RoyalBlue
+skinparam ArrowFontColor #SlateGrey  
+skinparam ArrowFontSize 12
+skinparam ArrowMessageAlignment left
+skinparam BoxPadding 10
+skinparam linetype ortho
+skinparam nodesep 30
+skinparam ranksep 30
+skinparam roundcorner 5
+skinparam sequenceArrowThickness 2
+
+title Example of provisional patient data consent
+
+!procedure $Coding($Alias,$System,$Code,$Display)
+  object "<color:GhostWhite>$System" as $Alias #MediumPurple {
+    <color:GhostWhite><size:11>**$Code**-$Display
+  }
+!endprocedure
+
+frame "HNZ FHIR API resources under management" as HNZMain {
+
+  package "<size:12>provisional data consent <sup>1</sup>" as PROV #Snow {
+      
+    object "provisional consent example\n<size:16>**:CONSENT**" as CONSENT #GhostWhite/LightCoral {
+      * status:   ""<size:15>**#proposed**""
+      * scope:    ""#patient-privacy""
+      * category: ""#npp Notice of Privacy Practices""
+      * dateTime: ""2023-06-12 (UTC)""
+      * policy: reference to NZ Privacy Act / HIPC
+    }
+
+    object "data access permit provision" as DAP #GhostWhite {
+      * type: ""#permit""
+      * period: ""2023-09-21 to 2026-09-20""
+    }
+
+    object "actor (RF service):\n<size:14>provision**.actor**" as SActor1 {
+      * actor.role: ""<color:#IndianRed>**#datacollector**""
+    }
+
+    object "actor (patient):\n<size:14>provision**.actor**" as SActor2 {
+      * actor.role: ""<color:#IndianRed>**#datasubject**""
+    }
+
+    object "data collector orgs.\n**:CARETEAM**" as CARETEAM1 #GhostWhite/LightCoral
+  }
+
+  package "Resource instances protected\n by this consent <sup>2</sup>" as COVERED {
+    object "resource x<sub>1</sub>\n**<size:15>:X**" as AnyResource #LightGray
+    object "resource y<sub>1</sub>\n**<size:15>:Y**" as AnotherResource #LightGray
+    'AnyResource -[hidden]d- AnotherResource
+  }
+
+  ' non-consent resources
+
+
+  ' connectors
+  DAP "data.reference" -[thickness=3,#RoyalBlue]---{ COVERED
+  DAP -* SActor1
+  DAP --* SActor2
+
+  CONSENT -d-* DAP : "".provision""
+}
+
+' resources in other repos
+object "**Patient** (NHI)" as Patient <<logical reference>> #SkyBlue {
+  * logical id: NHI
+}
+
+object "custodian of patient consent\nHPI:**Organization**" as HPI <<logical reference>> #SkyBlue {
+  HPI Org Id:+ GXXNNN-C
+  ---
+  New Zealand Rheumatic Fever Service
+   |- Northland RF Secondary Prevention Service
+   |- Counties Manakau RF SP Prevention Service
+   |- .. x16 regional orgs ..
+
+}
+
+SActor1 "actor.reference" -[thickness=3,#RoyalBlue]-> CARETEAM1: **Reference(CareTeam)**
+SActor2  -[dotted,#SkyBlue]--> Patient: actor.reference
+CARETEAM1 "\nparticipant.member.reference" -[dashed,#SkyBlue,norank]----{ HPI: > 
+CONSENT -[dashed,#Black]-> HPI: .organization/.performer\n**Reference(Organization)**
+CONSENT ".patient" -[dotted,#SkyBlue]--> Patient
+
+
+legend bottom
+  **Notes**
+  1. The Consent resource type itself is accessible by all authorized API consumers (no data access control)
+  2. Origin health applications are responsible for maintaining the data reference list of covered instances.
+endlegend
+
+footer "Health NZ/Te Whatu Ora.  FHIR instance data model generated from PlantUML source on %date('dd/MM/yyyy')"
+
+@enduml
