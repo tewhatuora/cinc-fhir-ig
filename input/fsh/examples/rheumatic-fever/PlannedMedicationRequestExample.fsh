@@ -1,6 +1,6 @@
 Instance: PlannedMedicationRequestExample
 InstanceOf: RheumaticFeverMedicationRequest
-Description: "Illustrates a request for active secondary prophylaxis medication that can appear in a rheumatic rever care plan"
+Description: "Illustrates a request for active secondary prophylaxis medication that can appear in a rheumatic fever care plan"
 Usage: #example
 
 * meta.profile = Canonical(RheumaticFeverMedicationRequest|1.0.0)

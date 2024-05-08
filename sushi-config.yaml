@@ -299,6 +299,7 @@ groups:
     - RFPatientHealthAssessmentQuestionnaireResponse
     - LeadProvidersGroup
     - SecondaryProphylaxisAugustEncounterBundle
+    - JonesCriteriaObservationExample
     
   RheumaticFeverTerminology:
     name: Rheumatic Fever terminology

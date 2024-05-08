@@ -1,5 +1,9 @@
 Alias: $sct = http://snomed.info/sct
 Alias: $UoM = http://unitsofmeasure.org
+
+Alias: $obs-dataabsentreason = http://terminology.hl7.org/CodeSystem/data-absent-reason
+Alias: $obs-interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+
 Alias: $resource-types = http://hl7.org/fhir/resource-types
 Alias: $restful-security-service = http://terminology.hl7.org/CodeSystem/restful-security-service
 Alias: $goal-priority = http://terminology.hl7.org/CodeSystem/goal-priority
