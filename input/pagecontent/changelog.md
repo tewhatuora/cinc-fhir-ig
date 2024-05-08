@@ -6,12 +6,20 @@
 
 - Revised medication planning and recording model: Added nested lignocaine medication request and statement; simplified appointments.
 
+### Examples
+
+- Added new example of Observation resource illustrating [Jones Criteria](Observation-JonesCriteriaObservationExample.html) components
+
 ### Consent (2024-05-07)
+
 - In [consent-based access control](consentBasedAccessControl.html) added example instance data model showing patient opt-out of data sharing
 - Consistency and readability improvements to existing Consent example instance models
 
+
 ---
+
 ## v0.3.9c (2024-05-03)
+
 Fixed Capability Statement broken links.
 
 ## v0.3.9b (2024-03-22)
