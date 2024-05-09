@@ -121,10 +121,10 @@ package "Condition and diagnosis instances linked from RF CarePlan" as Activitie
 }
 $Coding(ObsCode,"Observation type code","SNOMED #mmm","RF summary diagnosis")
 $Coding(ObsCode,"Observation type code","SNOMED #nnn","RF Jones Criteria")
+$Coding(ObsCode,"Observation type code","SNOMED #nnn","RHD severity assessment")
 $Coding(ObsCode,"Observation type code","SNOMED #ooo","RF Strep evidence")
 $Coding(ObsCode,"Observation type code","SNOMED #ooo","RF risk factors")
 $Coding(ObsCode,"Observation type code","SNOMED #ooo","RF recurrence")
-
 
 $Coding(ObsComp,"Observation component SNOMED codes","#703119002","Carditis due to rheumatic fever (disorder)")
 $Coding(ObsComp,"Observation component SNOMED codes","#200951007","Erythema marginatum in acute rheumatic fever (disorder)")
