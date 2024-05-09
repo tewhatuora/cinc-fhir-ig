@@ -226,15 +226,14 @@ MED "code" -[#MediumPurple]-> MedBrand
 
 
 legend bottom
-  **Notes**
   This model shows
   a) medication planned in a patient's care plan (including lignocaine for pain relief)
   b) records of medication actually administered for the patient's august encounter
   c) two appointments representing the finished (august) and next planned encounters
 
-  **Legend** 
-  2) Arrows indicate direction of FHIR reference
-  3) Object colour shading reflects colours used in //Data Dictionary// mapping.
+  **Notes**
+  1) Arrows indicate direction of FHIR reference
+  2) Object colour shading as per //Data Dictionary// mapping.
 endlegend
 
 
