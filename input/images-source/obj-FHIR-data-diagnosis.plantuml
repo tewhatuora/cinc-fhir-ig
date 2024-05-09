@@ -1,0 +1,164 @@
+@startuml obj-FHIR-data-diagnosis
+
+top to bottom direction
+skinparam dpi 200
+allow_mixing
+scale 500 width
+
+skinparam ActivityDiamondBackgroundColor #RoyalBlue
+skinparam ArrowColor #SlateGrey   
+skinparam ArrowFontColor #RoyalBlue
+skinparam ArrowFontColor #SlateGrey  
+skinparam ArrowFontSize 12
+skinparam ArrowMessageAlignment left
+skinparam BoxPadding 10
+skinparam linetype ortho
+skinparam nodesep 30
+skinparam ranksep 60
+skinparam roundcorner 5
+skinparam sequenceArrowThickness 2
+skinparam TitleFontSize 20
+
+caption FHIR resource instance object model
+footer "Health NZ/Te Whatu Ora.  Generated from PlantUML source on %date('dd/MM/yyyy')"
+
+!procedure $Coding($Alias,$System,$Code,$Display)
+  object "<color:GhostWhite>$System" as $Alias #MediumPurple {
+    <color:GhostWhite><size:11>**$Code**-$Display
+  }
+!endprocedure
+
+!procedure $Quantity($Alias,$Quantity,$Value,$Unit)
+  object "<color:GhostWhite><size:12>$Quantity</color>" as $Alias #DimGrey {
+    <color:GhostWhite><size:11>**$Value** ""$Unit""
+  }
+!endprocedure
+
+' ******** ******** ******** ******** ******** ******** ******** ******** 
+title "Secondary prophylaxis medication planning and recording"
+
+package "Condition and diagnosis instances linked from RF CarePlan" as Activities #Snow { 
+  
+  object "Summary of condition\n<size:15>:**CONDITION**" as RFCOND <<RF profile>> #PaleGreen {
+    * identifier (usual): {{salesforce diagnosis Id}}
+    ---
+     * code: ""#195528001"" Acute rheumatic fever
+     * severity: ""#mild | #moderate | #severe""
+     * clinicalStatus: #active etc.
+     * recordedDate: date recorded / updated 
+     * onsetDateTime: date of condition onset
+    -- extensions --
+      * **rhdSeverity**: code (in dedicated ValueSet)
+      * **diagnosticCertainty**: code (in dedicated ValueSet)
+      * **assessmentDate**: date (UTC)
+  }
+
+  object "**:OBSERVATION**" as OBS1 <<FHIR R4B>> #DarkSeaGreen {
+    Diagnostic summary
+    ---
+    * status: ""#final""
+    * effectiveDateTime: datetime
+    ---
+    * components 0..*
+    +  code: SNOMED
+    +  value[x]: ..
+    +  dataAbsentReason: code
+    +  interpretation: code
+  }
+  
+  class "patient detail at time of diagnosis\n**:PATIENT**" as DPATIENT <<RF profile>> #Pink {
+    Extends NzPatient (NZ Base) with 
+     RF patient registration detail.
+    ---
+    *identifier[NHI] (official): NHI
+    ---
+    *name: HumanName
+    *birthDate: date
+    *communication.language
+    *gender: code
+    *deceasedBoolean: boolean
+    *telecom: ContactPoint[]
+    *address: Address[]
+    +iwi: code
+    +ethnicity 0..*: code[]
+    +nzCitizen: code
+    .. (extensions)..
+    +**patient.contact[].**
+    +**interpreterRequired**: boolean
+  }
+
+  object "**:OBSERVATION**" as OBS2 <<FHIR R4B>> #DarkSeaGreen {
+    Jones Criteria
+    ---
+    * status: ""#final""
+    * effectiveDateTime: datetime
+    ---
+    * components 0..*
+    \t+value[x]: result or measurement
+    \t+dataAbsentReason: code
+    \t+interpretation: code
+  }
+
+  object "**:OBSERVATION.components**" as OBS2comp <<FHIR R4B>> #DarkSeaGreen {
+    Jones criteria observation components
+    ---
+    * value[x]: result or measurement
+    * dataAbsentReason: code
+    * interpretation: code
+  }
+
+  object "diagnostic encounter\n:**ENCOUNTER**" as ENCDIAG #GhostWhite {
+    * status: //**#finished**//
+    * period: 2023-08-08
+    * location[0]: Ref(Location)
+    * participant: Ref(Practitioner)
+    * serviceProvider: Ref(Organisation)
+  }
+
+  'arrange activities in box
+'  OBS1 -[hidden]d- OBS2
+
+}
+$Coding(ObsCode,"Observation type code","SNOMED #mmm","RF summary diagnosis")
+$Coding(ObsCode,"Observation type code","SNOMED #nnn","RF Jones Criteria")
+$Coding(ObsCode,"Observation type code","SNOMED #ooo","RF Strep evidence")
+$Coding(ObsCode,"Observation type code","SNOMED #ooo","RF risk factors")
+$Coding(ObsCode,"Observation type code","SNOMED #ooo","RF recurrence")
+
+
+$Coding(ObsComp,"Observation component SNOMED codes","#703119002","Carditis due to rheumatic fever (disorder)")
+$Coding(ObsComp,"Observation component SNOMED codes","#200951007","Erythema marginatum in acute rheumatic fever (disorder)")
+$Coding(ObsComp,"Observation component SNOMED codes","#11211002","Migratory polyarthritis (disorder)")
+$Coding(ObsComp,"Observation component SNOMED codes","#165468009","Erythrocyte sedimentation rate above reference range (finding) ")
+$Coding(ObsComp,"Observation component SNOMED codes","etc.","etc.")
+
+' positioning
+
+' connectors
+CAREPLAN -> RFCOND
+
+RFCOND "stage.assessment[0]" -u-> OBS1
+RFCOND "stage.assessment[n]" -d-> OBS2
+
+OBS2 ".components" --> "<size:20>*" OBS2comp
+
+OBS1 "contained" -r--* DPATIENT
+OBS1 "contained" -l--* ENCDIAG
+
+OBS1 "<color:MediumPurple><size:14>.code" -[#MediumPurple,dotted]--> ObsCode
+OBS2 "\n<color:MediumPurple><size:14>.code" -[#MediumPurple,dotted]--> ObsCode
+OBS2comp "\n<color:MediumPurple><size:14>.component.code" -[#MediumPurple,dotted]d--> ObsComp
+
+legend bottom
+  This model shows how a rheumatic patient's condition and diagnosis
+  can be represented in FHIR.  The structure allows for diagnoses to
+  accumulate from multiple contexts, as knowledge of the patient's
+  condition increases.
+  
+  **Notes** 
+  1) Arrows indicate direction of FHIR reference
+  2) Object colour shading as per //Data Dictionary// mapping.
+endlegend
+
+
+@enduml
