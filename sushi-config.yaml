@@ -250,6 +250,7 @@ groups:
     name: Rheumatic Fever definitions
     description: FHIR profiles, extensions and canonical Questionnaires
     resources:
+    - LeadProvidersGroup
     - StructureDefinition/rf-patient-whanaumember-role
     - StructureDefinition/rf-patient-whanaumember-relationship
     - StructureDefinition/rf-patient-whanaumember-primary
@@ -290,14 +291,11 @@ groups:
     - Encounter-SecondaryProphylaxisAppointment
     - MedicationStatement-August
     - SecondaryProphylaxisCareTeam
-    - TeTaiTokerauRFSecondaryPreventionService
-    - WaikatoRFSecondaryPreventionService
     - MadeleineMeringueAndWhanau
     - MedicationsAndFollowUpGuidanceQuestionnaireResponse
     - PatientMedicationAllergyQuestionnaireResponse
     - PatientWhanauGoalsPreferencesQuestionnaireResponse
     - RFPatientHealthAssessmentQuestionnaireResponse
-    - LeadProvidersGroup
     - SecondaryProphylaxisAugustEncounterBundle
     - JonesCriteriaObservationExample
     

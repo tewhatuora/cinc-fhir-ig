@@ -1,4 +1,4 @@
-Instance: TeTaiTokerauRFSecondaryPreventionService
+Instance: TTaiTokerauRFSecondaryPreventionService
 InstanceOf: NzOrganization
 Description: "Identifies the Te Tai Tokerau rheumatic fever secondary prevention provider organization"
 Usage: #example

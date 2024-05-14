@@ -2,6 +2,12 @@
 
 ## v0.4.0 Rheumatic Fever phase 2 part 1 (May 2024)
 
+### [Definition instances](artifacts.html#rheumatic-fever-definitions)
+
+- Moved the [**LeadProvidersGroup**](CareTeam-LeadProvidersGroup.html) from Examples to Definitions section
+
+- Expanded the membership of the [**LeadProvidersGroup**](CareTeam-LeadProvidersGroup.html) to encompass all 18 NZ Rheumatic Fever Secondary Prevention Services.
+
 ### [Data models](rheumatic-fever-data-models.html)
 
 - Revised medication planning and recording model: Added nested lignocaine medication request and statement; simplified appointments.
@@ -9,6 +15,7 @@
 ### Examples
 
 - Added new example of Observation resource illustrating [Jones Criteria](Observation-JonesCriteriaObservationExample.html) components
+- Corrected examples having shared care provider references to **Taranaki Rheumatic Fever Secondary Prevention Service** to use the current HPI org ID (**G0M744-C**) 
 
 ### Consent (2024-05-07)
 

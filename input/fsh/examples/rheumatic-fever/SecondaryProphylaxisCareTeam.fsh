@@ -20,10 +20,9 @@ Usage: #example
 * participant[=].onBehalfOf insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 // shared care provider
-* participant[+].member insert ReferenceOrganisation(G00030-C,[[Taranaki]])
+* participant[+].member insert ReferenceOrganisation(G0M744-C,[[Taranaki Rheumatic Fever Secondary Prevention Service]])
 
 // lead nurse
 * participant[+].role[0] insert CareTeamRole(224535009,[[Registered nurse]])
 * participant[=].member insert ReferencePractitioner(99ZABC,[[Felicity Faraway]])
-* participant[=].onBehalfOf insert ReferenceOrganisation(G00030-C,[[Taranaki]])
-
+* participant[=].onBehalfOf insert ReferenceOrganisation(G0M744-C,[[Taranaki Rheumatic Fever Secondary Prevention Service]])
