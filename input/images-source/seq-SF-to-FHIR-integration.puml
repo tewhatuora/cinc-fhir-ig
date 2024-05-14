@@ -1,4 +1,4 @@
-@startuml seq-FHIR-to-SF-integration
+@startuml seq-SF-to-FHIR-integration
 
 
 autonumber "<b> 00"
@@ -20,8 +20,7 @@ skinparam sequencegroupfontsize 14
 ' see https://sarafian.github.io/tips/2021/03/11/plantuml-tips-tricks-1.html#:~:text=responseMessageBelowArrow-,Semi,-transparent%20group%20backgrounds
 skinparam SequenceGroupBodyBackgroundColor #EEEEFF50
 
-
-scale max 400 width
+scale max 500 width
 
 
 '' ** page 1
@@ -29,6 +28,7 @@ title "Rheumatic Fever: Salesforce Health Cloud patient registration integration
 
 actor "rheumatic fever collaborator" as USER
 participant "FHIR-integrated APP/UX" as APIC #Orange
+participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
 database "Salesforce Mulesoft Connector\nplatform event" as SHIFTER #IndianRed
 database "Integration Health \nMonitoring (Datadog)" as WATCHDOG #LightCyan
 participant "Mulesoft" as TILLY #SkyBlue
@@ -36,7 +36,6 @@ participant "Mulesoft" as TILLY #SkyBlue
   entity "NIA OAUTH service" as WICKET
   entity "**HNZ FHIR API**\n(AWS FHIRWorks)" as FHIR #LightSalmon
 
-participant "Salesforce\nHealth Cloud" as OLLIE #YellowGreen
 
 entity "NHI FHIR API" as NHI
 
@@ -63,17 +62,21 @@ note right of SHIFTER #Yellow: Platform events stored \nfor up to 3 days for rep
 TILLY -> SHIFTER #SkyBlue: <color:red>get next event (SF object IDs)
 activate TILLY #SkyBlue
 
+TILLY -/ WATCHDOG: Log start of processing \nplatform event
+
+note right of TILLY #Yellow
+  1. Salesforce records 'platform event' in proprietary storage shared with Mulesoft.  
+  2. Mulesoft writes a log record marking start of integration sequence processing.
+  3. The integration sequence is designed as an idempotent set of FHIR operations 
+    which can be restarted/repeated without loss of FHIR data integrity.
+  4. If the sequence aborts for some technical reason, the platform event status will
+    indicate to Salesforce Mule couldn't finish the job ie. the sequence didn't complete. 
+endnote
+
 note left of SHIFTER #Yellow
   Salesforce connector keeps track of
   last platform event processed. 
 endnote
-
-note right of TILLY #Yellow
-  Salesforce fires platform event over internal channel shared with Mulesoft.  Mulesoft logs the event before starting the integration sequence.
-  The integration sequence is idempotent and can be restarted/repeated without loss of FHIR data integrity.
-  If it aborts for any technical reason, the sequence status in Salesforce will reflect that the sequence did not complete. 
-endnote
-TILLY -/ WATCHDOG: Log start of processing \nplatform event
 
 TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Salesforce REST API composite request)
 deactivate OLLIE
@@ -92,10 +95,6 @@ FHIR -> TILLY--: ""200 OK"" bundle
   TILLY -/ WATCHDOG: Log FHIR operation outcomes
 
 deactivate TILLY 
-
-' *******************
-' ** page 2
-'newpage Rheumatic Fever: HNZ FHIR updates to Salesforce Health Cloud
 
 
 @enduml

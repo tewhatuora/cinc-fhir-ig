@@ -1,5 +1,4 @@
-@startuml seq-SF-to-FHIR-integration
-
+@startuml seq-FHIR-to-SF-integration
 
 autonumber "<b> 00"
 
@@ -25,7 +24,7 @@ scale max 400 width
 
 
 '' ** page 1
-title "Rheumatic Fever: Salesforce Health Cloud patient registration integration to Te Whatu Ora FHIR"
+title "<size 30>**WIP**</size> Rheumatic Fever: Salesforce Health Cloud patient registration integration to Te Whatu Ora FHIR"
 
 actor "rheumatic fever collaborator" as USER
 participant "FHIR-integrated APP/UX" as APIC #Orange
