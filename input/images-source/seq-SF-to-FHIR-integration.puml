@@ -20,7 +20,7 @@ skinparam sequencegroupfontsize 14
 ' see https://sarafian.github.io/tips/2021/03/11/plantuml-tips-tricks-1.html#:~:text=responseMessageBelowArrow-,Semi,-transparent%20group%20backgrounds
 skinparam SequenceGroupBodyBackgroundColor #EEEEFF50
 
-scale max 500 width
+scale max 450 width
 
 
 '' ** page 1
@@ -33,6 +33,8 @@ database "Salesforce Mulesoft Connector\nplatform event" as SHIFTER #IndianRed
 database "Integration Health \nMonitoring (Datadog)" as WATCHDOG #LightCyan
 participant "Mulesoft" as TILLY #SkyBlue
 
+database "Mulesoft\nDead\nLetter\nQueue" as DLQ #LightCyan
+
   entity "NIA OAUTH service" as WICKET
   entity "**HNZ FHIR API**\n(AWS FHIRWorks)" as FHIR #LightSalmon
 
@@ -42,7 +44,7 @@ entity "NHI FHIR API" as NHI
 autonumber stop
 
 ?-> TILLY: init
-TILLY -> WICKET++: OAUTH2.0 Client Credentials Flow(\n\t1. api-key\n\t2. service provider's client credentials) 
+TILLY -> WICKET++: OAUTH2.0 Client Credentials Flow(\n\t1. api-key\n\t2. client credentials 
 return OAUTH token
 
 activate USER
@@ -58,30 +60,26 @@ USER -> USER:  User is now free to \nprogress other RF tasks
 deactivate USER
 
 OLLIE -/ SHIFTER #IndianRed: <color:red>PATIENT-CHANGE (SF obj. Ids)
-note right of SHIFTER #Yellow: Platform events stored \nfor up to 3 days for replay if needed
+'note right of SHIFTER #Yellow: Platform events stored \nfor up to 3 days for replay if needed
 TILLY -> SHIFTER #SkyBlue: <color:red>get next event (SF object IDs)
 activate TILLY #SkyBlue
 
 TILLY -/ WATCHDOG: Log start of processing \nplatform event
 
 note right of TILLY #Yellow
-  1. Salesforce records 'platform event' in proprietary storage shared with Mulesoft.  
-  2. Mulesoft writes a log record marking start of integration sequence processing.
-  3. The integration sequence is designed as an idempotent set of FHIR operations 
-    which can be restarted/repeated without loss of FHIR data integrity.
-  4. If the sequence aborts for some technical reason, the platform event status will
-    indicate to Salesforce Mule couldn't finish the job ie. the sequence didn't complete. 
+  Mulesoft..
+  1. reads the 'platform event' (which deletes it) and places on persistent queue.
+  2. dequeues the event; extracts the relevant data from SF using the 'Connector'
+  3. if the sequence fails with an unrecoverable error, Mulesoft places the 'event' on DLQ
 endnote
 
-note left of SHIFTER #Yellow
-  Salesforce connector keeps track of
-  last platform event processed. 
-endnote
-
-TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Salesforce REST API composite request)
+TILLY -> OLLIE: Retrieve Patient data \n<size:10>(Mulesoft Salesforce connector)
 deactivate OLLIE
-TILLY -> FHIR++: ""GET /Patient?""\n""identifier=https://standards.digital.health.nz/ns/nhi-id|{{NHI}}&""\n""_profile={{RF Patient profile}}""
-FHIR -> TILLY--: ""200 OK"" bundle
+
+alt #LightGreen successful integration sequence
+
+  TILLY -> FHIR++: ""GET /Patient?""\n""identifier=https://standards.digital.health.nz/ns/nhi-id|{{NHI}}&""\n""_profile={{RF Patient profile}}""
+  FHIR -> TILLY--: ""200 OK"" bundle
 
   TILLY -> TILLY: Form FHIR Bundle payload from Patient, CarePlan \nand Consent data from Salesforce HealthCloud
   TILLY -> FHIR++: ""POST /Bundle""
@@ -93,6 +91,16 @@ FHIR -> TILLY--: ""200 OK"" bundle
 
   FHIR -> TILLY--: ""201 CREATED"" - instance representations 
   TILLY -/ WATCHDOG: Log FHIR operation outcomes
+
+else #SkyBlue failed integration sequence
+
+  TILLY -> FHIR++: ""POST /Patient"" some update
+  FHIR -> TILLY--: ""4xx / 5xx"" error
+
+  TILLY -> DLQ: event placed on DLQ
+  TILLY -/ WATCHDOG: Log FHIR operation outcomes
+end
+
 
 deactivate TILLY 
 
