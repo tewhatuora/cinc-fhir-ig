@@ -2,8 +2,9 @@ Alias: $air-status-reason-terms = https://standards.digital.health.nz/ns/air-sta
 Alias: $cvx = http://hl7.org/fhir/sid/cvx
 Alias: $air-terms-code = https://standards.digital.health.nz/ns/air-terms-code
 
-Instance: 9520c240-d9d4-4a2f-9cdc-de0e003eca4c
+Instance: ImmsotVaccinationDataEntryQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "Example payload of an overseas immunisation being added to ImmSoT."
 Usage: #example
 * authored = "2024-04-17T01:09:56.016Z"
 * item.item[0].linkId = "p01-q01-Type"

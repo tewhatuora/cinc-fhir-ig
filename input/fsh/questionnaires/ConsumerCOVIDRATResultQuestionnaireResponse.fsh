@@ -1,5 +1,6 @@
-Instance: f1358993-a3de-4faa-b315-59bd98509306
+Instance: ConsumerCOVIDRATResultQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "Example payload from an individual consumer reporting a COVID-19 rapid antigen test (RAT) result."
 Usage: #example
 * authored = "2024-03-24T21:48:20.520Z"
 * item[0].linkId = "metaPhoneNumber"

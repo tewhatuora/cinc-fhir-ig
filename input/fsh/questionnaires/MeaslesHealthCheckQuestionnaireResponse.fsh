@@ -1,5 +1,6 @@
-Instance: c5004bbd-c95d-4bda-ade7-e3c8b54aa5f5
+Instance: MeaslesHealthCheckQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "Example payload from an asymptomatic measles health check."
 Usage: #example
 * subject.type = "Patient"
 * subject.identifier.value = "ZKW3813"

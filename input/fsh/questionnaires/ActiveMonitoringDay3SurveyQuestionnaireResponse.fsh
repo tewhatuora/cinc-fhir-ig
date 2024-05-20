@@ -1,5 +1,6 @@
-Instance: 3c8a6cd5-7239-42da-97a7-ccccbcda95a8
+Instance: ActiveMonitoringDay3SurveyQuestionnaireResponse
 InstanceOf: QuestionnaireResponse
+Description: "Survey of side effects and overall experience of Influenza/COVID-19 Booster vaccination after 3 days."
 Usage: #example
 * authored = "2024-04-21T22:06:45.669Z"
 * item[0].linkId = "p01-Intro"

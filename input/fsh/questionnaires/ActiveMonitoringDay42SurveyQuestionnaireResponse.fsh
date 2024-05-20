@@ -1,4 +1,5 @@
-Instance: 0be1a9de-f85a-42db-91e6-b5b585d31202
+Instance: ActiveMonitoringDay42SurveyQuestionnaireResponse
+Description: "Survey of side effects and overall experience of Influenza/COVID-19 Booster vaccination after 42 days."
 InstanceOf: QuestionnaireResponse
 Usage: #example
 * authored = "2024-04-21T23:18:09.622Z"

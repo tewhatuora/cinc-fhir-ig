@@ -410,7 +410,7 @@ Usage: #example
 * item[=].item.item[=].linkId = "postSubmit-container-isolation"
 * item[=].item.item[=].extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression"
 * item[=].item.item[=].extension.valueExpression.language = #text/fhirpath
-* item[=].item.item[=].extension.valueExpression.expression = "%testResult = 'positive' and %isolationLeaveDate.toDate() > today()"
+* item[=].item.item[=].extension.valueExpression.expression = "%testResult = 'positive' and %isolationLeaveDate > today()"
 * item[=].item.item[+].item[0].type = #display
 * item[=].item.item[=].item[=].linkId = "postSubmit-container-nextSteps-heading"
 * item[=].item.item[=].item[=].text = "What to do next"
@@ -625,11 +625,11 @@ Usage: #example
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/variable"
 * extension[=].valueExpression.name = "symptomOnsetDate"
 * extension[=].valueExpression.language = #text/fhirpath
-* extension[=].valueExpression.expression = "%aveSymptoms.where(linkId='aveSymptoms-container-symptomDate').answer.valueCoding.code.toDate()"
+* extension[=].valueExpression.expression = "%aveSymptoms.where(linkId='aveSymptoms-container-symptomDate').answer.valueCoding.code"
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/variable"
 * extension[=].valueExpression.name = "testDate"
 * extension[=].valueExpression.language = #text/fhirpath
-* extension[=].valueExpression.expression = "%report.where(linkId='reportResult-container-testDate').answer.valueCoding.code.toDate()"
+* extension[=].valueExpression.expression = "%report.where(linkId='reportResult-container-testDate').answer.valueCoding.code"
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/variable"
 * extension[=].valueExpression.name = "hasSymptoms"
 * extension[=].valueExpression.language = #text/fhirpath
@@ -637,7 +637,7 @@ Usage: #example
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/variable"
 * extension[=].valueExpression.name = "recentSymptoms"
 * extension[=].valueExpression.language = #text/fhirpath
-* extension[=].valueExpression.expression = "%hasSymptoms and %symptomOnsetDate.toDate() > today() - 6 days"
+* extension[=].valueExpression.expression = "%hasSymptoms and %symptomOnsetDate > today() - 6 days"
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/variable"
 * extension[=].valueExpression.name = "isHighRisk"
 * extension[=].valueExpression.language = #text/fhirpath
@@ -661,11 +661,11 @@ Usage: #example
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/variable"
 * extension[=].valueExpression.name = "isolationLeaveDate"
 * extension[=].valueExpression.language = #text/fhirpath
-* extension[=].valueExpression.expression = "%dayZero.toDate() + 6 days"
+* extension[=].valueExpression.expression = "%dayZero + 6 days"
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/variable"
 * extension[=].valueExpression.name = "recentTest"
 * extension[=].valueExpression.language = #text/fhirpath
-* extension[=].valueExpression.expression = "%report.where(linkId='reportResult-container-testDate').answer.valueCoding.code.toDate() > today() - 6 days"
+* extension[=].valueExpression.expression = "%report.where(linkId='reportResult-container-testDate').answer.valueCoding.code > today() - 6 days"
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/variable"
 * extension[=].valueExpression.name = "subjectName"
 * extension[=].valueExpression.language = #text/fhirpath
