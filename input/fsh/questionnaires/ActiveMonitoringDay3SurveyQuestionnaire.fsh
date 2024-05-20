@@ -4,7 +4,7 @@ Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-cont
 
 Instance: ActiveMonitoringDay3Survey
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay3Survey"
 * identifier[0].use = #official
 * identifier[=].value = "ActiveMonitoringDay3Survey"

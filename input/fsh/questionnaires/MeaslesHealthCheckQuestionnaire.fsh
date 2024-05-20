@@ -3,7 +3,7 @@ Alias: $sct = http://snomed.info/sct
 
 Instance: MeaslesHealthCheckQuestionnaire
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MeaslesHealthCheckQuestionnaire"
 * identifier.use = #official
 * identifier.value = "MeaslesHealthCheckQuestionnaire"

@@ -3,7 +3,7 @@ Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context
 Instance: COVIDRATResultQuestionnaire
 InstanceOf: Questionnaire
 Description: "Questionnaire for assisted channel or aged residential care facilities to report a COVID-19 rapid antigen test (RAT) result."
-Usage: #example
+Usage: #definition
 * identifier.period.start = "2023-07-05"
 * identifier.use = #usual
 * identifier.value = "COVIDRATResultQuestionnaire"

@@ -2,7 +2,7 @@ Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context
 
 Instance: ConsumerCOVIDRATResultQuestionnaire
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * meta.versionId = "1"
 * meta.lastUpdated = "2024-01-23T21:19:39.411Z"
 * language = #en-NZ

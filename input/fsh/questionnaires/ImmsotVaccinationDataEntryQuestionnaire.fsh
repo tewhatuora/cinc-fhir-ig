@@ -7,7 +7,7 @@ Alias: $air-terms-code = https://standards.digital.health.nz/ns/air-terms-code
 Instance: ImmsotVaccinationDataEntryQuestionnaire
 InstanceOf: Questionnaire
 Description: "Submit an overseas, historic, or not-done vaccination to AIR"
-Usage: #example
+Usage: #definition
 * title = "AIR - Overseas, Historic, Not Done"
 * status = #draft
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ImmsotVaccinationDataEntryQuestionnaire"
