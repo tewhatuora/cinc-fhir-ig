@@ -200,7 +200,7 @@ contact:
 groups:
   CINCProfiles:
     name: Care in the Community definitions
-    description: FHIR profiles, canonical Questionnaires and Definitions 
+    description: Canonical FHIR Profiles and Definitions 
     resources:
     - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
     - StructureDefinition/ManaakiNgaTahiCarePlan
@@ -216,15 +216,43 @@ groups:
     - PlanDefinition/COVIDMVPCarePlanTemplate
     - OperationDefinition/ActivityDefinition-apply
     - OperationDefinition/PlanDefinition-apply
-    - ActiveMonitoringDay42Survey
-    - ActiveMonitoringDay7Survey
-    - AntiViralEligibilityQuestionnaire
-    - COVIDInitialHealthAssessmentQuestionnaire
-    - COVIDPublicHealthHistoryQuestionnaire
-    - COVIDRegularHealthCheckQuestionnaire
-    - COVIDVaccinationSurveyQuestionnaire
-    - MentalHealthAssessmentSurveyQuestionnaire
-    - PregnancyAssessmentSurveyQuestionnaire
+  CINCQuestionnaires:
+    name: Care in the Community canonical Questionnaire resources
+    description: All Questionnaires used for Care in the Community
+    resources:
+      - AntiViralEligibilityQuestionnaire
+      - COVIDInitialHealthAssessmentQuestionnaire
+      - COVIDPublicHealthHistoryQuestionnaire
+      - COVIDRegularHealthCheckQuestionnaire
+      - COVIDVaccinationSurveyQuestionnaire
+      - MentalHealthAssessmentSurveyQuestionnaire
+      - PregnancyAssessmentSurveyQuestionnaire
+      - ActiveMonitoringDay3Survey
+      - ActiveMonitoringDay42Survey
+      - COVIDRATResultQuestionnaire
+      - COVIDRegularHealthCheckQuestionnaire
+      - COVIDVaccinationSurveyQuestionnaire
+      - ConsumerCOVIDRATResultQuestionnaire
+      - ImmsotVaccinationDataEntryQuestionnaire
+      - MeaslesHealthCheckQuestionnaire
+  CINCQuestionnaireResponses:
+    name: Care in the Community QuestionnaireResponse examples
+    description: Demonstration QuestionnaireResponses for all Questionnaire resources
+    resources:
+      - AntiviralEligibilityNoQuestionnaireResponse
+      - AntiviralEligibilityYesQuestionnaireResponse
+      - COVIDInitialHealthAssessmentQuestionnaireResponse
+      - COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
+      - COVIDRegularHealthCheckQuestionnaireResponse
+      - COVIDVaccinationSurveyQuestionnaireResponse
+      - MentalHealthAssessmentSurveyQuestionnaireResponse
+      - PregnancyAssessmentSurveyQuestionnaireResponse 
+      - ActiveMonitoringDay3SurveyQuestionnaireResponse
+      - ActiveMonitoringDay42SurveyQuestionnaireResponse
+      - COVIDRATResultQuestionnaireResponse
+      - MeaslesHealthCheckQuestionnaireResponse
+      - ConsumerCOVIDRATResultQuestionnaireResponse
+      - ImmsotVaccinationDataEntryQuestionnaireResponse
   CINCExamples: 
     name: Care in the Community examples
     resources:
@@ -235,17 +263,8 @@ groups:
     - ObservationExample
     - CareyCarrington
     - DrDottyMcStuffins
-    - ActiveMonitoring42DayQuestionnaireRespose
-    - ActiveMonitoring7DayQuestionnaireRespose
-    - AntiviralEligibilityNoQuestionnaireResponse
-    - AntiviralEligibilityYesQuestionnaireResponse
-    - COVIDInitialHealthAssessmentQuestionnaireResponse
-    - COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
-    - COVIDRegularHealthCheckQuestionnaireResponse
-    - COVIDVaccinationSurveyQuestionnaireResponse
-    - MentalHealthAssessmentSurveyQuestionnaireResponse
-    - PregnancyAssessmentSurveyQuestionnaireResponse
     - ObservationsServiceRequestExample
+
   RheumaticFeverProfiles:
     name: Rheumatic Fever definitions
     description: FHIR profiles, extensions and canonical Questionnaires
