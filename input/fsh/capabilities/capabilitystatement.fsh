@@ -9,6 +9,7 @@ Usage: #definition
 * publisher = "Te Whatu Ora"
 * description = "The Manaaki Nga Tahi - Care In The Community FHIR API"
 * kind = #instance
+* implementationGuide = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig"
 * implementation.description = "The Care In The Community Manaaki Nga Tahi FHIR API"
 * implementation.url = "https://fhir.ap1.digital.health.nz/R4"
 * fhirVersion = #4.0.1
