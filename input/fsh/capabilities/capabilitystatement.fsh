@@ -15,17 +15,18 @@ Usage: #definition
 * format = #json
 * rest.mode = #server
 * rest.security.cors = true
-* rest.security.service = http://terminology.hl7.org/CodeSystem/restful-security-service#OAuth
-* rest.security.extension.url = "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
-* rest.security.extension.extension[0].url = "token"
-* rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/token"
-* rest.security.extension.extension[+].url = "authorize"
-* rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/authorize"
+* rest.security.service = #SMART-on-FHIR
+* rest.security.extension[+].url = "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
+* rest.security.extension[=].extension[+].url = "token"
+* rest.security.extension[=].extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/token"
+* rest.security.extension[+].url = "http://fhir-registry.smarthealthit.org/StructureDefinition/capabilities"
+* rest.security.extension[=].valueCode = #client-confidential-symmetric
 
 * rest.interaction.code = #transaction
 
 * rest.resource[0].type = #AllergyIntolerance
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiAllergyIntolerance)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiAllergyIntolerance)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "patient"
@@ -60,6 +61,7 @@ Usage: #definition
 
 * rest.resource[0].type = #Appointment
 * rest.resource[=].profile = Canonical(Appointment)
+* rest.resource[=].supportedProfile = Canonical(Appointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "patient"
@@ -81,6 +83,7 @@ Usage: #definition
 
 * rest.resource[0].type = #Bundle
 * rest.resource[=].profile = Canonical(Bundle)
+* rest.resource[=].supportedProfile = Canonical(Bundle)
 * rest.resource[=] insert GenericCRUDInteractions
 
 * rest.resource[+].type = #CarePlan
@@ -172,6 +175,7 @@ This server supports two subtypes of FHIR Condition - refer to Profiles
 
 * rest.resource[+].type = #Consent
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiConsent)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiConsent)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "Consent:source-reference"
@@ -198,6 +202,7 @@ This server supports two subtypes of FHIR Condition - refer to Profiles
 
 * rest.resource[+].type = #Encounter
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiEncounter)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiEncounter)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:diagnosis"
@@ -265,6 +270,7 @@ This server supports the NZ Base IG profiles NzMedicationStatement in addition t
 
 * rest.resource[+].type = #Observation
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiObservation)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "code"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
@@ -350,6 +356,7 @@ This server supports the NZ Base IG profiles NzMedicationStatement in addition t
 // rheumatic fever profiled type
 * rest.resource[+].type = #Patient
 * rest.resource[=].profile = Canonical(RheumaticFeverPatient)
+* rest.resource[=].supportedProfile = Canonical(RheumaticFeverPatient)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - refer to Profiles
@@ -370,6 +377,7 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 
 
 * rest.resource[+].type = #PlanDefinition
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiPlanDefinition)
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
@@ -401,7 +409,7 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 
 
 * rest.resource[+].type = #Questionnaire
-//* rest.resource[=].profile = canonical(Questionnaire)
+* rest.resource[=].supportedProfile = Canonical(Questionnaire)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Questionnaire-identifier"
@@ -430,7 +438,7 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 
 
 * rest.resource[+].type = #QuestionnaireResponse
-//* rest.resource[=].profile = canonical(QuestionnaireResponse)
+* rest.resource[=].supportedProfile = Canonical(QuestionnaireResponse)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "QuestionnaireResponse:based-on"
