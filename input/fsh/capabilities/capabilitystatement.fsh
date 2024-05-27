@@ -62,7 +62,6 @@ Usage: #definition
 
 * rest.resource[0].type = #Appointment
 * rest.resource[=].profile = Canonical(Appointment)
-* rest.resource[=].supportedProfile = Canonical(Appointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "patient"
@@ -84,12 +83,11 @@ Usage: #definition
 
 * rest.resource[0].type = #Bundle
 * rest.resource[=].profile = Canonical(Bundle)
-* rest.resource[=].supportedProfile = Canonical(Bundle)
 * rest.resource[=] insert GenericCRUDInteractions
 
 * rest.resource[+].type = #CarePlan
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiCarePlan)
-* rest.resource[=].supportedProfile = Canonical(RheumaticFeverCarePlan)
+* rest.resource[=].supportedProfile[+] = Canonical(RheumaticFeverCarePlan)
+* rest.resource[=].supportedProfile[+] = Canonical(ManaakiNgaTahiCarePlan)
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports two subtypes of FHIR CarePlan - refer to Profiles
 1. ManaakiNgaTahiCarePlan - for care in the community health applications
@@ -149,8 +147,8 @@ This server supports one subtype of FHIR CareTeam - refer to Profiles
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Condition
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiCondition)
-* rest.resource[=].supportedProfile = Canonical(RheumaticFeverCondition)
+* rest.resource[=].supportedProfile[+] = Canonical(ManaakiNgaTahiCondition)
+* rest.resource[=].supportedProfile[+] = Canonical(RheumaticFeverCondition)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports two subtypes of FHIR Condition - refer to Profiles
@@ -175,7 +173,6 @@ This server supports two subtypes of FHIR Condition - refer to Profiles
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Consent
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiConsent)
 * rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiConsent)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
@@ -202,7 +199,6 @@ This server supports two subtypes of FHIR Condition - refer to Profiles
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Encounter
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiEncounter)
 * rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiEncounter)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
@@ -225,8 +221,7 @@ This server supports two subtypes of FHIR Condition - refer to Profiles
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #MedicationRequest
-* rest.resource[=].profile = Canonical(NzMedicationRequest)
-* rest.resource[=].supportedProfile = Canonical(MedicationRequest)
+* rest.resource[=].supportedProfile = Canonical(NzMedicationRequest)
 * rest.resource[=].supportedProfile = Canonical(RheumaticFeverMedicationRequest)
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports two profiles in addition to the base FHIR MedicationRequest resource.
@@ -249,8 +244,7 @@ This server supports two profiles in addition to the base FHIR MedicationRequest
 * rest.resource[=].searchParam[=].documentation = "Return all MedicationRequests that relate to this type of medication"
 
 * rest.resource[+].type = #MedicationStatement
-* rest.resource[=].profile = Canonical(NzMedicationStatement)
-* rest.resource[=].supportedProfile = Canonical(MedicationStatement)
+* rest.resource[=].supportedProfile = Canonical(NzMedicationStatement)
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports the NZ Base IG profiles NzMedicationStatement in addition to the base MedicationStatement FHIR resource.
 ]])
@@ -270,7 +264,6 @@ This server supports the NZ Base IG profiles NzMedicationStatement in addition t
 * rest.resource[=].searchParam[=].documentation = "Return all instances of administration of this medication"
 
 * rest.resource[+].type = #Observation
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
 * rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiObservation)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "code"
@@ -356,7 +349,6 @@ This server supports the NZ Base IG profiles NzMedicationStatement in addition t
 
 // rheumatic fever profiled type
 * rest.resource[+].type = #Patient
-* rest.resource[=].profile = Canonical(RheumaticFeverPatient)
 * rest.resource[=].supportedProfile = Canonical(RheumaticFeverPatient)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=] insert ResourceDocumentation([[
@@ -379,7 +371,6 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 
 * rest.resource[+].type = #PlanDefinition
 * rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiPlanDefinition)
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/PlanDefinition-identifier"
@@ -410,7 +401,6 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 
 
 * rest.resource[+].type = #Questionnaire
-* rest.resource[=].supportedProfile = Canonical(Questionnaire)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Questionnaire-identifier"
@@ -439,7 +429,6 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 
 
 * rest.resource[+].type = #QuestionnaireResponse
-* rest.resource[=].supportedProfile = Canonical(QuestionnaireResponse)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "QuestionnaireResponse:based-on"
