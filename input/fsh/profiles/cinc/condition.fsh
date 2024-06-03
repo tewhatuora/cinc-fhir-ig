@@ -5,9 +5,9 @@ Description: "Condition FHIR resource for Manaaki Nga Tahi"
 // elements modified'
 * subject only Reference(Patient)
 * onset[x] only dateTime
-* onsetDateTime obeys fhir-hnz-dateTime-utc-1
+* onsetDateTime ^short = "Must be in UTC timezone on the FHIR server"
 * abatement[x] only dateTime
-* abatementDateTime obeys fhir-hnz-dateTime-utc-1
+* abatementDateTime ^short = "Must be in UTC timezone on the FHIR server"
 * recorder only Reference(Practitioner)
 // elements prohibited
 * asserter 0..0

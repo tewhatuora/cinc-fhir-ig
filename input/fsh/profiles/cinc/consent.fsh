@@ -7,7 +7,7 @@ Description: "Consent FHIR resource for Manaaki Nga Tahi"
 * patient 1..1    // v0.1.3 patient reference now required
 * policy 1..*     // v0.1.3 policy element now required (uri and authority)
 * provision.period 1..1 
-* provision.period obeys fhir-hnz-period-utc-1
+* provision.period ^short = "Must be in UTC timezone on the FHIR server"
 * sourceReference only Reference(QuestionnaireResponse)
 // elements disabled
 // * contained 0..0       renabled in IGv0.3.4 so performer.Reference(RelatedPerson) can refer to an inline RelatedPerson instance.
