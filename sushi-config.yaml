@@ -207,7 +207,6 @@ groups:
     - StructureDefinition/ManaakiNgaTahiCondition
     - StructureDefinition/ManaakiNgaTahiDocumentReference
     - StructureDefinition/ManaakiNgaTahiEncounter
-    - StructureDefinition/ManaakiNgaTahiEpisodeOfCare
     - StructureDefinition/ManaakiNgaTahiObservation
     - StructureDefinition/ManaakiNgaTahiPlanDefinition
     - StructureDefinition/ManaakiNgaTahiServiceRequest
