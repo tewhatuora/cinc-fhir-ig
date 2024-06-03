@@ -10,8 +10,8 @@ Description: "Service request FHIR resource for Manaaki Nga Tahi"
 * intent 1..1
 * occurrence[x] 1..1
 * occurrence[x] only dateTime or Period or Timing
-* occurrenceDateTime obeys fhir-hnz-dateTime-utc-1
-* occurrencePeriod obeys fhir-hnz-period-utc-1
+* occurrenceDateTime ^short = "Must be in UTC timezone on the FHIR server"
+* occurrencePeriod ^short = "Start | end value must be in UTC timezone on the FHIR server"
 * performer 0..1
 * performerType 0..1
 * performerType from http://hl7.org/fhir/ValueSet/participant-role (required)     // Note this profile does not REQUIRE a performer element

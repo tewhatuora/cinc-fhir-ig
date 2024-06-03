@@ -14,7 +14,7 @@ Description: "CarePlan FHIR resource for Manaaki Nga Tahi"
 * contained only Goal
 * instantiatesCanonical only Canonical(PlanDefinition)
 * period 0..1
-* period obeys fhir-hnz-period-utc-1
+* period ^short = "Start | end values must be in UTC timezone on the FHIR server"
 * subject only Reference(Patient)
 // elements prohibited
 // v0.1.3 careTeam 0..1 re-introduced from base resource

@@ -12,8 +12,10 @@ Id: nz-sharedcare-rheumaticfever-condition
 // elements modified
 * subject only Reference(Patient)
 * onset[x] only dateTime
-* onsetDateTime obeys fhir-hnz-dateTime-utc-1
-* recordedDate obeys fhir-hnz-dateTime-utc-1
+
+* recordedDate ^short = "Date and time (UTC) of diagnosis" 
+* onsetDateTime ^short = "Date and time (UTC) of onset of rheumatic fever"
+
 * recorder only Reference(Practitioner)
 
 * identifier ^slicing.discriminator.type = #value
@@ -42,8 +44,6 @@ Id: nz-sharedcare-rheumaticfever-condition
 * identifier[NationalSystem].id 0..0       // don't want this kind of thing
 * identifier[NationalSystem].extension 0..0       // don't want this kind of thing
 
-
-
 // bind to the permissible SNOMED codes for RF diagnosis at registration.
 * code 1..1
 * code from rf-condition-diagnosisatregistration-code (required)
@@ -57,7 +57,7 @@ Id: nz-sharedcare-rheumaticfever-condition
     and
   RfConditionAssessmentDateExtension named assessmentDate 0..1
 
-* extension[assessmentDate] obeys fhir-hnz-dateTime-utc-1
+* extension[assessmentDate] ^short = "Must be in UTC timezone on the FHIR server" 
 
 // elements prohibited
 * implicitRules 0..0

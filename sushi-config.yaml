@@ -207,7 +207,6 @@ groups:
     - StructureDefinition/ManaakiNgaTahiCondition
     - StructureDefinition/ManaakiNgaTahiDocumentReference
     - StructureDefinition/ManaakiNgaTahiEncounter
-    - StructureDefinition/ManaakiNgaTahiEpisodeOfCare
     - StructureDefinition/ManaakiNgaTahiObservation
     - StructureDefinition/ManaakiNgaTahiPlanDefinition
     - StructureDefinition/ManaakiNgaTahiServiceRequest
@@ -230,8 +229,6 @@ groups:
       - ActiveMonitoringDay3Survey
       - ActiveMonitoringDay42Survey
       - COVIDRATResultQuestionnaire
-      - COVIDRegularHealthCheckQuestionnaire
-      - COVIDVaccinationSurveyQuestionnaire
       - ConsumerCOVIDRATResultQuestionnaire
       - ImmsotVaccinationDataEntryQuestionnaire
       - MeaslesHealthCheckQuestionnaire
