@@ -229,8 +229,6 @@ groups:
       - ActiveMonitoringDay3Survey
       - ActiveMonitoringDay42Survey
       - COVIDRATResultQuestionnaire
-      - COVIDRegularHealthCheckQuestionnaire
-      - COVIDVaccinationSurveyQuestionnaire
       - ConsumerCOVIDRATResultQuestionnaire
       - ImmsotVaccinationDataEntryQuestionnaire
       - MeaslesHealthCheckQuestionnaire
