@@ -1,5 +1,5 @@
 Instance: CareInTheCommunityCapabilityStatement
-InstanceOf: CapabilityStatement
+InstanceOf: HnzToolingCapabilityStatement
 Usage: #definition
 
 * name = "CareInTheCommunityCapabilityStatement"
@@ -9,23 +9,39 @@ Usage: #definition
 * publisher = "Te Whatu Ora"
 * description = "The Manaaki Nga Tahi - Care In The Community FHIR API"
 * kind = #instance
+* version = "0.3.9"
+* contact.name = "Health New Zealand Te Whatu Ora"
+* contact.telecom.value = "https://www.tewhatuora.govt.nz"
+* contact.telecom.system = #url
 * implementation.description = "The Care In The Community Manaaki Nga Tahi FHIR API"
 * implementation.url = "https://fhir.ap1.digital.health.nz/R4"
 * fhirVersion = #4.0.1
 * format = #json
 * rest.mode = #server
+
+
+
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].url = Canonical(HnzCustomHeadersExtension)
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[key].valueString = "Correlation-Id"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/uuid-definition.json"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = false
+* extension[HnzApiSpecBuilderExtension].extension[licenseURL].valueUri = "https://example.license.org"
+* extension[HnzApiSpecBuilderExtension].extension[licenseName].valueString = "GPLv3"
+* extension[HnzApiSpecBuilderExtension].extension[externalDocs].valueUri = "https://docs.example.com/fhir"
+
 * rest.security.cors = true
-* rest.security.service = http://terminology.hl7.org/CodeSystem/restful-security-service#OAuth
+* rest.security.service = #SMART-on-FHIR
 * rest.security.extension.url = "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
 * rest.security.extension.extension[0].url = "token"
-* rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/token"
-* rest.security.extension.extension[+].url = "authorize"
-* rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/authorize"
+* rest.security.extension.extension[=].valueUri = "https://ppd.auth.services.health.nz/realms/hnz-integration/protocol/openid-connect/token"
+// system to system
+* rest.security.extension[+].url = "http://fhir-registry.smarthealthit.org/StructureDefinition/capabilities"
+* rest.security.extension[=].valueCode = #client-confidential-symmetric
 
 * rest.interaction.code = #transaction
 
 * rest.resource[0].type = #AllergyIntolerance
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiAllergyIntolerance)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiAllergyIntolerance)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "patient"
@@ -84,8 +100,8 @@ Usage: #definition
 * rest.resource[=] insert GenericCRUDInteractions
 
 * rest.resource[+].type = #CarePlan
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiCarePlan)
-* rest.resource[=].supportedProfile = Canonical(RheumaticFeverCarePlan)
+* rest.resource[=].supportedProfile[+] = Canonical(ManaakiNgaTahiCarePlan)
+* rest.resource[=].supportedProfile[+] = Canonical(RheumaticFeverCarePlan)
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports two subtypes of FHIR CarePlan - refer to Profiles
 1. ManaakiNgaTahiCarePlan - for care in the community health applications
@@ -145,8 +161,8 @@ This server supports one subtype of FHIR CareTeam - refer to Profiles
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Condition
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiCondition)
-* rest.resource[=].supportedProfile = Canonical(RheumaticFeverCondition)
+* rest.resource[=].supportedProfile[+] = Canonical(ManaakiNgaTahiCondition)
+* rest.resource[=].supportedProfile[+] = Canonical(RheumaticFeverCondition)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports two subtypes of FHIR Condition - refer to Profiles
@@ -171,7 +187,7 @@ This server supports two subtypes of FHIR Condition - refer to Profiles
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Consent
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiConsent)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiConsent)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "Consent:source-reference"
@@ -197,7 +213,7 @@ This server supports two subtypes of FHIR Condition - refer to Profiles
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Encounter
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiEncounter)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiEncounter)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:diagnosis"
@@ -219,9 +235,9 @@ This server supports two subtypes of FHIR Condition - refer to Profiles
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #MedicationRequest
-* rest.resource[=].profile = Canonical(NzMedicationRequest)
-* rest.resource[=].supportedProfile = Canonical(MedicationRequest)
-* rest.resource[=].supportedProfile = Canonical(RheumaticFeverMedicationRequest)
+* rest.resource[=].supportedProfile[+] = Canonical(NzMedicationRequest)
+* rest.resource[=].supportedProfile[+] = Canonical(MedicationRequest)
+* rest.resource[=].supportedProfile[+] = Canonical(RheumaticFeverMedicationRequest)
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports two profiles in addition to the base FHIR MedicationRequest resource.
 1. NzMedicationRequest - from the NZ Base Implementation Guide 2.0
@@ -243,8 +259,8 @@ This server supports two profiles in addition to the base FHIR MedicationRequest
 * rest.resource[=].searchParam[=].documentation = "Return all MedicationRequests that relate to this type of medication"
 
 * rest.resource[+].type = #MedicationStatement
-* rest.resource[=].profile = Canonical(NzMedicationStatement)
 * rest.resource[=].supportedProfile = Canonical(MedicationStatement)
+* rest.resource[=].supportedProfile = Canonical(NzMedicationStatement)
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports the NZ Base IG profiles NzMedicationStatement in addition to the base MedicationStatement FHIR resource.
 ]])
@@ -264,7 +280,7 @@ This server supports the NZ Base IG profiles NzMedicationStatement in addition t
 * rest.resource[=].searchParam[=].documentation = "Return all instances of administration of this medication"
 
 * rest.resource[+].type = #Observation
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiObservation)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "code"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
@@ -349,7 +365,7 @@ This server supports the NZ Base IG profiles NzMedicationStatement in addition t
 
 // rheumatic fever profiled type
 * rest.resource[+].type = #Patient
-* rest.resource[=].profile = Canonical(RheumaticFeverPatient)
+* rest.resource[=].supportedProfile = Canonical(RheumaticFeverPatient)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=] insert ResourceDocumentation([[
 This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - refer to Profiles
@@ -370,7 +386,7 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 
 
 * rest.resource[+].type = #PlanDefinition
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiPlanDefinition)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/PlanDefinition-identifier"
