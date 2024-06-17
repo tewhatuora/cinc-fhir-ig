@@ -3,8 +3,8 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: cinc.fhir.ig
-canonical: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
+id: tewhatuora.sharedcare
+canonical: https://fhir-ig-uat.digital.health.nz/shared-care
 name: CINC_FHIR_IG
 title: Te Whatu Ora Shared Care FHIR API
 description: Te Whatu Ora Shared Care FHIR API
@@ -36,8 +36,7 @@ dependencies:
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
     version: 3.0.0
   hl7.fhir.uv.sdc: 3.0.0
-  #tewhatuora.digitaltooling.iguat: 0.0.2
-  tewhatuora.digitaltooling.ig: dev
+  tewhatuora.digitaltooling.iguat: 0.0.5
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can

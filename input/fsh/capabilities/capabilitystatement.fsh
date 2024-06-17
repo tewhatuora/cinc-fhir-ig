@@ -16,10 +16,8 @@ Usage: #definition
 * implementation.description = "The Care In The Community Manaaki Nga Tahi FHIR API"
 * implementation.url = "https://fhir.ap1.digital.health.nz/R4"
 * fhirVersion = #4.0.1
-* format = #json
+* format = #application/json
 * rest.mode = #server
-
-
 
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].url = Canonical(HnzCustomHeadersExtension)
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[key].valueString = "Correlation-Id"
@@ -27,7 +25,7 @@ Usage: #definition
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = false
 * extension[HnzApiSpecBuilderExtension].extension[licenseURL].valueUri = "https://example.license.org"
 * extension[HnzApiSpecBuilderExtension].extension[licenseName].valueString = "GPLv3"
-* extension[HnzApiSpecBuilderExtension].extension[externalDocs].valueUri = "https://docs.example.com/fhir"
+* extension[HnzApiSpecBuilderExtension].extension[externalDocs].valueUri = "https://fhir-ig.digital.health.nz/shared-care"
 
 * rest.security.cors = true
 * rest.security.service = #SMART-on-FHIR
@@ -280,6 +278,7 @@ This server supports the NZ Base IG profiles NzMedicationStatement in addition t
 * rest.resource[=].searchParam[=].documentation = "Return all instances of administration of this medication"
 
 * rest.resource[+].type = #Observation
+* rest.resource[=].profile = Canonical(Observation)
 * rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiObservation)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "code"
@@ -471,4 +470,3 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
-
