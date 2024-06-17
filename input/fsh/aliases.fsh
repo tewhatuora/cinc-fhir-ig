@@ -27,3 +27,19 @@ Alias: $termServerExtension = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc
 Alias: $preferredTermServer = https://nzhts.digital.health.nz/fhir
 
 Alias: $NationalCareCoordinationSystem = https://standards.digital.health.nz/ns/rheumatic-fever-identifiers
+
+//----Added for Person Contact Record ---//
+// Score
+Alias: $hnz-telecom-score-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-score-extension
+Alias: $hnz-person-telecom-score-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/hnz-person-telecom-score-codes
+//Information Source
+Alias: $hnz-telecom-information-source-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-information-source-extension-id
+Alias: $hnz-person-telecom-source-system-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/hnz-person-telecom-source-system-codes
+//IsDeliverable
+Alias: $hnz-telecom-isdeliverable-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-isdeliverable-extension-id
+Alias: $hnz-person-telecom-is-deliverable-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/hnz-person-telecom-is-deliverable-codes
+//LastContacted
+Alias: $hnz-telecom-last-contacted-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-last-contacted-extension-id
+//SharedContact
+Alias: $hnz-telecom-count-shared-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-count-shared-extension-id
+//----End Added for Person Contact Record ---//
