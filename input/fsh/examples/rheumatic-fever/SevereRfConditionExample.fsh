@@ -27,11 +27,11 @@ Description: "An example of a rheumatic fever Condition"
 
 * recorder insert ReferencePractitioner(99ZZFX,[[Dottie McStuffins]])
 
-* extension[rhdSeverity].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-condition-rhdseverity"
+* extension[rhdSeverity].url = Canonical(RfConditionRhdSeverityExtension)
 * extension[rhdSeverity].valueCoding = $sct#24484000 "Severe (severity modifier) (qualifier value)"
 
-* extension[diagnosticCertainty].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-condition-diagnosticcertainty"
+* extension[diagnosticCertainty].url = Canonical(RfConditionDiagnosticCertaintyExtension)
 * extension[diagnosticCertainty].valueCoding = $RFdiagnosticCertaintyCS#probable "probable"
 
-* extension[assessmentDate].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-condition-assessmentdate"
+* extension[assessmentDate].url = Canonical(RfConditionAssessmentDateExtension)
 * extension[assessmentDate].valueDate = "2022-04-14"

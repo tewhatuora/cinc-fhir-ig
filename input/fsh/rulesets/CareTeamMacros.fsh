@@ -10,13 +10,13 @@ RuleSet: CareTeamRole(snomed-code,display)
 // inserts a Patient.contact identifying a whanau care team member with role and relationship SNOMED-coded
 RuleSet: WhanauCareTeamMember(primary-flag,role-code,relationship-text,first,last,period-start,period-end,contact-phone,contact-email)
 
-* extension[whanauMemberCarePrimary].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-patient-whanaumember-primary"
+* extension[whanauMemberCarePrimary].url = Canonical(RfPatientWhanauMemberPrimaryExtension)
 * extension[whanauMemberCarePrimary].valueBoolean = {primary-flag}
 
-* extension[whanauMemberCareRole].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-patient-whanaumember-role"
+* extension[whanauMemberCareRole].url = Canonical(RfPatientWhanauMemberRoleExtension)
 * extension[whanauMemberCareRole].valueCoding = {role-code}
 
-* extension[whanauMemberCareRelationship].url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/rf-patient-whanaumember-relationship"
+* extension[whanauMemberCareRelationship].url = Canonical(RfPatientWhanauMemberRelationshipExtension)
 * extension[whanauMemberCareRelationship].valueString = "{relationship-text}"
 
 * name.given = "{first}"
