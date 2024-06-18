@@ -7,6 +7,7 @@ To view previous versions of the Implementation Guide or it's artifacts, please 
 
 ### Previous versions
 
+- [0.4.0](./branches/040)
 - [0.3.9](./branches/039)
 - [0.3.8](./branches/038)
 - [0.3.7](./branches/037)
