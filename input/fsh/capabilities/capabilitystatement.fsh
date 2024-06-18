@@ -114,25 +114,25 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "Care plan search by category (SNOMED) code.  Rheumatic fever secondary prevention care plans have category=http://snomed.sct/info|320721000210102"
 
 // rheumatic fever profiled type
-* rest.resource[+].type = #CareTeam
-* rest.resource[=].supportedProfile = Canonical(CareTeam)
-* rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Patient-identifier"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The patient's official NHI identifier"
-* rest.resource[=].searchParam[+].name = "category"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#CareTeam-category"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Rheumatic fever care teams will be found by the category code (NZ SNOMED Edition) category=http://snomed.sct/info|320741000210108"
-* rest.resource[=].searchParam[+].name = "_profile"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Filter **RheumaticFeverCareTeam instances** using ?Resource-profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/cinc-rheumaticfever-careteam"
-* rest.resource[=].searchParam[+].name = "_id"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+// * rest.resource[+].type = #CareTeam
+// * rest.resource[=].supportedProfile = Canonical(CareTeam)
+// * rest.resource[=] insert GenericCRUDInteractions
+// * rest.resource[=].searchParam[0].name = "identifier"
+// * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Patient-identifier"
+// * rest.resource[=].searchParam[=].type = #token
+// * rest.resource[=].searchParam[=].documentation = "The patient's official NHI identifier"
+// * rest.resource[=].searchParam[+].name = "category"
+// * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#CareTeam-category"
+// * rest.resource[=].searchParam[=].type = #token
+// * rest.resource[=].searchParam[=].documentation = "Rheumatic fever care teams will be found by the category code (NZ SNOMED Edition) category=http://snomed.sct/info|320741000210108"
+// * rest.resource[=].searchParam[+].name = "_profile"
+// * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+// * rest.resource[=].searchParam[=].type = #reference
+// * rest.resource[=].searchParam[=].documentation = "Filter **RheumaticFeverCareTeam instances** using ?Resource-profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/cinc-rheumaticfever-careteam"
+// * rest.resource[=].searchParam[+].name = "_id"
+// * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+// * rest.resource[=].searchParam[=].type = #token
+// * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Condition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiCondition)
@@ -202,47 +202,47 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
-* rest.resource[+].type = #MedicationRequest
-* rest.resource[=].profile = Canonical(MedicationRequest)
-* rest.resource[=].supportedProfile = Canonical(NzMedicationRequest)
-* rest.resource[=] insert ResourceDocumentation([[
-This server also supports the NZ Base IG profiled version of this resource type.
-]])
-* rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
-* rest.resource[=].searchParam[0].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The rheumatic fever patient for whom this medication is prescribed"
-* rest.resource[=].searchParam[+].name = "status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Medication-status"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown +"
-* rest.resource[=].searchParam[+].name = "medication"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/medications-medication"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Return all MedicationRequests that relate to this type of medication"
+// * rest.resource[+].type = #MedicationRequest
+// * rest.resource[=].profile = Canonical(MedicationRequest)
+// * rest.resource[=].supportedProfile = Canonical(NzMedicationRequest)
+// * rest.resource[=] insert ResourceDocumentation([[
+// This server also supports the NZ Base IG profiled version of this resource type.
+// ]])
+// * rest.resource[=] insert GenericCRUDInteractions
+// * rest.resource[=].searchInclude[0] = "*"
+// * rest.resource[=].searchParam[0].name = "patient"
+// * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+// * rest.resource[=].searchParam[=].type = #reference
+// * rest.resource[=].searchParam[=].documentation = "The rheumatic fever patient for whom this medication is prescribed"
+// * rest.resource[=].searchParam[+].name = "status"
+// * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Medication-status"
+// * rest.resource[=].searchParam[=].type = #token
+// * rest.resource[=].searchParam[=].documentation = "active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown +"
+// * rest.resource[=].searchParam[+].name = "medication"
+// * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/medications-medication"
+// * rest.resource[=].searchParam[=].type = #reference
+// * rest.resource[=].searchParam[=].documentation = "Return all MedicationRequests that relate to this type of medication"
 
-* rest.resource[+].type = #MedicationStatement
-* rest.resource[=].profile = Canonical(MedicationStatement)
-* rest.resource[=].supportedProfile = Canonical(NzMedicationStatement)
-* rest.resource[=] insert ResourceDocumentation([[
-This server also supports the NZ Base IG profiled version of this resource type.
-]])
-* rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
-* rest.resource[=].searchParam[0].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The rheumatic fever patient to whom medication was administered"
-* rest.resource[=].searchParam[+].name = "status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Medication-status"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken +"
-* rest.resource[=].searchParam[+].name = "medication"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/medications-medication"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Return all instances of administration of this medication"
+// * rest.resource[+].type = #MedicationStatement
+// * rest.resource[=].profile = Canonical(MedicationStatement)
+// * rest.resource[=].supportedProfile = Canonical(NzMedicationStatement)
+// * rest.resource[=] insert ResourceDocumentation([[
+// This server also supports the NZ Base IG profiled version of this resource type.
+// ]])
+// * rest.resource[=] insert GenericCRUDInteractions
+// * rest.resource[=].searchInclude[0] = "*"
+// * rest.resource[=].searchParam[0].name = "patient"
+// * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+// * rest.resource[=].searchParam[=].type = #reference
+// * rest.resource[=].searchParam[=].documentation = "The rheumatic fever patient to whom medication was administered"
+// * rest.resource[=].searchParam[+].name = "status"
+// * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Medication-status"
+// * rest.resource[=].searchParam[=].type = #token
+// * rest.resource[=].searchParam[=].documentation = "active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken +"
+// * rest.resource[=].searchParam[+].name = "medication"
+// * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/medications-medication"
+// * rest.resource[=].searchParam[=].type = #reference
+// * rest.resource[=].searchParam[=].documentation = "Return all instances of administration of this medication"
 
 * rest.resource[+].type = #Observation
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
@@ -329,26 +329,44 @@ This server also supports the NZ Base IG profiled version of this resource type.
 * rest.resource[=].searchInclude[+] = "Observation:subject"
 
 // rheumatic fever profiled type
-* rest.resource[+].type = #Patient
-* rest.resource[=].profile = Canonical(Patient)
-* rest.resource[=].supportedProfile = Canonical(NzPatient)
-* rest.resource[=] insert ResourceDocumentation([[
-This server also supports the NZ Base IG profiled version of this resource type.
-]])
+// * rest.resource[+].type = #Patient
+// * rest.resource[=].profile = Canonical(Patient)
+// * rest.resource[=].supportedProfile = Canonical(NzPatient)
+// * rest.resource[=] insert ResourceDocumentation([[
+// This server also supports the NZ Base IG profiled version of this resource type.
+// ]])
+// * rest.resource[=] insert GenericCRUDInteractions
+// * rest.resource[=].searchParam[0].name = "identifier"
+// * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Patient-identifier"
+// * rest.resource[=].searchParam[=].type = #token
+// * rest.resource[=].searchParam[=].documentation = "The patient's official NHI identifier"
+// * rest.resource[=].searchParam[+].name = "_profile"
+// * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+// * rest.resource[=].searchParam[=].type = #reference
+// * rest.resource[=].searchParam[=].documentation = "Filter **RheumaticFeverPatient instances** using ?Resource-profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/cinc-rheumaticfever-patient"
+// * rest.resource[=].searchParam[+].name = "_id"
+// * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+// * rest.resource[=].searchParam[=].type = #token
+// * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+
+* rest.resource[+].type = #Person
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Patient-identifier"
+* rest.resource[=].searchParam[0].name = "phone"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#individual-phone"
 * rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The patient's official NHI identifier"
-* rest.resource[=].searchParam[+].name = "_profile"
+* rest.resource[=].searchParam[=].documentation = "A value in a phone contact."
+* rest.resource[=].searchParam[+].name = "email"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/individual-email"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "A value in an email contact"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "A person Identifier"
+* rest.resource[=].searchParam[+].name = "profile"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
 * rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Filter **RheumaticFeverPatient instances** using ?Resource-profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/cinc-rheumaticfever-patient"
-* rest.resource[=].searchParam[+].name = "_id"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
-
+* rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using ?profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-communication-person"
 
 * rest.resource[+].type = #PlanDefinition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)
@@ -436,22 +454,3 @@ This server also supports the NZ Base IG profiled version of this resource type.
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
-
-* rest.resource[+].type = #Person
-* rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "phone"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#individual-phone"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "A value in a phone contact."
-* rest.resource[=].searchParam[+].name = "email"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/individual-email"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "A value in an email contact"
-* rest.resource[=].searchParam[+].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "A person Identifier"
-* rest.resource[=].searchParam[+].name = "profile"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using ?profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-communication-person"
