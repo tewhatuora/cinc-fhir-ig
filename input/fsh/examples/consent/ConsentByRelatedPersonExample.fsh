@@ -33,7 +33,7 @@ Description: "Example of a data consent given on a subject patient's behalf by a
 * provision.period.end = "2026-06-11T02:30:35Z"     // a 3 year period in this example
 * provision.type = #permit
 * provision.actor[0].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datacollector "data collector"
-* provision.actor[=].reference = Reference(LeadProvidersGroup)
+* provision.actor[=].reference insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
 * provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])

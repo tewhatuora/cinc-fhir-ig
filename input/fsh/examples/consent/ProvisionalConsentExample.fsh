@@ -33,7 +33,7 @@ with representations in FHIR."
 * provision.period.end = "2023-09-11T02:30:35Z"     // a 3 month period in this example
 * provision.type = #permit
 * provision.actor[0].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datacollector "data collector"
-* provision.actor[=].reference = Reference(LeadProvidersGroup)
+* provision.actor[=].reference insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
 * provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
