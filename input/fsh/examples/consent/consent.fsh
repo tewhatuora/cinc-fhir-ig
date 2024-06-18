@@ -35,8 +35,7 @@ Description: "An example ManaakiNgaTahi Consent based on policies (but not invol
 * verification.verifiedWith.display = "Carey Carrington"
 * provision.period.start = "2023-01-20"
 * provision.period.end = "2023-09-20"
-* provision.data[0].meaning = #instance
-* provision.data[=].reference = Reference(ConditionExample)
-* provision.data[+].meaning = #instance
-* provision.data[=].reference = Reference(EncounterExample)
-// v0.1.7 remove third data reference to deleted exampleQR
+
+
+* provision insert ConsentInstanceDataRef( ConditionExample )
+* provision insert ConsentInstanceDataRef( EncounterExample )

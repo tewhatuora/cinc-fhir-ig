@@ -1,15 +1,18 @@
-Instance: RheumaticFeverActiveConsentExample
+Instance: ProvisionalConsentExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
-Description: "Example of an active patient consent as recorded by the Te Tai Tokerau Rheumatic Fever Service.
+Description: "Example of a 3 month provisional data consent.
 
-This example includes sample `data.references` which identify the actual FHIR resource instances to be protected."
+Provisional consents are needed when an organisation creates FHIR data about a
+patient but has not yet officially received their consent.  This can arise in real world health scenarios
+when the first opportunity for a patient to read and sign a consent form occurs some time after their registration
+with representations in FHIR."
 
 * meta.profile = Canonical(ManaakiNgaTahiConsent)    // see the profile for ManaakiTahiConsent in this IG 
 * meta.versionId = "2"
 * meta.lastUpdated = "2023-11-24T00:10:00Z" // UTC datetime
 
-* status = #active
+* status = #proposed
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 
 * category = http://terminology.hl7.org/CodeSystem/consentcategorycodes#npp "Notice of Privacy Practices"
@@ -27,7 +30,7 @@ This example includes sample `data.references` which identify the actual FHIR re
 // ********
 // make a provision for access by RF provider orgs 
 * provision.period.start = "2023-06-12T02:30:35Z"
-* provision.period.end = "2026-06-11T02:30:35Z"     // a 3 year period in this example
+* provision.period.end = "2023-09-11T02:30:35Z"     // a 3 month period in this example
 * provision.type = #permit
 * provision.actor[0].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datacollector "data collector"
 * provision.actor[=].reference = Reference(LeadProvidersGroup)
@@ -35,18 +38,7 @@ This example includes sample `data.references` which identify the actual FHIR re
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
 * provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 
-// setup a boatload of example data references to consent-protected resource instances
-* provision insert ConsentInstanceDataRef( LeadProvidersGroup )
-* provision insert ConsentInstanceDataRef( SevereRfConditionExample )
-* provision insert ConsentInstanceDataRef( SecondaryProphylaxisCareTeam )
-* provision insert ConsentInstanceDataRef( Encounter-SecondaryProphylaxisAppointment )
-
-* provision insert ConsentInstanceDataRef( PatientMedicationAllergyQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( MedicationsAndFollowUpGuidanceQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( PatientWhanauGoalsPreferencesQuestionnaireResponse )
-* provision insert ConsentInstanceDataRef( RFPatientHealthAssessmentQuestionnaireResponse )
-
-* provision insert ConsentInstanceDataRef( CarePlanWithOneAppointmentCompleted ) 
-
+* provision insert ConsentInstanceDataRef( ConditionExample )
+* provision insert ConsentInstanceDataRef( EncounterExample )
 
 
