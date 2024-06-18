@@ -88,9 +88,9 @@ parameters:
 menu:
   Home: index.html
   Business context: businessContext.html
-  COVID care in the community:
-    Structure Definitions and Questionnaires: artifacts.html#care-in-the-community-definitions
-    Examples: artifacts.html#care-in-the-community-examples
+  Shared Care:
+    Structure Definitions and Questionnaires: artifacts.html#shared-care-definitions
+    Examples: artifacts.html#shared-care-examples
   Rheumatic fever care plans:
     Data mappings and translation: rheumatic-fever-data.html
     FHIR data models: rheumatic-fever-data-models.html
@@ -104,7 +104,7 @@ menu:
     Examples: artifacts.html#data-consent-examples
   API Developer Guide:
     Developer Guide: developerGuide.html
-    API capability statement: CapabilityStatement-CareInTheCommunityCapabilityStatement.html
+    API capability statement: CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
@@ -199,7 +199,7 @@ contact:
 #
 groups:
   CINCProfiles:
-    name: Care in the Community definitions
+    name: Shared Care Definitions
     description: Canonical FHIR Profiles and Definitions 
     resources:
     - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
@@ -211,13 +211,14 @@ groups:
     - StructureDefinition/ManaakiNgaTahiPlanDefinition
     - StructureDefinition/ManaakiNgaTahiServiceRequest
     - StructureDefinition/ServiceRequestActivityDefinition
+    - StructureDefinition/nz-sharedcare-communication-person
     - ActivityDefinition/MeasurementProcedureRequestTemplate
     - PlanDefinition/COVIDMVPCarePlanTemplate
     - OperationDefinition/ActivityDefinition-apply
     - OperationDefinition/PlanDefinition-apply
   CINCQuestionnaires:
-    name: Care in the Community canonical Questionnaire resources
-    description: All Questionnaires used for Care in the Community
+    name: Shared Care Canonical Questionnaire Resources
+    description: All Questionnaires used for Shared Care
     resources:
       - AntiViralEligibilityQuestionnaire
       - COVIDInitialHealthAssessmentQuestionnaire
@@ -233,7 +234,7 @@ groups:
       - ImmsotVaccinationDataEntryQuestionnaire
       - MeaslesHealthCheckQuestionnaire
   CINCQuestionnaireResponses:
-    name: Care in the Community QuestionnaireResponse examples
+    name: Shared Care QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources
     resources:
       - AntiviralEligibilityNoQuestionnaireResponse
@@ -251,7 +252,7 @@ groups:
       - ConsumerCOVIDRATResultQuestionnaireResponse
       - ImmsotVaccinationDataEntryQuestionnaireResponse
   CINCExamples: 
-    name: Care in the Community examples
+    name: Shared Care examples
     resources:
     - CarePlanExample
     - ConditionExample
@@ -261,6 +262,7 @@ groups:
     - CareyCarrington
     - DrDottyMcStuffins
     - ObservationsServiceRequestExample
+    - CommunicationPersonExample
 
   RheumaticFeverProfiles:
     name: Rheumatic Fever definitions

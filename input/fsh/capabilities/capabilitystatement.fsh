@@ -1,15 +1,15 @@
-Instance: CareInTheCommunityCapabilityStatement
+Instance: SharedCareFHIRAPICapabilityStatement
 InstanceOf: CapabilityStatement
 Usage: #definition
 
-* name = "CareInTheCommunityCapabilityStatement"
-* title = "Care In The Community FHIR Server Capability Statement"
+* name = "SharedCareFHIRAPICapabilityStatement"
+* title = "Shared Care FHIR Server Capability Statement"
 * status = #active
 * date = "2023-10-19"
 * publisher = "Te Whatu Ora"
-* description = "The Manaaki Nga Tahi - Care In The Community FHIR API"
+* description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
 * kind = #instance
-* implementation.description = "The Care In The Community Manaaki Nga Tahi FHIR API"
+* implementation.description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
 * implementation.url = "https://fhir.ap1.digital.health.nz/R4"
 * fhirVersion = #4.0.1
 * format = #json
@@ -456,3 +456,21 @@ This server supports one subsubtype of FHIR Patient (subtype of NzPatient) - ref
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
+* rest.resource[+].type = #Person
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchParam[0].name = "phone"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#individual-phone"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "A value in a phone contact."
+* rest.resource[=].searchParam[+].name = "email"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/individual-email"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "A value in an email contact"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "A person Identifier"
+* rest.resource[=].searchParam[+].name = "profile"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using ?profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-communication-person"
