@@ -1,5 +1,6 @@
 Instance: CommunicationPersonExample
 InstanceOf: CommunicationPerson
+Description: "An example Person record. This resource is used to record detailed contact information related to an individual that Health New Zealand | Te Whatu Ora has reason to communicate with."
 Usage: #example
 * meta.profile = "CommunicationPerson"
 * meta.tag[0].system = "https://standards.digital.health.nz/ns/cpir-code"
