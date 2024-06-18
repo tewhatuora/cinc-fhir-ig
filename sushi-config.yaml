@@ -113,7 +113,7 @@ menu:
     Changelog : changelog.html
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
-    OpenAPI Specification: CareInTheCommunityCapabilityStatement.openapi.json
+    OpenAPI Specification: SharedCareFHIRAPICapabilityStatement.openapi.json
     Version History: history.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
