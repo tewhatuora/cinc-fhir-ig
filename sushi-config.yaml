@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Te Whatu Ora Shared Care FHIR API
 description: Te Whatu Ora Shared Care FHIR API
 status: active
-version: 0.3.9
+version: 0.4.0
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -88,20 +88,15 @@ parameters:
 menu:
   Home: index.html
   Business context: businessContext.html
-  Shared Care:
-    Structure Definitions and Questionnaires: artifacts.html#shared-care-definitions
-    Examples: artifacts.html#shared-care-examples
-  Rheumatic fever care plans:
-    Data mappings and translation: rheumatic-fever-data.html
-    FHIR data models: rheumatic-fever-data-models.html
-    Structure Definitions and Questionnaires: artifacts.html#rheumatic-fever-definitions
-    Examples: artifacts.html#rheumatic-fever-examples
-    Cast of actors in the examples: rheumatic-fever-examples-cast.html
-    Terminology overview: terminology.html
-    Terminology definitions: artifacts.html#rheumatic-fever-terminology
+  Definitions:
+    Structure Definitions: artifacts.html#shared-care-api-definitions
+    Questionnaires: artifacts.html#shared-care-api-canonical-questionnaires
+  Examples:
+    Shared Care: artifacts.html#shared-care-examples
+    QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
   Data Consent:
     Consent-based resource access control: consentBasedAccessControl.html
-    Examples: artifacts.html#data-consent-examples
+    Definitions and Examples: artifacts.html#consent-definitions-and-examples
   API Developer Guide:
     Developer Guide: developerGuide.html
     API capability statement: CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html
@@ -198,8 +193,8 @@ contact:
 #     - StructureDefinition/bee-sting
 #
 groups:
-  CINCProfiles:
-    name: Shared Care Definitions
+  Definitions:
+    name: Shared Care API definitions
     description: Canonical FHIR Profiles and Definitions 
     resources:
     - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
@@ -216,9 +211,9 @@ groups:
     - PlanDefinition/COVIDMVPCarePlanTemplate
     - OperationDefinition/ActivityDefinition-apply
     - OperationDefinition/PlanDefinition-apply
-  CINCQuestionnaires:
-    name: Shared Care Canonical Questionnaire Resources
-    description: All Questionnaires used for Shared Care
+  Questionnaires:
+    name: Shared Care API canonical Questionnaires
+    description: Standard questionnaire definitions shared by all applications
     resources:
       - AntiViralEligibilityQuestionnaire
       - COVIDInitialHealthAssessmentQuestionnaire
@@ -233,8 +228,8 @@ groups:
       - ConsumerCOVIDRATResultQuestionnaire
       - ImmsotVaccinationDataEntryQuestionnaire
       - MeaslesHealthCheckQuestionnaire
-  CINCQuestionnaireResponses:
-    name: Shared Care QuestionnaireResponse examples
+  QuestionnaireResponseExamples:
+    name: Shared Care API QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources
     resources:
       - AntiviralEligibilityNoQuestionnaireResponse
@@ -263,94 +258,15 @@ groups:
     - DrDottyMcStuffins
     - ObservationsServiceRequestExample
     - CommunicationPersonExample
-
-  RheumaticFeverProfiles:
-    name: Rheumatic Fever definitions
-    description: FHIR profiles, extensions and canonical Questionnaires
-    resources:
-    - StructureDefinition/rf-patient-whanaumember-role
-    - StructureDefinition/rf-patient-whanaumember-relationship
-    - StructureDefinition/rf-patient-whanaumember-primary
-    - StructureDefinition/rf-careplan-closure-reason
-    - StructureDefinition/rf-careplan-onhold-reason
-    - StructureDefinition/rf-condition-diagnosticcertainty
-    - StructureDefinition/rf-condition-rhdseverity
-    - StructureDefinition/rf-condition-assessmentdate
-    - StructureDefinition/rf-medicationrequest-medicationfrequency
-    - StructureDefinition/nz-sharedcare-rheumaticfever-careplan
-    - StructureDefinition/nz-sharedcare-rheumaticfever-careteam
-    - StructureDefinition/nz-sharedcare-rheumaticfever-condition
-    - StructureDefinition/nz-sharedcare-rheumaticfever-patient
-    - StructureDefinition/nz-sharedcare-rheumaticfever-medicationrequest
-    - MedicationsAndFollowUpGuidanceQuestionnaire
-    - PatientMedicationAllergyQuestionnaire
-    - PatientWhanauGoalsPreferencesQuestionnaire
-    - SecondaryProphylaxisHealthAssessmentQuestionnaire
-
-  RheumaticFeverExamples:
-    name: Rheumatic Fever examples
-    description: All rheumatic fever example FHIR instances
-    resources:
-    - BasicCarePlan
-    - DraftCarePlan
-    - CarePlanWithOneAppointmentCompleted
-    - CarePlanWithSecondaryProphylaxisPlanned
-    - CarePlanWentOnHold
-    - CarePlanClosed
-    - MadeleineMeringue
-    - PaniaPunga
-    - SevereRfConditionExample
-    - PlannedMedicationRequestExample
-    - SecondaryProphylaxisMedicationExample
-    - SecondaryProphylaxisAppointment-August-Booked
-    - SecondaryProphylaxisAppointment-August-Fulfilled
-    - SecondaryProphylaxisAppointment-September-Booked
-    - Encounter-SecondaryProphylaxisAppointment
-    - MedicationStatement-August
-    - SecondaryProphylaxisCareTeam
-    - TeTaiTokerauRFSecondaryPreventionService
-    - WaikatoRFSecondaryPreventionService
-    - MadeleineMeringueAndWhanau
-    - MedicationsAndFollowUpGuidanceQuestionnaireResponse
-    - PatientMedicationAllergyQuestionnaireResponse
-    - PatientWhanauGoalsPreferencesQuestionnaireResponse
-    - RFPatientHealthAssessmentQuestionnaireResponse
-    - LeadProvidersGroup
-    - SecondaryProphylaxisAugustEncounterBundle
-    
-  RheumaticFeverTerminology:
-    name: Rheumatic Fever terminology
-    description: All rheumatic fever ValueSets and CodeSystems
-    resources:
-    - RheumaticFeverConditionDiagnosticCertaintyCodeSystem
-    - RheumaticFeverConditionDiagnosticCertaintyValueSet
-    - RheumaticFeverConditionDiagnosisAtRegistrationValueSet
-    - RheumaticFeverConditionRHDSeverityValueSet
-    - RheumaticFeverMedicationAllergyValueSet
-    - RheumaticFeverCarePlanCategoryValueSet
-    - RheumaticFeverCareTeamCategoryValueSet
-    - RheumaticFeverCareTeamParticipantRoleValueSet
-    - RheumaticFeverMedicationRequestMedicationFrequencyValueSet
-    - QualifiedYesNoAnswerValueSet
-    - ExternalSystemIdentifierTypeValueSet
-    - ExternalSystemIdentifierTypeCodeSystem
-
-  ConsentDefinitions:
-    name: Data consent definitions 
-    description: FHIR resource profile and definitional resources relating to patient data consent
+  Consent:
+    name: Consent definitions and examples 
     resources:
     - StructureDefinition/nz-sharedcare-consent
     - COVIDPrivacyStatementQuestionTemplate
-
-  ConsentExamples:
-    name: Data consent examples
-    description: All example Consent FHIR instances
-    resources:
     - ConsentExample
-    - ProposedConsentBaseExample
-    - ProposedConsentCoverageExample
+    - ActiveConsentExample
+    - ProvisionalConsentExample
     - ConsentByRelatedPersonExample
-    - RheumaticFeverActiveConsentExample
     - ConsentByQuestionnaireExample
     - ConsentQuestionnaireResponseExample
 

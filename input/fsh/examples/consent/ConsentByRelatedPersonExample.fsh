@@ -1,14 +1,10 @@
 Instance: ConsentByRelatedPersonExample
 InstanceOf: ManaakiNgaTahiConsent
 Usage: #example
-Description: "Example of a patient consent given on a patient's behalf by a relative, recorded by the Te Tai Tokerau Rheumatic Fever Service.
-
-On-behalf consent can arises in rheumatic fever scenarios where patients are commonly children/teenagers.  This example shows how to identify the relative using a contained instance of 
-a `RelatedPerson` FHIR resource.
-"
+Description: "Example of a data consent given on a subject patient's behalf by a relative."
 
 * meta.profile = Canonical(ManaakiNgaTahiConsent)    // see the profile for ManaakiTahiConsent in this IG 
-* meta.versionId = "3"
+* meta.versionId = "1"
 * meta.lastUpdated = "2024-02-01T23:00:00Z" // UTC datetime
 
 * status = #active
@@ -42,7 +38,9 @@ a `RelatedPerson` FHIR resource.
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
 * provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
 
-* provision insert ConsentInstanceDataRef( PatientMedicationAllergyQuestionnaireResponse )
+
+* provision insert ConsentInstanceDataRef( ConditionExample )
+* provision insert ConsentInstanceDataRef( EncounterExample )
 
 // * provision.data[0].meaning = #instance
 // * provision.data[=].reference = Reference(blah blah)
