@@ -19,11 +19,11 @@ Id: nz-sharedcare-communication-person
 // extensions
 * telecom.extension contains
   hnz-telecom-score-extension-id named SmartContactDetailScore 0..1
-* telecom.extension contains
+  and
   hnz-telecom-information-source-extension-id named SmartContactDetailSourceSystem 0..1
-* telecom.extension contains
+  and
   hnz-telecom-isdeliverable-extension-id named SmartContactDetailIsDeliverableIndicator 0..1
-* telecom.extension contains
+  and
   hnz-telecom-count-shared-extension-id named SmartContactSharedCount 0..1
-* telecom.extension contains
+  and
   hnz-telecom-last-contacted-extension-id named SmartContactLastContacted 0..1

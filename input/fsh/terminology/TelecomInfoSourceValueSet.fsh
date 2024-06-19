@@ -6,7 +6,7 @@ Description:  "Applicable values for information source when using the telecom i
 * ^version = "1.0.0"
 * ^experimental = false
 * ^status = #active
-* include codes from system PersonTelecomSourceSystemCodes
+* include codes from system hnz-person-telecom-source-system-codes
 
 ValueSet: TelecomIsDeliverable
 Id: hnz-telecom-is-deliverable-valueset
@@ -16,7 +16,7 @@ Description:  "Indicates the last known delivery success for a telecom record."
 * ^version = "1.0.0"
 * ^experimental = false
 * ^status = #active
-* include codes from system PersonTelecomIsDeliverableCodes
+* include codes from system hnz-person-telecom-is-deliverable-codes
 
 ValueSet: TelecomScore
 Id: hnz-telecom-score-valueset
@@ -26,4 +26,4 @@ Description:  "Indicates the accuracy score for a telecom record."
 * ^version = "1.0.0"
 * ^experimental = false
 * ^status = #active
-* include codes from system PersonTelecomScoreCodes
+* include codes from system hnz-person-telecom-score-codes
