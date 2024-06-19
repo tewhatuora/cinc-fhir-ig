@@ -5,7 +5,7 @@ Usage: #example
 * meta.profile = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-communication-person"
 * meta.tag[0].system = "https://standards.digital.health.nz/ns/cpir-code"
 * meta.tag[0].code = #CPIR
-* meta.tag[0].display = "Population register"
+* meta.tag[0].display = "Consumer Population Identification Register"
 * identifier[0].use = #official
 * identifier[=].system = "https://standards.digital.health.nz/ns/nhi-id"
 * identifier[=].value = "ZZA1111"
