@@ -71,9 +71,9 @@ Usage: #definition
 * item[=].item[=].item[=].answerOption[+].valueCoding.display = "Someone else"
 * item[=].item[=].item[=].required = true
 * item[=].item[=].item[+].extension[0].valueCode = #Observation
-* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
-* item[=].item[=].item[=].extension[+].valueString = "urn:uuid:observation-phone"
-* item[=].item[=].item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
+* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].item[=].item[=].extension[+].valueCode = #urn:uuid:observation-phone
+* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].item[=].item[=].linkId = "p02-Test-Details-Mobile"
 * item[=].item[=].item[=].enableWhen.question = "p02-Test-Details-Role"
 * item[=].item[=].item[=].enableWhen.answerCoding.display = "Assisted channel"
@@ -133,7 +133,7 @@ Usage: #definition
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].type = #group
 * item[=].item[+].item[0].extension[0].valueCode = #Observation
-* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].item[=].item[=].extension[+].valueString = "urn:uuid:observation-batch"
 * item[=].item[=].item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
 * item[=].item[=].item[=].linkId = "p02-Test-Kit-Batch"
@@ -166,7 +166,7 @@ Usage: #definition
 * item[=].item[=].item[+].extension[0].valueBoolean = true
 * item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[=].item[=].item[=].extension[+].valueCode = #Observation
-* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].item[=].item[=].extension[+].valueString = "urn:uuid:observation-result"
 * item[=].item[=].item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
 * item[=].item[=].item[=].linkId = "p02-Test-Kit-Result-Positive"
@@ -182,7 +182,7 @@ Usage: #definition
 * item[=].item[=].item[+].extension[0].valueBoolean = true
 * item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[=].item[=].item[=].extension[+].valueCode = #Observation
-* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].item[=].item[=].extension[+].valueString = "urn:uuid:observation-result"
 * item[=].item[=].item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
 * item[=].item[=].item[=].linkId = "p02-Test-Kit-Result-Negative"
@@ -245,7 +245,7 @@ Usage: #definition
 * item[=].item[=].item[+].extension[0].valueBoolean = true
 * item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[=].item[=].item[=].extension[+].valueCode = #Observation
-* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].item[=].item[=].extension[+].valueString = "urn:uuid:observation-asymptomatic"
 * item[=].item[=].item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
 * item[=].item[=].item[=].linkId = "p02-Test-Kit-Result-SymptomaticFalse"
@@ -261,7 +261,7 @@ Usage: #definition
 * item[=].item[=].item[+].extension[0].valueBoolean = true
 * item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[=].item[=].item[=].extension[+].valueCode = #Observation
-* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].item[=].item[=].extension[+].valueString = "urn:uuid:observation-asymptomatic"
 * item[=].item[=].item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
 * item[=].item[=].item[=].linkId = "p02-Test-Kit-Result-SymptomaticTrue"
@@ -315,7 +315,7 @@ Usage: #definition
 * item[+].extension[0].valueBoolean = true
 * item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[=].extension[+].valueCode = #DiagnosticReport
-* item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].extension[+].valueString = "urn:uuid:diagnosticReport"
 * item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
 * item[=].item[0].linkId = "p03-ExtractResources-DiagnosticReport-code-supervised"
@@ -420,7 +420,7 @@ Usage: #definition
 * item[=].item[=].prefix = "page 3 question 1.12"
 * item[=].item[=].type = #boolean
 * item[=].item[+].extension[0].valueCode = #Observation
-* item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].item[=].extension[+].valueString = "urn:uuid:observation-site"
 * item[=].item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
 * item[=].item[=].linkId = "p03-ExtractResources-Observation-site"
@@ -434,7 +434,7 @@ Usage: #definition
 * item[=].item[=].definition = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/ManaakiNgaTahiObservation#Observation.code.coding[]"
 * item[=].item[=].type = #choice
 * item[=].item[+].extension[0].valueCode = #Observation
-* item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-itemExtractionContext"
+* item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
 * item[=].item[=].extension[+].valueString = "urn:uuid:observation-authoriser"
 * item[=].item[=].extension[=].url = "http://health.govt.nz/fhir/StructureDefinition/sdc-questionnaire-extractUrn"
 * item[=].item[=].extension[+].extension[0].valueExpression.expression = "QuestionnaireResponse.author.display"
