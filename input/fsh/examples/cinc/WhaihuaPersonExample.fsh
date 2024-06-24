@@ -3,8 +3,9 @@ InstanceOf: CommunicationPerson
 Description: "An example Person record. This resource is used to record detailed contact information related to an individual that Health New Zealand - Te Whatu Ora has reason to communicate with."
 Usage: #example
 * meta.profile = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-communication-person"
-* meta.tag[0].system = "https://standards.digital.health.nz/ns/person-source-system"
-* meta.tag[0].code = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
+// * meta.tag[0].system = "https://standards.digital.health.nz/ns/person-source-system"
+// * meta.tag[0].code = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
+* meta.source = $hnz-person-telecom-source-system-codes#NIBS "National Immunisation Booking System"
 //* meta.tag[0].code = #CPIR
 //* meta.tag[0].display = "Consumer Population Identification Register"
 * identifier[0].use = #official

@@ -9,8 +9,9 @@ Id: nz-sharedcare-communication-person
 * ^purpose = "Records communication preferences for a person who is part of an HNZ cohort"
 * insert metaContactDetail([[HNZ Integration Team]],[[digitalserviceshub@tewhatuora.govt.nz]])
 
-* meta.tag 1..*
-* meta.tag from $hnz-person-telecom-source-system-codes
+//* meta.tag 1..*
+//* meta.tag from $hnz-person-telecom-source-system-codes
+* meta.source 1..1
 * gender 0..0
 * birthDate 0..0
 * address 0..0
