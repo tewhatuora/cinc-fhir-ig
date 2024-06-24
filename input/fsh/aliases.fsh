@@ -36,10 +36,13 @@ Alias: $hnz-person-telecom-score-codes = https://build.fhir.org/ig/tewhatuora/ci
 Alias: $hnz-telecom-information-source-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-information-source-extension-id
 Alias: $hnz-person-telecom-source-system-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/hnz-person-telecom-source-system-codes
 //IsDeliverable
-Alias: $hnz-telecom-isdeliverable-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-isdeliverable-extension-id
-Alias: $hnz-person-telecom-is-deliverable-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/hnz-person-telecom-is-deliverable-codes
+Alias: $hnz-telecom-deliverable-indicator-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-deliverable-indicator-extension-id
+Alias: $hnz-person-telecom-deliverable-indicator-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/hnz-person-telecom-deliverable-indicator-codes
 //LastContacted
 Alias: $hnz-telecom-last-contacted-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-last-contacted-extension-id
 //SharedContact
 Alias: $hnz-telecom-count-shared-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-count-shared-extension-id
+//PhoneType
+Alias: $hnz-telecom-phone-type-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-phone-type-extension-id
+Alias: $hnz-person-telecom-phone-type-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-person-telecom-phone-type-codes
 //----End Added for Person Contact Record ---//
