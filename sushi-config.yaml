@@ -257,7 +257,11 @@ groups:
     - CareyCarrington
     - DrDottyMcStuffins
     - ObservationsServiceRequestExample
-    - CommunicationPersonExample
+  CommunicationExamples:
+    name: Examples of resources associated with communication
+    resources:
+    - NIBSCommunicationPersonExample
+    - WhaihuaCommunicationPersonExample 
   Consent:
     name: Consent definitions and examples 
     resources:
