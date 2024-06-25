@@ -4,16 +4,10 @@ Title: "HNZ Person Telecom Score"
 Context: ContactPoint, Person.telecom
 Description: "Record an accuracy score for a Person telecom property."
 * extension contains score 0..1
-* extension contains flaggedInvalid 0..1
-* extension contains flaggedInvalidBy 0..1
 * extension contains scoreCalculatedDateTime 0..1
 * extension[score].value[x] only Coding
 * extension[score].value[x] from hnz-telecom-score-valueset (required)
 * extension[scoreCalculatedDateTime].value[x] only dateTime
-* extension[flaggedInvalid].value[x] only boolean
-* extension[flaggedInvalidBy].value[x] only Coding
-* extension[flaggedInvalidBy].value[x] from hnz-telecom-information-source-valueset
-
 
 Extension: TelecomInformationSourceExtension
 Id:  hnz-telecom-information-source-extension-id
@@ -53,4 +47,13 @@ Description: "Records the last time that a particular contact method has been us
 * value[x] only Coding
 * value[x] from hnz-telecom-phone-type-valueset (required)
 
-
+Extension: TelecomPhoneInvalidIndicatorExtension
+Id:  hnz-telecom-invalid-indicator-extension-id
+Title: "HNZ Person Telecom Invalid Indicator"
+Context: ContactPoint, Person.telecom
+Description: "Records the validity of the telecom generally based on most recent contact attempt."
+* extension contains invalid 0..1
+* extension contains flaggedInvalidBy 0..1
+* extension[invalid].value[x] only boolean
+* extension[flaggedInvalidBy].value[x] only Coding
+* extension[flaggedInvalidBy].value[x] from hnz-telecom-information-source-valueset

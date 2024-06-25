@@ -45,4 +45,6 @@ Alias: $hnz-telecom-count-shared-extension-id = https://build.fhir.org/ig/tewhat
 //PhoneType
 Alias: $hnz-telecom-phone-type-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-phone-type-extension-id
 Alias: $hnz-person-telecom-phone-type-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-person-telecom-phone-type-codes
+//Invalid indicator
+Alias: $hnz-telecom-invalid-indicator-extension-id = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/hnz-telecom-invalid-indicator-extension-id
 //----End Added for Person Contact Record ---//

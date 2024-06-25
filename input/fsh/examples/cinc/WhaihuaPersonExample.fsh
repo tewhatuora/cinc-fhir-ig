@@ -5,7 +5,7 @@ Usage: #example
 * meta.profile = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-communication-person"
 // * meta.tag[0].system = "https://standards.digital.health.nz/ns/person-source-system"
 // * meta.tag[0].code = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
-* meta.source = $hnz-person-telecom-source-system-codes#NIBS "National Immunisation Booking System"
+* meta.source = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
 //* meta.tag[0].code = #CPIR
 //* meta.tag[0].display = "Consumer Population Identification Register"
 * identifier[0].use = #official
@@ -23,12 +23,11 @@ Usage: #example
 * telecom[=].value = "0212345678"
 * telecom[=].rank = 4
 * telecom[=].extension[0].url = Canonical(hnz-telecom-score-extension-id)
-* telecom[=].extension[=].extension[0].url = "score"
-* telecom[=].extension[=].extension[=].valueCoding = $hnz-person-telecom-score-codes#-1 "Uncontactable"
+* telecom[=].extension[=].valueCoding = $hnz-person-telecom-score-codes#-1 "Uncontactable"
 * telecom[=].extension[=].extension[+].url = "scoreCalculatedDateTime"
 * telecom[=].extension[=].extension[=].valueDateTime = "1999-11-19T09:40:40+00:00"
-* telecom[=].extension[=].extension[+].url = "flaggedInvalid"
-* telecom[=].extension[=].extension[=].valueBoolean = true
+* telecom[=].extension[+].url = Canonical(hnz-telecom-invalid-indicator-extension-id)
+* telecom[=].extension[=].valueBoolean = true
 * telecom[=].extension[=].extension[+].url = "flaggedInvalidBy"
 * telecom[=].extension[=].extension[=].valueCoding = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
 * telecom[=].use = #mobile
