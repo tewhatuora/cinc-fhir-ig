@@ -32,3 +32,5 @@ Id: nz-sharedcare-communication-person
   hnz-telecom-last-contacted-extension-id named SmartContactLastContacted 0..1
   and
   hnz-telecom-phone-type-extension-id named SmartContactPhoneType 0..1
+  and
+  hnz-telecom-invalid-indicator-extension-id named SmartContactInvalidIndicator 0..1
