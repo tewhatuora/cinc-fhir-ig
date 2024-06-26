@@ -258,7 +258,7 @@ groups:
     - DrDottyMcStuffins
     - ObservationsServiceRequestExample
   CommunicationExamples:
-    name: Examples of resources associated with communication
+    name: Communication Person examples
     resources:
     - NIBSCommunicationPersonExample
     - WhaihuaCommunicationPersonExample 
