@@ -4,7 +4,7 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: tewhatuora.sharedcare
-canonical: https:/fhir-ig.digital.health.nz/shared-care
+canonical: https://fhir-ig.digital.health.nz/shared-care
 name: CINC_FHIR_IG
 title: Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
