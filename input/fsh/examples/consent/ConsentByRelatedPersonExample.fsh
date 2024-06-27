@@ -13,7 +13,7 @@ Description: "Example of a data consent given on a subject patient's behalf by a
 * category = http://terminology.hl7.org/CodeSystem/consentcategorycodes#npp "Notice of Privacy Practices"
 * dateTime = "2023-06-12T02:30:35.982Z"
 
-* patient insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* patient insert NHIPatientRef(ZAA7824,[[Madeleine Meringue]])
 * organization insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * performer[0] insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * performer[+].type = "RelatedPerson"
@@ -36,7 +36,7 @@ Description: "Example of a data consent given on a subject patient's behalf by a
 * provision.actor[=].reference insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
-* provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* provision.actor[=].reference insert NHIPatientRef(ZAA7824,[[Madeleine Meringue]])
 
 
 * provision insert ConsentInstanceDataRef( ConditionExample )
@@ -55,7 +55,7 @@ InstanceOf: RelatedPerson
 Usage: #inline
 Description: "An example of how to Madeleine's mum (relationshiptype code for parent = #PRN) as the RelatedPerson who gave consent on Maddie's behalf"
 
-* patient insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* patient insert NHIPatientRef(ZAA7824,[[Madeleine Meringue]])
 * name.given = "Beryl"
 * name.family = "Hackett"
 * relationship = 	$relatedrelationshiptypeCS#PRN

@@ -18,7 +18,7 @@ with representations in FHIR."
 * category = http://terminology.hl7.org/CodeSystem/consentcategorycodes#npp "Notice of Privacy Practices"
 * dateTime = "2023-06-12T02:30:35.982Z"
 
-* patient insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* patient insert NHIPatientRef(ZAA7824,[[Madeleine Meringue]])
 * organization insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 * performer insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
@@ -36,7 +36,7 @@ with representations in FHIR."
 * provision.actor[=].reference insert ReferenceOrganisation(G0M086-B,[[Te Tai Tokerau Rheumatic Fever Secondary Prevention Service]])
 
 * provision.actor[+].role = http://terminology.hl7.org/CodeSystem/extra-security-role-type#datasubject "data subject"
-* provision.actor[=].reference insert NHIPatientRef(SCF7824,[[Madeleine Meringue]])
+* provision.actor[=].reference insert NHIPatientRef(ZAA7824,[[Madeleine Meringue]])
 
 * provision insert ConsentInstanceDataRef( ConditionExample )
 * provision insert ConsentInstanceDataRef( EncounterExample )

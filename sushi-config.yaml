@@ -92,14 +92,14 @@ menu:
     Structure Definitions: artifacts.html#shared-care-api-definitions
     Questionnaires: artifacts.html#shared-care-api-canonical-questionnaires
   Examples:
-    Care in the Community: artifacts.html#care-in-the-community-examples
+    Shared Care: artifacts.html#shared-care-examples
     QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
   Data Consent:
     Consent-based resource access control: consentBasedAccessControl.html
     Definitions and Examples: artifacts.html#consent-definitions-and-examples
   API Developer Guide:
     Developer Guide: developerGuide.html
-    API capability statement: CapabilityStatement-CareInTheCommunityCapabilityStatement.html
+    API capability statement: CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
@@ -108,7 +108,7 @@ menu:
     Changelog : changelog.html
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
-    OpenAPI Specification: CareInTheCommunityCapabilityStatement.openapi.json
+    OpenAPI Specification: SharedCareFHIRAPICapabilityStatement.openapi.json
     Version History: history.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
@@ -206,6 +206,7 @@ groups:
     - StructureDefinition/ManaakiNgaTahiPlanDefinition
     - StructureDefinition/ManaakiNgaTahiServiceRequest
     - StructureDefinition/ServiceRequestActivityDefinition
+    - StructureDefinition/nz-sharedcare-communication-person
     - ActivityDefinition/MeasurementProcedureRequestTemplate
     - PlanDefinition/COVIDMVPCarePlanTemplate
     - OperationDefinition/ActivityDefinition-apply
@@ -246,7 +247,7 @@ groups:
       - ConsumerCOVIDRATResultQuestionnaireResponse
       - ImmsotVaccinationDataEntryQuestionnaireResponse
   CINCExamples: 
-    name: Care in the Community examples
+    name: Shared Care examples
     resources:
     - CarePlanExample
     - ConditionExample
@@ -256,6 +257,11 @@ groups:
     - CareyCarrington
     - DrDottyMcStuffins
     - ObservationsServiceRequestExample
+  CommunicationExamples:
+    name: Communication Person examples
+    resources:
+    - NIBSCommunicationPersonExample
+    - WhaihuaCommunicationPersonExample 
   Consent:
     name: Consent definitions and examples 
     resources:
