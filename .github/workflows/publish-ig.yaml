@@ -1,0 +1,36 @@
+name: Publish Implementation Guide
+
+on:
+  push:
+    branches:
+      - uat
+      - main
+
+jobs:
+  publish-ig:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set branch name
+        id: set_branch
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      - name: Print branch
+        run: echo "Running on branch ${{ env.BRANCH_NAME }}"
+
+      - name: Send POST request
+        run: |
+          if [[ "${{ env.BRANCH_NAME }}" == "main" ]]; then
+            curl -X POST "https://fhir-ig-builder.api.digital.health.nz/v1/build" \
+              -H "Content-Type: application/json" \
+              -H "x-api-key: ${{ secrets.API_KEY }}" \
+              -d '{"gitBranch": "main", "igSourceGitUrl": "https://github.com/tewhatuora/cinc-fhir-ig.git"}'
+          elif [[ "${{ env.BRANCH_NAME }}" == "uat" ]]; then
+            curl -X POST "https://fhir-ig-builder.api-uat.digital.health.nz/v1/build" \
+              -H "Content-Type: application/json" \
+              -H "x-api-key: ${{ secrets.API_KEY_UAT }}" \
+              -d '{"gitBranch": "uat", "igSourceGitUrl": "https://github.com/tewhatuora/cinc-fhir-ig.git"}'
+          fi
