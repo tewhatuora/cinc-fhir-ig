@@ -6,9 +6,9 @@
 id: cinc.fhir.ig
 canonical: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
 name: CINC_FHIR_IG
-title: Te Whatu Ora Shared Care FHIR API
-description: Te Whatu Ora Shared Care FHIR API
-status: active
+title: DEPRECATED Te Whatu Ora Shared Care FHIR API - see https://fhir-ig.digital.health.nz/shared-care
+description: Moved to https://fhir-ig.digital.health.nz/shared-care
+status: retired
 version: 0.4.0
 fhirVersion: 4.0.1
 copyrightYear: 2022+
