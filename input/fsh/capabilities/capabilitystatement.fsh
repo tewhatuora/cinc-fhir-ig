@@ -1,11 +1,15 @@
 Instance: SharedCareFHIRAPICapabilityStatement
-InstanceOf: CapabilityStatement
+InstanceOf: HnzToolingCapabilityStatement
 Usage: #definition
 
 * name = "SharedCareFHIRAPICapabilityStatement"
 * title = "Shared Care FHIR Server Capability Statement"
+* contact.name = "Health New Zealand Te Whatu Ora"
+* contact.telecom.value = "https://www.tewhatuora.govt.nz"
+* contact.telecom.system = #url
+* version = "0.4.0"
 * status = #active
-* date = "2023-10-19"
+* date = "2024-07-03"
 * publisher = "Te Whatu Ora"
 * description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
 * kind = #instance
@@ -15,12 +19,20 @@ Usage: #definition
 * format = #json
 * rest.mode = #server
 * rest.security.cors = true
-* rest.security.service = http://terminology.hl7.org/CodeSystem/restful-security-service#OAuth
+* rest.security.service = #SMART-on-FHIR
 * rest.security.extension.url = "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
 * rest.security.extension.extension[0].url = "token"
-* rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/token"
-* rest.security.extension.extension[+].url = "authorize"
-* rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/authorize"
+* rest.security.extension.extension[=].valueUri = "https://ppd.auth.services.health.nz/realms/hnz-integration/protocol/openid-connect/token"
+* rest.security.extension[+].url = "http://fhir-registry.smarthealthit.org/StructureDefinition/capabilities"
+* rest.security.extension[=].valueCode = #client-confidential-symmetric
+
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].url = Canonical(HnzCustomHeadersExtension)
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[key].valueString = "Correlation-Id"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/uuid-definition.json"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = false
+* extension[HnzApiSpecBuilderExtension].extension[licenseURL].valueUri = "https://licence.example.org"
+* extension[HnzApiSpecBuilderExtension].extension[licenseName].valueString = "TBC"
+* extension[HnzApiSpecBuilderExtension].extension[externalDocs].valueUri = "https://fhir-ig.digital.health.nz/shared-care"
 
 * rest.interaction.code = #transaction
 
