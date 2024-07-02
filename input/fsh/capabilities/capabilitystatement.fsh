@@ -408,7 +408,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].operation[0].name = "apply"
-* rest.resource[=].operation[=].definition = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/OperationDefinition/PlanDefinition-apply"
+* rest.resource[=].operation[=].definition = Canonical(PlanDefinition-apply)
 
 
 * rest.resource[+].type = #Questionnaire
