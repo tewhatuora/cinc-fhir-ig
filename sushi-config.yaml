@@ -94,6 +94,7 @@ menu:
   Examples:
     Shared Care: artifacts.html#shared-care-examples
     QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
+    Communication Person: artifacts.html#communication-person-examples 
   Data Consent:
     Consent-based resource access control: consentBasedAccessControl.html
     Definitions and Examples: artifacts.html#consent-definitions-and-examples

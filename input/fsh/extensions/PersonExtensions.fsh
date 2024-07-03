@@ -45,7 +45,7 @@ Title: "HNZ Person Telecom Invalid Indicator"
 Context: ContactPoint, Person.telecom
 Description: "Records the validity of the telecom generally based on most recent contact attempt."
 * extension contains invalid 0..1
-* extension contains flaggedInvalidBy 0..1
+* extension contains invalidFlaggedBy 0..1
 * extension[invalid].value[x] only boolean
-* extension[flaggedInvalidBy].value[x] only Coding
-* extension[flaggedInvalidBy].value[x] from hnz-telecom-information-source-valueset
+* extension[invalidFlaggedBy].value[x] only Coding
+* extension[invalidFlaggedBy].value[x] from hnz-telecom-information-source-valueset

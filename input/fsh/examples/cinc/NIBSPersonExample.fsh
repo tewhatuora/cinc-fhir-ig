@@ -10,9 +10,6 @@ Usage: #example
 * identifier[+].use = #secondary
 * identifier[=].system = "https://standards.digital.health.nz/ns/nhi-id"
 * identifier[=].value = "ZZA1112"
-* identifier[+].use = #secondary
-* identifier[=].system = "https://standards.digital.health.nz/ns/cpir"
-* identifier[=].value = "cpir-id"
 // Phone contact details
 * telecom[0].id = "phone-4151e338c33797ed98e1999520ae15tf"
 * telecom[=].system = #phone

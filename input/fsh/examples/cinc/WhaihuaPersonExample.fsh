@@ -10,9 +10,6 @@ Usage: #example
 * identifier[+].use = #secondary
 * identifier[=].system = "https://standards.digital.health.nz/ns/nhi-id"
 * identifier[=].value = "ZZA1112"
-* identifier[+].use = #secondary
-* identifier[=].system = "https://standards.digital.health.nz/ns/cpir"
-* identifier[=].value = "cpir-id"
 // Phone contact details
 * telecom[0].id = "phone-4151e338c33797ed98e1999520ae14ea"
 * telecom[=].system = #phone
@@ -26,7 +23,7 @@ Usage: #example
 * telecom[=].extension[+].url = Canonical(hnz-telecom-invalid-indicator-extension-id)
 * telecom[=].extension[=].extension[+].url = "invalid"
 * telecom[=].extension[=].extension[=].valueBoolean = true
-* telecom[=].extension[=].extension[+].url = "flaggedInvalidBy"
+* telecom[=].extension[=].extension[+].url = "invalidFlaggedBy"
 * telecom[=].extension[=].extension[=].valueCoding = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
 * telecom[=].use = #mobile
 * telecom[=].extension[+].url = Canonical(hnz-telecom-last-contacted-extension-id)
