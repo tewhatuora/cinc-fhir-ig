@@ -366,7 +366,7 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "profile"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
 * rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using ?profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-communication-person"
+* rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using ?profile=https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-communication-person"
 
 * rest.resource[+].type = #PlanDefinition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)

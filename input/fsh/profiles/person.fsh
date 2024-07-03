@@ -11,7 +11,7 @@ Id: nz-sharedcare-communication-person
 
 //* meta.tag 1..*
 //* meta.tag from $hnz-person-telecom-source-system-codes
-* meta.source from hnz-telecom-deliverable-indicator-valueset (required)
+* meta.source from hnz-telecom-information-source-valueset (required)
 * gender 0..0
 * birthDate 0..0
 * address 0..0
