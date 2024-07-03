@@ -8,16 +8,6 @@ Description:  "Applicable values for information source when using the telecom i
 * ^status = #active
 * include codes from system hnz-person-telecom-source-system-codes
 
-ValueSet: TelecomDeliverable
-Id: hnz-telecom-deliverable-indicator-valueset
-Title: "Telecom record delivery success indicator"
-Description:  "Indicates the last known delivery success for a telecom record."
-* ^publisher = "Health New Zealand | Te Whatu Ora"
-* ^version = "1.0.0"
-* ^experimental = false
-* ^status = #active
-* include codes from system hnz-person-telecom-deliverable-indicator-codes
-
 ValueSet: TelecomScore
 Id: hnz-telecom-score-valueset
 Title: "Telecom record score indicator"

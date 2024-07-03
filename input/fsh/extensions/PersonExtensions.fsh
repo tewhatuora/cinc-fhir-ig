@@ -17,14 +17,6 @@ Description: "Property to record the source system where the contact details wer
 * value[x] only Coding
 * value[x] from hnz-telecom-information-source-valueset (required)
 
-Extension: TelecomDeliverableIndicatorExtension
-Id:  hnz-telecom-deliverable-indicator-extension-id
-Title: "HNZ Person Telecom Is Message Deliveraable"
-Context: ContactPoint, Person.telecom
-Description: "Property to record last recorded message delivery success for a telecom."
-* value[x] only Coding
-* value[x] from hnz-telecom-deliverable-indicator-valueset (required)
-
 Extension: TelecomCountSharedExtension
 Id:  hnz-telecom-count-shared-extension-id
 Title: "HNZ Person Telecom Count Shared"

@@ -35,16 +35,13 @@ Alias: $hnz-person-telecom-score-codes = https://fhir-ig.digital.health.nz/share
 //Information Source
 Alias: $hnz-telecom-information-source-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-information-source-extension-id
 Alias: $hnz-person-telecom-source-system-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-source-system-codes
-//IsDeliverable
-Alias: $hnz-telecom-deliverable-indicator-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-deliverable-indicator-extension-id
-Alias: $hnz-person-telecom-deliverable-indicator-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-deliverable-indicator-codes
 //LastContacted
 Alias: $hnz-telecom-last-contacted-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-last-contacted-extension-id
 //SharedContact
 Alias: $hnz-telecom-count-shared-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-count-shared-extension-id
 //PhoneType
 Alias: $hnz-telecom-phone-type-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-phone-type-extension-id
-Alias: $hnz-person-telecom-phone-type-codes = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-person-telecom-phone-type-codes
+Alias: $hnz-person-telecom-phone-type-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-phone-type-codes
 //Invalid indicator
 Alias: $hnz-telecom-invalid-indicator-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-invalid-indicator-extension-id
 //----End Added for Person Contact Record ---//

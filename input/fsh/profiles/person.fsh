@@ -25,8 +25,6 @@ Id: nz-sharedcare-communication-person
   and
   hnz-telecom-information-source-extension-id named SmartContactDetailInformationSource 0..1
   and
-  hnz-telecom-deliverable-indicator-extension-id named SmartContactDetailDeliverableIndicator 0..1
-  and
   hnz-telecom-count-shared-extension-id named SmartContactCountShared 0..1
   and
   hnz-telecom-last-contacted-extension-id named SmartContactLastContacted 0..1
