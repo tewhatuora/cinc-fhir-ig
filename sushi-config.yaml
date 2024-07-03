@@ -110,7 +110,7 @@ menu:
     Changelog : changelog.html
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
-    OpenAPI Specification: SharedCareFHIRAPICapabilityStatement.openapi.json
+    OpenAPI Specification: openapi.html
     Version History: history.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
