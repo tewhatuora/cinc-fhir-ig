@@ -32,11 +32,11 @@ publisher:
 #     version: 1.0.0
 #
 dependencies:
-  fhir.org.nz.ig.base: 
+  fhir.org.nz.ig.base:
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
     version: 3.0.0
   hl7.fhir.uv.sdc: 3.0.0
-  tewhatuora.digitaltooling.iguat: 0.0.6
+  tewhatuora.digitaltooling: 0.0.6
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
