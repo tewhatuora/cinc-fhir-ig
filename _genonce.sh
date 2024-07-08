@@ -28,15 +28,3 @@ else
 		echo IG Publisher NOT FOUND in input-cache or parent folder.  Please run _updatePublisher.  Aborting...
 	fi
 fi
-
-CONVERTER_DL_URL=$(curl -s https://api.github.com/repos/tewhatuora/fhir-openapi-converter/releases/latest | jq -r '.assets[] | select(.name == "cli.js") | .browser_download_url')
-curl -L -o fhir-openapi-converter.js $CONVERTER_DL_URL
-node ./fhir-openapi-converter.js --inputFolder fsh-generated --outputFolder oas
-result=$?
-
-if [ $result -ne 0 ]; then
-	echo "Error generating OpenAPI specification. Exiting."
-	exit $result
-fi
-
-cp oas/SharedCareFHIRAPICapabilityStatement.openapi.yaml output/openapi.yaml
