@@ -102,8 +102,9 @@ Usage: #definition
 * rest.resource[=] insert GenericCRUDInteractions
 
 * rest.resource[+].type = #CarePlan
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiCarePlan)
-* rest.resource[=] insert DefinitionalResourceInteractions
+* rest.resource[=].profile = Canonical(CarePlan)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiCarePlan)
+* rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "CarePlan:encounter"
 * rest.resource[=].searchParam[0].name = "patient"
