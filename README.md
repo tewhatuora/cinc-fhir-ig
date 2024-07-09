@@ -17,4 +17,4 @@ This IG depends on:
 
 `_genonce.sh` - Build the IG using the latest FHIR Publisher
 
-`_genopenapi.sh` - Generate a HNZ OpenAPI specification. Run after `_genonce.sh` to avoid changes being lost
+`_genopenapi.sh` - Generate an HNZ OpenAPI specification. Run after `_genonce.sh` to avoid changes being lost
