@@ -14,7 +14,7 @@ Usage: #definition
 * description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
 * kind = #instance
 * implementation.description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
-* implementation.url = "https://fhir.ap1.digital.health.nz/R4"
+* implementation.url = "https://fhir.api.digital.health.nz/R4"
 * fhirVersion = #4.0.1
 * format = #json
 * rest.mode = #server
@@ -36,8 +36,8 @@ Usage: #definition
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].extension[key].valueString = "Request-Context"
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/shared-care/Request-Context.json"
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = true
-* extension[HnzApiSpecBuilderExtension].extension[licenseURL].valueUri = "https://licence.example.org"
-* extension[HnzApiSpecBuilderExtension].extension[licenseName].valueString = "TBC"
+* extension[HnzApiSpecBuilderExtension].extension[licenseURL].valueUri = "https://www.tewhatuora.govt.nz/assets/Our-health-system/Digital-health/Digital-Service-Hub/API-Access-and-Use-Agreement.docx"
+* extension[HnzApiSpecBuilderExtension].extension[licenseName].valueString = "Health New Zealand Digital Services Hub API Access and Use Agreement"
 * extension[HnzApiSpecBuilderExtension].extension[externalDocs].valueUri = "https://fhir-ig.digital.health.nz/shared-care"
 
 * rest.interaction.code = #transaction
