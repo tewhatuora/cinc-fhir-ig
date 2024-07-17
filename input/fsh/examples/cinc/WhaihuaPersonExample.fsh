@@ -2,21 +2,14 @@ Instance: WhaihuaCommunicationPersonExample
 InstanceOf: CommunicationPerson
 Description: "An example Person record. This resource is used to record detailed contact information related to an individual that Health New Zealand - Te Whatu Ora has reason to communicate with."
 Usage: #example
-* meta.profile = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-communication-person"
-// * meta.tag[0].system = "https://standards.digital.health.nz/ns/person-source-system"
-// * meta.tag[0].code = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-communication-person"
 * meta.source = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
-//* meta.tag[0].code = #CPIR
-//* meta.tag[0].display = "Consumer Population Identification Register"
 * identifier[0].use = #official
 * identifier[=].system = "https://standards.digital.health.nz/ns/nhi-id"
 * identifier[=].value = "ZZA1111"
 * identifier[+].use = #secondary
 * identifier[=].system = "https://standards.digital.health.nz/ns/nhi-id"
 * identifier[=].value = "ZZA1112"
-* identifier[+].use = #secondary
-* identifier[=].system = "https://standards.digital.health.nz/ns/cpir"
-* identifier[=].value = "cpir-id"
 // Phone contact details
 * telecom[0].id = "phone-4151e338c33797ed98e1999520ae14ea"
 * telecom[=].system = #phone
@@ -30,13 +23,9 @@ Usage: #example
 * telecom[=].extension[+].url = Canonical(hnz-telecom-invalid-indicator-extension-id)
 * telecom[=].extension[=].extension[+].url = "invalid"
 * telecom[=].extension[=].extension[=].valueBoolean = true
-* telecom[=].extension[=].extension[+].url = "flaggedInvalidBy"
+* telecom[=].extension[=].extension[+].url = "invalidFlaggedBy"
 * telecom[=].extension[=].extension[=].valueCoding = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
 * telecom[=].use = #mobile
-// * telecom[=].extension[+].url = Canonical(hnz-telecom-information-source-extension-id)
-// * telecom[=].extension[=].valueCoding = $hnz-person-telecom-source-system-codes#NES "National Enrolment Service"
-* telecom[=].extension[+].url = Canonical(hnz-telecom-deliverable-indicator-extension-id)
-* telecom[=].extension[=].valueCoding = $hnz-person-telecom-deliverable-indicator-codes#-1 "Failure"
 * telecom[=].extension[+].url = Canonical(hnz-telecom-last-contacted-extension-id)
 * telecom[=].extension[=].valueDateTime = "1999-11-19T09:40:40+00:00"
 * telecom[=].extension[+].url = Canonical(hnz-telecom-count-shared-extension-id)
@@ -53,10 +42,6 @@ Usage: #example
 * telecom[=].extension[=].extension[=].valueCoding = $hnz-person-telecom-score-codes#1 "Contactable"
 * telecom[=].extension[=].extension[+].url = "scoreCalculatedDateTime"
 * telecom[=].extension[=].extension[=].valueDateTime = "2021-11-19T09:40:40+00:00"
-// * telecom[=].extension[+].url = Canonical(hnz-telecom-information-source-extension-id)
-// * telecom[=].extension[=].valueCoding = $hnz-person-telecom-source-system-codes#NIBS "National Immunisation Booking System"
-* telecom[=].extension[+].url = Canonical(hnz-telecom-deliverable-indicator-extension-id)
-* telecom[=].extension[=].valueCoding = $hnz-telecom-deliverable-indicator-extension-id#0 "Uncontacted"
 * telecom[=].extension[+].url = Canonical(hnz-telecom-last-contacted-extension-id)
 * telecom[=].extension[=].valueDateTime = "1999-11-19T09:40:40+00:00"
 * telecom[=].extension[+].url = Canonical(hnz-telecom-count-shared-extension-id)

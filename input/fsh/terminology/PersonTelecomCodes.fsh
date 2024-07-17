@@ -12,19 +12,6 @@ Description:  "Each code represents different source system"
 * ^purpose = "Enables a Person record to populate a telecom component with the appropriate source system of that record."
 * ^status = #active
 
-CodeSystem: PersonTelecomDeliverableCodes
-Id: hnz-person-telecom-deliverable-indicator-codes
-Title: "Codes for Telecom Is Deliverable"
-Description:  "Each code represents an indication of notification delivery success"
-* #-1 "Failure"
-* #0 "Uncontacted"
-* #1 "Success"
-* ^publisher = "Health New Zealand | Te Whatu Ora"
-* ^experimental = false
-* ^caseSensitive = true
-* ^purpose = "Enables a Person record to populate a telecom component with an indication of delivery success to that contact."
-* ^status = #active
-
 CodeSystem: PersonTelecomScoreCodes
 Id: hnz-person-telecom-score-codes
 Title: "Codes for Telecom Score"
