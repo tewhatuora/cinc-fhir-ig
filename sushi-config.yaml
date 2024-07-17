@@ -91,6 +91,9 @@ parameters:
     - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
     - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/MeasurementProcedureRequestTemplate
     - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/PlanDefinition/COVIDMVPCarePlanTemplate
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDRATResultQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MentalHealthAssessmentSurveyQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/PregnancyAssessmentSurveyQuestionnaire
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #

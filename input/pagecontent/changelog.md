@@ -23,7 +23,7 @@ Updated [AntiviralEligibilityQuestionnaire](Questionnaire-AntiViralEligibilityQu
 
 ### Documentation
 
-- Developer guidance expanded about validation of [resources using versioned profiles](developerGuide.html#fhir-profile-versioning)
+- Developer guidance expanded about validation of [resources using versioned profiles](developerGuide.html#fhir-resource-profile-based-validation)
 
 ## v0.3.8 (2024-02-02)
 
