@@ -5,7 +5,7 @@ Usage: #definition
 * name = "CareInTheCommunityPlanDefinitionApplyOperation"
 * title = "Care In The Community PlanDefinition Apply Operation"
 * status = #draft
-* kind = #operation
+* kind = #query
 * date = "2022-09-20"
 * publisher = "Te Whatu Ora"
 * description = "The apply operation applies a PlanDefinition to a given context"

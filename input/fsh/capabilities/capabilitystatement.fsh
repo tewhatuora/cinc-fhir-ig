@@ -1,26 +1,44 @@
 Instance: SharedCareFHIRAPICapabilityStatement
-InstanceOf: CapabilityStatement
+InstanceOf: HnzToolingCapabilityStatement
 Usage: #definition
 
 * name = "SharedCareFHIRAPICapabilityStatement"
 * title = "Shared Care FHIR Server Capability Statement"
+* contact[+].name = "Health New Zealand Te Whatu Ora"
+* contact[=].telecom.value = "https://www.tewhatuora.govt.nz"
+* contact[=].telecom.system = #url
+* version = "0.4.0"
 * status = #active
-* date = "2023-10-19"
+* date = "2024-07-03"
 * publisher = "Te Whatu Ora"
 * description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
 * kind = #instance
 * implementation.description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
-* implementation.url = "https://fhir.ap1.digital.health.nz/R4"
+* implementation.url = "https://fhir.api.digital.health.nz/R4"
 * fhirVersion = #4.0.1
 * format = #json
 * rest.mode = #server
 * rest.security.cors = true
-* rest.security.service = http://terminology.hl7.org/CodeSystem/restful-security-service#OAuth
+* rest.security.service = #SMART-on-FHIR
 * rest.security.extension.url = "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
 * rest.security.extension.extension[0].url = "token"
-* rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/token"
-* rest.security.extension.extension[+].url = "authorize"
-* rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/authorize"
+* rest.security.extension.extension[=].valueUri = "https://ppd.auth.services.health.nz/realms/hnz-integration/protocol/openid-connect/token"
+* rest.security.extension[+].url = "http://fhir-registry.smarthealthit.org/StructureDefinition/capabilities"
+* rest.security.extension[=].valueCode = #client-confidential-symmetric
+
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].url = Canonical(HnzCustomHeadersExtension)
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[key].valueString = "Correlation-Id"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/shared-care/Correlation-Id.json"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = false
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].extension[key].valueString = "x-api-key"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/shared-care/Api-Key.json"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = true
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].extension[key].valueString = "Request-Context"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/shared-care/Request-Context.json"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = true
+* extension[HnzApiSpecBuilderExtension].extension[licenseURL].valueUri = "https://www.tewhatuora.govt.nz/assets/Our-health-system/Digital-health/Digital-Service-Hub/API-Access-and-Use-Agreement.docx"
+* extension[HnzApiSpecBuilderExtension].extension[licenseName].valueString = "Health New Zealand Digital Services Hub API Access and Use Agreement"
+* extension[HnzApiSpecBuilderExtension].extension[externalDocs].valueUri = "https://fhir-ig.digital.health.nz/shared-care"
 
 * rest.interaction.code = #transaction
 
@@ -84,8 +102,9 @@ Usage: #definition
 * rest.resource[=] insert GenericCRUDInteractions
 
 * rest.resource[+].type = #CarePlan
-* rest.resource[=].profile = Canonical(ManaakiNgaTahiCarePlan)
-* rest.resource[=] insert DefinitionalResourceInteractions
+* rest.resource[=].profile = Canonical(CarePlan)
+* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiCarePlan)
+* rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchInclude[+] = "CarePlan:encounter"
 * rest.resource[=].searchParam[0].name = "patient"
@@ -396,7 +415,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].operation[0].name = "apply"
-* rest.resource[=].operation[=].definition = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/OperationDefinition/PlanDefinition-apply"
+* rest.resource[=].operation[=].definition = Canonical(PlanDefinition-apply)
 
 
 * rest.resource[+].type = #Questionnaire

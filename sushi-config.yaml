@@ -6,7 +6,7 @@
 id: tewhatuora.sharedcare
 canonical: https://fhir-ig.digital.health.nz/shared-care
 name: CINC_FHIR_IG
-title: Te Whatu Ora Shared Care FHIR API
+title: Health New Zealand Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
 status: active
 version: 0.4.0
@@ -32,10 +32,12 @@ publisher:
 #     version: 1.0.0
 #
 dependencies:
-  fhir.org.nz.ig.base: 
+  fhir.org.nz.ig.base:
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
     version: 3.0.0
   hl7.fhir.uv.sdc: 3.0.0
+  tewhatuora.digitaltooling: 0.0.8
+  hl7.terminology.r4: 5.5.0
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
@@ -74,6 +76,21 @@ parameters:
   default-version: true              # DG 13/11/2023: versions of canonicals that specify their own version no longer overwritten by the IG publisher
   suppressed-ids: $examples          # DG 13/11/2023: stop IG publisher generating ids for all example resource instances
   display-warnings: true             # DG 13/11/2023: stop IG publisher reporting terminology problems as errors
+  special-url:
+    # legacy canonical urls
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDPrivacyStatementQuestionTemplate
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay3Survey
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay42Survey
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ConsumerCOVIDRATResultQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDInitialHealthAssessmentQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDRegularHealthCheckQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDVaccinationSurveyQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ImmsotVaccinationDataEntryQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MeaslesHealthCheckQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/MeasurementProcedureRequestTemplate
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/PlanDefinition/COVIDMVPCarePlanTemplate
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #
@@ -99,17 +116,18 @@ menu:
     Consent-based resource access control: consentBasedAccessControl.html
     Definitions and Examples: artifacts.html#consent-definitions-and-examples
   API Developer Guide:
+    View OpenAPI: new-tab https://fhir-ig.digital.health.nz/openapi/index.html?urls.primaryName=Shared+Care+API
     Developer Guide: developerGuide.html
     API capability statement: CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
+    Download OpenAPI: https://fhir-ig.digital.health.nz/shared-care/openapi.yaml
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
-    Download IG : full-ig.zip
-    Changelog : changelog.html
+    Download IG: full-ig.zip
+    Changelog: changelog.html
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
-    OpenAPI Specification: SharedCareFHIRAPICapabilityStatement.openapi.json
     Version History: history.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
