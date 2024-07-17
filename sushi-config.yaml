@@ -116,18 +116,18 @@ menu:
     Consent-based resource access control: consentBasedAccessControl.html
     Definitions and Examples: artifacts.html#consent-definitions-and-examples
   API Developer Guide:
-    OpenAPI: new-tab https://fhir-ig.digital.health.nz/openapi/index.html?urls.primaryName=Shared+Care+API
+    View OpenAPI: new-tab https://fhir-ig.digital.health.nz/openapi/index.html?urls.primaryName=Shared+Care+API
     Developer Guide: developerGuide.html
     API capability statement: CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
+    Download OpenAPI: https://fhir-ig.digital.health.nz/shared-care/openapi.yaml
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
-    Download IG : full-ig.zip
-    Changelog : changelog.html
+    Download IG: full-ig.zip
+    Changelog: changelog.html
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
-    Download OpenAPI Specification: https://fhir-ig.digital.health.nz/shared-care/openapi.yaml
     Version History: history.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
