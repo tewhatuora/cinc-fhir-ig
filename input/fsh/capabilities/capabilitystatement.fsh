@@ -4,9 +4,9 @@ Usage: #definition
 
 * name = "SharedCareFHIRAPICapabilityStatement"
 * title = "Shared Care FHIR Server Capability Statement"
-* contact.name = "Health New Zealand Te Whatu Ora"
-* contact.telecom.value = "https://www.tewhatuora.govt.nz"
-* contact.telecom.system = #url
+* contact[+].name = "Health New Zealand Te Whatu Ora"
+* contact[=].telecom.value = "https://www.tewhatuora.govt.nz"
+* contact[=].telecom.system = #url
 * version = "0.4.0"
 * status = #active
 * date = "2024-07-03"

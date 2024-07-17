@@ -36,7 +36,8 @@ dependencies:
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
     version: 3.0.0
   hl7.fhir.uv.sdc: 3.0.0
-  tewhatuora.digitaltooling: 0.0.6
+  tewhatuora.digitaltooling: 0.0.8
+  hl7.terminology.r4: 5.5.0
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
@@ -75,6 +76,21 @@ parameters:
   default-version: true              # DG 13/11/2023: versions of canonicals that specify their own version no longer overwritten by the IG publisher
   suppressed-ids: $examples          # DG 13/11/2023: stop IG publisher generating ids for all example resource instances
   display-warnings: true             # DG 13/11/2023: stop IG publisher reporting terminology problems as errors
+  special-url:
+    # legacy canonical urls
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDPrivacyStatementQuestionTemplate
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay3Survey
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay42Survey
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ConsumerCOVIDRATResultQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDInitialHealthAssessmentQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDRegularHealthCheckQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDVaccinationSurveyQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ImmsotVaccinationDataEntryQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MeaslesHealthCheckQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/MeasurementProcedureRequestTemplate
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/PlanDefinition/COVIDMVPCarePlanTemplate
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #

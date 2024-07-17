@@ -46,7 +46,7 @@ API Consumers SHOULD pass the profile canonical url in the `meta.profile` elemen
 
 ```json
 "meta" : {
-  "profile" : ["https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition"]
+  "profile" : ["https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-rheumaticfever-condition"]
 }
 ```
 
@@ -67,11 +67,11 @@ Once resources are created, API consumers can retrieve by profile, and if desire
 
 Retrieve all condition resources using version 1.0.0:
 
-`GET /Condition?_profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition|1.0.0`
+`GET /Condition?_profile=https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-rheumaticfever-condition|1.0.0`
 
 Retrieve all condition resources using any version of a profile:
 
-`GET /Condition?_profile=https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/nz-sharedcare-rheumaticfever-condition`
+`GET /Condition?_profile=https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-rheumaticfever-condition`
 
 ---
 
