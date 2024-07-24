@@ -382,10 +382,14 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "A person Identifier"
-* rest.resource[=].searchParam[+].name = "profile"
+* rest.resource[=].searchParam[+].name = "_profile"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using ?profile=https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-communication-person"
+* rest.resource[=].searchParam[+].name = "_source"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-source"
+* rest.resource[=].searchParam[=].type = #uri
+* rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using the meta.source field - e.g. ?_source=NIBS"
 
 * rest.resource[+].type = #PlanDefinition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)
