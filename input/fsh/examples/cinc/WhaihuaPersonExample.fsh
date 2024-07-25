@@ -31,7 +31,7 @@ Usage: #example
 * telecom[=].extension[+].url = Canonical(hnz-telecom-count-shared-extension-id)
 * telecom[=].extension[=].valueInteger = 12
 * telecom[=].extension[+].url = Canonical(hnz-telecom-phone-type-extension-id)
-* telecom[=].extension[=].valueCoding = $hnz-person-telecom-phone-type-codes#Mobile
+* telecom[=].extension[=].valueCoding = $hnz-person-telecom-phone-type-codes#Mobile "Mobile phone"
 // Email contact details
 * telecom[+].id = "email-4151e338c33797ed98e1999520ae14ea"
 * telecom[=].system = #email
