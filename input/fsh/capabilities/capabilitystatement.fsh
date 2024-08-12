@@ -369,6 +369,8 @@ Usage: #definition
 // * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Person
+//* rest.resource[=].profile = Canonical(CommunicationPerson)
+* rest.resource[=].supportedProfile = Canonical(CommunicationPerson)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "phone"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#individual-phone"
