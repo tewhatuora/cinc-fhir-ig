@@ -138,7 +138,7 @@ Usage: #definition
 * item[=].enableWhen[=].answerCoding.system = $AVE-criteria    // v0.2.2
 * item[=].enableWhen[=].answerCoding.code = #none-of-the-above    // v0.2.2
 * item[=].enableBehavior = #any
-* item[=].answerOption.valueCoding.display = "confirm"
+* item[=].answerOption.valueCoding = #"confirm" "confirm"
 
 * item[+].linkId = "eligible-yes"
 * item[=].type = #choice
@@ -156,7 +156,7 @@ Usage: #definition
 * item[=].enableWhen[=].answerCoding.system = $AVE-criteria    // v0.2.2
 * item[=].enableWhen[=].answerCoding.code = #none-of-the-above    // v0.2.2
 * item[=].enableBehavior = #all
-* item[=].answerOption.valueCoding.display = "confirm"
+* item[=].answerOption.valueCoding = #"confirm" "confirm"
 
 * item[+].linkId = "PharmacistInformation"
 * item[=].type = #group

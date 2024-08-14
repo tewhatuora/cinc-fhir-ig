@@ -9,7 +9,7 @@ Usage: #example
 * item[=].text = "Pregnancy Context"
 * item[=].item[0].linkId = "p01-q01-PregnancyStatus"
 * item[=].item[=].text = "Are you currently pregnant or postpartum?"
-* item[=].item[=].answer.valueCoding.display = "Pregnant"
+* item[=].item[=].answer.valueCoding = #"Pregnant" "Pregnant"
 * item[=].item[+].linkId = "p01-q01-1-PregnancyStatus.Gestation"
 * item[=].item[=].text = "Gestation"
 * item[=].item[=].answer.valueInteger = 30

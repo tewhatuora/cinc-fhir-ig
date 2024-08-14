@@ -11,8 +11,8 @@ Usage: #definition
 * item[=].item[=].text = "Are you currently pregnant or postpartum?"
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
-* item[=].item[=].answerOption[0].valueCoding.display = "Pregnant"
-* item[=].item[=].answerOption[+].valueCoding.display = "Postpartum"
+* item[=].item[=].answerOption[0].valueCoding = #"Pregnant" "Pregnant"
+* item[=].item[=].answerOption[+].valueCoding = #"Postpartum" "Postpartum"
 * item[=].item[+].type = #integer
 * item[=].item[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unit"
 * item[=].item[=].extension[=].valueCoding = #Weeks "Weeks"

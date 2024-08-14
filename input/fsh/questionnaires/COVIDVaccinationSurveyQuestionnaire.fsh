@@ -68,9 +68,9 @@ Usage: #definition
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].required = true
-* item[=].item[=].answerOption[0].valueCoding.display = "Within 1 hour after vaccination"
-* item[=].item[=].answerOption[+].valueCoding.display = "Within a day after vaccination"
-* item[=].item[=].answerOption[+].valueCoding.display = "More than a day after vaccination"
+* item[=].item[=].answerOption[0].valueCoding = #"Within 1 hour after vaccination" "Within 1 hour after vaccination"
+* item[=].item[=].answerOption[+].valueCoding = #"Within a day after vaccination" "Within a day after vaccination"
+* item[=].item[=].answerOption[+].valueCoding = #"More than a day after vaccination" "More than a day after vaccination"
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "p02-q02-2-SideEffects.Rash.HowLong"
 * item[=].item[=].prefix = "page 2 question 2.2"
@@ -80,9 +80,9 @@ Usage: #definition
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].required = true
-* item[=].item[=].answerOption[0].valueCoding.display = "Less than 30 minutes"
-* item[=].item[=].answerOption[+].valueCoding.display = "30 minutes to 24 hours"
-* item[=].item[=].answerOption[+].valueCoding.display = "More than 24 hours"
+* item[=].item[=].answerOption[0].valueCoding = #"Less than 30 minutes" "Less than 30 minutes"
+* item[=].item[=].answerOption[+].valueCoding = #"30 minutes to 24 hours" "30 minutes to 24 hours"
+* item[=].item[=].answerOption[+].valueCoding = #"More than 24 hours" "More than 24 hours"
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p02-q03-SideEffects.Other"
 * item[=].item[=].prefix = "page 2 question 3"
@@ -135,10 +135,10 @@ Usage: #definition
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
-* item[=].item[=].answerOption[0].valueCoding.display = "Less than 1 day"
-* item[=].item[=].answerOption[+].valueCoding.display = "1 day"
-* item[=].item[=].answerOption[+].valueCoding.display = "2 days"
-* item[=].item[=].answerOption[+].valueCoding.display = "3 days or more"
+* item[=].item[=].answerOption[0].valueCoding = #"Less than 1 day" "Less than 1 day"
+* item[=].item[=].answerOption[+].valueCoding = #"1 day" "1 day"
+* item[=].item[=].answerOption[+].valueCoding = #"2 days" "2 days"
+* item[=].item[=].answerOption[+].valueCoding = #"3 days or more" "3 days or more"
 * item[+].type = #group
 * item[=].linkId = "p04"
 * item[=].prefix = "page 4"

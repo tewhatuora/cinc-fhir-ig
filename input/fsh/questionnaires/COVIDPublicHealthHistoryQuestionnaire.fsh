@@ -106,9 +106,9 @@ Usage: #definition
 * item[=].item[=].prefix = "question 5"
 * item[=].item[=].text = "COVID-19 vaccine?"
 * item[=].item[=].required = true
-* item[=].item[=].answerOption[0].valueCoding.display = "Full"
-* item[=].item[=].answerOption[+].valueCoding.display = "Partial"
-* item[=].item[=].answerOption[+].valueCoding.display = "Nil"
+* item[=].item[=].answerOption[0].valueCoding = #"Full" "Full"
+* item[=].item[=].answerOption[+].valueCoding = #"Partial" "Partial"
+* item[=].item[=].answerOption[+].valueCoding = #"Nil" "Nil"
 
 * item[=].item[+].type = #date
 * item[=].item[=].linkId = "p01-q06-dose1-date"

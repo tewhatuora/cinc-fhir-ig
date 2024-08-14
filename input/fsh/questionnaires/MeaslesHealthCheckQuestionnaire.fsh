@@ -48,12 +48,12 @@ Usage: #definition
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].required = true
 * item[=].item[=].repeats = true
-* item[=].item[=].answerOption[0].valueCoding.display = "Fever "
-* item[=].item[=].answerOption[+].valueCoding.display = "Red blotchy rash"
-* item[=].item[=].answerOption[+].valueCoding.display = "Cough"
-* item[=].item[=].answerOption[+].valueCoding.display = "Runny nose"
-* item[=].item[=].answerOption[+].valueCoding.display = "Sore red eyes"
-* item[=].item[=].answerOption[+].valueCoding.display = "Other"
+* item[=].item[=].answerOption[0].valueCoding = #"Fever" "Fever "
+* item[=].item[=].answerOption[+].valueCoding = #"Red blotchy rash" "Red blotchy rash"
+* item[=].item[=].answerOption[+].valueCoding = #"Cough" "Cough"
+* item[=].item[=].answerOption[+].valueCoding = #"Runny nose" "Runny nose"
+* item[=].item[=].answerOption[+].valueCoding = #"Sore red eyes" "Sore red eyes"
+* item[=].item[=].answerOption[+].valueCoding = #"Other" "Other"
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p02-q01-1-1-Symptoms.RashFever"
 * item[=].item[=].prefix = "page 2 question 1.1.1"
@@ -133,9 +133,9 @@ Usage: #definition
 * item[=].item.text = "Do you know if you have had any contact with someone with measles since your last health check? (required)"
 * item[=].item.required = true
 * item[=].item.repeats = false
-* item[=].item.answerOption[0].valueCoding.display = "Yes"
-* item[=].item.answerOption[+].valueCoding.display = "No"
-* item[=].item.answerOption[+].valueCoding.display = "I don't know"
+* item[=].item.answerOption[0].valueCoding = #"Yes" "Yes"
+* item[=].item.answerOption[+].valueCoding = #"No" "No"
+* item[=].item.answerOption[+].valueCoding = #"I don't know" "I don't know"
 * item[=].type = #group
 * item[=].linkId = "p03"
 * item[=].prefix = "page 3"
