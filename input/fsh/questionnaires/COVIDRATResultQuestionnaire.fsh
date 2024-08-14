@@ -55,8 +55,8 @@ Usage: #definition
 * item[=].item[=].item[=].prefix = "page 2 question 1.1"
 * item[=].item[=].item[=].text = "What is your role?"
 * item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].answerOption[0].valueCoding.display = "Assisted channel"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Aged residential care"
+* item[=].item[=].item[=].answerOption[0].valueCoding = #"Assisted channel" "Assisted channel"
+* item[=].item[=].item[=].answerOption[+].valueCoding = #"Aged residential care" "Aged residential care"
 * item[=].item[=].item[=].required = true
 * item[=].item[=].item[+].linkId = "p02-Test-Details-Source"
 * item[=].item[=].item[=].enableWhen.question = "p02-Test-Details-Role"
@@ -66,9 +66,9 @@ Usage: #definition
 * item[=].item[=].item[=].text = "Who are you receiving this RAT report from?"
 * item[=].item[=].item[=].enableBehavior = #all
 * item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].answerOption[0].valueCoding.display = "Individual"
+* item[=].item[=].item[=].answerOption[0].valueCoding = #"Individual" "Individual"
 * item[=].item[=].item[=].answerOption[=].initialSelected = true
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Someone else"
+* item[=].item[=].item[=].answerOption[+].valueCoding = #"Someone else" "Someone else"
 * item[=].item[=].item[=].required = true
 * item[=].item[=].item[+].extension[0].valueCode = #Observation
 * item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemExtractionContext"
@@ -160,8 +160,8 @@ Usage: #definition
 * item[=].item[=].item[=].prefix = "page 2 question 3.3"
 * item[=].item[=].item[=].text = "Enter result"
 * item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].answerOption[0].valueCoding.display = "Detected"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Not detected"
+* item[=].item[=].item[=].answerOption[0].valueCoding = #"Detected" "Detected"
+* item[=].item[=].item[=].answerOption[+].valueCoding = #"Not detected" "Not detected"
 * item[=].item[=].item[=].required = true
 * item[=].item[=].item[+].extension[0].valueBoolean = true
 * item[=].item[=].item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"

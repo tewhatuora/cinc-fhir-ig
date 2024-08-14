@@ -28,10 +28,10 @@ Usage: #example
 * item[=].item[=].answer.valueBoolean = true
 * item[=].item[+].linkId = "p02-q02-1-SideEffects.Rash.WhenStarted"
 * item[=].item[=].text = "When did the rash appear?"
-* item[=].item[=].answer.valueCoding.display = "Within 1 hour after vaccination"
+* item[=].item[=].answer.valueCoding = #"Within 1 hour after vaccination" "Within 1 hour after vaccination"
 * item[=].item[+].linkId = "p02-q02-2-SideEffects.Rash.HowLong"
 * item[=].item[=].text = "How long did the rash last?"
-* item[=].item[=].answer.valueCoding.display = "30 minutes to 24 hours"
+* item[=].item[=].answer.valueCoding = #"30 minutes to 24 hours" "30 minutes to 24 hours"
 * item[=].item[+].linkId = "p02-q03-SideEffects.Other"
 * item[=].item[=].text = "Other or not listed side effect?"
 * item[=].item[=].answer.valueBoolean = true
@@ -54,7 +54,7 @@ Usage: #example
 * item[=].item[=].answer.valueBoolean = true
 * item[=].item[+].linkId = "p03-q03-1-MissedActivities.Period"
 * item[=].item[=].text = "How many days did you miss?"
-* item[=].item[=].answer.valueCoding.display = "2 days"
+* item[=].item[=].answer.valueCoding = #"2 days" 
 * item[+].linkId = "p04"
 * item[=].text = "Health Conditions"
 * item[=].item[0].linkId = "p04-q01-Pregnant"

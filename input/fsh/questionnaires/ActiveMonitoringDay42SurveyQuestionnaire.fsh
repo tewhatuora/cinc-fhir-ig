@@ -48,15 +48,15 @@ Usage: #definition
 * item[=].item.type = #choice
 * item[=].item.text = "Since the day 3 survey have you or your dependent sought medical help/ advice related to your vaccination? Choose all that apply"
 * item[=].item.required = true
-* item[=].item.answerOption[0].valueCoding.display = "Phone advice from a helpline (e.g., Healthline)"
-* item[=].item.answerOption[+].valueCoding.display = "Care from a GP clinic (including the clinic  nurse, a doctor, or a phone call with a  person at the GP clinic)."
-* item[=].item.answerOption[+].valueCoding.display = "Visit to a hospital emergency department"
-* item[=].item.answerOption[+].valueCoding.display = "Rongoā clinic"
-* item[=].item.answerOption[+].valueCoding.display = "Whānau Ora navigator"
-* item[=].item.answerOption[+].valueCoding.display = "Māori Health Provider"
-* item[=].item.answerOption[+].valueCoding.display = "Pharmacy"
-* item[=].item.answerOption[+].valueCoding.display = "Other"
-* item[=].item.answerOption[+].valueCoding.display = "Did not seek any medical advice"
+* item[=].item.answerOption[0].valueCoding = #"Phone advice from a helpline e.g., Healthline" "Phone advice from a helpline (e.g., Healthline)"
+* item[=].item.answerOption[+].valueCoding = #"Care from a GP clinic including the clinic nurse, a doctor, or a phone call with a person at the GP clinic." "Care from a GP clinic (including the clinic  nurse, a doctor, or a phone call with a  person at the GP clinic)."
+* item[=].item.answerOption[+].valueCoding = #"Visit to a hospital emergency department" "Visit to a hospital emergency department"
+* item[=].item.answerOption[+].valueCoding = #"Rongoā clinic" "Rongoā clinic"
+* item[=].item.answerOption[+].valueCoding = #"Whānau Ora navigator" "Whānau Ora navigator"
+* item[=].item.answerOption[+].valueCoding = #"Māori Health Provider" "Māori Health Provider"
+* item[=].item.answerOption[+].valueCoding = #"Pharmacy" "Pharmacy"
+* item[=].item.answerOption[+].valueCoding = #"Other" "Other"
+* item[=].item.answerOption[+].valueCoding = #"Did not seek any medical advice" "Did not seek any medical advice"
 * item[=].item.repeats = true
 * item[+].linkId = "p03-Diagnoses"
 * item[=].prefix = "page 03"
@@ -68,8 +68,8 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].text = "Since the day 3 survey, have you/they been diagnosed with any medical conditions that a medical professional has attributed to your/their vaccination?"
 * item[=].item[=].required = true
-* item[=].item[=].answerOption[0].valueCoding.display = "No, you/they have not been diagnosed with a medical condition attributed to vaccination"
-* item[=].item[=].answerOption[+].valueCoding.display = "Yes, You/they have been diagnosed with a medical condition attributed to vaccination"
+* item[=].item[=].answerOption[0].valueCoding = #"No, you/they have not been diagnosed with a medical condition attributed to vaccination" "No, you/they have not been diagnosed with a medical condition attributed to vaccination"
+* item[=].item[=].answerOption[+].valueCoding = #"Yes, You/they have been diagnosed with a medical condition attributed to vaccination" "Yes, You/they have been diagnosed with a medical condition attributed to vaccination"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[+].linkId = "p03-q02-ConditionNames"
@@ -86,10 +86,10 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].text = "Have you/ they had a Centre for Adverse Reactions Monitoring (CARM) report submitted for your/their diagnosis"
 * item[=].item[=].required = true
-* item[=].item[=].answerOption[0].valueCoding.display = "Yes"
-* item[=].item[=].answerOption[+].valueCoding.display = "No"
-* item[=].item[=].answerOption[+].valueCoding.display = "No - I did not know about reporting"
-* item[=].item[=].answerOption[+].valueCoding.display = "Unsure"
+* item[=].item[=].answerOption[0].valueCoding = #"Yes" "Yes"
+* item[=].item[=].answerOption[+].valueCoding = #"No" "No"
+* item[=].item[=].answerOption[+].valueCoding = #"No - I did not know about reporting" "No - I did not know about reporting"
+* item[=].item[=].answerOption[+].valueCoding = #"Unsure" "Unsure"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].enableWhen.question = "p03-q01-ConditionsDiagnosed"
@@ -101,10 +101,10 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].text = "Has an ACC claim been made for your/their diagnosis"
 * item[=].item[=].required = true
-* item[=].item[=].answerOption[0].valueCoding.display = "Yes"
-* item[=].item[=].answerOption[+].valueCoding.display = "No"
-* item[=].item[=].answerOption[+].valueCoding.display = "No - I did not know about making an ACC claim"
-* item[=].item[=].answerOption[+].valueCoding.display = "Unsure"
+* item[=].item[=].answerOption[0].valueCoding = #"Yes" "Yes"
+* item[=].item[=].answerOption[+].valueCoding = #"No" "No"
+* item[=].item[=].answerOption[+].valueCoding = #"No - I did not know about making an ACC claim" "No - I did not know about making an ACC claim"
+* item[=].item[=].answerOption[+].valueCoding = #"Unsure" "Unsure"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].enableWhen.question = "p03-q01-ConditionsDiagnosed"

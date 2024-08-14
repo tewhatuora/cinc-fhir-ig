@@ -44,7 +44,7 @@ Usage: #example
 
 * item[+].linkId = "eligible-no"
 * item[=].text = "Assessment: No - the patient IS NOT eligible for COVID-19 Antivirals"
-* item[=].answer.valueCoding.display = "confirm"
+* item[=].answer.valueCoding = #confirm "confirm"
 
 * item[+].linkId = "PharmacistInformation"
 * item[=].text = "Please provide pharmacist details"
