@@ -116,6 +116,7 @@ menu:
     QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
     Communication Person: artifacts.html#communication-person-examples 
   Data Consent:
+    FHIR representation of consent: fhirConsent.html
     Consent-based resource access control: consentBasedAccessControl.html
     Definitions and Examples: artifacts.html#consent-definitions-and-examples
   API Developer Guide:

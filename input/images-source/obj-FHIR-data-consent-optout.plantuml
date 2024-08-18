@@ -21,15 +21,25 @@ skinparam roundcorner 5
 skinparam sequenceArrowThickness 2
 skinparam TitleFontSize 20
 
-title FHIR Consent instances for confirmed patient consent
+' create a object with security label
+' usage: $SEC_LABELLED_INSTANCE(R1,"<object name>","<label Id")
+!unquoted procedure $SEC_LABELLED_INSTANCE($Alias, $displayText="",$label="")
+  object "$displayText" as $Alias {
+    <color:Red><&flag> <Color:Black>security label: ""<size:16><color:DarkRed>$label""
+  }
+!endprocedure
 
-frame "Representation of consent when confirmed by patient's signed form" as F {
+!unquoted procedure $DUAL_SEC_LABELLED_INSTANCE($Alias, $displayText="",$label1="",$label2="")
+  object "$displayText" as $Alias {
+    <color:Red><&flag> <Color:Black>security label: ""<size:16><color:DarkRed>$label1""
+    <color:Red><&flag> <Color:Black>security label: ""<size:16><color:DarkRed>$label2""
+  }
+!endprocedure
 
-  !procedure $Coding($Alias,$System,$Code,$Display)
-    object "<color:GhostWhite>$System" as $Alias #MediumPurple {
-      <color:GhostWhite><size:11>**$Code**-$Display
-    }
-  !endprocedure
+title FHIR Consent instances for patient opted-out (of treatment / data sharing)
+
+frame "Representation of consent denied (or withdrawn) by patient" as F {
+
 
   object "<size:16>**Consent to treatment**\n<size:16>**:CONSENT**" as TREATCONSENT #DodgerBlue {
     * status: ""<color:GreenYellow>**#ACTIVE**""
@@ -49,10 +59,10 @@ frame "Representation of consent when confirmed by patient's signed form" as F {
     * policy: reference to regs/leg.
   }
 
-  object "data access provision" as DAP #Brown/SandyBrown  {
-    * type: ""<color:GreenYellow>**#PERMIT**""
+  object "data access permit provision" as DAP #SandyBrown  {
+    * type: ""<color:DarkRed>**#DENY**""
     * period: 
-      **""2023-01-21"" to ""2026-01-20""**
+      ""**2023-06-23**"" to ""..""
   }
 
   ' resources in other repos
@@ -64,7 +74,7 @@ frame "Representation of consent when confirmed by patient's signed form" as F {
     * HPI Org Id: ""GnXnnn""
   }
 
-  frame "Patient data covered by data access provision<sup>3</sup>" as COVERED #LightGreen {
+  frame "<size:12>Patient data covered by data access provision<sup>3</sup>" as COVERED #LightGreen {
     $TAGGED_INSTANCE(R1,"planned appointments, etc.\n<size:14>**:CAREPLAN**"                    ,"#rf-nz")
     $TAGGED_INSTANCE(R2,"condition severity and specifics\n<size:14>**:CONDITION**"             ,"#rf-nz")
     $TAGGED_INSTANCE(R3,"appointments\n<size:14>**:ENCOUNTER**                               "  ,"#rf-nz")
@@ -74,10 +84,8 @@ frame "Representation of consent when confirmed by patient's signed form" as F {
     R3 -[hidden]u- R1
     R4 -[hidden]u- R2
     R5 -[hidden]u- R4
-
   }
 }
-
 ' positioning
 TREATCONSENT -[hidden]d- TP
 TP -[hidden]d- DATACONSENT
@@ -98,6 +106,8 @@ legend bottom
   1. ""Consent.organization"" identifies which org is custodian of the patient data.
   2. Consent instances identify the data subject in "".patient"" references.
   3. FHIR resource instances with patient data tagged for access scoping eg. #rf-nz for rheumatic fever
+  4. FHIR API access rules for instances covered by an **opt-out** consents will be 
+    controlled by OAUTH scopes TBD
 endlegend
 
 footer "Health NZ/Te Whatu Ora.  FHIR data model generated on %date('dd/MM/yyyy')"

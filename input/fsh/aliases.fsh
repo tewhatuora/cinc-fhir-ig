@@ -28,6 +28,8 @@ Alias: $preferredTermServer = https://nzhts.digital.health.nz/fhir
 
 Alias: $NationalCareCoordinationSystem = https://standards.digital.health.nz/ns/rheumatic-fever-identifiers
 
+Alias: $nzmt = http://nzmt.org.nz
+
 //----Added for Person Contact Record ---//
 // Score
 Alias: $hnz-telecom-score-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-score-extension
