@@ -2,8 +2,9 @@ Instance: NIBSCommunicationPersonExample
 InstanceOf: CommunicationPerson
 Description: "An example Person record. This resource is used to record detailed contact information related to an individual that Health New Zealand - Te Whatu Ora has reason to communicate with."
 Usage: #example
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-communication-person"
 * meta.source = $hnz-person-telecom-source-system-codes#NIBS "National Immunisation Booking System"
+* meta.tag[requiredTag].code = #NES
+* meta.tag[requiredTag].system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-source-system-codes"
 * identifier[0].use = #official
 * identifier[=].system = "https://standards.digital.health.nz/ns/nhi-id"
 * identifier[=].value = "ZZA1111"

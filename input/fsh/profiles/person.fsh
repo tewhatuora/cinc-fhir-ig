@@ -8,8 +8,17 @@ Id: nz-sharedcare-communication-person
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Records communication preferences for a person who is part of an HNZ cohort"
 * insert metaContactDetail([[HNZ Integration Team]],[[digitalserviceshub@tewhatuora.govt.nz]])
-
 * meta.source from hnz-telecom-information-source-valueset (required)
+
+* meta.tag ^slicing.discriminator.type = #pattern
+* meta.tag ^slicing.discriminator.path = "system"
+* meta.tag ^slicing.rules = #open
+
+// Slice for required tag from the specified CodeSystem
+* meta.tag contains requiredTag 1..1
+* meta.tag[requiredTag].system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-source-system-codes"
+* meta.tag[requiredTag].code from TelecomInfoSource (required)
+
 * gender 0..0
 * birthDate 0..0
 * address 0..0
