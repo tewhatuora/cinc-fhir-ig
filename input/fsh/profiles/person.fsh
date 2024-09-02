@@ -10,12 +10,13 @@ Id: nz-sharedcare-communication-person
 * insert metaContactDetail([[HNZ Integration Team]],[[digitalserviceshub@tewhatuora.govt.nz]])
 
 * meta.profile 1..1
+* meta.source 1..1
 * meta.source from hnz-telecom-information-source-valueset (required)
 * meta.tag ^slicing.discriminator.type = #pattern
 * meta.tag ^slicing.discriminator.path = "$this"
 * meta.tag ^slicing.rules = #open
 * meta.tag contains PurposeOfUse 1..1 and LastUpdatedBy 1..1
-* meta.tag[PurposeOfUse] from https://nzhts.digital.health.nz/fhir/ValueSet/nz-purpose-of-use-value-set
+* meta.tag[PurposeOfUse] from https://nzhts.digital.health.nz/fhir/ValueSet/nz-purpose-of-use-value-set (required)
 * meta.tag[LastUpdatedBy] from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-telecom-last-updated-by-valueset (required)
 * gender 0..0
 * birthDate 0..0
