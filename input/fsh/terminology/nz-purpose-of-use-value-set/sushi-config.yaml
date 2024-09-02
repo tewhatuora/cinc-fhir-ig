@@ -1,0 +1,8 @@
+canonical: https://nzhts.digital.health.nz/fhir
+fhirVersion: 4.0.1
+FSHOnly: true
+applyExtensionMetadataToRoot: false
+id: nzhts.digital.health.fhir
+name: NzhtsDigitalHealthFhir
+status: draft
+version: "20240725"

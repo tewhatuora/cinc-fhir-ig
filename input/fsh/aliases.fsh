@@ -46,4 +46,12 @@ Alias: $hnz-telecom-phone-type-extension-id = https://fhir-ig.digital.health.nz/
 Alias: $hnz-person-telecom-phone-type-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-phone-type-codes
 //Invalid indicator
 Alias: $hnz-telecom-invalid-indicator-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-invalid-indicator-extension-id
+//lastUpdatedBy
+Alias: $hnz-person-telecom-last-updated-by-valueset = https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-telecom-last-updated-by-valueset
+//Purpose Of Use
+Alias: $nz-purpose-of-use = https://nzhts.digital.health.nz/fhir/ValueSet/nz-purpose-of-use-value-set
 //----End Added for Person Contact Record ---//
+//--Comms--//
+Alias: $communication-status = http://hl7.org/fhir/event-status
+Alias: $communication-category = http://hl7.org/fhir/communication-category
+Alias: $communication-medium = http://terminology.hl7.org/CodeSystem/v3-ParticipationMode
