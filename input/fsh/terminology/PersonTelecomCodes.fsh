@@ -43,3 +43,15 @@ Description:  "Each code represents a phone type"
 * ^caseSensitive = false
 * ^purpose = "Enables the recording of a phone type for a telecom record."
 * ^status = #active
+
+CodeSystem: PersonParticipantMediumTypeCodes
+Id: hnz-person-participant-medium-type-codes
+Title: "Codes for Participant Medium Types"
+Description:  "Each code represents a medium type"
+* #Email "Transmitted over an electronic mail system"
+* #SMS "Transmitted by an SMS message."
+* ^publisher = "Health New Zealand | Te Whatu Ora"
+* ^experimental = false
+* ^caseSensitive = false
+* ^purpose = "Enables the recording of a phone type for a telecom record."
+* ^status = #active
