@@ -5,6 +5,7 @@ Description:  "Each code represents different source system"
 * #NES "National Enrolment Service"
 * #NIBS "National Immunisation Booking System"
 * #CIR "COVID Immunisation Register"
+* #CPIR "CPIR"
 * #Whaihua "Whaihua"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
 * ^experimental = false
