@@ -2,9 +2,9 @@ Profile: CommunicationFromCPIR
 Parent: Communication
 Id: CommunicationFromCPIR
 Title: "SMS and EmailCommunicationFromCPIR"
-Description: "A communication Resource used to record the communication  performed by CPIR"
+Description: "A communication Resource used to record the SMS/EMAIL communication  performed by Systems"
 * ^version = "0.0.1"
-* ^purpose = "Record all the communication  performed by CPIR"
+* ^purpose = "Record all the SMS/EMAIL communication  performed by Systems"
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ 
 * meta.profile 1..1
@@ -15,10 +15,11 @@ Description: "A communication Resource used to record the communication  perform
 * basedOn 0..1
 * basedOn only Reference(CommunicationRequest)
 * contained 0..0
-* status 1.. //status
+* status 1..  
+* status from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-Communication-Status-Codes-ValueSet (required)
 * statusReason 0..1
 * medium 1..
-* medium  from  https://nzhts.digital.health.nz/fhir/ValueSet/hnz-person-participant-medium-type-valueset (required)
+* medium  from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-person-participant-medium-type-valueset (required)
 * subject only Reference(Patient) //nhi
 * sent 1.. //event_datetime
 * sent ^short = "Must be in UTC timezone on the FHIR server"
@@ -27,3 +28,6 @@ Description: "A communication Resource used to record the communication  perform
 * category 0..1 //from http://hl7.org/fhir/communication-category
 * sender only Reference(Device)   //sender
 * payload 1..*
+// extension 
+* extension contains
+  hnz-Campaign-Type-extension-id named CampaignType 0..*

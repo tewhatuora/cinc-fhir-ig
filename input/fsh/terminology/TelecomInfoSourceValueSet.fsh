@@ -37,13 +37,3 @@ Description:  "Enables the recording of a special type for a telecom record."
 * ^experimental = false
 * ^status = #active
 * include codes from system hnz-person-telecom-phone-type-codes
-
-ValueSet: ParticipantMediumType
-Id: hnz-person-participant-medium-type-valueset
-Title: "Medium type indicator"
-Description:  "Enables the transfer of data"
-* ^publisher = "Health New Zealand | Te Whatu Ora"
-* ^version = "1.0.0"
-* ^experimental = false
-* ^status = #active
-* include codes from system hnz-person-participant-medium-type-codes
