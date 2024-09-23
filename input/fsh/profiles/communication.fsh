@@ -10,7 +10,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * meta.profile 1..1
 * identifier 1..
 * identifier.use 1..
-* identifier.use = http://hl7.org/fhir/identifier-use#usual
+* identifier.use = http://hl7.org/fhir/identifier-use#Secondary
 * identifier.value 1..
 * basedOn 0..1
 * basedOn only Reference(CommunicationRequest)
@@ -19,7 +19,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * status from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-Communication-Status-Codes-ValueSet (required)
 * statusReason 0..1
 * medium 1..
-* medium  from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-person-participant-medium-type-valueset (required)
+* medium  from  http://terminology.hl7.org/ValueSet/v3-ParticipationMode
 * subject only Reference(Patient) //nhi
 * sent 1.. //event_datetime
 * sent ^short = "Must be in UTC timezone on the FHIR server"
@@ -31,3 +31,5 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 // extension 
 * extension contains
   hnz-Campaign-Type-extension-id named CampaignType 0..*
+  and
+  hnz-Contact-point-extension-id named communicationContactPoint 0..* 
