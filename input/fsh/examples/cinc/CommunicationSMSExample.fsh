@@ -1,15 +1,19 @@
 Instance : CommunicationSMSexample
-InstanceOf : CommunicationFromCPIR
+InstanceOf : CPIRCommunication
 Description: "Demonstrates payload for communication with SMS as the medium"
 Usage : #example
-* identifier.use = #Secondary
-* identifier.value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
+* identifier[0].use = #usual
+* identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
+* identifier[1].use = #secondary
+* identifier[1].value = "#bdb8d66-1390-42c7-89a6-a9a75d65d0e6"
+* identifier[2].use = #secondary
+* identifier[2].value = "#cb8d66-1390-42c7-89a6-a9a75d65d0e6"
 * status = #completed
 * statusReason.coding.system = "http://terminology.hl7.org/CodeSystem/communication-not-done-reason"
 * statusReason.coding.code = #unknown
 * statusReason.coding.display = "Unknown"
 * medium.coding.code = #EMAILWRIT
-* medium.coding.system = "https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-communication-medium-type-valueset"
+* medium.coding.system = "http://terminology.hl7.org/ValueSet/v3-ParticipationMode"
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
 * recipient.type = "Practitioner"
@@ -30,5 +34,5 @@ Usage : #example
 * extension[=].valueContactPoint.system = #sms
 * extension[=].valueContactPoint.value = "test.j@gmail.com"
 * extension[+].url = Canonical(hnz-Campaign-Type-extension-id)
-* extension[=].valueCoding.code = #C01
-* extension[=].valueCoding.display = "Campaign1"
+* extension[=].valueCode = #C2141acc05fdf4bc79070e472e69b17f6
+* extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
