@@ -13,7 +13,7 @@ Usage : #example
 * statusReason.coding.code = #unknown
 * statusReason.coding.display = "Unknown"
 * medium.coding.code = #EMAILWRIT
-* medium.coding.system = "http://terminology.hl7.org/ValueSet/v3-ParticipationMode"
+* medium.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
 * recipient.type = "Practitioner"
@@ -34,5 +34,5 @@ Usage : #example
 * extension[=].valueContactPoint.system = #sms
 * extension[=].valueContactPoint.value = "test.j@gmail.com"
 * extension[+].url = Canonical(hnz-Campaign-Type-extension-id)
-* extension[=].valueCode = #C2141acc05fdf4bc79070e472e69b17f6
+* extension[=].valueCoding = #C2141acc05fdf4bc79070e472e69b17f6
 * extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"

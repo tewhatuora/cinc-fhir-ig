@@ -3,7 +3,7 @@ Id:  hnz-Campaign-Type-extension-id
 Title: "HNZ Campaign Information"
 Context: CPIRCommunication
 Description: "Property to record the Campaign details"
-* value[x] only code
+* value[x] only Coding
 
 Extension: ContactTypeExtension
 Id: hnz-Contact-point-extension-id
