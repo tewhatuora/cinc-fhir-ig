@@ -27,6 +27,8 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * payload 1..*
 // extension 
 * extension contains
-  hnz-Campaign-Type-extension-id named CampaignType 0..*
+  hnz-campaign-code-extension named CampaignCode 0..*
   and
+  hnz-campaign-name-extension named CampaignName 0..*
+  and 
   hnz-Contact-point-extension-id named communicationContactPoint 0..* 

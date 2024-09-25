@@ -1,9 +1,16 @@
-Extension: CampaignTypeExtension
-Id:  hnz-Campaign-Type-extension-id
-Title: "HNZ Campaign Information"
+Extension: CampaignCodeExtension
+Id: hnz-campaign-code-extension
+Title: "Campaign Code Extension"
+Description: "A simple extension for storing campaign codes."
 Context: CPIRCommunication
-Description: "Property to record the Campaign details"
-* value[x] only Coding
+* valueString 0..1
+
+Extension: CampaignNameExtension
+Id: hnz-campaign-name-extension
+Title: "Campaign Name Extension"
+Description: "A simple extension for storing campaign names."
+Context: CPIRCommunication
+* valueString 0..1
 
 Extension: ContactTypeExtension
 Id: hnz-Contact-point-extension-id

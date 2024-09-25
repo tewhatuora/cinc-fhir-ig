@@ -8,6 +8,7 @@ Usage : #example
 * identifier[1].value = "#bdb8d66-1390-42c7-89a6-a9a75d65d0e6"
 * identifier[2].use = #secondary
 * identifier[2].value = "#cb8d66-1390-42c7-89a6-a9a75d65d0e6"
+//* basedOn(CommunicationRequest/6777)
 * status = #completed
 * statusReason.coding.system = "http://terminology.hl7.org/CodeSystem/communication-not-done-reason"
 * statusReason.coding.code = #unknown
@@ -32,7 +33,8 @@ Usage : #example
 * payload[0].contentString = "this is  a reminder text for the next appointment on 27/09/2024"
 * extension[0].url = Canonical(hnz-Contact-point-extension-id)
 * extension[=].valueContactPoint.system = #sms
-* extension[=].valueContactPoint.value = "test.j@gmail.com"
-* extension[+].url = Canonical(hnz-Campaign-Type-extension-id)
-* extension[=].valueCoding = #C2141acc05fdf4bc79070e472e69b17f6
+* extension[=].valueContactPoint.value = "0211094444"
+* extension[+].url = Canonical(hnz-campaign-code-extension)
+* extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
+* extension[+].url = Canonical(hnz-campaign-name-extension)
 * extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
