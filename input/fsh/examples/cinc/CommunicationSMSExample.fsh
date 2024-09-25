@@ -9,7 +9,7 @@ Usage : #example
 * identifier[2].use = #secondary
 * identifier[2].value = "#cb8d66-1390-42c7-89a6-a9a75d65d0e6"
 //* basedOn(CommunicationRequest/6777)
-* status = #completed
+* status = #SEND
 * statusReason.coding.system = "http://terminology.hl7.org/CodeSystem/communication-not-done-reason"
 * statusReason.coding.code = #unknown
 * statusReason.coding.display = "Unknown"

@@ -15,6 +15,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * basedOn only Reference(CommunicationRequest)
 * contained 0..0
 * status 1..  
+* status from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-communication-status-codes (required)
 * statusReason 0..1
 * medium 1..
 * subject only Reference(Patient) //nhi
@@ -22,7 +23,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * sent ^short = "Must be in UTC timezone on the FHIR server"
 * received 0..
 * recipient only Reference(Patient or Practitioner)
-* category 0..1 //from http://hl7.org/fhir/communication-category
+* category 0..1 //
 * sender only Reference(Device)   //sender
 * payload 1..*
 // extension 
