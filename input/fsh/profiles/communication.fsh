@@ -11,11 +11,12 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * identifier 1..*
 * identifier.use 1..
 * identifier.value 1..
+* identifier.system 1..
 * basedOn 0..1
 * basedOn only Reference(CommunicationRequest)
 * contained 0..0
 * status 1..  
-* status from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-communication-status-codes (required)
+* status from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-communication-delivery-status-valueset (required)
 * statusReason 0..1
 * medium 1..
 * subject only Reference(Patient) //nhi

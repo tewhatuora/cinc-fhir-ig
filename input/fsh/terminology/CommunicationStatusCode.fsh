@@ -1,7 +1,8 @@
 CodeSystem: CommunicationDeliveryStatusCodes
-Id: hnz-communication-status-codes
+Id: hnz-communication-delivery-status-codes
 Title: "Codes forCommunicationStatus"
 Description:  "Each code represents a communication delivery status"
+//* include codes from valueset http://hl7.org/fhir/ValueSet/request-status
 * #DELIVERED "Delivered"
 * #SEND "Send"
 * #RECEIVED "received"
