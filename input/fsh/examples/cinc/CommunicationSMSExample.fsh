@@ -4,13 +4,13 @@ Description: "Demonstrates payload for communication with SMS as the medium"
 Usage : #example
 * identifier[0].use = #usual
 * identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
-* identifier[0].system = "urn:uuid:c757873d-ec9a-4326-a141-556f43239520"
+* identifier[0].system = "https://api.messaging.digital.health.nz/message-id"
 * identifier[1].use = #secondary
-* identifier[1].system = "urn:uuid:c757873d-ec9a-4326-a141-556f43239520"
+* identifier[1].system = "https://api.messaging.digital.health.nz/consumer-id"
 * identifier[1].value = "#bdb8d66-1390-42c7-89a6-a9a75d65d0e6"
 * identifier[2].use = #secondary
 * identifier[2].value = "#cb8d66-1390-42c7-89a6-a9a75d65d0e6"
-* identifier[2].system = "urn:uuid:c757873d-ec9a-4326-a141-556f43239520"
+* identifier[2].system = "https://api.messaging.digital.health.nz/correlation-id"
 //* basedOn(CommunicationRequest/6777)
 * status = #SEND
 * statusReason.coding.system = "http://terminology.hl7.org/CodeSystem/communication-not-done-reason"
