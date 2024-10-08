@@ -497,7 +497,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "clinical-patient"
 * rest.resource[=].searchParam[+].name = "recipient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-recepient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-recipient"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Who the information is shared with"
 * rest.resource[=].searchParam[+].name = "status"
