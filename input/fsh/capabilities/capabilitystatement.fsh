@@ -503,7 +503,7 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-status"
 * rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "deliverd | send | received |"
+* rest.resource[=].searchParam[=].documentation = "deliverd | send | received |preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"
 * rest.resource[=].searchParam[+].name = "sent"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-sent"
 * rest.resource[=].searchParam[=].type = #date
