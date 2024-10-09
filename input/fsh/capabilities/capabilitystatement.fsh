@@ -482,7 +482,7 @@ Usage: #definition
 
 
 * rest.resource[+].type = #Communication
-* rest.resource[=].supportedProfile = Canonical(CPIRCommunication)
+* rest.resource[=].supportedProfile = Canonical(CMSCommunication)
 * rest.resource[=] insert DefinitionalResourceInteractions
 * rest.resource[=].searchParam[0].name = "sender"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-sender"

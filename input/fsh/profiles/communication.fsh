@@ -1,6 +1,6 @@
-Profile: CPIRCommunication
+Profile: CMSCommunication
 Parent: Communication
-Id: CPIRCommunication
+Id: CMSCommunication
 Title: "CommunicationFromCPIR"
 Description: "A communication Resource used to record the SMS/EMAIL communication  performed by Systems"
 * ^version = "0.0.1"

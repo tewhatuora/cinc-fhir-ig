@@ -1,5 +1,5 @@
 Instance : SMSCommunicationexample
-InstanceOf : CPIRCommunication
+InstanceOf : CMSCommunication
 Description: "Demonstrates payload for communication with SMS as the medium"
 Usage : #example
 * identifier[0].use = #usual
