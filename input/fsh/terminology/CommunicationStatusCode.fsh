@@ -2,10 +2,23 @@ CodeSystem: CommunicationDeliveryStatusCodes
 Id: hnz-communication-delivery-status-codes
 Title: "Codes forCommunicationStatus"
 Description:  "Each code represents a communication delivery status"
-//* include codes from valueset http://hl7.org/fhir/ValueSet/request-status
+* #accepted "Accepted"  
+* #scheduled "Scheduled" 
+* #queued "Queued"    
+* #sending "Sending "  
+* #sent "Sent"      
+* #delivery_unknown "Delivery_unknown"
 * #delivered "Delivered"
-* #send "Send"
-* #received "Received"
+* #undelivered "Undelivered"
+* #failed "Failed"  
+* #send "Send"   
+* #delivery "Delivery" 
+* #deliverydelay "Deliverydelay" 
+* #open "Open" 
+* #complaint "Complaint" 
+* #reject "Reject" 
+* #renderingfailure "Renderingfailure"
+* #bounce "Bounce"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
 * ^experimental = false
 * ^caseSensitive = false

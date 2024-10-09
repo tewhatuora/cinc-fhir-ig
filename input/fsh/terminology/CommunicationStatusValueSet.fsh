@@ -7,7 +7,3 @@ Description:  "Valueset for Communication Delivery Status "
 * ^experimental = false
 * ^status = #active
 * include codes from system hnz-communication-delivery-status-codes
-* include codes from valueset http://hl7.org/fhir/ValueSet/request-status 
-
-
-

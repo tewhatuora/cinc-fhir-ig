@@ -16,8 +16,7 @@ Usage : #example
 * identifier[3].system = "https://api.messaging.digital.health.nz/ProviderMessageID"
 //* basedOn(CommunicationRequest/6777)
 * basedOn.reference = "CommunicationRequest/[67766]"
-* status = #send
-* status.extension.url = "https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-communication-delivery-status-valueset"
+* status = #completed
 * statusReason.coding.system = "http://terminology.hl7.org/CodeSystem/communication-not-done-reason"
 * statusReason.coding.code = #unknown
 * statusReason.coding.display = "Unknown"
@@ -46,3 +45,5 @@ Usage : #example
 * extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
 * extension[+].url = Canonical(hnz-campaign-name-extension)
 * extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
+* extension[+].url = Canonical(hnz-delivery-status-extension)
+* extension[=].valueCoding = $communication-delivery-status#accepted

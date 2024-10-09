@@ -18,3 +18,11 @@ Title: "Communication details at paticular time"
 Context: CPIRCommunication
 Description: "Communication details at paticular times"
 * value[x] only ContactPoint
+
+Extension: DeliveryStatusTypeExtension
+Id: hnz-delivery-status-extension
+Title: "Delivery Status for a paticular communication event"
+Context: CPIRCommunication
+Description: "Delivery Status for a paticular communication"
+* value[x] only Coding
+* value[x] from hnz-communication-delivery-status-valueset (required)

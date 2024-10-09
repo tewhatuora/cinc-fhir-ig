@@ -16,7 +16,6 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * basedOn only Reference(CommunicationRequest)
 * contained 0..0
 * status 1..  
-* status from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-communication-delivery-status-valueset (required)
 * statusReason 0..1
 * medium 1..
 * subject only Reference(Patient) //nhi
@@ -34,3 +33,5 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
   hnz-campaign-name-extension named CampaignName 0..*
   and 
   hnz-Contact-point-extension-id named communicationContactPoint 0..* 
+  and 
+  hnz-delivery-status-extension named deliveryStatus 0..
