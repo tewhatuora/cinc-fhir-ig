@@ -33,6 +33,6 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
   and
   hnz-campaign-name-extension named CampaignName 0..*
   and 
-  hnz-Contact-point-extension-id named communicationContactPoint 0..* 
+  hnz-contact-point-extension named communicationContactPoint 0..* 
   and 
   hnz-delivery-status-extension named deliveryStatus 0..

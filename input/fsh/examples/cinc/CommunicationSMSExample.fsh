@@ -38,7 +38,7 @@ Usage : #example
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
 * payload[0].contentString = "this is  a reminder text for the next appointment on 27/09/2024"
-* extension[0].url = Canonical(hnz-Contact-point-extension-id)
+* extension[0].url = Canonical(hnz-contact-point-extension)
 * extension[=].valueContactPoint.system = #SMSWRIT
 * extension[=].valueContactPoint.value = "555-1234"
 * extension[+].url = Canonical(hnz-campaign-code-extension)
