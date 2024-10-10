@@ -55,3 +55,7 @@ Alias: $nz-purpose-of-use = https://nzhts.digital.health.nz/fhir/ValueSet/nz-pur
 Alias: $communication-status = http://hl7.org/fhir/event-status
 Alias: $communication-category = http://hl7.org/fhir/communication-category
 Alias: $communication-medium = http://terminology.hl7.org/CodeSystem/v3-ParticipationMode
+
+Alias: $hnz-communication-delivery-status-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes
+
+//Purpose Of Use
