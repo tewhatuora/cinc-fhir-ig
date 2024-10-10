@@ -39,11 +39,11 @@ Usage : #example
 * subject.display = "Carey Carrington"
 * payload[0].contentString = "this is  a reminder text for the next appointment on 27/09/2024"
 * extension[0].url = Canonical(hnz-contact-point-extension)
-* extension[=].valueContactPoint.system = #SMSWRIT
+* extension[=].valueContactPoint.system = #sms
 * extension[=].valueContactPoint.value = "555-1234"
 * extension[+].url = Canonical(hnz-campaign-code-extension)
 * extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
 * extension[+].url = Canonical(hnz-campaign-name-extension)
 * extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
 * extension[+].url = Canonical(hnz-delivery-status-extension)
-* extension[=].valueCoding = $communication-delivery-status#accepted
+* extension[=].valueCoding = $hnz-communication-delivery-status-codes#accepted
