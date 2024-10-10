@@ -14,7 +14,6 @@ Usage : #example
 * identifier[3].use = #secondary
 * identifier[3].value = "#cb8d66-1390-42c7-89a6-a9a75d65d333"
 * identifier[3].system = "https://api.messaging.digital.health.nz/ProviderMessageID"
-//* basedOn(CommunicationRequest/6777)
 * basedOn.reference = "CommunicationRequest/67766"
 * status = #unknown
 * statusReason.coding.system = "http://terminology.hl7.org/CodeSystem/communication-not-done-reason"
@@ -38,12 +37,12 @@ Usage : #example
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
 * payload[0].contentString = "this is  a reminder text for the next appointment on 27/09/2024"
-* extension[0].url = Canonical(hnz-contact-point-extension)
-* extension[=].valueContactPoint.system = #SMSWRIT
-* extension[=].valueContactPoint.value = "555-1234"
-* extension[+].url = Canonical(hnz-campaign-code-extension)
+* extension[0].url = Canonical(hnz-campaign-code-extension)
 * extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
 * extension[+].url = Canonical(hnz-campaign-name-extension)
 * extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
+* extension[+].url = Canonical(hnz-contact-point-extension)
+* extension[=].valueContactPoint.system = #sms
+* extension[=].valueContactPoint.value = "555-1234"
 * extension[+].url = Canonical(hnz-delivery-status-extension)
-* extension[=].valueCoding = $communication-delivery-status#accepted
+* extension[=].valueCode  = $communication-delivery-status#accepted

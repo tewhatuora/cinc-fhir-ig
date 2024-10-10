@@ -24,5 +24,5 @@ Id: hnz-delivery-status-extension
 Title: "Delivery Status for a paticular communication event"
 Context: Communication
 Description: "Delivery Status for a paticular communication"
-* value[x] only Coding
+* value[x] only code
 * value[x] from hnz-communication-delivery-status-valueset (required)
