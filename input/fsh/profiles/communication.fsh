@@ -4,7 +4,7 @@ Id: CMSCommunication
 Title: "Record Of Communication From Any Systems"
 Description: "A communication Resource used to record the SMS/EMAIL communication  performed by Systems"
 * ^version = "0.0.1"
-* ^purpose = "Record all the SMS/EMAIL communication  performed by Systems"
+* ^purpose = "Record all the SMS/EMAIL communication  performed by any system"
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ 
 * meta.profile 1..1
