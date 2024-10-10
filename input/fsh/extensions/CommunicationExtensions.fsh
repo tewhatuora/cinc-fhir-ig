@@ -21,8 +21,8 @@ Description: "Communication details at paticular times"
 
 Extension: DeliveryStatusTypeExtension
 Id: hnz-delivery-status-extension
-Title: "Delivery Status for a paticular communication event"
+Title: "Delivery Status for a particular communication event"
 Context: Communication
-Description: "Delivery Status for a paticular communication"
+Description: "Delivery Status for a particular communication"
 * value[x] only Coding
 * value[x] from hnz-communication-delivery-status-valueset (required)

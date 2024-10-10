@@ -1,7 +1,7 @@
 Profile: CMSCommunication
 Parent: Communication
 Id: CMSCommunication
-Title: "CommunicationFromCPIR"
+Title: "Record Of Communication From Any Systems"
 Description: "A communication Resource used to record the SMS/EMAIL communication  performed by Systems"
 * ^version = "0.0.1"
 * ^purpose = "Record all the SMS/EMAIL communication  performed by Systems"
@@ -15,8 +15,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * basedOn 0..1
 * basedOn only Reference(CommunicationRequest)
 * contained 0..0
-//* status 1..          // Change this line to make status optional
-//* status ^mustSupport = false
+* status 1..          // Change this line to make status optional
 * statusReason 0..1
 * medium 1..
 * subject only Reference(Patient) //nhi
