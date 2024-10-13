@@ -1,18 +1,19 @@
-Profile: MessagingCommunicationRequest
+Profile: CPIRCommunicationRequest
 Parent: CommunicationRequest
-Title: "MessagingCommunicationRequest"
+Title: "CPIRCommunicationRequest"
 Description: "A communication Resource  used to record the communication request performed by CPIR"
-Id: nz-sharedcare-communication-request
+Id: nz-cpir-communication-request
 
 * ^version = "0.0.1"
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^purpose = "Records communication preferences for a person who is part of an HNZ cohort"
 * insert metaContactDetail([[HNZ Integration Team]],[[digitalserviceshub@tewhatuora.govt.nz]])
-
-* identifier 0..*
-* identifier.use 1..1
-* identifier.use = http://hl7.org/fhir/identifier-use#usual
-* identifier.value 1..1
+* meta.profile 1..1
+* identifier 1..*
+* identifier.use 1..
+* identifier.value 1..
+* identifier.system 1..
+* contained 0..0
 * status from EventStatus
 * medium 0..*
 * medium from CommunicationMedium
