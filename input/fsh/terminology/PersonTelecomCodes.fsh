@@ -6,6 +6,7 @@ Description:  "Each code represents different source system"
 * #NIBS "National Immunisation Booking System"
 * #CIR "COVID Immunisation Register"
 * #Whaihua "Whaihua"
+* #CPIR "CPIR"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
 * ^experimental = false
 * ^caseSensitive = true

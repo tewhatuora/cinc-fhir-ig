@@ -4,9 +4,9 @@ Description: "An example Person record. This resource is used to record detailed
 Usage: #example
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-communication-person"
 * meta.source = $hnz-person-telecom-source-system-codes#Whaihua "Whaihua"
-* meta.tag[0].system = $nz-purpose-of-use
-* meta.tag[=].code = #CAREMGMT "care management"
-* meta.tag[+].system = $hnz-person-telecom-last-updated-by-valueset
+* meta.tag[0].system = "http://terminology.hl7.org/CodeSystem/v3-ActReason"
+* meta.tag[=].code = #CAREMGT "care management"
+* meta.tag[+].system = $hnz-person-telecom-source-system-codes
 * meta.tag[=].code = #CPIR "CPIR"
 * meta.lastUpdated = "2024-09-02T20:09:36.390Z"
 * identifier[0].use = #official
