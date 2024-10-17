@@ -1,6 +1,6 @@
-Profile: CPIRCommunicationRequest
+Profile: CMSCommunicationRequest
 Parent: CommunicationRequest
-Title: "CPIRCommunicationRequest"
+Title: "CMSCommunicationRequest"
 Description: "A communication Resource  used to record the communication request performed by CPIR"
 Id: nz-cpir-communication-request
 
@@ -18,7 +18,7 @@ Id: nz-cpir-communication-request
 * medium 0..*
 * medium from CommunicationMedium
 * subject only Reference(Patient)
-* payload 0..1
+* payload 0..*
 * payload.content[x] 1..1
 * payload.content[x] only string or Attachment
 * occurrence[x] 0..1
