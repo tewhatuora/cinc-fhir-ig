@@ -479,3 +479,50 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+
+* rest.resource[+].type = #CommunicationRequest
+* rest.resource[=] insert DefinitionalResourceInteractions
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "clinical-identifier"
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-status"
+* rest.resource[=].searchParam[=].type = #code
+* rest.resource[=].searchParam[=].documentation = "deliverd | send | received |"
+* rest.resource[=].searchParam[+].name = "medium"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-medium"
+* rest.resource[=].searchParam[=].type = #CodeableConcept
+* rest.resource[=].searchParam[=].documentation = "Communication-medium"
+* rest.resource[=].searchParam[+].name = "subject"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-subject"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Focus of message"
+* rest.resource[=].searchParam[+].name = "payload"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-payload"
+* rest.resource[=].searchParam[=].type = #BackboneElement
+* rest.resource[=].searchParam[=].documentation = "Message payload"
+* rest.resource[=].searchParam[+].name = "occurrence"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-occurrence"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "When scheduled"
+* rest.resource[=].searchParam[0].name = "sender"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-sender"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who shares the information"
+* rest.resource[=].searchParam[+].name = "recipient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-recepient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who the information is shared with"
+* rest.resource[=].searchParam[+].name = "sent"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-sent"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "When sent"
+* rest.resource[=].searchParam[+].name = "received"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-received"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "Communication-received"
+* rest.resource[=].searchParam[+].name = "_profile"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Filter **Communication Request Instances** using ?profile=https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-communication-person"
