@@ -12,8 +12,9 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * identifier.use 1..
 * identifier.value 1..
 * identifier.system 1..
-* status 1..
-* medium 1..
+* status from EventStatus
+* medium 0..*
+* medium from ParticipationMode
 * subject only Reference(Patient) //nhi
 * occurrenceDateTime 1.. //event_datetime
 * occurrenceDateTime ^short = "Must be in UTC timezone on the FHIR server"
