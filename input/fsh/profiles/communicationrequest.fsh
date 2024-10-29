@@ -1,8 +1,8 @@
 Profile: CMSCommunicationRequest
 Parent: CommunicationRequest
 Id: CMSCommunicationRequest
-Title: "Record Of Communication Request"
-Description: "A communication Resource used to record the SMS/EMAIL communication  performed by Systems"
+Title: "A record of a request for communication"
+Description: "This resource is a record of a request for a communication to be performed. The performance of a CommunicationRequest may result in a communication resource."
 * ^version = "0.0.1"
 * ^purpose = "A request for communication"
 * ^status = #draft
