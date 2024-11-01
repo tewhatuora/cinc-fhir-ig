@@ -22,9 +22,6 @@ Usage : #example
 * recipient.identifier.use = #official
 * recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * recipient.identifier.value = "99ZZFX"
-* sender.type = "Device"
-* sender.display = "BSR"
-* subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZXP7823"

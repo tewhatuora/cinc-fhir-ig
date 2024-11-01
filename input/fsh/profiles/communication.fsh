@@ -16,7 +16,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * basedOn only Reference(CommunicationRequest)
 * contained 0..0
 * status 1..          // Change this line to make status optional
-* statusReason 0..1
+* statusReason from CommunicationDeliveryStatusValueSet
 * medium 1..
 * subject only Reference(Patient) //nhi
 * sent 1.. //event_datetime

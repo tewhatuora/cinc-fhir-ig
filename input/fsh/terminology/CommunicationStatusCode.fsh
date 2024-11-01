@@ -1,6 +1,6 @@
 CodeSystem: CommunicationDeliveryStatusCodes
 Id: hnz-communication-delivery-status-codes
-Title: "Codes forCommunicationStatus"
+Title: "Codes for CommunicationStatus"
 Description:  "Each code represents a communication delivery status"
 * #accepted "Accepted"  
 * #scheduled "Scheduled" 

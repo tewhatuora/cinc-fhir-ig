@@ -12,14 +12,13 @@ Description: "This resource is a record of a request for a communication to be p
 * identifier.use 1..
 * identifier.value 1..
 * identifier.system 1..
-* status from EventStatus
-* medium 0..*
-* medium from ParticipationMode
+* status 1..
+* statusReason from CommunicationDeliveryStatusValueSet
+* medium 1..
 * subject only Reference(Patient) //nhi
 * occurrenceDateTime 1.. //event_datetime
 * occurrenceDateTime ^short = "Must be in UTC timezone on the FHIR server"
 * recipient only Reference(Patient or Practitioner)
-* sender only Reference(Device)   //sender
 * payload 1..*
 // extension 
 * extension contains
