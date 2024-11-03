@@ -13,7 +13,7 @@ Description: "This resource is a record of a request for a communication to be p
 * identifier.value 1..
 * identifier.system 1..
 * status 1..
-* statusReason from CommunicationDeliveryStatusValueSet
+* statusReason from hnz-communication-delivery-status-valueset (required)
 * medium 1..
 * subject only Reference(Patient) //nhi
 * occurrenceDateTime 1.. //event_datetime
