@@ -519,3 +519,35 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "_profile"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
 * rest.resource[=].searchParam[=].type = #reference
+
+
+* rest.resource[+].type = #CommunicationRequest
+* rest.resource[=].supportedProfile = Canonical(CMSCommunicationRequest)
+* rest.resource[=] insert DefinitionalResourceInteractions
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Unique identifier"
+* rest.resource[=].searchParam[+].name = "medium"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-medium"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "A channel of communication"
+* rest.resource[=].searchParam[+].name = "occurrence"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-occurrence"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "CommunicationRequest.occurrence.ofType(dateTime)"
+* rest.resource[=].searchParam[+].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-subject"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "clinical-patient"
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = ""
+* rest.resource[=].searchParam[+].name = "recipient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-recipient"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Who the information is shared with"
+* rest.resource[=].searchParam[+].name = "_profile"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=].searchParam[=].type = #reference

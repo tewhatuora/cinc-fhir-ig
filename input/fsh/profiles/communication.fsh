@@ -17,6 +17,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * contained 0..0
 * status 1..          // Change this line to make status optional
 * statusReason 0..1
+* statusReason from hnz-communication-delivery-status-valueset (required)
 * medium 1..
 * subject only Reference(Patient) //nhi
 * sent 1.. //event_datetime
@@ -33,5 +34,3 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
   hnz-campaign-name-extension named CampaignName 0..*
   and 
   hnz-contact-point-extension named communicationContactPoint 0..* 
-  and 
-  hnz-delivery-status-extension named deliveryStatus 0..
