@@ -36,6 +36,7 @@ Usage : #example
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
+<<<<<<< HEAD
 * payload[0].contentAttachment.contentType = #text/markdown
 * payload[=].contentAttachment.language = #en-nz
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
@@ -48,3 +49,15 @@ Usage : #example
 * extension[+].url = Canonical(hnz-contact-point-extension)
 * extension[=].valueContactPoint.system = #sms
 * extension[=].valueContactPoint.value = "555-1234"
+=======
+* payload[0].contentString = "this is  a reminder text for the next appointment on 27/09/2024"
+* extension[0].url = Canonical(hnz-contact-point-extension)
+* extension[=].valueContactPoint.system = #sms
+* extension[=].valueContactPoint.value = "555-1234"
+* extension[+].url = Canonical(hnz-campaign-code-extension)
+* extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
+* extension[+].url = Canonical(hnz-campaign-name-extension)
+* extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
+* extension[+].url = Canonical(hnz-delivery-status-extension)
+* extension[=].valueCoding = $hnz-communication-delivery-status-codes#accepted
+>>>>>>> bb585e352449debb0a677598368221ea63f65d2c
