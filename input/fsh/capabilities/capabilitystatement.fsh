@@ -483,7 +483,7 @@ Usage: #definition
 
 * rest.resource[+].type = #Communication
 * rest.resource[=].supportedProfile = Canonical(CMSCommunication)
-* rest.resource[=] insert DefinitionalResourceInteractions
+* rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "sender"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-sender"
 * rest.resource[=].searchParam[=].type = #reference
@@ -523,7 +523,7 @@ Usage: #definition
 
 * rest.resource[+].type = #CommunicationRequest
 * rest.resource[=].supportedProfile = Canonical(CMSCommunicationRequest)
-* rest.resource[=] insert DefinitionalResourceInteractions
+* rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-identifier"
 * rest.resource[=].searchParam[=].type = #token

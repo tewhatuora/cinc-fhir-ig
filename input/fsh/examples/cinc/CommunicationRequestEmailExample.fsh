@@ -31,7 +31,7 @@ Usage : #example
 * payload[0].contentAttachment.contentType = #text/markdown
 * payload[=].contentAttachment.language = #en-nz
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
-* payload[=].contentAttachment.title = "Message Body"
+* payload[=].contentAttachment.title = "Payload"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 * payload[+].contentAttachment.contentType = #text/markdown
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
