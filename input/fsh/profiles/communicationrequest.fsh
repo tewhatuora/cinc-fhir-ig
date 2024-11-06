@@ -1,7 +1,7 @@
 Profile: CMSCommunicationRequest
 Parent: CommunicationRequest
 Id: CMSCommunicationRequest
-Title: "A record of a request for communication"
+Title: "Record of a Request For Communication"
 Description: "This resource is a record of a request for a communication to be performed. The performance of a CommunicationRequest may result in a communication resource."
 * ^version = "0.0.1"
 * ^purpose = "A request for communication"

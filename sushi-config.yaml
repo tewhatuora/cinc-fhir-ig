@@ -284,7 +284,17 @@ groups:
     name: Communication Person examples
     resources:
     - NIBSCommunicationPersonExample
-    - WhaihuaCommunicationPersonExample 
+    - WhaihuaCommunicationPersonExample
+  CommunicationRequestExamples:
+    name: Communication Request examples
+    resources:
+    - SMSCommunicationRequestExample
+    - EmailCommunicationRequestExample
+  CommunicationTypeExamples:
+    name: Communication Type examples
+    resources:
+    - SMSCommunicationExample
+    - EmailCommunicationExample
   Consent:
     name: Consent definitions and examples 
     resources:

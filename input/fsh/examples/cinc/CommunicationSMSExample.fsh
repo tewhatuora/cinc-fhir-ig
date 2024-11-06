@@ -1,6 +1,6 @@
-Instance : SMSCommunicationexample
+Instance : SMSCommunicationExample
 InstanceOf : CMSCommunication
-Description: "Demonstrates payload for communication with SMS as the medium"
+Description: "An example of a Communication resource. This resource is used to record information related to communication via SMS as the medium"
 Usage : #example
 * identifier[0].use = #usual
 * identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"

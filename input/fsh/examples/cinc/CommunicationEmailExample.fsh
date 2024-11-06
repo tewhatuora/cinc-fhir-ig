@@ -1,6 +1,6 @@
-Instance : EmailCommunicationexample
+Instance : EmailCommunicationExample
 InstanceOf : CMSCommunication
-Description: "Demonstrates payload for communication with Email as the medium"
+Description: "An example of a Communication resource. This resource is used to record information related to communication via Email as the medium"
 Usage : #example
 * identifier[0].use = #usual
 * identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
@@ -31,6 +31,7 @@ Usage : #example
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/communication-category"
 * sender.type = "Device"
 * sender.display = "BSR"
+//* sender.contact.system = #email
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
@@ -41,7 +42,7 @@ Usage : #example
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
 * payload[=].contentAttachment.title = "Payload"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[+].contentAttachment.contentType = #text/markdown
+* payload[+].contentAttachment.contentType = #application/pdf
 * payload[=].contentAttachment.url = "https://standards.digital.health.nz/ns/attachment"
 * payload[=].contentAttachment.title = "Attachments"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
