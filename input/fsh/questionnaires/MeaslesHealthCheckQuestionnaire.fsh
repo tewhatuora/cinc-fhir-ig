@@ -34,8 +34,8 @@ Usage: #definition
 * item[+].item[0].type = #boolean
 * item[=].item[=].linkId = "p02-q01-Symptoms"
 * item[=].item[=].prefix = "page 2 question 1"
-* item[=].item[=].text = "Do you currently have any measles symptoms? (required) For example: fever, red blotchy rash, cough, runny nose, sore red eyes."
-* item[=].item[=].text.extension.valueString = "<p>Do you currently have any measles symptoms? (required)</p><p>For example: fever, red blotchy rash, cough, runny nose, sore red eyes.</p>"
+* item[=].item[=].text = "Do you currently have any measles symptoms? (required) For example: fever, red blotchy rash, cough, runny nose, sore red eyes, tiny white spots inside your mouth."
+* item[=].item[=].text.extension.valueString = "<p>Do you currently have any measles symptoms? (required)</p><p>For example: fever, red blotchy rash, cough, runny nose, sore red eyes, tiny white spots inside your mouth.</p>"
 * item[=].item[=].text.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].item[=].required = true
 * item[=].item[+].type = #choice
@@ -53,6 +53,7 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = #"Cough" "Cough"
 * item[=].item[=].answerOption[+].valueCoding = #"Runny nose" "Runny nose"
 * item[=].item[=].answerOption[+].valueCoding = #"Sore red eyes" "Sore red eyes"
+* item[=].item[=].answerOption[+].valueCoding = #"Tiny white spots inside your mouth" "Tiny white spots inside your mouth"
 * item[=].item[=].answerOption[+].valueCoding = #"Other" "Other"
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p02-q01-1-1-Symptoms.RashFever"
