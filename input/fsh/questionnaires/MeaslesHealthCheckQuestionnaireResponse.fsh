@@ -23,7 +23,7 @@ Usage: #example
 * item[=].text = "Please complete this health check form. If you feel very sick right now contact your doctor or Healthline on 0800 611 116 for medical help. If it is an emergency call 111 and tell them you have been in contact with someone with measles."
 * item[+].item.answer.valueBoolean = false
 * item[=].item.linkId = "p02-q01-Symptoms"
-* item[=].item.text = "Do you currently have any measles symptoms? (required) For example: fever, red blotchy rash, cough, runny nose, sore red eyes."
+* item[=].item.text = "Do you currently have any measles symptoms? (required) For example: fever, red blotchy rash, cough, runny nose, sore red eyes, tiny white spots inside your mouth."
 * item[=].linkId = "p02"
 * item[=].text = "Symptoms"
 * item[+].item.answer.valueCoding = #"No" "No"
