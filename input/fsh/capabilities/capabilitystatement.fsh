@@ -112,6 +112,10 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "clinical-identifier"
+* rest.resource[=].searchParam[+].name = "based-on"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-based-on"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Communication-based-on"
 * rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-subject"
 * rest.resource[=].searchParam[=].type = #reference

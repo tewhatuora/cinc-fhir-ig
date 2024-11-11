@@ -14,6 +14,9 @@ Usage : #example
 * identifier[3].use = #secondary
 * identifier[3].value = "#cb8d66-1390-42c7-89a6-a9a75d65d333"
 * identifier[3].system = "https://api.messaging.digital.health.nz/ProviderMessageID"
+* identifier[4].use = #secondary
+* identifier[4].value = "#lb8d66-1390-42c7-89a6-a9a75d65d333"
+* identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerID"
 * basedOn.reference = "CommunicationRequest/67766"
 * status = #unknown
 * statusReason.coding.system = "http://terminology.hl7.org/CodeSystem/communication-not-done-reason"

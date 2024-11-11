@@ -16,10 +16,13 @@ Description: "This resource is a record of a request for a communication to be p
 * statusReason from hnz-communication-delivery-status-valueset (required)
 * medium 1..
 * subject only Reference(Patient) //nhi
-* occurrenceDateTime 1.. //event_datetime
+* occurrenceDateTime 0.. //event scheduleddatetime
 * occurrenceDateTime ^short = "Must be in UTC timezone on the FHIR server"
+* authoredOn 1.. //event_datetime
+* authoredOn ^short = "Must be in UTC timezone on the FHIR server"
 * recipient only Reference(Patient or Practitioner)
-* requester  only Reference(Device)
+* requester only Reference(Device)
+* sender only Reference(HealthcareService)
 * payload 1..*
 // extension 
 * extension contains
@@ -28,3 +31,5 @@ Description: "This resource is a record of a request for a communication to be p
   hnz-campaign-name-extension named CampaignName 0..*
   and 
   hnz-contact-point-extension named communicationRequestContactPoint 0..* 
+
+ 

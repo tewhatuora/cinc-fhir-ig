@@ -15,6 +15,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * basedOn 0..1
 * basedOn only Reference(CommunicationRequest)
 * contained 0..0
+* inResponseTo 0..
 * status 1..          // Change this line to make status optional
 * statusReason 0..1
 * statusReason from hnz-communication-delivery-status-valueset (required)
@@ -33,4 +34,4 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
   and
   hnz-campaign-name-extension named CampaignName 0..*
   and 
-  hnz-contact-point-extension named communicationContactPoint 0..* 
+  hnz-contact-point-extension named communicationContactPoint 0..*
