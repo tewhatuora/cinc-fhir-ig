@@ -12,6 +12,7 @@ Description: "This resource is a record of a request for a communication to be p
 * identifier.use 1..
 * identifier.value 1..
 * identifier.system 1..
+* contained 0..0
 * status 1..
 * statusReason from hnz-communication-delivery-status-valueset (required)
 * medium 1..
@@ -22,7 +23,7 @@ Description: "This resource is a record of a request for a communication to be p
 * authoredOn ^short = "Must be in UTC timezone on the FHIR server"
 * recipient only Reference(Patient or Practitioner)
 //* requester only Reference(Device)
-* requester only Reference(NationalHealthOrganization/BSAHealthService)
+* requester only Reference(Organization)
 * payload 1..*
 // extension 
 * extension contains

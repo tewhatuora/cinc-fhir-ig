@@ -295,6 +295,10 @@ groups:
     resources:
     - SMSCommunicationExample
     - EmailCommunicationExample
+  organizationTypeExamples:
+    name: Organization Type examples
+    resources:
+    - BSAHealthService
   Consent:
     name: Consent definitions and examples 
     resources:

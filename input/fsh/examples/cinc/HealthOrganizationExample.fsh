@@ -1,5 +1,7 @@
 Instance: BSAHealthService
-InstanceOf: NationalHealthOrganization
+InstanceOf: HealthOrganization
+Description: "An example of an Organizational Health Service. This resource is used to record information related to an Organizational Health Service."
+
 Usage: #example
 * identifier[0].use = #usual
 * identifier[0].value = "BSA"

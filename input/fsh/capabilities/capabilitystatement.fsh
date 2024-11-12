@@ -422,6 +422,30 @@ Usage: #definition
 * rest.resource[=].searchInclude[+] = "Observation:specimen"
 * rest.resource[=].searchInclude[+] = "Observation:subject"
 
+
+* rest.resource[+].type = #Organization
+* rest.resource[=].supportedProfile = Canonical(CMSCommunicationRequest)
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Unique identifier"
+* rest.resource[=].searchParam[+].name = "active"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-active"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Is the Organization record active"
+* rest.resource[=].searchParam[+].name = "name"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-name"
+* rest.resource[=].searchParam[=].type = #string
+* rest.resource[=].searchParam[=].documentation = "A portion of the organization's name or alias"
+* rest.resource[=].searchParam[+].name = "partof"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-partof"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "An organization of which this organization forms a part"
+* rest.resource[=].searchParam[+].name = "_profile"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=].searchParam[=].type = #reference
+
 // rheumatic fever profiled type
 // * rest.resource[+].type = #Patient
 // * rest.resource[=].profile = Canonical(Patient)

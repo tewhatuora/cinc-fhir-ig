@@ -1,13 +1,14 @@
-Profile: NationalHealthOrganization
+Profile: HealthOrganization
 Parent: Organization
-Id: NationalHealthOrganization
-Title: "Record Of all helath Organization services"
-Description: "An Organization Resource used to record the details of the National Health service"
+Id: HealthOrganization
+Title: "Record Of all health Organization services"
+Description: "An Organization Resource used to record the details of the individual Health service"
 * ^version = "0.0.1"
-* ^purpose = "A Organization Resource used to record the details of the  National Health service"
+* ^purpose = "An Organization Resource used to record the details of the individual Health service"
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ 
 * meta.profile 1..1
+* contained 0..0
 * identifier 1..
 * identifier.use 1..
 * identifier.value 1..
