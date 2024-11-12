@@ -32,8 +32,8 @@ Usage : #example
 * recipient.identifier.value = "99ZZFX"
 * category.coding.code = #notification
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/communication-category"
-* sender.type = "Device"
-* sender.display = "BSR"
+//* sender.type = "Device"
+* sender = Reference(Organization/BSAHealthService)
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"

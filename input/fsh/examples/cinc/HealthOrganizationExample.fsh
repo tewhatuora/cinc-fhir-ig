@@ -8,8 +8,9 @@ Usage: #example
 * identifier[0].system = "https://api.messaging.digital.health.nz/HealthServicesId"
 * active = true
 * name = "National Breast Screening Programme"
-* alias = "This is a public health initiative that provides breast cancer screening to eligible individuals "
-* type = #govt
+* alias = "This is a public health initiative that provides breast cancer screening to eligible individuals"
+* type.coding.code = #govt
+* type.coding.system = "http://terminology.hl7.org/CodeSystem/organization-type"
 * contact.telecom[0].system = #phone
 * contact.telecom[=].value = "+642110939804"
 * contact.telecom[+].system = #email
