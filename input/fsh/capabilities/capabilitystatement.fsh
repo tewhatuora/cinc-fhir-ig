@@ -122,7 +122,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "clinical-patient"
 * rest.resource[=].searchParam[+].name = "recipient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-recipient"
-* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the information is shared with"
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-status"
@@ -337,6 +337,32 @@ Usage: #definition
 // * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/medications-medication"
 // * rest.resource[=].searchParam[=].type = #reference
 // * rest.resource[=].searchParam[=].documentation = "Return all instances of administration of this medication"
+* rest.resource[+].type = #HealthcareService
+* rest.resource[=].supportedProfile = Canonical(HealthcareService)
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/HealthcareService-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Unique identifier"
+* rest.resource[=].searchParam[+].name = "active"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/HealthcareService-active"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "The Healthcare Service is currently marked as active"
+* rest.resource[=].searchParam[+].name = "name"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/HealthcareService-name"
+* rest.resource[=].searchParam[=].type = #string
+* rest.resource[=].searchParam[=].documentation = "A portion of the Healthcare service name"
+* rest.resource[=].searchParam[+].name = "service-type"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/HealthcareService-service-type"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "The type of service provided by this healthcare service"
+* rest.resource[=].searchParam[+].name = "program"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/HealthcareService-program"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "One of the Programs supported by this HealthcareService"
+* rest.resource[=].searchParam[+].name = "_profile"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=].searchParam[=].type = #reference
 
 * rest.resource[+].type = #Observation
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
@@ -421,30 +447,6 @@ Usage: #definition
 * rest.resource[=].searchInclude[+] = "Observation:performer"
 * rest.resource[=].searchInclude[+] = "Observation:specimen"
 * rest.resource[=].searchInclude[+] = "Observation:subject"
-
-
-* rest.resource[+].type = #Organization
-* rest.resource[=].supportedProfile = Canonical(CMSCommunicationRequest)
-* rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[+].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-identifier"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Unique identifier"
-* rest.resource[=].searchParam[+].name = "active"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-active"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Is the Organization record active"
-* rest.resource[=].searchParam[+].name = "name"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-name"
-* rest.resource[=].searchParam[=].type = #string
-* rest.resource[=].searchParam[=].documentation = "A portion of the organization's name or alias"
-* rest.resource[=].searchParam[+].name = "partof"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-partof"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "An organization of which this organization forms a part"
-* rest.resource[=].searchParam[+].name = "_profile"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
-* rest.resource[=].searchParam[=].type = #reference
 
 // rheumatic fever profiled type
 // * rest.resource[+].type = #Patient

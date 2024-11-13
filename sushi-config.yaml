@@ -296,9 +296,9 @@ groups:
     - SMSCommunicationExample
     - EmailCommunicationExample
   organizationTypeExamples:
-    name: Organization Type examples
+    name: Health Care service Type examples
     resources:
-    - BSAHealthService
+    - BSAService
   Consent:
     name: Consent definitions and examples 
     resources:

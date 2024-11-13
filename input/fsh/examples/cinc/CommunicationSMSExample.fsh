@@ -17,13 +17,14 @@ Usage : #example
 * identifier[4].use = #secondary
 * identifier[4].value = "#lb8d66-1390-42c7-89a6-a9a75d65d333"
 * identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerID"
-* basedOn.reference = "CommunicationRequest/67766"
+* basedOn = Reference(SMSCommunicationRequestExample)
 * status = #unknown
-* statusReason.coding.system = "http://terminology.hl7.org/CodeSystem/communication-not-done-reason"
-* statusReason.coding.code = #unknown
-* statusReason.coding.display = "Unknown"
-* medium.coding.code = #SMSWRIT
+
+* statusReason.coding.code = #sent
+* statusReason.coding.system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes"
+
 * medium.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
+* medium.coding.code = #SMSWRIT
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
 * recipient.type = "Practitioner"
@@ -32,8 +33,7 @@ Usage : #example
 * recipient.identifier.value = "99ZZFX"
 * category.coding.code = #notification
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/communication-category"
-//* sender.type = "Device"
-* sender = Reference(Organization/BSAHealthService)
+* sender = Reference(BSAService)
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"

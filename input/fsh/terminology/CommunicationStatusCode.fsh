@@ -1,11 +1,11 @@
 CodeSystem: CommunicationDeliveryStatusCodes
 Id: hnz-communication-delivery-status-codes
-Title: "Codes forCommunicationStatus"
+Title: "Codes for CommunicationStatus"
 Description:  "Each code represents a communication delivery status"
 * #accepted "Accepted"  
 * #scheduled "Scheduled" 
 * #queued "Queued"    
-* #sending "Sending "  
+* #sending "Sending"  
 * #sent "Sent"      
 * #deliveryUnknown "DeliveryUnknown"
 * #delivered "Delivered"
@@ -19,6 +19,7 @@ Description:  "Each code represents a communication delivery status"
 * #reject "Reject" 
 * #renderingfailure "Renderingfailure"
 * #bounce "Bounce"
+* #received "Received"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
 * ^experimental = false
 * ^caseSensitive = false

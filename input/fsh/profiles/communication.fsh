@@ -26,7 +26,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * received 0..
 * recipient only Reference(Patient or Practitioner)
 * category 0..1 //
-* sender only Reference(Organization)   //sender
+* sender only Reference(HealthcareService)   //sender
 * payload 1..*
 // extension 
 * extension contains

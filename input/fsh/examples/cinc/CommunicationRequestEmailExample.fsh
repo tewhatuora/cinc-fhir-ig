@@ -32,8 +32,8 @@ Usage : #example
 * subject.display = "Carey Carrington"
 //* requester.type = "Device"
 //* requester.display = "BSR"
-* requester = Reference(Organization/BSAHealthService)
-
+//* sender = Reference(NationalHealthCareService/BSAService)
+* sender = Reference(BSAService)
 * payload[0].contentAttachment.contentType = #application/pdf
 * payload[=].contentAttachment.language = #en-nz
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="

@@ -23,7 +23,7 @@ Description: "This resource is a record of a request for a communication to be p
 * authoredOn ^short = "Must be in UTC timezone on the FHIR server"
 * recipient only Reference(Patient or Practitioner)
 //* requester only Reference(Device)
-* requester only Reference(Organization)
+* sender only Reference(HealthcareService)
 * payload 1..*
 // extension 
 * extension contains
