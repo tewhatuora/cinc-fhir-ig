@@ -170,7 +170,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = ""
 * rest.resource[=].searchParam[+].name = "recipient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-recipient"
-* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the information is shared with"
 * rest.resource[=].searchParam[+].name = "_profile"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
