@@ -1,33 +1,26 @@
 ## Consent-based access control
 
-Like any NZ organisation collecting/sharing patient health information, Te Whatu Ora has to abide by the requirements of the NZ Health Information Privacy Code.
+As a basic protection for FHIR resource types that may contain patient health information, the *Health New Zealand Te Whatu Ora FHIR API* requires a valid [FHIR Consent](https://hl7.org/fhir/R4B/consent.html) instance to be present that references the resource instances.
 
-In support of this, the *Te Whatu Ora Shared Care API* has implemented the following measures:
+See [this page](fhirConsent.html) for details on representing patient consent using FHIR Consents.
 
-1. Client applications MUST record the patient's actual (or provisional) consent to TWO collecting their health information using instances of the [FHIR Consent](https://hl7.org/fhir/R4B/consent.html) resource on this server, and
-1. For all FHIR resource types that may contain patient health information, the FHIR API controls access to resource instances based on presence of a valid referencing Consent resource instances, and  
-1. The actual FHIR resource instances to be protected MUST be reference in FHIR `.provision.data.` references in an associated Consent instance.
+### Authorization to access FHIR resource instances
 
-It is up to the each health organisation storing/sharing health information through this FHIR API to
-- Operate a process which obtains patient consent, and
-- Arrange for their FHIR-integrated application to call the FHIR API to create appropriate FHIR Consent resources representing the state of patients' consents.
+Consider a FHIR API request to GET the instance `CarePlan/X` where CarePlan is a consent-protected resource type and X is the instance unique identifier.
 
-### Consent-based protection measures
+The FHIR API will permit such a request if:
 
-#### Access control measure
-When a client application, authorized by TWO to access the FHIR API (by NIA API key and client credentials), tries to access an instance of  
-  a FHIR resource X of an **access-controlled type** at a Url like:  
-  
-```bash
-  FHIR_API_URL/resource-type/X (where X is a resource instance identifier)
-```  
+1. The requestor presents suitable OAUTH credentials including sufficient scopes (SMART scopes), and
+2. The API finds a valid Consent instance that references CarePlan/X.  The rules for validity are defined below.
 
-- This API permits access to X only when a valid Consent instance is found that references X - this allows all FHIR client applications authorized by Te Whatu Ora to access the resource instance.  
-- If the API finds no valid Consent instance that references X, access is denied to all FHIR client applications (including the application that created the resource instance).
+If the request has suitable OAUTH scopes but the API cannot find a valid Consent instance referencing CarePlan/X, the API rejects the GET request with a `403 Forbidden` error.
+If the request lacks suitable OAUTH scopes the GET request is rejected with a `401 Not Authorized` error.
 
-#### Resource types protected
+If the CarePlan/X instance access attempt occurs through a FHIR search, and the instance is not covered by a valid consent, either the search request is rejected or the entry is redacted from search results depending on the deficiency of the request.
 
-The *Te Whatu Ora Shared Care API* applies consent-based data access control to all instances of the following FHIR resources types (includes profiled variants):
+#### FHIR Resource types protected
+
+The API applies consent-based access control to FHIR requests on the following resource types (includes profiled variants):
 
 ```bash
 - Appointment
@@ -43,13 +36,14 @@ The *Te Whatu Ora Shared Care API* applies consent-based data access control to 
 - EpisodeOfCare
 ```
 
-### Active consent
+### Consent validity rules
 
-A normal record of a patient consent in the *Te Whatu Ora Shared Care API* is a FHIR Consent instance in `#active` status.
+#### Active consent
 
-In business terms, **active** status here is used to represent a consent actually obtained from the patient, and current as in not expired.
+A patient consent is normally expected to be represented in a FHIR Consent instance in `#active` status, which is meant to 
+reflect a consent actually obtained from the patient.
 
-To be considered valid, an `#active` Consent instance must:
+To be considered valid for API access, an `#active` Consent instance must:
 
 1. Be current (current date must fall within `Consent.provision.period` start and end dates
 
@@ -64,44 +58,29 @@ To be considered valid, an `#active` Consent instance must:
 
 - EITHER reference in `.sourceReference` a FHIR `QuestionnaireResponse` instance that captures the consenting response,
 
-- OR reference in `.performer` the organisation that obtained the consent (reference by HPI Org id).
+- OR reference in `.organization` (or `.performer`) the organisation that obtained the consent and is custodian of the patient data.
 
 ### Provisional consent scenarios
 
-Sometimes patient consent is not yet established at the time an application needs to create FHIR resources about that patient.  
+Applications may create a Consent in a `#proposed` state.  
 
-For example in rheumatic fever patient scenarios it is common for patients to be registered on referral from primary care but
-  those patients' consents are not officially obtained until the first nurse appointment which can be someway down the track.
+This is a placeholder for patient consent that is anticipated, but an application needs to create other FHIR resources before the consent
+can actually be obtained.
 
-To facilitate scenarios like this, the *Te Whatu Ora Shared Care API* allows for consents to be formed provisionally using the FHIR Consent `#proposed` status.
-
-This status is intended to represent placeholders for patient consents that will be subsequently obtained, but where an application needs to create FHIR resources earlier than that.
-
-Client FHIR API access to a resource protected by a `#proposed` Consent has the following additional requirements:
-
-1. The proposed consent MUST include a provision referencing a `CareTeam` which identifes the (HPI) organisations responsible for collecting and managing the patient data,
-2. The health application accessing the FHIR API MUST be using client credentials associated with one of the HPI organisations in the CareTeam described in (1).
-
-If these two conditions are not met API requests to resource instances covered by a `#proposed` consent will get an HTTP 403 Forbidden error, and those instances will be redacted in any FHIR search results.
+Rules for accessing FHIR resources protected by a `#proposed` Consent are yet to be defined by Health NZ but are likely to involve
+the requesting party following a 'break-glass' protocol and their API client presenting an additional `btg` OAUTH scope in the access token.
 
 ### Consent given on-behalf by related person
 
-Sometimes patient consent has to be obtained from a person related to the patient, not the patient themselves.
+When patient consent is obtained from a person related to the patient, not the patient themselves, an application may create a Consent instance with the `.performer` identifying the related person.
 
-For example in rheumatic fever patient scenarios it is common for patients to be registered on referral from primary care but
-  those patients' consents are not officially obtained until the first nurse appointment which can be someway down the track.
-
-To facilitate scenarios like this, the *Te Whatu Ora Shared Care API* consent should represent the related person is a party to the patient's consent but not the subject of it, as follows:
-
-1. The consent provision identifies the patient in its `#datasubject` as is usual, and
-1. A RelatedPerson resource defines the related party (by name is sufficient) and their relationship to the patient.  (The RelatedPerson can be simply a contained instance within the Consent, or can be a separate server resource representation if needed), and 
-1. An additional `Consent.performer[]` entry refers to the RelatedPerson instance.
+No special rules for API access to FHIR resources protected by an on-behalf Consent have yet been defined by Health NZ.
 
 ---
 
-### API behaviours
+### API error behaviour
 
-When a resource requiring Consent is requested either by a read, vread or search query, the API will determine if a valid `Consent` is active for the resource. 
+When a resource requiring Consent is requested either by a FHIR read, vread or search operation, the API will determine if a valid `Consent` is active for the resource according to the rules described above.
 
 When a valid `Consent` is **NOT found**, the outcomes seen by the API caller will be as follows.
 
@@ -127,7 +106,7 @@ Response body:
         ]
     },
     "total": 41,
-    "entry": [{consentedResources}]
+    "entry": ["..."]
 }
 ```
 
@@ -169,33 +148,3 @@ Client applications are responsible for converting UTC dateTimes to the timezone
 The server will assess currency of a Consent for access purposes using a UTC time comparison with the dates/times in a `Consent.period`.
 
 ---
-
-### Example data models
-
-#### Active consent obtained from the patient
-
-<figure>
-  <!-- Generated from `input/images-source/obj-FHIR-data-consent-active.puml` -->
-  {% include obj-FHIR-data-consent-active.svg %}
-</figure>
-<br clear="all">
-
----
-
-#### Active consent obtained from a related person to the patient (on-behalf)
-
-<figure>
-  <!-- Generated from `input/images-source/obj-FHIR-data-consent-givenonbehalf.puml` -->
-  {% include obj-FHIR-data-consent-givenonbehalf.svg %}
-</figure>
-<br clear="all">
-
----
-
-#### Provisional consent (yet to be actually obtained from the patient)
-
-<figure>
-  <!-- Generated from `input/images-source/obj-FHIR-data-consent-proposed.plantuml` -->
-  {% include obj-FHIR-data-consent-proposed.svg %}
-</figure>
-<br clear="all">

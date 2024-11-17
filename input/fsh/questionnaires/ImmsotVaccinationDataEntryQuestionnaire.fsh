@@ -21,9 +21,9 @@ Usage: #definition
 * item.item[=].prefix = "page 1 question 1"
 * item.item[=].text = "Type of vaccination"
 * item.item[=].required = true
-* item.item[=].answerOption[0].valueCoding.display = "Overseas"
-* item.item[=].answerOption[+].valueCoding.display = "Historic"
-* item.item[=].answerOption[+].valueCoding.display = "Not done"
+* item.item[=].answerOption[0].valueCoding = #"Overseas" "Overseas"
+* item.item[=].answerOption[+].valueCoding = #"Historic" "Historic"
+* item.item[=].answerOption[+].valueCoding = #"Not done" "Not done"
 * item.item[+].type = #string
 * item.item[=].extension.valueBoolean = true
 * item.item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"

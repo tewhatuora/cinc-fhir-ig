@@ -33,7 +33,7 @@ Usage: #example
 * item[=].item[=].answer.valueBoolean = true
 * item[=].item[+].linkId = "p01-q01-1-CigaretteSmoker.HowMany"
 * item[=].item[=].text = "How many cigarettes per day?"
-* item[=].item[=].answer.valueCoding.display = "Less than 10"
+* item[=].item[=].answer.valueCoding = #"Less than 10" "Less than 10"
 * item[=].item[+].linkId = "p01-q08-CurrentDrinker"
 * item[=].item[=].text = "Does the patient consume alcohol?"
 * item[=].item[=].answer.valueBoolean = false

@@ -39,7 +39,7 @@ Usage: #example
 * item.item[=].answer.valueBoolean = true
 * item.item[+].linkId = "p01-q05-COVID19Vaccine"
 * item.item[=].text = "COVID-19 vaccine?"
-* item.item[=].answer.valueCoding.display = "Full"
+* item.item[=].answer.valueCoding = #Full "Full"
 * item.item[+].linkId = "p01-q06-dose1-date"
 * item.item[=].text = "Date"
 * item.item[=].answer.valueDate = "2022-03-01"

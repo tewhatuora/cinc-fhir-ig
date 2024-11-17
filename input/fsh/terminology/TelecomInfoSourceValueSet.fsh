@@ -8,6 +8,16 @@ Description:  "Applicable values for information source when using the telecom i
 * ^status = #active
 * include codes from system hnz-person-telecom-source-system-codes
 
+ValueSet: TelecomLastUpdatedBy
+Id: hnz-telecom-last-updated-by-valueset
+Title: "System that last updated the record"
+Description:  "When a system updates a record the intent is that this value set would be used to populate a meta.tag property in the updated resource indicating the system that is updating the resource."
+* ^publisher = "Health New Zealand | Te Whatu Ora"
+* ^version = "1.0.0"
+* ^experimental = false
+* ^status = #active
+* include codes from system hnz-person-telecom-source-system-codes
+
 ValueSet: TelecomScore
 Id: hnz-telecom-score-valueset
 Title: "Telecom record score indicator"

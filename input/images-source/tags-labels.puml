@@ -1,0 +1,20 @@
+@startuml tags-labels
+
+top to bottom direction
+
+' create a object with security label
+' usage: $SEC_LABELLED_INSTANCE(R1,"<object name>","<label Id")
+!unquoted procedure $SEC_LABELLED_INSTANCE($Alias, $displayText="",$label="")
+  object "$displayText" as $Alias {
+    <color:Red><&flag> <Color:Black>security label: ""<size:16><color:DarkRed>$label""
+  }
+!endprocedure
+
+' create a label showing a meta.tag
+!unquoted procedure $TAGGED_INSTANCE($Alias, $displayText="",$label="")
+  object "$displayText" as $Alias {
+    <color:Red><&flag> <Color:Black>meta.tag: ""<size:14><color:DarkRed>$label""
+  }
+!endprocedure
+
+@enduml

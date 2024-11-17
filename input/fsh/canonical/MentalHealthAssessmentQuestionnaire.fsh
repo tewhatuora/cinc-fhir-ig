@@ -75,8 +75,8 @@ Usage: #definition
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
-* item[=].item[=].answerOption[0].valueCoding.display = "Less than 10"
-* item[=].item[=].answerOption[+].valueCoding.display = "10 or more"
+* item[=].item[=].answerOption[0].valueCoding = #"Less than 10" "Less than 10"
+* item[=].item[=].answerOption[+].valueCoding = #"10 or more" "10 or more"
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p01-q08-CurrentDrinker"
 * item[=].item[=].code = $sct#219006 "Current drinker"
@@ -94,9 +94,9 @@ Usage: #definition
 * item[=].item[=].enableBehavior = #all
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
-* item[=].item[=].answerOption[0].valueCoding.display = "Less than 10"
-* item[=].item[=].answerOption[+].valueCoding.display = "10 to 16"
-* item[=].item[=].answerOption[+].valueCoding.display = "More than 16"
+* item[=].item[=].answerOption[0].valueCoding = #"Less than 10" "Less than 10"
+* item[=].item[=].answerOption[+].valueCoding = #"10 to 16" "10 to 16"
+* item[=].item[=].answerOption[+].valueCoding = #"More than 16" "More than 16"
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p01-q09-RecreationalDrugs"
 * item[=].item[=].code = $sct#424848002 "Recreational drug user"

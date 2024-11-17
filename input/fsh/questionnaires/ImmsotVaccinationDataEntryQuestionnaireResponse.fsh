@@ -8,7 +8,7 @@ Description: "Example payload of an overseas immunisation being added to ImmSoT.
 Usage: #example
 * authored = "2024-04-17T01:09:56.016Z"
 * item.item[0].linkId = "p01-q01-Type"
-* item.item[=].answer.valueCoding.display = "Overseas"
+* item.item[=].answer.valueCoding = #"Overseas" "Overseas"
 * item.item[=].text = "Type of vaccination"
 * item.item[+].linkId = "p01-q02-StatusCompleted"
 * item.item[=].answer.valueString = "completed"

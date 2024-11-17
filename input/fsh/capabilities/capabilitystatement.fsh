@@ -97,8 +97,8 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "Appointment date/time"
 
-* rest.resource[0].type = #Bundle
-* rest.resource[=].profile = Canonical(Bundle)
+* rest.resource[0].type = #DiagnosticReport
+* rest.resource[=].profile = Canonical(DiagnosticReport)
 * rest.resource[=] insert GenericCRUDInteractions
 
 * rest.resource[+].type = #CarePlan
@@ -369,6 +369,8 @@ Usage: #definition
 // * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Person
+//* rest.resource[=].profile = Canonical(CommunicationPerson)
+* rest.resource[=].supportedProfile = Canonical(CommunicationPerson)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "phone"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#individual-phone"
@@ -382,10 +384,14 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "A person Identifier"
-* rest.resource[=].searchParam[+].name = "profile"
+* rest.resource[=].searchParam[+].name = "_profile"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using ?profile=https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/nz-sharedcare-communication-person"
+* rest.resource[=].searchParam[+].name = "_source"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-source"
+* rest.resource[=].searchParam[=].type = #uri
+* rest.resource[=].searchParam[=].documentation = "Filter **Person Instances** using the meta.source field - e.g. ?_source=NIBS"
 
 * rest.resource[+].type = #PlanDefinition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)

@@ -34,12 +34,12 @@ CodeSystem: PersonTelecomPhoneTypeCodes
 Id: hnz-person-telecom-phone-type-codes
 Title: "Codes for Telecom Phone Types"
 Description:  "Each code represents a phone type"
-* #Mobile "Last delivery attempt was not successful"
-* #Landline "Uncontactable"
-* #Australian "Last delivery attempt was successful"
-* #Other "Last delivery attempt was successful"
+* #Mobile "Mobile phone"
+* #Landline "Landline or fixed-line phone"
+* #Australian "Australian phone"
+* #Other "Other phone tyme"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
 * ^experimental = false
 * ^caseSensitive = false
-* ^purpose = "Enables the recording of a special type for a telecom record."
+* ^purpose = "Enables the recording of a phone type for a telecom record."
 * ^status = #active

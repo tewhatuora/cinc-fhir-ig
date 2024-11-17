@@ -49,7 +49,7 @@ Usage: #example
 
 * item[+].linkId = "eligible-yes"
 * item[=].text = "Assessment: Yes - the patient IS eligible for COVID-19 Antivirals"
-* item[=].answer.valueCoding.display = "confirm"
+* item[=].answer.valueCoding = #"confirm" "confirm"
 
 * item[+].linkId = "PharmacistInformation"
 * item[=].text = "Please provide pharmacist details"
