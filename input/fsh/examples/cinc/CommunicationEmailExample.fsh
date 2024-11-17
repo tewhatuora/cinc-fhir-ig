@@ -14,11 +14,11 @@ Usage : #example
 * identifier[3].use = #secondary
 * identifier[3].value = "#cb8d66-1390-42c7-89a6-a9a75d65d333"
 * identifier[3].system = "https://api.messaging.digital.health.nz/ProviderMessageID"
-* basedOn = Reference(SMSCommunicationRequestExample)
+* basedOn = Reference(EmailCommunicationRequestExample)
 * status = #preparation
 * statusReason.coding.code = #sent
 * statusReason.coding.system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes"
-* medium.coding.code = #SMSWRIT
+* medium.coding.code = #EMAILWRIT
 * medium.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
@@ -53,5 +53,5 @@ Usage : #example
 * extension[+].url = Canonical(hnz-campaign-name-extension)
 * extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
 * extension[+].url = Canonical(hnz-contact-point-extension)
-* extension[=].valueContactPoint.system = #sms
+* extension[=].valueContactPoint.system = #email
 * extension[=].valueContactPoint.value = "test@gmail.com"
