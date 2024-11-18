@@ -186,7 +186,7 @@ Usage: #example
 * item[=].item[=].item[=].text = "Disply"
 * item[=].item[=].item[=].enableWhen.question = "1.4.2"
 * item[=].item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].item[=].enableWhen.answerCoding = #other33 "Other"
+* item[=].item[=].item[=].enableWhen.answerCoding = #r012 "Other"
 
 /*-------------------DNA-----------------------------*/
 * item[+].linkId = "Q4"
