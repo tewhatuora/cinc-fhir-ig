@@ -9,21 +9,9 @@ Description: """A set of codes specifying the modality by which the Entity playi
 
 *Open Issue:* There needs to be a reexamination of the hierarchies as there seems to be some muddling between ELECTRONIC and other concepts that involve electronic communication that are in other hierarchies."""
 * ^language = #en
-* ^identifier.system = "urn:ietf:rfc:3986"
-* ^identifier.value = "urn:oid:2.16.840.1.113883.5.1064"
-* ^version = "4.0.0"
 * ^status = #active
 * ^experimental = false
-* ^date = "2021-08-10"
-* ^publisher = "Health Level Seven International"
-* ^contact.telecom[0].system = #url
-* ^contact.telecom[=].value = "http://hl7.org"
-* ^contact.telecom[+].system = #email
-* ^contact.telecom[=].value = "hq@HL7.org"
-* ^copyright = "This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"
 * ^caseSensitive = true
-* ^hierarchyMeaning = #is-a
-* ^content = #complete
 * #ELECTRONIC "electronic data" "Participation by non-human-languaged based electronic signal"
 * #PHYSICAL "physical presence" "Participation by direct action where subject and actor are in the same location. (The participation involves more than communication.)"
 * #REMOTE "remote presence" "Participation by direct action where subject and actor are in separate locations, and the actions of the actor are transmitted by electronic or mechanical means. (The participation involves more than communication.)"

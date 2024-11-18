@@ -1,5 +1,5 @@
 ValueSet: ParticipationModeValueSet
-Id: hnz-participation-mode-value-set
+Id: hnz-participation-mode-valueset
 Title: "Valueset for Participation Mode"
 Description:  "Valueset for Participation Mode"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
