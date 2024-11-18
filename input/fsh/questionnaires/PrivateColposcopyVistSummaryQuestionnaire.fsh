@@ -183,7 +183,7 @@ Usage: #example
 
 * item[=].item[=].item[+].linkId = "1.4.3"
 * item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].text = "Disply"
+* item[=].item[=].item[=].text = "Other Reason(if Any)"
 * item[=].item[=].item[=].enableWhen.question = "1.4.2"
 * item[=].item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].item[=].enableWhen.answerCoding = #r012 "Other"
