@@ -36,7 +36,7 @@ Usage: #definition
 * identifier[=].value = "Questionnaire-RemoteMonitoringHeartFailureSymptomSurveyQuestionnaire"
 * identifier[=].period.start = "2023-03-07"
 * identifier[=].period.end = "2023-07-26"
-* title = "Remote Monitoring Feedback Survey"
+* title = "Remote Monitoring Heart Failure Symptom Survey Questionnaire"
 * description = "A questionnaire for a daily symptom surveying for Heart Failure patients"
 * status = #draft
 * subjectType = #Patient
