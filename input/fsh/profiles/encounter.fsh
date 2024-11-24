@@ -1,19 +1,20 @@
 Profile: ManaakiNgaTahiEncounter
 Parent: Encounter
 Description: "Encounter FHIR resource for Manaaki Nga Tahi"
-* ^version = "0.1.3"
+* ^version = "2"
+
 // elements modified
 * diagnosis.condition only Reference(Condition)
 * participant.individual only Reference(Practitioner)
 * period 1..1
-* period obeys fhir-hnz-period-utc-1
+* period ^short = "Start | end values must be in UTC timezone on the FHIR server"
 * subject only Reference(Patient)
 // elements prohibited
 * account 0..0
-* appointment 0..0
+// * appointment 0..0     // v0.3.0 re-enabled for rheumatic fever
 * basedOn 0..0
 * classHistory 0..0
-* contained 0..0
+// * contained 0..0       // v0.4.0 re-enabled for rheumatic fever
 * diagnosis.extension 0..0
 * diagnosis.id 0..0
 * diagnosis.modifierExtension 0..0

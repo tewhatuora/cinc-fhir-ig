@@ -1,4 +1,3 @@
-# Overview
 
 This project prototyped and then established the FHIR server to serve as a repository for CarePlan and related resources originating in COVID case management.
 
@@ -10,4 +9,31 @@ Once stored at the FHIR repository, the CarePlan can then be accessed by other m
 
 The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case management is done.
 
-![](sharedCarePlan.png)
+<img src="sharedCarePlan.png" width="100%"/>
+
+
+
+## Integration Use Cases
+
+### Shared Care Care Plans
+
+1. [Record Consent](./consentBasedAccessControl.html)
+
+2. [Create Condition](./createCondition.html)
+
+3. [Create Encounter](./createEncounter.html)
+
+4. [Initial Assessment](./initialAssesment.html)
+
+5. [Health Checks](./healthChecks.html)
+
+6. [Create Care Plan](./createCarePlan.html)
+
+7. [Complete Care Plan](./completeCarePlan.html)
+
+8. [Collect Measurements](./collectMeasurements.html)
+
+### Rheumatic fever secondary prevention service care plans
+
+
+

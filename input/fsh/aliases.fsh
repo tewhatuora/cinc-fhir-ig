@@ -1,4 +1,5 @@
 Alias: $sct = http://snomed.info/sct
+Alias: $UoM = http://unitsofmeasure.org
 Alias: $resource-types = http://hl7.org/fhir/resource-types
 Alias: $restful-security-service = http://terminology.hl7.org/CodeSystem/restful-security-service
 Alias: $goal-priority = http://terminology.hl7.org/CodeSystem/goal-priority
@@ -20,7 +21,37 @@ Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
 Alias: $pathway-status-codes = https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CodeSystem/longterm-pathway-state-cs
 
-Alias: $AVE-whenstarted =  https://standards.digital.health.nz/ns/antiviral-eligibility-when-symptoms-started-codes
-Alias: $AVE-criteria =  https://standards.digital.health.nz/ns/antiviral-eligibility-criteria-codes
+Alias: $AVE-whenstarted =  https://nzhts.digital.health.nz/fhir/ValueSet/antiviral-eligibility-symptoms-started   // 0.3.9b
+Alias: $AVE-criteria =  https://nzhts.digital.health.nz/fhir/ValueSet/COVID-19-antiviral-eligibility-criteria     // 0.3.9b
 Alias: $termServerExtension = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-preferredTerminologyServer
 Alias: $preferredTermServer = https://nzhts.digital.health.nz/fhir
+
+Alias: $NationalCareCoordinationSystem = https://standards.digital.health.nz/ns/rheumatic-fever-identifiers
+
+Alias: $nzmt = http://nzmt.org.nz
+
+//----Added for Person Contact Record ---//
+// Score
+Alias: $hnz-telecom-score-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-score-extension
+Alias: $hnz-person-telecom-score-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-score-codes
+//Information Source
+Alias: $hnz-telecom-information-source-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-information-source-extension-id
+Alias: $hnz-person-telecom-source-system-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-source-system-codes
+//LastContacted
+Alias: $hnz-telecom-last-contacted-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-last-contacted-extension-id
+//SharedContact
+Alias: $hnz-telecom-count-shared-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-count-shared-extension-id
+//PhoneType
+Alias: $hnz-telecom-phone-type-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-phone-type-extension-id
+Alias: $hnz-person-telecom-phone-type-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-person-telecom-phone-type-codes
+//Invalid indicator
+Alias: $hnz-telecom-invalid-indicator-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-telecom-invalid-indicator-extension-id
+//lastUpdatedBy
+Alias: $hnz-person-telecom-last-updated-by-valueset = https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-telecom-last-updated-by-valueset
+//Purpose Of Use
+Alias: $nz-purpose-of-use = https://nzhts.digital.health.nz/fhir/ValueSet/nz-purpose-of-use-value-set
+//----End Added for Person Contact Record ---//
+//--Comms--//
+Alias: $communication-status = http://hl7.org/fhir/event-status
+Alias: $communication-category = http://hl7.org/fhir/communication-category
+Alias: $communication-medium = http://terminology.hl7.org/CodeSystem/v3-ParticipationMode

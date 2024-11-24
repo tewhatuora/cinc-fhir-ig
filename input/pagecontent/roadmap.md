@@ -20,16 +20,11 @@ For more information and examples please refer to:
 
 ### Outstanding Tasks
 
-- Determine whether to continue to use the FHIR IG Publisher or migrate this content to [Simplifier](https://simplifier.net/)
-- Move this content to a more appropriate source repository - it's currently located at [https://github.com/tewhatuora/cinc-fhir-ig](https://github.com/tewhatuora/cinc-fhir-ig)
-  - Note: if we want to continue using the [IG Auto-Builder](https://github.com/FHIR/auto-ig-builder) then the content needs to be in a public GitHub repository
 - Determine where the IG will be published and potentially follow the steps in [Publishing an IG](https://confluence.hl7.org/pages/viewpage.action?pageId=104580055&src=contextnavpagetreemode) and [Maintaining an IG Publication](https://confluence.hl7.org/display/FHIR/Maintaining+a+FHIR+IG+Publication?src=contextnavpagetreemode) to publish it
 - Provide content for all of the placeholder sections in this IG
 - Potentially provide an additional 'Developer Guide' section detailing authentication/authorisation requirements, the Request-Context header, our well-known identifiers, etc
 - Potentially add further constraints to our resource profiles:
   - Additional mandatory fields
   - ValueSets and bindings for coded fields
-- Investigate whether we want to publish the [IG-generated OpenAPI specification](CareInTheCommunityCapabilityStatement.openapi.json) or the OpenAPI specification we generated ourselves which includes our environment details, security requirements, custom headers, etc
 - Determine whether to include the Postman Collection in the IG
-- Investigate how best to document the `$apply` operation - it's not included in the generated OpenAPI specification or API page by default
 - Address the remaining issues in the [QA Report](qa.html)

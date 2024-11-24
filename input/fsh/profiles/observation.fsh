@@ -14,12 +14,12 @@ Description: "Observation FHIR resource for Manaaki Nga Tahi"
 * component.valueQuantity 0..1
 * component.valueQuantity only Quantity
 * effectiveDateTime 1..1
-* effectiveDateTime obeys fhir-hnz-dateTime-utc-1
+* effectiveDateTime ^short = "Must be in UTC timezone on the FHIR server"
 * identifier 1..
 * identifier.use 1..1
 * identifier.value 1..1
 * issued 1..1
-* issued obeys fhir-hnz-instant-utc-1
+* issued ^short = "Must be in UTC timezone on the FHIR server"
 * performer only Reference(Patient or Practitioner)
 * status 1..1
 * subject only Reference(Patient)

@@ -23,7 +23,7 @@ Each Observation resource must link back to its CarePlan through its basedOn rel
 
 The next diagram shows this linkage from Observation resources along with SNOMED coding and the performer relation.
 
-<img src="./FHIR-resources-model-cinc-observation.png" width="1200" />
+<img src="./FHIR-resource-model-cinc-observation.png" width="1200" />
 
 ## Observation period dates
 

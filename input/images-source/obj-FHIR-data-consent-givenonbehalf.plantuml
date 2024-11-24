@@ -1,0 +1,122 @@
+@startuml
+
+!include tags-labels.puml
+
+top to bottom direction
+skinparam dpi 200
+allow_mixing
+scale 400 width
+
+skinparam ActivityDiamondBackgroundColor #RoyalBlue
+skinparam ArrowColor #SlateGrey   
+skinparam ArrowFontColor #RoyalBlue
+skinparam ArrowFontColor #SlateGrey  
+skinparam ArrowFontSize 12
+skinparam ArrowMessageAlignment left
+skinparam BoxPadding 10
+skinparam linetype ortho
+skinparam nodesep 90
+skinparam ranksep 40
+skinparam roundcorner 5
+skinparam sequenceArrowThickness 2
+skinparam TitleFontSize 20
+
+title FHIR Consent instance data - on-behalf consent
+
+frame "Representation of patient consent when given on behalf by a related person" as F {
+
+  !procedure $Coding($Alias,$System,$Code,$Display)
+    object "<color:GhostWhite>$System" as $Alias #MediumPurple {
+      <color:GhostWhite><size:11>**$Code**-$Display
+    }
+  !endprocedure
+
+  object "<size:16>**Consent to treatment**\n<size:16>**:CONSENT**" as TREATCONSENT #DodgerBlue {
+    * status: ""<color:GreenYellow>**#ACTIVE**""
+    * scope: ""**#treatment**""
+    * policy: reference to regs/leg.
+  }
+
+  object "treatment provision" as TP #Brown/SandyBrown  {
+    * type: ""<color:GreenYellow>**#PERMIT**""
+    * period: 
+      **""2023-01-21"" to ""2026-01-20""**
+  }
+
+  object "<size:16>**Consent to collect/share data**\n<size:16>**:CONSENT**" as DATACONSENT #DodgerBlue {
+    * status: ""<color:GreenYellow>**#ACTIVE**""
+    * scope: ""**#patient-privacy**""
+    * policy: reference to regs/leg.
+  }
+
+  object "data access provision" as DAP #Brown/SandyBrown  {
+    * type: ""<color:GreenYellow>**#PERMIT**""
+    * period: 
+      **""2023-01-21"" to ""2026-01-20""**
+  }
+
+  object "person giving consent\n<size:14>**:RELATEDPERSON**<sup>4</sup>" as RP1 <<contained>> #LightYellow {
+    * name.given: **Beryl**
+    * name.family: **Hackett**
+    * relationship: **""#PRN""**
+  }
+
+  object "person giving consent\n<size:14>**:RELATEDPERSON**<sup>4</sup>" as RP2 <<contained>> #LightYellow {
+    * name.given: **Beryl**
+    * name.family: **Hackett**
+    * relationship: **""#PRN""**
+  }
+
+  ' resources in other repos
+  object "NHI patient\n**:PATIENT**" as PATIENT <<logical reference>> #SkyBlue {
+    * logical id: NHI
+  }
+
+  object "Data custodian org\n:**ORGANIZATION**" as HPI <<logical reference>> #GhostWhite {
+    * HPI Org Id: ""GnXnnn""
+  }
+
+  frame "Patient data covered by data access provision<sup>3</sup>" as COVERED #LightGreen {
+    $TAGGED_INSTANCE(R1,"planned appointments, etc.\n<size:14>**:CAREPLAN**"                    ,"#rf-nz")
+    $TAGGED_INSTANCE(R2,"condition severity and specifics\n<size:14>**:CONDITION**"             ,"#rf-nz")
+    $TAGGED_INSTANCE(R3,"appointments\n<size:14>**:ENCOUNTER**                               "  ,"#rf-nz")
+    $TAGGED_INSTANCE(R4,"preferences, health assessments\n<size:14>**:QUESTIONNAIRERESPONSE**"  ,"#rf-nz")
+    $TAGGED_INSTANCE(R5,"diagnosis detail\n<size:14>**:OBSERVATION**                         "  ,"#rf-nz")
+    R3 -[hidden]u- R1
+    R4 -[hidden]u- R2
+    R5 -[hidden]u- R4
+  }
+}
+
+' positioning
+TREATCONSENT -[hidden]d- TP
+TP -[hidden]d- DATACONSENT
+
+
+' connectors
+DAP ".data.reference" -[thickness=3,#RoyalBlue]--{ COVERED 
+
+TREATCONSENT ".patient<sup>2</sup>" -[dotted,#SkyBlue,norank]-> PATIENT
+TREATCONSENT -[norank]-* TP : "".provision""
+TREATCONSENT ".organization\n**HPI org. ref**<sup>1</sup>" -[dashed,#Black]l-> HPI
+TREATCONSENT -d-* RP1: <color:#Black>.performer<sup> 4</sup>
+
+DATACONSENT ".patient" -[dotted,#SkyBlue,norank]-> PATIENT
+DATACONSENT -* DAP : "".provision""
+DATACONSENT ".organization\n**HPI org. ref**<sup>1</sup>" -[dashed,#Black]u-> HPI 
+DATACONSENT -d-* RP2: <color:#Black>.performer<sup> 4</sup>
+
+RP1 -[dotted,#SkyBlue,norank]--> PATIENT
+'RP2 -[dotted,#SkyBlue,norank]---> PATIENT
+
+legend bottom
+  **Notes**
+  1. ""Consent.organization"" identifies which org is custodian of the patient data.
+  2. Consent instances identify the data subject in "".patient"" references.
+  3. FHIR resource instances with patient data tagged for access scoping eg. #rf-nz for rheumatic fever
+  4. Note that ""RelatedPerson"" instance is contained by AND linked from (via .performer) the Consent instance.
+endlegend
+
+footer "Health NZ/Te Whatu Ora.  FHIR data model generated on %date('dd/MM/yyyy')"
+
+@enduml

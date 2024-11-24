@@ -3,9 +3,5 @@ See publish_version.sh -->
 
 **Implementation Guide version history**
 
-To view previous versions of the Implementation Guide or it's artifacts, please review the version history.
-
-### Previous versions
-
-- [0.2.3](./branches/023)
+This page is built by the HNZ IG Publisher.
  

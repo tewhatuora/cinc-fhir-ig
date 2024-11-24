@@ -3,13 +3,13 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: cinc.fhir.ig
-canonical: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
+id: tewhatuora.sharedcare
+canonical: https://fhir-ig.digital.health.nz/shared-care
 name: CINC_FHIR_IG
-title: Care In The Community FHIR API
-description: Care In The Community FHIR API
-status: draft
-version: 0.2.3
+title: Health New Zealand Te Whatu Ora Shared Care FHIR API
+description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
+status: active
+version: 0.4.0
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -32,8 +32,12 @@ publisher:
 #     version: 1.0.0
 #
 dependencies:
-  fhir.org.nz.ig.base: 2.0.0
+  fhir.org.nz.ig.base:
+    uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
+    version: 3.0.0
   hl7.fhir.uv.sdc: 3.0.0
+  tewhatuora.digitaltooling: 0.0.8
+  hl7.terminology.r4: 5.5.0
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
@@ -67,7 +71,29 @@ dependencies:
 parameters:
   show-inherited-invariants: false
   bundle-references-resolve: false
-
+  default-contact: true              # DG 13/11/2023: publish contact info for all resources (using canonical meta contact where specified)
+  apply-version: false               # 19/12/2023: stop publisher from overwriting artefact-specific versions
+  default-version: true              # DG 13/11/2023: versions of canonicals that specify their own version no longer overwritten by the IG publisher
+  suppressed-ids: $examples          # DG 13/11/2023: stop IG publisher generating ids for all example resource instances
+  display-warnings: true             # DG 13/11/2023: stop IG publisher reporting terminology problems as errors
+  special-url:
+    # legacy canonical urls
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDPrivacyStatementQuestionTemplate
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay3Survey
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay42Survey
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ConsumerCOVIDRATResultQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDInitialHealthAssessmentQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDRegularHealthCheckQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDVaccinationSurveyQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ImmsotVaccinationDataEntryQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MeaslesHealthCheckQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/MeasurementProcedureRequestTemplate
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/PlanDefinition/COVIDMVPCarePlanTemplate
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDRATResultQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MentalHealthAssessmentSurveyQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/PregnancyAssessmentSurveyQuestionnaire
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #
@@ -81,21 +107,31 @@ parameters:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Business Context: businessContext.html
-  Use Cases: useCases.html
-  Profiles: artifacts.html#structures-resource-profiles
-  API: capabilityStatement.html
-  Extensions: extensions.html
-  Terminology: terminology.html
+  Business context: businessContext.html
+  Definitions:
+    Structure Definitions: artifacts.html#shared-care-api-definitions
+    Questionnaires: artifacts.html#shared-care-api-canonical-questionnaires
+  Examples:
+    Shared Care: artifacts.html#shared-care-examples
+    QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
+    Communication Person: artifacts.html#communication-person-examples 
+  Data Consent:
+    FHIR representation of consent: fhirConsent.html
+    Consent-based resource access control: consentBasedAccessControl.html
+    Definitions and Examples: artifacts.html#consent-definitions-and-examples
+  API Developer Guide:
+    View OpenAPI: new-tab https://fhir-ig.digital.health.nz/openapi/index.html?urls.primaryName=Shared+Care+API
+    Developer Guide: developerGuide.html
+    API capability statement: CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html
   Artifact Index: artifacts.html
   FAQ: faq.html
-  Developer Guide: developerGuide.html
   Support:
+    Download OpenAPI: https://fhir-ig.digital.health.nz/shared-care/openapi.yaml
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
-    Download IG : full-ig.zip
+    Download IG: full-ig.zip
+    Changelog: changelog.html
     Artifacts (Json): definitions.json.zip
     Artifacts (Xml): definitions.xml.zip
-    OpenAPI Specification: CareInTheCommunityCapabilityStatement.openapi.json
     Version History: history.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
@@ -107,12 +143,12 @@ menu:
 # contact directly and follow the format outlined in the ImplementationGuide resource and
 # ContactDetail.
 #
-# contact:
-#   - name: Bob Smith
-#     telecom:
-#       - system: email # phone | fax | email | pager | url | sms | other
-#         value: bobsmith@example.org
-#         use: work
+contact:
+   - name: David Grainger
+     telecom:
+       - system: email 
+         value: david.grainger@middleware.co.nz
+         use: work
 #
 #
 # The global property corresponds to the IG.global property, but it
@@ -179,6 +215,88 @@ menu:
 #     - StructureDefinition/bark-control
 #     - StructureDefinition/bee-sting
 #
+groups:
+  Definitions:
+    name: Shared Care API definitions
+    description: Canonical FHIR Profiles and Definitions 
+    resources:
+    - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
+    - StructureDefinition/ManaakiNgaTahiCarePlan
+    - StructureDefinition/ManaakiNgaTahiCondition
+    - StructureDefinition/ManaakiNgaTahiDocumentReference
+    - StructureDefinition/ManaakiNgaTahiEncounter
+    - StructureDefinition/ManaakiNgaTahiObservation
+    - StructureDefinition/ManaakiNgaTahiPlanDefinition
+    - StructureDefinition/ManaakiNgaTahiServiceRequest
+    - StructureDefinition/ServiceRequestActivityDefinition
+    - StructureDefinition/nz-sharedcare-communication-person
+    - ActivityDefinition/MeasurementProcedureRequestTemplate
+    - PlanDefinition/COVIDMVPCarePlanTemplate
+    - OperationDefinition/ActivityDefinition-apply
+    - OperationDefinition/PlanDefinition-apply
+  Questionnaires:
+    name: Shared Care API canonical Questionnaires
+    description: Standard questionnaire definitions shared by all applications
+    resources:
+      - AntiViralEligibilityQuestionnaire
+      - COVIDInitialHealthAssessmentQuestionnaire
+      - COVIDPublicHealthHistoryQuestionnaire
+      - COVIDRegularHealthCheckQuestionnaire
+      - COVIDVaccinationSurveyQuestionnaire
+      - MentalHealthAssessmentSurveyQuestionnaire
+      - PregnancyAssessmentSurveyQuestionnaire
+      - ActiveMonitoringDay3Survey
+      - ActiveMonitoringDay42Survey
+      - COVIDRATResultQuestionnaire
+      - ConsumerCOVIDRATResultQuestionnaire
+      - ImmsotVaccinationDataEntryQuestionnaire
+      - MeaslesHealthCheckQuestionnaire
+  QuestionnaireResponseExamples:
+    name: Shared Care API QuestionnaireResponse examples
+    description: Demonstration QuestionnaireResponses for all Questionnaire resources
+    resources:
+      - AntiviralEligibilityNoQuestionnaireResponse
+      - AntiviralEligibilityYesQuestionnaireResponse
+      - COVIDInitialHealthAssessmentQuestionnaireResponse
+      - COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
+      - COVIDRegularHealthCheckQuestionnaireResponse
+      - COVIDVaccinationSurveyQuestionnaireResponse
+      - MentalHealthAssessmentSurveyQuestionnaireResponse
+      - PregnancyAssessmentSurveyQuestionnaireResponse 
+      - ActiveMonitoringDay3SurveyQuestionnaireResponse
+      - ActiveMonitoringDay42SurveyQuestionnaireResponse
+      - COVIDRATResultQuestionnaireResponse
+      - MeaslesHealthCheckQuestionnaireResponse
+      - ConsumerCOVIDRATResultQuestionnaireResponse
+      - ImmsotVaccinationDataEntryQuestionnaireResponse
+  CINCExamples: 
+    name: Shared Care examples
+    resources:
+    - CarePlanExample
+    - ConditionExample
+    - DocumentReferenceExample
+    - EncounterExample
+    - ObservationExample
+    - CareyCarrington
+    - DrDottyMcStuffins
+    - ObservationsServiceRequestExample
+  CommunicationExamples:
+    name: Communication Person examples
+    resources:
+    - NIBSCommunicationPersonExample
+    - WhaihuaCommunicationPersonExample 
+  Consent:
+    name: Consent definitions and examples 
+    resources:
+    - StructureDefinition/nz-sharedcare-consent
+    - COVIDPrivacyStatementQuestionTemplate
+    - ConsentExample
+    - ActiveConsentExample
+    - ProvisionalConsentExample
+    - ConsentByRelatedPersonExample
+    - ConsentByQuestionnaireExample
+    - ConsentQuestionnaireResponseExample
+
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and
