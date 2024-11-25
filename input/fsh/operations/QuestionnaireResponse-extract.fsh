@@ -5,7 +5,7 @@ Usage: #definition
 * name = "CareInTheCommunityQuestionnaireResponseExtract"
 * title = "Care In The Community QuestionnaireResponse Extract Operation"
 * status = #draft
-* kind = #query
+* kind = #operation
 * date = "2022-09-20"
 * publisher = "Te Whatu Ora"
 * description = "The Extract operation takes a completed QuestionnaireResponse and converts it to a FHIR resource or Bundle of resources by using metadata embedded in the Questionnaire the QuestionnaireResponse is based on"
