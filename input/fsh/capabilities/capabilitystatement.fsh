@@ -479,3 +479,5 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+* rest.resource[=].operation[0].name = "$extract"
+* rest.resource[=].operation[=].definition = Canonical(QuestionnaireResponse-extract)

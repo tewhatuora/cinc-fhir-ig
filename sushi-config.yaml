@@ -234,6 +234,7 @@ groups:
     - PlanDefinition/COVIDMVPCarePlanTemplate
     - OperationDefinition/ActivityDefinition-apply
     - OperationDefinition/PlanDefinition-apply
+    - OperationDefinition/QuestionnaireResponse-extract
   Questionnaires:
     name: Shared Care API canonical Questionnaires
     description: Standard questionnaire definitions shared by all applications
