@@ -36,7 +36,7 @@ dependencies:
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
     version: 3.0.0
   hl7.fhir.uv.sdc: 3.0.0
-  tewhatuora.digitaltooling: 0.0.8
+  tewhatuora.digitaltooling: 0.0.11
   hl7.terminology.r4: 5.5.0
 
 #

@@ -14,8 +14,8 @@ Usage: #definition
 * base = "https://build.fhir.org/ig/HL7/sdc/OperationDefinition-QuestionnaireResponse-extract"
 * resource = #QuestionnaireResponse
 * system = false
-* type = false
-* instance = true
+* type = true
+* instance = false
 * parameter[0].name = #QuestionnaireResponse
 * parameter[=].use = #in
 * parameter[=].min = 1
