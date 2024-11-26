@@ -13,8 +13,10 @@ This IG depends on:
 
 ## Local development
 
-`_updatePublisher.sh` - Download the latest FHIR Publisher
+`./_updatePublisher.sh -y` - Download the latest FHIR Publisher
 
-`_genonce.sh` - Build the IG using the latest FHIR Publisher
+`./_genonce.sh` - Build the IG using the latest FHIR Publisher
 
-`_genopenapi.sh` - Generate an HNZ OpenAPI specification. Run after `_genonce.sh` to avoid changes being lost
+`./_genopenapi.sh` - Generate an HNZ OpenAPI specification. Run after `_genonce.sh` to avoid changes being lost
+
+`http-server output` - To run a local server (install using `npm install --global http-server`)
