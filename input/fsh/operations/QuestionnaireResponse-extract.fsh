@@ -20,7 +20,7 @@ Usage: #definition
 * parameter[=].use = #in
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "The plan definition to be applied (required)."
+* parameter[=].documentation = "Questionnaire Response content to be extracted"
 * parameter[=].type = #QuestionnaireResponse
 * parameter[+].name = #subject
 * parameter[=].use = #in
