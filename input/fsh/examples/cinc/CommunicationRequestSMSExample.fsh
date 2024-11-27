@@ -32,13 +32,18 @@ Usage : #example
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
 * sender = Reference(BSAService)
+//SMS Payload
 * payload[0].contentAttachment.contentType = #application/pdf
 * payload[=].contentAttachment.language = #en-nz
-* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
-* payload[=].contentAttachment.title = "body"
+* payload[=].contentAttachment.id = "attachment-body"
+* payload[=].contentAttachment.title = "Appointment Reminder"
 * payload[=].contentAttachment.creation = "2024-11-04T09:35:00+11:00"
-* payload[+].contentReference.display = "Subject : Appointment Reminder"
-
+* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+/*
+//Subject
+* payload[+].contentReference.reference = "Subject"
+* payload[=].contentReference.display = "Subject : Appointment Reminder"
+*/
 * extension[0].url = Canonical(hnz-campaign-code-extension)
 * extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
 * extension[+].url = Canonical(hnz-campaign-name-extension)

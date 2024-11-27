@@ -30,30 +30,41 @@ Usage : #example
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
-//* requester.type = "Device"
-//* requester.display = "BSR"
-//* sender = Reference(NationalHealthCareService/BSAService)
 * sender = Reference(BSAService)
+//Email Body
 * payload[0].contentAttachment.contentType = #application/pdf
 * payload[=].contentAttachment.language = #en-nz
-* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
-* payload[=].contentAttachment.title = "body"
+* payload[=].contentAttachment.id = "attachment-body"
+* payload[=].contentAttachment.title = "Appointment Reminder" //Email Subject
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[+].contentAttachment.contentType = #application/pdf
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+
+//Attachment1
+* payload[+].contentAttachment.contentType = #application/pdf
+* payload[=].contentAttachment.id = "attcahment-file1"
 * payload[=].contentAttachment.title = "File1.pdf"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[+].contentAttachment.contentType = #application/pdf
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+//Attachment2
+* payload[+].contentAttachment.contentType = #application/pdf
+* payload[=].contentAttachment.id = "attcahment-file2"
 * payload[=].contentAttachment.title = "File2.pdf"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[+].contentAttachment.contentType = #application/pdf
-* payload[=].contentAttachment.language = #en-nz
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
-* payload[=].contentAttachment.title = "Template"
-* payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[+].contentReference.display = "Subject : Appointment Reminder"
+//Template
+* payload[+].contentReference.id = "attachment-template"
+* payload[=].contentReference.display = "Vaccination Appointment Reminder"
+* payload[=].contentReference = Reference(DocumentReference/T1238)
+//* payload[=].contentReference.type = "DocumentReference"
+//* payload[=].contentReference.display = "T1238"
 
+//Template Parameter
+* payload[+].contentAttachment.contentType = #application/pdf
+* payload[=].contentAttachment.id = "attachment-Parameter"
+* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+* payload[=].contentAttachment.title = "templateparameter"
+* payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
+//Extensions
 * extension[0].url = Canonical(hnz-campaign-code-extension)
 * extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
 * extension[+].url = Canonical(hnz-campaign-name-extension)
