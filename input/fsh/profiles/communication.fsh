@@ -20,6 +20,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * statusReason 0..1
 * statusReason from hnz-communication-delivery-status-valueset (required)
 * medium 1..
+* medium from hnz-participation-mode-valueset (required)
 * subject only Reference(Patient) //nhi
 * sent 1.. //event_datetime
 * sent ^short = "Must be in UTC timezone on the FHIR server"

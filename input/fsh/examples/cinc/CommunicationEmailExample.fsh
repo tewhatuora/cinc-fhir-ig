@@ -19,7 +19,7 @@ Usage : #example
 * statusReason.coding.code = #sent
 * statusReason.coding.system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes"
 * medium.coding.code = #EMAILWRIT
-* medium.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
+* medium.coding.system = $hnz-participation-mode
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
 * recipient.type = "Practitioner"
