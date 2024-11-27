@@ -482,7 +482,7 @@ Usage: #definition
 * rest.resource[=].operation[=].definition = Canonical(QuestionnaireResponse-extract)
 
 * rest.resource[+].type = #ActivityDefinition
-* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=] insert DefinitionalResourceInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
