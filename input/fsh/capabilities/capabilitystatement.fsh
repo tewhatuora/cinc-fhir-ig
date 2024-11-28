@@ -94,10 +94,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "Appointment date/time"
 
-* rest.resource[0].type = #Bundle
-* rest.resource[=].profile = Canonical(Bundle)
-* rest.resource[=] insert GenericCRUDInteractions
-
 * rest.resource[+].type = #CarePlan
 * rest.resource[=].profile = Canonical(CarePlan)
 * rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiCarePlan)
