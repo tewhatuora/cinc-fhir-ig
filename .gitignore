@@ -10,3 +10,5 @@ Thumbs.db
 /localscripts/node_modules
 /localscripts/package-lock.json
 fhir-openapi-converter.js
+/oas/
+
