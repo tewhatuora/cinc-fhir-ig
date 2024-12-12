@@ -553,7 +553,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
-
 * rest.resource[+].type = #QuestionnaireResponse
 //* rest.resource[=].profile = canonical(QuestionnaireResponse)
 * rest.resource[=] insert GenericCRUDInteractions
@@ -581,4 +580,31 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
+* rest.resource[=].operation[0].name = "extract"
+* rest.resource[=].operation[=].definition = Canonical(QuestionnaireResponse-extract)
 
+* rest.resource[+].type = #ActivityDefinition
+* rest.resource[=] insert DefinitionalResourceInteractions
+* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchParam[0].name = "_id"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ActivityDefinition-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "External identifier for the ActivityDefinition"
+* rest.resource[=].searchParam[+].name = "name"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ActivityDefinition-name"
+* rest.resource[=].searchParam[=].type = #string
+* rest.resource[=].searchParam[=].documentation = "Computationally friendly name of the ActivityDefinition"
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ActivityDefinition-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "The current status of the ActivityDefinition"
+* rest.resource[=].searchParam[+].name = "title"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ActivityDefinition-title"
+* rest.resource[=].searchParam[=].type = #string
+* rest.resource[=].searchParam[=].documentation = "The human-friendly name of the ActivityDefinition"
+* rest.resource[=].operation[0].name = "apply"
+* rest.resource[=].operation[=].definition = Canonical(ActivityDefinition-apply)
