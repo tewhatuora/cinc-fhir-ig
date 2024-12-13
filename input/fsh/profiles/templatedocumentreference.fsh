@@ -10,8 +10,6 @@ Description: "DocumentReference FHIR resource for Email communication Template"
 * category from hnz-template-category-valueset (required)
 * date 1..
 * description 0..1
-* content 1..
+* content 1..*
 * context 0..1
 // extension 
-* extension contains
-  hnz-notification-triggered-extension named notificationTriggeredOn 0..1

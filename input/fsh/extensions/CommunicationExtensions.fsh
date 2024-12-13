@@ -18,10 +18,3 @@ Title: "Communication details at paticular time"
 Context: Communication , CommunicationRequest
 Description: "Communication details at paticular times"
 * value[x] only ContactPoint
-
-Extension: notificationTriggeredExtension
-Id: hnz-notification-triggered-extension
-Title: "notification triggered Extension"
-Description: "A simple extension for storing notification triggered time."
-Context: DocumentReference 
-* valueString 0..1
