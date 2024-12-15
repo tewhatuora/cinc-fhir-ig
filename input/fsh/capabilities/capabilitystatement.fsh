@@ -608,3 +608,30 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "The human-friendly name of the ActivityDefinition"
 * rest.resource[=].operation[0].name = "apply"
 * rest.resource[=].operation[=].definition = Canonical(ActivityDefinition-apply)
+
+* rest.resource[+].type = #DocumentReference
+* rest.resource[=].supportedProfile = Canonical(TemplateDocumentReference)
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchParam[0].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Identifier of the attachment binary"
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "current | superseded | entered-in-error"
+* rest.resource[=].searchParam[+].name = "category"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-category"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Categorization of document"
+* rest.resource[=].searchParam[+].name = "doc-status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-​docStatus"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "preliminary | final | amended | entered-in-error"
+* rest.resource[=].searchParam[+].name = "date"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-​date"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "When this document reference was createdr"
+* rest.resource[=].searchParam[+].name = "_profile"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=].searchParam[=].type = #reference

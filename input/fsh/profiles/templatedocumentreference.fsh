@@ -1,7 +1,12 @@
 Profile: TemplateDocumentReference
 Parent: DocumentReference
-Description: "DocumentReference FHIR resource for Email communication Template"
+Description: "A DocumentReference FHIR Resource That Define the Template For  Email communication."
+Id: TemplateDocumentReference
+Title: "Record of Template for Email Communication from Any Healthcare System"
 * ^version = "0.0.1"
+* ^purpose = "A Record Of Template used by different healthcare services for email communication"
+* ^status = #draft
+* ^jurisdiction = urn:iso:std:iso:3166#NZ 
 * masterIdentifier 1..1
 * identifier 1..1
 * status 1..
