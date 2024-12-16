@@ -17,4 +17,3 @@ Title: "Record of Template for Email Communication from Any Healthcare System"
 * description 0..1
 * content 1..*
 * context 0..1
-// extension 
