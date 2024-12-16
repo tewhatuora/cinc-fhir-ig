@@ -59,9 +59,9 @@ Usage : #example
 //* payload[=].contentReference.display = "T1238"
 
 //Template Parameter
-* payload[+].contentAttachment.contentType = #application/pdf
+* payload[+].contentAttachment.contentType = #application/json
 * payload[=].contentAttachment.id = "attachment-Parameter"
-* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+* payload[=].contentAttachment.data = "eyAiUGF0aWVudE5hbWUiOiAiSm9obiBEb2UiLCAiQXBwb2ludG1lbnREYXRlIjogIjIwMjQtMTItMTMiLCAiQXBwb2ludG1lbnRUaW1lIjogIjEwOjAwIEFNIiwgIkNvbmZpcm1hdGlvbkRlYWRsaW5lIjogIjIwMjQtMTItMTAiIH0="
 * payload[=].contentAttachment.title = "templateparameter"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 //Extensions
