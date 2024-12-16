@@ -26,7 +26,6 @@ Usage : #example
 * content[=].attachment.id = "template-variables"
 * content[=].attachment.creation = "2023-08-01T09:35:00+11:00"
 * content[=].attachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
-
 //Template Attachment
 * content[+].attachment.contentType = #application/pdf
 * content[=].attachment.language = #en-nz
