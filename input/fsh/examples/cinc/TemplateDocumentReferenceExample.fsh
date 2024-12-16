@@ -23,13 +23,14 @@ Usage : #example
 //Template Parameters
 * content[+].attachment.contentType = #application/json
 * content[=].attachment.language = #en-nz
-* content[=].attachment.id = "template-variables"
+* content[=].attachment.id = "template-parameter"
 * content[=].attachment.creation = "2023-08-01T09:35:00+11:00"
 * content[=].attachment.data = "ewogICJ0aXRsZSI6ICJXZWxjb21lIE1lc3NhZ2UgU2NoZW1hIiwKICAidHlwZSI6ICJvYmplY3QiLAogICJwcm9wZXJ0aWVzIjogewogICAgImZpcnN0TmFtZSI6IHsKICAgICAgInR5cGUiOiAic3RyaW5nIiwKICAgICAgImRlc2NyaXB0aW9uIjogIlRoZSByZWNpcGllbnQncyBmaXJzdCBuYW1lLiIsCiAgICAgICJyZXF1aXJlZCI6IHRydWUKICAgIH0sCiAgICAibGFzdE5hbWUiOiB7CiAgICAgICJ0eXBlIjogInN0cmluZyIsCiAgICAgICJkZXNjcmlwdGlvbiI6ICJUaGUgcmVjaXBpZW50J3MgbGFzdCBuYW1lLiIsCiAgICAgICJyZXF1aXJlZCI6IGZhbHNlCiAgICB9LAogICAgIndlbGNvbWVNZXNzYWdlIjogewogICAgICAidHlwZSI6ICJzdHJpbmciLAogICAgICAiZGVzY3JpcHRpb24iOiAiQSBjdXN0b20gd2VsY29tZSBtZXNzYWdlLiIsCiAgICAgICJyZXF1aXJlZCI6IGZhbHNlCiAgICB9CiAgfSwKICAicmVxdWlyZWQiOiBbImZpcnN0TmFtZSJdCn0="
 //Template Attachment
 * content[+].attachment.contentType = #application/pdf
 * content[=].attachment.language = #en-nz
-* content[=].attachment.id = "template-attachment1"
+* content[=].attachment.id = "template-attachment-file1"
+* content[=].attachment.title = "InstructionSet.pdf"
 * content[=].attachment.creation = "2023-08-01T09:35:00+11:00"
 * content[=].attachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
 * context.related = Reference(BSAService)

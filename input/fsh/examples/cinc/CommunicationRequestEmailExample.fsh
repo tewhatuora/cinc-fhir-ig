@@ -55,14 +55,12 @@ Usage : #example
 * payload[+].contentReference.id = "attachment-template"
 * payload[=].contentReference.display = "Vaccination Appointment Reminder"
 * payload[=].contentReference = Reference(DocumentReference/T1238)
-//* payload[=].contentReference.type = "DocumentReference"
-//* payload[=].contentReference.display = "T1238"
+
 
 //Template Parameter
 * payload[+].contentAttachment.contentType = #application/json
-* payload[=].contentAttachment.id = "attachment-Parameter"
+* payload[=].contentAttachment.id = "attachment-parameter"
 * payload[=].contentAttachment.data = "eyAiUGF0aWVudE5hbWUiOiAiSm9obiBEb2UiLCAiQXBwb2ludG1lbnREYXRlIjogIjIwMjQtMTItMTMiLCAiQXBwb2ludG1lbnRUaW1lIjogIjEwOjAwIEFNIiwgIkNvbmZpcm1hdGlvbkRlYWRsaW5lIjogIjIwMjQtMTItMTAiIH0="
-* payload[=].contentAttachment.title = "templateparameter"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 //Extensions
 * extension[0].url = Canonical(hnz-campaign-code-extension)
