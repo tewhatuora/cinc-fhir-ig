@@ -289,8 +289,10 @@ groups:
   CommunicationRequestExamples:
     name: Communication Request examples
     resources:
-    - SMSCommunicationRequestExample
-    - EmailCommunicationRequestExample
+    - SMSCommunicationRequestWithoutTemplateExample
+    - SMSCommunicationRequestWithTemplateExample
+    - EmailCommunicationRequestWithoutTemplateExample
+    - EmailCommunicationRequestWithTemplateExample
   CommunicationTypeExamples:
     name: Communication Type examples
     resources:

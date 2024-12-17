@@ -1,10 +1,10 @@
 Profile: NationalHealthCareService
 Parent: HealthcareService
 Id: NationalHealthCareService
-Title: "Record Of all helathcare services"
-Description: "A Healthcareservice Resource used to record the details of the service"
+Title: "Record Of all healthcare services"
+Description: "A HealthcareService Resource used to record the details of the service"
 * ^version = "0.0.1"
-* ^purpose = "A Healthcareservice Resource used to record the details of the service"
+* ^purpose = "A HealthcareService Resource used to record the details of the service"
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * meta.profile 1..1
@@ -16,7 +16,7 @@ Description: "A Healthcareservice Resource used to record the details of the ser
 * active 1..1
 * type 0..
 * name 1..1
-* comment 0..
-* category 0..
-* program 0..
-* telecom 1..
+* comment 0..1
+* category 0..*
+* program 0..*
+* telecom 1..*

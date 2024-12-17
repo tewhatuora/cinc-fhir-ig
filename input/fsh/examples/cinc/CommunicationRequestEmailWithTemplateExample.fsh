@@ -1,4 +1,4 @@
-Instance : EmailCommunicationRequestExample
+Instance : EmailCommunicationRequestWithTemplateExample
 InstanceOf : CMSCommunicationRequest
 Description: "An example of a CommunicationRequest resource. This resource is used to record information related to requesting communication with a client using EMAIL as the medium."
 Usage : #example
@@ -32,36 +32,38 @@ Usage : #example
 * subject.display = "Carey Carrington"
 * sender = Reference(BSAService)
 //Email Body
-* payload[0].contentAttachment.contentType = #application/pdf
+* payload[0].contentAttachment.id = "message-body"
+* payload[=].contentAttachment.contentType = #text/plain
 * payload[=].contentAttachment.language = #en-nz
-* payload[=].contentAttachment.id = "attachment-body"
-* payload[=].contentAttachment.title = "Appointment Reminder" //Email Subject
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+* payload[=].contentAttachment.title = "Appointment Reminder" //Email Subject
 
 //Attachment1
-* payload[+].contentAttachment.contentType = #application/pdf
-* payload[=].contentAttachment.id = "attcahment-file1"
+* payload[+].contentAttachment.id = "attachment-file1"
+* payload[=].contentAttachment.contentType = #application/pdf
 * payload[=].contentAttachment.title = "File1.pdf"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+
 //Attachment2
-* payload[+].contentAttachment.contentType = #application/pdf
-* payload[=].contentAttachment.id = "attcahment-file2"
+* payload[+].contentAttachment.id = "attachment-file2"
+* payload[=].contentAttachment.contentType = #application/pdf
 * payload[=].contentAttachment.title = "File2.pdf"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+
 //Template
-* payload[+].contentReference.id = "attachment-template"
+* payload[+].contentReference.id = "message-template"
+* payload[=].contentAttachment.contentType = #text/plain
 * payload[=].contentReference.display = "Vaccination Appointment Reminder"
 * payload[=].contentReference = Reference(DocumentReference/T1238)
 
-
 //Template Parameter
 * payload[+].contentAttachment.contentType = #application/json
-* payload[=].contentAttachment.id = "attachment-parameter"
+* payload[=].contentAttachment.id = "message-parameters"
 * payload[=].contentAttachment.data = "eyAiUGF0aWVudE5hbWUiOiAiSm9obiBEb2UiLCAiQXBwb2ludG1lbnREYXRlIjogIjIwMjQtMTItMTMiLCAiQXBwb2ludG1lbnRUaW1lIjogIjEwOjAwIEFNIiwgIkNvbmZpcm1hdGlvbkRlYWRsaW5lIjogIjIwMjQtMTItMTAiIH0="
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
+
 //Extensions
 * extension[0].url = Canonical(hnz-campaign-code-extension)
 * extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"

@@ -1,6 +1,6 @@
-Instance : SMSCommunicationExample
-InstanceOf : CMSCommunication
-Description: "An example of a Communication resource. This resource is used to record information related to communication via SMS as the medium"
+Instance : SMSCommunicationRequestWithTemplateExample
+InstanceOf : CMSCommunicationRequest
+Description : "An example of a CommunicationRequest resource. This resource is used to record information related to requesting communication with a client using SMS as the medium"
 Usage : #example
 * identifier[0].use = #usual
 * identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
@@ -17,34 +17,32 @@ Usage : #example
 * identifier[4].use = #secondary
 * identifier[4].value = "#lb8d66-1390-42c7-89a6-a9a75d65d333"
 * identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerID"
-* basedOn = Reference(SMSCommunicationRequestWithTemplateExample)
 * status = #unknown
-
-* statusReason.coding.code = #sent
-* statusReason.coding.system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes"
-
-* medium.coding.system = $hnz-participation-mode
 * medium.coding.code = #SMSWRIT
-* sent = "2024-08-20T14:30:00Z"
-* received = "2024-08-20T14:35:00Z"
+* medium.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
+//* occurrenceDateTime = "2024-08-20T14:30:00Z"(optional)
+* authoredOn = "2024-08-20T14:30:00Z"
+
 * recipient.type = "Practitioner"
 * recipient.identifier.use = #official
 * recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * recipient.identifier.value = "99ZZFX"
-* category.coding.code = #notification
-* category.coding.system = "http://terminology.hl7.org/CodeSystem/communication-category"
-* sender = Reference(BSAService)
-* subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
+* sender = Reference(BSAService)
 
+//Template
 * payload[0].contentAttachment.contentType = #text/plain
-* payload[=].contentAttachment.language = #en-nz
-* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
-* payload[=].contentAttachment.id = "message-body"
-* payload[=].contentAttachment.title = "Payload"
+* payload[=].contentReference.id = "message-template"
+* payload[=].contentReference.display = "Vaccination Appointment Reminder"
+* payload[=].contentReference = Reference(DocumentReference/T1238)
+
+//Template Parameter
+* payload[+].contentAttachment.contentType = #application/json
+* payload[=].contentAttachment.id = "message-parameters"
+* payload[=].contentAttachment.data = "eyAiUGF0aWVudE5hbWUiOiAiSm9obiBEb2UiLCAiQXBwb2ludG1lbnREYXRlIjogIjIwMjQtMTItMTMiLCAiQXBwb2ludG1lbnRUaW1lIjogIjEwOjAwIEFNIiwgIkNvbmZpcm1hdGlvbkRlYWRsaW5lIjogIjIwMjQtMTItMTAiIH0="
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 
 * extension[0].url = Canonical(hnz-campaign-code-extension)
