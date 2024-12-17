@@ -1,2 +1,0 @@
-Name            Type      File
-NZPurposeOfUse  ValueSet  valuesets/NZPurposeOfUse.fsh
