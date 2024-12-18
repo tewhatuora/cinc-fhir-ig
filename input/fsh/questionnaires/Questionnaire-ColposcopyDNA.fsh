@@ -1,6 +1,4 @@
-Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
-
-Instance: undefined
+Instance: PrivateColposcopyDNAQuestionnaire
 InstanceOf: Questionnaire
 Usage: #example
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/PrivateColposcopyDNAQuestionnaire"

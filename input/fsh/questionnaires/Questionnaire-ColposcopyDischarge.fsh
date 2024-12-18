@@ -1,7 +1,4 @@
-Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
-Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-control
-
-Instance: undefined
+Instance: PrivateColposcopyDischargeQuestionnaire
 InstanceOf: Questionnaire
 Usage: #example
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/PrivateColposcopyDischargeQuestionnaire"
@@ -23,17 +20,14 @@ Usage: #example
 * item[=].prefix = "page 01"
 * item[=].type = #group
 * item[=].text = "Clinic Information"
-* item[=].item.linkId = "p01-q01-ClinicInformation"
+* item[=].item.linkId = "p01-q01-FacilityID"
 * item[=].item.prefix = "page 01 question 1"
-* item[=].item.type = #group
-* item[=].item.text = "Clinic Information"
-* item[=].item.item.linkId = "p01-q01.1-Clinic"
-* item[=].item.item.prefix = "page 01 question 1.1"
-* item[=].item.item.type = #reference
-* item[=].item.item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource"
-* item[=].item.item.extension.valueCode = #Location
-* item[=].item.item.text = "Discharged by Colposcopy HPI facility"
-* item[=].item.item.required = true
+* item[=].item.type = #reference
+* item[=].item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource"
+* item[=].item.extension.valueCode = #Location
+* item[=].item.text = "Discharged by Colposcopy HPI facility"
+* item[=].item.required = true
+* item[=].item.repeats = false
 * item[+].linkId = "p02-DischargeInformation"
 * item[=].prefix = "page 02"
 * item[=].type = #group
@@ -108,5 +102,32 @@ Usage: #example
 * item[=].item[=].enableWhen.question = "p02-q06-FollowUpManagement"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerCoding.display = "Other"
+* item[=].item[=].enableBehavior = #all
+* item[=].item[+].linkId = "p02-q08-FollowUpTimeFrame"
+* item[=].item[=].prefix = "page 02 question 9"
+* item[=].item[=].type = #choice
+* item[=].item[=].text = "Follow-up management timeframe"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = #7D "7 Days"
+* item[=].item[=].answerOption[+].valueCoding = #2W "2 Weeks"
+* item[=].item[=].answerOption[+].valueCoding = #6W "6 Weeks"
+* item[=].item[=].answerOption[+].valueCoding = #1M "1 Month"
+* item[=].item[=].answerOption[+].valueCoding = #2M "2 Months"
+* item[=].item[=].answerOption[+].valueCoding = #3M "3 Months"
+* item[=].item[=].answerOption[+].valueCoding = #4M "4 Months"
+* item[=].item[=].answerOption[+].valueCoding = #5M "5 Months"
+* item[=].item[=].answerOption[+].valueCoding = #6M "6 Months"
+* item[=].item[=].answerOption[+].valueCoding = #7M "7 Months"
+* item[=].item[=].answerOption[+].valueCoding = #9M "9 Months"
+* item[=].item[=].answerOption[+].valueCoding = #12M "12 Months"
+* item[=].item[=].answerOption[+].valueCoding = #18M "18 Months"
+* item[=].item[=].answerOption[+].valueCoding = #36M "36 Months"
+* item[=].item[=].answerOption[+].valueCoding = #60M "60 Months"
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
+* item[=].item[=].repeats = false
+* item[=].item[=].enableWhen.question = "p02-q01-DischargeType"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerCoding.display = "Screen taker"
 * item[=].item[=].enableBehavior = #all
 * item[=].repeats = false
