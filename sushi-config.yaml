@@ -252,6 +252,10 @@ groups:
       - ConsumerCOVIDRATResultQuestionnaire
       - ImmsotVaccinationDataEntryQuestionnaire
       - MeaslesHealthCheckQuestionnaire
+      - PrivateColposcopyReferralQuestionnaire
+      - PrivateColposcopyDNAQuestionnaire
+      - PrivateColposcopyVisitQuestionnaire
+      - PrivateColposcopyDischargeQuestionnaire
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources
