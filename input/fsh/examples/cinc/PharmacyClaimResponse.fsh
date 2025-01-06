@@ -1,4 +1,4 @@
-Instance: HSAAP Adjudicated Claim Response
+Instance: HSAAPAdjudicatedClaimResponse
 InstanceOf: ClaimResponse
 Usage: #example
 * identifier.system = "https://api.messaging.digital.health.nz/fileID"

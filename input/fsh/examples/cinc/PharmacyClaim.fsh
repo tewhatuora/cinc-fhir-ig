@@ -1,4 +1,4 @@
-Instance: Pharmacy Submitted Claim 
+Instance: PharmacySubmittedClaim 
 InstanceOf: Claim
 Usage: #example
 * identifier.system = "https://api.messaging.digital.health.nz/fileID"

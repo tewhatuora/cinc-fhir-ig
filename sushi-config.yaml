@@ -274,6 +274,8 @@ groups:
       - MeaslesHealthCheckQuestionnaireResponse
       - ConsumerCOVIDRATResultQuestionnaireResponse
       - ImmsotVaccinationDataEntryQuestionnaireResponse
+      - HSAAPAdjudicatedClaimResponse
+      - PharmacySubmittedClaim
   CINCExamples: 
     name: Shared Care examples
     resources:
