@@ -1,7 +1,4 @@
-Alias: $HeaderRecordType = https://api.messaging.digital.health.nz/HeaderRecordType
-Alias: $ex-paymenttype = http://terminology.hl7.org/CodeSystem/ex-paymenttype
-
-Instance: R3500
+Instance: HSAAP Adjudicated Claim Response
 InstanceOf: ClaimResponse
 Usage: #example
 * identifier.system = "https://api.messaging.digital.health.nz/fileID"
@@ -9,11 +6,14 @@ Usage: #example
 * status = #active
 * type = $HeaderRecordType#ExampleRecordType
 * use = #claim
-* patient = Reference(Patient/1)
+* patient.identifier.use = #official
+* patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
+* patient.identifier.value = "ZXP7823"
+* patient.display = "Carey Carrington"
 * created = "2014-08-16"
 * insurer.identifier.system = "http://www.jurisdiction.org/insurers"
 * insurer.identifier.value = "555123"
-* request = Reference(http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402)
+* request = Reference(Claim/790423052393482)
 * outcome = #complete
 * item.itemSequence = 1
 * item.adjudication[0].category.coding.code = #eligible
