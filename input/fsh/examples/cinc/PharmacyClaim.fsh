@@ -1,8 +1,4 @@
-Alias: $HeaderRecordType = https://api.messaging.digital.health.nz/HeaderRecordType
-Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
-Alias: $ex-pharmaservice = http://hl7.org/fhir/ex-pharmaservice
-
-Instance: 760151
+Instance: Pharmacy Submitted Claim 
 InstanceOf: Claim
 Usage: #example
 * identifier.system = "https://api.messaging.digital.health.nz/fileID"
