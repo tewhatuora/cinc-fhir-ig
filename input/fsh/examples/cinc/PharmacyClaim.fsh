@@ -1,12 +1,15 @@
-Instance: PharmacySubmittedClaim 
+Instance: PharmacySubmittedClaim
 InstanceOf: Claim
 Usage: #example
 * identifier.system = "https://api.messaging.digital.health.nz/fileID"
 * identifier.value = "7612345"
 * identifier.use = #secondary
 * status = #active
-* type = $HeaderRecordType##ExampleRecordType
 * use = #claim
+* type = $claim-type#pharmacy
+* subType = $HeaderRecordType#ExampleRecordType
+* insurer = Reference(Organization/43242343232)
+* provider = Reference(Organization/54739649856)
 * patient.identifier.use = #official
 * patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * patient.identifier.value = "ZXP7823"
