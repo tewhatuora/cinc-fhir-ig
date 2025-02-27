@@ -54,9 +54,8 @@ Usage : #example
 
 //Template
 * payload[+].contentReference.id = "message-template"
-* payload[=].contentAttachment.contentType = #text/plain
 * payload[=].contentReference.display = "Vaccination Appointment Reminder"
-* payload[=].contentReference = Reference(DocumentReference/T1238)
+* payload[=].contentReference = Reference(DocumentReference/EmailCommunicationTemplateExample)
 
 //Template Parameter
 * payload[+].contentAttachment.contentType = #application/json
