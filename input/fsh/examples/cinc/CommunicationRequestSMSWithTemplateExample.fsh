@@ -34,10 +34,9 @@ Usage : #example
 * sender = Reference(BSAService)
 
 //Template
-* payload[0].contentAttachment.contentType = #text/plain
-* payload[=].contentReference.id = "message-template"
+* payload[0].contentReference.id = "message-template"
 * payload[=].contentReference.display = "Vaccination Appointment Reminder"
-* payload[=].contentReference = Reference(DocumentReference/T1238)
+* payload[=].contentReference = Reference(DocumentReference/EmailCommunicationTemplateExample)
 
 //Template Parameter
 * payload[+].contentAttachment.contentType = #application/json
