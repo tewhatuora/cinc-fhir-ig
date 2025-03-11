@@ -6,7 +6,7 @@ Title: "Record of Template for Email Communication from Any Healthcare System"
 * ^version = "0.0.1"
 * ^purpose = "A Record Of Template used by different healthcare services for email communication"
 * ^status = #draft
-* ^jurisdiction = urn:iso:std:iso:3166#NZ 
+* ^jurisdiction = urn:iso:std:iso:3166#NZ
 * masterIdentifier 1..1
 * identifier 1..1
 * status 1..1

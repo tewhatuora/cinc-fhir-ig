@@ -31,6 +31,8 @@ Usage : #example
 * subject.identifier.value = "ZXP7823"
 * subject.display = "Carey Carrington"
 * sender = Reference(BSAService)
+
+
 //Email Body
 * payload[0].contentAttachment.id = "message-body"
 * payload[=].contentAttachment.contentType = #text/plain
@@ -51,12 +53,22 @@ Usage : #example
 * payload[=].contentAttachment.title = "File2.pdf"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 * payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+* payload[=].contentAttachment.extension[0].url = Canonical(hnz-attachment-extension)
+* payload[=].contentAttachment.extension[=].extension[0].url = "attachmentDisposition"
+* payload[=].contentAttachment.extension[=].extension[=].valueString = "attachment"
+* payload[=].contentAttachment.extension[=].extension[+].url = "attachmentContentId"
+* payload[=].contentAttachment.extension[=].extension[=].valueString = "logo"
 
 //Extensions
-* extension[0].url = Canonical(hnz-campaign-code-extension)
-* extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
-* extension[+].url = Canonical(hnz-campaign-name-extension)
-* extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
+* extension[0].url = Canonical(hnz-campaign-extension)
+* extension[=].extension[0].url = "campaignCode"
+* extension[=].extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
+* extension[=].extension[+].url = "campaignName"
+* extension[=].extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
 * extension[+].url = Canonical(hnz-contact-point-extension)
-* extension[=].valueContactPoint.system = #email
-* extension[=].valueContactPoint.value = "test@gmail.com"
+* extension[=].extension[+].url = "toContactPoint"
+* extension[=].extension[=].valueContactPoint.system = #email
+* extension[=].extension[=].valueContactPoint.value = "totest@gmail.com"
+* extension[=].extension[+].url = "fromContactPoint"
+* extension[=].extension[=].valueContactPoint.system = #email
+* extension[=].extension[=].valueContactPoint.value = "fromtest@gmail.com"
