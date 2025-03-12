@@ -4,9 +4,9 @@
 
 In order to make requests against this API clients must:
 
-- Obtain an access token from the OAuth token endpoint using the client credentials issued to their organisation,  
+- Obtain an access token from the OAuth token endpoint using the client credentials issued to their organisation,
 
-- Pass the access token as a bearer token in the `Authorization` header of all requests, along with an API key in the `X-Api-Key` header,  
+- Pass the access token as a bearer token in the `Authorization` header of all requests, along with a `X-Correlation-Id` header,
 
 - Include a `Request-Context` header containing a Base64-encoded JSON object detailing the user making the request in the following structure:
 
