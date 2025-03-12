@@ -314,6 +314,16 @@ groups:
     - ConsentByRelatedPersonExample
     - ConsentByQuestionnaireExample
     - ConsentQuestionnaireResponseExample
+  OutreachReferralDefinitions:
+    name: Outreach Referral Definitions
+    resources:
+    - StructureDefinition/OutreachTask
+    - StructureDefinition/OutreachReferralServiceRequest
+  OutreachReferralExamples:
+    name: Outreach Referral Examples
+    resources:
+    - OutreachServiceRequestExample
+    - OutreachTaskExample
 
 #
 # The ImplementationGuide resource defines several other properties
