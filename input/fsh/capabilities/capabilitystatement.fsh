@@ -680,8 +680,8 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "performer"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-performer"
 * rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[+].name = "performer"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-performer"
+* rest.resource[=].searchParam[+].name = "requester"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-requester"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
