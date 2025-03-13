@@ -55,3 +55,15 @@ Alias: $nz-purpose-of-use = https://nzhts.digital.health.nz/fhir/ValueSet/nz-pur
 Alias: $communication-status = http://hl7.org/fhir/event-status
 Alias: $communication-category = http://hl7.org/fhir/communication-category
 Alias: $communication-medium = http://terminology.hl7.org/CodeSystem/v3-ParticipationMode
+
+Alias: $hnz-communication-delivery-status-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes
+Alias: $hnz-communication-delivery-status-valueset = https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-communication-delivery-status-valueset
+//Purpose Of Use
+
+Alias: $hnz-participation-mode-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-participation-mode-codes
+
+//----Outreach Referral----//
+//lastUpdatedBy
+Alias: $hnz-task-last-updated-by-valueset = https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-task-last-updated-by-valueset
+Alias: $hnz-task-source-system-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-task-source-system-codes
+Alias: $hnz-task-code-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-task-code-codes

@@ -289,7 +289,24 @@ groups:
     name: Communication Person examples
     resources:
     - NIBSCommunicationPersonExample
-    - WhaihuaCommunicationPersonExample 
+    - WhaihuaCommunicationPersonExample
+  CommunicationRequestExamples:
+    name: Communication Request examples
+    resources:
+    - SMSCommunicationRequestWithoutTemplateExample
+    - SMSCommunicationRequestWithTemplateExample
+    - EmailCommunicationRequestWithoutTemplateExample
+    - EmailCommunicationRequestWithTemplateExample
+  CommunicationTypeExamples:
+    name: Communication Type examples
+    resources:
+    - SMSCommunicationExample
+    - EmailCommunicationExample
+    - EmailCommunicationTemplateExample
+  organizationTypeExamples:
+    name: Health Care service Type examples
+    resources:
+    - BSAService
   Consent:
     name: Consent definitions and examples 
     resources:
@@ -301,11 +318,22 @@ groups:
     - ConsentByRelatedPersonExample
     - ConsentByQuestionnaireExample
     - ConsentQuestionnaireResponseExample
+  OutreachReferralDefinitions:
+    name: Outreach Referral Definitions
+    resources:
+    - StructureDefinition/OutreachTask
+    - StructureDefinition/OutreachServiceRequest
+  OutreachReferralExamples:
+    name: Outreach Referral Examples
+    resources:
+    - OutreachServiceRequestExample
+    - OutreachTaskExample
   PharmacyClaimExamples:
    name: Examples of Resources used in the Pharmacy Claim Process
    resources:
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
+
 
 #
 # The ImplementationGuide resource defines several other properties

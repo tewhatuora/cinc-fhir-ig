@@ -53,6 +53,7 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = #"Cough" "Cough"
 * item[=].item[=].answerOption[+].valueCoding = #"Runny nose" "Runny nose"
 * item[=].item[=].answerOption[+].valueCoding = #"Sore red eyes" "Sore red eyes"
+* item[=].item[=].answerOption[+].valueCoding = #"Tiny white spots inside your mouth" "Tiny white spots inside your mouth"
 * item[=].item[=].answerOption[+].valueCoding = #"Other" "Other"
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p02-q01-1-1-Symptoms.RashFever"
