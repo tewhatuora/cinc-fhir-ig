@@ -1,19 +1,32 @@
-Profile: OutreachReferralServiceRequest
+Profile: OutreachServiceRequest
 Parent: ServiceRequest
-Id: OutreachReferralServiceRequest
+Id: OutreachServiceRequest
 Description: "Service request FHIR resource for outreach referral service"
 * ^version = "0.1.3"
 // elements modified
+* meta.tag ^slicing.discriminator.type = #pattern
+* meta.tag ^slicing.discriminator.path = "$this"
+* meta.tag ^slicing.rules = #open
+* meta.tag contains LastUpdatedBy 1..1
+* meta.tag[LastUpdatedBy] from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-task-last-updated-by-valueset (required)
 
 * status 1..1
 * intent 1..1
 * code 1..1
+* code from hnz-task-code-valueset (required)
+
 * subject 1..1
 * subject only Reference(Patient)
+
 * requester 1..1
-* requester only Reference(Device)
+* requester only Reference(Organization)
+
 * performer 0..1
-* performer only Reference(Device)
+* performer only Reference(Organization)
+* performer ^short = "The filler of the request"
+* locationReference 0..1
+* locationReference ^short = "The desired facility"
+* note 0..1
 * supportingInfo 0..*
 
 
@@ -27,9 +40,7 @@ Description: "Service request FHIR resource for outreach referral service"
 * insurance 0..0
 * language 0..0
 * locationCode 0..0
-* locationReference 0..0
 * modifierExtension 0..0
-* note 0..0
 * orderDetail 0..0
 * patientInstruction 0..0
 * quantity[x] 0..0
