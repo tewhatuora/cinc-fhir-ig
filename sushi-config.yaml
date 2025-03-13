@@ -322,7 +322,7 @@ groups:
     name: Outreach Referral Definitions
     resources:
     - StructureDefinition/OutreachTask
-    - StructureDefinition/OutreachReferralServiceRequest
+    - StructureDefinition/OutreachServiceRequest
   OutreachReferralExamples:
     name: Outreach Referral Examples
     resources:
