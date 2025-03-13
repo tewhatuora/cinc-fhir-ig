@@ -252,6 +252,10 @@ groups:
       - ConsumerCOVIDRATResultQuestionnaire
       - ImmsotVaccinationDataEntryQuestionnaire
       - MeaslesHealthCheckQuestionnaire
+      - PrivateColposcopyReferralQuestionnaire
+      - PrivateColposcopyDNAQuestionnaire
+      - PrivateColposcopyVisitQuestionnaire
+      - PrivateColposcopyDischargeQuestionnaire
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources
@@ -314,6 +318,22 @@ groups:
     - ConsentByRelatedPersonExample
     - ConsentByQuestionnaireExample
     - ConsentQuestionnaireResponseExample
+  OutreachReferralDefinitions:
+    name: Outreach Referral Definitions
+    resources:
+    - StructureDefinition/OutreachTask
+    - StructureDefinition/OutreachServiceRequest
+  OutreachReferralExamples:
+    name: Outreach Referral Examples
+    resources:
+    - OutreachServiceRequestExample
+    - OutreachTaskExample
+  PharmacyClaimExamples:
+   name: Examples of Resources used in the Pharmacy Claim Process
+   resources:
+   - HSAAPAdjudicatedClaimResponse
+   - PharmacySubmittedClaim
+
 
 #
 # The ImplementationGuide resource defines several other properties
