@@ -1,0 +1,21 @@
+@startuml
+autonumber "<b>[00]"
+Participant "Placer (Health service)" as p #lightblue
+participant "Outreach Referral FHIR Server" as s #palegreen
+queue "NEMS" as n #gold
+Participant "Filler (Outreach provider)" as f #LightSeaGreen
+
+title Creating and accepting Outreach referral ServiceRequest
+
+p -> s: Create ServiceRequest for outreach
+return Success
+s -> n: Publish ServiceRequest created event
+n -> f: Notify
+f -> s++: Claim ServiceRequest to work on
+s -> s: Update ServiceRequest.performer to Whaihua
+return Success
+s -> n: Publish ServiceRequest updated event
+n -> p: Notify
+' update with everything it needs to set to claim
+' notify when it's picked up. 
+@enduml
