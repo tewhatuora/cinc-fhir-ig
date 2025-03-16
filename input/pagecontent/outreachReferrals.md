@@ -19,10 +19,10 @@ The placer will initiate the outreach referral by creating a ServiceRequest on t
 </figure>
 <br clear="all">
 
-### Use cases and expected interactions
+### Use cases and expected interactions for Whaihua / AIR
 
 [1. Create outreach referral](./outreachUseCases.html) <br />
-[2. Accept an outreach referral](./outreachUseCases.html) <br />
+[2. Accept outreach referral](./outreachUseCases.html) <br />
 [3. Create and manage Tasks to track outreach activities](./outreachUseCases.html) <br />
 [4. Create and store Communications against ServiceRequests](./outreachUseCases.html) <br />
 [5. Revoke/cancel an outreach referral](./outreachUseCases.html) <br />
