@@ -1,0 +1,16 @@
+@startuml
+autonumber 10 "<b>[00]"
+Participant "Placer (Health service)" as p #lightblue
+participant "Outreach Referral FHIR Server" as s #palegreen
+queue "NEMS" as n #gold
+Participant "Filler (Outreach provider)" as f #LightSeaGreen
+
+title Creating Task
+
+f -> s++: Create outreach fulfilment Task
+f -> f: Outreach activities
+s -> s: Update Task 
+return success
+
+@enduml
+

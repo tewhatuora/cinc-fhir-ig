@@ -1,0 +1,27 @@
+@startuml
+
+skinparam actorStyle Hollow
+left to right direction
+
+actor "Health Service \n (e.g. AIR)" as h
+actor "Outreach Provider \n (e.g. Whaihua)" as o
+
+package "Outreach referral collaboration" {
+    usecase "1. Create an outreach referral" as UC1
+    usecase "4. Revoke/cancel an outreach referral" as UC2
+    usecase "2. Accept an outreach referral" as UC3
+    usecase "Create and manage Tasks to track outreach activities" as UC4
+    usecase "Create and store Communications against \n ServiceRequests" as UC5
+    usecase "Complete and close ServiceRequests" as UC6
+    usecase "Find existing outreach information for a patient" as UC7
+}
+
+h --> UC1
+h --> UC2
+o --> UC3
+o --> UC4
+o --> UC5
+o --> UC6
+
+
+@enduml
