@@ -1,0 +1,18 @@
+@startuml
+autonumber 22 "<b>[00]"
+Participant "Placer (Health service)" as p #lightblue
+participant "Outreach Referral FHIR Server" as s #palegreen
+queue "NEMS" as n #gold
+Participant "Filler (Outreach provider)" as f #LightSeaGreen
+
+title Complete outreach Referral
+
+f -> s++: Update outstanding Task(s) to completed
+return Success
+
+f -> s++: Update outreach ServiceRequest to completed
+s -> n: Publish ServiceRequest completed event
+return success
+n -> p: Notify
+
+@enduml

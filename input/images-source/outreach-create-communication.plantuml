@@ -1,0 +1,18 @@
+@startuml
+autonumber 14 "<b>[00]"
+Participant "Placer (Health service)" as p #lightblue
+participant "Outreach Referral FHIR Server" as s #palegreen
+queue "NEMS" as n #gold
+Participant "Filler (Outreach provider)" as f #LightSeaGreen
+
+title Creating and storing Communications against ServiceRequest
+
+f -> s++: Create Communication
+s -> s: Update ServiceRequest 
+s -> n: Publish ServiceRequest updated event
+return Success
+n -> p: Notify
+
+
+
+@enduml
