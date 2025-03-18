@@ -18,6 +18,7 @@ Key elements that need to be updated / added at each step are shown in the table
 | ServiceRequest.intent | create as 'plan' code |
 | ServiceRequest.code | use 'Immunization' code'|
 | ServiceRequest.subject | set to NHI identifier for patient |
+| ServiceRequest.priority | 'routine' |
 | ServiceRequest.meta.tag | update to AIR/ISM to indicate who edited it last |
 | ServiceRequest.meta.source | update to AIR/ISM to indicate who edited it last |
 
@@ -33,7 +34,8 @@ Key elements that need to be updated / added at each step are shown in the table
 
 | Element | Expected update/information |
 | ---------- | ----------------------------|
-| ServiceRequest.performer | update performer to Organization/Whaihua (TBC - confirm reference format) |
+| ServiceRequest.performer | update performer to reference Device/Whaihua |
+| ServiceRequest.locationReference | update to outreach provider location reference (HPI-F if available, otherwise Facility Name)
 | ServiceRequest.meta.tag | update to Whaihua to indicate who edited it last |
 | ServiceRequest.meta.source | update to Whaihua to indicate who edited it last |
 
@@ -52,8 +54,9 @@ Key elements that need to be updated / added at each step are shown in the table
 | Task.status | 'accepted' to indicate has agreed to do it but work hasn't started on it |
 | Task.basedOn | Reference to the ServiceRequest this Task is related to |
 | Task.intent | 'plan' |
-| Task.code | The vaccine the outreach task is for (or generic imms outreach code if Task represents multiple) |
+| Task.code | 'Immunisation' |
 | Task.for |  NHI identifier for patient |
+| Task.priority | 'routine' |
 | Task.input | reference to ImmunizationRec in AIR |
 | Task.meta.tag | update to Whaihua to indicate who edited it last |
 | Task.meta.source | update to Whaihua to indicate who edited it last |
@@ -80,7 +83,8 @@ Key elements that need to be updated / added at each step are shown in the table
 | ---------- | ----------------------------|
 | Communication.subject | Patient NHI reference |
 | Communication.status | 'completed' |
-| Communication.basedOn | Reference to related Task |
+| Communication.basedOn | Reference to related ServiceRequest |
+| Communication.extension.communicationContactPoint | ContactPoint used for communication |
 | Communication.sent | date sent |
 | Communication.recipient | Reference to patient? |
 | Communication.received | when recieved (if relevant) |
@@ -105,12 +109,19 @@ Key elements that need to be updated / added at each step are shown in the table
 
 **[18] Update outreach referral ServiceRequest to cancel** 
 
-|| Element | Expected update/information |
+| Element | Expected update/information |
 | ---------- | ----------------------------|
 | ServiceRequest.status | 'revoked' |
 | ServiceRequest.meta.tag | update to AIR/ISM to indicate who edited it last |
 | ServiceRequest.meta.source | update to AIR/ISM to indicate who edited it last |
 
+**[22] Close open Task(s)**
+
+| Element | Expected update/information |
+| ---------- | ----------------------------|
+| Task.status | 'cancelled' |
+| ServiceRequest.meta.tag | update to Whaihua to indicate who edited it last |
+| ServiceRequest.meta.source | update to Whaihua to indicate who edited it last |
 
 ## 6. Complete and close outreach referral 
 
@@ -121,16 +132,15 @@ Key elements that need to be updated / added at each step are shown in the table
 </figure>
 <br clear="all">
 
-**[22]** Update outstanding Task(s) to completed
+**[24] Update outstanding Task(s) to completed**
 
 | Element | Expected update/information |
 | ---------- | ----------------------------|
 | Task.status | 'Completed' |
-| Task.output | add any references to outputs related to completion (e.g. Immunization events) |
 | Task.meta.tag | update to Whaihua to indicate who edited it last |
 | Task.meta.source | update to Whaihua to indicate who edited it last |
 
-**[24] Update outreach referral ServiceRequest to complete** 
+**[26] Update outreach referral ServiceRequest to complete** 
 
 | Element | Expected update/information |
 | ---------- | ----------------------------|

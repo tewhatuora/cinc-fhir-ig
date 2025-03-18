@@ -1,5 +1,5 @@
 @startuml
-autonumber 22 "<b>[00]"
+autonumber 24 "<b>[00]"
 Participant "Placer (Health service)" as p #lightblue
 participant "Outreach Referral FHIR Server" as s #palegreen
 queue "NEMS" as n #gold
