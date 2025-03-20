@@ -6,10 +6,10 @@ left to right direction
 actor "Health Service \n (e.g. AIR)" as h
 actor "Outreach Provider \n (e.g. Whaihua)" as o
 
-package "Outreach referral collaboration" {
-    usecase "1. Create an outreach referral" as UC1
-    usecase "4. Revoke/cancel an outreach referral" as UC2
-    usecase "2. Accept an outreach referral" as UC3
+package "Outreach referral workflow activities" {
+    usecase "Create an outreach referral" as UC1
+    usecase "Revoke/complete an outreach referral" as UC2
+    usecase "Accept an outreach referral" as UC3
     usecase "Create and manage Tasks to track outreach activities" as UC4
     usecase "Create and store Communications against \n ServiceRequests" as UC5
     usecase "Complete and close ServiceRequests" as UC6
