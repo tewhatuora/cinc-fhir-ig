@@ -3,6 +3,10 @@ InstanceOf: OutreachServiceRequest
 Usage: #example
 Description: "An example ManaakiNgaTahi ServiceRequest"
 * status = #active
+
+* extension[statusReason].valueCodeableConcept = #outreach "Needs Outreach"
+
+
 * intent = #plan
 * doNotPerform = false
 * code = $hnz-task-code-codes#Immunization "Immunization Outreach"
