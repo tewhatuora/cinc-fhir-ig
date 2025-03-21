@@ -20,6 +20,18 @@ Description:  "Each code represents the type of referral request"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
 * ^experimental = false
 * ^caseSensitive = true
-* ^purpose = "Enables a Task record to populate with the appropriate source system of that record."
+* ^purpose = "Enables a Task record to populate with the appropriate code."
 * ^status = #active
 
+
+CodeSystem: TaskStatusReasonCodes
+Id: hnz-task-status-reason-codes
+Title: "Codes for Task code"
+Description:  "Each code represents the type of referral request"
+* #overseas "Over Seas"
+* #outreach "Needs Outreach"
+* ^publisher = "Health New Zealand | Te Whatu Ora"
+* ^experimental = false
+* ^caseSensitive = true
+* ^purpose = "Enables a Task record to populate with the appropriate status reason."
+* ^status = #active
