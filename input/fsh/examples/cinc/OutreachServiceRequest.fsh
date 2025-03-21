@@ -1,7 +1,7 @@
 Instance: OutreachServiceRequestExample
 InstanceOf: OutreachServiceRequest
 Usage: #example
-Description: "An example ManaakiNgaTahi ServiceRequest"
+Description: "An example of an outreach ServiceRequest"
 * status = #active
 
 * extension[statusReason].valueCodeableConcept = #outreach "Needs Outreach"

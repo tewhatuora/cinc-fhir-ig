@@ -1,7 +1,7 @@
 Instance: OutreachTaskExample
 InstanceOf: OutreachTask
 Usage: #example
-Description: "An example ManaakiNgaTahi ServiceRequest"
+Description: "An example of an outreach task"
 * status = #completed
 * intent = #plan
 // * code = http://snomed.info/sct#6021000175100 "Vaccination for diphtheria, pertussis, and tetanus not done (situation)"
