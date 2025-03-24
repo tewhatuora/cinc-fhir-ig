@@ -1,7 +1,7 @@
 Profile: CMSCommunication
 Parent: Communication
 Id: CMSCommunication
-Title: "Record Of Communication From Any Systems"
+Title: "CMS Communication"
 Description: "A communication Resource used to record the SMS/EMAIL communication  performed by Systems"
 * ^version = "0.0.1"
 * ^purpose = "Record all the SMS/EMAIL communication  performed by any system"

@@ -292,6 +292,7 @@ groups:
     - StructureDefinition/CMSCommunicationRequest
     - StructureDefinition/CMSCommunication
     - StructureDefinition/NationalHealthCareService
+    - StructureDefinition/TemplateDocumentReference
   CommunicationRequestExamples:
     name: CMS Communication Request examples
     resources:
