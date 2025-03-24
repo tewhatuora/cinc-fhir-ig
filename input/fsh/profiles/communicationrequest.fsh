@@ -1,7 +1,7 @@
 Profile: CMSCommunicationRequest
 Parent: CommunicationRequest
 Id: CMSCommunicationRequest
-Title: "Record of a Request For Communication"
+Title: "CMS Communication Request"
 Description: "This resource is a record of a request for a communication to be performed. The performance of a CommunicationRequest may result in a communication resource. The following content attachment ID's are special message-body attachment-fileX message-template message-parameters"
 * ^version = "0.0.1"
 * ^purpose = "A request for communication"
@@ -17,9 +17,9 @@ Description: "This resource is a record of a request for a communication to be p
 * statusReason from hnz-communication-delivery-status-valueset (required)
 * medium 1..
 * subject only Reference(Patient) //nhi
-* occurrenceDateTime 0.. //event scheduleddatetime
+* occurrenceDateTime 0..1 //event scheduleddatetime
 * occurrenceDateTime ^short = "Must be in UTC timezone on the FHIR server"
-* authoredOn 1.. //event_datetime
+* authoredOn 0..1 //event_datetime
 * authoredOn ^short = "Must be in UTC timezone on the FHIR server"
 * recipient only Reference(Patient or Practitioner)
 //* requester only Reference(Device)
@@ -27,10 +27,15 @@ Description: "This resource is a record of a request for a communication to be p
 * payload 1..*
 // extension 
 * extension contains
-  hnz-campaign-code-extension named CampaignCode 0..*
-  and
-  hnz-campaign-name-extension named CampaignName 0..*
+  hnz-campaign-extension named Campaign 0..1
   and 
-  hnz-contact-point-extension named communicationRequestContactPoint 0..* 
+  hnz-contact-point-extension named ContactPoint 1..1 
+  and 
+  hnz-system-callback-url-extension named CallbackUrl 0..1
+  and 
+  hnz-system-reply-extension named Reply 0..1
+
+* payload.contentAttachment.extension contains
+  hnz-attachment-extension named Attachment 0..1
 
  

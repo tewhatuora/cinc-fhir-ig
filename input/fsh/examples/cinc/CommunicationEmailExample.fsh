@@ -48,10 +48,3 @@ Usage : #example
 * payload[=].contentAttachment.url = "https://standards.digital.health.nz/ns/attachment"
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 
-* extension[0].url = Canonical(hnz-campaign-code-extension)
-* extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
-* extension[+].url = Canonical(hnz-campaign-name-extension)
-* extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
-* extension[+].url = Canonical(hnz-contact-point-extension)
-* extension[=].valueContactPoint.system = #email
-* extension[=].valueContactPoint.value = "test@gmail.com"

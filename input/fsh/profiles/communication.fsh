@@ -1,7 +1,7 @@
 Profile: CMSCommunication
 Parent: Communication
 Id: CMSCommunication
-Title: "Record Of Communication From Any Systems"
+Title: "CMS Communication"
 Description: "A communication Resource used to record the SMS/EMAIL communication  performed by Systems"
 * ^version = "0.0.1"
 * ^purpose = "Record all the SMS/EMAIL communication  performed by any system"
@@ -13,7 +13,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * identifier.value 1..
 * identifier.system 1..
 * basedOn 0..1
-* basedOn only Reference(CommunicationRequest)
+* basedOn only Reference(CMSCommunicationRequest)
 * contained 0..0
 * inResponseTo 0..
 * status 1..          // Change this line to make status optional
@@ -30,9 +30,6 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * sender only Reference(HealthcareService)   //sender
 * payload 1..*
 // extension 
-* extension contains
-  hnz-campaign-code-extension named CampaignCode 0..*
-  and
-  hnz-campaign-name-extension named CampaignName 0..*
-  and 
-  hnz-contact-point-extension named communicationContactPoint 0..*
+
+* payload.contentAttachment.extension contains
+  hnz-attachment-extension named AttachmentExtension 0..1
