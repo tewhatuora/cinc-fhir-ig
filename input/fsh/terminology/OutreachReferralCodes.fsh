@@ -16,7 +16,7 @@ Id: hnz-task-code-codes
 Title: "Codes for Task code"
 Description:  "Each code represents the type of referral request"
 * #Immunization "Immunization Outreach"
-* #CSR "Cervical Screening Outreach"
+* #CervicalScreening "Cervical Screening Outreach"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
 * ^experimental = false
 * ^caseSensitive = true
@@ -24,9 +24,9 @@ Description:  "Each code represents the type of referral request"
 * ^status = #active
 
 
-CodeSystem: TaskStatusReasonCodes
-Id: hnz-task-status-reason-codes
-Title: "Codes for Task code"
+CodeSystem: ServiceRequestStatusReasonCodes
+Id: hnz-service-request-status-reason-codes
+Title: "Status Reason for ServiceRequest"
 Description:  "Each code represents the type of referral request"
 * #overseas "Over Seas"
 * #outreach "Needs Outreach"

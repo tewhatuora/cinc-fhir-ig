@@ -18,12 +18,12 @@ Description:  "Each code represents the type of referral request"
 * ^status = #active
 * include codes from system hnz-task-code-codes
 
-ValueSet: TaskStatusReason
-Id: hnz-task-status-reason-valueset
-Title: "Codes for Task code"
+ValueSet: ServiceRequestStatusReason
+Id: hnz-service-request-status-reason-valueset
+Title: "Status Reason for ServiceRequest"
 Description:  "Each code represents the type of referral request"
 * ^publisher = "Health New Zealand | Te Whatu Ora"
 * ^version = "1.0.0"
 * ^experimental = false
 * ^status = #active
-* include codes from system hnz-task-status-reason-codes
+* include codes from system hnz-service-request-status-reason-codes
