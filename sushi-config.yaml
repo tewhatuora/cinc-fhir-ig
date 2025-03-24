@@ -286,21 +286,27 @@ groups:
     resources:
     - NIBSCommunicationPersonExample
     - WhaihuaCommunicationPersonExample
+  CommunicationProfiles:
+    name: CMS API definitions
+    resources:
+    - StructureDefinition/CMSCommunicationRequest
+    - StructureDefinition/CMSCommunication
+    - StructureDefinition/NationalHealthCareService
   CommunicationRequestExamples:
-    name: Communication Request examples
+    name: CMS Communication Request examples
     resources:
     - SMSCommunicationRequestWithoutTemplateExample
     - SMSCommunicationRequestWithTemplateExample
     - EmailCommunicationRequestWithoutTemplateExample
     - EmailCommunicationRequestWithTemplateExample
   CommunicationTypeExamples:
-    name: Communication Type examples
+    name: CMS Communication examples
     resources:
     - SMSCommunicationExample
     - EmailCommunicationExample
     - EmailCommunicationTemplateExample
-  organizationTypeExamples:
-    name: Health Care service Type examples
+  OrganizationTypeExamples:
+    name: CMS Health Care service examples
     resources:
     - BSAService
   Consent:

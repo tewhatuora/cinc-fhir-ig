@@ -10,7 +10,7 @@ Description: "For storing campaign codes and names"
 
 Extension: ContactPointExtension
 Id: hnz-contact-point-extension
-Title: "Send communication to contact point"
+Title: "Send to and from communication to contact points"
 Context: Communication , CommunicationRequest
 Description: "Communication send to contact point"
 * extension contains
@@ -38,7 +38,7 @@ Description: "Weather expect reply or not and webhook url for reply"
 Extension: AttachmentExtension
 Id: hnz-attachment-extension
 Title: "Attachment details"
-Context: CommunicationRequest
+Context: CommunicationRequest, Attachment
 Description: "Extra details for attachment to help with rendering"
 * extension contains
     attachmentContentId 0..1 and attachmentDisposition 0..1

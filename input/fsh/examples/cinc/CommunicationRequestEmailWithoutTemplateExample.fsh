@@ -72,3 +72,6 @@ Usage : #example
 * extension[=].extension[+].url = "fromContactPoint"
 * extension[=].extension[=].valueContactPoint.system = #email
 * extension[=].extension[=].valueContactPoint.value = "fromtest@gmail.com"
+
+* extension[+].url = Canonical(hnz-system-callback-url-extension)
+* extension[=].valueUrl = "https://example.com/callback"

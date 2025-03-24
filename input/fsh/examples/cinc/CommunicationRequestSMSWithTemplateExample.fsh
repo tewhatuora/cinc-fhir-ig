@@ -52,8 +52,13 @@ Usage : #example
 * extension[=].extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
 * extension[+].url = Canonical(hnz-contact-point-extension)
 * extension[=].extension[+].url = "toContactPoint"
-* extension[=].extension[=].valueContactPoint.system = #email
-* extension[=].extension[=].valueContactPoint.value = "totest@gmail.com"
+* extension[=].extension[=].valueContactPoint.system = #sms
+* extension[=].extension[=].valueContactPoint.value = "0221234567"
 * extension[=].extension[+].url = "fromContactPoint"
-* extension[=].extension[=].valueContactPoint.system = #email
-* extension[=].extension[=].valueContactPoint.value = "fromtest@gmail.com"
+* extension[=].extension[=].valueContactPoint.system = #sms
+* extension[=].extension[=].valueContactPoint.value = "1234"
+* extension[+].url = Canonical(hnz-system-reply-extension)
+* extension[=].extension[+].url = "replyUrl"
+* extension[=].extension[=].valueUrl = "https://example.com/webhook"
+* extension[=].extension[+].url = "replyBoolean"
+* extension[=].extension[=].valueBoolean = true
