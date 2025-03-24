@@ -27,11 +27,11 @@ Description: "Service request FHIR resource for outreach referral service"
 * note 0..1
 * supportingInfo 0..*
 
-// statusReason from hnz-task-status-reason-valueset (required)
+// statusReason from hnz-service-request-status-reason-valueset (required)
 
 * extension contains request-statusReason named statusReason 1..1
   
-* extension[statusReason].valueCodeableConcept from hnz-task-status-reason-valueset (required)
+* extension[statusReason].valueCodeableConcept from hnz-service-request-status-reason-valueset (required)
 
 // * extension[statusReason]  named 
 
