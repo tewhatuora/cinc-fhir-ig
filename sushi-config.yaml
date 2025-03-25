@@ -305,11 +305,11 @@ groups:
     resources:
     - SMSCommunicationExample
     - EmailCommunicationExample
-    - EmailCommunicationTemplateExample
-  OrganizationTypeExamples:
-    name: CMS Health Care service examples
+    - OutreachCommunicationExample
+  CommunicationTemplateExamples:
+    name: CMS Communication template examples
     resources:
-    - BSAService
+    - EmailCommunicationTemplateExample
   Consent:
     name: Consent definitions and examples 
     resources:
