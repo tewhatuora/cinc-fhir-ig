@@ -18,19 +18,19 @@ Usage : #example
 * identifier[4].value = "#lb8d66-1390-42c7-89a6-a9a75d65d333"
 * identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerID"
 * status = #unknown
-* medium.coding.code = #MAILWRIT
-* medium.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
+* medium.coding.code = #EMAILWRIT
+* medium.coding.system = $hnz-participation-mode-codes
 * occurrenceDateTime = "2024-08-20T14:30:00Z"
 * authoredOn = "2024-08-20T14:30:00Z"
-* recipient.type = "Practitioner"
-* recipient.identifier.use = #official
-* recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
-* recipient.identifier.value = "99ZZFX"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
-* subject.display = "Carey Carrington"
-* sender = Reference(BSAService)
+// * recipient.type = "Practitioner"
+// * recipient.identifier.use = #official
+// * recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
+// * recipient.identifier.value = "99ZZFX"
+// * subject.identifier.use = #official
+// * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
+// * subject.identifier.value = "ZXP7823"
+// * subject.display = "Carey Carrington"
+// * sender = Reference(BSAService)
 //Email Body
 * payload[0].contentAttachment.id = "message-body"
 * payload[=].contentAttachment.contentType = #text/plain

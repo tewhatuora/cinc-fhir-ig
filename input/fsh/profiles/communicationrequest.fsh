@@ -5,7 +5,6 @@ Title: "CMS Communication Request"
 Description: "This resource is a record of a request for a communication to be performed. The performance of a CommunicationRequest may result in a communication resource. The following content attachment ID's are special message-body attachment-fileX message-template message-parameters"
 * ^version = "0.0.1"
 * ^purpose = "A request for communication"
-* ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ 
 * meta.profile 1..1
 * identifier 1..*
@@ -16,6 +15,7 @@ Description: "This resource is a record of a request for a communication to be p
 * status 1..
 * statusReason from hnz-communication-delivery-status-valueset (required)
 * medium 1..
+* medium from hnz-participation-mode-valueset (required)
 * subject only Reference(Patient) //nhi
 * occurrenceDateTime 0..1 //event scheduleddatetime
 * occurrenceDateTime ^short = "Must be in UTC timezone on the FHIR server"
@@ -23,7 +23,7 @@ Description: "This resource is a record of a request for a communication to be p
 * authoredOn ^short = "Must be in UTC timezone on the FHIR server"
 * recipient only Reference(Patient or Practitioner)
 //* requester only Reference(Device)
-* sender only Reference(HealthcareService)
+// * sender only Reference(HealthcareService)
 * payload 1..*
 // extension 
 * extension contains
