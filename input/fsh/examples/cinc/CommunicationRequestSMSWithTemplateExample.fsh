@@ -19,19 +19,19 @@ Usage : #example
 * identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerID"
 * status = #unknown
 * medium.coding.code = #SMSWRIT
-* medium.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
+* medium.coding.system = $hnz-participation-mode-codes
 //* occurrenceDateTime = "2024-08-20T14:30:00Z"(optional)
 * authoredOn = "2024-08-20T14:30:00Z"
 
-* recipient.type = "Practitioner"
-* recipient.identifier.use = #official
-* recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
-* recipient.identifier.value = "99ZZFX"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
-* subject.display = "Carey Carrington"
-* sender = Reference(BSAService)
+// * recipient.type = "Practitioner"
+// * recipient.identifier.use = #official
+// * recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
+// * recipient.identifier.value = "99ZZFX"
+// * subject.identifier.use = #official
+// * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
+// * subject.identifier.value = "ZXP7823"
+// * subject.display = "Carey Carrington"
+// * sender = Reference(BSAService)
 
 //Template
 * payload[0].contentReference.id = "message-template"

@@ -298,11 +298,11 @@ groups:
     resources:
     - SMSCommunicationExample
     - EmailCommunicationExample
-    - EmailCommunicationTemplateExample
-  organizationTypeExamples:
-    name: Health Care service Type examples
+    - OutreachCommunicationExample
+  CommunicationTemplateExamples:
+    name: CMS Communication template examples
     resources:
-    - BSAService
+    - EmailCommunicationTemplateExample
   Consent:
     name: Consent definitions and examples 
     resources:
