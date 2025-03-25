@@ -33,7 +33,10 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 8. [Collect Measurements](./collectMeasurements.html)
 
+
+### Outreach Referrals
+
+1. [Outreach Referral and task management overview](./outreachReferrals.html)
+
 ### Rheumatic fever secondary prevention service care plans
-
-
 

@@ -1,0 +1,16 @@
+@startuml
+autonumber 04 "<b>[00]"
+Participant "Placer (Health service)" as p #lightblue
+participant "Outreach Referral FHIR Server" as s #palegreen
+queue "NEMS" as n #gold
+Participant "Filler (Outreach provider)" as f #LightSeaGreen
+
+title Accepting Outreach referral ServiceRequest
+
+n -> f: Notify
+f -> s++: Retrieve ServiceRequest to work on
+s -> s: Update ServiceRequest to claim
+return Success
+s -> n: Publish ServiceRequest updated event
+n -> p: Notify
+@enduml

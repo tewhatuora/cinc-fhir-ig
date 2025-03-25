@@ -61,3 +61,9 @@ Alias: $hnz-communication-delivery-status-valueset = https://fhir-ig.digital.hea
 //Purpose Of Use
 
 Alias: $hnz-participation-mode-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-participation-mode-codes
+
+//----Outreach Referral----//
+//lastUpdatedBy
+Alias: $hnz-task-last-updated-by-valueset = https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-task-last-updated-by-valueset
+Alias: $hnz-task-source-system-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-task-source-system-codes
+Alias: $hnz-task-code-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-task-code-codes

@@ -1,0 +1,18 @@
+@startuml
+autonumber 19 "<b>[00]"
+Participant "Placer (Health service)" as p #lightblue
+participant "Outreach Referral FHIR Server" as s #palegreen
+queue "NEMS" as n #gold
+Participant "Filler (Outreach provider)" as f #LightSeaGreen
+
+title Cancel outreach Referral
+
+p -> s++: Update outreach referral ServiceRequest to cancel
+s -> n: Create ServiceRequest update event
+return Success
+n -> f: Notify
+
+f -> s++: Close open Task(s)
+Return Success
+
+@enduml
