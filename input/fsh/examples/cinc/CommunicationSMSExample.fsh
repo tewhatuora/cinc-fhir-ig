@@ -4,7 +4,7 @@ Description: "An example of a Communication resource. This resource is used to r
 Usage : #example
 * identifier[0].use = #usual
 * identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
-* identifier[0].system = "https://api.messaging.digital.health.nz/ConsumerRecordId"
+* identifier[0].system = "https://api.messaging.digital.health.nz/SourceId"
 * identifier[1].use = #secondary
 * identifier[1].system = "https://api.messaging.digital.health.nz/CorrelationID"
 * identifier[1].value = "#bdb8d66-1390-42c7-89a6-a9a75d65d0e6-001"
@@ -27,18 +27,13 @@ Usage : #example
 * medium.coding.code = #SMSWRIT
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
-* recipient.type = "Practitioner"
-* recipient.identifier.use = #official
-* recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
-* recipient.identifier.value = "99ZZFX"
-// * category.coding.code = #notification
-// * category.coding.system = "http://terminology.hl7.org/CodeSystem/communication-category"
-// * sender = Reference(BSAService)
-// * subject.type = "Patient"
-// * subject.identifier.use = #official
-// * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-// * subject.identifier.value = "ZXP7823"
-// * subject.display = "Carey Carrington"
+
+* sender.type = "Device"
+* sender.identifier.use = #official
+* sender.identifier.system = "https://hub.services.digital.health.nz/ns/hip-application-id"
+* sender.identifier.value = "56789"
+* sender.display = "BSA"
+
 
 * payload[0].contentAttachment.contentType = #text/plain
 * payload[=].contentAttachment.language = #en-nz

@@ -4,7 +4,7 @@ Description: "An example of a CommunicationRequest resource. This resource is us
 Usage : #example
 * identifier[0].use = #usual
 * identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
-* identifier[0].system = "https://api.messaging.digital.health.nz/ConsumerRecordId"
+* identifier[0].system = "https://api.messaging.digital.health.nz/SourceId"
 * identifier[1].use = #secondary
 * identifier[1].system = "https://api.messaging.digital.health.nz/CorrelationID"
 * identifier[1].value = "#bdb8d66-1390-42c7-89a6-a9a75d65d0e6-001"
@@ -22,15 +22,13 @@ Usage : #example
 * medium.coding.system = $hnz-participation-mode-codes
 * occurrenceDateTime = "2024-08-20T14:30:00Z"
 * authoredOn = "2024-08-20T14:30:00Z"
-// * recipient.type = "Practitioner"
-// * recipient.identifier.use = #official
-// * recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
-// * recipient.identifier.value = "99ZZFX"
-// * subject.identifier.use = #official
-// * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-// * subject.identifier.value = "ZXP7823"
-// * subject.display = "Carey Carrington"
-// * sender = Reference(BSAService)
+
+* sender.type = "Device"
+* sender.identifier.use = #official
+* sender.identifier.system = "https://hub.services.digital.health.nz/ns/hip-application-id"
+* sender.identifier.value = "56789"
+* sender.display = "BSA"
+
 //Email Body
 * payload[0].contentAttachment.id = "message-body"
 * payload[=].contentAttachment.contentType = #text/plain
