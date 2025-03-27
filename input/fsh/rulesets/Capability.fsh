@@ -28,6 +28,7 @@ RuleSet: DefinitionalResourceInteractions
 * conditionalDelete = #not-supported
 
 
+
 RuleSet: ResourceDocumentation(markdown)
 // adds markdown doc to a CapabilityStatement element
 
