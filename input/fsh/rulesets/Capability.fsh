@@ -27,22 +27,6 @@ RuleSet: DefinitionalResourceInteractions
 * conditionalUpdate = false
 * conditionalDelete = #not-supported
 
-// describes generic REST resource operations
-RuleSet: OutreachCRUDInteractions
-* interaction[0].code = #create
-* interaction[+].code = #read
-* interaction[+].code = #update
-* interaction[+].code = #delete
-* interaction[+].code = #vread
-* interaction[+].code = #search-type
-* versioning = #versioned
-* readHistory = true
-* updateCreate = false
-* conditionalCreate = false
-* conditionalRead = #not-supported
-* conditionalUpdate = false
-* conditionalDelete = #not-supported
-* searchRevInclude =  "*"
 
 
 RuleSet: ResourceDocumentation(markdown)
