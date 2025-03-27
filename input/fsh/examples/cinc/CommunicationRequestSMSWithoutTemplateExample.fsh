@@ -55,3 +55,5 @@ Usage : #example
 * extension[=].extension[=].valueUrl = "https://example.com/webhook"
 * extension[=].extension[+].url = "replyBoolean"
 * extension[=].extension[=].valueBoolean = true
+* extension[+].url = Canonical(hnz-system-callback-url-extension)
+* extension[=].valueUrl = "https://example.com/callback"
