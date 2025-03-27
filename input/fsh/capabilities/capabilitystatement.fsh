@@ -627,9 +627,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-date"
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "When this document reference was createdr"
-* rest.resource[=].searchParam[+].name = "_profile"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
-* rest.resource[=].searchParam[=].type = #reference
 
 * rest.resource[+].type = #Task
 * rest.resource[=].supportedProfile = Canonical(OutreachTask)
