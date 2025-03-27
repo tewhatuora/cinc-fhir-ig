@@ -623,10 +623,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-category"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Categorization of document"
-* rest.resource[=].searchParam[+].name = "doc-status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-docStatus"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "preliminary | final | amended | entered-in-error"
 * rest.resource[=].searchParam[+].name = "date"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-date"
 * rest.resource[=].searchParam[=].type = #date
@@ -670,7 +666,7 @@ Usage: #definition
 * rest.resource[=].supportedProfile = Canonical(OutreachServiceRequest)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-status"
