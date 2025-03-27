@@ -664,7 +664,7 @@ Usage: #definition
 
 * rest.resource[+].type = #ServiceRequest
 * rest.resource[=].supportedProfile = Canonical(OutreachServiceRequest)
-* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=] insert OutreachCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-identifier"
 * rest.resource[=].searchParam[=].type = #token
@@ -687,3 +687,4 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+* rest.resource[=].searchRevInclude = "*"
