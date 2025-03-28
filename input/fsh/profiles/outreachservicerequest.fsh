@@ -3,13 +3,6 @@ Parent: ServiceRequest
 Id: OutreachServiceRequest
 Description: "Service request FHIR resource for outreach referral service"
 * ^version = "0.1.3"
-// elements modified
-// * meta.tag ^slicing.discriminator.type = #pattern
-// * meta.tag ^slicing.discriminator.path = "$this"
-// * meta.tag ^slicing.rules = #open
-// * meta.tag contains LastUpdatedBy 0..1
-// * meta.tag[LastUpdatedBy] from https://fhir-ig.digital.health.nz/shared-care/ValueSet/hnz-task-last-updated-by-valueset (required)
-
 * status 1..1
 * intent 1..1
 * code 1..1
