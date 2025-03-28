@@ -6,7 +6,8 @@ In order to make requests against this API clients must:
 
 - Obtain an access token from the OAuth token endpoint using the client credentials issued to their organisation,
 
-- Pass the access token as a bearer token in the `Authorization` header of all requests, along with a `X-Correlation-Id` header,
+- FOR REQUESTS VIA CONNECTOR PLANE: Pass the access token as a bearer token in the `Authorization` header of all requests, along with a `X-Correlation-Id` header
+- FOR REQUESTS VIA API GATEWAY: Pass the access token as a bearer token in the `Authorization` header of all requests, along with an `X-Api-Key` header
 
 - Include a `Request-Context` header containing a Base64-encoded JSON object detailing the user making the request in the following structure:
 
@@ -61,6 +62,7 @@ A resource payload MAY claim a specific version of a resource profile if that in
 1. If a resource payload claims a *non-existent* profile version url, this server will reject the operation with a `400 Bad Request` and message "Profile reference '{{URL}}' has not been checked because it is unknown"
 
 ### Resource retrieval by profile
+
 Once resources are created, API consumers can retrieve by profile, and if desired, profile version.
 
 **Example:**
