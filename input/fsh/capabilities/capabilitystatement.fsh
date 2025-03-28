@@ -27,11 +27,8 @@ Usage: #definition
 * rest.security.extension[=].valueCode = #client-confidential-symmetric
 
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].url = Canonical(HnzCustomHeadersExtension)
-* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[key].valueString = "Correlation-Id"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[key].valueString = "X-Correlation-Id"
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/shared-care/Correlation-Id.json"
-* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = false
-* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].extension[key].valueString = "x-api-key"
-* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/shared-care/Api-Key.json"
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = true
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].extension[key].valueString = "Request-Context"
 * extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/shared-care/Request-Context.json"
@@ -117,7 +114,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Communication-based-on"
 * rest.resource[=].searchParam[+].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-subject"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "clinical-patient"
 * rest.resource[=].searchParam[+].name = "recipient"
@@ -148,6 +145,7 @@ Usage: #definition
 * rest.resource[+].type = #CommunicationRequest
 * rest.resource[=].supportedProfile = Canonical(CMSCommunicationRequest)
 * rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchRevInclude = "*"
 * rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-identifier"
 * rest.resource[=].searchParam[=].type = #token
@@ -161,7 +159,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "CommunicationRequest.occurrence.ofType(dateTime)"
 * rest.resource[=].searchParam[+].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-subject"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "clinical-patient"
 * rest.resource[=].searchParam[+].name = "status"
@@ -175,6 +173,7 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "_profile"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
 * rest.resource[=].searchParam[=].type = #reference
+
 
 * rest.resource[+].type = #CarePlan
 * rest.resource[=].profile = Canonical(CarePlan)
@@ -624,17 +623,10 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-category"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Categorization of document"
-* rest.resource[=].searchParam[+].name = "doc-status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-docStatus"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "preliminary | final | amended | entered-in-error"
 * rest.resource[=].searchParam[+].name = "date"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-date"
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "When this document reference was createdr"
-* rest.resource[=].searchParam[+].name = "_profile"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
-* rest.resource[=].searchParam[=].type = #reference
 
 * rest.resource[+].type = #Task
 * rest.resource[=].supportedProfile = Canonical(OutreachTask)
@@ -658,6 +650,9 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "based-on"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Task-based-on"
 * rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[+].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
@@ -668,16 +663,22 @@ Usage: #definition
 * rest.resource[=].supportedProfile = Canonical(OutreachServiceRequest)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-status"
 * rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[+].name = "priority"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-priority"
+* rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[+].name = "code"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-code"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[+].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[+].name = "subject"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-subject"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[+].name = "performer"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ServiceRequest-performer"
@@ -689,3 +690,4 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+* rest.resource[=].searchRevInclude = "*"

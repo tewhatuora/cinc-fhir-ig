@@ -252,6 +252,10 @@ groups:
       - ConsumerCOVIDRATResultQuestionnaire
       - ImmsotVaccinationDataEntryQuestionnaire
       - MeaslesHealthCheckQuestionnaire
+      - PrivateColposcopyReferralQuestionnaire
+      - PrivateColposcopyDNAQuestionnaire
+      - PrivateColposcopyVisitQuestionnaire
+      - PrivateColposcopyDischargeQuestionnaire
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources
@@ -286,23 +290,30 @@ groups:
     resources:
     - NIBSCommunicationPersonExample
     - WhaihuaCommunicationPersonExample
+  CommunicationProfiles:
+    name: CMS API definitions
+    resources:
+    - StructureDefinition/CMSCommunicationRequest
+    - StructureDefinition/CMSCommunication
+    - StructureDefinition/NationalHealthCareService
+    - StructureDefinition/TemplateDocumentReference
   CommunicationRequestExamples:
-    name: Communication Request examples
+    name: CMS Communication Request examples
     resources:
     - SMSCommunicationRequestWithoutTemplateExample
     - SMSCommunicationRequestWithTemplateExample
     - EmailCommunicationRequestWithoutTemplateExample
     - EmailCommunicationRequestWithTemplateExample
   CommunicationTypeExamples:
-    name: Communication Type examples
+    name: CMS Communication examples
     resources:
     - SMSCommunicationExample
     - EmailCommunicationExample
-    - EmailCommunicationTemplateExample
-  organizationTypeExamples:
-    name: Health Care service Type examples
+    - OutreachCommunicationExample
+  CommunicationTemplateExamples:
+    name: CMS Communication template examples
     resources:
-    - BSAService
+    - EmailCommunicationTemplateExample
   Consent:
     name: Consent definitions and examples 
     resources:
@@ -324,6 +335,13 @@ groups:
     resources:
     - OutreachServiceRequestExample
     - OutreachTaskExample
+  PharmacyClaimExamples:
+   name: Examples of Resources used in the Pharmacy Claim Process
+   resources:
+   - HSAAPAdjudicatedClaimResponse
+   - PharmacySubmittedClaim
+
+
 
 #
 # The ImplementationGuide resource defines several other properties
