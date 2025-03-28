@@ -24,8 +24,7 @@ Description: "A communication Resource used to record the SMS/EMAIL communicatio
 * sent ^short = "Must be in UTC timezone on the FHIR server"
 * received 0..
 * recipient only Reference(Patient or Practitioner)
-* category 0..1 //
-// * sender only Reference(HealthcareService)   //sender
+* category 0..1
 * payload 0..*
 
 * extension contains
