@@ -3,8 +3,8 @@ Parent: ServiceRequest
 Id: OutreachServiceRequest
 Description: "Service request FHIR resource for outreach referral service"
 * ^version = "0.1.3"
-// elements modified
 
+// elements modified
 * status 1..1
 * intent 1..1
 * code 1..1

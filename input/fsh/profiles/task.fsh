@@ -4,6 +4,7 @@ Id: OutreachTask
 Description: "Task FHIR resource for the outreach referral service"
 * ^version = "0.1.3"
 
+// elements modified
 * basedOn 1..1 
 * basedOn only Reference(ServiceRequest)
 * status 1..1

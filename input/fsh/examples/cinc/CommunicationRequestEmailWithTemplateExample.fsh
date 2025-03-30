@@ -4,33 +4,31 @@ Description: "An example of a CommunicationRequest resource. This resource is us
 Usage : #example
 * identifier[0].use = #usual
 * identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
-* identifier[0].system = "https://api.messaging.digital.health.nz/ConsumerRecordId"
+* identifier[0].system = "https://api.messaging.digital.health.nz/SourceId"
 * identifier[1].use = #secondary
-* identifier[1].system = "https://api.messaging.digital.health.nz/CorrelationID"
+* identifier[1].system = "https://api.messaging.digital.health.nz/CorrelationId"
 * identifier[1].value = "#bdb8d66-1390-42c7-89a6-a9a75d65d0e6-001"
 * identifier[2].use = #secondary
 * identifier[2].value = "#jb8d66-1390-42c7-89a6-a9a75d65d344"
-* identifier[2].system = "https://api.messaging.digital.health.nz/MessageID"
+* identifier[2].system = "https://api.messaging.digital.health.nz/MessageId"
 * identifier[3].use = #secondary
 * identifier[3].value = "#kb8d66-1390-42c7-89a6-a9a75d65d333"
-* identifier[3].system = "https://api.messaging.digital.health.nz/ProviderMessageID"
+* identifier[3].system = "https://api.messaging.digital.health.nz/ProviderMessageId"
 * identifier[4].use = #secondary
 * identifier[4].value = "#lb8d66-1390-42c7-89a6-a9a75d65d333"
-* identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerID"
+* identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerId"
 * status = #unknown
-* medium.coding.code = #MAILWRIT
-* medium.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"
+* medium.coding.code = #EMAILWRIT
+* medium.coding.system = $hnz-participation-mode-codes
 * occurrenceDateTime = "2024-08-20T14:30:00Z"
 * authoredOn = "2024-08-20T14:30:00Z"
-* recipient.type = "Practitioner"
-* recipient.identifier.use = #official
-* recipient.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
-* recipient.identifier.value = "99ZZFX"
-* subject.identifier.use = #official
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZXP7823"
-* subject.display = "Carey Carrington"
-* sender = Reference(BSAService)
+
+* sender.type = "Device"
+* sender.identifier.use = #official
+* sender.identifier.system = "https://hub.services.digital.health.nz/ns/hip-application-id"
+* sender.identifier.value = "56789"
+* sender.display = "BSA"
+
 //Email Body
 * payload[0].contentAttachment.id = "message-body"
 * payload[=].contentAttachment.contentType = #text/plain
@@ -64,10 +62,17 @@ Usage : #example
 * payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
 
 //Extensions
-* extension[0].url = Canonical(hnz-campaign-code-extension)
-* extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
-* extension[+].url = Canonical(hnz-campaign-name-extension)
-* extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
+* extension[0].url = Canonical(hnz-campaign-extension)
+* extension[=].extension[0].url = "campaignCode"
+* extension[=].extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
+* extension[=].extension[+].url = "campaignName"
+* extension[=].extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
 * extension[+].url = Canonical(hnz-contact-point-extension)
-* extension[=].valueContactPoint.system = #email
-* extension[=].valueContactPoint.value = "test@gmail.com"
+* extension[=].extension[+].url = "toContactPoint"
+* extension[=].extension[=].valueContactPoint.system = #email
+* extension[=].extension[=].valueContactPoint.value = "totest@gmail.com"
+* extension[=].extension[+].url = "fromContactPoint"
+* extension[=].extension[=].valueContactPoint.system = #email
+* extension[=].extension[=].valueContactPoint.value = "fromtest@gmail.com"
+* extension[+].url = Canonical(hnz-system-callback-url-extension)
+* extension[=].valueUrl = "https://example.com/callback"
