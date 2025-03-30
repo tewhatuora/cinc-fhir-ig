@@ -26,8 +26,6 @@ Description: "Service request FHIR resource for outreach referral service"
 * extension contains request-statusReason named statusReason 1..1
 * extension[statusReason].valueCodeableConcept from hnz-service-request-status-reason-valueset (required)
 
-* obeys status-to-status-reason-mapping
-
 // excluded elements
 * asNeeded[x] 0..0
 * doNotPerform 0..0
