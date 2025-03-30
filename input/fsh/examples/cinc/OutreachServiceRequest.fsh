@@ -27,8 +27,6 @@ Description: "An example of an outreach ServiceRequest"
 * locationReference.identifier.system = "https://standards.digital.health.nz/ns/hpi-facility-id"
 * locationReference.identifier.value = "FZZ999-B"
 
-//* supportingInfo[0].reference = "https://external-fhir-server.com/ImmunizationRecommendation/123"
-
 * meta.versionId = "1"
 * meta.lastUpdated = "2022-12-08T20:58:28.205Z"
 * meta.source = "Whaihua"

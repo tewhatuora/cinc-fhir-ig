@@ -3,6 +3,8 @@ Parent: ServiceRequest
 Id: OutreachServiceRequest
 Description: "Service request FHIR resource for outreach referral service"
 * ^version = "0.1.3"
+
+// elements modified
 * status 1..1
 * intent 1..1
 * code 1..1
@@ -18,8 +20,6 @@ Description: "Service request FHIR resource for outreach referral service"
 
 * extension contains request-statusReason named statusReason 1..1
 * extension[statusReason].valueCodeableConcept from hnz-service-request-status-reason-valueset (required)
-
-* obeys status-to-status-reason-mapping
 
 // excluded elements
 * asNeeded[x] 0..0
