@@ -19,7 +19,6 @@ Key elements that need to be updated / added at each step are shown in the table
 | ServiceRequest.code | use code describing type of outreach (e.g. 'Immunization' code' for AIR) |
 | ServiceRequest.subject | set to NHI identifier for patient |
 | ServiceRequest.priority | 'routine' |
-| ServiceRequest.meta.tag | update to indicate who edited it last |
 | ServiceRequest.meta.source | update to to indicate who edited it last |
 
 ## 2. Accept outreach referral
@@ -34,9 +33,8 @@ Key elements that need to be updated / added at each step are shown in the table
 
 | Element | Expected update/information |
 | ---------- | ----------------------------|
-| ServiceRequest.performer | update performer to reference describing service (e.g. Device/Whaihua) |
+| ServiceRequest.performer | update performer to reference describing service (e.g. Device/whaihua) |
 | ServiceRequest.locationReference | update to outreach provider location reference (HPI-F if available, otherwise Facility Name)
-| ServiceRequest.meta.tag | update to indicate who edited it last |
 | ServiceRequest.meta.source | update to indicate who edited it last |
 
 ## 3. Create Tasks to track outreach activities
@@ -54,11 +52,10 @@ Key elements that need to be updated / added at each step are shown in the table
 | Task.status | 'accepted' to indicate has agreed to do it but work hasn't started on it |
 | Task.basedOn | Reference to the ServiceRequest this Task is related to |
 | Task.intent | 'plan' |
-| Task.code | code describing the type of task (e.g. for Whaihua doing AIR out reach, a general 'Immunisation' code will be used initially) |
+| Task.code | code describing the type of task (e.g. for Whaihua doing AIR outreach, a general 'Immunization' code will be used initially) |
 | Task.for |  NHI identifier for patient |
 | Task.priority | 'routine' |
 | Task.input | reference to ImmunizationRec in AIR |
-| Task.meta.tag | update to indicate who edited it last |
 | Task.meta.source | update to indicate who edited it last |
 
 **[12] Update Task**
@@ -66,8 +63,7 @@ Key elements that need to be updated / added at each step are shown in the table
 | Element | Expected update/information |
 | ---------- | ----------------------------|
 | Task.status | 'in-progress' to indicate work has started on it |
-| Task.meta.tag | update to Whaihua to indicate who edited it last |
-| Task.meta.source | update to Whaihua to indicate who edited it last |
+| Task.meta.source | update to whaihua to indicate who edited it last |
 
 ## 4. Create and store Communications against ServiceRequests
 
@@ -96,8 +92,7 @@ Key elements that need to be updated / added at each step are shown in the table
 | Element | Expected update/information |
 | ---------- | ----------------------------|
 | ServiceRequest.supportingInfo | Reference to Communication created in [14] |
-| ServiceRequest.meta.tag | update to Whaihua to indicate who edited it last |
-| ServiceRequest.meta.source | update to Whaihua to indicate who edited it last |
+| ServiceRequest.meta.source | update to whaihua to indicate who edited it last |
 
 ## 5. Revoke/cancel an outreach referral
 
@@ -113,16 +108,14 @@ Key elements that need to be updated / added at each step are shown in the table
 | ---------- | ----------------------------|
 | ServiceRequest.status | 'revoked' or 'completed' |
 | ServiceRequest.extension.statusReason | update to reflect reason for current status [codes TBC] |
-| ServiceRequest.meta.tag | update to AIR/ISM to indicate who edited it last |
-| ServiceRequest.meta.source | update to AIR/ISM to indicate who edited it last |
+| ServiceRequest.meta.source | update to ism to indicate who edited it last |
 
 **[22] Close open Task(s)**
 
 | Element | Expected update/information |
 | ---------- | ----------------------------|
 | Task.status | 'cancelled' |
-| ServiceRequest.meta.tag | update to Whaihua to indicate who edited it last |
-| ServiceRequest.meta.source | update to Whaihua to indicate who edited it last |
+| ServiceRequest.meta.source | update to whaihua to indicate who edited it last |
 
 ## 6. Complete and close outreach referral 
 
@@ -138,8 +131,7 @@ Key elements that need to be updated / added at each step are shown in the table
 | Element | Expected update/information |
 | ---------- | ----------------------------|
 | Task.status | 'Completed' |
-| Task.meta.tag | update to Whaihua to indicate who edited it last |
-| Task.meta.source | update to Whaihua to indicate who edited it last |
+| Task.meta.source | update to whaihua to indicate who edited it last |
 
 **[27] Update outreach referral ServiceRequest to complete** 
 
@@ -147,8 +139,7 @@ Key elements that need to be updated / added at each step are shown in the table
 | ---------- | ----------------------------|
 | ServiceRequest.status | 'completed' |
 | ServiceRequest.extension.statusReason | update to reflect reason for current status [codes TBC] |
-| ServiceRequest.meta.tag | update to Whaihua to indicate who edited it last |
-| ServiceRequest.meta.source | update to Whaihua to indicate who edited it last |
+| ServiceRequest.meta.source | update to whaihua to indicate who edited it last |
 
 
 ## 7. Find existing outreach information for a patient
