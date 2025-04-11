@@ -9,7 +9,7 @@ title Accepting Outreach referral ServiceRequest
 
 n -> f: Notify
 f -> s++: Retrieve ServiceRequest to work on
-s -> s: Update ServiceRequest to claim
+f -> s: Update ServiceRequest to claim
 return Success
 s -> n: Publish ServiceRequest updated event
 n -> p: Notify
