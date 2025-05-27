@@ -15,8 +15,9 @@ Description: "Service request FHIR resource for outreach referral service"
 * performer 0..1
 * performer ^short = "The filler of the request"
 * locationReference 0..1
-* locationReference ^short = "The desired facility"
+* locationReference ^short = "The facility the the procedure is performed at"
 * supportingInfo 0..*
+* identifier 0..*
 
 * extension contains request-statusReason named statusReason 1..1
 * extension[statusReason].valueCodeableConcept from hnz-service-request-status-reason-valueset (required)
@@ -28,7 +29,6 @@ Description: "Service request FHIR resource for outreach referral service"
 * category 0..0
 * contained 0..0 
 * encounter 0..0
-* identifier 0..0
 * implicitRules 0..0
 * instantiatesCanonical 0..0	
 * instantiatesUri 0..0

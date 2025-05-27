@@ -144,10 +144,10 @@ menu:
 # ContactDetail.
 #
 contact:
-   - name: David Grainger
+   - name: Te Whatu Ora Integration Team
      telecom:
-       - system: email 
-         value: david.grainger@middleware.co.nz
+       - system: email
+         value: integration@tewhatuora.govt.nz
          use: work
 #
 #
