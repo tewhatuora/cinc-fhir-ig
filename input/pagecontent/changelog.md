@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.1 (2025-03-30)
+
+### Added Outreach Referral 
+Added the [Outreach Referral](outreachReferrals.html) resources and workflow.
+
 ## v0.4 (2024-06-18)
 
 ### All Rheumatic Fever definition, examples and API capability description has moved to separate IG

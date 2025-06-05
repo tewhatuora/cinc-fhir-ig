@@ -19,6 +19,4 @@ Description: "An example of an outreach task"
 * output[=].type.coding[=].code = #Immunization
 * output[=].valueReference.reference = "https://air-fhir-server.com/Immunization/123"
 
-* meta.versionId = "1"
-* meta.lastUpdated = "2022-12-08T20:58:28.205Z"
 * meta.source = "Whaihua"
