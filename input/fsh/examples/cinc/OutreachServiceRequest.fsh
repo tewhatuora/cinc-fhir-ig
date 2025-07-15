@@ -29,4 +29,4 @@ Description: "An example of an outreach ServiceRequest"
 
 * meta.source = "whaihua"
 * meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

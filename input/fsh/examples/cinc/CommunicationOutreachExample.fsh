@@ -49,4 +49,4 @@ Usage : #example
 * extension[=].extension[=].valueContactPoint.value = "+64221234567"
 
 * meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
