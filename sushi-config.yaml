@@ -340,6 +340,7 @@ groups:
    resources:
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
+   - NzPharmacyClaim
 
 
 
