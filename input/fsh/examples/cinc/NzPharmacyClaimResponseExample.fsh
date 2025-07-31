@@ -15,7 +15,7 @@ Description: "Example of a New Zealand pharmacy claim response"
 * outcome = #complete
 
 * item[0].itemSequence = 1
-//* item[0].productOrService = https://standards.digital.health.nz/ns/purchase-unit#PU1234
+* item[0].extension[productOrService].valueCodeableConcept = https://standards.digital.health.nz/ns/purchase-unit#PU1234
 * item[0].adjudication[0].category = https://standards.digital.health.nz/ns/pharmacy-adjudication-category#amountpaid
 * item[0].adjudication[0].amount.value = 100.00
 * item[0].adjudication[0].amount.currency = #NZD
