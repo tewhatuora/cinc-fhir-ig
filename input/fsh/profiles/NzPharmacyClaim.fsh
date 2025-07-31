@@ -13,8 +13,8 @@ Description: "A FHIR resource profile for NZ Pharmacy Claims, including extensio
 * type 1..1
 * subType 0..1
 * use 1..1
-* supportingInfo 1..* MS
-  * category 1..1 MS // Transaction Category
+* supportingInfo 1..*
+* supportingInfo.category 1..1 // Transaction Category
 * created 1..1
 * billablePeriod 0..1
 * enterer 0..1

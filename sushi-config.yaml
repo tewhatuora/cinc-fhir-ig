@@ -335,12 +335,15 @@ groups:
     resources:
     - OutreachServiceRequestExample
     - OutreachTaskExample
+  PharmacyClaimDefinitions:
+   name: Resources used in the Pharmacy Claim Process
+   resources:
+   - NzPharmacyClaim
   PharmacyClaimExamples:
    name: Examples of Resources used in the Pharmacy Claim Process
    resources:
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
-   - NzPharmacyClaim
 
 
 
