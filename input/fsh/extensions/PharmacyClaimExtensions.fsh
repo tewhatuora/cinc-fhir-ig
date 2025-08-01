@@ -122,3 +122,34 @@ Description: "Extension for product or service codes in pharmacy claim response 
 * value[x] only CodeableConcept
 * valueCodeableConcept ^short = "Product or service code"
 * valueCodeableConcept from PurchaseUnitValueSet (required)
+
+// MedicationRequest Extensions
+
+Extension: NzepsEndorsement
+Id: nzeps-endorsement
+Title: "NZePS Endorsement"
+Description: "Endorsement details for NZ Electronic Prescription Service."
+Context: MedicationRequest
+* extension contains
+    endorsementType 0..1 and
+    endorsementValue 0..1
+* extension[endorsementType].value[x] only CodeableConcept
+* extension[endorsementValue].value[x] only string
+
+// Example extension structure for nzeps-funding-category
+Extension: NzepsFundingCategory
+Id: nzeps-funding-category
+Title: "NZePS Funding Category"
+Description: "Funding category for NZ Electronic Prescription Service."
+Context: MedicationRequest
+* value[x] only string
+* valueString 0..1
+
+//medicationDispense Extensions
+Extension: NzepsScriptNoLocal
+Id: nzeps-scriptno-local
+Title: "NZePS Script Number Local"
+Description: "Local script number for NZ Electronic Prescription Service, used as a unique transaction number."
+Context: MedicationDispense
+* value[x] only string
+* valueString 1..1

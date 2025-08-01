@@ -1,4 +1,4 @@
-CodeSystem: patientCohort
+CodeSystem: PatientCohort
 Id:  pharmacy-claim-patient-cohort-codes
 Title: "Patient Cohort CodeSystem"
 Description: "Cohort classifications for patients."
