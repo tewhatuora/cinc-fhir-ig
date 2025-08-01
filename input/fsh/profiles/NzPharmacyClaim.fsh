@@ -45,8 +45,8 @@ Description: "A FHIR resource profile for NZ Pharmacy Claims, including extensio
     * productOrService 1..1
     * quantity 1..1
     * net 1..1
-//     * extension contains
-//         http://hl7.org.nz/fhir/StructureDefinition/hsaap-balance-owing named balance-owing 0..1 and
-//         http://hl7.org.nz/fhir/StructureDefinition/wastageQuantity named wastageQuantity 0..1 and
-//         http://hl7.org.nz/fhir/StructureDefinition/cbsSubsidy named cbsSubsidy 0..1 and
-//         http://hl7.org.nz/fhir/StructureDefinition/cbsPackSize named cbsPackSize 0..1
+    * extension contains
+        hsaap-balance-owing named balanceOwing 0..1 and
+        wastageQuantity named wastageQuantity 0..1 and
+        cbsSubsidy named cbsSubsidy 0..1 and
+        cbsPackSize named cbsPackSize 0..1

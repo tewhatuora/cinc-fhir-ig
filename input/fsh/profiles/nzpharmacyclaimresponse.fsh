@@ -38,7 +38,7 @@ Description: "FHIR profile for New Zealand pharmacy claim responses"
 
 * item.detail.adjudication 1..*
 * item.detail.adjudication ^short = "Adjudication details breakdown"
-* item.detail.adjudication.category from PharmacyAdjudicationCategoryValueSet (extensible)
+* item.detail.adjudication.category from pharmacy-adjudication-category (extensible)
 
 * payment 0..1
 * payment ^short = "Payment details"
