@@ -345,6 +345,7 @@ groups:
   PharmacyClaimExamples:
    name: Examples of Resources used in the Pharmacy Claim Process
    resources:
+   - NzPharmacyClaimResponseExample
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
 
