@@ -696,6 +696,3 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].searchRevInclude = "*"
-
-* rest.resource[+].type = #ViewDefinition
-* rest.resource[=] insert GenericCRUDInteractions
