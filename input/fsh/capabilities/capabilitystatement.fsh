@@ -39,6 +39,11 @@ Usage: #definition
 
 * rest.interaction.code = #transaction
 
+// system operations
+* rest.operation[+].name = "run"
+* rest.operation[=].definition = Canonical(RunOperation)
+* rest.operation[=].documentation = "Run a flat data view operation to aggregate data for a specific patient using a defined ViewDefinition. See [Flat Data Views](./flatDataViews.md) for more information."
+
 * rest.resource[0].type = #AllergyIntolerance
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiAllergyIntolerance)
 * rest.resource[=] insert GenericCRUDInteractions
@@ -691,3 +696,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].searchRevInclude = "*"
+
+* rest.resource[+].type = #ViewDefinition
+* rest.resource[=] insert GenericCRUDInteractions

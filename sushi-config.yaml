@@ -123,6 +123,7 @@ menu:
     View OpenAPI: new-tab https://fhir-ig.digital.health.nz/openapi/index.html?urls.primaryName=Shared+Care+API
     Developer Guide: developerGuide.html
     API capability statement: CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html
+    Flat Data Views: flatDataViews.html
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
