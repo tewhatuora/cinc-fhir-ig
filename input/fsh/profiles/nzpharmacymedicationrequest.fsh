@@ -1,6 +1,6 @@
-Profile: NzMedicationRequest
+Profile: NzPharmacyMedicationRequest
 Parent: MedicationRequest
-Id: NzMedicationRequest
+Id: NzPharmacyMedicationRequest
 Title: "NZ Medication Request"
 Description: "A FHIR profile for NZ Medication Requests, including extensions for NZePS endorsement and funding category."
 * ^version = "0.0.1"
