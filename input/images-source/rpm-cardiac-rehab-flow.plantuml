@@ -1,0 +1,35 @@
+@startuml
+actor AdminPractitioner
+participant "Practitioner View" as PV
+participant "Shared Care FHIR Server" as FHIR
+participant "Queue" as MQ
+participant "Common Messaging Service" as CMS
+actor Patient
+participant "Alphero App" as App
+participant "Education Content Bucket" as ECB
+
+== Patient Onboarding ==
+AdminPractitioner -> PV : Assign Education Module to Patient
+PV -> FHIR : POST Task 
+PV -> FHIR : POST Condition
+PV -> FHIR : POST CommunicationRequest
+PV -> FHIR : POST CareTeam
+PV -> FHIR : POST CarePlan
+PV -> FHIR : POST Consent
+activate FHIR
+FHIR -> MQ : PUT Communication message (via Subscription)
+deactivate FHIR
+CMS -> MQ : Consume Communication message
+CMS -> Patient : Send SMS or Email
+
+== Educational Content Cosumption ==
+Patient -> App : Opens App, Selects and Consumes Education Content
+App -> ECB : Fetches Education Content
+App -> App : Render Content
+Patient -> App : Completes Module
+App -> FHIR : POST Provenence Resource (indicating completion)
+App -> FHIR : PUT Task (add reference to Provenence)
+Patient -> App : Complete Feedback Questionnaire
+App -> FHIR : POST QuestionnaireResponse (completed)
+
+@enduml
