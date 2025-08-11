@@ -21,6 +21,7 @@ Description: "A FHIR resource profile for NZ Pharmacy Claims, including extensio
 * patient 1..1 //0..1 why is this optional?
 * provider 1..1
 * total 1..1
+* insurance 1..1 // base resource requires insurance, but we don't use it in NZ claims
 
 // // Extensions
 * extension contains
