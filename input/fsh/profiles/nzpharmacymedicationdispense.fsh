@@ -1,6 +1,6 @@
-Profile: NzMedicationDispense
+Profile: NzPharmacyMedicationDispense
 Parent: MedicationDispense
-Id: NzMedicationDispense
+Id: NzPharmacyMedicationDispense
 Title: "NZ Medication Dispense"
 Description: "A FHIR profile for NZ Medication Dispense, including extensions for NZePS script number."
 * ^version = "0.0.1"
