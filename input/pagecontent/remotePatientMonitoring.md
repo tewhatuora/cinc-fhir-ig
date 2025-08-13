@@ -24,8 +24,8 @@ The first pilots of this programme supported Patients with COPD and Heart Failur
 # FHIR Resource Data Structure
 
 <figure>
-  <!-- Generated from `input/images-source/outreach-usecase-overview.plantuml` -->
-  {% include outreach-usecase-overview.svg %}
+  <!-- Generated from `input/images-source/rpm-heartFailure-resources.plantuml` -->
+  {% include rpm-heartFailure-resources.svg %}
 </figure>
 <br clear="all">
 
