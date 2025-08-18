@@ -1,0 +1,120 @@
+@startuml
+
+skinparam class {
+    BackgroundColor White
+    BorderColor Black
+}
+
+class Consent #FFF9C4 {
+  subject : Reference to Patient
+  period  -- optional --
+  provisionData : Reference[]
+}
+
+class CarePlan #BBDEFB {
+  meta_profile : "RPM CarePlan"
+  subject : Reference to Patient
+  condition : Reference to Condition
+  activity : Reference[]
+}
+
+package "CarePlan Activities" {
+  class CommunicationRequest #F8BBD0 {
+    subject : Reference to Patient
+  }
+  class Task #FFE0B2 {
+    subject : Reference to Patient
+    code : CodeableConcept ("educational content")
+    relevantHistory : Reference to Provenance
+  }
+  class ServiceRequest #E1BEE7 {
+    subject : Reference to Patient
+  }
+}
+
+package "CarePlan Context Resources" {
+
+  class Condition #AED581 {
+    subject : Reference to Patient
+    performer : Reference to Practitioner
+    code : CodeableConcept (TBD)
+    category : CodeableConcept (TBD)
+  }
+
+  class Encounter #81D4FA {
+  status : string ("in-progress", "finished", etc.)
+  class_code : CodeableConcept (e.g. VR = virtual)
+  serviceType_code : CodeableConcept (e.g. 554 = Chronic Disease Management)
+  priority_code : CodeableConcept (e.g. R = routine)
+  subject : Reference to Patient (with identifier and display)
+  participant : Reference to Practitioner (identifier + display)
+  period_start : datetime
+  period_end : datetime
+  reasonCode : CodeableConcept (e.g. patient-initiated encounter)
+  diagnosis_condition_reference : Reference to Condition
+  serviceProvider : Reference to Organization (identifier + display)
+}
+  
+  class CareTeam #FFAB91 {
+  status : string ("active", etc.)
+  name : string ("Remote Monitoring CareTeam")
+  meta_versionId : string
+  meta_profile[] : string
+  identifier_use : string
+  identifier_system : string
+  identifier_value : string
+  participant_member_type : string ("Practitioner")
+  participant_member_identifier_use : string
+  participant_member_identifier_system : string
+  participant_member_identifier_value : string
+  participant_member_display : string
+  managingOrganization_type : string ("Organization")
+  managingOrganization_identifier_value : string
+  managingOrganization_identifier_use : string
+  managingOrganization_identifier_system : string
+  managingOrganization_display : string
+}
+
+}
+
+package "Captured Data" {
+
+  class Provenance #D1C4E9 {
+    subject : Reference to Patient
+    extensionCode : TBD
+  }
+
+  class Observation #80CBC4 {
+    subject : Reference to Patient
+    basedOn : Reference to CarePlan
+  }
+
+  class QuestionnaireResponse #FFCC80 {
+    subject : Reference to Patient
+    basedOn : Reference to CarePlan
+  }
+  
+  }
+
+
+CarePlan --> Condition : addresses.reference
+CarePlan --> Encounter : encounter.reference
+CarePlan --> CareTeam: careTeam.reference
+CarePlan --> CommunicationRequest : activity.reference
+CarePlan --> Task : activity.reference
+CarePlan --> ServiceRequest : activity.reference
+
+Task --> Provenance : relevantHistory
+
+Observation --> ServiceRequest : basedOn
+
+QuestionnaireResponse --> CarePlan : basedOn
+
+CarePlan -[hidden]-> CommunicationRequest
+CommunicationRequest -[hidden]-> Task
+Task -[hidden]-> ServiceRequest
+
+CarePlan -[hidden]-> Condition
+Condition -[hidden]-> Encounter
+
+@enduml

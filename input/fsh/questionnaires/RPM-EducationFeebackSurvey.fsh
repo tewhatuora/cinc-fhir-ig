@@ -17,7 +17,7 @@ Usage: #example
 * item.item[0].type = #choice
 * item.item[=].linkId = "p01-q01-Rating"
 * item.item[=].prefix = "page 1 question 1"
-* item.item[=].text = "How do you rate the module experiance out of 5 (5 is best)?"
+* item.item[=].text = "How do you rate the module experience out of 5 (5 is best)?"
 * item.item[=].required = true
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].valueCoding.display = "5 - Perfect"

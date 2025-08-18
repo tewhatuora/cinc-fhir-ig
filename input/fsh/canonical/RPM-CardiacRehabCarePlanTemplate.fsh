@@ -36,7 +36,7 @@ Usage: #definition
 * author.name = "HNZ RPM Project"
 * editor.name = "HNZ RPM Project"
 * reviewer.name = "HNZ RPM Project"
-* endorser.name = "Alastair Kenworthy"
+* endorser.name = "TBD"
 * endorser.telecom.system = #other
 * endorser.telecom.value = "CinC Fit for Future Project"
 * goal.id = "heart-failure-monitoring"
