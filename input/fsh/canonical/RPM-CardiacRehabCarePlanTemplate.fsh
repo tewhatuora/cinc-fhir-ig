@@ -4,7 +4,7 @@ Alias: $definition-topic = http://terminology.hl7.org/CodeSystem/definition-topi
 Alias: $goal-priority = http://terminology.hl7.org/CodeSystem/goal-priority
 Alias: $action-type = http://terminology.hl7.org/CodeSystem/action-type
 
-Instance: RemoteMonitoringHeartFailureCarePlanTemplate
+Instance: RemoteMonitoringCardiacRehabCarePlanTemplate
 InstanceOf: PlanDefinition
 Usage: #definition
 * language = #en-NZ
@@ -28,9 +28,7 @@ Usage: #definition
 * jurisdiction.text = "New Zealand"
 * purpose = "TBD"
 * usage = "TBD"
-* lastReviewDate = "2022-08-04"
-* effectivePeriod.start = "2022-08-04"
-* effectivePeriod.end = "2023-08-04"
+* lastReviewDate = "TBD"
 * topic = $definition-topic#treatment "Treatment"
 * topic.text = "Treatment"
 * author.name = "HNZ RPM Project"
@@ -39,8 +37,8 @@ Usage: #definition
 * endorser.name = "TBD"
 * endorser.telecom.system = #other
 * endorser.telecom.value = "CinC Fit for Future Project"
-* goal.id = "heart-failure-monitoring"
-* goal.category.text = "Heart Failure Monitoring"
+* goal.id = "cardiac-rehab-monitoring"
+* goal.category.text = "Cardiac Rehab Monitoring"
 * goal.description.text = "TBD"
 * goal.priority = $goal-priority#medium-priority "Medium Priority"
 * goal.priority.text = "Medium Priority"
@@ -50,7 +48,7 @@ Usage: #definition
 * action[=].title = "Observation Activity"
 * action[=].description = "Take an observation"
 * action[=].priority = #routine
-* action[=].goalId = "heart-failure-monitoring"
+* action[=].goalId = "cardiac-rehab-monitoring"
 * action[=].subjectCodeableConcept = $resource-types#Patient "Patient"
 * action[=].subjectCodeableConcept.text = "Patient"
 * action[=].type = $action-type#create "Create"
