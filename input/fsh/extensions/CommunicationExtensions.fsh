@@ -44,3 +44,10 @@ Description: "Extra details for attachment to help with rendering"
     attachmentContentId 0..1 and attachmentDisposition 0..1
 * extension[attachmentDisposition].value[x] only string
 * extension[attachmentContentId].value[x] only string
+
+Extension: StatusDateTimeExtension
+Id: hnz-status-date-time-extension
+Title: "Status DateTime"
+Context: Communication, CommunicationRequest
+Description: "Status updated date time"
+* value[x] only dateTime

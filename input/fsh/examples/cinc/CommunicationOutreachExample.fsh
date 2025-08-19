@@ -49,4 +49,6 @@ Usage : #example
 * extension[=].extension[=].valueContactPoint.value = "+64221234567"
 
 * meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+* extension[+].url = Canonical(hnz-status-date-time-extension)
+* extension[=].valueDateTime = "2024-08-20T14:35:00Z"

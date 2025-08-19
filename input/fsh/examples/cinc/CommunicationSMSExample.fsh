@@ -49,4 +49,6 @@ Usage : #example
 * extension[=].extension[=].valueContactPoint.value = "0221234567"
 * extension[=].extension[+].url = "fromContactPoint"
 * extension[=].extension[=].valueContactPoint.system = #sms
-* extension[=].extension[=].valueContactPoint.value = "1234"
+* extension[=].extension[=].valueContactPoint.value = "1234" 
+* extension[+].url = Canonical(hnz-status-date-time-extension)
+* extension[=].valueDateTime = "2024-08-20T14:35:00Z"
