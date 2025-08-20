@@ -337,7 +337,7 @@ groups:
     - OutreachServiceRequestExample
     - OutreachTaskExample
   RPMDefinitions:
-    name: Resources used in the Remote Patient Monitoring Pilot
+    name: Canonical FHIR Profiles and Definitions used in the Remote Patient Monitoring Pilot
     resources:
       - RPMCardiacRehabCarePlanTemplate
       - RPMHeartFailureCarePlanTemplate

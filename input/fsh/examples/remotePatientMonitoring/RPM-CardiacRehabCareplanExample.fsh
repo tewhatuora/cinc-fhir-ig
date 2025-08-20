@@ -7,7 +7,6 @@ Usage: #example
 * instantiatesCanonical = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/PlanDefinition/RPMCardiacRehabCarePlanTemplate"
 * status = #draft
 * intent = #plan
-* title = "Template for Remote Monitoring Cardiac Rehab Care Plan"
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
