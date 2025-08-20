@@ -1,6 +1,6 @@
 Alias: $goal-priority = http://terminology.hl7.org/CodeSystem/goal-priority
 
-Instance: CardiacRehabCarePlanExample
+Instance: RPMCardiacRehabCarePlanExample
 InstanceOf: CarePlan
 Usage: #example
 * contained = goal0

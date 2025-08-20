@@ -2,5 +2,5 @@
   "plantuml.diagramsRoot": "input/images-source",
   "plantuml.exportIncludeFolderHeirarchy": false,
   "plantuml.exportOutDir": "input/images",
-  "plantuml.exportFormat": "png"
+  "plantuml.exportFormat": "svg"
 }

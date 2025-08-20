@@ -35,10 +35,9 @@ PV -> FHIR : PUT CarePlan, attaching Service Request
 == Patient Notification via CMS ==
 
 PV -> FHIR : POST CommunicationRequest
-PV -> FHIR : PUT CarePlan, attaching CommunicationRequest
 FHIR -> FHIR : Handle incoming Communication Request
-FHIR -> MQ : PUT Communication message (via Subscription)
-CMS -> MQ : Consume Communication message
-CMS -> Patient : Send SMS or Email
+FHIR -> CMS : POST CommunicationRequest (via Subscription)
+CMS -> Patient : Send Email
+CMS -> FHIR : POST Communication (inidcating email sent)
 
 @enduml

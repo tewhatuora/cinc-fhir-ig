@@ -1,7 +1,7 @@
 Alias: $sct = http://snomed.info/sct
 Alias: $resource-types = http://hl7.org/fhir/resource-types
 
-Instance: RemoteMonitoringObservationRequest
+Instance: RPMObservationRequest
 InstanceOf: ActivityDefinition
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/RemoteMonitoringObservationRequest"

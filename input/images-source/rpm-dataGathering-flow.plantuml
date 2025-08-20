@@ -9,9 +9,6 @@ participant "Alphero App" as App
 participant "Education Content Bucket" as ECB
 
 
-== Observation Collection == 
-
-
 == Routine Questionnaire Response Collection ==
 Patient -> App : Opens App
 App -> ECB : Fetches relevant Questionnaire

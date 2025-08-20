@@ -1,6 +1,6 @@
 Alias: $hnz-participation-mode-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-participation-mode-codes
 
-Instance: RPMPatientOnboardingCommunicationRequests
+Instance: RPMPatientOnboardingCommunicationRequest
 InstanceOf: CommunicationRequest
 Usage: #example
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/CMSCommunicationRequest"

@@ -336,6 +336,22 @@ groups:
     resources:
     - OutreachServiceRequestExample
     - OutreachTaskExample
+  RPMDefinitions:
+    name: Resources used in the Remote Patient Monitoring Pilot
+    resources:
+      - RPMCardiacRehabCarePlanTemplate
+      - RPMHeartFailureCarePlanTemplate
+      - RPMObservationRequest
+  RPMExamples:
+   name: Examples of Resources used in the Remote Patient Monitoring Pilot
+   resources:
+    - RPMCardiacRehabCarePlanExample
+    - RPMPatientOnboardingCommunicationRequest
+    - RPMCareTeamExample
+    - RPMEducationalTaskExample
+    - RPMConsentExample
+    - RPMObservationExample
+    - RPMObservationServiceRequestExample
   PharmacyClaimDefinitions:
    name: Resources used in the Pharmacy Claim Process
    resources:
@@ -349,8 +365,6 @@ groups:
    - NzPharmacyClaimResponseExample
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
-
-
 
 #
 # The ImplementationGuide resource defines several other properties

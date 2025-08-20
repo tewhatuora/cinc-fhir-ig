@@ -9,8 +9,7 @@ participant "Alphero App" as App
 participant "Education Content Bucket" as ECB
 
 == Patient Onboarding ==
-PV -> FHIR : POST CarePlan and Associated resources
-
+PV -> FHIR : POST CarePlan and Associated resources (Including Task)
 
 == Educational Content Consumption ==
 Patient -> App : Opens App, Selects and Consumes Education Content
