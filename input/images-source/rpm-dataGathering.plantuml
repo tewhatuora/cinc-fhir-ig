@@ -1,0 +1,23 @@
+@startuml
+actor AdminPractitioner
+participant "Practitioner View" as PV
+participant "Shared Care FHIR Server" as FHIR
+participant "Queue" as MQ
+participant "Common Messaging Service" as CMS
+actor Patient
+participant "Alphero App" as App
+participant "Education Content Bucket" as ECB
+
+
+== Observation Collection == 
+
+
+== Routine Questionnaire Response Collection ==
+Patient -> App : Opens App
+App -> ECB : Fetches relevant Questionnaire
+App -> App : Render Questionnaire
+Patient -> App : Completes Questionnaire
+App -> FHIR : POST QuestionnaireResponse
+App -> FHIR : PUT Consent
+
+@enduml

@@ -13,7 +13,10 @@ participant "Education Content Bucket" as ECB
 == Inital Encounter ==
 PV -> FHIR : POST Condition 
 PV -> FHIR : POST Encounter
+PV -> FHIR : POST CareTeam
+PV -> FHIR : POST Task
 PV -> FHIR : POST Consent
+
 
 == Create CarePlan ==
 PV -> FHIR : Search Plan Definitions
@@ -28,10 +31,6 @@ PV -> FHIR : POST Service Request
 PV -> FHIR : PUT Consent, attaching Service Request
 PV -> FHIR : PUT CarePlan, attaching Service Request
 
-== Add Task ==
-PV -> FHIR : POST Task
-PV -> FHIR : PUT Consent, attaching Task
-PV -> FHIR : PUT CarePlan, attaching Task
 
 == Patient Notification via CMS ==
 
@@ -41,26 +40,5 @@ FHIR -> FHIR : Handle incoming Communication Request
 FHIR -> MQ : PUT Communication message (via Subscription)
 CMS -> MQ : Consume Communication message
 CMS -> Patient : Send SMS or Email
-
-== Observation Collection == 
-
-
-== Routine Questionnaire Response Collection ==
-Patient -> App : Opens App
-App -> ECB : Fetches relevant Questionnaire
-App -> App : Render Questionnaire
-Patient -> App : Completes Questionnaire
-App -> FHIR : POST QuestionnaireResponse
-App -> FHIR : PUT Consent
-
-== Educational Content Consumption ==
-Patient -> App : Opens App, Selects and Consumes Education Content
-App -> ECB : Fetches Education Content
-App -> App : Render Content
-Patient -> App : Completes Module
-App -> FHIR : POST Provenance Resource (indicating completion)
-App -> FHIR : PUT Task (add reference to Provenance)
-Patient -> App : Complete Feedback Questionnaire
-App -> FHIR : POST QuestionnaireResponse (completed)
 
 @enduml

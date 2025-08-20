@@ -4,10 +4,17 @@ The Remote Patient Monitoring initiative is an initiative the seeks to deliver c
 
 ### Remote Patient Monitoring in FHIR 
 
+### Data Structure
 
 ### Patient Onboarding
 
 The Remote Patient Monitoring Flows and Experience for any given Patient are centered around their CarePlan. At the time of a Patients commencement in the RPM programme this CarePlan along with a series of related resources are created.
+
+<figure>
+  <!-- Generated from `input/images-source/outreach-create-communication.plantuml` -->
+  {% include rpm-patientOnboarding-flow.plantuml.svg %}
+</figure>
+<br clear="all">
 
 ### Data Gathering
 
@@ -15,39 +22,13 @@ Throughout the period of care, Questionnaires are used to gather clinical insigh
 
 Observations are generated via a Series of Smart Devices, that interact with the Piki App, that are then posted to the Shared Care API.
 
-### Remote Patient Monitoring Pilot Group Use Cases
-
-## COPD and Heart Failure
-
-The first pilots of this programme supported Patients with COPD and Heart Failure.
-
-# FHIR Resource Data Structure
-
 <figure>
-  <!-- Generated from `input/images-source/rpm-heartFailure-resources.plantuml` -->
-  {% include rpm-heartFailure-resources.svg %}
+  <!-- Generated from `input/images-source/outreach-create-communication.plantuml` -->
+  {% include rpm-patientOnboarding-flow.plantuml.svg %}
 </figure>
 <br clear="all">
 
-# Workflow
 
-## Cardiac Rehab
-
-A follow up pilot was run for Patients undergoing Cardiac Rehab which introduced:
-
-- The introduction of Educational Content.
-- Leverage of Communication Requests and CMS to notify Patients.
-- Simplification of the FHIR resources used.
-
-# FHIR Resource Data Structure
-
-<figure>
-  <!-- Generated from `input/images-source/outreach-usecase-overview.plantuml` -->
-  {% include outreach-usecase-overview.svg %}
-</figure>
-<br clear="all">
-
-# Workflow
 
 
  

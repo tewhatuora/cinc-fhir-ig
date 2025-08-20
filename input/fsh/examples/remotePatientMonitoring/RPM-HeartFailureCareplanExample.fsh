@@ -22,10 +22,6 @@ Usage: #example
 * activity[=].detail.status = #not-started
 * activity[+].detail.instantiatesCanonical = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/RemoteMonitoringFeedbackSurveyQuestionnaire"
 * activity[=].detail.status = #not-started
-
-Instance: goal0
-InstanceOf: Goal
-Usage: #inline
 * lifecycleStatus = #proposed
 * category.text = "Heart Failure Monitoring"
 * priority = $goal-priority#medium-priority "Medium Priority"
