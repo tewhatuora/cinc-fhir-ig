@@ -1,4 +1,4 @@
-Instance: ExampleEducationalTask
+Instance: RPMEducationalTaskExample
 InstanceOf: Task
 Title: "Educational Content Delivery Task"
 Description: "Task assigned to deliver educational content to a patient."

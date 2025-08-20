@@ -2,7 +2,7 @@ Alias: $sct = http://snomed.info/sct
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
 Alias: $loinc = http://loinc.org
 
-Instance: 82eaa351-f2aa-4ecb-b7f2-d78356f76781
+Instance: RPMobservationExample
 InstanceOf: Observation
 Usage: #example
 * basedOn = Reference(ServiceRequest/346c236d-ab64-4d0e-b640-dd4ed4c6a7db)

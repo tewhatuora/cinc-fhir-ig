@@ -1,6 +1,6 @@
 Alias: $sct = http://snomed.info/sct
 
-Instance: 2acef86c-a113-4c13-a1d1-2ad2958b8b7f
+Instance: RPMObservationServiceRequestExample
 InstanceOf: ServiceRequest
 Usage: #example
 * instantiatesCanonical = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/RemoteMonitoringObservationRequest"

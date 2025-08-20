@@ -1,7 +1,7 @@
 Alias: $consentscope = http://terminology.hl7.org/CodeSystem/consentscope
 Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
 
-Instance: 046b9873-d3d5-4944-8787-7a9510e3c2ea
+Instance: RPMConsentExample
 InstanceOf: Consent
 Usage: #example
 * status = #active

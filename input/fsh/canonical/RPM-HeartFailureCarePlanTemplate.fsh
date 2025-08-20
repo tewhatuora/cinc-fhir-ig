@@ -88,4 +88,4 @@ Usage: #definition
 * action[=].requiredBehavior = #must
 * action[=].precheckBehavior = #yes
 * action[=].cardinalityBehavior = #multiple
-* action[=].definitionCanonical = "{{API_URL}}/ActivityDefinition?identifier=RemoteMonitoringObservationRequest"
+* action[=].definitionCanonical = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/RemoteMonitoringObservationRequest"

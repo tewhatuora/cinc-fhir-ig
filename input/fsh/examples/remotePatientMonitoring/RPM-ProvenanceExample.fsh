@@ -1,4 +1,4 @@
-Instance: example-provenance
+Instance: RPMEducationCompletionExample
 InstanceOf: Provenance
 Title: "Example Provenance for Educational Task"
 Description: "Provenance record showing the creation of an educational content Task."

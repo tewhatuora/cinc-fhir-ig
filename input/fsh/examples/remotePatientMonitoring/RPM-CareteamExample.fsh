@@ -1,4 +1,4 @@
-Instance: a48ab1ca-3247-40b1-9be2-a5781c5efbb4
+Instance: RPMCareTeamExample
 InstanceOf: CareTeam
 Usage: #example
 * status = #active
