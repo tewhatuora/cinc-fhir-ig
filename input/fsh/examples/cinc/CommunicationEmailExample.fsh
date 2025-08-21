@@ -52,4 +52,6 @@ Usage : #example
 * extension[=].extension[=].valueContactPoint.value = "totest@gmail.com"
 * extension[=].extension[+].url = "fromContactPoint"
 * extension[=].extension[=].valueContactPoint.system = #email
-* extension[=].extension[=].valueContactPoint.value = "fromtest@gmail.com"
+* extension[=].extension[=].valueContactPoint.value = "fromtest@gmail.com" 
+* extension[+].url = Canonical(hnz-status-date-time-extension)
+* extension[=].valueDateTime = "2024-08-20T14:35:00Z"
