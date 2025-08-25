@@ -99,8 +99,8 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "Appointment date/time"
 
-* rest.resource[0].type = #Bundle
-* rest.resource[=].profile = Canonical(Bundle)
+* rest.resource[0].type = #DiagnosticReport
+* rest.resource[=].profile = Canonical(DiagnosticReport)
 * rest.resource[=] insert GenericCRUDInteractions
 
 * rest.resource[+].type = #Communication

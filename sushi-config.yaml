@@ -127,7 +127,7 @@ menu:
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
-    Download OpenAPI: https://fhir-ig.digital.health.nz/shared-care/openapi.yaml
+    Download OpenAPI: https://fhir-ig.digital.health.nz/shared-care/SharedCareFHIRAPICapabilityStatement.openapi.yaml
     FHIR Spec: new-tab http://hl7.org/fhir/R4/index.html
     Download IG: full-ig.zip
     Changelog: changelog.html
