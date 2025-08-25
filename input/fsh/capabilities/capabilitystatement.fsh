@@ -366,6 +366,8 @@ Usage: #definition
 * rest.resource[+].type = #Observation
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
 * rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].operation[+].name = "flat-export"
+* rest.resource[=].operation[=].definition = Canonical(Observation-flat-export)
 * rest.resource[=].searchParam[0].name = "code"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
 * rest.resource[=].searchParam[=].type = #token
