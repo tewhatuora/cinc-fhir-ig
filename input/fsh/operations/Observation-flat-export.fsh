@@ -46,29 +46,43 @@ Usage: #definition
   [See response example](./Binary-ObservationFlatExportResponse.html).
 
   ```json
-  [{
-    "id": "1234",
-    "effectiveDateTime": "2025-04-22",
-    "value[x]": {
-      "value": 6.3,
-      "unit": "mmol/l",
-      "system": "http://unitsofmeasure.org",
-      "code": "mmol/L"
+  [
+    {
+      "id": "1234",
+      "effectiveDateTime": "2025-04-22",
+      "values": [
+        {
+          "valueQuantity": {
+            "value": 6.3,
+            "unit": "mmol/l",
+            "system": "http://unitsofmeasure.org",
+            "code": "mmol/L"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5678",
+      "effectiveDateTime": "2025-04-23",
+      "values": [
+        {
+          "valueQuantity": {
+            "value": 2.3,
+            "unit": "mmol/l",
+            "system": "http://unitsofmeasure.org",
+            "code": "mmol/L"
+          }
+        },
+        {
+          "valueString": "Normal"
+        }
+      ]
     }
-  },
-  {
-    "id": "5678",
-    "effectiveDateTime": "2025-04-23",
-    "value[x]": {
-      "value": 2.3,
-      "unit": "mmol/l",
-      "system": "http://unitsofmeasure.org",
-      "code": "mmol/L"
-    }
-  }]
+  ]
   ```
 
   The response structure will contain an array of Observation resources, each represented in a flat format with the FHIR resource id, effective date, and value information.
+  Note that the values array can contain multiple entries, including any value[x] elements, which can be possible for Observations using components for multiple Observations
   """
 
 * parameter[=].type = #Binary
