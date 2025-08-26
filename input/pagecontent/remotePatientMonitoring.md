@@ -6,6 +6,13 @@ The Remote Patient Monitoring initiative is an initiative the seeks to deliver c
 
 ### Data Structure
 
+<figure>
+  <!-- Generated from `input/images-source/rpm-resources.plantuml` -->
+  {% include rpm-resources.svg %}
+</figure>
+<br clear="all">
+
+
 ### Patient Onboarding
 
 The Remote Patient Monitoring Flows and Experience for any given Patient are centered around their CarePlan. At the time of a Patients commencement in the RPM programme this CarePlan along with a series of related resources are created.
