@@ -65,3 +65,10 @@ Alias: $hnz-participation-mode-codes = https://fhir-ig.digital.health.nz/shared-
 //----Outreach Referral----//
 Alias: $hnz-task-code-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-task-code-codes
 Alias: $hnz-service-request-status-reason-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-service-request-status-reason-codes
+
+//----New Dunedin Hospital Outpatients----//
+Alias: $ethnic-group-level-4-code = https://standards.digital.health.nz/ns/ethnic-group-level-4-code
+Alias: $information-source-code = https://standards.digital.health.nz/ns/information-source-code
+Alias: $nz-citizenship-status-code = https://standards.digital.health.nz/ns/nz-citizenship-status-code
+Alias: $address-not-validated-reason-code = https://standards.digital.health.nz/ns/address-not-validated-reason-code
+Alias: $domicile-code = https://standards.digital.health.nz/ns/domicile-code

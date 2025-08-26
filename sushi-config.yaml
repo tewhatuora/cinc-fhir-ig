@@ -340,8 +340,17 @@ groups:
    resources:
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
-
-
+  NDHOutpatientProfiles:
+    name: NDH Outpatient definitions
+    resources:
+    - StructureDefinition/NDHOutpatient
+    - StructureDefinition/NDHOutpatientAppointment
+    - StructureDefinition/NDHOutpatientAppointmentResponse
+  NDHOutpatientExamples:
+    name: NDH Outpatient examples
+    resources:
+    - NDHOutpatientExample
+    - NDHOutpatientUpdateExample
 
 #
 # The ImplementationGuide resource defines several other properties
