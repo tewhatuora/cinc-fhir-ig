@@ -1,0 +1,97 @@
+@startuml
+
+' Define the CarePlan
+object "CarePlan: Education Plan" as CarePlan {
+  id = "careplan-education"
+  status = "active"
+  intent = "plan"
+  description = "Care plan defining the patient's educational syllabus"
+}
+
+' Central syllabus task
+object "Task: Educational Syllabus" as Syllabus {
+  id = "task-syllabus"
+  status = "requested"
+  intent = "plan"
+  code = { "system": "https://fhir.your-org.nz/CodeSystem/education-modules",
+           "code": "SYLLABUS",
+           "display": "Educational Syllabus" }
+  description = "Overall educational syllabus for patient"
+}
+
+' Group tasks
+object "Task: Group 1" as Group1 {
+  id = "task-group-1"
+  status = "requested"
+  intent = "plan"
+  code = { "system": "https://fhir.your-org.nz/CodeSystem/education-modules",
+           "code": "GROUP-1",
+           "display": "Education Group 1" }
+  description = "Group 1 - Introductory Modules"
+}
+
+object "Task: Group 2" as Group2 {
+  id = "task-group-2"
+  status = "requested"
+  intent = "plan"
+  code = { "system": "https://fhir.your-org.nz/CodeSystem/education-modules",
+           "code": "GROUP-2",
+           "display": "Education Group 2" }
+  description = "Group 2 - Advanced Modules"
+}
+
+' Module tasks under Group 1
+object "Task: Module 1.1" as Module11 {
+  id = "task-module-1-1"
+  status = "requested"
+  intent = "order"
+  code = { "system": "https://fhir.your-org.nz/CodeSystem/education-modules",
+           "code": "MODULE-1-1",
+           "display": "Module 1.1" }
+  description = "Module 1.1 - Generic Module"
+}
+
+object "Task: Module 1.2" as Module12 {
+  id = "task-module-1-2"
+  status = "requested"
+  intent = "order"
+  code = { "system": "https://fhir.your-org.nz/CodeSystem/education-modules",
+           "code": "MODULE-1-2",
+           "display": "Module 1.2" }
+  description = "Module 1.2 - Generic Module"
+}
+
+' Module tasks under Group 2
+object "Task: Module 2.1" as Module21 {
+  id = "task-module-2-1"
+  status = "requested"
+  intent = "order"
+  code = { "system": "https://fhir.your-org.nz/CodeSystem/education-modules",
+           "code": "MODULE-2-1",
+           "display": "Module 2.1" }
+  description = "Module 2.1 - Generic Module"
+}
+
+object "Task: Module 2.2" as Module22 {
+  id = "task-module-2-2"
+  status = "requested"
+  intent = "order"
+  code = { "system": "https://fhir.your-org.nz/CodeSystem/education-modules",
+           "code": "MODULE-2-2",
+           "display": "Module 2.2" }
+  description = "Module 2.2 - Generic Module"
+}
+
+' Relationships (FHIR basedOn chain)
+CarePlan --> Syllabus : "basedOn"
+
+Syllabus --> Group1 : "basedOn"
+Syllabus --> Group2 : "basedOn"
+
+Group1 --> Module11 : "basedOn"
+Group1 --> Module12 : "basedOn"
+
+Group2 --> Module21 : "basedOn"
+Group2 --> Module22 : "basedOn"
+
+@enduml

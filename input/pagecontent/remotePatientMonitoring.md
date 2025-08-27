@@ -39,9 +39,25 @@ Observations are generated via a Series of Smart Devices, that interact with the
 
 Patient on certain CarePlans may be assigned educational content to engage with: a series of short modules. A task attached to the CarePlan prescribes this education. Upon a modules completion within the app, a Provenance resource is created and attached to the Task as a relevantHistory.reference.
 
+Option One: This flow uses a single Tasks resource per Patient and CarePlan. This tasks represents the completion of all educational content associated with the Careplan type. Upon Completion of a module, the Piki Te Ora App will POST a provenance resource, which encodes the completion of the module. These can be read by Provider view to display educational progress.
+
 <figure>
   <!-- Generated from `input/images-source/rpm-education-flow.plantuml` -->
   {% include rpm-education-flow.svg %}
+</figure>
+<br clear="all">
+
+Option Two: This flow uses a pyramid of many Tasks resource per Patient and CarePlan. A single task represent a the entire syllabus, under which many subjects will represent the groups. Underneath this each group will have many tasks, each representing a module. Upon Completion of a module, the Piki Te Ora App will GET and PUT a task resource, updating its status to complete. These can be read by Provider view to display educational progress.
+
+<figure>
+  <!-- Generated from `input/images-source/rpm-education-flow-tasks.plantuml` -->
+  {% include rpm-education-flow-tasks.svg %}
+</figure>
+<br clear="all">
+
+<figure>
+  <!-- Generated from `input/images-source/rpm-task-relations.plantuml` -->
+  {% include rpm-task-relations.svg %}
 </figure>
 <br clear="all">
 
