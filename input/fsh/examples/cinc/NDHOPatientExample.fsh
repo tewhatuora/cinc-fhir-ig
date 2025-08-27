@@ -75,7 +75,7 @@ Description: "An example New Dunedin Hospital Outpatient"
 Instance: NDHOutpatientUpdateExample
 InstanceOf: NDHOutpatient
 Usage: #example
-* id = "ndd-outpatient-update-instance"
+Description: "An example New Dunedin Hospital Outpatient Update demographics (phone and email)"
 
 * meta.profile = "http://hl7.org.nz/fhir/StructureDefinition/NzPatient"
 * meta.versionId = "1"
