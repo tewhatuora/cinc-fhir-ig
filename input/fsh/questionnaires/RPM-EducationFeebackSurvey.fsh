@@ -15,16 +15,13 @@ Usage: #example
 * contact.telecom.value = "https://www.tewhatuora.govt.nz/"
 * description = "This questionnaire is used to collect Patient feedback regarding an educational content module"
 * item.item[0].type = #choice
-* item.item[=].linkId = "p01-q01-Rating"
+* item.item[=].linkId = "p01-q01-Useful"
 * item.item[=].prefix = "page 1 question 1"
-* item.item[=].text = "How do you rate the module experience out of 5 (5 is best)?"
+* item.item[=].text = "What did you think of this module"
 * item.item[=].required = true
 * item.item[=].repeats = false
-* item.item[=].answerOption[0].valueCoding.display = "5 - Perfect"
-* item.item[=].answerOption[+].valueCoding.display = "4 - Pretty Good"
-* item.item[=].answerOption[+].valueCoding.display = "3 - All Right"
-* item.item[=].answerOption[+].valueCoding.display = "2 - Not Great"
-* item.item[=].answerOption[+].valueCoding.display = "1 - It Sucks"
+* item.item[=].answerOption[0].valueCoding.display = "Useful"
+* item.item[=].answerOption[+].valueCoding.display = "Not useful"
 * item.item[+].type = #text
 * item.item[=].linkId = "p01-q02-Feedback"
 * item.item[=].prefix = "page 1 question 2"

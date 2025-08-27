@@ -1,29 +1,30 @@
 @startuml
-actor AdminPractitioner
 participant "Practitioner View" as PV
 participant "Shared Care FHIR Server" as FHIR
-participant "Queue" as MQ
-participant "Common Messaging Service" as CMS
+participant "Piki te Ora" as App
 actor Patient
-participant "Alphero App" as App
 participant "Education Content Bucket" as ECB
 
 == Patient Onboarding ==
-PV -> FHIR : POST CarePlan and Associated resources (Including Task)
+PV -> FHIR : POST CarePlan and Associated resources
+PV -> FHIR : POST Top Level Task
+PV -> FHIR : POST Group Level Tasks
+PV -> FHIR : POST Module Level Tasks
+PV -> FHIR : PUT Careplan (attatching tasks)
+
 
 == Educational Content Consumption ==
 Patient -> App : Opens App, Selects and Consumes Education Content
 App -> ECB : Fetches Education Content
 App -> App : Render Content
 Patient -> App : Completes Module
-App -> FHIR : POST Provenance Resource (indicating completion)
-App -> FHIR : PUT Task (add reference to Provenance)
+App -> FHIR : GET Task?code=exampleModulecode&owner=nhi&profile=rpmEducationTask
+App -> FHIR : PUT Task (setting task.status to completed)
 Patient -> App : Complete Feedback Questionnaire
 App -> FHIR : POST QuestionnaireResponse (completed)
 
 == Provider View Rendering ==
 PV -> FHIR : GET Careplan
-PV -> FHIR : GET Provenance?basedOn=Careplan/example&subject=nhi&profile=rpmEducation
-
+PV -> FHIR : GET Task?basedOn=Careplan/example&owner=nhi&profile=rpmEducationTask
 
 @enduml
