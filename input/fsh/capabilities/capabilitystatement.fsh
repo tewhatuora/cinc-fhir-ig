@@ -97,7 +97,7 @@ Usage: #definition
 
 // NDH Outpatients AppointmentResponse Resource - Used to Confirm an Appointment
 * rest.resource[+].type = #AppointmentResponse
-* rest.resource[=].supportedProfile = Canonical(NDHOutpatientAppointmentResponse)
+* rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientAppointmentResponse)
 * rest.resource[=].documentation = "New Dunedin Hospital Outpatients - Used to confirm an appointment"
 * rest.resource[=] insert CreateUpdateInteractions
 
@@ -458,7 +458,7 @@ Usage: #definition
 * rest.resource[+].type = #Patient
 * rest.resource[=].profile = Canonical(NzPatient)
 * rest.resource[=].documentation = "New Dunedin Hospital Outpatients - Patient Profile"
-//* rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientUpdate)
+* rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientUpdate)
 * rest.resource[=] insert ReadUpdateInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[+].name = "identifier"
