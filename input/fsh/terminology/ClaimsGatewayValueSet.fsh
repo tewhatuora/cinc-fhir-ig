@@ -9,9 +9,3 @@ Id: pharmacy-adjudication-category
 Title: "Pharmacy Adjudication Category"
 Description: "Categories for pharmacy claim adjudication amounts"
 * include codes from system pharmacy-adjudication-category
-
-ValueSet: PurchaseUnitValueSet
-Id: purchase-unit
-Title: "Purchase Unit"
-Description: "Purchase unit codes for pharmacy items"
-* include codes from system purchase-unit

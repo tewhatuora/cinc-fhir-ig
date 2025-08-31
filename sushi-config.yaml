@@ -366,15 +366,19 @@ groups:
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
   TelehealthClaimDefinitions:
-    name: Resources used in the Telehealth Claim Process
+    name: Resources used in the Claim Process
     resources:
-    - NzTelehealthClaim
-    - NzTelehealthClaimResponse
+    - SharedCareClaim
+    - SharedCareClaimResponse
+    - SharedCareAppointment
+    - SharedCareEncounter
   TelehealthClaimExamples:
     name: Examples of Resources used in the Telehealth Claim Process
     resources:
     - NzTelehealthClaimResponseExample
     - NzTelehealthClaimExample
+    - NzTelehealthAppointmentExample
+    - NzTelehealthEncounterExample
 
 #
 # The ImplementationGuide resource defines several other properties

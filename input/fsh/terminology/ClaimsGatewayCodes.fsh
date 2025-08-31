@@ -27,11 +27,3 @@ Description: "Code system for pharmacy adjudication categories"
 * #professionalfees "Professional Fees" "Professional service fees"
 * #amountpaid "Amount Paid" "Total amount paid"
 * #packsize "Pack Size" "Package size information"
-
-CodeSystem: PurchaseUnitCodeSystem
-Id: purchase-unit
-Title: "Purchase Unit Code System"
-Description: "Code system for purchase unit codes used in pharmacy claims"
-* ^url = "https://standards.digital.health.nz/ns/purchase-unit"
-* ^caseSensitive = true
-* #PU1234 "Purchase Unit 1234" "Example purchase unit code"

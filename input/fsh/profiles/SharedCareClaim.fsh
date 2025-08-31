@@ -1,11 +1,10 @@
-Profile: NzTelehealthClaim
+Profile: SharedCareClaim
 Parent: Claim
-Id: NzTelehealthClaim
+Id: SharedCareClaim
 Title: "NZ Telehealth Claim"
 Description: """A FHIR resource profile for NZ Telehealth Claims for 24/7 telehealth services.
 
 Note: In 4B insurance, priority and item.productOrService are compulsory fields.
-      The fields patientPaid, traceNumber and item.tax are not in R4B, but are in R5.
 """
 * ^version = "0.0.1"
 * ^purpose = "This profile is used to represent telehealth claims in New Zealand for 24/7 telehealth services."
@@ -17,10 +16,8 @@ Note: In 4B insurance, priority and item.productOrService are compulsory fields.
 * identifier ^short = "Business identifier(s) for the claim"
 * identifier ^comment = "Business identifier(s) for the claim (external and/or internal identifiers)"
 
-// * extension contains
-//     traceNumber named traceNumber 0..*
-// * extension[traceNumber] ^short = "Internal primary key ID for the claim"
-// * extension[traceNumber] ^comment = "Internal primary key ID for the claim"
+* extension contains
+    TraceNumber named traceNumber 0..*
 
 * status 1..1
 
@@ -97,90 +94,18 @@ Note: In 4B insurance, priority and item.productOrService are compulsory fields.
 * item.locationReference only Reference(Location)
 * item.locationReference ^short = "HPI Facility"
 * item.locationReference ^comment = "Telehealth service spec: 4 - HPI Facility ID, 5 - Facility name"
-// * item.extension contains
-//     patientPaid named patientPaid 0..1
-// * item.extension[patientPaid] ^short = "Co-payment amount paid"
-// * item.extension[patientPaid] ^comment = "Co-payment amount paid - Telehealth service spec: 30 - Amount paid by Co-Payment"
+* item.extension contains
+    PatientPaid named patientPaid 0..1 and
+    ItemTax named itemTax 0..1
 * item.quantity 0..1
 * item.quantity ^short = "Number of units claimed for product or service"
 * item.unitPrice 0..1
 * item.unitPrice ^short = "Claimed unit price of the service"
-// * item.tax 0..1
-// * item.tax ^short = "Claimed tax amount"
-// * item.tax ^comment = "Claimed tax amount - Telehealth service spec: 29 - Amount paid by Health NZ"
 * item.net 0..1
 * item.net ^short = "Claimed pre-tax amount"
 * item.net ^comment = "Claimed pre-tax amount (and sum of any detail rows if applicable) - Telehealth service spec: 29 - Amount paid by Health NZ"
 * item.detail 0..*
 * item.detail ^short = "Additional detail for the claim item"
 
-// Extensions
-// Extension: TraceNumber
-// Id: trace-number
-// Title: "Trace Number"
-// Description: "Internal primary key ID for the claim"
-// * ^context.type = #element
-// * ^context.expression = "Claim"
-// * value[x] only Identifier
 
-// Extension: PatientPaid
-// Id: patient-paid
-// Title: "Patient Paid Amount"
-// Description: "Co-payment amount paid by the patient"
-// * ^context.type = #element
-// * ^context.expression = "Claim.item"
-// * value[x] only Money
 
-// Value Sets
-ValueSet: NzClaimTypes
-Id: nz-claim-types
-Title: "NZ Claim Types"
-Description: "Types of claims in New Zealand"
-* ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/nz-claim-type
-
-ValueSet: NzClaimSubtypes
-Id: nz-claim-subtypes
-Title: "NZ Claim Subtypes"
-Description: "Subtypes of claims in New Zealand"
-* ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/nz-claim-subtype
-
-ValueSet: ClaimCareTeamRoleCodes
-Id: claim-careteam-role-codes
-Title: "Claim Care Team Role Codes"
-Description: "Roles for care team members in claims"
-* ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/claim-careteam-role-code
-
-ValueSet: ProviderQualificationCodes
-Id: provider-qualification-codes
-Title: "Provider Qualification Codes"
-Description: "Qualification codes for providers"
-* ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/provider-qualification-codes
-
-// Code Systems
-CodeSystem: NzClaimTypeCS
-Id: nz-claim-type-cs
-Title: "NZ Claim Type Code System"
-Description: "Code system for NZ claim types"
-* ^status = #draft
-* ^caseSensitive = true
-* #professional "Professional" "Outpatient claim from a telehealth physician"
-
-CodeSystem: NzClaimSubtypeCS
-Id: nz-claim-subtype-cs
-Title: "NZ Claim Subtype Code System"
-Description: "Code system for NZ claim subtypes"
-* ^status = #draft
-* ^caseSensitive = true
-* #online-gp-services "Online GP Services" "Online GP services subtype"
-
-CodeSystem: ClaimCareTeamRoleCS
-Id: claim-careteam-role-cs
-Title: "Claim Care Team Role Code System"
-Description: "Code system for claim care team roles"
-* ^status = #draft
-* ^caseSensitive = true
-* #primary "Primary" "Primary care provider"

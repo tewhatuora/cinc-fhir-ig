@@ -1,5 +1,5 @@
 Instance: NzTelehealthClaimExample
-InstanceOf: NzTelehealthClaim
+InstanceOf: SharedCareClaim
 Usage: #example
 Title: "NZ Telehealth Claim Example"
 Description: "Example of a telehealth claim for 24/7 telehealth services"
@@ -32,7 +32,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * payee.type.coding.system = "http://terminology.hl7.org/CodeSystem/payeetype"
 * payee.type.coding.code = #provider
-* payee.party.identifier.use = #primary
+* payee.party.identifier.use = #official
 * payee.party.identifier.system = "https://standards.digital.health.nz/ns/hsaap-provider-site-id"
 * payee.party.identifier.value = "P012345"
 
@@ -44,7 +44,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * provider.reference = "Organization/GZZ999-9"
 * provider.type = "Organization"
-* provider.identifier.use = #primary
+* provider.identifier.use = #official
 * provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
 * provider.identifier.value = "GZZ999-9"
 * provider.identifier.use = #secondary
@@ -63,17 +63,27 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * total.currency = #NZD
 
 * item[+].sequence = 1
-* item[=].encounter[+].reference = "Encounter/123456789123456789-1"
+* item[=].encounter[+].reference = "Encounter/NzTelehealthEncounterExample"
 * item[=].productOrService.coding.system = "https://standards.digital.health.nz/ns/purchase-unit"
 * item[=].productOrService.coding.code = #PU1234
 * item[=].servicedPeriod.start = "2025-01-01T10:00:00+13:00"
 * item[=].servicedPeriod.end = "2025-01-01T10:17:00+13:00"
-* item[=].locationReference.reference = "Location/HPI-FAC-123"
+* item[=].locationReference.type = "Location"
+* item[=].locationReference.identifier.system = "https://standards.digital.health.nz/ns/hpi-facility-id"
+* item[=].locationReference.identifier.value = "F12345"
+* item[=].locationReference.display = "Example Telehealth Facility"
 * item[=].quantity.value = 1
 * item[=].unitPrice.value = 500.00
 * item[=].unitPrice.currency = #NZD
 * item[=].net.value = 500.00
 * item[=].net.currency = #NZD
+* item[=].extension[patientPaid].valueMoney.value = 20.00
+* item[=].extension[patientPaid].valueMoney.currency = #NZD
+* item[=].extension[itemTax].valueMoney.value = 75.00
+* item[=].extension[itemTax].valueMoney.currency = #NZD
+
+* extension[traceNumber].valueIdentifier.system = "https://example.org/fhir/trace-number"
+* extension[traceNumber].valueIdentifier.value = "7890"
 
 
 //In 4B Required fields, but not utilized in the example
