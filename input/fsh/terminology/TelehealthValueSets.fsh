@@ -27,19 +27,19 @@ Description: "Qualification codes for providers"
 * ^status = #draft
 * include codes from system https://standards.digital.health.nz/ns/provider-qualification-codes
 
-// ValueSet: ClaimDecisionCodes
-// Id: claim-decision-codes
-// Title: "Claim Decision Codes"
-// Description: "Codes for claim decisions"
-// * ^status = #draft
-// * include codes from system https://fhir-ig.digital.health.nz/shared-care/CodeSystem/claim-decision-cs
+ValueSet: ClaimDecisionCodes
+Id: claim-decision-codes
+Title: "Claim Decision Codes"
+Description: "Codes for claim decisions"
+* ^status = #draft
+* include codes from system claim-decision-cs
 
-// ValueSet: ClaimDecisionReasonCodes
-// Id: claim-decision-reason-codes
-// Title: "Claim Decision Reason Codes"
-// Description: "Codes for claim decision reasons"
-// * ^status = #draft
-// * include codes from system https://fhir-ig.digital.health.nz/shared-care/CodeSystem/claim-decision-reason-cs
+ValueSet: ClaimDecisionReasonCodes
+Id: claim-decision-reason-codes
+Title: "Claim Decision Reason Codes"
+Description: "Codes for claim decision reasons"
+* ^status = #draft
+* include codes from system claim-decision-reason-cs
 
 ValueSet: AdjudicationValueCodes
 Id: adjudication-value-codes

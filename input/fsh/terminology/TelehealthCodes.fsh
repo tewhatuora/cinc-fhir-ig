@@ -35,25 +35,25 @@ Description: "Code system for Australasian Triage Scale (ATS) categories"
 * #4 "Category 4" "Potentially serious, or potential adverse outcomes from delay > 60 min, or significant complexity or severity, or discomfort or distress - 60 minutes"
 * #5 "Category 5" "Less urgent, or dealing with administrative issues only - 120 minutes"
 
-// CodeSystem: ClaimDecisionCS
-// Id: claim-decision-cs
-// Title: "Claim Decision Code System"
-// Description: "Code system for claim decisions"
-// * ^status = #draft
-// * ^caseSensitive = true
-// * #approved "Approved" "Claim has been approved"
-// * #denied "Denied" "Claim has been denied"
-// * #partial "Partial" "Claim has been partially approved"
-// * #pending "Pending" "Claim is pending review"
+CodeSystem: ClaimDecisionCS
+Id: claim-decision-cs
+Title: "Claim Decision Code System"
+Description: "Code system for claim decisions"
+* ^status = #draft
+* ^caseSensitive = true
+* #approved "Approved" "Claim has been approved"
+* #denied "Denied" "Claim has been denied"
+* #partial "Partial" "Claim has been partially approved"
+* #pending "Pending" "Claim is pending review"
 
-// CodeSystem: ClaimDecisionReasonCS
-// Id: claim-decision-reason-cs
-// Title: "Claim Decision Reason Code System"
-// Description: "Code system for claim decision reasons"
-// * ^status = #draft
-// * ^caseSensitive = true
-// * #insufficient-info "Insufficient Information" "Insufficient information provided"
-// * #not-covered "Not Covered" "Service not covered by policy"
-// * #duplicate "Duplicate" "Duplicate claim submitted"
-// * #invalid-provider "Invalid Provider" "Provider not authorized"
-// * #exceeded-limit "Exceeded Limit" "Benefit limit exceeded"
+CodeSystem: ClaimDecisionReasonCS
+Id: claim-decision-reason-cs
+Title: "Claim Decision Reason Code System"
+Description: "Code system for claim decision reasons based on FHIR R5 claim-decision-reason"
+* ^status = #draft
+* ^caseSensitive = true
+* #0001 "Not medically necessary" "The payer has determined this product, service, or procedure as not medically necessary."
+* #0002 "Prior authorization not obtained" "Prior authorization was not obtained prior to providing the product, service, or procedure."
+* #0003 "Provider out-of-network" "This provider is considered out-of-network by the payer for this plan."
+* #0004 "Service inconsistent with patient age" "The payer has determined this product, service, or procedure is not consistent with the patient's age."
+* #0005 "Benefit limits exceeded" "The patient or subscriber benefit's have been exceeded."
