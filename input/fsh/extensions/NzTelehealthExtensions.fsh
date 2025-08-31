@@ -67,6 +67,6 @@ Context: ClaimResponse.item
     decision 0..1 and
     reason 0..*
 * extension[decision].value[x] only CodeableConcept
-* extension[decision].valueCodeableConcept from http://hl7.org/fhir/claim-decision (extensible)
+* extension[decision].valueCodeableConcept from ClaimDecisionCodes
 * extension[reason].value[x] only CodeableConcept
-* extension[reason].valueCodeableConcept from http://hl7.org/fhir/claim-decision-reason (extensible)
+* extension[reason].valueCodeableConcept from ClaimDecisionReasonCodes
