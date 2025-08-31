@@ -1,5 +1,5 @@
 Instance: NzTelehealthClaimResponseExample
-InstanceOf: NzTelehealthClaimResponse
+InstanceOf: SharedCareClaimResponse
 Usage: #example
 Title: "NZ Telehealth Claim Response Example"
 Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth services"

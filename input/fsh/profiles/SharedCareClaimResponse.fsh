@@ -1,11 +1,10 @@
-Profile: NzTelehealthClaimResponse
+Profile: SharedCareClaimResponse
 Parent: ClaimResponse
-Id: NzTelehealthClaimResponse
+Id: SharedCareClaimResponse
 Title: "NZ Telehealth Claim Response"
 Description: """A FHIR resource profile for NZ Telehealth Claim Responses for 24/7 telehealth services.
 
-Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer compulsory fields, but not utilized in the example.
-      The fields item.reviewOutcome and item.detail.reviewOutcome are not in R4B, but are in R5.
+Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer are compulsory fields, but not utilized in the telehealth implementation.
       item.adjudication.quantity R5 is item.adjudication.value in R4B.
 """
 * ^version = "0.0.1"
@@ -14,16 +13,14 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 * request 1..1
-* request only Reference(NzTelehealthClaim)
+* request only Reference(SharedCareClaim)
 * request ^short = "Reference to the Claim that was determined"
 
 * identifier 1..*
 * identifier ^short = "Business identifier(s) for the claim response"
 
-// traceNumber extension - not available in FHIR 4B
-// * extension contains
-//     traceNumber named traceNumber 0..*
-// * extension[traceNumber] ^short = "Other internal reference e.g. primary key ID from the determination system"
+* extension contains
+    TraceNumber named traceNumber 0..*
 
 * status 1..1
 * status ^short = "Status of the Claim Response: active, cancelled, draft, entered-in-error"
@@ -47,23 +44,11 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * item.itemSequence 1..1
 * item.itemSequence ^short = "Value of the corresponding Claim.item.sequence"
 
-// traceNumber extension for item - not available in FHIR 4B
-// * item.extension contains
-//     traceNumber named traceNumber 0..1
-// * item.extension[traceNumber] ^short = "Internal reference(s) for the determination (adjudication) of the claim item"
-
 * item.extension contains
-    ProductOrService named productOrService 1..1
-* item.extension[ProductOrService] ^short = "To enable validation and, if required, supply or correction of the PU code"
+    TraceNumber named traceNumber 0..* and
+    ProductOrService named productOrService 1..1 and
+    ReviewOutcome named reviewOutcome 0..1
 
-// * item.reviewOutcome 0..1
-// * item.reviewOutcome ^short = "Result of adjudication for this itemSequence"
-// * item.reviewOutcome.decision 0..1
-// * item.reviewOutcome.decision from ClaimDecisionCodes (extensible)
-// * item.reviewOutcome.decision ^short = "Codified representation of the determination outcome"
-// * item.reviewOutcome.reason 0..*
-// * item.reviewOutcome.reason from ClaimDecisionReasonCodes (extensible)
-// * item.reviewOutcome.reason ^short = "Codified reason(s) for the decision"
 
 * item.adjudication 1..*
 * item.adjudication ^short = "Adjudication (reason, amount, quantity) for each Adjudication Value Code"
@@ -82,7 +67,9 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * item.detail ^short = "Any sub-determinations of this itemSequence"
 * item.detail.detailSequence 1..1
 * item.detail.detailSequence ^short = "Value of the corresponding Claim.item.detail.sequence"
-// * item.detail.reviewOutcome 0..1
+* item.detail.extension contains
+    TraceNumber named traceNumber 0..* and
+    ReviewOutcome named reviewOutcome 0..1
 * item.detail.adjudication 1..* //this is now compulsory in R4B
 
 * addItem 0..*
@@ -112,48 +99,3 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * error.subDetailSequence 0..1
 * error.code 1..1
 * error.code ^short = "Error code"
-
-// Additional Value Sets for ClaimResponse
-ValueSet: ClaimDecisionCodes
-Id: claim-decision-codes
-Title: "Claim Decision Codes"
-Description: "Codes for claim decisions"
-* ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/claim-decision-codes
-
-ValueSet: ClaimDecisionReasonCodes
-Id: claim-decision-reason-codes
-Title: "Claim Decision Reason Codes"
-Description: "Codes for claim decision reasons"
-* ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/claim-decision-reason-codes
-
-ValueSet: AdjudicationValueCodes
-Id: adjudication-value-codes
-Title: "Adjudication Value Codes"
-Description: "Codes for adjudication values"
-* ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/adjudication-value-code
-
-ValueSet: AdjudicationReasonCodes
-Id: adjudication-reason-codes
-Title: "Adjudication Reason Codes"
-Description: "Codes for adjudication reasons"
-* ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/adjudication-reason-code
-
-ValueSet: PaymentTypeCodes
-Id: payment-type-codes
-Title: "Payment Type Codes"
-Description: "Codes for payment types"
-* ^status = #draft
-* include codes from system http://terminology.hl7.org/CodeSystem/ex-paymenttype
-
-// Extensions
-Extension: ProductOrService
-Id: purchase-unit
-Title: "Product Or Service"
-Description: "To enable validation and, if required, supply or correction of the PU code"
-* ^context.type = #element
-* ^context.expression = "ClaimResponse.item"
-* value[x] only CodeableConcept
