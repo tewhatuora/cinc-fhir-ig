@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Health New Zealand Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
 status: active
-version: 0.4.1
+version: 0.4.2
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -37,7 +37,7 @@ dependencies:
     version: 3.0.0
   hl7.fhir.uv.sdc: 3.0.0
   tewhatuora.digitaltooling: 0.0.11
-  hl7.terminology.r4: 5.5.0
+  hl7.terminology.r4: 6.5.0
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
