@@ -27,8 +27,9 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * value 1..1 MS
   * period 0..0
   * assigner 0..0
-  * extension 0..0
+  * extension 0..1
   * id 0..0
+* identifier[NHI] 0..1 MS
 * active 0..1
 * name 1..* MS
   * use 1..1 MS
@@ -122,12 +123,14 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^derivation = #constraint
 
+
 // We only want the API to allow for updating the email address and telephone number of a patient. Based on FHIR 4.3.0 (R4B) Patient Elements
 * meta.profile 1..1
 * identifier 1..* MS // We must have at least one ID (NHI)
   * use 1..1 MS
   * value 1..1 MS
   * system 1..1 MS
+* identifier[NHI] 0..1 MS
 * active 0..1 // set to #true or #false for each side of ADT^A40 patient merge message
 * name 0..0
 // a NzContactPoint which is a derivative of a [ContactPoint](https://hl7.org/fhir/R4/datatypes.html#ContactPoint)
