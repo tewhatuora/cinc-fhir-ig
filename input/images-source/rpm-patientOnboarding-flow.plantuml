@@ -1,0 +1,43 @@
+@startuml
+actor AdminPractitioner
+participant "Practitioner View" as PV
+participant "Shared Care FHIR Server" as FHIR
+participant "Queue" as MQ
+participant "Common Messaging Service" as CMS
+actor Patient
+participant "Alphero App" as App
+participant "Education Content Bucket" as ECB
+
+== Patient Onboarding ==
+
+== Inital Encounter ==
+PV -> FHIR : POST Condition 
+PV -> FHIR : POST Encounter
+PV -> FHIR : POST CareTeam
+PV -> FHIR : POST Task
+PV -> FHIR : POST Consent
+
+
+== Create CarePlan ==
+PV -> FHIR : Search Plan Definitions
+PV -> FHIR : Apply Plan Definition, with patient, practitioner, and encounter
+PV -> FHIR : POST CarePlan
+PV -> FHIR : PUT Consent, attaching CarePlan
+
+== Add Service Requests ==
+PV -> FHIR : Search Activity Definitions
+PV -> FHIR : Apply Action Definition, with patient, practitioner, and CarePlan
+PV -> FHIR : POST Service Request
+PV -> FHIR : PUT Consent, attaching Service Request
+PV -> FHIR : PUT CarePlan, attaching Service Request
+
+
+== Patient Notification via CMS ==
+
+PV -> FHIR : POST CommunicationRequest
+FHIR -> FHIR : Handle incoming Communication Request
+FHIR -> CMS : POST CommunicationRequest (via Subscription)
+CMS -> Patient : Send Email
+CMS -> FHIR : POST Communication (inidcating email sent)
+
+@enduml

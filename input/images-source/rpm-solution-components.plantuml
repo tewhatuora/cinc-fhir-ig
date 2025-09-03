@@ -1,0 +1,36 @@
+@startuml PikiTeOraSolution
+
+skinparam componentStyle rectangle
+
+' Devices
+package "Devices" {
+  [Smart Watch]
+  [Smart Scale]
+  [Smartphone]
+}
+
+' Applications
+package "Applications" {
+  [Piki Te Ora App] as PikiTeOra
+  [Provider View Web App] as ProviderView
+}
+
+' Backend/API Layer
+package "Shared Care Platform" {
+  [Shared Care FHIR API] as FHIRAPI
+  database "FHIR Data Store" as FHIRDB
+}
+
+' Device interactions
+[Smart Watch] --> [Smartphone] : Health data (e.g., heart rate)
+[Smart Scale] --> [Smartphone] : Weight data
+[Smartphone] --> PikiTeOra : Sends device data
+
+' App interactions
+PikiTeOra --> FHIRAPI : Submit Observations, Conditions, etc.
+ProviderView --> FHIRAPI : Read patient data
+
+' API to data store
+FHIRAPI --> FHIRDB : CRUD operations
+
+@enduml

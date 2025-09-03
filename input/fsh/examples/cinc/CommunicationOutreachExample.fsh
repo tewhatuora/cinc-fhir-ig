@@ -34,7 +34,7 @@ Usage : #example
 * sender.identifier.use = #official
 * sender.identifier.system = "https://hub.services.digital.health.nz/ns/hip-application-id"
 * sender.identifier.value = "12345"
-* sender.display = "Whaihua"
+* sender.display = "whaihua"
 
 * recipient.type = "Patient"
 * recipient.identifier.use = #official

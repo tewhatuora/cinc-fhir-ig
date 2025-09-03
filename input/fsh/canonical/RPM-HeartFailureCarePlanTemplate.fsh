@@ -4,7 +4,7 @@ Alias: $definition-topic = http://terminology.hl7.org/CodeSystem/definition-topi
 Alias: $goal-priority = http://terminology.hl7.org/CodeSystem/goal-priority
 Alias: $action-type = http://terminology.hl7.org/CodeSystem/action-type
 
-Instance: RemoteMonitoringHeartFailureCarePlanTemplate
+Instance: RPMHeartFailureCarePlanTemplate
 InstanceOf: PlanDefinition
 Usage: #definition
 * language = #en-NZ
@@ -88,4 +88,4 @@ Usage: #definition
 * action[=].requiredBehavior = #must
 * action[=].precheckBehavior = #yes
 * action[=].cardinalityBehavior = #multiple
-* action[=].definitionCanonical = "{{API_URL}}/ActivityDefinition?identifier=RemoteMonitoringObservationRequest"
+* action[=].definitionCanonical = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/RemoteMonitoringObservationRequest"

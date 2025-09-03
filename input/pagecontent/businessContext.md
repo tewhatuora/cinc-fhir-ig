@@ -38,8 +38,9 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 1. [Outreach Referral and task management overview](./outreachReferrals.html)
 
+### Remote Patient Monitoring
+
+1. [Remote Patient Monitoring Overview](./remotePatientMonitoring.html)
+
 ### New Dunedin Hospital Outpatients
 1. [New Dunedin Hospital Outpatients overview](./NDHOutpatients.html)
-
-### Rheumatic fever secondary prevention service care plans
-

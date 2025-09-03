@@ -124,6 +124,7 @@ menu:
     View OpenAPI: new-tab https://fhir-ig.digital.health.nz/openapi/index.html?urls.primaryName=Shared+Care+API
     Developer Guide: developerGuide.html
     API capability statement: CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html
+    # Flat Data Views: flatDataViews.html
   Artifact Index: artifacts.html
   FAQ: faq.html
   Support:
@@ -326,21 +327,6 @@ groups:
       - ConsentByRelatedPersonExample
       - ConsentByQuestionnaireExample
       - ConsentQuestionnaireResponseExample
-  OutreachReferralDefinitions:
-    name: Outreach Referral Definitions
-    resources:
-      - StructureDefinition/OutreachTask
-      - StructureDefinition/OutreachServiceRequest
-  OutreachReferralExamples:
-    name: Outreach Referral Examples
-    resources:
-      - OutreachServiceRequestExample
-      - OutreachTaskExample
-  PharmacyClaimExamples:
-    name: Examples of Resources used in the Pharmacy Claim Process
-    resources:
-      - HSAAPAdjudicatedClaimResponse
-      - PharmacySubmittedClaim
   NDHOutpatientProfiles:
     name: New Dunedin Hospital Outpatient definitions
     resources:
@@ -355,6 +341,59 @@ groups:
       - NDHOutpatientUpdateExample
       - NDHOutpatientAppointmentExample
       - NDHOutpatientAppointmentResponseExample
+  OutreachReferralDefinitions:
+    name: Outreach Referral Definitions
+    resources:
+      - StructureDefinition/OutreachTask
+      - StructureDefinition/OutreachServiceRequest
+  OutreachReferralExamples:
+    name: Outreach Referral Examples
+    resources:
+      - OutreachServiceRequestExample
+      - OutreachTaskExample
+  RPMDefinitions:
+    name: Canonical FHIR Profiles and Definitions used in the Remote Patient Monitoring Pilot
+    resources:
+      - RPMCardiacRehabCarePlanTemplate
+      - RPMHeartFailureCarePlanTemplate
+      - RPMObservationRequest
+  RPMExamples:
+   name: Examples of Resources used in the Remote Patient Monitoring Pilot
+   resources:
+    - RPMCardiacRehabCarePlanExample
+    - RPMPatientOnboardingCommunicationRequest
+    - RPMCareTeamExample
+    - RPMEducationalTaskExample
+    - RPMConsentExample
+    - RPMObservationExample
+    - RPMObservationServiceRequestExample
+  PharmacyClaimDefinitions:
+   name: Resources used in the Pharmacy Claim Process
+   resources:
+   - NzPharmacyClaim
+   - NzPharmacyClaimResponse
+   - NzPharmacyMedicationRequest
+   - NzPharmacyMedicationDispense
+  PharmacyClaimExamples:
+   name: Examples of Resources used in the Pharmacy Claim Process
+   resources:
+   - NzPharmacyClaimResponseExample
+   - HSAAPAdjudicatedClaimResponse
+   - PharmacySubmittedClaim
+  TelehealthClaimDefinitions:
+    name: Resources used in the Claim Process
+    resources:
+    - SharedCareClaim
+    - SharedCareClaimResponse
+    - SharedCareAppointment
+    - SharedCareEncounter
+  TelehealthClaimExamples:
+    name: Examples of Resources used in the Telehealth Claim Process
+    resources:
+    - NzTelehealthClaimResponseExample
+    - NzTelehealthClaimExample
+    - NzTelehealthAppointmentExample
+    - NzTelehealthEncounterExample
 
 #
 # The ImplementationGuide resource defines several other properties

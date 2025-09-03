@@ -1,0 +1,70 @@
+### Remote Patient Monitoring
+
+The Remote Patient Monitoring initiative is an initiative the seeks to deliver care to patients in Remote parts of the country, leveraging a Patient facing App and  Consumer Technology to record patient wellbeing, with a clinician being able to monitor and provide advice to these patients from afar using the Provider View.
+
+### Remote Patient Monitoring in FHIR 
+
+### Data Structure
+
+<figure>
+  <!-- Generated from `input/images-source/rpm-resources.plantuml` -->
+  {% include rpm-resources.svg %}
+</figure>
+<br clear="all">
+
+
+### Patient Onboarding
+
+The Remote Patient Monitoring Flows and Experience for any given Patient are centered around their CarePlan. At the time of a Patients commencement in the RPM programme this CarePlan along with a series of related resources are created.
+
+<figure>
+  <!-- Generated from `input/images-source/patientOnboarding-flow.plantuml` -->
+  {% include rpm-patientOnboarding-flow.svg %}
+</figure>
+<br clear="all">
+
+### Data Gathering
+
+Throughout the period of care, Questionnaires are used to gather clinical insights into the Patients wellbeing and experience, along with feedback surrounding the quality of experience surrounding the Piki Te Ora App.
+
+Observations are generated via a Series of Smart Devices, that interact with the Piki App, that are then posted to the Shared Care API.
+
+<figure>
+  <!-- Generated from `input/images-source/rpm-dataGathering-flow.plantuml` -->
+  {% include rpm-dataGathering-flow.svg %} 
+</figure>
+<br clear="all">
+
+### Educational Content
+
+Patient on certain CarePlans may be assigned educational content to engage with: a series of short modules. A task attached to the CarePlan prescribes this education. Upon a modules completion within the app, a Provenance resource is created and attached to the Task as a relevantHistory.reference.
+
+Option One: This flow uses a single Tasks resource per Patient and CarePlan. This tasks represents the completion of all educational content associated with the Careplan type. Upon Completion of a module, the Piki Te Ora App will POST a provenance resource, which encodes the completion of the module. These can be read by Provider view to display educational progress.
+
+<figure>
+  <!-- Generated from `input/images-source/rpm-education-flow.plantuml` -->
+  {% include rpm-education-flow.svg %}
+</figure>
+<br clear="all">
+
+Option Two: This flow uses a pyramid of many Tasks resource per Patient and CarePlan. A single task represent a the entire syllabus, under which many subjects will represent the groups. Underneath this each group will have many tasks, each representing a module. Upon Completion of a module, the Piki Te Ora App will GET and PUT a task resource, updating its status to complete. These can be read by Provider view to display educational progress.
+
+<figure>
+  <!-- Generated from `input/images-source/rpm-education-flow-tasks.plantuml` -->
+  {% include rpm-education-flow-tasks.svg %}
+</figure>
+<br clear="all">
+
+<figure>
+  <!-- Generated from `input/images-source/rpm-task-relations.plantuml` -->
+  {% include rpm-task-relations.svg %}
+</figure>
+<br clear="all">
+
+
+
+
+ 
+
+
+
