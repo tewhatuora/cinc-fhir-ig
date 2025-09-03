@@ -20,7 +20,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 
 * extension[nzCitizen] ^short = "Is this person a New Zealand citizen"
 
-* meta.profile 1..1
+* meta.profile 1..*
 * identifier 1..* MS  // We must have at least one ID
   * use 1..1 MS
   * system 1..1 MS
@@ -60,7 +60,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
     * valueCodeableConcept.coding.display 0..1 MS
     * valueCodeableConcept.coding.version 0..0
     * valueCodeableConcept.coding.userSelected 0..0
-    * valueCodeableConcept.text 0..0
+    * valueCodeableConcept.text 0..1
     * id 0..0
   * extension[suburb] 0..1 MS
   * use 1..1 MS

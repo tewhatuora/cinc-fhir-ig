@@ -15,8 +15,8 @@ Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R
 * priority 0..0
 * description 0..0
 * supportingInformation 0..0
-* start 0..0
-* end 0..0
+* start 0..1
+* end 0..1
 * minutesDuration 0..0
 * slot 0..0
 * created 0..0

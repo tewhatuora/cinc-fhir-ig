@@ -1,12 +1,12 @@
 Instance: NDHOutpatientExample
 InstanceOf: NDHOutpatient
-Usage: #example
 Description: "An example New Dunedin Hospital Outpatient"
+Usage: #example
 
 * id = "ndh-outpatient-instance"
-* meta.profile = "http://hl7.org.nz/fhir/StructureDefinition/NzPatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
 * meta.versionId = "1"
-* meta.lastUpdated = "2023-07-26T01:00:00.000Z"
+* meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 
 * identifier.use = #official
 * identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
@@ -23,15 +23,6 @@ Description: "An example New Dunedin Hospital Outpatient"
 * extension[=].valueCodeableConcept.coding.version = "2.0"
 * extension[=].valueCodeableConcept.coding = $ns-ethnic-group-level-4-code#21111 "Māori"
 * extension[=].valueCodeableConcept.text = "Māori"
-* extension[+].url = "http://hl7.org.nz/fhir/StructureDefinition/birth-place"
-* extension[=].extension[0].url = "country"
-* extension[=].extension[=].valueCodeableConcept.coding.version = "2013"
-* extension[=].extension[=].valueCodeableConcept.coding = urn:iso:std:iso:3166#NZ "New Zealand"
-* extension[=].extension[=].valueCodeableConcept.text = "New Zealand"
-* extension[=].extension[+].url = "source"
-* extension[=].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-* extension[=].extension[=].valueCodeableConcept.coding = $ns-information-source-code#BRCT "Birth Certificate"
-* extension[=].extension[=].valueCodeableConcept.text = "Birth Certificate"
 * extension[+].url = "http://hl7.org.nz/fhir/StructureDefinition/nz-citizenship"
 * extension[=].extension[0].url = "source"
 * extension[=].extension[=].valueCodeableConcept.coding.version = "1.0.0"
@@ -47,10 +38,7 @@ Description: "An example New Dunedin Hospital Outpatient"
 * address[=].postalCode = "9016"
 * address[=].country = "NEW ZEALAND"
 * address[=].use = #work
-* address[=].extension[0].url = "http://hl7.org.nz/fhir/StructureDefinition/not-validated-address-reason"
-* address[=].extension[=].valueCodeableConcept.coding.version = "1.1"
-* address[=].extension[=].valueCodeableConcept.coding = $ns-address-not-validated-reason-code#NOSVC "Address Service Unavailable"
-* address[=].extension[=].valueCodeableConcept.text = "Address Service Unavailable"
+
 * address[=].extension[+].url = "http://hl7.org.nz/fhir/StructureDefinition/domicile-code"
 * address[=].extension[=].valueCodeableConcept = $ns-domicile-code#2896 "North Dunedin"
 * address[=].extension[=].valueCodeableConcept.text = "North Dunedin"
@@ -62,10 +50,7 @@ Description: "An example New Dunedin Hospital Outpatient"
 * address[=].postalCode = "9010"
 * address[=].country = "NEW ZEALAND"
 * address[=].use = #home
-* address[=].extension[0].url = "http://hl7.org.nz/fhir/StructureDefinition/not-validated-address-reason"
-* address[=].extension[=].valueCodeableConcept.coding.version = "1.1"
-* address[=].extension[=].valueCodeableConcept.coding = $ns-address-not-validated-reason-code#NOSVC "Address Service Unavailable"
-* address[=].extension[=].valueCodeableConcept.text = "Address Service Unavailable"
+
 * address[=].extension[+].url = "http://hl7.org.nz/fhir/StructureDefinition/domicile-code"
 * address[=].extension[=].valueCodeableConcept = $ns-domicile-code#2898 "Maori Hill"
 * address[=].extension[=].valueCodeableConcept.text = "Maori Hill"
@@ -87,7 +72,7 @@ InstanceOf: NDHOutpatientUpdate
 Usage: #example
 Description: "An example New Dunedin Hospital Outpatient Update demographics (phone and email)"
 
-* meta.profile = "http://hl7.org.nz/fhir/StructureDefinition/NzPatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatientUpdate"
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-07-26T01:00:00.000Z"
 

@@ -74,8 +74,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
 
 * rest.resource[0].type = #Appointment
-* rest.resource[=].profile = Canonical(Appointment)
-* rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientAppointment)
+* rest.resource[=].profile = Canonical(NDHOutpatientAppointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "patient"

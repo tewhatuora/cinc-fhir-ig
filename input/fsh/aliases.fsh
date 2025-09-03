@@ -72,17 +72,16 @@ Alias: $hnz-service-request-status-reason-codes = https://fhir-ig.digital.health
 Alias: $vs-administrative-gender = http://hl7.org/fhir/ValueSet/administrative-gender // Sex at birth
 // Patient contact to have both role and relationship per R6 Ballot (3rd Draft)
 Alias: $vs-patient-contact-role = http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype
-Alias: $vs-patient-contact-relationship = http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType
+Alias: $vs-patient-contact-relationship = http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType|3.0.0
 
 // StructureDefinitions
 Alias: $sd-building-name = http://hl7.org.nz/fhir/StructureDefinition/building-name
-Alias: $sd-interpreter-required  = http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired
+Alias: $sd-interpreter-required  = http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired|5.2.0
 Alias: $sd-nz-base-patient = http://hl7.org.nz/fhir/StructureDefinition/NzPatient
 Alias: $sd-patient-contact-role = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-patient-contact-role
 Alias: $sd-suburb = http://hl7.org.nz/fhir/StructureDefinition/suburb
 
 // Taxonomies
-Alias: $ns-address-not-validated-reason-code = https://standards.digital.health.nz/ns/address-not-validated-reason-code
 Alias: $ns-domicile-code = https://standards.digital.health.nz/ns/domicile-code
 Alias: $ns-ethnic-group-level-4-code = https://standards.digital.health.nz/ns/ethnic-group-level-4-code
 Alias: $ns-information-source-code = https://standards.digital.health.nz/ns/information-source-code

@@ -34,7 +34,7 @@ publisher:
 dependencies:
   fhir.org.nz.ig.base:
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
-    version: 3.0.0
+    version: 3.0.1
   hl7.fhir.uv.sdc: 3.0.0
   tewhatuora.digitaltooling: 0.0.11
   hl7.terminology.r4: 6.5.0
