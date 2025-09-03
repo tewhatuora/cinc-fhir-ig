@@ -80,7 +80,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * photo 0..0
 * contact 0..* MS
   * relationship from $vs-patient-contact-relationship
-  //role extension needed here
+  * extension contains PatientContactRole named role 0..*
   * name 1..1 MS
     * use 0..0
     * text 1..1 MS
@@ -101,7 +101,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * gender 0..0
   * organization 0..0
   * period 0..1 MS
-  * extension 0..0
+
   * id 0..0
 * communication 0..0
 * generalPractitioner only Reference(NzOrganization or NzPractitioner or NzPractitionerRole)
