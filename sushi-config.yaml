@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Health New Zealand Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
 status: active
-version: 0.4.1
+version: 0.4.2
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -34,10 +34,10 @@ publisher:
 dependencies:
   fhir.org.nz.ig.base:
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
-    version: 3.0.0
+    version: 3.0.1
   hl7.fhir.uv.sdc: 3.0.0
   tewhatuora.digitaltooling: 0.0.11
-  hl7.terminology.r4: 5.5.0
+  hl7.terminology.r4: 6.5.0
 
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
@@ -53,7 +53,7 @@ dependencies:
 #
 # pages:
 #   index.md:
-#     title: Example Home 
+#     title: Example Home
 #   implementation.xml:
 #   examples.xml:
 #     title: Examples Overview
@@ -114,7 +114,8 @@ menu:
   Examples:
     Shared Care: artifacts.html#shared-care-examples
     QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
-    Communication Person: artifacts.html#communication-person-examples 
+    Communication Person: artifacts.html#communication-person-examples
+    New Dunedin Hospital Outpatient: artifacts.html#new-dunedin-hospital-outpatient-examples
   Data Consent:
     FHIR representation of consent: fhirConsent.html
     Consent-based resource access control: consentBasedAccessControl.html
@@ -145,11 +146,11 @@ menu:
 # ContactDetail.
 #
 contact:
-   - name: Te Whatu Ora Integration Team
-     telecom:
-       - system: email
-         value: integration@tewhatuora.govt.nz
-         use: work
+  - name: Te Whatu Ora Integration Team
+    telecom:
+      - system: email
+        value: integration@tewhatuora.govt.nz
+        use: work
 #
 #
 # The global property corresponds to the IG.global property, but it
@@ -219,23 +220,23 @@ contact:
 groups:
   Definitions:
     name: Shared Care API definitions
-    description: Canonical FHIR Profiles and Definitions 
+    description: Canonical FHIR Profiles and Definitions
     resources:
-    - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
-    - StructureDefinition/ManaakiNgaTahiCarePlan
-    - StructureDefinition/ManaakiNgaTahiCondition
-    - StructureDefinition/ManaakiNgaTahiDocumentReference
-    - StructureDefinition/ManaakiNgaTahiEncounter
-    - StructureDefinition/ManaakiNgaTahiObservation
-    - StructureDefinition/ManaakiNgaTahiPlanDefinition
-    - StructureDefinition/ManaakiNgaTahiServiceRequest
-    - StructureDefinition/ServiceRequestActivityDefinition
-    - StructureDefinition/nz-sharedcare-communication-person
-    - ActivityDefinition/MeasurementProcedureRequestTemplate
-    - PlanDefinition/COVIDMVPCarePlanTemplate
-    - OperationDefinition/ActivityDefinition-apply
-    - OperationDefinition/PlanDefinition-apply
-    - OperationDefinition/QuestionnaireResponse-extract
+      - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
+      - StructureDefinition/ManaakiNgaTahiCarePlan
+      - StructureDefinition/ManaakiNgaTahiCondition
+      - StructureDefinition/ManaakiNgaTahiDocumentReference
+      - StructureDefinition/ManaakiNgaTahiEncounter
+      - StructureDefinition/ManaakiNgaTahiObservation
+      - StructureDefinition/ManaakiNgaTahiPlanDefinition
+      - StructureDefinition/ManaakiNgaTahiServiceRequest
+      - StructureDefinition/ServiceRequestActivityDefinition
+      - StructureDefinition/nz-sharedcare-communication-person
+      - ActivityDefinition/MeasurementProcedureRequestTemplate
+      - PlanDefinition/COVIDMVPCarePlanTemplate
+      - OperationDefinition/ActivityDefinition-apply
+      - OperationDefinition/PlanDefinition-apply
+      - OperationDefinition/QuestionnaireResponse-extract
   Questionnaires:
     name: Shared Care API canonical Questionnaires
     description: Standard questionnaire definitions shared by all applications
@@ -268,74 +269,88 @@ groups:
       - COVIDRegularHealthCheckQuestionnaireResponse
       - COVIDVaccinationSurveyQuestionnaireResponse
       - MentalHealthAssessmentSurveyQuestionnaireResponse
-      - PregnancyAssessmentSurveyQuestionnaireResponse 
+      - PregnancyAssessmentSurveyQuestionnaireResponse
       - ActiveMonitoringDay3SurveyQuestionnaireResponse
       - ActiveMonitoringDay42SurveyQuestionnaireResponse
       - COVIDRATResultQuestionnaireResponse
       - MeaslesHealthCheckQuestionnaireResponse
       - ConsumerCOVIDRATResultQuestionnaireResponse
       - ImmsotVaccinationDataEntryQuestionnaireResponse
-  CINCExamples: 
+  CINCExamples:
     name: Shared Care examples
     resources:
-    - CarePlanExample
-    - ConditionExample
-    - DocumentReferenceExample
-    - EncounterExample
-    - ObservationExample
-    - CareyCarrington
-    - DrDottyMcStuffins
-    - ObservationsServiceRequestExample
+      - CarePlanExample
+      - ConditionExample
+      - DocumentReferenceExample
+      - EncounterExample
+      - ObservationExample
+      - CareyCarrington
+      - DrDottyMcStuffins
+      - ObservationsServiceRequestExample
   CommunicationExamples:
     name: Communication Person examples
     resources:
-    - NIBSCommunicationPersonExample
-    - WhaihuaCommunicationPersonExample
+      - NIBSCommunicationPersonExample
+      - WhaihuaCommunicationPersonExample
   CommunicationProfiles:
     name: CMS API definitions
     resources:
-    - StructureDefinition/CMSCommunicationRequest
-    - StructureDefinition/CMSCommunication
-    - StructureDefinition/NationalHealthCareService
-    - StructureDefinition/TemplateDocumentReference
+      - StructureDefinition/CMSCommunicationRequest
+      - StructureDefinition/CMSCommunication
+      - StructureDefinition/NationalHealthCareService
+      - StructureDefinition/TemplateDocumentReference
   CommunicationRequestExamples:
     name: CMS Communication Request examples
     resources:
-    - SMSCommunicationRequestWithoutTemplateExample
-    - SMSCommunicationRequestWithTemplateExample
-    - EmailCommunicationRequestWithoutTemplateExample
-    - EmailCommunicationRequestWithTemplateExample
+      - SMSCommunicationRequestWithoutTemplateExample
+      - SMSCommunicationRequestWithTemplateExample
+      - EmailCommunicationRequestWithoutTemplateExample
+      - EmailCommunicationRequestWithTemplateExample
   CommunicationTypeExamples:
     name: CMS Communication examples
     resources:
-    - SMSCommunicationExample
-    - EmailCommunicationExample
-    - OutreachCommunicationExample
+      - SMSCommunicationExample
+      - EmailCommunicationExample
+      - OutreachCommunicationExample
   CommunicationTemplateExamples:
     name: CMS Communication template examples
     resources:
-    - EmailCommunicationTemplateExample
+      - EmailCommunicationTemplateExample
   Consent:
-    name: Consent definitions and examples 
+    name: Consent definitions and examples
     resources:
-    - StructureDefinition/nz-sharedcare-consent
-    - COVIDPrivacyStatementQuestionTemplate
-    - ConsentExample
-    - ActiveConsentExample
-    - ProvisionalConsentExample
-    - ConsentByRelatedPersonExample
-    - ConsentByQuestionnaireExample
-    - ConsentQuestionnaireResponseExample
+      - StructureDefinition/nz-sharedcare-consent
+      - COVIDPrivacyStatementQuestionTemplate
+      - ConsentExample
+      - ActiveConsentExample
+      - ProvisionalConsentExample
+      - ConsentByRelatedPersonExample
+      - ConsentByQuestionnaireExample
+      - ConsentQuestionnaireResponseExample
+  NDHOutpatientProfiles:
+    name: New Dunedin Hospital Outpatient definitions
+    resources:
+      - StructureDefinition/NDHOutpatient
+      - StructureDefinition/NDHOutpatientUpdate
+      - StructureDefinition/NDHOutpatientAppointment
+      - StructureDefinition/NDHOutpatientAppointmentResponse
+  NDHOutpatientExamples:
+    name: New Dunedin Hospital Outpatient examples
+    resources:
+      - NDHOutpatientExample
+      - NDHOutpatientUpdateExample
+      - NDHOutpatientAppointmentExample
+      - NDHOutpatientAppointmentResponseExample
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:
-    - StructureDefinition/OutreachTask
-    - StructureDefinition/OutreachServiceRequest
+      - StructureDefinition/OutreachTask
+      - StructureDefinition/OutreachServiceRequest
   OutreachReferralExamples:
     name: Outreach Referral Examples
     resources:
-    - OutreachServiceRequestExample
-    - OutreachTaskExample
+      - OutreachServiceRequestExample
+      - OutreachTaskExample
   RPMDefinitions:
     name: Canonical FHIR Profiles and Definitions used in the Remote Patient Monitoring Pilot
     resources:

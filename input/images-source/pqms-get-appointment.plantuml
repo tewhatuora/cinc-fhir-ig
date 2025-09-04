@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber "<b>[00]"
+Participant "PQMS\nPatient Queue\nManagement System" as p #dodgerblue/lightskyblue
+Boundary "API\nGateway" as a #gold
+Collections "Middleware\nIntegration\nPlatform" as m #palegreen/whitesmoke
+Database "FHIR CDR\nAWS FHIRWorks" as w #tomato/yellow
+
+title Get Appointment (FHIR REST API)
+p -> a: FHIR API\nGet Appointment
+a-> m++ #palegreen: FHIR Routed\nGet Appointment
+m -> w: Retrieve Appointment via FHIR API
+w--> m: FHIR Response
+return FHIR Appointment Resource
+a--> p: FHIR Routed\nAppointment Resource
+@enduml
+
