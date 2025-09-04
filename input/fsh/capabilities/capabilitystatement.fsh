@@ -78,8 +78,9 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
 
-* rest.resource[0].type = #Appointment
-* rest.resource[=].profile = Canonical(NDHOutpatientAppointment)
+* rest.resource[+].type = #Appointment
+* rest.resource[=].supportedProfile[0] = Canonical(Appointment)
+* rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientAppointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[0] = "*"
 * rest.resource[=].searchParam[0].name = "patient"
@@ -105,7 +106,7 @@ Usage: #definition
 * rest.resource[=].documentation = "New Dunedin Hospital Outpatients - Used to confirm an appointment"
 * rest.resource[=] insert CreateUpdateInteractions
 
-* rest.resource[0].type = #Bundle
+* rest.resource[+].type = #Bundle
 * rest.resource[=].profile = Canonical(Bundle)
 * rest.resource[=] insert GenericCRUDInteractions
 
