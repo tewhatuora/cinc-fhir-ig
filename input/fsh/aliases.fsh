@@ -78,7 +78,7 @@ Alias: $vs-patient-contact-relationship = http://terminology.hl7.org/ValueSet/v3
 Alias: $sd-building-name = http://hl7.org.nz/fhir/StructureDefinition/building-name
 Alias: $sd-interpreter-required  = http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired|5.2.0
 Alias: $sd-nz-base-patient = http://hl7.org.nz/fhir/StructureDefinition/NzPatient
-Alias: $sd-patient-contact-role = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-patient-contact-role
+Alias: $sd-patient-contact-role-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-patient-contact-role-extension-id
 Alias: $sd-suburb = http://hl7.org.nz/fhir/StructureDefinition/suburb
 
 // Taxonomies

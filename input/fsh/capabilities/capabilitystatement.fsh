@@ -21,7 +21,7 @@ Usage: #definition
 * rest.security.cors = true
 * rest.security.service = #SMART-on-FHIR
 * rest.security.extension.url = "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
-* rest.security.extension.extension[0].url = "token"
+* rest.security.extension.extension[+].url = "token"
 * rest.security.extension.extension[=].valueUri = "https://ppd.auth.services.health.nz/realms/hnz-integration/protocol/openid-connect/token"
 * rest.security.extension[+].url = "http://fhir-registry.smarthealthit.org/StructureDefinition/capabilities"
 * rest.security.extension[=].valueCode = #client-confidential-symmetric
@@ -44,11 +44,11 @@ Usage: #definition
 // * rest.operation[=].definition = Canonical(RunOperation)
 // * rest.operation[=].documentation = "Run a flat data view operation to aggregate data for a specific patient using a defined ViewDefinition. See [Flat Data Views](./flatDataViews.md) for more information."
 
-* rest.resource[0].type = #AllergyIntolerance
+* rest.resource[+].type = #AllergyIntolerance
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiAllergyIntolerance)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
-* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchInclude[+] = "*"
+* rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the sensitivity is for \n [Patient](http://hl7.org/fhir/R4/patient.html)"
@@ -79,11 +79,11 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
 
 * rest.resource[+].type = #Appointment
-* rest.resource[=].supportedProfile[0] = Canonical(Appointment)
+* rest.resource[=].supportedProfile[+] = Canonical(Appointment)
 * rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientAppointment)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
-* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchInclude[+] = "*"
+* rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the sensitivity is for \n [Patient](http://hl7.org/fhir/R4/patient.html)"
@@ -113,7 +113,7 @@ Usage: #definition
 * rest.resource[+].type = #Communication
 * rest.resource[=].supportedProfile = Canonical(CMSCommunication)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "sender"
+* rest.resource[=].searchParam[+].name = "sender"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-sender"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who shares the information"
@@ -191,9 +191,9 @@ Usage: #definition
 * rest.resource[=].profile = Canonical(CarePlan)
 * rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiCarePlan)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "CarePlan:encounter"
-* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the care plan is for"
@@ -222,7 +222,7 @@ Usage: #definition
 // * rest.resource[+].type = #CareTeam
 // * rest.resource[=].supportedProfile = Canonical(CareTeam)
 // * rest.resource[=] insert GenericCRUDInteractions
-// * rest.resource[=].searchParam[0].name = "identifier"
+// * rest.resource[=].searchParam[+].name = "identifier"
 // * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Patient-identifier"
 // * rest.resource[=].searchParam[=].type = #token
 // * rest.resource[=].searchParam[=].documentation = "The patient's official NHI identifier"
@@ -242,7 +242,7 @@ Usage: #definition
 * rest.resource[+].type = #Condition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiCondition)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who has the condition?"
@@ -262,9 +262,9 @@ Usage: #definition
 * rest.resource[+].type = #Consent
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiConsent)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Consent:source-reference"
-* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who the consent applies to"
@@ -288,9 +288,9 @@ Usage: #definition
 * rest.resource[+].type = #Encounter
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiEncounter)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:diagnosis"
-* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
@@ -314,8 +314,8 @@ Usage: #definition
 // This server also supports the NZ Base IG profiled version of this resource type.
 // ]])
 // * rest.resource[=] insert GenericCRUDInteractions
-// * rest.resource[=].searchInclude[0] = "*"
-// * rest.resource[=].searchParam[0].name = "patient"
+// * rest.resource[=].searchInclude[+] = "*"
+// * rest.resource[=].searchParam[+].name = "patient"
 // * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 // * rest.resource[=].searchParam[=].type = #reference
 // * rest.resource[=].searchParam[=].documentation = "The rheumatic fever patient for whom this medication is prescribed"
@@ -335,8 +335,8 @@ Usage: #definition
 // This server also supports the NZ Base IG profiled version of this resource type.
 // ]])
 // * rest.resource[=] insert GenericCRUDInteractions
-// * rest.resource[=].searchInclude[0] = "*"
-// * rest.resource[=].searchParam[0].name = "patient"
+// * rest.resource[=].searchInclude[+] = "*"
+// * rest.resource[=].searchParam[+].name = "patient"
 // * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 // * rest.resource[=].searchParam[=].type = #reference
 // * rest.resource[=].searchParam[=].documentation = "The rheumatic fever patient to whom medication was administered"
@@ -378,7 +378,7 @@ Usage: #definition
 * rest.resource[+].type = #Observation
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "code"
+* rest.resource[=].searchParam[+].name = "code"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Describes what was observed. Sometimes this is called the observation 'name'"
@@ -446,7 +446,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
-* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Observation:patient"
 * rest.resource[=].searchInclude[+] = "Observation:encounter"
 * rest.resource[=].searchInclude[+] = "Observation:based-on"
@@ -465,7 +465,7 @@ Usage: #definition
 * rest.resource[=].documentation = "New Dunedin Hospital Outpatients - Patient Profile"
 * rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientUpdate)
 * rest.resource[=] insert ReadUpdateInteractions
-* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Patient-identifier"
 * rest.resource[=].searchParam[=].type = #token
@@ -507,7 +507,7 @@ Usage: #definition
 // This server also supports the NZ Base IG profiled version of this resource type.
 // ]])
 // * rest.resource[=] insert GenericCRUDInteractions
-// * rest.resource[=].searchParam[0].name = "identifier"
+// * rest.resource[=].searchParam[+].name = "identifier"
 // * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Patient-identifier"
 // * rest.resource[=].searchParam[=].type = #token
 // * rest.resource[=].searchParam[=].documentation = "The patient's official NHI identifier"
@@ -524,7 +524,7 @@ Usage: #definition
 //* rest.resource[=].profile = Canonical(CommunicationPerson)
 * rest.resource[=].supportedProfile = Canonical(CommunicationPerson)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "phone"
+* rest.resource[=].searchParam[+].name = "phone"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#individual-phone"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "A value in a phone contact."
@@ -548,7 +548,7 @@ Usage: #definition
 * rest.resource[+].type = #PlanDefinition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiPlanDefinition)
 * rest.resource[=] insert DefinitionalResourceInteractions
-* rest.resource[=].searchParam[0].name = "identifier"
+* rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/PlanDefinition-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "External identifier for the plan definition"
@@ -572,14 +572,14 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
-* rest.resource[=].operation[0].name = "apply"
+* rest.resource[=].operation[+].name = "apply"
 * rest.resource[=].operation[=].definition = Canonical(PlanDefinition-apply)
 
 
 * rest.resource[+].type = #Questionnaire
 //* rest.resource[=].profile = canonical(Questionnaire)
 * rest.resource[=] insert DefinitionalResourceInteractions
-* rest.resource[=].searchParam[0].name = "identifier"
+* rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Questionnaire-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "External identifier for the questionnaire"
@@ -607,10 +607,10 @@ Usage: #definition
 * rest.resource[+].type = #QuestionnaireResponse
 //* rest.resource[=].profile = canonical(QuestionnaireResponse)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "QuestionnaireResponse:based-on"
 * rest.resource[=].searchInclude[+] = "QuestionnaireResponse:encounter"
-* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "The patient that is the subject of the questionnaire response"
@@ -631,13 +631,13 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
-* rest.resource[=].operation[0].name = "extract"
+* rest.resource[=].operation[+].name = "extract"
 * rest.resource[=].operation[=].definition = Canonical(QuestionnaireResponse-extract)
 
 * rest.resource[+].type = #ActivityDefinition
 * rest.resource[=] insert DefinitionalResourceInteractions
-* rest.resource[=].searchInclude[0] = "*"
-* rest.resource[=].searchParam[0].name = "_id"
+* rest.resource[=].searchInclude[+] = "*"
+* rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
@@ -657,13 +657,13 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ActivityDefinition-title"
 * rest.resource[=].searchParam[=].type = #string
 * rest.resource[=].searchParam[=].documentation = "The human-friendly name of the ActivityDefinition"
-* rest.resource[=].operation[0].name = "apply"
+* rest.resource[=].operation[+].name = "apply"
 * rest.resource[=].operation[=].definition = Canonical(ActivityDefinition-apply)
 
 * rest.resource[+].type = #DocumentReference
 * rest.resource[=].supportedProfile = Canonical(TemplateDocumentReference)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "identifier"
+* rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Identifier of the attachment binary"
@@ -683,7 +683,7 @@ Usage: #definition
 * rest.resource[+].type = #Task
 * rest.resource[=].supportedProfile = Canonical(OutreachTask)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "status"
+* rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Task-status"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[+].name = "code"
@@ -714,7 +714,7 @@ Usage: #definition
 * rest.resource[+].type = #ServiceRequest
 * rest.resource[=].supportedProfile = Canonical(OutreachServiceRequest)
 * rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchParam[0].name = "identifier"
+* rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[+].name = "status"
@@ -747,7 +747,7 @@ Usage: #definition
 // * rest.resource[+].type = #Claim
 // * rest.resource[=].supportedProfile = Canonical(SharedCareClaim)
 // * rest.resource[=] insert GenericCRUDInteractions
-// * rest.resource[=].searchParam[0].name = "identifier"
+// * rest.resource[=].searchParam[+].name = "identifier"
 // * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Claim-identifier"
 // * rest.resource[=].searchParam[=].type = #token
 // * rest.resource[=].searchParam[+].name = "status"
@@ -772,7 +772,7 @@ Usage: #definition
 // * rest.resource[+].type = #ClaimResponse
 // * rest.resource[=].supportedProfile = Canonical(SharedCareClaimResponse)
 // * rest.resource[=] insert GenericCRUDInteractions
-// * rest.resource[=].searchParam[0].name = "identifier"
+// * rest.resource[=].searchParam[+].name = "identifier"
 // * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ClaimResponse-identifier"
 // * rest.resource[=].searchParam[=].type = #token
 // * rest.resource[=].searchParam[+].name = "status"
@@ -797,7 +797,7 @@ Usage: #definition
 // * rest.resource[+].type = #Encounter
 // * rest.resource[=].supportedProfile = Canonical(SharedCareEncounter)
 // * rest.resource[=] insert GenericCRUDInteractions
-// * rest.resource[=].searchParam[0].name = "identifier"
+// * rest.resource[=].searchParam[+].name = "identifier"
 // * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-identifier"
 // * rest.resource[=].searchParam[=].type = #token
 // * rest.resource[=].searchParam[+].name = "status"
@@ -828,7 +828,7 @@ Usage: #definition
 // * rest.resource[+].type = #Appointment
 // * rest.resource[=].supportedProfile = Canonical(SharedCareAppointment)
 // * rest.resource[=] insert GenericCRUDInteractions
-// * rest.resource[=].searchParam[0].name = "identifier"
+// * rest.resource[=].searchParam[+].name = "identifier"
 // * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Appointment-identifier"
 // * rest.resource[=].searchParam[=].type = #token
 // * rest.resource[=].searchParam[+].name = "status"

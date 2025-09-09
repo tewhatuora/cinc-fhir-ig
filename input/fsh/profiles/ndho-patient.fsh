@@ -8,7 +8,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * ^purpose = "New Dunedin Hospital outpatient profile"
 * ^derivation = #constraint
 
-* ^purpose = "Describe the New Dunedin Hospital Outpatient resource profileI"
+* ^purpose = "Describe the New Dunedin Hospital Outpatient resource profile"
 * ^text.status = #additional
 * ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>New Dunedin Hospital Outpatient profile</div>"
 
@@ -81,7 +81,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * photo 0..0
 * contact 0..* MS
   * relationship from $vs-patient-contact-relationship
-  * extension contains PatientContactRole named role 0..*
+  * extension contains PatientContactRole named role 0..1
   * name 1..1 MS
     * use 0..0
     * text 1..1 MS
