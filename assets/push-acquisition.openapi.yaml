@@ -1,0 +1,253 @@
+openapi: 3.0.3
+info:
+  title: SDHR Acquisition API
+  version: 1.0.0
+  description: Synchronous API to submit bulk staging SDHR resources for HNZ review.
+  contact:
+    name: Health New Zealand Te Whatu Ora
+    url: https://www.tewhatuora.govt.nz
+  license:
+    name: Health New Zealand Digital Services Hub API Access and Use Agreement
+    url: https://www.tewhatuora.govt.nz/assets/Our-health-system/Digital-health/Digital-Service-Hub/API-Access-and-Use-Agreement.docx
+externalDocs:
+  url: https://fhir-ig.digital.health.nz/sdhr
+  description: FHIR Implementation Guide
+tags:
+  - name: SDHRBulk
+    description: Operations related to SDHR bulk resource submission
+servers:
+  - url: https://sdhr-acquisition.api-uat.digital.health.nz/v1
+    description: UAT
+  - url: https://sdhr-acquisition.api.digital.health.nz/v1
+    description: Production
+
+paths:
+  /resources-bulk:
+    post:
+      summary: Submit SDHR resources
+      description: |
+        Accepts a payload containing an NHI, a Facility ID, and up to 100 resources, where each resource will be processed individually.
+        Note that FHIR Validation is not performed on the resource during submission, so a successful response does not guarantee that the resource will be accepted by the SDHR.
+      operationId: submitResources
+      tags:
+        - SDHRBulk
+      parameters:
+        - name: Correlation-Id
+          in: header
+          required: true
+          schema:
+            type: string
+          description: Unique identifier submitted by the client for tracing requests.
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nhi, resourceCount, facilityId, resources]
+              properties:
+                nhi:
+                  type: string
+                  description: National Health Index identifier.
+                  example: "ZZZ1234"
+                facilityId:
+                  type: string
+                  description: Identifier for the facility.
+                  example: "FXXNNN-C"
+                resourceCount:
+                  type: integer
+                  minimum: 1
+                  maximum: 100
+                  description: Number of resources in the request, this must match the number of resources in the `resources` array.
+                  example: 40
+                resources:
+                  type: array
+                  maxItems: 100
+                  minItems: 1
+                  description: Array of SDHR FHIR resources.
+                  items:
+                    type: object
+                    properties:
+                      bulkId:
+                        type: string
+                        description: Unique identifier for the resource within the request, used to correlate items in the request to the response.
+                        example: "1"
+                      resource:
+                        type: object
+                        description: FHIR Resource object with a required `resourceType`. FHIR Validation is not performed on the resource during submission.
+                        required: [resourceType]
+                        properties:
+                          resourceType:
+                            type: string
+                            enum:
+                              [
+                                AllergyIntolerance,
+                                Observation,
+                                Condition,
+                                Encounter,
+                              ]
+                            description: The type of FHIR Resource
+                        additionalProperties: true
+                        example:
+                          resourceType: Encounter
+                          meta:
+                            profile:
+                              - "https://fhir-ig.digital.health.nz/sdhr/StructureDefinition/SDHREncounter"
+                          status: finished
+                          class:
+                            system: "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+                            code: GENRL
+                            display: General
+                          serviceType:
+                            coding:
+                              - system: "http://terminology.hl7.org/CodeSystem/service-type"
+                                code: "124"
+                                display: General Practice
+                          subject:
+                            reference: "https://api.hip.digital.health.nz/fhir/nhi/v1/Patient/ZKC7284"
+                            type: Patient
+                            display: Sage Westbrook
+                          participant:
+                            - type:
+                                - coding:
+                                    - system: "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                                      code: PPRF
+                                      display: primary performer
+                              individual:
+                                type: Practitioner
+                                identifier:
+                                  system: "https://standards.digital.health.nz/ns/hpi-person-id"
+                                  value: "91ZABY"
+                                display: Dr Andrea Welby
+                          period:
+                            start: "2024-03-26T10:13:26+13:00"
+                            end: "2024-03-26T10:13:26+13:00"
+      responses:
+        "207":
+          description: |
+            Bulk operation accepted and completed with mixed results.
+            A successful resource upload will return a 201 status code with a temporary SDHR ID.
+            A failed resource upload will return a 400 status code with a description of the error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  responses:
+                    type: array
+                    description: Status of each uploaded resource
+                    items:
+                      type: object
+                      required:
+                        - bulkId
+                        - status
+                        - errors
+                      properties:
+                        bulkId:
+                          type: string
+                          description: Unique identifier for the resource within the request, used to correlate items in the request to the response.
+                          example: "1"
+                        temporarySDHRId:
+                          type: string
+                          description: Temporary SDHR ID assigned by the server.
+                          example: "c29tZS1oYXNoZWQtaWQ="
+                        status:
+                          type: integer
+                          description: HTTP status code for the individual resource
+                          example: 201
+                        errors:
+                          type: array
+                          items:
+                            description: List of errors if the resource failed
+                            properties:
+                              description:
+                                type: string
+                            example:
+                              - description: "Invalid FHIR resource type"
+              examples:
+                response:
+                  summary: One success one error
+                  value:
+                    responses:
+                      - bulkId: "1"
+                        temporarySDHRId: "c29tZS1oYXNoZWQtaWQ="
+                        status: 201
+                        errors: []
+                      - bulkId: "2"
+                        status: 400
+                        errors:
+                          - description: "Invalid FHIR resource type"
+        "400":
+          description: Bulk operation failed due to invalid request payload.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Invalid request payload.
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Unauthorized
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Forbidden
+        "500":
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Internal server error.
+      security:
+        - oauth2-uat: []
+        - oauth2-prod: []
+
+components:
+  securitySchemes:
+    oauth2-uat:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.integration-uat.covid19.example.nz/oauth2/token
+          scopes:
+            "sdhr-bulk-post": "Submit Bulk SDHR resources"
+
+    oauth2-prod:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.integration.covid19.example.nz/oauth2/token
+          scopes:
+            "sdhr-bulk-post": "Submit Bulk SDHR resources"
