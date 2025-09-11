@@ -5,9 +5,9 @@ Description: "This profile derives from the [AppointmentResponse](https://hl7.or
 
 // We only want the API to allow for changing the participantStatus of the Appointment. Based on FHIR 4.3.0 (R4B) AppointmentResponse Elements
 * appointment 1..1 MS
-* start 0..0
-* end 0..0
+* start 0..1
+* end 0..1
 * participantStatus 1..1 MS
 * actor 0..1
-* participantType 0..0
+* participantType 0..1
 * comment 0..0
