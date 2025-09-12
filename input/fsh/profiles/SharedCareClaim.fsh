@@ -1,7 +1,7 @@
 Profile: SharedCareClaim
 Parent: Claim
 Id: SharedCareClaim
-Title: "NZ Telehealth Claim"
+Title: "NZ SharedCare Claim"
 Description: """A FHIR resource profile for NZ Telehealth Claims for 24/7 telehealth services.
 
 Note: In 4B insurance, priority and item.productOrService are compulsory fields.
@@ -17,7 +17,7 @@ Note: In 4B insurance, priority and item.productOrService are compulsory fields.
 * identifier ^comment = "Business identifier(s) for the claim (external and/or internal identifiers)"
 
 * extension contains
-    TraceNumber named traceNumber 0..*
+    SharedCareClaimTraceNumber named traceNumber 0..*
 
 * status 1..1
 
@@ -75,37 +75,30 @@ Note: In 4B insurance, priority and item.productOrService are compulsory fields.
 
 * item 0..*
 * item ^short = "Each individual product or service being claimed for as part of this claim"
-* item.sequence 1..1
+* item.sequence 1..1 MS
 * item.sequence ^short = "Referred to by the ClaimResponse.item.itemSequence"
 * item.encounter 0..*
 * item.encounter only Reference(Encounter)
 * item.encounter ^short = "The (e.g. Telehealth) encounter for which this claim is made"
-* item.productOrService 1..1 // In 4B this has to be 1..1, not 0..1
+* item.productOrService 1..1 MS // In 4B this has to be 1..1, not 0..1
 * item.productOrService ^short = "Purchase unit code for the transaction"
-* item.productOrService ^comment = "Purchase unit code for the transaction - Telehealth service spec: 28 - Purchase Unit Code"
-* item.servicedPeriod 1..1
-* item.servicedPeriod.start 1..1
-* item.servicedPeriod.start ^short = "When the claimed service started"
-* item.servicedPeriod.start ^comment = "When the claimed service started (may affect the unitPrice and/or productOrService) - Telehealth service spec: 24 - Event Start datetime"
-* item.servicedPeriod.end 1..1
-* item.servicedPeriod.end ^short = "When the claimed service ended"
-* item.servicedPeriod.end ^comment = "When the claimed service ended - Telehealth service spec: 25 - Event End datetime"
+// * item.serviced[x] 1..1
+// * item.servicedPeriod 1..1
+// * item.servicedPeriod.start 1..1
+// * item.servicedPeriod.start ^short = "When the claimed service started"
+// * item.servicedPeriod.end 1..1
+// * item.servicedPeriod.end ^short = "When the claimed service ended"
 * item.locationReference 0..1
 * item.locationReference only Reference(Location)
 * item.locationReference ^short = "HPI Facility"
-* item.locationReference ^comment = "Telehealth service spec: 4 - HPI Facility ID, 5 - Facility name"
 * item.extension contains
-    PatientPaid named patientPaid 0..1 and
-    ItemTax named itemTax 0..1
+    SharedCarePatientCopayment named patientPaid 0..1 and
+    SharedCareItemTax named itemTax 0..1
 * item.quantity 0..1
 * item.quantity ^short = "Number of units claimed for product or service"
 * item.unitPrice 0..1
 * item.unitPrice ^short = "Claimed unit price of the service"
 * item.net 0..1
 * item.net ^short = "Claimed pre-tax amount"
-* item.net ^comment = "Claimed pre-tax amount (and sum of any detail rows if applicable) - Telehealth service spec: 29 - Amount paid by Health NZ"
 * item.detail 0..*
 * item.detail ^short = "Additional detail for the claim item"
-
-
-
