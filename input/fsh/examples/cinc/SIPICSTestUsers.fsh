@@ -26,7 +26,8 @@ Usage: #example
 * extension[nz-residency].extension[=].valueCodeableConcept.text = "Passport"
 * extension[nz-residency].extension[+].url = "status"
 * extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding = #yes
+* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
+* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
 * identifier.use = #official
@@ -108,7 +109,8 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
 * extension[nz-residency].extension[+].url = "status"
 * extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding = #yes
+* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
+* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
 * identifier.use = #official
@@ -190,7 +192,8 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
 * extension[nz-residency].extension[+].url = "status"
 * extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding = #yes
+* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
+* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
 * identifier.use = #official
