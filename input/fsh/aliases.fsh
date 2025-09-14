@@ -86,5 +86,6 @@ Alias: $ns-domicile-code = https://standards.digital.health.nz/ns/domicile-code
 Alias: $ns-ethnic-group-level-4-code = https://standards.digital.health.nz/ns/ethnic-group-level-4-code
 Alias: $ns-information-source-code = https://standards.digital.health.nz/ns/information-source-code
 Alias: $ns-nz-citizenship-status-code = https://standards.digital.health.nz/ns/nz-citizenship-status-code
+Alias: $ns-nz-residency-code = https://nzhts.digital.health.nz/fhir/ValueSet/nz-residency-code
 
 //----End of New Dunedin Hospital Outpatients----//

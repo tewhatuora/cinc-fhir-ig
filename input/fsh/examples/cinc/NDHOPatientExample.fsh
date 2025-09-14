@@ -1,6 +1,6 @@
 Instance: NDHOutpatientExample
 InstanceOf: NDHOutpatient
-Description: "An example New Dunedin Hospital Outpatient"
+Description: "An example NDH Outpatient"
 Usage: #example
 
 * id = "ndh-outpatient-instance"
