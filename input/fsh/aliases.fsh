@@ -73,6 +73,7 @@ Alias: $vs-administrative-gender = http://hl7.org/fhir/ValueSet/administrative-g
 // Patient contact to have both role and relationship per R6 Ballot (3rd Draft)
 Alias: $vs-patient-contact-role = http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype
 Alias: $vs-patient-contact-relationship = http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType|3.0.0
+Alias: $vs-nc-health-specialty-codes = http://nzhts.digital.health.nz/fhir/CodeSystem/nc-health-specialty-codes
 
 // StructureDefinitions
 Alias: $sd-building-name = http://hl7.org.nz/fhir/StructureDefinition/building-name

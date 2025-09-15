@@ -339,7 +339,8 @@ groups:
     resources:
       - NDHOutpatientExample
       - NDHOutpatientUpdateExample
-      - NDHOutpatientAppointmentExample
+      - NDHOutpatientClinicAppointmentExample
+      - NDHOutpatientUnstructuredAppointmentExample
       - NDHOutpatientAppointmentResponseExample
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
