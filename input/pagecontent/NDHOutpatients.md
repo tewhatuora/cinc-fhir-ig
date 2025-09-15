@@ -1,68 +1,96 @@
+The Outpatients Appointments API exposes Hospital Outpatient appointments as FHIR Appointment and other related resources. The API provides a single view of outpatient appointments from multiple appointment scheduling systems used wihtin Health NZ.
 
-The New Dunedin Hospital digital programme is implementing a number of integrations between various third party products 
-used within the outpatient function as defined in the NDH solution architecture.
+This allows an appointment manangement solution display appointment information and as well as functionality to managed the workflow of appointments including confirming, arriving and departing a patient form their appointment.
 
-These include but are not limited to interfaces between the following Group 4 solutions:
-* **Cardiobase** – Southern district Cardiology information system
-* **Karisma** – Southern district Radiology information system
-* **Pinga** - Clinic Room Scheduling by SORSIX; a cloud-based platform that manages clinic room bookings and associates 
-clinic sessions with rooms
-* **PQMS** - Patient Queue Management System by Five Faces; a cloud-based platform that streamlines patient readiness 
-for care, self-check-in, patient engagement and optimizes patient flow. From the pre-arrival process, through to
-post-appointment, patients are supported and offered personalized information and updates regarding their appointment.
-* **SIPICS** – South Island Patient Administration System (PAS) by McCrae Tech (formerly Orion Health)
+Currently the APIs support integration with the following Hospital Outpatients systems:
+* **SIPICS** – Te Waipounamu regional Patient Administration System (PAS), including clinic based appointments as well as other ad hoc and day surgery appointments.
+* **Cardiobase** – Southern district Cardiology information system for Cardiology procedure appointments.
+* **Karisma** – Southern district Radiology information system for Radiology procedure appointments.
 
-The original design developed with NTT used Southern Rhapsody as the main integration method between group 4 systems.
+Some functionality of the API is currenlty limited based on the underlying appointment booking system:
+* Southern Radiology appointements only supports retrieval. Updates (confirm, arrive, depart) are not currently supported.
 
-Subsequently, a decision was made and endorsed by the NDH DSDA to adopt a FHIR integration approach using the national 
-integration capabilities, MuleSoft, National Event Management Service (NEMS) and AWS FHIR Works.
+Additionally a Patient resources is exposed to provide Patient demographic information held within the Hospital Patient Administration System (PAS). This also provides ability to update a limited set of patient demographics held in the PAS (contact details).
 
-However, it was determined that some systems only supported a single outbound path and that in order to support legacy 
-requirements, it would be necessary to continue to use some legacy Rhapsody routes until such time as those systems 
-could be fully migrated to FHIR RESTful interfaces (which were beyond the scope of this work).
+## Use Cases
+[1. Appointment Created/Updated ](#appointment-createdupdated) <br/>
+[2. Confirm Appointment ](#confirm-appointment) <br/>
+[3. Arrive Appointment ](#arrive-appointment) <br/>
+[4. Depart Appointment ](#depart-appointment) <br />
+[5. Retrieve\Update Te Waipounamu Patient Demographics ](#retrieveupdate-te-waipounamu-patiet-demographics) <br />
 
-Where possible, a standards-based collection of FHIR APIs are implemented to expose Patient, Appointment, and associated
-FHIR resources from the relevant systems.
+### 1. Appointment Created/Updated
+An event notifaction will be sent to subscibers for any new or updated appointments, the details can then be retrieve from the Appointment API.
 
-A limited set of update APIs enable Patient and Appointment updates to the source systems and vendors will enhance the 
-capabilities of their systems to consume these.
-
-Patient Queue Management System (PQMS)
-
-[1. Get Patient ](#get-patient) <br/>
-[2. Update Patient ](#update-patient) <br/>
-[3. Get Appointment ](#get-appointment) <br/>
-[4. Update Appointment ](#update-appointment) <br />
-
-
-### Get Patient
-The following shows the expected interactions for getting patient data for PQMS.
 <figure>
-  <!-- Generated from `input/images-source/pqms-get-patient.plantuml` -->
-  {% include pqms-get-patient.svg %}
+  <!-- Generated from `input/images-source/ndh-appointment-create.plantuml` -->
+  {% include ndh-appointment-create.svg %}
 </figure>
-<br clear="all">
 
-### Update Patient
-The following shows the expected interactions for updating patient data from PQMS.
-<figure>
-  <!-- Generated from `input/images-source/pqms-update-patient.plantuml` -->
-  {% include pqms-update-patient.svg %}
-</figure>
-<br clear="all">
+### 2. Confirm Appointment
+Update the Appointment Schedulng System to indicate the patient has confirmed the can attend the appointment.
 
-### Get Appointment
-The following shows the expected interactions for getting appointment data for PQMS.
+Key information:
+| Element | Expected update/information |
+| ---------- | ----------------------------|
+| AppointmentResponse.identifier | Appointment.Identifier |
+| AppointmentResponse.participantStatus | 'active' |
+| AppointmentResponse.actor.identifier | patient's NHI |
 <figure>
-  <!-- Generated from `input/images-source/pqms-get-appointment.plantuml` -->
-  {% include pqms-get-appointment.svg %}
+  <!-- Generated from `input/images-source/ndh-appointment-confirm.plantuml` -->
+  {% include ndh-appointment-confirm.svg %}
 </figure>
-<br clear="all">
 
-### Update Appointment
-The following shows the expected interactions for updating appointment data from PQMS.
+### 3. Arrive Appointment
+Update the Appointment Schedulng System to indicate the patient has arrived for their appointment.
+
+Key information:
+| Element | Expected update/information |
+| ---------- | ----------------------------|
+| Encounter.appointment.identifier | Appointment.Identifier |
+| Encounter.subject.identifier | patient's NHI |
+| Encounter.status | 'arrived' |
+| Encounter.period.start | arrival time |
 <figure>
-  <!-- Generated from `input/images-source/pqms-update-appointment.plantuml` -->
-  {% include pqms-update-appointment.svg %}
+  <!-- Generated from `input/images-source/ndh-appointment-arrive.plantuml` -->
+  {% include ndh-appointment-arrive.svg %}
 </figure>
-<br clear="all">
+
+### 4. Depart Appointment
+Update the Appointment Schedulng System to indicate the patient has departed from their appointment.
+
+Key information:
+| Element | Expected update/information |
+| ---------- | ----------------------------|
+| Encounter.appointment.identifier | Appointment.Identifier |
+| Encounter.subject.identifier | patient's NHI |
+| Encounter.status | 'finished' |
+| Encounter.period.start | arrival time |
+| Encounter.period.end | departure time |
+<figure>
+  <!-- Generated from `input/images-source/ndh-appointment-depart.plantuml` -->
+  {% include ndh-appointment-depart.svg %}
+</figure>
+
+### 5. Retrieve\Update Te Waipounamu Patient Demographics
+Retrieve Patient Demographics from a Patient in the Te Waipounamu regional Patient Admininistration System. Update contact details (phone/email) for the patient.
+Note: Email address will not be automatically avilable after an update as a verification process with the patient must occur first. Once validatied, the email will appear in the Patient resource.
+
+Key information for update:
+| Element | Expected update/information |
+| ---------- | ----------------------------|
+| Patient.identifier | patient's NHI |
+| Patient.status | 'finished' |
+| Patent.telecom.system | 'phone' |
+| Patent.telecom.use | 'home' |
+| Patent.telecom.value | patient's phone number |
+| Patent.telecom.system | 'email' |
+| Patent.telecom.use | 'home' |
+| Patent.telecom.value | patient's email address |
+<figure>
+  <!-- Generated from `input/images-source/ndh-patient.plantuml` -->
+  {% include ndh-patient.svg %}
+</figure>
+
+
+
