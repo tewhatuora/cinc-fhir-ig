@@ -59,8 +59,7 @@ Description: "An example New Dunedin Hospital Outpatient Clinic Appointment"
 
 // Location
 * contained[+] = ClinicLocation
-* participant[+].type = #required
-* participant[=].required = #required
+* participant[+].required = #required
 * participant[=].status  = #accepted
 * participant[=].actor = Reference(ClinicLocation)
 
@@ -99,8 +98,7 @@ Description: "An example New Dunedin Hospital Outpatient Unstructured Appointmen
 
 // Location
 * contained[+] = ClinicLocation
-* participant[+].type = #required
-* participant[=].required = #required
+* participant[+].required = #required
 * participant[=].status  = #accepted
 * participant[=].actor = Reference(ClinicLocation)
 
