@@ -88,3 +88,5 @@ Alias: $ns-information-source-code = https://standards.digital.health.nz/ns/info
 Alias: $ns-nz-citizenship-status-code = https://standards.digital.health.nz/ns/nz-citizenship-status-code
 
 //----End of New Dunedin Hospital Outpatients----//
+
+Alias: $australasian-triage-scale = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/australasian-triage-scale-cs

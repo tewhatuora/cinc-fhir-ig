@@ -37,6 +37,8 @@ Description: "Example of a telehealth encounter for 24/7 telehealth services"
 * period.start = "2025-01-01T10:00:00+13:00"
 * period.end = "2025-01-01T10:17:00+13:00"
 
+* priority = $australasian-triage-scale#3
+
 * length.value = 17
 * length.unit = "min"
 * length.system = "http://unitsofmeasure.org"
@@ -58,14 +60,12 @@ Description: "Example of a telehealth encounter for 24/7 telehealth services"
 * location[=].period.start = "2025-01-01T10:00:00+13:00"
 * location[=].period.end = "2025-01-01T10:17:00+13:00"
 
-* extension[csc-number].valueIdentifier.use = #official
-* extension[csc-number].valueIdentifier.system = "https://standards.digital.health.nz/ns/csc-id"
-* extension[csc-number].valueIdentifier.value = "123456789"
+* extension[cscNumber].valueIdentifier.use = #official
+* extension[cscNumber].valueIdentifier.system = "https://standards.digital.health.nz/ns/csc-id"
+* extension[cscNumber].valueIdentifier.value = "123456789"
 
 * extension[accident].valueBoolean = false
 
 * extension[regCode].valueString = "enrolled"
 
 * extension[modeOfArrival].valueCoding = http://terminology.hl7.org/CodeSystem/v2-0430#A "Ambulance"
-
-* extension[triageCategory].valueCode = #3

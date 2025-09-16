@@ -4,28 +4,28 @@ Id: nz-claim-types
 Title: "NZ Claim Types"
 Description: "Types of claims in New Zealand"
 * ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/nz-claim-type
+* include codes from system nz-claim-type-cs
 
 ValueSet: NzClaimSubtypes
 Id: nz-claim-subtypes
 Title: "NZ Claim Subtypes"
 Description: "Subtypes of claims in New Zealand"
 * ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/nz-claim-subtype
+* include codes from system nz-claim-subtype-cs
 
 ValueSet: ClaimCareTeamRoleCodes
 Id: claim-careteam-role-codes
 Title: "Claim Care Team Role Codes"
 Description: "Roles for care team members in claims"
 * ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/claim-careteam-role-code
+* include codes from system claim-careteam-role-cs
 
 ValueSet: ProviderQualificationCodes
 Id: provider-qualification-codes
 Title: "Provider Qualification Codes"
 Description: "Qualification codes for providers"
 * ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/provider-qualification-codes
+* include codes from system provider-qualification-cs
 
 ValueSet: ClaimDecisionCodes
 Id: claim-decision-codes
@@ -46,14 +46,14 @@ Id: adjudication-value-codes
 Title: "Adjudication Value Codes"
 Description: "Codes for adjudication values"
 * ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/adjudication-value-code
+* include codes from system adjudication-value-cs
 
 ValueSet: AdjudicationReasonCodes
 Id: adjudication-reason-codes
 Title: "Adjudication Reason Codes"
 Description: "Codes for adjudication reasons"
 * ^status = #draft
-* include codes from system https://standards.digital.health.nz/ns/adjudication-reason-code
+* include codes from system adjudication-reason-cs
 
 ValueSet: AustralasianTriageScale
 Id: australasian-triage-scale

@@ -1,7 +1,7 @@
 Profile: SharedCareClaimResponse
 Parent: ClaimResponse
 Id: SharedCareClaimResponse
-Title: "NZ Telehealth Claim Response"
+Title: "NZ SharedCare Claim Response"
 Description: """A FHIR resource profile for NZ Telehealth Claim Responses for 24/7 telehealth services.
 
 Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer are compulsory fields, but not utilized in the telehealth implementation.
@@ -20,7 +20,7 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * identifier ^short = "Business identifier(s) for the claim response"
 
 * extension contains
-    TraceNumber named traceNumber 0..*
+    SharedCareClaimTraceNumber named traceNumber 0..*
 
 * status 1..1
 * status ^short = "Status of the Claim Response: active, cancelled, draft, entered-in-error"
@@ -45,9 +45,9 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * item.itemSequence ^short = "Value of the corresponding Claim.item.sequence"
 
 * item.extension contains
-    TraceNumber named traceNumber 0..* and
-    ProductOrService named productOrService 1..1 and
-    ReviewOutcome named reviewOutcome 0..1
+    SharedCareClaimTraceNumber named traceNumber 0..* and
+    SharedCareProductOrService named productOrService 1..1 and
+    SharedCareReviewOutcome named reviewOutcome 0..1
 
 
 * item.adjudication 1..*
@@ -68,8 +68,8 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * item.detail.detailSequence 1..1
 * item.detail.detailSequence ^short = "Value of the corresponding Claim.item.detail.sequence"
 * item.detail.extension contains
-    TraceNumber named traceNumber 0..* and
-    ReviewOutcome named reviewOutcome 0..1
+    SharedCareClaimTraceNumber named traceNumber 0..* and
+    SharedCareReviewOutcome named reviewOutcome 0..1
 * item.detail.adjudication 1..* //this is now compulsory in R4B
 
 * addItem 0..*

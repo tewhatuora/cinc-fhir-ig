@@ -1,67 +1,59 @@
-// Extensions for Telehealth
-Extension: CscNumber
-Id: csc-number
-Title: "CSC Number"
-Description: "Community Services Card holder number"
+// Extensions for Shared Care Services
+Extension: SharedCareCscNumber
+Id: shared-care-csc-number
+Title: "Shared Care CSC Number"
+Description: "Community Services Card holder number for shared care encounters"
 Context: Encounter
 * value[x] only Identifier
 * valueIdentifier.system = "https://standards.digital.health.nz/ns/csc-id"
 
-Extension: Accident
-Id: accident
-Title: "Accident Related"
+Extension: SharedCareAccidentRelated
+Id: shared-care-accident-related
+Title: "Shared Care Accident Related"
 Description: "Whether the encounter is accident-related (ACC vs HNZ funding)"
 Context: Encounter
 * value[x] only boolean
 
-Extension: RegCode
-Id: reg-code
-Title: "Registration Code"
-Description: "Whether the patient is enrolled at the practice (enrolled or casual)"
+Extension: SharedCareRegistrationCode
+Id: shared-care-registration-code
+Title: "Shared Care Registration Code"
+Description: "Patient enrollment status at the practice (enrolled or casual)"
 Context: Encounter
 * value[x] only string
 
-Extension: TriageCategory
-Id: triage-category
-Title: "Triage Category"
-Description: "Australasian Triage Scale (ATS) category"
-Context: Encounter
-* value[x] only code
-* valueCode from australasian-triage-scale (required)
-
-Extension: TraceNumber
-Id: trace-number
-Title: "Trace Number"
-Description: "Internal primary key ID for the claim"
+Extension: SharedCareClaimTraceNumber
+Id: shared-care-trace-number
+Title: "Shared Care Claim Trace Number"
+Description: "Internal primary key ID for shared care claim tracking"
 Context: Claim
 * value[x] only Identifier
 
-Extension: PatientPaid
-Id: patient-paid
-Title: "Patient Paid Amount"
-Description: "Co-payment amount paid by the patient"
+Extension: SharedCarePatientCopayment
+Id: shared-care-patient-copayment
+Title: "Shared Care Patient Copayment"
+Description: "Co-payment amount paid by patient for shared care services"
 Context: Claim.item
 * value[x] only Money
 
-Extension: ProductOrService
-Id: product-or-service
-Title: "Product Or Service"
-Description: "To enable validation and, if required, supply or correction of the PU code"
+Extension: SharedCareProductOrService
+Id: shared-care-product-or-service
+Title: "Shared Care Product Or Service"
+Description: "Validation and correction of purchase unit codes for shared care services"
 Context: ClaimResponse.item
 * value[x] only CodeableConcept
 * value[x].coding.system = "https://standards.digital.health.nz/ns/purchase-unit"
 
-Extension: ItemTax
-Id: item-tax
-Title: "Item Tax"
-Description: "Claimed tax amount for the item"
+Extension: SharedCareItemTax
+Id: shared-care-item-tax
+Title: "Shared Care Item Tax"
+Description: "Tax amount claimed for shared care service items"
 Context: Claim.item
 * value[x] only Money
 
-Extension: ReviewOutcome
-Id: review-outcome
-Title: "Review Outcome"
-Description: "Result of adjudication for this item"
+Extension: SharedCareReviewOutcome
+Id: shared-care-review-outcome
+Title: "Shared Care Review Outcome"
+Description: "Adjudication result for shared care claim items"
 Context: ClaimResponse.item
 * extension contains
     decision 0..1 and
