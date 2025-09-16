@@ -8,7 +8,10 @@ Usage: #example
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
 
-* extension[sex-at-birth].valueCodeableConcept.coding.code = #female
+* extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
+* extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
+* extension[sex-at-birth].valueCodeableConcept = #female
+
 * extension[ethnicity].valueCodeableConcept.coding.version = "2.0"
 * extension[ethnicity].valueCodeableConcept.coding = $ns-ethnic-group-level-4-code#21111 "Māori"
 * extension[ethnicity].valueCodeableConcept.text = "Māori"
@@ -29,7 +32,8 @@ Usage: #example
 * name.use = #usual
 * name.text = "Miss Carey Mary Carrington"
 * name.family = "Carrington"
-* name.given = "Carey Mary"
+* name.given[+] = "Carey"
+* name.given[+] = "Mary"
 * name.prefix = "Miss"
 * telecom[+].system = #phone
 * telecom[=].value = "+64 21 123 4567"
@@ -70,7 +74,18 @@ Usage: #example
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
 * contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
-* contact[=].extension[=].valueCoding = $sd-patient-contact-role-extension-id#N "Next of Kin"
+* contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#nok "Next of Kin"
+* contact[=].extension[=].valueCodeableConcept.text = "Next of Kin"
+
+* contact[+].name.text = "Mary PowerOfAttorney"
+* contact[=].name.family = "PowerOfAttorney"
+* contact[=].name.given = "Mary"
+* contact[=].telecom[+].system = #phone
+* contact[=].telecom[=].use = #mobile
+* contact[=].telecom[=].value = "+64 22 123 4567"
+* contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
+* contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#powatt "Power of Attorney"
+* contact[=].extension[=].valueCodeableConcept.text = "Power of Attorney"
 
 * generalPractitioner.type = #Practitioner
 * generalPractitioner.identifier.use = #official

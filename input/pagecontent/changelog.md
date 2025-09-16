@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.2 (2025-09-04)
+### Added New Dunedin Hospital Outpatients
+Added the [New Dunedin Hospital Outpatients](NDHOutpatients.html) resources and workflow.
+
 ## v0.4.1 (2025-03-30)
 
 ### Added Outreach Referral 

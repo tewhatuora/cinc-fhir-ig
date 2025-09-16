@@ -3,7 +3,7 @@ InstanceOf: NzPractitioner
 Description: "Example of a practitioner who plans patient care"
 Usage: #example
 
-* identifier insert HPIPractitionerIdentifier(99ZZZX)
+* identifier insert HPIProviderNumber(99ZZZX)
 
 * name.use = #usual
 * name.family = "McStuffins"

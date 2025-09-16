@@ -1,14 +1,17 @@
-Instance: SIPICS-EmilyWhite
+Instance: NDH-SIPICS-EmilyWhite
 InstanceOf: NDHOutpatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
-* id = "sipics-emily-white"
+* id = "ndh-sipics-emily-white"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
 
-* extension[sex-at-birth].valueCodeableConcept.coding.code = #female
+* extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
+* extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
+* extension[sex-at-birth].valueCodeableConcept = #female
+
 * extension[ethnicity].valueCodeableConcept.coding.version = "2.0"
 * extension[ethnicity].valueCodeableConcept.coding = $ns-ethnic-group-level-4-code#11111 "New Zealand European"
 * extension[ethnicity].valueCodeableConcept.text = "New Zealander"
@@ -20,14 +23,14 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding.version = "1.1.0"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding = $ns-nz-citizenship-status-code#yes "Yes"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
-* extension[nz-residency].extension[+].url = "source"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-information-source-code#PPRT "Passport"
-* extension[nz-residency].extension[=].valueCodeableConcept.text = "Passport"
-* extension[nz-residency].extension[+].url = "status"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
-* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
+//* extension[nz-residency].extension[+].url = "source"
+//* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
+//* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-information-source-code#PPRT "Passport"
+//* extension[nz-residency].extension[=].valueCodeableConcept.text = "Passport"
+//* extension[nz-residency].extension[+].url = "status"
+//* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
+//* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
+//* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
 * identifier.use = #official
@@ -77,7 +80,8 @@ Usage: #example
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
 * contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
-* contact[=].extension[=].valueCoding = $sd-patient-contact-role-extension-id#N "Next of Kin"
+* contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#nok "Next of Kin"
+* contact[=].extension[=].valueCodeableConcept.text = "Next of Kin"
 
 * generalPractitioner.type = #Practitioner
 * generalPractitioner.identifier.use = #official
@@ -85,17 +89,20 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-Instance: SIPICS-AlexMorgan
+Instance: NDH-SIPICS-AlexMorgan
 InstanceOf: NDHOutpatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
-* id = "sipics-alex-morgan"
+* id = "ndh-sipics-alex-morgan"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
 
-* extension[sex-at-birth].valueCodeableConcept.coding.code = #female
+* extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
+* extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
+* extension[sex-at-birth].valueCodeableConcept = #female
+
 * extension[ethnicity].valueCodeableConcept.coding.version = "2.0"
 * extension[ethnicity].valueCodeableConcept.coding = $ns-ethnic-group-level-4-code#61118 "New Zealander"
 * extension[ethnicity].valueCodeableConcept.text = "New Zealander"
@@ -107,10 +114,10 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding.version = "1.1.0"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding = $ns-nz-citizenship-status-code#yes "Yes"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
-* extension[nz-residency].extension[+].url = "status"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
-* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
+//* extension[nz-residency].extension[+].url = "status"
+//* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
+//* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
+//* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
 * identifier.use = #official
@@ -160,7 +167,8 @@ Usage: #example
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
 * contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
-* contact[=].extension[=].valueCoding = $sd-patient-contact-role-extension-id#N "Next of Kin"
+* contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#nok "Next of Kin"
+* contact[=].extension[=].valueCodeableConcept.text = "Next of Kin"
 
 * generalPractitioner.type = #Practitioner
 * generalPractitioner.identifier.use = #official
@@ -168,17 +176,19 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-Instance: SIPICS-CuriousGeorge
+Instance: NDH-SIPICS-CuriousGeorge
 InstanceOf: NDHOutpatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
-* id = "sipics-curious-george"
+* id = "ndh-sipics-curious-george"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
 
-* extension[sex-at-birth].valueCodeableConcept.coding.code = #male
+* extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
+* extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
+* extension[sex-at-birth].valueCodeableConcept = #male
 * extension[ethnicity].valueCodeableConcept.coding.version = "2.0"
 * extension[ethnicity].valueCodeableConcept.coding = $ns-ethnic-group-level-4-code#11111 "New Zealand European"
 * extension[ethnicity].valueCodeableConcept.text = "New Zealand European"
@@ -190,10 +200,10 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding.version = "1.1.0"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding = $ns-nz-citizenship-status-code#yes "Yes"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
-* extension[nz-residency].extension[+].url = "status"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
-* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
+//* extension[nz-residency].extension[+].url = "status"
+//* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
+//* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
+//* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
 * identifier.use = #official
@@ -233,7 +243,8 @@ Usage: #example
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
 * contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
-* contact[=].extension[=].valueCoding = $sd-patient-contact-role-extension-id#N "Next of Kin"
+* contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#nok "Next of Kin"
+* contact[=].extension[=].valueCodeableConcept.text = "Next of Kin"
 
 * generalPractitioner.type = #Practitioner
 * generalPractitioner.identifier.use = #official

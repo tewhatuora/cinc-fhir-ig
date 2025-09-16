@@ -55,9 +55,9 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * deceasedBoolean 0..0
 * address 0..* MS
   * extension[domicile-code] 0..1 MS
-    * valueCodeableConcept.coding 1..1 MS
-    * valueCodeableConcept.coding.code 1..1 MS
-    * valueCodeableConcept.coding.system 1..1 MS
+    * valueCodeableConcept.coding 0..1 MS
+    * valueCodeableConcept.coding.code 0..1 MS
+    * valueCodeableConcept.coding.system 0..1 MS
     * valueCodeableConcept.coding.display 0..1 MS
     * valueCodeableConcept.coding.version 0..0
     * valueCodeableConcept.coding.userSelected 0..0
@@ -81,7 +81,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * photo 0..0
 * contact 0..* MS
   * relationship from $vs-patient-contact-relationship
-  * extension contains PatientContactRole named role 0..1
+  * extension contains PatientContactRole named role 0..*
   * name 1..1 MS
     * use 0..0
     * text 1..1 MS

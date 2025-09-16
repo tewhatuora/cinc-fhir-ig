@@ -15,7 +15,7 @@ title Update Appointment (FHIR REST API)
 p -> a: FHIR API\nUpdate Appointment
 a -> m++ #palegreen: FHIR Routed\nUpdate Appointment
 alt#Gold #lightblue Destination SIPICS
-  m -> m: <font color=blue>Mapping FHIR to SIPICS API
+  m -> m: <font color=blue>Mapping FHIR\n<font color=blue>to SIPICS API
   m -> s: Appointment status\nupdate via SIPICS API
   s -> f: Appointments\nHL7 v2 SIU/ADT
   f -> w: FHIR updates
@@ -23,7 +23,7 @@ alt#Gold #lightblue Destination SIPICS
   s --> m: Response
   m --> m: <font color=blue>Mapping SIPICS\n<font color=blue>response to FHIR
 else #Pink Destination Cardiobase
-  m -> m: <font color=blue>Mapping FHIR to HL7v2
+  m -> m: <font color=blue>Mapping FHIR\n<font color=blue>to HL7v2
   m -> c: Appointment Status\nupdate HL7v2 ORM
   c -> f: Appointments\nHL7 v2 SIU/ADT
   f -> w: FHIR updates
