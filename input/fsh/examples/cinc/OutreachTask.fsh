@@ -19,4 +19,6 @@ Description: "An example of an outreach task"
 * output[=].type.coding[=].code = #Immunization
 * output[=].valueReference.reference = "https://air-fhir-server.com/Immunization/123"
 
-* meta.source = "Whaihua"
+* meta.source = "whaihua"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

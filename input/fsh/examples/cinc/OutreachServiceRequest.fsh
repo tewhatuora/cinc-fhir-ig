@@ -16,15 +16,17 @@ Description: "An example of an outreach ServiceRequest"
 * requester.identifier.use = #official
 * requester.identifier.system = "https://hub.services.digital.health.nz/ns/hip-application-id"
 * requester.identifier.value = "123456"
-* requester.display = "AIR/ISM"
+* requester.display = "ism"
 
 * performer.identifier.use = #official
 * performer.identifier.system = "https://hub.services.digital.health.nz/ns/hip-application-id"
 * performer.identifier.value = "987654"
-* performer.display = "Whaihua"
+* performer.display = "whaihua"
 
 * locationReference.identifier.use = #official
 * locationReference.identifier.system = "https://standards.digital.health.nz/ns/hpi-facility-id"
 * locationReference.identifier.value = "FZZ999-B"
 
-* meta.source = "Whaihua"
+* meta.source = "whaihua"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

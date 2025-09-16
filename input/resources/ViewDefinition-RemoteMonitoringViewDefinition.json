@@ -1,0 +1,41 @@
+{
+  "resourceType": "ViewDefinition",
+  "description": "A flat view of Remote Monitoring Observation values. This view is designed to aggregate data for analytical purposes, particularly for remote monitoring of patients.",
+  "resource": "Observation",
+  "name": "RemoteMonitoringViewDefinition",
+  "url": "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ViewDefinition/RemoteMonitoringViewDefinition",
+  "select": [
+    {
+      "column": [
+        {
+          "path": "id",
+          "name": "id",
+          "description": "The FHIR resource ID"
+        },
+        {
+          "path": "valueQuantity.value",
+          "name": "observationValue",
+          "description": "The value of the observation"
+        },
+        {
+          "path": "valueQuantity.code",
+          "name": "observationValueCode",
+          "description": "The code of the observation value"
+        },
+        {
+          "path": "effectiveDateTime",
+          "name": "observationEffectiveDateTime",
+          "description": "The effective date time of the observation"
+        }
+      ]
+    }
+  ],
+  "where": [
+    {
+      "path": "meta.profile.contains('https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition/RemoteMonitoringObservation')"
+    },
+    {
+      "path": "status = 'final'"
+    }
+  ]
+}

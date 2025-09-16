@@ -16,10 +16,13 @@ Key elements that need to be updated / added at each step are shown in the table
 | ---------- | ----------------------------|
 | ServiceRequest.status | create as 'active' code |
 | ServiceRequest.intent | create as 'plan' code |
-| ServiceRequest.code | use code describing type of outreach (e.g. 'Immunization' code' for AIR) |
+| ServiceRequest.code | use code describing type of outreach (e.g. 'Immunization' code for ism) |
 | ServiceRequest.subject | set to NHI identifier for patient |
 | ServiceRequest.priority | 'routine' |
+| ServiceRequest.requester | requester to reference describing service (e.g. Logical id using system "https://hub.services.digital.health.nz/ns/hip-application-id" and the digital services hub application ID) |
 | ServiceRequest.meta.source | update to to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 ## 2. Accept outreach referral
 
@@ -33,9 +36,11 @@ Key elements that need to be updated / added at each step are shown in the table
 
 | Element | Expected update/information |
 | ---------- | ----------------------------|
-| ServiceRequest.performer | update performer to reference describing service (e.g. Device/whaihua) |
+| ServiceRequest.performer | update performer to reference describing service (e.g. Logical id using system "https://hub.services.digital.health.nz/ns/hip-application-id" and the digital services hub application ID) |
 | ServiceRequest.locationReference | update to outreach provider location reference (HPI-F if available, otherwise Facility Name)
 | ServiceRequest.meta.source | update to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 ## 3. Create Tasks to track outreach activities
 
@@ -57,6 +62,8 @@ Key elements that need to be updated / added at each step are shown in the table
 | Task.priority | 'routine' |
 | Task.input | reference to ImmunizationRec in AIR |
 | Task.meta.source | update to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 **[12] Update Task**
 
@@ -64,6 +71,8 @@ Key elements that need to be updated / added at each step are shown in the table
 | ---------- | ----------------------------|
 | Task.status | 'in-progress' to indicate work has started on it |
 | Task.meta.source | update to whaihua to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 ## 4. Create and store Communications against ServiceRequests
 
@@ -83,8 +92,10 @@ Key elements that need to be updated / added at each step are shown in the table
 | Communication.extension.communicationContactPoint | ContactPoint used for communication |
 | Communication.sent | date sent |
 | Communication.recipient | Reference to patient? |
-| Communication.received | when recieved (if relevant) |
+| Communication.received | when received (if relevant) |
 | Communication.payload | Message content (if relevant) |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 
 **[15] Update ServiceRequest**
@@ -93,6 +104,8 @@ Key elements that need to be updated / added at each step are shown in the table
 | ---------- | ----------------------------|
 | ServiceRequest.supportingInfo | Reference to Communication created in [14] |
 | ServiceRequest.meta.source | update to whaihua to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 ## 5. Revoke/cancel an outreach referral
 
@@ -109,6 +122,8 @@ Key elements that need to be updated / added at each step are shown in the table
 | ServiceRequest.status | 'revoked' or 'completed' |
 | ServiceRequest.extension.statusReason | update to reflect reason for current status [codes TBC] |
 | ServiceRequest.meta.source | update to ism to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 **[22] Close open Task(s)**
 
@@ -116,6 +131,8 @@ Key elements that need to be updated / added at each step are shown in the table
 | ---------- | ----------------------------|
 | Task.status | 'cancelled' |
 | ServiceRequest.meta.source | update to whaihua to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 ## 6. Complete and close outreach referral 
 
@@ -132,6 +149,8 @@ Key elements that need to be updated / added at each step are shown in the table
 | ---------- | ----------------------------|
 | Task.status | 'Completed' |
 | Task.meta.source | update to whaihua to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 **[27] Update outreach referral ServiceRequest to complete** 
 
@@ -140,6 +159,8 @@ Key elements that need to be updated / added at each step are shown in the table
 | ServiceRequest.status | 'completed' |
 | ServiceRequest.extension.statusReason | update to reflect reason for current status [codes TBC] |
 | ServiceRequest.meta.source | update to whaihua to indicate who edited it last |
+| ServiceRequest.meta.tag.system | use 'https://hub.services.digital.health.nz/ns/correlation-id' for the correlation id system
+| ServiceRequest.meta.tag.code | the correlationId uuid gets added here, this gets passed on to the the event in NEMS
 
 
 ## 7. Find existing outreach information for a patient
