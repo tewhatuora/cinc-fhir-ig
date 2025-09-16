@@ -25,7 +25,7 @@ Administration System (PAS). This provides the ability to update a limited set o
 [4. Depart Appointment ](#depart-appointment) <br />
 [5. Retrieve or Update Te Waipounamu Patient Demographics ](#retrieve-or-update-te-waipounamu-patient-demographics) <br />
 
-### 1. Appointment Created Or Updated
+### Appointment Created Or Updated
 An event notification will be sent to subscribers for any new or updated appointments, the details can then be retrieved
 from the Appointment API.
 
@@ -34,7 +34,7 @@ from the Appointment API.
   {% include ndh-appointment-create.svg %}
 </figure>
 
-### 2. Confirm Appointment
+### Confirm Appointment
 Update the Appointment Scheduling System to indicate the patient has confirmed they can attend the appointment.
 
 Key information:
@@ -50,7 +50,7 @@ Key information:
   {% include ndh-appointment-confirm.svg %}
 </figure>
 
-### 3. Arrive Appointment
+### Arrive Appointment
 Update the Appointment Scheduling System to indicate the patient has arrived for their appointment.
 
 Key information:
@@ -66,7 +66,7 @@ Key information:
   {% include ndh-appointment-arrive.svg %}
 </figure>
 
-### 4. Depart Appointment
+### Depart Appointment
 Update the Appointment Scheduling System to indicate the patient has departed from their appointment.
 
 Key information:
@@ -83,7 +83,7 @@ Key information:
   {% include ndh-appointment-depart.svg %}
 </figure>
 
-### 5. Retrieve Or Update Te Waipounamu Patient Demographics
+### Retrieve Or Update Te Waipounamu Patient Demographics
 Retrieve Patient Demographics from a Patient in the Te Waipounamu regional Patient Administration System.
 
 Update contact details (phone/email) for the patient.
