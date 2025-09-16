@@ -7,7 +7,7 @@ Description: "FHIR profile for New Zealand pharmacy claim responses"
 * identifier 1..1
 * identifier ^short = "FileId - Should match the Claim id"
 
-* extension contains trace-number named traceNumber 0..*
+* extension contains shared-care-trace-number named traceNumber 0..*
 * extension[traceNumber] ^short = "Number for tracking"
 
 
@@ -27,7 +27,7 @@ Description: "FHIR profile for New Zealand pharmacy claim responses"
 * item.itemSequence 1..1
 * item.itemSequence ^short = "To match Claim.item.sequence"
 
-* item.extension contains product-or-service named productOrService 1..1
+* item.extension contains shared-care-product-or-service named productOrService 1..1
 * item.extension[productOrService] ^short = "Purchase unit code"
 
 * item.detail 1..*

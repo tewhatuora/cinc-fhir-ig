@@ -40,8 +40,8 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 // * requestor.identifier.value = "9876543210123"
 
 * item[+].itemSequence = 1
-* item[=].extension[ProductOrService].valueCodeableConcept.coding[+].system = "https://standards.digital.health.nz/ns/purchase-unit"
-* item[=].extension[ProductOrService].valueCodeableConcept.coding[=].code = #PU1234
+* item[=].extension[productOrService].valueCodeableConcept.coding[+].system = "https://standards.digital.health.nz/ns/purchase-unit"
+* item[=].extension[productOrService].valueCodeableConcept.coding[=].code = #PU1234
 
 * item[=].adjudication[+].category.coding[+].system = "https://standards.digital.health.nz/ns/adjudication-value-code"
 * item[=].adjudication[=].category.coding[=].code = #benefit

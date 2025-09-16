@@ -57,3 +57,31 @@ Description: "Code system for claim decision reasons based on FHIR R5 claim-deci
 * #0003 "Provider out-of-network" "This provider is considered out-of-network by the payer for this plan."
 * #0004 "Service inconsistent with patient age" "The payer has determined this product, service, or procedure is not consistent with the patient's age."
 * #0005 "Benefit limits exceeded" "The patient or subscriber benefit's have been exceeded."
+
+CodeSystem: ProviderQualificationCS
+Id: provider-qualification-cs
+Title: "Provider Qualification Code System"
+Description: "Code system for provider qualifications"
+* ^status = #draft
+* ^caseSensitive = true
+* #gp "General Practitioner" "General Practitioner"
+* #specialist "Specialist" "Medical Specialist"
+
+CodeSystem: AdjudicationValueCS
+Id: adjudication-value-cs
+Title: "Adjudication Value Code System"
+Description: "Code system for adjudication values"
+* ^status = #draft
+* ^caseSensitive = true
+* #benefit "Benefit" "Benefit amount"
+* #copay "Copay" "Patient copayment"
+* #deductible "Deductible" "Deductible amount"
+
+CodeSystem: AdjudicationReasonCS
+Id: adjudication-reason-cs
+Title: "Adjudication Reason Code System"
+Description: "Code system for adjudication reasons"
+* ^status = #draft
+* ^caseSensitive = true
+* #policy "Policy" "Per policy guidelines"
+* #prior-auth "Prior Authorization" "Prior authorization required"

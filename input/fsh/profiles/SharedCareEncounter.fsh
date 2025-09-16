@@ -51,6 +51,10 @@ diagnosis.condition:  Do we need a condition profile for this?
 
 * period 0..1
 
+* priority 0..1 
+* priority from australasian-triage-scale (required)
+* priority ^short = "Indicates the urgency of the encounter using the Australasian Triage Scale"
+
 * length 0..1
 * length ^short = "Quantity of time the encounter lasted (less time absent)"
 
@@ -68,8 +72,7 @@ diagnosis.condition:  Do we need a condition profile for this?
 * location.period 0..1
 
 * extension contains
-    CscNumber named cscNumber 0..1 and
-    Accident named accident 0..1 and
-    RegCode named regCode 0..1 and
-    TriageCategory named triageCategory 0..1 and
+    SharedCareCscNumber named cscNumber 0..1 and
+    SharedCareAccidentRelated named accident 0..1 and
+    SharedCareRegistrationCode named regCode 0..1 and
     encounter-modeOfArrival named modeOfArrival 0..1

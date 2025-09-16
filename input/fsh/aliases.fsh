@@ -92,3 +92,7 @@ Alias: $ns-hpi-person-id = https://standards.digital.health.nz/ns/hpi-person-id
 //Alias: $ns-nz-residency-code = https://standards.digital.health.nz/ns/nz-residency-code
 Alias: $cs-patient-contact-role = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/cs-patient-contact-role
 Alias: $cs-nc-health-specialty-code = http://nzhts.digital.health.nz/fhir/CodeSystem/nc-health-specialty-codes
+
+//----End of New Dunedin Hospital Outpatients----//
+
+Alias: $australasian-triage-scale = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/australasian-triage-scale-cs
