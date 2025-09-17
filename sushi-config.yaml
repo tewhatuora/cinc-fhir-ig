@@ -334,6 +334,8 @@ groups:
       - StructureDefinition/NDHOutpatientUpdate
       - StructureDefinition/NDHOutpatientAppointment
       - StructureDefinition/NDHOutpatientAppointmentResponse
+      - StructureDefinition/NDHOutpatientEncounter
+      - StructureDefinition/NDHOutpatientEncounterUpdate
   NDHOutpatientExamples:
     name: New Dunedin Hospital Outpatient examples
     resources:
@@ -342,6 +344,8 @@ groups:
       - NDHOutpatientClinicAppointmentExample
       - NDHOutpatientUnstructuredAppointmentExample
       - NDHOutpatientAppointmentResponseExample
+      - NDHOutpatientEncounterExample
+      - NDHOutpatientEncounterUpdateExample
       - NDH-SIPICS-EmilyWhite
       - NDH-SIPICS-AlexMorgan
       - NDH-SIPICS-CuriousGeorge

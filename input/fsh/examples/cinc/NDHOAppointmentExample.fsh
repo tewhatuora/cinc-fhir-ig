@@ -15,7 +15,7 @@ Usage: #inline // #inline means this instance MUST NOT be exported as a separate
 * actor[=].display = "Dr Dotty McStuffins"
 // * extension[clinic] = #SOFRACONDHZ "NDH Fracture Consultant" // Need to add extension for clinic
 
-Instance: ClinicLocation
+Instance: AppointmentClinicLocation
 InstanceOf: NzLocation
 Usage: #inline // #inline means this instance MUST NOT be exported as a separate example
 * identifier.value = "4211-K01" // Location code, need to determine structure
@@ -58,10 +58,10 @@ Description: "An example New Dunedin Hospital Outpatient Clinic Appointment"
 * participant[=].actor.display = "Dr Dotty McStuffins"
 
 // Location
-* contained[+] = ClinicLocation
+* contained[+] = AppointmentClinicLocation
 * participant[+].required = #required
 * participant[=].status  = #accepted
-* participant[=].actor = Reference(ClinicLocation)
+* participant[=].actor = Reference(AppointmentClinicLocation)
 
 * contained[+] = AppointmentSlot
 * contained[+] = ClinicSchedule
@@ -97,10 +97,10 @@ Description: "An example New Dunedin Hospital Outpatient Unstructured Appointmen
 * participant[=].actor.display = "Dr Dotty McStuffins"
 
 // Location
-* contained[+] = ClinicLocation
+* contained[+] = AppointmentClinicLocation
 * participant[+].required = #required
 * participant[=].status  = #accepted
-* participant[=].actor = Reference(ClinicLocation)
+* participant[=].actor = Reference(AppointmentClinicLocation)
 
 * start = "2025-09-03T02:30:35Z"
 * end = "2025-09-03T03:30:35Z"

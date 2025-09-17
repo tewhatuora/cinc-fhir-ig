@@ -61,6 +61,7 @@ Key information:
 | Encounter.subject.identifier     | patient's NHI               |
 | Encounter.status                 | 'arrived'                   |
 | Encounter.period.start           | arrival time                |
+
 <figure>
   <!-- Generated from `input/images-source/ndh-appointment-arrive.plantuml` -->
   {% include ndh-appointment-arrive.svg %}
@@ -78,6 +79,7 @@ Key information:
 | Encounter.status                 | 'finished'                  |
 | Encounter.period.start           | arrival time                |
 | Encounter.period.end             | departure time              |
+
 <figure>
   <!-- Generated from `input/images-source/ndh-appointment-depart.plantuml` -->
   {% include ndh-appointment-depart.svg %}
@@ -104,6 +106,7 @@ Key information (for update):
 | Patent.telecom.system | 'email'                     |
 | Patent.telecom.use    | 'home'                      |
 | Patent.telecom.value  | patient's email address     |
+
 <figure>
   <!-- Generated from `input/images-source/ndh-patient.plantuml` -->
   {% include ndh-patient.svg %}

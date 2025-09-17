@@ -72,7 +72,7 @@ Alias: $hnz-service-request-status-reason-codes = https://fhir-ig.digital.health
 Alias: $vs-administrative-gender = http://hl7.org/fhir/ValueSet/administrative-gender
 Alias: $vs-patient-contact-relationship = http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType|3.0.0
 Alias: $vs-ethnic-group-level-4-code = https://nzhts.digital.health.nz/fhir/ValueSet/ethnic-group-level-4-code|2.1.0
-
+Alias: $vs-encounter-status = http://hl7.org/fhir/ValueSet/encounter-status
 
 // StructureDefinitions
 Alias: $sd-building-name = http://hl7.org.nz/fhir/StructureDefinition/building-name
