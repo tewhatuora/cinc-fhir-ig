@@ -66,8 +66,7 @@ Description: "An example New Dunedin Hospital Outpatient Unstructured Appointmen
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked
 * description = "Physiotherapy Appointment"
-* serviceCategory =	$cs-nc-health-specialty-code#A01 // need to determine code system
-* serviceCategory.text =	"Allied Health and other" // need to determine code system
+* serviceCategory =	$cs-nc-health-specialty-code#A01 "Allied Health and other"
 * serviceType = #A01B "Physiotherapy" // need to determine code system
 
 // Patient

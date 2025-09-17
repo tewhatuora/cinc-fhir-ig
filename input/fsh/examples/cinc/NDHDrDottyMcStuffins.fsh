@@ -12,4 +12,3 @@ Usage: #example
 
 * gender = #female
 * birthDate = "1961-10-24"
-
