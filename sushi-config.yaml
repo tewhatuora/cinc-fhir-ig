@@ -349,6 +349,7 @@ groups:
       - NDH-SIPICS-EmilyWhite
       - NDH-SIPICS-AlexMorgan
       - NDH-SIPICS-CuriousGeorge
+      - NDHDottyMcStuffins
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:

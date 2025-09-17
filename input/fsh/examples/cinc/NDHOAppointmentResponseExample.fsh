@@ -8,5 +8,5 @@ Description: "An example New Dunedin Hospital Outpatient Appointment Update"
 * start = "2025-09-03T02:00:00Z" // UTC equivalent of 2pm NZ
 * end = "2025-09-03T02:30:00Z"   // UTC equivalent
 * participantType = $v3-ParticipationType#PPRF
-* actor = Reference(NZDrDottyMcStuffins) "Dr Dotty McStuffins"
+* actor = Reference(NDHDottyMcStuffins) "Dr Dotty McStuffins"
 * participantStatus = #accepted
