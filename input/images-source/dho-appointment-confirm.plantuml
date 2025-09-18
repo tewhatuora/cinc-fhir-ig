@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber "<b>[00]"
+
+actor "Booking Administrator" as admin
+Participant "Appointment\nScheduling System" as s #LightSeaGreen
+Participant "Shared Care\nFHIR Server" as fhir #palegreen
+queue "NEMS" as n #gold
+Participant "Appointment\nManagement System" as p #lightblue
+actor "Patient/Administrator" as pat
+
+title "Patient Confirms Appointment"
+p -> n: Subscribe to appointment-updated event
+...
+
+alt Appointment confirmed through Appointment Management System
+    pat -> p ++ : Confirms Appointment
+    p -> fhir --++ : POST AppointmentResponse Resource
+    fhir -> s --++ : Update Appointment to confirmed
+else Appointment confirmed through Appointment Scheduling System
+    admin -> s : Confirms Appointment
+end
+
+s -> fhir --++ : Appointment Resource Updated
+fhir -> n --++ : publish appointment-updated event
+n-> p -- : appointment-updated event notification
+@enduml
+
