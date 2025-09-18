@@ -1,12 +1,12 @@
-Instance: NDH-SIPICS-EmilyWhite
-InstanceOf: NDHOutpatient
+Instance: DHOutpatientSIPICSEmilyWhite
+InstanceOf: DHOutpatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
-* id = "ndh-sipics-emily-white"
+* id = "DHO-sipics-emily-white"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatient"
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
@@ -89,15 +89,15 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-Instance: NDH-SIPICS-AlexMorgan
-InstanceOf: NDHOutpatient
+Instance: DHOutpatientSIPICSAlexMorgan
+InstanceOf: DHOutpatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
-* id = "ndh-sipics-alex-morgan"
+* id = "DHO-sipics-alex-morgan"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatient"
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
@@ -176,15 +176,15 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-Instance: NDH-SIPICS-CuriousGeorge
-InstanceOf: NDHOutpatient
+Instance: DHOutpatientSIPICSCuriousGeorge
+InstanceOf: DHOutpatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
-* id = "ndh-sipics-curious-george"
+* id = "DHO-sipics-curious-george"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatient"
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"

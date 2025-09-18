@@ -1,12 +1,12 @@
-Instance: NDHOutpatientEncounterExample
-InstanceOf: NDHOutpatientEncounter
-Description: "An example NDH Outpatient Encounter"
+Instance: DHOutpatientEncounterExample
+InstanceOf: DHOutpatientEncounter
+Description: "An example Dunedin Hospital Outpatient Encounter"
 Usage: #example
 
-* id = "ndh-outpatient-encounter-instance"
+* id = "dho-outpatient-encounter-instance"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatientEncounter"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatientEncounter"
 
 * status = #arrived
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB "Ambulatory"
@@ -26,8 +26,8 @@ Usage: #example
 * diagnosis.use = http://terminology.hl7.org/CodeSystem/diagnosis-role#CC "Chief complaint"
 * diagnosis.use.text = "Chief Complaint"
 * diagnosis.rank = 1
-* contained[+] = NDHOClinicLocation
+* contained[+] = DHOClinicLocation
 * location[+].status = #completed
-* location.location = Reference(NDHOClinicLocation)
+* location.location = Reference(DHOClinicLocation)
 * location.period.start = "2025-09-03T02:30:35Z"
 * location.period.end = "2025-09-03T03:30:35Z"

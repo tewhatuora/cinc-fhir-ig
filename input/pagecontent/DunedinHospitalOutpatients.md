@@ -30,8 +30,8 @@ An event notification will be sent to subscribers for any new or updated appoint
 from the Appointment API.
 
 <figure>
-  <!-- Generated from `input/images-source/ndh-appointment-create.plantuml` -->
-  {% include ndh-appointment-create.svg %}
+  <!-- Generated from `input/images-source/dho-appointment-create.plantuml` -->
+  {% include dho-appointment-create.svg %}
 </figure>
 
 ### Confirm Appointment
@@ -46,8 +46,8 @@ Key information:
 | AppointmentResponse.actor.identifier  | patient's NHI               |
 
 <figure>
-  <!-- Generated from `input/images-source/ndh-appointment-confirm.plantuml` -->
-  {% include ndh-appointment-confirm.svg %}
+  <!-- Generated from `input/images-source/dho-appointment-confirm.plantuml` -->
+  {% include dho-appointment-confirm.svg %}
 </figure>
 
 ### Arrive Appointment
@@ -63,8 +63,8 @@ Key information:
 | Encounter.period.start           | arrival time                |
 
 <figure>
-  <!-- Generated from `input/images-source/ndh-appointment-arrive.plantuml` -->
-  {% include ndh-appointment-arrive.svg %}
+  <!-- Generated from `input/images-source/dho-appointment-arrive.plantuml` -->
+  {% include dho-appointment-arrive.svg %}
 </figure>
 
 ### Depart Appointment
@@ -81,8 +81,8 @@ Key information:
 | Encounter.period.end             | departure time              |
 
 <figure>
-  <!-- Generated from `input/images-source/ndh-appointment-depart.plantuml` -->
-  {% include ndh-appointment-depart.svg %}
+  <!-- Generated from `input/images-source/dho-appointment-depart.plantuml` -->
+  {% include dho-appointment-depart.svg %}
 </figure>
 
 ### Retrieve Or Update Te Waipounamu Patient Demographics
@@ -108,6 +108,6 @@ Key information (for update):
 | Patent.telecom.value  | patient's email address     |
 
 <figure>
-  <!-- Generated from `input/images-source/ndh-patient.plantuml` -->
-  {% include ndh-patient.svg %}
+  <!-- Generated from `input/images-source/dho-patient.plantuml` -->
+  {% include dho-patient.svg %}
 </figure>

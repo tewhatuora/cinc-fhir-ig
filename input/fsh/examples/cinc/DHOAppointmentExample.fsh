@@ -13,15 +13,15 @@ Usage: #inline // #inline means this instance MUST NOT be exported as a separate
 * active = true
 * actor[+].identifier insert HPIProviderNumber(99ZZZX)
 * actor[=].display = "Dr Dotty McStuffins"
-// * extension[clinic] = #SOFRACONDHZ "NDH Fracture Consultant" // Need to add extension for clinic
+// * extension[clinic] = #SOFRACONDHZ "Dunedin Hospital Outpatients Fracture Consultant" // Need to add extension for clinic
 
-Instance: NDHOutpatientClinicAppointmentExample
-InstanceOf: NDHOutpatientAppointment
+Instance: DHOutpatientClinicAppointmentExample
+InstanceOf: DHOutpatientAppointment
 Usage: #example
-Description: "An example New Dunedin Hospital Outpatient Clinic Appointment"
+Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked
-* description = "NDH Fracture Consultant"
+* description = "DH Fracture Consultant"
 * serviceCategory =	$cs-nc-health-specialty-code#S45 "Orthopaedic Surgery" // need to determine code system
 * serviceType = #S45B "Fracture Clinic" // need to determine code system - Snomed equivalent is $sct#702858002
 
@@ -47,10 +47,10 @@ Description: "An example New Dunedin Hospital Outpatient Clinic Appointment"
 * participant[=].actor.display = "Dr Dotty McStuffins"
 
 // Location
-* contained[+] = NDHOClinicLocation
+* contained[+] = DHOClinicLocation
 * participant[+].required = #required
 * participant[=].status  = #accepted
-* participant[=].actor = Reference(NDHOClinicLocation)
+* participant[=].actor = Reference(DHOClinicLocation)
 
 * contained[+] = AppointmentSlot
 * contained[+] = ClinicSchedule
@@ -59,10 +59,10 @@ Description: "An example New Dunedin Hospital Outpatient Clinic Appointment"
 * end = "2025-09-03T03:30:35Z"
 
 
-Instance: NDHOutpatientUnstructuredAppointmentExample
-InstanceOf: NDHOutpatientAppointment
+Instance: DHOutpatientUnstructuredAppointmentExample
+InstanceOf: DHOutpatientAppointment
 Usage: #example
-Description: "An example New Dunedin Hospital Outpatient Unstructured Appointment"
+Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked
 * description = "Physiotherapy Appointment"
@@ -85,10 +85,10 @@ Description: "An example New Dunedin Hospital Outpatient Unstructured Appointmen
 * participant[=].actor.display = "Dr Dotty McStuffins"
 
 // Location
-* contained[+] = NDHOClinicLocation
+* contained[+] = DHOClinicLocation
 * participant[+].required = #required
 * participant[=].status  = #accepted
-* participant[=].actor = Reference(NDHOClinicLocation)
+* participant[=].actor = Reference(DHOClinicLocation)
 
 * start = "2025-09-03T02:30:35Z"
 * end = "2025-09-03T03:30:35Z"

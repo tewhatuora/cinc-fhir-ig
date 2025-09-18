@@ -1,12 +1,12 @@
-Instance: NDHOutpatientExample
-InstanceOf: NDHOutpatient
-Description: "An example NDH Outpatient"
+Instance: DHOutpatientExample
+InstanceOf: DHOutpatient
+Description: "An example DH Outpatient"
 Usage: #example
 
-* id = "ndh-outpatient-instance"
+* id = "DHO-outpatient-instance"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatient"
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
@@ -94,12 +94,12 @@ Usage: #example
 * generalPractitioner.display = "Dottie McStuffins"
 
 
-Instance: NDHOutpatientUpdateExample
-InstanceOf: NDHOutpatientUpdate
+Instance: DHOutpatientUpdateExample
+InstanceOf: DHOutpatientUpdate
 Usage: #example
-Description: "An example New Dunedin Hospital Outpatient Update demographics (phone and email)"
+Description: "An example Dunedin Hospital Outpatient Update demographics (phone and email)"
 
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/NDHOutpatientUpdate"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatientUpdate"
 * meta.versionId = "1"
 * meta.lastUpdated = "2023-07-26T01:00:00.000Z"
 

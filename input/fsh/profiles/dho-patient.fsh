@@ -1,16 +1,16 @@
-Profile: NDHOutpatient
+Profile: DHOutpatient
 Parent: $sd-nz-base-patient
-Title: "New Dunedin Hospital Outpatient Get Patient Profile"
+Title: "Dunedin Hospital Outpatient Get Patient Profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^version = "0.0.2"
-* ^purpose = "New Dunedin Hospital outpatient profile"
+* ^purpose = "Dunedin Hospital outpatient profile"
 * ^derivation = #constraint
 
-* ^purpose = "Describe the New Dunedin Hospital Outpatient resource profile"
+* ^purpose = "Describe the Dunedin Hospital Outpatient resource profile"
 * ^text.status = #additional
-* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>New Dunedin Hospital Outpatient profile</div>"
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>Dunedin Hospital Outpatient profile</div>"
 
 * address only NzAddress
 * telecom only NzContactPoint
@@ -113,13 +113,13 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * implicitRules 0..0
 * language 0..0
 
-Profile: NDHOutpatientUpdate
+Profile: DHOutpatientUpdate
 Parent: $sd-nz-base-patient
-Title: "New Dunedin Hospital Outpatient Update profile"
-Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NDH outpatients context."
+Title: "Dunedin Hospital Outpatient Update profile"
+Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the DH outpatients context."
 
 * ^version = "0.0.2"
-* ^purpose = "New Dunedin Hospital outpatient update profile"
+* ^purpose = "Dunedin Hospital outpatient update profile"
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^derivation = #constraint
 

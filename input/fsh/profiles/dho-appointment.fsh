@@ -1,6 +1,6 @@
-Profile: NDHOutpatientAppointment
+Profile: DHOutpatientAppointment
 Parent: Appointment
-Title: "New Dunedin Hospital Outpatient Appointment Profile"
+Title: "Dunedin Hospital Outpatient Appointment Profile"
 Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R4B/appointment.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
 
 * status 1..1 MS

@@ -66,7 +66,7 @@ Alias: $hnz-participation-mode-codes = https://fhir-ig.digital.health.nz/shared-
 Alias: $hnz-task-code-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-task-code-codes
 Alias: $hnz-service-request-status-reason-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-service-request-status-reason-codes
 
-//----New Dunedin Hospital Outpatients----//
+//----Dunedin Hospital Outpatients----//
 
 // ValueSets
 Alias: $vs-administrative-gender = http://hl7.org/fhir/ValueSet/administrative-gender
@@ -93,6 +93,6 @@ Alias: $ns-hpi-person-id = https://standards.digital.health.nz/ns/hpi-person-id
 Alias: $cs-patient-contact-role = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/cs-patient-contact-role
 Alias: $cs-nc-health-specialty-code = http://nzhts.digital.health.nz/fhir/CodeSystem/nc-health-specialty-codes
 
-//----End of New Dunedin Hospital Outpatients----//
+//----End of Dunedin Hospital Outpatients----//
 
 Alias: $australasian-triage-scale = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/australasian-triage-scale-cs

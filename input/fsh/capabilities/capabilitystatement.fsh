@@ -80,7 +80,7 @@ Usage: #definition
 
 * rest.resource[+].type = #Appointment
 * rest.resource[=].supportedProfile[+] = Canonical(Appointment)
-* rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientAppointment)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientAppointment)
 * rest.resource[=].supportedProfile[+] = Canonical(SharedCareAppointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
@@ -101,10 +101,10 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "Appointment date/time"
 
-// NDH Outpatients AppointmentResponse Resource - Used to Confirm an Appointment
+// DH Outpatients AppointmentResponse Resource - Used to Confirm an Appointment
 * rest.resource[+].type = #AppointmentResponse
-* rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientAppointmentResponse)
-* rest.resource[=].documentation = "New Dunedin Hospital Outpatients - Used to confirm an appointment"
+* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientAppointmentResponse)
+* rest.resource[=].documentation = "Dunedin Hospital Outpatients - Used to confirm an appointment"
 * rest.resource[=] insert CreateUpdateInteractions
 
 * rest.resource[+].type = #Bundle
@@ -463,11 +463,11 @@ Usage: #definition
 * rest.resource[=].searchInclude[+] = "Observation:specimen"
 * rest.resource[=].searchInclude[+] = "Observation:subject"
 
-// New Dunedin Hospital Outpatients Patient Profiled type
+// Dunedin Hospital Outpatients Patient Profiled type
 * rest.resource[+].type = #Patient
 * rest.resource[=].profile = Canonical(NzPatient)
-* rest.resource[=].documentation = "New Dunedin Hospital Outpatients - Patient Profile"
-* rest.resource[=].supportedProfile[+] = Canonical(NDHOutpatientUpdate)
+* rest.resource[=].documentation = "Dunedin Hospital Outpatients - Patient Profile"
+* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientUpdate)
 * rest.resource[=] insert ReadUpdateInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchParam[+].name = "identifier"

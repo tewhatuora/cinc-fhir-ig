@@ -1,4 +1,4 @@
-Instance: NDHOClinicLocation
+Instance: DHOClinicLocation
 InstanceOf: NzLocation
 Usage: #inline // #inline means this instance MUST NOT be exported as a separate example
 * identifier.value = "4211-K01" // Location code, need to determine structure
