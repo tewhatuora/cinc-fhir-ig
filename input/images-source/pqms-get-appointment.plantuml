@@ -1,8 +1,5 @@
 @startuml
-!pragma teoz true
-
 'https://plantuml.com/sequence-diagram
-skinparam actorStyle awesome
 
 autonumber "<b>[00]"
 Participant "PQMS\nPatient Queue\nManagement System" as p #dodgerblue/lightskyblue
