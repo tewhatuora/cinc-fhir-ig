@@ -42,5 +42,5 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 1. [Remote Patient Monitoring Overview](./remotePatientMonitoring.html)
 
-### Dunedin Hospital Outpatients
-1. [Dunedin Hospital Outpatients overview](./DunedinHospitalOutpatients.html)
+### New Dunedin Hospital Outpatients
+1. [New Dunedin Hospital Outpatients overview](./NDHOutpatients.html)

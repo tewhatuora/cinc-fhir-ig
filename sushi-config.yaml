@@ -115,7 +115,7 @@ menu:
     Shared Care: artifacts.html#shared-care-examples
     QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
     Communication Person: artifacts.html#communication-person-examples
-    Dunedin Hospital Outpatient: artifacts.html#dunedin-hospital-outpatient-examples
+    New Dunedin Hospital Outpatient: artifacts.html#new-dunedin-hospital-outpatient-examples
   Data Consent:
     FHIR representation of consent: fhirConsent.html
     Consent-based resource access control: consentBasedAccessControl.html
@@ -327,31 +327,20 @@ groups:
       - ConsentByRelatedPersonExample
       - ConsentByQuestionnaireExample
       - ConsentQuestionnaireResponseExample
-  DHOutpatientProfiles:
-    name: Dunedin Hospital Outpatient definitions
+  NDHOutpatientProfiles:
+    name: New Dunedin Hospital Outpatient definitions
     resources:
-      - StructureDefinition/DHOutpatient
-      - StructureDefinition/DHOutpatientUpdate
-      - StructureDefinition/DHOutpatientAppointment
-      - StructureDefinition/DHOutpatientAppointmentResponse
-      - StructureDefinition/DHOutpatientEncounter
-      - StructureDefinition/DHOutpatientEncounterCreate
-      - StructureDefinition/DHOutpatientEncounterUpdate
-  DHOutpatientExamples:
-    name: Dunedin Hospital Outpatient examples
+      - StructureDefinition/NDHOutpatient
+      - StructureDefinition/NDHOutpatientUpdate
+      - StructureDefinition/NDHOutpatientAppointment
+      - StructureDefinition/NDHOutpatientAppointmentResponse
+  NDHOutpatientExamples:
+    name: New Dunedin Hospital Outpatient examples
     resources:
-      - DHOutpatientExample
-      - DHOutpatientUpdateExample
-      - DHOutpatientClinicAppointmentExample
-      - DHOutpatientUnstructuredAppointmentExample
-      - DHOutpatientAppointmentResponseExample
-      - DHOutpatientEncounterExample
-      - DHOutpatientEncounterCreateExample
-      - DHOutpatientEncounterUpdateExample
-      - DHOutpatientSIPICSEmilyWhite
-      - DHOutpatientSIPICSAlexMorgan
-      - DHOutpatientSIPICSCuriousGeorge
-      - DHOutpatientDrDottyMcStuffins
+      - NDHOutpatientExample
+      - NDHOutpatientUpdateExample
+      - NDHOutpatientAppointmentExample
+      - NDHOutpatientAppointmentResponseExample
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:
