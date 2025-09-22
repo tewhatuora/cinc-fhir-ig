@@ -258,6 +258,7 @@ groups:
       - PrivateColposcopyDNAQuestionnaire
       - PrivateColposcopyVisitQuestionnaire
       - PrivateColposcopyDischargeQuestionnaire
+      - EarlyWarningScoreQuestionnaire
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources

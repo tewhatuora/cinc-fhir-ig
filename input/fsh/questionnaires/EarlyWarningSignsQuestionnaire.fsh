@@ -2,7 +2,7 @@ Alias: $unitsofmeasure = http://unitsofmeasure.org
 Alias: $loinc = http://loinc.org
 Alias: $sct = http://snomed.info/sct
 
-Instance: GOFSH-GENERATED-ID-0
+Instance: EarlyWarningScoreQuestionnaire
 InstanceOf: Questionnaire
 Usage: #example
 * status = #draft
