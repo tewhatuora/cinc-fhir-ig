@@ -1,4 +1,4 @@
-Instance: RPM-EducationFeebackSurvey
+Instance: RPM-EducationFeedbackSurvey
 InstanceOf: Questionnaire
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"

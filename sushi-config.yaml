@@ -358,13 +358,21 @@ groups:
       - RPMCardiacRehabCarePlanTemplate
       - RPMHeartFailureCarePlanTemplate
       - RPMObservationRequest
+      - RPMEducationalTask
+  RPMQuestionnaires:
+    name: Questionnaires used in the Remote Patient Monitoring Pilot
+    resources:
+      - RemoteMonitoringCOPDSymptomSurveyQuestionnaire
+      - RPM-EducationFeedbackSurvey
   RPMExamples:
    name: Examples of Resources used in the Remote Patient Monitoring Pilot
    resources:
     - RPMCardiacRehabCarePlanExample
     - RPMPatientOnboardingCommunicationRequest
     - RPMCareTeamExample
-    - RPMEducationalTaskExample
+    - RPMEducationalTask-ModuleExample
+    - RPMEducationalTask-GroupExample
+    - RPMEducationalTask-SyllabusExample
     - RPMConsentExample
     - RPMObservationExample
     - RPMObservationServiceRequestExample
