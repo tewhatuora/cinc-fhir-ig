@@ -3,13 +3,17 @@ FHIR Implementation Guide for the Shared Care API including support for:
 
 - Care in the Community COVID-19 care plans
 - Rheumatic fever national coordination solution -- patient registration, care plans and secondary prophylaxis medication
+- Dunedin Hospital outpatients
 
 The Canonical URL of this Implementation Guide is [https://fhir-ig.digital.health.nz/shared-care](https://fhir-ig.digital.health.nz/shared-care)
 
 This IG depends on:
 
 - FHIR R4B
-- NZ base v3.0.0 [NZ base IG](https://fhir.org.nz/ig/base/index.html)
+- NZ base v3.0.1 [NZ base IG](https://fhir.org.nz/ig/base/index.html)
+- HL7 Structured Data Capture  v3.0.0 [Structured Data Capture IG](https://hl7.org/fhir/uv/sdc/)
+- Te Whatu Ora Digital Tooling v0.0.11 [Digital Tooling IG](https://fhir-ig.digital.health.nz/hnz-digital-tooling/index.html)
+- HL7 Terminology (THO) v6.5.0 [HL7 Terminology R4](https://terminology.hl7.org/)
 
 ## Local development
 
