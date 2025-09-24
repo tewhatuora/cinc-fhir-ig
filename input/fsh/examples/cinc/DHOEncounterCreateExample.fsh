@@ -1,6 +1,6 @@
 Instance: DHOutpatientEncounterCreateExample
 InstanceOf: DHOutpatientEncounterCreate
-Description: "An example Dunedin Hospital Outpatient Encounter"
+Description: "An example Dunedin Hospital outpatient create Encounter"
 Usage: #example
 
 * id = "dho-outpatient-encounter-create-instance"

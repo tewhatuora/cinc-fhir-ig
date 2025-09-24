@@ -1,6 +1,6 @@
 Instance: DHOutpatientEncounterDeleteExample
 InstanceOf: DHOutpatientEncounterDelete
-Description: "An example Dunedin Hospital Outpatient Encounter update"
+Description: "An example Dunedin Hospital outpatient delete Encounter"
 Usage: #example
 
 * id = "dho-outpatient-encounter-delete-instance"
