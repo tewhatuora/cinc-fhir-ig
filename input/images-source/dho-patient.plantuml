@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber "<b>[00]"
+
+actor "Administrator" as admin
+Participant "Patient Administration System\n(PAS)" as pas #LightSeaGreen
+Participant "Appointment FHIR\nInterface" as fhir #palegreen
+queue "NEMS" as n #gold
+Participant "Appointment\nManagement System" as p #lightblue
+actor "Patient/Administrator" as pat
+
+title "Retrieve/update Patient Demographics"
+p -> n: Subscribe to patient-updated event
+...
+
+alt Patient details updated through Appointment Management System (only contact details supported)
+    pat -> p ++ : Patient details updated\n(contact details only)
+    p -> fhir --++ : Update Patient Resource
+    fhir -> pas --++ : Update Patient details in PAS
+else Patient details updated through\nAppointment Scheduling System
+    |||
+    admin -> pas : Patient details updated
+end
+
+pas -> n --++ : Publish patient-updated event
+n-> p --++ : patient-updated event notification
+
+
+p -> fhir ++: Get Patient Resource (by NHI)
+fhir -> pas ++: Retrieve patient demographics
+return Patient demographics
+return Patient Resource
+
+@enduml

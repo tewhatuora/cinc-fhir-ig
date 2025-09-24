@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber "<b>[00]"
+Participant "PQMS\nPatient Queue\nManagement System" as p #dodgerblue/lightskyblue
+
+Boundary "API\nGateway" as a #gold
+Collections "Middleware\nIntegration\nPlatform" as m #palegreen/whitesmoke
+Database "SIPICS\nPatient Administration\nSystem (PAS)" as s #LightSeaGreen/yellow
+
+title Get Patient (FHIR REST API)
+p -> a: FHIR API\nGet Patient
+a -> m++ #palegreen: FHIR Routed\nGet Patient
+m -> m: <font color=blue>Mapping FHIR to SIPICS API
+m -> s: Retrieve Patient via API
+s--> m: Response
+m-> m: <font color=blue>Mapping SIPICS API to FHIR
+return FHIR Patient Resource
+a-->p: FHIR Routed\nPatient Resource
+@enduml
+
