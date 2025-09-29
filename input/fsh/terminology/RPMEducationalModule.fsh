@@ -2,7 +2,7 @@ ValueSet: RPMEducationModuleVS
 Id: rpm-education-module-vs
 Title: "Education Module ValueSet"
 Description: "Codes representing available education modules."
-* ^url = "http://example.org/fhir/ValueSet/education-module-vs"
+* ^url = "https://fhir-ig.digital.health.nz/shared-care/ValueSet//education-module-vs"
 * ^status = #draft
 * include codes from system RPMEducationModuleCS
 
@@ -12,14 +12,14 @@ CodeSystem: RPMEducationModuleCS
 Id: rpm-education-module-cs
 Title: "Education Module CodeSystem"
 Description: "CodeSystem for education modules."
-* ^url = "http://example.org/fhir/CodeSystem/rpm-education-module-cs"
+* ^url = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/rpm-education-module-cs"
 * ^status = #active
 * ^content = #complete
 
 * #cardiac-rehab-syllabus "Cardiac Rehab Syllabus"
   * #your-heart-group "Your Heart Group"
-    * #your-heart-module "COVID-19 Vaccination Side Effects"
-    * #things-go-wrong-module "Post-Vaccine Care Guidelines"
+    * #your-heart-module "Your Heart Introduction"
+    * #things-go-wrong-module "When things go wrong"
     * #faq-module "Frequently Asked Questions"
     * #angina-action-plan-module "Angina Action Plan"
     * #discharge-module "Discharge Instructions"
