@@ -18,3 +18,9 @@ Description: "A FHIR resource profile for NZ Telehealth Appointments for 24/7 te
 * end 0..1
 
 * reasonCode 0..*
+
+* meta 1..1
+  * source 1..1
+    *  ^short = "HPI Facility ID from where the record is sourced"
+  * tag 1..1
+    *  ^short = "Correlation-id where the record is sourced"  

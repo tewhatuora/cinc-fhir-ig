@@ -102,3 +102,9 @@ Note: In 4B insurance, priority and item.productOrService are compulsory fields.
 * item.net ^short = "Claimed pre-tax amount"
 * item.detail 0..*
 * item.detail ^short = "Additional detail for the claim item"
+
+* meta 1..1
+  * source 1..1
+    *  ^short = "HPI Facility ID from where the record is sourced"
+  * tag 1..1
+    *  ^short = "Correlation-id where the record is sourced"  

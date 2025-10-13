@@ -69,3 +69,7 @@ Description: "Example of a telehealth encounter for 24/7 telehealth services"
 * extension[regCode].valueString = "enrolled"
 
 * extension[modeOfArrival].valueCoding = http://terminology.hl7.org/CodeSystem/v2-0430#A "Ambulance"
+
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
