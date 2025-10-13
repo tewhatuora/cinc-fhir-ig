@@ -93,3 +93,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * insurance[+].sequence = 1
 * insurance[=].focal = true
 * insurance[=].coverage.reference = "Coverage/1234567890"
+
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
