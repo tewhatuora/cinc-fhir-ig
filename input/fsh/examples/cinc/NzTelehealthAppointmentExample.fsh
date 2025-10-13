@@ -23,3 +23,7 @@ Description: "Example of a telehealth appointment for 24/7 telehealth services"
 * participant[0].actor.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * participant[0].actor.identifier.value = "ZZZ0008" 
 * participant[0].status = #accepted
+
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

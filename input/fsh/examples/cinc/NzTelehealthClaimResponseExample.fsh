@@ -65,3 +65,7 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 //In 4B Required fields, but not utilized in the example
 * insurer.reference = "Organization/GZZ000-1"
 * insurer.type = "Organization"
+
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
