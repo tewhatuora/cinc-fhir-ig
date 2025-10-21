@@ -76,3 +76,10 @@ diagnosis.condition:  Do we need a condition profile for this?
     SharedCareAccidentRelated named accident 0..1 and
     SharedCareRegistrationCode named regCode 0..1 and
     encounter-modeOfArrival named modeOfArrival 0..1
+
+
+* meta 1..1
+  * source 1..1
+    *  ^short = "HPI Facility ID from where the record is sourced"
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"  
