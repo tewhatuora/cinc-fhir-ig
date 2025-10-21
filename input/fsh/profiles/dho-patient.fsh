@@ -1,5 +1,5 @@
 Profile: DHOutpatient
-Parent: $sd-nz-base-patient
+Parent: NzPatient
 Title: "Dunedin Hospital Outpatient Get Patient Profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
 
@@ -20,7 +20,13 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 
 * extension[nzCitizen] ^short = "Is this person a New Zealand citizen"
 
-* meta.profile 1..*
+* meta 0..1
+  * source 0..1
+  * profile 0..*
+  * lastUpdated 0..1
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"
+
 * identifier 1..* MS  // We must have at least one ID
   * use 1..1 MS
   * system 1..1 MS
@@ -114,7 +120,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * language 0..0
 
 Profile: DHOutpatientUpdate
-Parent: $sd-nz-base-patient
+Parent: NzPatient
 Title: "Dunedin Hospital Outpatient Update profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the DH outpatients context."
 
@@ -125,7 +131,13 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 
 
 // We only want the API to allow for updating the email address and telephone number of a patient. Based on FHIR 4.3.0 (R4B) Patient Elements
-* meta.profile 1..1
+* meta 0..1
+  * source 0..1
+  * profile 0..*
+  * lastUpdated 0..1
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"
+
 * identifier 1..* MS // We must have at least one ID (NHI)
   * use 1..1 MS
   * value 1..1 MS

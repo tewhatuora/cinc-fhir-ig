@@ -19,6 +19,11 @@ Instance: DHOutpatientClinicAppointmentExample
 InstanceOf: DHOutpatientAppointment
 Usage: #example
 Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
+
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked
 * description = "DH Fracture Consultant"
@@ -63,6 +68,11 @@ Instance: DHOutpatientUnstructuredAppointmentExample
 InstanceOf: DHOutpatientAppointment
 Usage: #example
 Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
+
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked
 * description = "Physiotherapy Appointment"

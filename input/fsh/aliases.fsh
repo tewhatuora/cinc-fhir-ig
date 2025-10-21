@@ -77,7 +77,6 @@ Alias: $vs-encounter-status = http://hl7.org/fhir/ValueSet/encounter-status
 // StructureDefinitions
 Alias: $sd-building-name = http://hl7.org.nz/fhir/StructureDefinition/building-name
 Alias: $sd-interpreter-required  = http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired|5.2.0
-Alias: $sd-nz-base-patient = http://hl7.org.nz/fhir/StructureDefinition/NzPatient
 Alias: $sd-patient-contact-role-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-patient-contact-role-extension-id
 Alias: $sd-suburb = http://hl7.org.nz/fhir/StructureDefinition/suburb
 Alias: $sd-sex-at-birth = http://hl7.org.nz/fhir/StructureDefinition/sex-at-birth
