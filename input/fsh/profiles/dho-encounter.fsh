@@ -13,7 +13,10 @@ Description: "This profile derives from the [Encounter](https://hl7.org/fhir/R4B
 * ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>Dunedin Hospital Outpatient Encounter profile</div>"
 
 * identifier 0..1
-* meta.profile 1..*
+* meta
+  * profile 1..*
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"
 * status 1..1
 * statusHistory 0..*
 * class 1..1
