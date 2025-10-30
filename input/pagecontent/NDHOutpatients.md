@@ -1,6 +1,6 @@
 
-The New Dunedin Hospital digital programme is implementing a number of integrations between various third party products 
-used within the outpatient function as defined in the NDH solution architecture.
+The Dunedin Hospital digital programme is implementing a number of integrations between various third party products 
+used within the outpatient function as defined in the solution architecture.
 
 These include but are not limited to interfaces between the following Group 4 solutions:
 * **Cardiobase** – Southern district Cardiology information system

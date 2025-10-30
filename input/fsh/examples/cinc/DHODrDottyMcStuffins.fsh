@@ -1,5 +1,5 @@
-Instance: DrDottyMcStuffins
-InstanceOf: Practitioner
+Instance: DHOutpatientDrDottyMcStuffins
+InstanceOf: NzPractitioner
 Description: "Example of a practitioner who plans patient care"
 Usage: #example
 
@@ -12,4 +12,3 @@ Usage: #example
 
 * gender = #female
 * birthDate = "1961-10-24"
-

@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Health New Zealand Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
 status: active
-version: 0.4.2
+version: 0.4.3
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -115,7 +115,7 @@ menu:
     Shared Care: artifacts.html#shared-care-examples
     QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
     Communication Person: artifacts.html#communication-person-examples
-    New Dunedin Hospital Outpatient: artifacts.html#new-dunedin-hospital-outpatient-examples
+    Dunedin Hospital Outpatient: artifacts.html#dunedin-hospital-outpatient-examples
   Data Consent:
     FHIR representation of consent: fhirConsent.html
     Consent-based resource access control: consentBasedAccessControl.html
@@ -258,6 +258,7 @@ groups:
       - PrivateColposcopyDNAQuestionnaire
       - PrivateColposcopyVisitQuestionnaire
       - PrivateColposcopyDischargeQuestionnaire
+      - EarlyWarningScoreQuestionnaire
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources
@@ -327,20 +328,33 @@ groups:
       - ConsentByRelatedPersonExample
       - ConsentByQuestionnaireExample
       - ConsentQuestionnaireResponseExample
-  NDHOutpatientProfiles:
-    name: New Dunedin Hospital Outpatient definitions
+  DHOutpatientProfiles:
+    name: Dunedin Hospital Outpatient definitions
     resources:
-      - StructureDefinition/NDHOutpatient
-      - StructureDefinition/NDHOutpatientUpdate
-      - StructureDefinition/NDHOutpatientAppointment
-      - StructureDefinition/NDHOutpatientAppointmentResponse
-  NDHOutpatientExamples:
-    name: New Dunedin Hospital Outpatient examples
+      - StructureDefinition/DHOutpatient
+      - StructureDefinition/DHOutpatientUpdate
+      - StructureDefinition/DHOutpatientAppointment
+      - StructureDefinition/DHOutpatientAppointmentResponse
+      - StructureDefinition/DHOutpatientEncounter
+      - StructureDefinition/DHOutpatientEncounterCreate
+      - StructureDefinition/DHOutpatientEncounterUpdate
+      - StructureDefinition/DHOutpatientEncounterDelete
+  DHOutpatientExamples:
+    name: Dunedin Hospital Outpatient examples
     resources:
-      - NDHOutpatientExample
-      - NDHOutpatientUpdateExample
-      - NDHOutpatientAppointmentExample
-      - NDHOutpatientAppointmentResponseExample
+      - DHOutpatientExample
+      - DHOutpatientUpdateExample
+      - DHOutpatientClinicAppointmentExample
+      - DHOutpatientUnstructuredAppointmentExample
+      - DHOutpatientAppointmentResponseExample
+      - DHOutpatientEncounterExample
+      - DHOutpatientEncounterCreateExample
+      - DHOutpatientEncounterUpdateExample
+      - DHOutpatientEncounterDeleteExample
+      - DHOutpatientSIPICSEmilyWhite
+      - DHOutpatientSIPICSAlexMorgan
+      - DHOutpatientSIPICSCuriousGeorge
+      - DHOutpatientDrDottyMcStuffins
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:
@@ -357,13 +371,21 @@ groups:
       - RPMCardiacRehabCarePlanTemplate
       - RPMHeartFailureCarePlanTemplate
       - RPMObservationRequest
+      - RPMEducationalTask
+  RPMQuestionnaires:
+    name: Questionnaires used in the Remote Patient Monitoring Pilot
+    resources:
+      - RemoteMonitoringCOPDSymptomSurveyQuestionnaire
+      - RPM-EducationFeedbackSurvey
   RPMExamples:
    name: Examples of Resources used in the Remote Patient Monitoring Pilot
    resources:
     - RPMCardiacRehabCarePlanExample
     - RPMPatientOnboardingCommunicationRequest
     - RPMCareTeamExample
-    - RPMEducationalTaskExample
+    - RPMEducationalTask-ModuleExample
+    - RPMEducationalTask-GroupExample
+    - RPMEducationalTask-SyllabusExample
     - RPMConsentExample
     - RPMObservationExample
     - RPMObservationServiceRequestExample

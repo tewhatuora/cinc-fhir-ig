@@ -7,24 +7,33 @@ participant "Education Content Bucket" as ECB
 
 == Patient Onboarding ==
 PV -> FHIR : POST CarePlan and Associated resources
-PV -> FHIR : POST Top Level Task
-PV -> FHIR : POST Group Level Tasks
+PV -> FHIR : POST Top Level Task (Syllabus)
+PV -> FHIR : POST Unit Level Tasks
 PV -> FHIR : POST Module Level Tasks
-PV -> FHIR : PUT Careplan (attatching tasks)
-
+PV -> FHIR : PUT CarePlan (attaching tasks)
 
 == Educational Content Consumption ==
-Patient -> App : Opens App, Selects and Consumes Education Content
+Patient -> App : Opens App, Selects and Consumes Module
 App -> ECB : Fetches Education Content
 App -> App : Render Content
 Patient -> App : Completes Module
-App -> FHIR : GET Task?code=exampleModulecode&owner=nhi&profile=rpmEducationTask
-App -> FHIR : PUT Task (setting task.status to completed)
+App -> FHIR : GET Task?code=exampleModuleCode&owner=nhi&profile=rpmEducationalTask
+App -> FHIR : PUT Task (module Task.status=completed)
+
+alt Update Parent Tasks Directly
+    note right of App
+        Client knows all modules/units are completed,
+        so it directly updates the parent Task(s) to completed
+    end note
+    App -> FHIR : PUT Unit Task (status=completed)
+    App -> FHIR : PUT Syllabus Task (status=completed)
+end
+
 Patient -> App : Complete Feedback Questionnaire
 App -> FHIR : POST QuestionnaireResponse (completed)
 
 == Provider View Rendering ==
-PV -> FHIR : GET Careplan
-PV -> FHIR : GET Task?basedOn=Careplan/example&owner=nhi&profile=rpmEducationTask
+PV -> FHIR : GET CarePlan
+PV -> FHIR : GET Task?basedOn=CarePlan/example&owner=nhi&profile=rpmEducationalTask
 
 @enduml

@@ -23,10 +23,15 @@ package "CarePlan Activities" {
     subject : Reference to Patient
   }
   class Task #FFE0B2 {
-    subject : Reference to Patient
-    code : CodeableConcept ("educational content")
-    relevantHistory : Reference to Provenance
-  }
+    +basedOn : Reference[0..*] "Reference(CarePlan)"
+    +subject : Reference[1..1] "Reference(Patient)"
+    +owner : Reference[0..1] "Reference(Patient)"
+    +requester : Reference[1..1] "Reference(Practitioner)"
+    +code : CodeableConcept[1..1] "Bound to RPMEducationalCSVS (syllabus/unit/module)"
+    +codeText : string[1..1] "Human-readable label"
+    +status : code[1..1] "Task status"
+    +authoredOn : dateTime[1..1]
+}
   class ServiceRequest #E1BEE7 {
     subject : Reference to Patient
   }
@@ -78,11 +83,6 @@ package "CarePlan Context Resources" {
 }
 
 package "Captured Data" {
-
-  class Provenance #D1C4E9 {
-    subject : Reference to Patient
-    extensionCode : TBD
-  }
 
   class Observation #80CBC4 {
     subject : Reference to Patient

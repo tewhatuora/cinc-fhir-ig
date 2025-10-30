@@ -66,27 +66,32 @@ Alias: $hnz-participation-mode-codes = https://fhir-ig.digital.health.nz/shared-
 Alias: $hnz-task-code-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-task-code-codes
 Alias: $hnz-service-request-status-reason-codes = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-service-request-status-reason-codes
 
-//----New Dunedin Hospital Outpatients----//
+//----Dunedin Hospital Outpatients----//
 
 // ValueSets
-Alias: $vs-administrative-gender = http://hl7.org/fhir/ValueSet/administrative-gender // Sex at birth
-// Patient contact to have both role and relationship per R6 Ballot (3rd Draft)
-Alias: $vs-patient-contact-role = http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype
+Alias: $vs-administrative-gender = http://hl7.org/fhir/ValueSet/administrative-gender
 Alias: $vs-patient-contact-relationship = http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType|3.0.0
+Alias: $vs-ethnic-group-level-4-code = https://nzhts.digital.health.nz/fhir/ValueSet/ethnic-group-level-4-code|2.1.0
+Alias: $vs-encounter-status = http://hl7.org/fhir/ValueSet/encounter-status
 
 // StructureDefinitions
 Alias: $sd-building-name = http://hl7.org.nz/fhir/StructureDefinition/building-name
 Alias: $sd-interpreter-required  = http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired|5.2.0
-Alias: $sd-nz-base-patient = http://hl7.org.nz/fhir/StructureDefinition/NzPatient
-Alias: $sd-patient-contact-role = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-patient-contact-role
+Alias: $sd-patient-contact-role-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/hnz-patient-contact-role-extension-id
 Alias: $sd-suburb = http://hl7.org.nz/fhir/StructureDefinition/suburb
+Alias: $sd-sex-at-birth = http://hl7.org.nz/fhir/StructureDefinition/sex-at-birth
 
 // Taxonomies
 Alias: $ns-domicile-code = https://standards.digital.health.nz/ns/domicile-code
 Alias: $ns-ethnic-group-level-4-code = https://standards.digital.health.nz/ns/ethnic-group-level-4-code
 Alias: $ns-information-source-code = https://standards.digital.health.nz/ns/information-source-code
 Alias: $ns-nz-citizenship-status-code = https://standards.digital.health.nz/ns/nz-citizenship-status-code
+Alias: $ns-hpi-person-id = https://standards.digital.health.nz/ns/hpi-person-id
+// This does not appear to exist despite the documentation.
+//Alias: $ns-nz-residency-code = https://standards.digital.health.nz/ns/nz-residency-code
+Alias: $cs-patient-contact-role = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/cs-patient-contact-role
+Alias: $cs-nc-health-specialty-code = http://nzhts.digital.health.nz/fhir/CodeSystem/nc-health-specialty-codes
 
-//----End of New Dunedin Hospital Outpatients----//
+//----End of Dunedin Hospital Outpatients----//
 
 Alias: $australasian-triage-scale = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/australasian-triage-scale-cs

@@ -1,16 +1,16 @@
-Profile: NDHOutpatient
-Parent: $sd-nz-base-patient
-Title: "New Dunedin Hospital Outpatient Get Patient Profile"
+Profile: DHOutpatient
+Parent: NzPatient
+Title: "Dunedin Hospital Outpatient Get Patient Profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
 
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^version = "0.0.2"
-* ^purpose = "New Dunedin Hospital outpatient profile"
+* ^purpose = "Dunedin Hospital outpatient profile"
 * ^derivation = #constraint
 
-* ^purpose = "Describe the New Dunedin Hospital Outpatient resource profileI"
+* ^purpose = "Describe the Dunedin Hospital Outpatient resource profile"
 * ^text.status = #additional
-* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>New Dunedin Hospital Outpatient profile</div>"
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>Dunedin Hospital Outpatient profile</div>"
 
 * address only NzAddress
 * telecom only NzContactPoint
@@ -20,7 +20,13 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 
 * extension[nzCitizen] ^short = "Is this person a New Zealand citizen"
 
-* meta.profile 1..*
+* meta 0..1
+  * source 0..1
+  * profile 0..*
+  * lastUpdated 0..1
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"
+
 * identifier 1..* MS  // We must have at least one ID
   * use 1..1 MS
   * system 1..1 MS
@@ -55,9 +61,9 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * deceasedBoolean 0..0
 * address 0..* MS
   * extension[domicile-code] 0..1 MS
-    * valueCodeableConcept.coding 1..1 MS
-    * valueCodeableConcept.coding.code 1..1 MS
-    * valueCodeableConcept.coding.system 1..1 MS
+    * valueCodeableConcept.coding 0..1 MS
+    * valueCodeableConcept.coding.code 0..1 MS
+    * valueCodeableConcept.coding.system 0..1 MS
     * valueCodeableConcept.coding.display 0..1 MS
     * valueCodeableConcept.coding.version 0..0
     * valueCodeableConcept.coding.userSelected 0..0
@@ -113,19 +119,25 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * implicitRules 0..0
 * language 0..0
 
-Profile: NDHOutpatientUpdate
-Parent: $sd-nz-base-patient
-Title: "New Dunedin Hospital Outpatient Update profile"
-Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NDH outpatients context."
+Profile: DHOutpatientUpdate
+Parent: NzPatient
+Title: "Dunedin Hospital Outpatient Update profile"
+Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the DH outpatients context."
 
 * ^version = "0.0.2"
-* ^purpose = "New Dunedin Hospital outpatient update profile"
+* ^purpose = "Dunedin Hospital outpatient update profile"
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 * ^derivation = #constraint
 
 
 // We only want the API to allow for updating the email address and telephone number of a patient. Based on FHIR 4.3.0 (R4B) Patient Elements
-* meta.profile 1..1
+* meta 0..1
+  * source 0..1
+  * profile 0..*
+  * lastUpdated 0..1
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"
+
 * identifier 1..* MS // We must have at least one ID (NHI)
   * use 1..1 MS
   * value 1..1 MS
