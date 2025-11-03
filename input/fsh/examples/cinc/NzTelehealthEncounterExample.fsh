@@ -60,9 +60,7 @@ Description: "Example of a telehealth encounter for 24/7 telehealth services"
 * location[=].period.start = "2025-01-01T10:00:00+13:00"
 * location[=].period.end = "2025-01-01T10:17:00+13:00"
 
-* extension[cscNumber].valueIdentifier.use = #official
-* extension[cscNumber].valueIdentifier.system = "https://standards.digital.health.nz/ns/csc-id"
-* extension[cscNumber].valueIdentifier.value = "123456789"
+* extension[cscHolder].valueBoolean = true
 
 * extension[accident].valueBoolean = false
 

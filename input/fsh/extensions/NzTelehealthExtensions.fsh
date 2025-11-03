@@ -1,11 +1,10 @@
 // Extensions for Shared Care Services
-Extension: SharedCareCscNumber
-Id: shared-care-csc-number
-Title: "Shared Care CSC Number"
-Description: "Community Services Card holder number for shared care encounters"
+Extension: SharedCareCscHolder
+Id: shared-care-csc-holder
+Title: "Shared Care CSC holder"
+Description: "Community Services Card holder for shared care encounters"
 Context: Encounter
-* value[x] only Identifier
-* valueIdentifier.system = "https://standards.digital.health.nz/ns/csc-id"
+* value[x] only boolean
 
 Extension: SharedCareAccidentRelated
 Id: shared-care-accident-related

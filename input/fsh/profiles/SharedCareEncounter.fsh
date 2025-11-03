@@ -49,7 +49,7 @@ diagnosis.condition:  Do we need a condition profile for this?
 
 * reasonCode 0..*
 
-* period 0..1
+* period 1..1
 
 * priority 0..1 
 * priority from australasian-triage-scale (required)
@@ -72,7 +72,7 @@ diagnosis.condition:  Do we need a condition profile for this?
 * location.period 0..1
 
 * extension contains
-    SharedCareCscNumber named cscNumber 0..1 and
+    SharedCareCscHolder named cscHolder 0..1 and
     SharedCareAccidentRelated named accident 0..1 and
     SharedCareRegistrationCode named regCode 0..1 and
     encounter-modeOfArrival named modeOfArrival 0..1
