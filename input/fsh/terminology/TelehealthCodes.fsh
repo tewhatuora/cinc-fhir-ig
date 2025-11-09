@@ -1,11 +1,13 @@
 // Code Systems for Telehealth
-CodeSystem: NzClaimTypeCS
-Id: nz-claim-type-cs
-Title: "NZ Claim Type Code System"
-Description: "Code system for NZ claim types"
-* ^status = #draft
-* ^caseSensitive = true
-* #professional "Professional" "Outpatient claim from a telehealth physician"
+// CodeSystem: NzClaimTypeCS
+// Id: nz-claim-type-cs
+// Title: "NZ Claim Type Code System"
+// Description: "Code system for NZ claim types"
+// * ^status = #draft
+// * ^caseSensitive = true
+// * #professional "Professional" "Outpatient claims from physicians including GPs, telehealth, primary maternity, diagnostic & labs, etc."
+// * #pharmacy "Pharmacy" "Pharmacy claims for goods & services"
+// * #oral "Oral" "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
 
 CodeSystem: NzClaimSubtypeCS
 Id: nz-claim-subtype-cs
@@ -13,15 +15,9 @@ Title: "NZ Claim Subtype Code System"
 Description: "Code system for NZ claim subtypes"
 * ^status = #draft
 * ^caseSensitive = true
-* #online-gp-services "Online GP Services" "Online GP services subtype"
-
-CodeSystem: ClaimCareTeamRoleCS
-Id: claim-careteam-role-cs
-Title: "Claim Care Team Role Code System"
-Description: "Code system for claim care team roles"
-* ^status = #draft
-* ^caseSensitive = true
-* #primary "Primary" "Primary care provider"
+* #telehealth "Telehealth" "Online GP/telehealth claims for subsidised Health NZ services"
+* #ICPSA "ICPSA" "Community pharmacy claims under ICPSA"
+* #PCT "PCT" "Hospital pharmacy claims"
 
 CodeSystem: AustralasianTriageScaleCS
 Id: australasian-triage-scale-cs

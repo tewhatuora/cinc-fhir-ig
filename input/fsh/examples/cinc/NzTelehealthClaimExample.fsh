@@ -25,16 +25,11 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * billablePeriod.start = "2025-01-01"
 * billablePeriod.end = "2025-01-01"
 
-* insurer.reference = "Organization/GZZ000-1"
-* insurer.type = "Organization"
-* insurer.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-* insurer.identifier.value = "GZZ000-1"
-
-* payee.type.coding.system = "http://terminology.hl7.org/CodeSystem/payeetype"
-* payee.type.coding.code = #provider
-* payee.party.identifier.use = #official
-* payee.party.identifier.system = "https://standards.digital.health.nz/ns/hsaap-provider-site-id"
-* payee.party.identifier.value = "P012345"
+// * payee.type.coding.system = "http://terminology.hl7.org/CodeSystem/payeetype"
+// * payee.type.coding.code = #provider
+// * payee.party.identifier.use = #official
+// * payee.party.identifier.system = "https://standards.digital.health.nz/ns/hsaap-provider-site-id"
+// * payee.party.identifier.value = "P012345"
 
 * patient.reference = "Patient/ZZZ0008"
 * patient.type = "Patient"
@@ -51,16 +46,16 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-nzbn"
 * provider.identifier.value = "9876543210123"
 
-* careTeam[+].sequence = 1
-* careTeam[=].provider.reference = "Practitioner/12345"
-* careTeam[=].responsible = true
-* careTeam[=].role.coding.system = "https://standards.digital.health.nz/ns/claim-careteam-role-code"
-* careTeam[=].role.coding.code = #primary
-* careTeam[=].qualification.coding.system = "https://standards.digital.health.nz/ns/provider-qualification-codes"
-* careTeam[=].qualification.coding.code = #S12345
+// * careTeam[+].sequence = 1
+// * careTeam[=].provider.reference = "Practitioner/12345"
+// * careTeam[=].responsible = true
+// * careTeam[=].role.coding.system = "https://standards.digital.health.nz/ns/claim-careteam-role-code"
+// * careTeam[=].role.coding.code = #primary
+// * careTeam[=].qualification.coding.system = "https://standards.digital.health.nz/ns/provider-qualification-codes"
+// * careTeam[=].qualification.coding.code = #S12345
 
-* total.value = 500.00
-* total.currency = #NZD
+// * total.value = 500.00
+// * total.currency = #NZD
 
 * item[+].sequence = 1
 * item[=].encounter[+].reference = "Encounter/NzTelehealthEncounterExample"
@@ -73,26 +68,17 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * item[=].locationReference.identifier.value = "F12345"
 * item[=].locationReference.display = "Example Telehealth Facility"
 * item[=].quantity.value = 1
-* item[=].unitPrice.value = 500.00
-* item[=].unitPrice.currency = #NZD
-* item[=].net.value = 500.00
-* item[=].net.currency = #NZD
+
 * item[=].extension[patientPaid].valueMoney.value = 20.00
 * item[=].extension[patientPaid].valueMoney.currency = #NZD
-* item[=].extension[itemTax].valueMoney.value = 75.00
-* item[=].extension[itemTax].valueMoney.currency = #NZD
 
 * extension[traceNumber].valueIdentifier.system = "https://example.org/fhir/trace-number"
 * extension[traceNumber].valueIdentifier.value = "7890"
-
+* extension[agreementNumber].valueString = "AGRS-202sdfg4-00121"
 
 //In 4B Required fields, but not utilized in the example
 * priority.coding.system = "http://terminology.hl7.org/CodeSystem/processpriority" 
 * priority.coding.code = #normal
-
-* insurance[+].sequence = 1
-* insurance[=].focal = true
-* insurance[=].coverage.reference = "Coverage/1234567890"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
 * meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
