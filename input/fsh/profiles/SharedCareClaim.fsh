@@ -79,7 +79,7 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * insurance 1..1
 * insurance.focal = false
 * insurance.sequence = 1
-* insurance.coverage = Reference(Coverage/example)
+// * insurance.coverage = Reference(Coverage/example)
 
 // Removed elements from claim
 * insurer 0..0

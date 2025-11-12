@@ -12,7 +12,7 @@ Description: "An example ManaakiNgaTahi Encounter"
 * subject = Reference(CareyCarrington) "Carey Carrington"
 * subject.type = "Patient"
 
-* participant.type = http://terminology.hl7.org/CodeSystem/v3-ParticipationType#CON "consultant"
+* participant.type = $v3-ParticipationType#CON "consultant"
 * participant.type.text = "Consultant"
 * participant.period.start = "2022-09-20T01:23:34.459Z"
 * participant.period.end = "2022-09-20T02:23:34.459Z"

@@ -1,4 +1,13 @@
-// Value Sets for Telehealth
+// Value Sets for Claim system
+ValueSet: NzAppointmentReasonCodes
+Id: nz-appointment-reason-codes
+Title: "NZ Appointment Reason Codes Code System"
+Description: "Code system for NZ appointment reason codes"
+* ^status = #draft
+* $sct#266934004 "Transport problem (finding)"
+
+* include codes from system nz-appointment-reason-codes-cs
+
 ValueSet: NzClaimTypes
 Id: nz-claim-types
 Title: "NZ Claim Types"
@@ -69,7 +78,7 @@ Id: diagnosis-use-codes
 Title: "Diagnosis Use Codes"
 Description: "Codes for diagnosis use (working vs final)"
 * ^status = #draft
-* include codes from system http://terminology.hl7.org/CodeSystem/diagnosis-role
+* include codes from system $diagnosis-role
 
 ValueSet: SharedCareEncounterTypeValueSet
 Id: shared-care-encounter-type-valueset

@@ -4,7 +4,9 @@ Usage: #example
 Title: "NZ Telehealth Claim Example"
 Description: "Example of a telehealth claim for 24/7 telehealth services"
 
-
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 * identifier[0].use = #official
 * identifier[0].system = "https://standards.digital.health.nz/ns/claim-identifier"
@@ -12,32 +14,24 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * status = #active
 
-* type.coding.system = "https://standards.digital.health.nz/ns/nz-claim-type"
-* type.coding.code = #professional
+* type.coding.code = http://terminology.hl7.org/CodeSystem/claim-type#professional
 
-* subType.coding.system = "https://standards.digital.health.nz/ns/nz-claim-subtype"
-* subType.coding.code = #online-gp-services
+* subType.coding.code = $nz-claim-subtype#telehealth
 
-* use = #claim
+* use = http://hl7.org/fhir/claim-use#claim
 
 * created = "2025-01-01T00:00:00+13:00"
 
 * billablePeriod.start = "2025-01-01"
 * billablePeriod.end = "2025-01-01"
 
-// * payee.type.coding.system = "http://terminology.hl7.org/CodeSystem/payeetype"
-// * payee.type.coding.code = #provider
-// * payee.party.identifier.use = #official
-// * payee.party.identifier.system = "https://standards.digital.health.nz/ns/hsaap-provider-site-id"
-// * payee.party.identifier.value = "P012345"
-
-* patient.reference = "Patient/ZZZ0008"
+// * patient.reference = "Patient/ZZZ0008"
 * patient.type = "Patient"
 * patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * patient.identifier.value = "ZZZ0008"
 * patient.display = "Mr Test Patient | Male | 2001-01-01"
 
-* provider.reference = "Organization/GZZ999-9"
+// * provider.reference = "Organization/GZZ999-9"
 * provider.type = "Organization"
 * provider.identifier.use = #official
 * provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
@@ -45,17 +39,6 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * provider.identifier.use = #secondary
 * provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-nzbn"
 * provider.identifier.value = "9876543210123"
-
-// * careTeam[+].sequence = 1
-// * careTeam[=].provider.reference = "Practitioner/12345"
-// * careTeam[=].responsible = true
-// * careTeam[=].role.coding.system = "https://standards.digital.health.nz/ns/claim-careteam-role-code"
-// * careTeam[=].role.coding.code = #primary
-// * careTeam[=].qualification.coding.system = "https://standards.digital.health.nz/ns/provider-qualification-codes"
-// * careTeam[=].qualification.coding.code = #S12345
-
-// * total.value = 500.00
-// * total.currency = #NZD
 
 * item[+].sequence = 1
 * item[=].encounter[+].reference = "Encounter/NzTelehealthEncounterExample"
@@ -79,7 +62,5 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 //In 4B Required fields, but not utilized in the example
 * priority.coding.system = "http://terminology.hl7.org/CodeSystem/processpriority" 
 * priority.coding.code = #normal
-
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insurance.coverage.identifier.system = "https://standards.digital.health.nz/ns/insurance-identifier"
+* insurance.coverage.identifier.value = "INS123456"

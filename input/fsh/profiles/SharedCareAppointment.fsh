@@ -25,3 +25,4 @@ Description: "A FHIR resource profile for operational reporting of NZ planned en
 * end 0..1
 
 * reasonCode 0..*
+* reasonCode from NzAppointmentReasonCodes
