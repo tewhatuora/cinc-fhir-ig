@@ -4,21 +4,23 @@ Usage: #example
 Title: "NZ Telehealth Claim Response Example"
 Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth services"
 
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 * identifier[0].use = #official
 * identifier[0].system = "https://standards.digital.health.nz/ns/claim-response-identifier"
 * identifier[0].value = "CR12345"
 
 * status = #active
 
-* type.coding.system = "https://standards.digital.health.nz/ns/nz-claim-type"
-* type.coding.code = #professional
+* type.coding = http://terminology.hl7.org/CodeSystem/claim-type#professional
 
-* subType.coding.system = "https://standards.digital.health.nz/ns/nz-claim-subtype"
-* subType.coding.code = #online-gp-services
+* subType.coding = $nz-claim-subtype#telehealth
 
-* use = #claim
+* use = http://hl7.org/fhir/claim-use#claim
 
-* patient.reference = "Patient/ZZZ0008"
+// * patient.reference = "Patient/ZZZ0008"
 * patient.type = "Patient"
 * patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * patient.identifier.value = "ZZZ0008"
@@ -26,7 +28,7 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 
 * created = "2025-01-01T00:00:00-00:00"
 
-* outcome = #complete
+* outcome = http://hl7.org/fhir/remittance-outcome#complete
 
 * request = Reference(NzTelehealthClaimExample)
 
@@ -43,7 +45,7 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 * item[=].extension[productOrService].valueCodeableConcept.coding[+].system = "https://standards.digital.health.nz/ns/purchase-unit"
 * item[=].extension[productOrService].valueCodeableConcept.coding[=].code = #PU1234
 
-* item[=].adjudication[+].category.coding[+].system = "https://standards.digital.health.nz/ns/adjudication-value-code"
+* item[=].adjudication[+].category.coding[+].system = "http://terminology.hl7.org/CodeSystem/adjudication"
 * item[=].adjudication[=].category.coding[=].code = #benefit
 * item[=].adjudication[=].reason.coding[+].system = "https://standards.digital.health.nz/ns/adjudication-reason-code"
 * item[=].adjudication[=].reason.coding[=].code = #ar1234
@@ -63,9 +65,7 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 * payment.amount.currency = #NZD
 
 //In 4B Required fields, but not utilized in the example
-* insurer.reference = "Organization/GZZ000-1"
+// * insurer.reference = "Organization/GZZ000-1"
+* insurer.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
+* insurer.identifier.value = "n/a"
 * insurer.type = "Organization"
-
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

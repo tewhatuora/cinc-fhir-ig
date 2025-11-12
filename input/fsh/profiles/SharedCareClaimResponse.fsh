@@ -2,15 +2,21 @@ Profile: SharedCareClaimResponse
 Parent: ClaimResponse
 Id: SharedCareClaimResponse
 Title: "NZ SharedCare Claim Response"
-Description: """A FHIR resource profile for NZ Telehealth Claim Responses for 24/7 telehealth services.
+Description: """A FHIR resource profile describing the outcome of NZ generic payment claims.
 
 Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer are compulsory fields, but not utilized in the telehealth implementation.
       item.adjudication.quantity R5 is item.adjudication.value in R4B.
 """
 * ^version = "0.0.1"
-* ^purpose = "This profile is used to represent telehealth claim responses in New Zealand for 24/7 telehealth services."
+* ^purpose = "A FHIR resource profile describing the outcome of NZ generic payment claims"
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
+
+* meta 1..1
+  * source 1..1
+    *  ^short = "HPI Facility ID from where the record is sourced"
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"  
 
 * request 1..1
 * request only Reference(SharedCareClaim)
@@ -48,7 +54,6 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
     SharedCareClaimTraceNumber named traceNumber 0..* and
     SharedCareProductOrService named productOrService 1..1 and
     SharedCareReviewOutcome named reviewOutcome 0..1
-
 
 * item.adjudication 1..*
 * item.adjudication ^short = "Adjudication (reason, amount, quantity) for each Adjudication Value Code"
@@ -99,9 +104,3 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * error.subDetailSequence 0..1
 * error.code 1..1
 * error.code ^short = "Error code"
-
-* meta 1..1
-  * source 1..1
-    *  ^short = "HPI Facility ID from where the record is sourced"
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"  

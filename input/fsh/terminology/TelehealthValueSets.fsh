@@ -1,10 +1,21 @@
-// Value Sets for Telehealth
+// Value Sets for Claim system
+ValueSet: NzAppointmentReasonCodes
+Id: nz-appointment-reason-codes
+Title: "NZ Appointment Reason Codes Code System"
+Description: "Code system for NZ appointment reason codes"
+* ^status = #draft
+* $sct#266934004 "Transport problem (finding)"
+
+* include codes from system nz-appointment-reason-codes-cs
+
 ValueSet: NzClaimTypes
 Id: nz-claim-types
 Title: "NZ Claim Types"
 Description: "Types of claims in New Zealand"
 * ^status = #draft
-* include codes from system nz-claim-type-cs
+* http://terminology.hl7.org/CodeSystem/claim-type#professional "Professional claim for practitioner services"
+* http://terminology.hl7.org/CodeSystem/claim-type#pharmacy "Pharmacy claim for medication dispensing"
+* http://terminology.hl7.org/CodeSystem/claim-type#oral "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
 
 ValueSet: NzClaimSubtypes
 Id: nz-claim-subtypes
@@ -12,13 +23,6 @@ Title: "NZ Claim Subtypes"
 Description: "Subtypes of claims in New Zealand"
 * ^status = #draft
 * include codes from system nz-claim-subtype-cs
-
-ValueSet: ClaimCareTeamRoleCodes
-Id: claim-careteam-role-codes
-Title: "Claim Care Team Role Codes"
-Description: "Roles for care team members in claims"
-* ^status = #draft
-* include codes from system claim-careteam-role-cs
 
 ValueSet: ProviderQualificationCodes
 Id: provider-qualification-codes
@@ -74,4 +78,20 @@ Id: diagnosis-use-codes
 Title: "Diagnosis Use Codes"
 Description: "Codes for diagnosis use (working vs final)"
 * ^status = #draft
-* include codes from system http://terminology.hl7.org/CodeSystem/diagnosis-role
+* include codes from system $diagnosis-role
+
+ValueSet: SharedCareEncounterTypeValueSet
+Id: shared-care-encounter-type-valueset
+Title: "Shared Care Encounter Type Value Set"
+Description: "Encounter types for Shared Care including specific codes and other SNOMED CT codes"
+* ^version = "0.0.1"
+* ^status = #draft
+* ^experimental = false
+
+// Include specific preferred codes
+* $sct#1269515004 "Face to face consultation with patient"
+* $sct#386472008 "Telephone consultation"
+* $sct#719410009 "Video consultation"
+
+// Include all SNOMED CT encounter type codes
+// * include codes from system $sct where concept is-a #308335008 "Patient encounter procedure"

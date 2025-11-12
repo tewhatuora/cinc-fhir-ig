@@ -402,15 +402,15 @@ groups:
    - NzPharmacyClaimResponseExample
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
-  TelehealthClaimDefinitions:
-    name: Resources used in the Claim Process
+  ClaimDefinitions:
+    name: Resources used for PCTAP automation of operational reporting and payments
     resources:
     - SharedCareClaim
     - SharedCareClaimResponse
     - SharedCareAppointment
     - SharedCareEncounter
-  TelehealthClaimExamples:
-    name: Examples of Resources used in the Telehealth Claim Process
+  ClaimExamples:
+    name: Examples of Resources used for PCTAP automation of operational reporting and payments
     resources:
     - NzTelehealthClaimResponseExample
     - NzTelehealthClaimExample

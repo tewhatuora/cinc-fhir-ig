@@ -2,11 +2,18 @@ Profile: SharedCareAppointment
 Parent: Appointment
 Id: SharedCareAppointment
 Title: "NZ SharedCare Appointment"
-Description: "A FHIR resource profile for NZ Telehealth Appointments for 24/7 telehealth services."
+Description: "A FHIR resource profile for operational reporting of NZ planned encounters."
+
 * ^version = "0.0.1"
-* ^purpose = "This profile is used to represent telehealth appointments in New Zealand for 24/7 telehealth services."
+* ^purpose = "A FHIR resource profile for operational reporting of NZ planned encounters."
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
+
+* meta 1..1
+  * source 1..1
+    *  ^short = "HPI Facility ID from where the record is sourced"
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"
 
 * identifier 0..1
 * identifier ^short = "External (provider) and Health NZ business identifiers"
@@ -18,9 +25,4 @@ Description: "A FHIR resource profile for NZ Telehealth Appointments for 24/7 te
 * end 0..1
 
 * reasonCode 0..*
-
-* meta 1..1
-  * source 1..1
-    *  ^short = "HPI Facility ID from where the record is sourced"
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"  
+* reasonCode from NzAppointmentReasonCodes

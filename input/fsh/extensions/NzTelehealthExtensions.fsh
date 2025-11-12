@@ -1,11 +1,10 @@
 // Extensions for Shared Care Services
-Extension: SharedCareCscNumber
-Id: shared-care-csc-number
-Title: "Shared Care CSC Number"
-Description: "Community Services Card holder number for shared care encounters"
+Extension: SharedCareCscHolder
+Id: shared-care-csc-holder
+Title: "Shared Care CSC holder"
+Description: "Community Services Card holder for shared care encounters"
 Context: Encounter
-* value[x] only Identifier
-* valueIdentifier.system = "https://standards.digital.health.nz/ns/csc-id"
+* value[x] only boolean
 
 Extension: SharedCareAccidentRelated
 Id: shared-care-accident-related
@@ -43,12 +42,12 @@ Context: ClaimResponse.item
 * value[x] only CodeableConcept
 * value[x].coding.system = "https://standards.digital.health.nz/ns/purchase-unit"
 
-Extension: SharedCareItemTax
-Id: shared-care-item-tax
-Title: "Shared Care Item Tax"
-Description: "Tax amount claimed for shared care service items"
-Context: Claim.item
-* value[x] only Money
+// Extension: SharedCareItemTax
+// Id: shared-care-item-tax
+// Title: "Shared Care Item Tax"
+// Description: "Tax amount claimed for shared care service items"
+// Context: Claim.item
+// * value[x] only Money
 
 Extension: SharedCareReviewOutcome
 Id: shared-care-review-outcome
@@ -62,3 +61,21 @@ Context: ClaimResponse.item
 * extension[decision].valueCodeableConcept from ClaimDecisionCodes
 * extension[reason].value[x] only CodeableConcept
 * extension[reason].valueCodeableConcept from ClaimDecisionReasonCodes
+
+Extension: SharedCareAgreementNumber
+Id: shared-care-agreement-number
+Title: "Shared Care Agreement Number"
+Description: "The agreement/contract number between the provider and the 'insurer' (HNZ) including version number"
+Context: Claim
+* value[x] only string
+* valueString ^short = "Agreement number with optional version (e.g., AGR-2024-001 or AGR-2024-001-v2)"
+
+// REGEX will be added at a later time
+// * valueString obeys agreement-number-format
+
+// Invariant: agreement-number-format
+// example regex, needs to be properly defined 
+// Description: "Agreement number must follow format: AGR-YYYY-NNN[-vN] where YYYY is year, NNN is 3-digit number, and optional version"
+// Expression: "matches('^AGR-[0-9]{4}-[0-9]{3}(-v[0-9]+)?$')"
+// Severity: #error
+

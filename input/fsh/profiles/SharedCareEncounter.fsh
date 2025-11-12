@@ -2,17 +2,18 @@ Profile: SharedCareEncounter
 Parent: Encounter
 Id: SharedCareEncounter
 Title: "NZ SharedCare Encounter"
-Description: """A FHIR resource profile for NZ SharedCare Encounters.
+Description: """A FHIR resource profile for operational reporting of NZ encounters."""
 
-diagnosis.condition:  Do we need a condition profile for this?
-"""
 * ^version = "0.0.1"
-* ^purpose = "This profile is used to represent SharedCare encounters in New Zealand"
+* ^purpose = "A FHIR resource profile for operational reporting of NZ encounters."
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* meta.source 1..1
-* meta.source ^short = "HPI Facility ID from where the record is sourced"
+* meta 1..1
+  * source 1..1
+    *  ^short = "HPI Facility ID from where the record is sourced"
+  * tag 1..*
+    *  ^short = "Correlation-id where the record is sourced"  
 
 * identifier 1..*
 * identifier ^short = "External (provider) and Health NZ business identifiers"
@@ -26,6 +27,7 @@ diagnosis.condition:  Do we need a condition profile for this?
 * classHistory 0..*
 
 * type 0..*
+* type from SharedCareEncounterTypeValueSet (extensible)
 
 * serviceType 0..1
 
@@ -49,7 +51,7 @@ diagnosis.condition:  Do we need a condition profile for this?
 
 * reasonCode 0..*
 
-* period 0..1
+* period 1..1
 
 * priority 0..1 
 * priority from australasian-triage-scale (required)
@@ -72,14 +74,7 @@ diagnosis.condition:  Do we need a condition profile for this?
 * location.period 0..1
 
 * extension contains
-    SharedCareCscNumber named cscNumber 0..1 and
+    SharedCareCscHolder named cscHolder 0..1 and
     SharedCareAccidentRelated named accident 0..1 and
     SharedCareRegistrationCode named regCode 0..1 and
     encounter-modeOfArrival named modeOfArrival 0..1
-
-
-* meta 1..1
-  * source 1..1
-    *  ^short = "HPI Facility ID from where the record is sourced"
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"  
