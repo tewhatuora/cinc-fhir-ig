@@ -64,3 +64,5 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * priority.coding.code = #normal
 * insurance.coverage.identifier.system = "https://standards.digital.health.nz/ns/insurance-identifier"
 * insurance.coverage.identifier.value = "INS123456"
+* insurance.focal = false
+* insurance.sequence = 1
