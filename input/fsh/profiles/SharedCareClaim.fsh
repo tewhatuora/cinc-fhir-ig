@@ -77,8 +77,8 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 
 // Not used but in 4B Required fields
 * insurance 1..1
-* insurance.focal = false
-* insurance.sequence = 1
+// * insurance.focal = false
+// * insurance.sequence = 1
 // * insurance.coverage = Reference(Coverage/example)
 
 // Removed elements from claim
