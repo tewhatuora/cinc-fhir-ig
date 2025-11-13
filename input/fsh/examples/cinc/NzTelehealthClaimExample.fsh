@@ -14,9 +14,9 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * status = #active
 
-* type.coding.code = http://terminology.hl7.org/CodeSystem/claim-type#professional
+* type.coding = http://terminology.hl7.org/CodeSystem/claim-type#professional
 
-* subType.coding.code = $nz-claim-subtype#telehealth
+* subType.coding = $nz-claim-subtype#telehealth
 
 * use = http://hl7.org/fhir/claim-use#claim
 
@@ -48,7 +48,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * item[=].servicedPeriod.end = "2025-01-01T10:17:00+13:00"
 * item[=].locationReference.type = "Location"
 * item[=].locationReference.identifier.system = "https://standards.digital.health.nz/ns/hpi-facility-id"
-* item[=].locationReference.identifier.value = "F12345"
+* item[=].locationReference.identifier.value = "F12345-A"
 * item[=].locationReference.display = "Example Telehealth Facility"
 * item[=].quantity.value = 1
 
