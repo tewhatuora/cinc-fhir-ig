@@ -95,3 +95,6 @@ Alias: $cs-nc-health-specialty-code = http://nzhts.digital.health.nz/fhir/CodeSy
 //----End of Dunedin Hospital Outpatients----//
 
 Alias: $australasian-triage-scale = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/australasian-triage-scale-cs
+Alias: $nz-appointment-reason-codes = https://fhir-ig.digital.health.nz/shared-care/ValueSet/nz-appointment-reason-codes
+Alias: $nz-claim-subtype = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/nz-claim-subtype-cs
+
