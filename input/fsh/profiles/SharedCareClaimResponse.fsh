@@ -12,6 +12,8 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
+* obeys hpiOrNzbnIdentifierPattern
+
 * meta 1..1
   * source 1..1
     *  ^short = "HPI Facility ID from where the record is sourced"

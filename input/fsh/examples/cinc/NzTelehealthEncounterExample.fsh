@@ -4,7 +4,7 @@ Usage: #example
 Title: "NZ Telehealth Encounter Example"
 Description: "Example of a telehealth encounter for 24/7 telehealth services"
 
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
 * meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
