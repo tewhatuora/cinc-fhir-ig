@@ -4,14 +4,16 @@ Severity: #warning
 Expression: "RheumaticFeverCarePlan.category.code = '737427001'"
 
 Invariant: hpiOrNzbnIdentifierPattern
-Description: "If the identifier.system is HPI Facility ID or NZBN, the identifier.value must match the appropriate regex pattern."
+Description: "Identifiers with system 'https://standards.digital.health.nz/ns/hpi-organisation-id', 'https://standards.digital.health.nz/ns/hpi-facility-id' or 'https://standards.digital.health.nz/ns/hpi-nzbn' must conform to the NZ HPI/NZBN identifier patterns."
 Severity: #error
-Expression: "%context.descendants().identifier.where(
-  (system = 'https://standards.digital.health.nz/ns/hpi-facility-id' and value.matches('^F[a-zA-Z0-9]{2}[0-9]{3}-[a-zA-Z0-9]$'))
-  or
-  (system = 'https://standards.digital.health.nz/ns/hpi-nzbn' and value.matches('^[0-9]{13}$'))
+Expression: "%context.descendants().identifier.all(
+  (system = 'https://standards.digital.health.nz/ns/hpi-organisation-id' implies value.matches('^G[a-zA-Z0-9]{2}[0-9]{3}-[a-zA-Z0-9]$')) and
+  (system = 'https://standards.digital.health.nz/ns/hpi-facility-id' implies value.matches('^F[a-zA-Z0-9]{2}[0-9]{3}-[a-zA-Z0-9]$')) and
+  (system = 'https://standards.digital.health.nz/ns/hpi-nzbn' implies value.matches('^[0-9]{13}$'))
 ).exists()
 or
 %context.descendants().identifier.where(
-  system = 'https://standards.digital.health.nz/ns/hpi-facility-id' or system = 'https://standards.digital.health.nz/ns/hpi-nzbn'
+  system = 'https://standards.digital.health.nz/ns/hpi-organisation-id' or
+  system = 'https://standards.digital.health.nz/ns/hpi-facility-id' or
+  system = 'https://standards.digital.health.nz/ns/hpi-nzbn'
 ).empty()"
