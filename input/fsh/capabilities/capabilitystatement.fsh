@@ -84,6 +84,7 @@ Usage: #definition
 * rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientAppointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
+* rest.resource[=].searchRevInclude = "*"
 * rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference

@@ -18,7 +18,7 @@ Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R
   * system 0..1 MS
   * value 1..1 MS
   * period 0..0
-  * assigner 0..0
+  * assigner 0..1
   * id 0..0
 * identifier ^short = "External (provider) and Health NZ business identifiers"
 * status 1..1

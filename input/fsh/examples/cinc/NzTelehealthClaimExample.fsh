@@ -62,7 +62,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 //In 4B Required fields, but not utilized in the example
 * priority.coding.system = "http://terminology.hl7.org/CodeSystem/processpriority" 
 * priority.coding.code = #normal
-* insurance.coverage.identifier.system = "https://standards.digital.health.nz/ns/insurance-identifier"
+* insurance.coverage.identifier.system = "https://standards.digital.health.nz/ns/coverage-identifier"
 * insurance.coverage.identifier.value = "INS123456"
 * insurance.focal = false
 * insurance.sequence = 1
