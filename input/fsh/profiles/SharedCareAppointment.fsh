@@ -4,21 +4,23 @@ Id: SharedCareAppointment
 Title: "NZ SharedCare Appointment"
 Description: "A FHIR resource profile for operational reporting of NZ planned encounters."
 
-* ^version = "0.0.1"
+* ^version = "1.0.0"
 * ^purpose = "A FHIR resource profile for operational reporting of NZ planned encounters."
-* ^status = #draft
+* ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* obeys hpiOrNzbnIdentifierPattern
 
-* meta 1..1
-  * source 1..1
-    *  ^short = "HPI Facility ID from where the record is sourced"
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"
+* insert NzDerivedMetaDataRules
 
 * identifier 0..1
-* identifier ^short = "External (provider) and Health NZ business identifiers"
+* identifier.system 1..1
+* identifier.value 1..1
+
+* participant ^slicing.discriminator.type = #pattern
+* participant ^slicing.discriminator.path = "actor.type"
+* participant ^slicing.rules = #open
+* participant contains patient 1..1
+* insert ProfilePatient(participant[patient].actor)
 
 * status 1..1
 

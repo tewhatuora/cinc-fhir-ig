@@ -5,8 +5,8 @@ Title: "NZ Telehealth Claim Response Example"
 Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 * identifier[0].use = #official
 * identifier[0].system = "https://standards.digital.health.nz/ns/claim-response-identifier"

@@ -4,13 +4,13 @@ Usage: #example
 Title: "NZ Telehealth Claim Example"
 Description: "Example of a telehealth claim for 24/7 telehealth services"
 
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
 
-* identifier[0].use = #official
-* identifier[0].system = "https://standards.digital.health.nz/ns/claim-identifier"
-* identifier[0].value = "C123456"
+* identifier[+].use = #official
+* identifier[=].system = "https://standards.digital.health.nz/ns/claim-identifier"
+* identifier[=].value = "C123456"
 
 * status = #active
 
@@ -36,9 +36,9 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * provider.identifier.use = #official
 * provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
 * provider.identifier.value = "GZZ999-9"
-* provider.identifier.use = #secondary
-* provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-nzbn"
-* provider.identifier.value = "9876543210123"
+// * provider.identifier.use = #secondary
+// * provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-nzbn"
+// * provider.identifier.value = "9876543210123"
 
 * item[+].sequence = 1
 * item[=].encounter[+].reference = "Encounter/NzTelehealthEncounterExample"
@@ -63,6 +63,6 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * priority.coding.system = "http://terminology.hl7.org/CodeSystem/processpriority" 
 * priority.coding.code = #normal
 * insurance.coverage.identifier.system = "https://standards.digital.health.nz/ns/coverage-identifier"
-* insurance.coverage.identifier.value = "INS123456"
+* insurance.coverage.identifier.value = "INC123456"
 * insurance.focal = false
 * insurance.sequence = 1
