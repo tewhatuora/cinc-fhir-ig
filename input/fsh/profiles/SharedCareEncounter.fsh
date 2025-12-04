@@ -9,13 +9,8 @@ Description: """A FHIR resource profile for operational reporting of NZ encounte
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* obeys hpiOrNzbnIdentifierPattern
 
-* meta 1..1
-  * source 1..1
-    *  ^short = "HPI Facility ID from where the record is sourced"
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"  
+* insert NzDerivedMetaDataRules
 
 * identifier 1..*
 * identifier ^short = "External (provider) and Health NZ business identifiers"
@@ -32,9 +27,9 @@ Description: """A FHIR resource profile for operational reporting of NZ encounte
 * type from SharedCareEncounterTypeValueSet (extensible)
 
 * serviceType 0..1
-
-* subject 1..1
-* subject only Reference(Patient)
+* insert ProfilePatient(subject)
+// * subject 1..1
+// * subject only Reference(Patient)
 
 * partOf 0..1
 * partOf only Reference(Encounter)
@@ -42,10 +37,12 @@ Description: """A FHIR resource profile for operational reporting of NZ encounte
 
 * serviceProvider 0..1
 * serviceProvider only Reference(Organization)
+* insert LocalIdentifierDocs(serviceProvider)
 
 * participant 0..*
 * participant ^short = "Practitioners involved in the encounter"
 * participant.individual only Reference(NzPractitioner or NzPractitionerRole)
+* insert LocalIdentifierDocs(participant.individual)
 * participant.period 0..1
 
 * appointment 0..*

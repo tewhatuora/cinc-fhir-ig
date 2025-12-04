@@ -4,6 +4,7 @@ Title: "New Zealand Pharmacy Claim Response Example"
 Description: "Example of a New Zealand pharmacy claim response"
 * identifier.value = "123456789123456789"
 * extension[traceNumber].valueIdentifier.value = "TRN-123456789"
+* extension[traceNumber].valueIdentifier.system = "https://example.com/system"
 * status = #active
 * type = http://terminology.hl7.org/CodeSystem/claim-type#pharmacy
 * use = #claim

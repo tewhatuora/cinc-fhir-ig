@@ -12,13 +12,8 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* obeys hpiOrNzbnIdentifierPattern
 
-* meta 1..1
-  * source 1..1
-    *  ^short = "HPI Facility ID from where the record is sourced"
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"  
+* insert NzDerivedMetaDataRules
 
 * request 1..1
 * request only Reference(SharedCareClaim)
@@ -26,6 +21,8 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 
 * identifier 1..*
 * identifier ^short = "Business identifier(s) for the claim response"
+* identifier.system 1..1
+* identifier.value 1..1
 
 * extension contains
     SharedCareClaimTraceNumber named traceNumber 0..*

@@ -26,6 +26,8 @@ Title: "Shared Care Claim Trace Number"
 Description: "Internal primary key ID for shared care claim tracking"
 Context: Claim
 * value[x] only Identifier
+* valueIdentifier.system 1..1
+* valueIdentifier.value 1..1
 
 Extension: SharedCarePatientCopayment
 Id: shared-care-patient-copayment

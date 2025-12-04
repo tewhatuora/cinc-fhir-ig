@@ -1,16 +1,16 @@
-Instance: NzTelehealthClaimExample
+Instance: NzTelehealthClaimExample2
 InstanceOf: SharedCareClaim
 Usage: #example
 Title: "NZ Telehealth Claim Example"
 Description: "Example of a telehealth claim for 24/7 telehealth services"
 
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
 
-* identifier[+].use = #official
-* identifier[=].system = "https://standards.digital.health.nz/ns/claim-identifier"
-* identifier[=].value = "C123456"
+* identifier[0].use = #official
+* identifier[0].system = "https://standards.digital.health.nz/ns/claim-identifier"
+* identifier[0].value = "C123456"
 
 * status = #active
 
@@ -33,12 +33,10 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 // * provider.reference = "Organization/GZZ999-9"
 * provider.type = "Organization"
-* provider.identifier.use = #official
-* provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-* provider.identifier.value = "GZZ999-9"
-// * provider.identifier.use = #secondary
-// * provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-nzbn"
-// * provider.identifier.value = "9876543210123"
+
+* provider.identifier.use = #secondary
+* provider.identifier.system = "https://standards.digital.health.nz/ns/hpi-nzbns"
+* provider.identifier.value = "9876543210123"
 
 * item[+].sequence = 1
 * item[=].encounter[+].reference = "Encounter/NzTelehealthEncounterExample"
