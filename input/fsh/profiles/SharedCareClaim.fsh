@@ -4,9 +4,9 @@ Id: SharedCareClaim
 Title: "NZ SharedCare Claim"
 Description: """A FHIR resource profile for NZ generic payment claims."""
 
-* ^version = "0.0.1"
+* ^version = "1.0.0"
 * ^purpose = "A FHIR resource profile for NZ generic payment claims."
-* ^status = #draft
+* ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 * insert NzDerivedMetaDataRules

@@ -4,11 +4,6 @@ Description: "Reference must be an HPI facility URL with format https://standard
 Expression: "matches('^https://standards.digital.health.nz/ns/hpi-facility-id/F[A-Za-z0-9]{2}[0-9]{3}-[A-Za-z0-9]$')"
 Severity: #error
 
-Invariant: correlation-id-code-format
-Description: "correlation-id tag.code must be a UUID."
-Severity: #error
-Expression: "meta.tag.where(system = 'https://hub.services.digital.health.nz/ns/correlation-id').code.matches('^[0-9a-zA-Z]{8}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{12}$')"
-
 RuleSet: NzDerivedMetaDataRules
 * meta.tag ^slicing.discriminator.type = #value
 * meta.tag ^slicing.discriminator.path = "system"
@@ -18,15 +13,10 @@ RuleSet: NzDerivedMetaDataRules
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id" (exactly)
 * meta.tag[correlationId].code 1..1
 
-* obeys correlation-id-code-format
-
 * meta.source 1..1
 * meta.source obeys hpi-location-url-format
 * meta.source ^short = "HPI Facility ID from where the record is sourced"
 * meta.source ^definition = "Captures the source of the record. This must contain the HPIFacilityID e.g. https://standards.digital.health.nz/ns/hpi-facility-id/FZZ111-A"
-
-
-
 
 // --- PATIENT Rules ---
 RuleSet: ProfilePatient(property)
@@ -48,8 +38,8 @@ Severity: #error
 
 RuleSet: LocalIdentifierDocs(property)
 // Apply the invariants directly to the identifier element
-* {property}.identifier obeys hpiOrganizationIdPattern and hpiFacilityIdPattern and nzbnPattern
-* {property}.identifier.system obeys allowedOrganizationIdentifierSystems
+* {property}.identifier obeys hpiOrganizationIdPattern and hpiFacilityIdPattern and nzbnPattern and hpiCpnPattern
+* {property}.identifier.system obeys allowedLocalIdentifierSystems
 * {property}.identifier 1..1
 * {property}.identifier.system 1..1
 * {property}.identifier.value 1..1
@@ -90,7 +80,12 @@ Description: "NZBN must conform to format (13 digits)."
 Severity: #error
 Expression: "system = 'https://standards.digital.health.nz/ns/hpi-nzbn' implies value.matches('^[0-9]{13}$')"
 
-Invariant: allowedOrganizationIdentifierSystems
-Description: "Identifier system must be HPI Organisation ID or NZBN"
+Invariant: hpiCpnPattern
+Description: "HPI CPN must conform to format (NNXXXX where N is numeric and X is alphabetic)."
 Severity: #error
-Expression: "$this = 'https://standards.digital.health.nz/ns/hpi-organisation-id' or $this = 'https://standards.digital.health.nz/ns/hpi-nzbn'  or $this = 'https://standards.digital.health.nz/ns/hpi-facility-id'"
+Expression: "system = 'https://standards.digital.health.nz/ns/hpi-person-id' implies value.matches('^[0-9]{2}[A-Za-z]{4}$')"
+
+Invariant: allowedLocalIdentifierSystems
+Description: "Identifier system must be HPI facility, HPI Organisation, HPI CPN or NZBN"
+Severity: #error
+Expression: "$this = 'https://standards.digital.health.nz/ns/hpi-organisation-id' or $this = 'https://standards.digital.health.nz/ns/hpi-nzbn' or $this = 'https://standards.digital.health.nz/ns/hpi-facility-id' or $this = 'https://standards.digital.health.nz/ns/hpi-person-id'"

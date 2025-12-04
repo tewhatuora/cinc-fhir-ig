@@ -4,9 +4,9 @@ Id: SharedCareEncounter
 Title: "NZ SharedCare Encounter"
 Description: """A FHIR resource profile for operational reporting of NZ encounters."""
 
-* ^version = "0.0.1"
+* ^version = "1.0.0"
 * ^purpose = "A FHIR resource profile for operational reporting of NZ encounters."
-* ^status = #draft
+* ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 
