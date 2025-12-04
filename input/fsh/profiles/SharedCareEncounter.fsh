@@ -28,8 +28,6 @@ Description: """A FHIR resource profile for operational reporting of NZ encounte
 
 * serviceType 0..1
 * insert ProfilePatient(subject)
-// * subject 1..1
-// * subject only Reference(Patient)
 
 * partOf 0..1
 * partOf only Reference(Encounter)
