@@ -5,8 +5,8 @@ Title: "NZ Telehealth Encounter Example"
 Description: "Example of a telehealth encounter for 24/7 telehealth services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 * identifier.use = #secondary
 * identifier.system = "https://standards.digital.health.nz/ns/telehealth-token"
@@ -26,10 +26,11 @@ Description: "Example of a telehealth encounter for 24/7 telehealth services"
 // * serviceProvider.reference = "Organization/GZZ999-9"
 * serviceProvider.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
 * serviceProvider.identifier.value = "GZZ999-9"
+* serviceProvider.type = #organization
 
 // * participant[0].individual.reference = "Practitioner/12345"
-* participant[0].individual.identifier.system = "https://standards.digital.health.nz/ns/hpi-practitioner-id"
-* participant[0].individual.identifier.value = "P123456"
+* participant[0].individual.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
+* participant[0].individual.identifier.value = "AA1234"
 * participant[0].type = $v3-ParticipationType#ATND "attender"
 * participant[0].period.start = "2025-01-01T10:00:00+13:00"
 * participant[0].period.end = "2025-01-01T10:17:00+13:00"

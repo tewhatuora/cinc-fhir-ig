@@ -4,23 +4,20 @@ Id: SharedCareClaim
 Title: "NZ SharedCare Claim"
 Description: """A FHIR resource profile for NZ generic payment claims."""
 
-* ^version = "0.0.1"
+* ^version = "1.0.0"
 * ^purpose = "A FHIR resource profile for NZ generic payment claims."
-* ^status = #draft
+* ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* obeys hpiOrNzbnIdentifierPattern
+* insert NzDerivedMetaDataRules
 
-* meta 1..1
-  * source 1..1
-    *  ^short = "HPI Facility ID from where the record is sourced"
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"  
-
+* insert ProfilePatient(patient)
 // Core elements
 * identifier 0..*
 * identifier ^short = "Business identifier(s) for the claim"
 * identifier ^comment = "Business identifier(s) for the claim (external and/or internal identifiers)"
+* identifier.system 1..1
+* identifier.value 1..1
 
 * extension contains
     SharedCareClaimTraceNumber named traceNumber 0..* and
@@ -44,14 +41,12 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 
 * payee 0..1
 
-* patient 1..1
-* patient only Reference(NzPatient or Patient)
-* patient ^short = "Patient with NHI"
-
 * provider 1..1
 * provider only Reference(Organization)
 * provider ^short = "Legal entity who submitted the claim"
 * provider ^comment = "Legal entity who submitted the claim - identifiable by its HPI identifier (or also its NZBN)"
+* insert LocalIdentifierDocs(provider)
+
 
 * supportingInfo 0..*
 * supportingInfo ^short = "Additional attributes that may accompany a Claim"
@@ -70,6 +65,7 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * item.locationReference 0..1
 * item.locationReference only Reference(Location)
 * item.locationReference ^short = "HPI Facility"
+* insert LocalIdentifierDocs(item.locationReference)
 
 * item.extension contains
     SharedCarePatientCopayment named patientPaid 0..1
