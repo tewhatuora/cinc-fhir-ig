@@ -29,8 +29,8 @@ Description: "Example of a telehealth encounter for 24/7 telehealth services"
 * serviceProvider.type = #organization
 
 // * participant[0].individual.reference = "Practitioner/12345"
-* participant[0].individual.identifier.system = "https://standards.digital.health.nz/ns/hpi-practitioner-id"
-* participant[0].individual.identifier.value = "P123456"
+* participant[0].individual.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
+* participant[0].individual.identifier.value = "AA1234"
 * participant[0].type = $v3-ParticipationType#ATND "attender"
 * participant[0].period.start = "2025-01-01T10:00:00+13:00"
 * participant[0].period.end = "2025-01-01T10:17:00+13:00"
