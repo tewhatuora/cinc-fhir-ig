@@ -25,10 +25,9 @@ Usage: #example
 * participant.individual.display = "Dr Dottie McStuffins"
 * period.start = "2025-09-03T02:30:35Z"
 * length = 1 'h' "hour"
-* diagnosis.condition = Reference(ConditionExample)
-* diagnosis.use = http://terminology.hl7.org/CodeSystem/diagnosis-role#CC "Chief complaint"
-* diagnosis.use.text = "Chief Complaint"
-* diagnosis.rank = 1
+//* diagnosis.use = http://terminology.hl7.org/CodeSystem/diagnosis-role#CC "Chief complaint"
+//* diagnosis.use.text = "Chief Complaint"
+//* diagnosis.rank = 1
 * contained[+] = DHOClinicLocation
 * location[+].status = #completed
 * location.location = Reference(DHOClinicLocation)
