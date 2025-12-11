@@ -301,6 +301,9 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[+].name = "appointment"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifer"
+* rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
 * rest.resource[=].searchParam[+].name = "appointment"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifer"
