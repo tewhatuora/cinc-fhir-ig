@@ -1,15 +1,16 @@
-Instance: DHOutpatientSIPICSEmilyWhite
-InstanceOf: DHOutpatient
+Instance: DHOPatientSIPICSEmilyWhite
+InstanceOf: DHOPatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
 * id = "DHO-sipics-emily-white"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
@@ -92,18 +93,19 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-Instance: DHOutpatientSIPICSAlexMorgan
-InstanceOf: DHOutpatient
+Instance: DHOPatientSIPICSAlexMorgan
+InstanceOf: DHOPatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
 * id = "DHO-sipics-alex-morgan"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
@@ -182,18 +184,19 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-Instance: DHOutpatientSIPICSCuriousGeorge
-InstanceOf: DHOutpatient
+Instance: DHOPatientSIPICSCuriousGeorge
+InstanceOf: DHOPatient
 Description: "A SIPICS example patient resource"
 Usage: #example
 
 * id = "DHO-sipics-curious-george"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatient"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"

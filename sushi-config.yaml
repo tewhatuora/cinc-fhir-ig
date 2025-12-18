@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Health New Zealand Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
 status: active
-version: 0.4.4
+version: 0.4.5
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -76,24 +76,6 @@ parameters:
   default-version: true              # DG 13/11/2023: versions of canonicals that specify their own version no longer overwritten by the IG publisher
   suppressed-ids: $examples          # DG 13/11/2023: stop IG publisher generating ids for all example resource instances
   display-warnings: true             # DG 13/11/2023: stop IG publisher reporting terminology problems as errors
-  special-url:
-    # legacy canonical urls
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDPrivacyStatementQuestionTemplate
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay3Survey
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ActiveMonitoringDay42Survey
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ConsumerCOVIDRATResultQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDInitialHealthAssessmentQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDRegularHealthCheckQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDVaccinationSurveyQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/ImmsotVaccinationDataEntryQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MeaslesHealthCheckQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/AntiViralEligibilityQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/ActivityDefinition/MeasurementProcedureRequestTemplate
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/PlanDefinition/COVIDMVPCarePlanTemplate
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/COVIDRATResultQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MentalHealthAssessmentSurveyQuestionnaire
-    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/PregnancyAssessmentSurveyQuestionnaire
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #
@@ -110,16 +92,8 @@ menu:
   Business context: businessContext.html
   Definitions:
     Structure Definitions: artifacts.html#shared-care-api-definitions
-#    Questionnaires: artifacts.html#shared-care-api-canonical-questionnaires
   Examples:
-#    Shared Care: artifacts.html#shared-care-examples
-#    QuestionnaireResponse examples: artifacts.html#shared-care-api-questionnaireresponse-examples
-#    Communication Person: artifacts.html#communication-person-examples
     Dunedin Hospital Outpatient: artifacts.html#dunedin-hospital-outpatient-examples
-#  Data Consent:
-#    FHIR representation of consent: fhirConsent.html
-#    Consent-based resource access control: consentBasedAccessControl.html
-#    Definitions and Examples: artifacts.html#consent-definitions-and-examples
   API Developer Guide:
     View OpenAPI: new-tab https://fhir-ig.digital.health.nz/openapi/index.html?urls.primaryName=Shared+Care+API
     Developer Guide: developerGuide.html
@@ -218,206 +192,32 @@ contact:
 #     - StructureDefinition/bee-sting
 #
 groups:
-#  Definitions:
-#    name: Shared Care API definitions
-#    description: Canonical FHIR Profiles and Definitions
-#    resources:
-#      - StructureDefinition/ManaakiNgaTahiAllergyIntolerance
-#      - StructureDefinition/ManaakiNgaTahiCarePlan
-#      - StructureDefinition/ManaakiNgaTahiCondition
-#      - StructureDefinition/ManaakiNgaTahiDocumentReference
-#      - StructureDefinition/ManaakiNgaTahiEncounter
-#      - StructureDefinition/ManaakiNgaTahiObservation
-#      - StructureDefinition/ManaakiNgaTahiPlanDefinition
-#      - StructureDefinition/ManaakiNgaTahiServiceRequest
-#      - StructureDefinition/ServiceRequestActivityDefinition
-#      - StructureDefinition/nz-sharedcare-communication-person
-#      - ActivityDefinition/MeasurementProcedureRequestTemplate
-#      - PlanDefinition/COVIDMVPCarePlanTemplate
-#      - OperationDefinition/ActivityDefinition-apply
-#      - OperationDefinition/PlanDefinition-apply
-#      - OperationDefinition/QuestionnaireResponse-extract
-#  Questionnaires:
-#    name: Shared Care API canonical Questionnaires
-#    description: Standard questionnaire definitions shared by all applications
-#    resources:
-#      - AntiViralEligibilityQuestionnaire
-#      - COVIDInitialHealthAssessmentQuestionnaire
-#      - COVIDPublicHealthHistoryQuestionnaire
-#      - COVIDRegularHealthCheckQuestionnaire
-#      - COVIDVaccinationSurveyQuestionnaire
-#      - MentalHealthAssessmentSurveyQuestionnaire
-#      - PregnancyAssessmentSurveyQuestionnaire
-#      - ActiveMonitoringDay3Survey
-#      - ActiveMonitoringDay42Survey
-#      - COVIDRATResultQuestionnaire
-#      - ConsumerCOVIDRATResultQuestionnaire
-#      - ImmsotVaccinationDataEntryQuestionnaire
-#      - MeaslesHealthCheckQuestionnaire
-#      - PrivateColposcopyReferralQuestionnaire
-#      - PrivateColposcopyDNAQuestionnaire
-#      - PrivateColposcopyVisitQuestionnaire
-#      - PrivateColposcopyDischargeQuestionnaire
-#      - EarlyWarningScoreQuestionnaire
-#  QuestionnaireResponseExamples:
-#    name: Shared Care API QuestionnaireResponse examples
-#    description: Demonstration QuestionnaireResponses for all Questionnaire resources
-#    resources:
-#      - AntiviralEligibilityNoQuestionnaireResponse
-#      - AntiviralEligibilityYesQuestionnaireResponse
-#      - COVIDInitialHealthAssessmentQuestionnaireResponse
-#      - COVIDPublicHealthHistoryQuestionnaireResponseSherrylCarrion
-#      - COVIDRegularHealthCheckQuestionnaireResponse
-#      - COVIDVaccinationSurveyQuestionnaireResponse
-#      - MentalHealthAssessmentSurveyQuestionnaireResponse
-#      - PregnancyAssessmentSurveyQuestionnaireResponse
-#      - ActiveMonitoringDay3SurveyQuestionnaireResponse
-#      - ActiveMonitoringDay42SurveyQuestionnaireResponse
-#      - COVIDRATResultQuestionnaireResponse
-#      - MeaslesHealthCheckQuestionnaireResponse
-#      - ConsumerCOVIDRATResultQuestionnaireResponse
-#      - ImmsotVaccinationDataEntryQuestionnaireResponse
-#  CINCExamples:
-#    name: Shared Care examples
-#    resources:
-#      - CarePlanExample
-#      - ConditionExample
-#      - DocumentReferenceExample
-#      - EncounterExample
-#      - ObservationExample
-#      - CareyCarrington
-#      - DrDottyMcStuffins
-#      - ObservationsServiceRequestExample
-#  CommunicationExamples:
-#    name: Communication Person examples
-#    resources:
-#      - NIBSCommunicationPersonExample
-#      - WhaihuaCommunicationPersonExample
-#  CommunicationProfiles:
-#    name: CMS API definitions
-#    resources:
-#      - StructureDefinition/CMSCommunicationRequest
-#      - StructureDefinition/CMSCommunication
-#      - StructureDefinition/NationalHealthCareService
-#      - StructureDefinition/TemplateDocumentReference
-#  CommunicationRequestExamples:
-#    name: CMS Communication Request examples
-#    resources:
-#      - SMSCommunicationRequestWithoutTemplateExample
-#      - SMSCommunicationRequestWithTemplateExample
-#      - EmailCommunicationRequestWithoutTemplateExample
-#      - EmailCommunicationRequestWithTemplateExample
-#  CommunicationTypeExamples:
-#    name: CMS Communication examples
-#    resources:
-#      - SMSCommunicationExample
-#      - EmailCommunicationExample
-#      - OutreachCommunicationExample
-#  CommunicationTemplateExamples:
-#    name: CMS Communication template examples
-#    resources:
-#      - EmailCommunicationTemplateExample
-#  Consent:
-#    name: Consent definitions and examples
-#    resources:
-#      - StructureDefinition/nz-sharedcare-consent
-#      - COVIDPrivacyStatementQuestionTemplate
-#      - ConsentExample
-#      - ActiveConsentExample
-#      - ProvisionalConsentExample
-#      - ConsentByRelatedPersonExample
-#      - ConsentByQuestionnaireExample
-#      - ConsentQuestionnaireResponseExample
-  DHOutpatientProfiles:
+  DHOPatientProfiles:
     name: Dunedin Hospital Outpatient definitions
     resources:
-      - StructureDefinition/DHOutpatient
-      - StructureDefinition/DHOutpatientUpdate
-      - StructureDefinition/DHOutpatientAppointment
-      - StructureDefinition/DHOutpatientAppointmentResponse
-      - StructureDefinition/DHOutpatientEncounter
-      - StructureDefinition/DHOutpatientEncounterCreate
-      - StructureDefinition/DHOutpatientEncounterUpdate
-      - StructureDefinition/DHOutpatientEncounterDelete
-  DHOutpatientExamples:
+      - StructureDefinition/DHOPatient
+      - StructureDefinition/DHOPatientUpdate
+      - StructureDefinition/DHOPatientAppointment
+      - StructureDefinition/DHOPatientAppointmentResponse
+      - StructureDefinition/DHOPatientEncounter
+  DHOPatientExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
-      - DHOutpatientExample
-      - DHOutpatientUpdateExample
-      - DHOutpatientClinicAppointmentExample
-      - DHOutpatientUnstructuredAppointmentExample
-      - DHOutpatientAppointmentResponseExample
-      - DHOutpatientEncounterExample
-      - DHOutpatientEncounterCreateExample
-      - DHOutpatientEncounterUpdateExample
-      - DHOutpatientEncounterDeleteExample
-      - DHOutpatientSIPICSEmilyWhite
-      - DHOutpatientSIPICSAlexMorgan
-      - DHOutpatientSIPICSCuriousGeorge
-      - DHOutpatientDrDottyMcStuffins
-#  OutreachReferralDefinitions:
-#    name: Outreach Referral Definitions
-#    resources:
-#      - StructureDefinition/OutreachTask
-#      - StructureDefinition/OutreachServiceRequest
-#  OutreachReferralExamples:
-#    name: Outreach Referral Examples
-#    resources:
-#      - OutreachServiceRequestExample
-#      - OutreachTaskExample
-#  RPMDefinitions:
-#    name: Canonical FHIR Profiles and Definitions used in the Remote Patient Monitoring Pilot
-#    resources:
-#      - RPMCardiacRehabCarePlanTemplate
-#      - RPMHeartFailureCarePlanTemplate
-#      - RPMObservationRequest
-#      - RPMEducationalTask
-#  RPMQuestionnaires:
-#    name: Questionnaires used in the Remote Patient Monitoring Pilot
-#    resources:
-#      - RemoteMonitoringCOPDSymptomSurveyQuestionnaire
-#      - RPM-EducationFeedbackSurvey
-#  RPMExamples:
-#   name: Examples of Resources used in the Remote Patient Monitoring Pilot
-#   resources:
-#    - RPMCardiacRehabCarePlanExample
-#    - RPMPatientOnboardingCommunicationRequest
-#    - RPMCareTeamExample
-#    - RPMEducationalTask-ModuleExample
-#    - RPMEducationalTask-GroupExample
-#    - RPMEducationalTask-SyllabusExample
-#    - RPMConsentExample
-#    - RPMObservationExample
-#    - RPMObservationServiceRequestExample
-#  PharmacyClaimDefinitions:
-#   name: Resources used in the Pharmacy Claim Process
-#   resources:
-#   - NzPharmacyClaim
-#   - NzPharmacyClaimResponse
-#   - NzPharmacyMedicationRequest
-#   - NzPharmacyMedicationDispense
-#  PharmacyClaimExamples:
-#   name: Examples of Resources used in the Pharmacy Claim Process
-#   resources:
-#   - NzPharmacyClaimResponseExample
-#   - HSAAPAdjudicatedClaimResponse
-#   - PharmacySubmittedClaim
-#  TelehealthClaimDefinitions:
-#    name: Resources used in the Claim Process
-#    resources:
-#    - SharedCareClaim
-#    - SharedCareClaimResponse
-#    - SharedCareAppointment
-#    - SharedCareEncounter
-#  TelehealthClaimExamples:
-#    name: Examples of Resources used in the Telehealth Claim Process
-#    resources:
-#    - NzTelehealthClaimResponseExample
-#    - NzTelehealthClaimExample
-#    - NzTelehealthAppointmentExample
-#    - NzTelehealthEncounterExample
+      - DHOPatientExample
+      - DHOPatientUpdateExample
+      - DHOPatientClinicAppointmentExample
+      - DHOPatientUnstructuredAppointmentExample
+      - DHOPatientAppointmentResponseActorExample
+      - DHOPatientAppointmentResponseParticipantTypeExample
+      - DHOPatientEncounterExample
+      - DHOPatientEncounterCreateExample
+      - DHOPatientEncounterUpdateExample
+      - DHOPatientEncounterDeleteExample
+      - DHOPatientSIPICSEmilyWhite
+      - DHOPatientSIPICSAlexMorgan
+      - DHOPatientSIPICSCuriousGeorge
+      - DHOPatientDrDottyMcStuffins
 
-#
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and
 # should follow the format defined in ImplementationGuide:

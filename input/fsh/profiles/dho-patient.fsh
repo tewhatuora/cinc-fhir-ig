@@ -1,16 +1,14 @@
-Profile: DHOutpatient
+Profile: DHOPatient
 Parent: NzPatient
 Title: "Dunedin Hospital Outpatient Get Patient Profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
 
-* ^jurisdiction = urn:iso:std:iso:3166#NZ
-* ^version = "0.0.2"
+* ^version = "1.0.0"
 * ^purpose = "Dunedin Hospital outpatient profile"
-* ^derivation = #constraint
+* ^status = #active
+* ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* ^purpose = "Describe the Dunedin Hospital Outpatient resource profile"
-* ^text.status = #additional
-* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>Dunedin Hospital Outpatient profile</div>"
+* insert DHODerivedMetaDataRules
 
 * address only NzAddress
 * telecom only NzContactPoint
@@ -19,13 +17,6 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
     $sd-interpreter-required named interpreter-required 0..1
 
 * extension[nzCitizen] ^short = "Is this person a New Zealand citizen"
-
-* meta 0..1
-  * source 0..1
-  * profile 0..*
-  * lastUpdated 0..1
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"
 
 * identifier 1..* MS  // We must have at least one ID
   * use 1..1 MS
@@ -119,20 +110,21 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * implicitRules 0..0
 * language 0..0
 
-Profile: DHOutpatientUpdate
+Profile: DHOPatientUpdate
 Parent: NzPatient
 Title: "Dunedin Hospital Outpatient Update profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the DH outpatients context."
 
-* ^version = "0.0.2"
+* ^version = "1.0.0"
 * ^purpose = "Dunedin Hospital outpatient update profile"
+* ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
-* ^derivation = #constraint
 
+* insert DHODerivedMetaDataRules
 
 // We only want the API to allow for updating the email address and telephone number of a patient. Based on FHIR 4.3.0 (R4B) Patient Elements
 * meta 0..1
-  * source 0..1
+  * source 1..1
   * profile 0..*
   * lastUpdated 0..1
   * tag 1..*
