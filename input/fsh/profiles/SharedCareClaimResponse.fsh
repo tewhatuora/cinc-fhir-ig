@@ -44,7 +44,7 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * requestor 0..1
 * requestor ^short = "Party responsible for the Claim"
 
-* item 1..*
+* item 0..*
 * item ^short = "Claim response items"
 * item.itemSequence 1..1
 * item.itemSequence ^short = "Value of the corresponding Claim.item.sequence"
