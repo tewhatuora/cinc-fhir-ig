@@ -51,7 +51,7 @@ Key information:
   "meta": {
     "lastUpdated": "2025-11-11T02:29:24.844Z",
     "versionId" : "2",
-    "source": "https://standards.digital.health.nz/ns/hpi-facility-id/F12345",
+    "source": "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D",
     "tag": [
       {
         "system": "https://hub.services.digital.health.nz/ns/correlation-id",
@@ -98,7 +98,7 @@ Key information:
   "meta" : {
     "versionId" : "1",
     "lastUpdated" : "2025-09-04T09:00:00.000Z",
-    "source" : "https://standards.digital.health.nz/ns/hpi-facility-id/F12345",
+    "source" : "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D",
     "profile" : ["https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOEncounterCreate",
     "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOEncounter"],
     "tag" : [{
@@ -154,9 +154,9 @@ Key information:
   "meta": {
     "versionId": "1",
     "lastUpdated": "2025-12-08T02:50:58.870Z",
-    "source": "https://standards.digital.health.nz/ns/hpi-facility-id/F12345",
+    "source": "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D",
     "profile": [
-      "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatientEncounter"
+      "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOEncounter"
     ],
     "tag": [
       {
