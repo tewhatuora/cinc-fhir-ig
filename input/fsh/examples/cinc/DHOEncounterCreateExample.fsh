@@ -8,6 +8,7 @@ Usage: #example
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.profile = "https://standards.digital.health.nz/fhir/StructureDefinition/DHOEncounterCreate"
 * status = #arrived
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB "Ambulatory"
 * appointment = Reference(DHOClinicAppointmentExample)
