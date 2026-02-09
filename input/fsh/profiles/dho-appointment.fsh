@@ -1,4 +1,4 @@
-Profile: DHOutpatientAppointment
+Profile: DHOAppointment
 Parent: Appointment
 Title: "Dunedin Hospital Outpatient Appointment Profile"
 Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R4B/appointment.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
@@ -7,12 +7,8 @@ Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* meta 0..1
-  * source 0..1
-  * profile 0..*
-  * lastUpdated 0..1
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"
+* insert DHODerivedMetaDataRules
+
 * identifier 0..1
   * use 0..1 MS
   * system 0..1 MS

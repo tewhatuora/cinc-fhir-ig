@@ -9,7 +9,6 @@ Description: """A FHIR resource profile for operational reporting of NZ encounte
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-
 * insert NzDerivedMetaDataRules
 
 * identifier 1..*
@@ -27,6 +26,7 @@ Description: """A FHIR resource profile for operational reporting of NZ encounte
 * type from SharedCareEncounterTypeValueSet (extensible)
 
 * serviceType 0..1
+
 * insert ProfilePatient(subject)
 
 * partOf 0..1
