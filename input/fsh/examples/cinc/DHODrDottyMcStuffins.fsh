@@ -1,4 +1,4 @@
-Instance: DHOutpatientDrDottyMcStuffins
+Instance: DHODrDottyMcStuffins
 InstanceOf: NzPractitioner
 Description: "Example of a practitioner who plans patient care"
 Usage: #example

@@ -15,14 +15,17 @@ Usage: #inline // #inline means this instance MUST NOT be exported as a separate
 * actor[=].display = "Dr Dotty McStuffins"
 // * extension[clinic] = #SOFRACONDHZ "Dunedin Hospital Outpatients Fracture Consultant" // Need to add extension for clinic
 
-Instance: DHOutpatientClinicAppointmentExample
-InstanceOf: DHOutpatientAppointment
+Instance: DHOClinicAppointmentExample
+InstanceOf: DHOAppointment
 Usage: #example
 Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 
+* meta.lastUpdated = "2025-11-11T02:29:24.844Z"
+* meta.versionId = "2"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointment"
 
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked
@@ -64,14 +67,17 @@ Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 * end = "2025-09-03T03:30:35Z"
 
 
-Instance: DHOutpatientUnstructuredAppointmentExample
-InstanceOf: DHOutpatientAppointment
+Instance: DHOUnstructuredAppointmentExample
+InstanceOf: DHOAppointment
 Usage: #example
 Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
 
+* meta.lastUpdated = "2025-11-11T02:29:24.844Z"
+* meta.versionId = "2"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointment"
 
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked

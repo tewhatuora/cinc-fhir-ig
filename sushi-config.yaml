@@ -328,33 +328,31 @@ groups:
       - ConsentByRelatedPersonExample
       - ConsentByQuestionnaireExample
       - ConsentQuestionnaireResponseExample
-  DHOutpatientProfiles:
+  DHOProfiles:
     name: Dunedin Hospital Outpatient definitions
     resources:
-      - StructureDefinition/DHOutpatient
-      - StructureDefinition/DHOutpatientUpdate
-      - StructureDefinition/DHOutpatientAppointment
-      - StructureDefinition/DHOutpatientAppointmentResponse
-      - StructureDefinition/DHOutpatientEncounter
-      - StructureDefinition/DHOutpatientEncounterCreate
-      - StructureDefinition/DHOutpatientEncounterUpdate
-      - StructureDefinition/DHOutpatientEncounterDelete
-  DHOutpatientExamples:
+      - StructureDefinition/DHOPatient
+      - StructureDefinition/DHOPatientUpdate
+      - StructureDefinition/DHOAppointment
+      - StructureDefinition/DHOAppointmentResponse
+      - StructureDefinition/DHOEncounter
+      - StructureDefinition/DHOEncounterCreate
+      - StructureDefinition/DHOEncounterUpdate
+  DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
-      - DHOutpatientExample
-      - DHOutpatientUpdateExample
-      - DHOutpatientClinicAppointmentExample
-      - DHOutpatientUnstructuredAppointmentExample
-      - DHOutpatientAppointmentResponseExample
-      - DHOutpatientEncounterExample
-      - DHOutpatientEncounterCreateExample
-      - DHOutpatientEncounterUpdateExample
-      - DHOutpatientEncounterDeleteExample
-      - DHOutpatientSIPICSEmilyWhite
-      - DHOutpatientSIPICSAlexMorgan
-      - DHOutpatientSIPICSCuriousGeorge
-      - DHOutpatientDrDottyMcStuffins
+      - DHOPatientExample
+      - DHOPatientUpdateExample
+      - DHOClinicAppointmentExample
+      - DHOUnstructuredAppointmentExample
+      - DHOAppointmentResponseExample
+      - DHOEncounterExample
+      - DHOEncounterCreateExample
+      - DHOEncounterUpdateExample
+      - DHOSIPICSEmilyWhite
+      - DHOSIPICSAlexMorgan
+      - DHOSIPICSCuriousGeorge
+      - DHODrDottyMcStuffins
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:
