@@ -156,7 +156,7 @@ Key information:
     "lastUpdated": "2025-12-08T02:50:58.870Z",
     "source": "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D",
     "profile": [
-      "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOutpatientEncounter"
+      "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOEncounter"
     ],
     "tag": [
       {
