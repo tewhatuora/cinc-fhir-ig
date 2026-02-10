@@ -14,11 +14,11 @@ Description: "This profile derives from the [AppointmentResponse](https://hl7.or
 // FOR PQMS, this is only for the patient. We only want the API to allow for changing the participantStatus of the Appointment.
 // Based on FHIR 4.3.0 (R4B) AppointmentResponse Elements
 * appointment 1..1 MS
+* participantType = $v3-ParticipationType#SBJ "Subject"
 * participantStatus 1..1 MS
 
 // Removed elements from AppointmentResponse
 * comment 0..0
 * start 0..0
 * end 0..0
-* participantType 0..0
 * actor 0..0

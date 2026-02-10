@@ -9,7 +9,7 @@ Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R
 
 * insert DHODerivedMetaDataRules
 
-* identifier 0..1
+* identifier 0..*
   * use 0..1 MS
   * system 0..1 MS
   * value 1..1 MS
