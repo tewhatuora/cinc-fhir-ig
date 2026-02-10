@@ -11,7 +11,7 @@ Usage: #example
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-* extension[sex-at-birth].valueCodeableConcept.coding.version = "4.3.0"
+* extension[sex-at-birth].valueCodeableConcept.coding.version = "4.0.1"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
 * extension[sex-at-birth].valueCodeableConcept = #female
 

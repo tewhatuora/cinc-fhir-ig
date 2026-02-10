@@ -11,4 +11,5 @@ Description: "An example Dunedin Hospital Outpatient Appointment Response for Pa
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointmentResponse"
 
 * appointment = Reference(DHOClinicAppointmentExample)
+* participantType = $v3-ParticipationType#SBJ "Subject"
 * participantStatus = #accepted
