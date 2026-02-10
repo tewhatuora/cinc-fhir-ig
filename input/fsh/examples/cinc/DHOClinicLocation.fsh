@@ -5,5 +5,5 @@ Usage: #inline // #inline means this instance MUST NOT be exported as a separate
 * name = "Dunedin Hospital Outpatients, Clinic K01"
 * partOf.type = "Location"
 * partOf.identifier.value = "4211"
-* partOf.identifier.system = "https://standards.digital.health.nz/ns/hpi-facility-id"
+* partOf.identifier.system = "https://standards.digital.health.nz/ns/nzhis-facility-id"
 * partOf.display = "Dunedin Hospital"

@@ -81,7 +81,7 @@ Usage: #definition
 * rest.resource[+].type = #Appointment
 * rest.resource[=].supportedProfile[+] = Canonical(Appointment)
 * rest.resource[=].supportedProfile[+] = Canonical(SharedCareAppointment)
-* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientAppointment)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOAppointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchRevInclude = "*"
@@ -104,9 +104,18 @@ Usage: #definition
 
 // DH Outpatients AppointmentResponse Resource - Used to Confirm an Appointment
 * rest.resource[+].type = #AppointmentResponse
-* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientAppointmentResponse)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOAppointmentResponse)
 * rest.resource[=].documentation = "Dunedin Hospital Outpatients - Used to confirm an appointment"
 * rest.resource[=] insert CreateUpdateInteractions
+* rest.resource[=].searchInclude[+] = "*"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "The AppointmentResponse clinical identifier"
+* rest.resource[=].searchParam[+].name = "_id"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #Bundle
 * rest.resource[=].profile = Canonical(Bundle)
@@ -290,10 +299,9 @@ Usage: #definition
 * rest.resource[+].type = #Encounter
 * rest.resource[=].supportedProfile[0] = Canonical(ManaakiNgaTahiEncounter)
 * rest.resource[=].supportedProfile[+] = Canonical(SharedCareEncounter)
-* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientEncounter)
-* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientEncounterCreate)
-* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientEncounterUpdate)
-* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientEncounterDelete)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOEncounter)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterCreate)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterUpdate)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:diagnosis"
@@ -477,7 +485,7 @@ Usage: #definition
 * rest.resource[+].type = #Patient
 * rest.resource[=].profile = Canonical(NzPatient)
 * rest.resource[=].documentation = "Dunedin Hospital Outpatients - Patient Profile"
-* rest.resource[=].supportedProfile[+] = Canonical(DHOutpatientUpdate)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOPatientUpdate)
 * rest.resource[=] insert ReadUpdateInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchParam[+].name = "identifier"
