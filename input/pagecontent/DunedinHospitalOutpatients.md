@@ -70,6 +70,17 @@ Key information:
         }
     }
   },
+  "participantType" : [
+    {
+      "coding" : [
+        {
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+          "code" : "SBJ",
+          "display" : "Subject"
+        }
+      ]
+    }
+  ],
   "participantStatus": "accepted"
 }
 ```
@@ -106,14 +117,12 @@ Key information:
       "code" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }]
   },
-  "appointment": {
-    "identifier": [
-      {
+  "appointment": [{
+      "identifier": {
         "system": "urn:orion:pas:appointment:patient-appointment:code",
         "value": "7330769"
       }
-    ]
-  },
+  }],
   "subject": {
     "reference": "Patient/CareyCarrington",
     "display": "Carey Carrington"
