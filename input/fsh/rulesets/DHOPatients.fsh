@@ -31,14 +31,16 @@ Expression: "matches('^https://standards.digital.health.nz/ns/hpi-facility-id/F[
 Severity: #error
 
 RuleSet: DHODerivedMetaDataRules
+* meta 0..1
+* meta.lastUpdated 0..1
+* meta.profile 0..*
 * meta.tag ^slicing.discriminator.type = #value
 * meta.tag ^slicing.discriminator.path = "system"
 * meta.tag ^slicing.rules = #open
+* meta.tag ^short = "Correlation-id where the record is sourced"
 * meta.tag contains correlationId 1..1
-
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id" (exactly)
 * meta.tag[correlationId].code 1..1
-
 * meta.source 1..1
 * meta.source obeys dho-hpi-location-url-format
 * meta.source ^short = "HPI Facility ID from where the record is sourced"
@@ -47,7 +49,7 @@ RuleSet: DHODerivedMetaDataRules
 // --- PATIENT Rules ---
 RuleSet: DHOProfilePatient(property)
 * {property} 1..1
-* {property} only Reference(NzPatient or Patient)
+* {property} only Reference(DHOPatient or NzPatient or Patient)
 * {property}.type = "Patient"
 * {property}.type 1..1
 * {property}.identifier 1..1

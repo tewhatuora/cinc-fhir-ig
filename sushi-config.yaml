@@ -192,32 +192,33 @@ contact:
 #     - StructureDefinition/bee-sting
 #
 groups:
-  DHOPatientProfiles:
+  DHOProfiles:
     name: Dunedin Hospital Outpatient definitions
     resources:
       - StructureDefinition/DHOPatient
       - StructureDefinition/DHOPatientUpdate
-      - StructureDefinition/DHOPatientAppointment
-      - StructureDefinition/DHOPatientAppointmentResponse
-      - StructureDefinition/DHOPatientEncounter
-  DHOPatientExamples:
+      - StructureDefinition/DHOAppointment
+      - StructureDefinition/DHOAppointmentResponse
+      - StructureDefinition/DHOEncounter
+      - StructureDefinition/DHOEncounterCreate
+      - StructureDefinition/DHOEncounterUpdate
+  DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
       - DHOPatientExample
       - DHOPatientUpdateExample
-      - DHOPatientClinicAppointmentExample
-      - DHOPatientUnstructuredAppointmentExample
-      - DHOPatientAppointmentResponseActorExample
-      - DHOPatientAppointmentResponseParticipantTypeExample
-      - DHOPatientEncounterExample
-      - DHOPatientEncounterCreateExample
-      - DHOPatientEncounterUpdateExample
-      - DHOPatientEncounterDeleteExample
-      - DHOPatientSIPICSEmilyWhite
-      - DHOPatientSIPICSAlexMorgan
-      - DHOPatientSIPICSCuriousGeorge
-      - DHOPatientDrDottyMcStuffins
+      - DHOClinicAppointmentExample
+      - DHOUnstructuredAppointmentExample
+      - DHOAppointmentResponseExample
+      - DHOEncounterExample
+      - DHOEncounterCreateExample
+      - DHOEncounterUpdateExample
+      - DHOSIPICSEmilyWhite
+      - DHOSIPICSAlexMorgan
+      - DHOSIPICSCuriousGeorge
+      - DHODrDottyMcStuffins
 
+#
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and
 # should follow the format defined in ImplementationGuide:

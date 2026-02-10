@@ -1,4 +1,4 @@
-Instance: DHOPatientSIPICSEmilyWhite
+Instance: DHOSIPICSEmilyWhite
 InstanceOf: DHOPatient
 Description: "A SIPICS example patient resource"
 Usage: #example
@@ -7,7 +7,7 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
@@ -93,7 +93,7 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-Instance: DHOPatientSIPICSAlexMorgan
+Instance: DHOSIPICSAlexMorgan
 InstanceOf: DHOPatient
 Description: "A SIPICS example patient resource"
 Usage: #example
@@ -102,7 +102,7 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
@@ -184,7 +184,7 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-Instance: DHOPatientSIPICSCuriousGeorge
+Instance: DHOSIPICSCuriousGeorge
 InstanceOf: DHOPatient
 Description: "A SIPICS example patient resource"
 Usage: #example
@@ -193,7 +193,7 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 

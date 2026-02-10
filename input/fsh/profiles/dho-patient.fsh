@@ -1,33 +1,36 @@
-Profile: DHOPatient
-Parent: NzPatient
-Title: "Dunedin Hospital Outpatient Get Patient Profile"
-Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
+RuleSet: CommonPatientConstraints
 
 * ^version = "1.0.0"
-* ^purpose = "Dunedin Hospital outpatient profile"
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 * insert DHODerivedMetaDataRules
-
 * address only NzAddress
 * telecom only NzContactPoint
-
-* extension contains
-    $sd-interpreter-required named interpreter-required 0..1
-
+* extension contains $sd-interpreter-required named interpreter-required 0..1
 * extension[nzCitizen] ^short = "Is this person a New Zealand citizen"
-
-* identifier 1..* MS  // We must have at least one ID
-  * use 1..1 MS
-  * system 1..1 MS
-  * value 1..1 MS
-  * period 0..0
-  * assigner 0..0
-  * extension 0..1
-  * id 0..0
-* identifier[NHI] 0..1 MS
 * active 0..1
+// If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
+// which (per the spec https://www.hl7.org/fhir/formats.html#choice) must resolve into only one of the options. The deceased[x]
+// element also has a cardinality of one. The upshot of all of this is that a valid FHIR Patient resource can have either a
+// deceasedBoolean or a deceasedDateTime but not both. The “correct” behaviour for receiving an invalid FHIR resource is undefined,
+// but this is implementation specific.
+// Therefore no * deceasedDateTime 0..0
+* deceasedBoolean 0..0
+* photo 0..0
+* communication 0..0
+* managingOrganization 0..0
+* link 0..0
+* contained 0..0
+* implicitRules 0..0
+* language 0..0
+
+Profile: DHOPatient
+Parent: NzPatient
+Title: "Dunedin Hospital Outpatient Get Patient Profile"
+Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
+* ^purpose = "Dunedin Hospital outpatient profile"
+* insert CommonPatientConstraints
 * name 1..* MS
   * use 1..1 MS
     * ^short = "one of: usual / old"
@@ -49,6 +52,12 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * gender 1..1 MS
 * extension[sex-at-birth].valueCodeableConcept from $vs-administrative-gender
 * birthDate 1..1 MS
+// If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
+// which (per the spec https://www.hl7.org/fhir/formats.html#choice) must resolve into only one of the options. The deceased[x]
+// element also has a cardinality of one. The upshot of all of this is that a valid FHIR Patient resource can have either a
+// deceasedBoolean or a deceasedDateTime but not both. The “correct” behaviour for receiving an invalid FHIR resource is undefined,
+// but this is implementation specific.
+// Therefore no * deceasedDateTime 0..0
 * deceasedBoolean 0..0
 * address 0..* MS
   * extension[domicile-code] 0..1 MS
@@ -75,7 +84,6 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * id 0..0
 * maritalStatus 0..1
 * multipleBirth[x] 0..1
-* photo 0..0
 * contact 0..* MS
   * relationship from $vs-patient-contact-relationship
   * extension contains PatientContactRole named role 0..*
@@ -99,45 +107,16 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * gender 0..0
   * organization 0..0
   * period 0..1 MS
-
   * id 0..0
-* communication 0..0
 * generalPractitioner only Reference(NzOrganization or NzPractitioner or NzPractitionerRole)
-* managingOrganization 0..0
-* link 0..0
-
-* contained 0..0
-* implicitRules 0..0
-* language 0..0
+* extension[ethnicity] 0..*
 
 Profile: DHOPatientUpdate
 Parent: NzPatient
 Title: "Dunedin Hospital Outpatient Update profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the DH outpatients context."
-
-* ^version = "1.0.0"
-* ^purpose = "Dunedin Hospital outpatient update profile"
-* ^status = #active
-* ^jurisdiction = urn:iso:std:iso:3166#NZ
-
-* insert DHODerivedMetaDataRules
-
-// We only want the API to allow for updating the email address and telephone number of a patient. Based on FHIR 4.3.0 (R4B) Patient Elements
-* meta 0..1
-  * source 1..1
-  * profile 0..*
-  * lastUpdated 0..1
-  * tag 1..*
-    *  ^short = "Correlation-id where the record is sourced"
-
-* identifier 1..* MS // We must have at least one ID (NHI)
-  * use 1..1 MS
-  * value 1..1 MS
-  * system 1..1 MS
-* identifier[NHI] 0..1 MS
-* active 0..1 // set to #true or #false for each side of ADT^A40 patient merge message
+* insert CommonPatientConstraints
 * name 0..0
-// a NzContactPoint which is a derivative of a [ContactPoint](https://hl7.org/fhir/R4/datatypes.html#ContactPoint)
 * telecom 1..* MS
   * extension[cp-purpose] 0..0
   * period 0..0
@@ -147,27 +126,11 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * rank 0..1
   * extension 0..0
   * id 0..0
-* gender 0..0
 * birthDate 0..0
-* deceasedBoolean 0..0
-// If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
-// which (per the spec https://www.hl7.org/fhir/formats.html#choice) must resolve into only one of the options. The deceased[x]
-// element also has a cardinality of one. The upshot of all of this is that a valid FHIR Patient resource can have either a
-// deceasedBoolean or a deceasedDateTime but not both. The “correct” behaviour for receiving an invalid FHIR resource is undefined,
-// but this is implementation specific.
-// Therefore no * deceasedDateTime 0..0
 * address 0..0
 * maritalStatus 0..0
 * multipleBirthBoolean 0..0
-// Same as deceasedBoolean
-// * multipleBirthInteger 0..0
-* photo 0..0
 * contact 0..0
-* communication 0..0
 * generalPractitioner 0..0
 * managingOrganization 0..0
-* link 0..0
-* contained 0..0
-* implicitRules 0..0
-* language 0..0
 * extension[ethnicity] 0..0

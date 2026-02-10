@@ -7,7 +7,7 @@ Usage: #definition
 * contact[+].name = "Health New Zealand Te Whatu Ora"
 * contact[=].telecom.value = "https://www.tewhatuora.govt.nz"
 * contact[=].telecom.system = #url
-* version = "0.4.4"
+* version = "0.4.6"
 * status = #active
 * date = "2024-07-03"
 * publisher = "Te Whatu Ora"
@@ -41,7 +41,7 @@ Usage: #definition
 
 * rest.resource[+].type = #Appointment
 * rest.resource[=].supportedProfile[+] = Canonical(Appointment)
-* rest.resource[=].supportedProfile[+] = Canonical(DHOPatientAppointment)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOAppointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchRevInclude = "*"
@@ -64,7 +64,7 @@ Usage: #definition
 
 // DH Outpatients AppointmentResponse Resource - Used to Confirm an Appointment
 * rest.resource[+].type = #AppointmentResponse
-* rest.resource[=].supportedProfile[+] = Canonical(DHOPatientAppointmentResponse)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOAppointmentResponse)
 * rest.resource[=].documentation = "Dunedin Hospital Outpatients - Used to confirm an appointment"
 * rest.resource[=] insert CreateUpdateInteractions
 * rest.resource[=].searchInclude[+] = "*"
@@ -82,7 +82,9 @@ Usage: #definition
 * rest.resource[=] insert GenericCRUDInteractions
 
 * rest.resource[+].type = #Encounter
-* rest.resource[=].supportedProfile[+] = Canonical(DHOPatientEncounter)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOEncounter)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterCreate)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterUpdate)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:appointment"
