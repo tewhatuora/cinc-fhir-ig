@@ -27,7 +27,7 @@ RuleSet: CommonPatientConstraints
 
 Profile: DHOPatient
 Parent: NzPatient
-Title: "Dunedin Hospital Outpatient Get Patient Profile"
+Title: "DHO Patient Profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
 * ^purpose = "Dunedin Hospital outpatient profile"
 * insert CommonPatientConstraints
@@ -113,7 +113,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 
 Profile: DHOPatientUpdate
 Parent: NzPatient
-Title: "Dunedin Hospital Outpatient Update profile"
+Title: "DHO Update Profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the DH outpatients context."
 * insert CommonPatientConstraints
 * name 0..0

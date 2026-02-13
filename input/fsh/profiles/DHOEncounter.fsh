@@ -37,7 +37,7 @@ RuleSet: CommonEncounterConstraints
 * hospitalization ^short = "Admission & discharge details (if applicable)"
 * location 0..*
   * ^short = "(Sub)Locations where the patient has been during the encounter"
-  * location only Reference(Location)
+  * location only Reference(NzLocation or Location)
   * status 0..1
   * period 0..1
 * serviceProvider 0..1
@@ -52,20 +52,20 @@ RuleSet: CommonEncounterConstraints
 Profile: DHOEncounter
 Parent: Encounter
 Id: DHOEncounter
-Title: "Dunedin Hospital Outpatient Encounter"
+Title: "DHO Encounter"
 Description: "This profile derives from the [Encounter](https://hl7.org/fhir/R4B/encounter.html) Resource, for use in the Dunedin Hospital Outpatients context."
 * insert CommonEncounterConstraints
 
 Profile: DHOEncounterCreate
 Parent: Encounter
 Id: DHOEncounterCreate
-Title: "Dunedin Hospital Outpatient Encounter Create"
+Title: "DHO Encounter Create"
 Description: "This profile derives from the [Encounter](https://hl7.org/fhir/R4B/encounter.html) Resource, for use in the Dunedin Hospital Outpatients context."
 * insert CommonEncounterConstraints
 
 Profile: DHOEncounterUpdate
 Parent: Encounter
 Id: DHOEncounterUpdate
-Title: "Dunedin Hospital Outpatient Encounter Update"
+Title: "DHO Encounter Update"
 Description: "This profile derives from the [Encounter](https://hl7.org/fhir/R4B/encounter.html) Resource, for use in the Dunedin Hospital Outpatients context."
 * insert CommonEncounterConstraints

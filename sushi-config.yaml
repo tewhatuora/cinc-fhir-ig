@@ -338,6 +338,7 @@ groups:
       - StructureDefinition/DHOEncounter
       - StructureDefinition/DHOEncounterCreate
       - StructureDefinition/DHOEncounterUpdate
+      - StructureDefinition/DHOLocation
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
@@ -353,6 +354,9 @@ groups:
       - DHOSIPICSAlexMorgan
       - DHOSIPICSCuriousGeorge
       - DHODrDottyMcStuffins
+      - DHOLocationInternalExample
+      - DHOLocationPatientHomeExample
+      - DHOLocationExternalExample
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:
