@@ -41,6 +41,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * extension 0..0
   * id 0..0
 * telecom 0..* MS
+  * obeys dho-telecom-notification-valid-system
   * extension contains DHOTelecomNotification named notification-enabled 0..1 MS
   * extension[notification-enabled] ^short = "True if notifications can be sent to this email or SMS address"
   * extension[cp-purpose] 0..0
@@ -50,7 +51,6 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * value 1..1 MS
   * rank 0..1
 //  * extension 0..0
-  * extension obeys dho-telecom-notification-valid-system
   * id 0..0
 * birthDate 1..1 MS
 // If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
@@ -119,6 +119,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * insert CommonPatientConstraints
 * name 0..0
 * telecom 1..* MS
+  * obeys dho-telecom-notification-valid-system
   * extension contains DHOTelecomNotification named notification-enabled 0..1 MS
   * extension[notification-enabled] ^short = "True if notifications can be sent to this email or SMS address"
   * extension[cp-purpose] 0..0
@@ -129,7 +130,6 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * use 1..1 MS
   * rank 0..1
 //  * extension 0..0
-  * extension obeys dho-telecom-notification-valid-system
   * id 0..0
 * birthDate 0..0
 * address 0..0
@@ -143,4 +143,4 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 Invariant: dho-telecom-notification-valid-system
 Description: "The notification-enabled extension should only be present when the telecom system is 'email', 'sms', or 'phone' with use 'mobile'."
 Severity: #warning
-Expression: "url = 'https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/dho-telecom-notification' implies (%context.system = 'email' or %context.system = 'sms' or (%context.system = 'phone' and %context.use = 'mobile'))"
+Expression: "extension.where(url = 'https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/dho-telecom-notification').exists() implies (system = 'email' or system = 'sms' or (system = 'phone' and use = 'mobile'))"
