@@ -37,7 +37,7 @@ RuleSet: CommonEncounterConstraints
 * hospitalization ^short = "Admission & discharge details (if applicable)"
 * location 0..*
   * ^short = "(Sub)Locations where the patient has been during the encounter"
-  * location only Reference(Location)
+  * location only Reference(NzLocation or Location)
   * status 0..1
   * period 0..1
 * serviceProvider 0..1
