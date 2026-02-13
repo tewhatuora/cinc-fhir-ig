@@ -39,10 +39,12 @@ Usage: #example
 * telecom[=].value = "+64 21 123 4567"
 * telecom[=].use = #mobile
 * telecom[=].rank = 1
+* telecom[=].extension[notification-enabled].valueBoolean = true
 * telecom[+].system = #email
 * telecom[=].value = "example@mail.com"
 * telecom[=].use = #home
 * telecom[=].rank = 2
+* telecom[=].extension[notification-enabled].valueBoolean = true
 * gender = #female
 * birthDate = "1968-01-27"
 * address[+].type = #postal
@@ -110,7 +112,9 @@ Description: "An example Dunedin Hospital Outpatient Update demographics (phone 
 * telecom[=].value = "+64 21 123 4567"
 * telecom[=].use = #mobile
 * telecom[=].rank = 1
+* telecom[=].extension[notification-enabled].valueBoolean = true
 * telecom[+].system = #email
 * telecom[=].value = "example@mail.com"
 * telecom[=].use = #home
 * telecom[=].rank = 2
+* telecom[=].extension[notification-enabled].valueBoolean = true
