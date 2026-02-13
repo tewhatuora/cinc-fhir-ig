@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Health New Zealand Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
 status: active
-version: 0.4.5
+version: 0.4.8
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -202,6 +202,7 @@ groups:
       - StructureDefinition/DHOEncounter
       - StructureDefinition/DHOEncounterCreate
       - StructureDefinition/DHOEncounterUpdate
+      - StructureDefinition/DHOLocation
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
@@ -217,6 +218,9 @@ groups:
       - DHOSIPICSAlexMorgan
       - DHOSIPICSCuriousGeorge
       - DHODrDottyMcStuffins
+      - DHOLocationInternalExample
+      - DHOLocationPatientHomeExample
+      - DHOLocationExternalExample
 
 #
 # The ImplementationGuide resource defines several other properties
