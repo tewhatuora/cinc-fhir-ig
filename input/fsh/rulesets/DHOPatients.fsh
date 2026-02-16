@@ -42,7 +42,6 @@ RuleSet: DHODerivedMetaDataRules
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id" (exactly)
 * meta.tag[correlationId].code 1..1
 * meta.source 1..1
-* meta.source obeys dho-hpi-location-url-format
 * meta.source ^short = "HPI Facility ID from where the record is sourced"
 * meta.source ^definition = "Captures the source of the record. This must contain the HPIFacilityID e.g. https://standards.digital.health.nz/ns/hpi-facility-id/FZZ111-A"
 
