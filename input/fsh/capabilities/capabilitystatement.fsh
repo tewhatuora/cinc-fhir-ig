@@ -767,7 +767,8 @@ Usage: #definition
 * rest.resource[=].searchRevInclude = "*"
 
 * rest.resource[+].type = #Claim
-* rest.resource[=].supportedProfile = Canonical(SharedCareClaim)
+* rest.resource[=].supportedProfile[+] = Canonical(SharedCareClaim)
+* rest.resource[=].supportedProfile[+] = Canonical(NzPharmacyClaim)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
@@ -792,7 +793,8 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 
 * rest.resource[+].type = #ClaimResponse
-* rest.resource[=].supportedProfile = Canonical(SharedCareClaimResponse)
+* rest.resource[=].supportedProfile[+] = Canonical(SharedCareClaimResponse)
+* rest.resource[=].supportedProfile[+] = Canonical(NzPharmacyClaimResponse)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ClaimResponse-identifier"
