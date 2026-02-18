@@ -42,7 +42,7 @@ Key information:
 | Element                               | Expected update/information                                                            |
 |---------------------------------------|----------------------------------------------------------------------------------------|
 | AppointmentResponse.appointment       | Appointment.Identifier                                                                 |
-| AppointmentResponse.participantType   | http://terminology.hl7.org/CodeSystem/v3-ParticipationType#v3-ParticipantType.html SBJ |
+| AppointmentResponse.participantType   | http://terminology.hl7.org/CodeSystem/v3-ParticipationType#SBJ                        |
 | AppointmentResponse.participantStatus | 'accepted'                                                                             |
 
 see [AppointmentResponse example](/AppointmentResponse-DHOAppointmentResponseExample.json.html)
