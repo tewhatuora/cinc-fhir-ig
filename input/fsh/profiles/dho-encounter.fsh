@@ -28,8 +28,6 @@ RuleSet: CommonEncounterConstraints
 // ---------------------------------------------------------
 * status 1..1
 * statusHistory 0..*
-* status 1..1
-* statusHistory 0..*
 * class 1..1
 * classHistory 0..*
 * type 0..*
