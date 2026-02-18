@@ -39,51 +39,13 @@ Update the Appointment Scheduling System to indicate the __*Patient*__ has confi
 
 Key information:
 
-| Element                               | Expected update/information |
-|---------------------------------------|-----------------------------|
-| AppointmentResponse.appointment       | Appointment.Identifier      |
-| AppointmentResponse.participantStatus | 'accepted'                  |
+| Element                               | Expected update/information                                                            |
+|---------------------------------------|----------------------------------------------------------------------------------------|
+| AppointmentResponse.appointment       | Appointment.Identifier                                                                 |
+| AppointmentResponse.participantType   | http://terminology.hl7.org/CodeSystem/v3-ParticipationType#v3-ParticipantType.html SBJ |
+| AppointmentResponse.participantStatus | 'accepted'                                                                             |
 
-##### POST AppointmentResponse body
-```json
-{
-  "resourceType": "AppointmentResponse",
-  "meta": {
-    "lastUpdated": "2025-11-11T02:29:24.844Z",
-    "versionId" : "2",
-    "source": "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D",
-    "tag": [
-      {
-        "system": "https://hub.services.digital.health.nz/ns/correlation-id",
-        "code": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-      }
-    ],
-    "profile": [
-      "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointmentResponse"
-    ]
-  },
-  "appointment": {
-    "reference": {
-        "identifier" : {
-            "system": "urn:orion:pas:appointment:patient-appointment:code",
-            "value" : "77350"
-        }
-    }
-  },
-  "participantType" : [
-    {
-      "coding" : [
-        {
-          "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-          "code" : "SBJ",
-          "display" : "Subject"
-        }
-      ]
-    }
-  ],
-  "participantStatus": "accepted"
-}
-```
+see [AppointmentResponse example](/AppointmentResponse-DHOAppointmentResponseExample.json.html)
 
 <figure>
   <!-- Generated from `input/images-source/dho-appointment-confirm.plantuml` -->
@@ -97,44 +59,12 @@ Key information:
 
 | Element               | Expected update/information                                             |
 |-----------------------|-------------------------------------------------------------------------|
-| Encounter.appointment | Appointment.Identifier                                                  |
-| Encounter.subject     | Patient.Identifier                                                      |
 | Encounter.status      | 'arrived'                                                               |
 | Encounter.class       | https://terminology.hl7.org/3.1.0/ValueSet-v3-ActEncounterCode.html AMB |
+| Encounter.subject     | Patient.Identifier                                                      |
+| Encounter.appointment | Appointment.Identifier                                                  |
 
-##### POST Encounter body
-```json
-{
-  "resourceType" : "Encounter",
-  "meta" : {
-    "versionId" : "1",
-    "lastUpdated" : "2025-09-04T09:00:00.000Z",
-    "source" : "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D",
-    "profile" : ["https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOEncounterCreate",
-    "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOEncounter"],
-    "tag" : [{
-      "system" : "https://hub.services.digital.health.nz/ns/correlation-id",
-      "code" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    }]
-  },
-  "appointment": [{
-      "identifier": {
-        "system": "urn:orion:pas:appointment:patient-appointment:code",
-        "value": "7330769"
-      }
-  }],
-  "subject": {
-    "reference": "Patient/CareyCarrington",
-    "display": "Carey Carrington"
-  },
-  "status": "arrived",
-  "class": {
-    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-    "code": "AMB",
-    "display": "ambulatory"
-  }
-}
-```
+see [Encounter create example](/Encounter-dho-outpatient-encounter-create-instance.json.html)
 
 <figure>
   <!-- Generated from `input/images-source/dho-appointment-arrive.plantuml` -->
@@ -154,38 +84,8 @@ Key information:
 | Encounter.period.start           | arrival time                |
 | Encounter.period.end             | departure time              |
 
-##### PUT Encounter body
+see [Encounter update example](/Encounter-dho-outpatient-encounter-update-instance.json.html)
 
-```json
-
-{
-  "resourceType": "Encounter",
-  "meta": {
-    "versionId": "1",
-    "lastUpdated": "2025-12-08T02:50:58.870Z",
-    "source": "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D",
-    "profile": [
-      "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOEncounter"
-    ],
-    "tag": [
-      {
-        "system": "https://hub.services.digital.health.nz/ns/correlation-id",
-        "code": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-      }
-    ]
-  },
-  "subject": {
-    "reference": "Patient/CareyCarrington",
-    "display": "Carey Carrington"
-  },
-  "status": "finished",
-  "class": {
-    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-    "code": "AMB",
-    "display": "Ambulatory"
-  }
-}
-```
 <figure>
   <!-- Generated from `input/images-source/dho-appointment-depart.plantuml` -->
   {% include dho-appointment-depart.svg %}
@@ -195,7 +95,6 @@ Key information:
 Retrieve Patient Demographics from a Patient in the Te Waipounamu regional Patient Administration System.
 
 Update contact details (phone/email) for the patient.
-
 
 _Note: Email address will not be automatically available after an update as a verification process with the patient must
 occur first. Once validated, the email will appear in the Patient resource._
@@ -212,6 +111,8 @@ Key information (for update):
 | Patent.telecom.system | 'email'                     |
 | Patent.telecom.use    | 'home'                      |
 | Patent.telecom.value  | patient's email address     |
+
+see [Patient Response example](/Patient-DHO-outpatient-instance.json.html)
 
 <figure>
   <!-- Generated from `input/images-source/dho-patient.plantuml` -->

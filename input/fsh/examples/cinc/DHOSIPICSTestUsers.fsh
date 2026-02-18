@@ -27,19 +27,9 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding.version = "1.1.0"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding = $ns-nz-citizenship-status-code#yes "Yes"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
-//* extension[nz-residency].extension[+].url = "source"
-//* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-//* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-information-source-code#PPRT "Passport"
-//* extension[nz-residency].extension[=].valueCodeableConcept.text = "Passport"
-//* extension[nz-residency].extension[+].url = "status"
-//* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-//* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
-//* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
-* identifier.use = #official
-* identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* identifier.value = "ZNW3337"
+* identifier insert NHIIdentifier(ZNW3337)
 * active = true
 * name.use = #usual
 * name.text = "Emily White"
@@ -106,7 +96,6 @@ Usage: #example
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.0.1"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
 * extension[sex-at-birth].valueCodeableConcept = #female
@@ -122,15 +111,9 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding.version = "1.1.0"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding = $ns-nz-citizenship-status-code#yes "Yes"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
-//* extension[nz-residency].extension[+].url = "status"
-//* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-//* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
-//* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
-* identifier.use = #official
-* identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* identifier.value = "ZQR2146"
+* identifier insert NHIIdentifier(ZQR2146)
 * active = true
 * name.use = #usual
 * name.text = "Alex Morgan"
@@ -212,15 +195,9 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding.version = "1.1.0"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding = $ns-nz-citizenship-status-code#yes "Yes"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
-//* extension[nz-residency].extension[+].url = "status"
-//* extension[nz-residency].extension[=].valueCodeableConcept.coding.version = "1.0.0"
-//* extension[nz-residency].extension[=].valueCodeableConcept.coding = $ns-nz-residency-code#yes "Yes"
-//* extension[nz-residency].extension[=].valueCodeableConcept.text = "Yes"
 * extension[interpreter-required].valueBoolean = false
 
-* identifier.use = #official
-* identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* identifier.value = "ZQR2146"
+* identifier insert NHIIdentifier(ZQR2146)
 * active = true
 * name.use = #usual
 * name.text = "Curious NMDHB George"

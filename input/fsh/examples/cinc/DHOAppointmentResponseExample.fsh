@@ -10,6 +10,7 @@ Description: "An example Dunedin Hospital Outpatient Appointment Response for Pa
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointmentResponse"
 
-* appointment = Reference(DHOClinicAppointmentExample)
+* appointment.identifier.system = "urn:orion:pas:appointment:patient-appointment:code"
+* appointment.identifier.value = "77350"
 * participantType = $v3-ParticipationType#SBJ "Subject"
 * participantStatus = #accepted
