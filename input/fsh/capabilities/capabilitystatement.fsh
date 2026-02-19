@@ -72,7 +72,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition-ManaakiNgaTahiAllergyIntolerance-definitions.html#AllergyIntolerance.id"
 * rest.resource[=].searchParam[=].documentation = "[Resource Identifier](https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition-ManaakiNgaTahiAllergyIntolerance-definitions.html#AllergyIntolerance.id)"
 * rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].searchParam[+].name = "_lastUpdated"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
 * rest.resource[=].searchParam[=].type = #date
@@ -85,7 +84,6 @@ Usage: #definition
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchRevInclude = "*"
-* rest.resource[=].searchParam[=].documentation = "The Appointment clinical identifier"
 * rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
@@ -93,6 +91,7 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "clinical-identifier"
 * rest.resource[=].searchParam[+].name = "actor"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Appointment-actor"
 * rest.resource[=].searchParam[=].type = #reference
@@ -104,9 +103,11 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Appointment-patient"
 * rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who the appointment is for \n [Patient](http://hl7.org/fhir/R4/patient.html)"
 * rest.resource[=].searchParam[+].name = "practitioner"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Appointment-practitioner"
 * rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who the practitioner is \n [Practitioner](http://hl7.org/fhir/R4/practitioner.html)"
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Appointment-status"
 * rest.resource[=].searchParam[=].type = #token
@@ -118,7 +119,7 @@ Usage: #definition
 * rest.resource[=].documentation = "Dunedin Hospital Outpatients - Used to confirm an appointment"
 * rest.resource[=] insert CreateUpdateInteractions
 /*
-// Current interaction is Create and Update only so search is disabled on this Resource.
+* Current interaction is Create and Update only so search is disabled on this Resource.
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchParam[=].documentation = "The AppointmentResponse clinical identifier"
 * rest.resource[=].searchParam[+].name = "_id"
@@ -256,13 +257,14 @@ Usage: #definition
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:diagnosis"
 * rest.resource[=].searchInclude[+] = "Encounter:appointment"
-* rest.resource[=].searchParam[=].documentation = "The Encounter clinical identifier"
 * rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "clinical-identifier"
 * rest.resource[=].searchParam[+].name = "appointment"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-appointment"
 * rest.resource[=].searchParam[=].type = #reference
@@ -278,15 +280,19 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "location"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-location"
 * rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Location the encounter takes place"
 * rest.resource[=].searchParam[+].name = "participant"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-participant"
 * rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
 * rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-patient"
 * rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
 * rest.resource[=].searchParam[+].name = "practitioner"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-practitioner"
 * rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-status"
 * rest.resource[=].searchParam[=].type = #token
