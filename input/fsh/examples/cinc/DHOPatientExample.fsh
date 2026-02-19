@@ -8,8 +8,7 @@ Usage: #example
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.0.1"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
@@ -28,9 +27,7 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
 * extension[interpreter-required].valueBoolean = false
 
-* identifier.use = #official
-* identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* identifier.value = "ZXP7823"
+* identifier insert NHIIdentifier(ZXP7823)
 * active = true
 * name.use = #usual
 * name.text = "Miss Carey Mary Carrington"
@@ -107,13 +104,9 @@ Description: "An example Dunedin Hospital Outpatient Update demographics (phone 
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatientUpdate"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
-* identifier.use = #official
-* identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* identifier.value = "ZXP7823"
-
+* identifier insert NHIIdentifier(ZXP7823)
 * telecom[+].system = #phone
 * telecom[=].value = "+64 21 123 4567"
 * telecom[=].use = #mobile

@@ -5,3 +5,10 @@
 # See https://github.com/FHIR/sample-ig/blob/master/input/ignoreWarnings.txt for examples
 
 The link 'https://fhir-ig.digital.health.nz/shared-care/openapi.yaml' for "Download OpenAPI" cannot be resolved
+
+# correlation-id is a URI for hub services to correlate messages across systems
+A definition for CodeSystem 'https://hub.services.digital.health.nz/ns/correlation-id' could not be found, so the code cannot be validated
+
+# meta.source is a URI "source identifier" (not a canonical that must resolve to a definitional resource)
+No definition could be found for URL value 'https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D'
+

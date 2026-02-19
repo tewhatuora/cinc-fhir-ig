@@ -23,8 +23,7 @@ Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 * meta.lastUpdated = "2025-11-11T02:29:24.844Z"
 * meta.versionId = "2"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointment"
 
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
@@ -38,7 +37,8 @@ Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 // + Rule: Either the type or actor on the participant SHALL be specified
 * participant[+].required = #required
 * participant[=].status  = #needs-action
-* participant[=].actor = Reference(CareyCarrington) "Carey Carrington"
+* participant[=].actor.identifier insert NHIIdentifier(ZXP7823)
+* participant[=].actor.display = "Carey Carrington"
 
 // Attending Clinician
 * participant[+].type = $v3-ParticipationType#ATND "attender"
@@ -75,8 +75,7 @@ Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
 * meta.lastUpdated = "2025-11-11T02:29:24.844Z"
 * meta.versionId = "2"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointment"
 
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
@@ -88,10 +87,8 @@ Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
 // Patient
 * participant[+].required = #required
 * participant[=].status  = #needs-action
+* participant[=].actor.identifier insert NHIIdentifier(ZXP7823)
 * participant[=].actor.display = "Carey Carrington"
-* participant[=].actor.identifier.use = #official
-* participant[=].actor.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* participant[=].actor.identifier.value = "ZXP7823"
 
 // Responsible Clinician
 * participant[+].type = $v3-ParticipationType#CON "consultant"

@@ -7,6 +7,8 @@ CodeSystem: DHOLocationRelationship
 Id: DHOLocationRelationship
 Title: "DHO Location Relationship"
 Description: "Relationship of the location to the DHO."
+* ^caseSensitive = true
+* ^experimental = false
 * #internal "Internal facility"
 * #patient_home "Patient home"
 * #external "External facility"
@@ -21,6 +23,8 @@ CodeSystem: DHOLocationPhysicalType
 Id: DHOLocationPhysicalType
 Title: "DHO Location Physical Type"
 Description: "Whether the location is physical or virtual."
+* ^caseSensitive = true
+* ^experimental = false
 * #physical "Physical site or facility"
 * #virtual "Virtual / online / telehealth location"
 

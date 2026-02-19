@@ -214,9 +214,6 @@ groups:
       - DHOEncounterExample
       - DHOEncounterCreateExample
       - DHOEncounterUpdateExample
-      - DHOSIPICSEmilyWhite
-      - DHOSIPICSAlexMorgan
-      - DHOSIPICSCuriousGeorge
       - DHODrDottyMcStuffins
       - DHOLocationInternalExample
       - DHOLocationPatientHomeExample

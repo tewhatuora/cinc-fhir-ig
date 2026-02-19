@@ -26,7 +26,7 @@ RuleSet: ReadUpdateInteractions
 
 // --- META RULES ---
 Invariant: dho-hpi-location-url-format
-Description: "Reference must be an HPI facility URL with format https://standards.digital.health.nz/ns/hpi-facility-id/FZZ111-A"
+Description: "Reference must be an HPI facility URL with format https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
 Expression: "matches('^https://standards.digital.health.nz/ns/hpi-facility-id/F[A-Za-z0-9]{2}[0-9]{3}-[A-Za-z0-9]$')"
 Severity: #error
 
@@ -42,9 +42,8 @@ RuleSet: DHODerivedMetaDataRules
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id" (exactly)
 * meta.tag[correlationId].code 1..1
 * meta.source 1..1
-* meta.source obeys dho-hpi-location-url-format
 * meta.source ^short = "HPI Facility ID from where the record is sourced"
-* meta.source ^definition = "Captures the source of the record. This must contain the HPIFacilityID e.g. https://standards.digital.health.nz/ns/hpi-facility-id/FZZ111-A"
+* meta.source ^definition = "Captures the source of the record. This must contain the HPIFacilityID e.g. https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
 
 // --- PATIENT Rules ---
 RuleSet: DHOProfilePatient(property)

@@ -59,7 +59,7 @@ Description: "This profile derives from the Location Resource with localisations
 // ---------------------------------------------------------
 // Telecom slicing by use-case
 // ---------------------------------------------------------
-* telecom ^slicing.discriminator.type = #pattern
+* telecom ^slicing.discriminator.type = #value
 * telecom ^slicing.discriminator.path = "use"
 * telecom ^slicing.rules = #open
 
@@ -68,12 +68,15 @@ Description: "This profile derives from the Location Resource with localisations
     Clinical 0..* and
     Technical 0..*
 
+* telecom[Public] ^mustSupport = true
 * telecom[Public].use = #work
 * telecom[Public] ^short = "Public contact details"
 
+* telecom[Clinical] ^mustSupport = true
 * telecom[Clinical].use = #work
 * telecom[Clinical] ^short = "Clinical/professional contact"
 
+* telecom[Technical] ^mustSupport = true
 * telecom[Technical].use = #temp
 * telecom[Technical] ^short = "Technical or routing contact"
 
