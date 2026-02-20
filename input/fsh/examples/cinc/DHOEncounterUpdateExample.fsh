@@ -14,7 +14,7 @@ Usage: #example
 
 * status = #finished
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB "Ambulatory"
+* appointment = Reference(DHOClinicAppointmentExample)
+* subject.identifier insert NHIIdentifier(ZXP7823)
+* subject.display = "Carey Carrington"
 * subject.type = "Patient"
-* subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* subject.identifier.value = "ZZZ0008"
-* subject.display = "Mr Test Patient | Male | 2001-01-01"

@@ -38,7 +38,8 @@ Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 // + Rule: Either the type or actor on the participant SHALL be specified
 * participant[+].required = #required
 * participant[=].status  = #needs-action
-* participant[=].actor = Reference(CareyCarrington) "Carey Carrington"
+* participant[=].actor.identifier insert NHIIdentifier(ZXP7823)
+* participant[=].actor.display = "Carey Carrington"
 
 // Attending Clinician
 * participant[+].type = $v3-ParticipationType#ATND "attender"
@@ -88,10 +89,8 @@ Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
 // Patient
 * participant[+].required = #required
 * participant[=].status  = #needs-action
+* participant[=].actor.identifier insert NHIIdentifier(ZXP7823)
 * participant[=].actor.display = "Carey Carrington"
-* participant[=].actor.identifier.use = #official
-* participant[=].actor.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* participant[=].actor.identifier.value = "ZXP7823"
 
 // Responsible Clinician
 * participant[+].type = $v3-ParticipationType#CON "consultant"

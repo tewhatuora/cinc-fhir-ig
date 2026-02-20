@@ -1,22 +1,29 @@
 RuleSet: CommonPatientConstraints
 
-* ^version = "1.0.0"
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
+// ---------------------------------------------------------
+// Inserts
+// ---------------------------------------------------------
 * insert DHODerivedMetaDataRules
+
+// ---------------------------------------------------------
+// Reference constraints
+// ---------------------------------------------------------
 * address only NzAddress
 * telecom only NzContactPoint
+
+// ---------------------------------------------------------
+// Extensions
+// ---------------------------------------------------------
 * extension contains $sd-interpreter-required named interpreter-required 0..1
 * extension[nzCitizen] ^short = "Is this person a New Zealand citizen"
+
+// ---------------------------------------------------------
+// Cardinality tightening
+// ---------------------------------------------------------
 * active 0..1
-// If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
-// which (per the spec https://www.hl7.org/fhir/formats.html#choice) must resolve into only one of the options. The deceased[x]
-// element also has a cardinality of one. The upshot of all of this is that a valid FHIR Patient resource can have either a
-// deceasedBoolean or a deceasedDateTime but not both. The “correct” behaviour for receiving an invalid FHIR resource is undefined,
-// but this is implementation specific.
-// Therefore no * deceasedDateTime 0..0
-* deceasedBoolean 0..0
 * photo 0..0
 * communication 0..0
 * managingOrganization 0..0
@@ -24,13 +31,29 @@ RuleSet: CommonPatientConstraints
 * contained 0..0
 * implicitRules 0..0
 * language 0..0
+// If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
+// which (per the spec https://www.hl7.org/fhir/formats.html#choice) must resolve into only one of the options. The deceased[x]
+// element also has a cardinality of one. The upshot of all of this is that a valid FHIR Patient resource can have either a
+// deceasedBoolean or a deceasedDateTime but not both. The “correct” behaviour for receiving an invalid FHIR resource is undefined,
+// but this is implementation specific.
+// Therefore no * deceasedDateTime 0..0
+* deceasedBoolean 0..0
 
 Profile: DHOPatient
 Parent: NzPatient
-Title: "Dunedin Hospital Outpatient Get Patient Profile"
+Title: "Dunedin Hospital Outpatient Patient Profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
+* ^version = "1.0.1"
 * ^purpose = "Dunedin Hospital outpatient profile"
+
+// ---------------------------------------------------------
+// Inserts
+// ---------------------------------------------------------
 * insert CommonPatientConstraints
+
+// ---------------------------------------------------------
+// Cardinality tightening
+// ---------------------------------------------------------
 * name 1..* MS
   * use 1..1 MS
     * ^short = "one of: usual / old"
@@ -52,12 +75,6 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 * gender 1..1 MS
 * extension[sex-at-birth].valueCodeableConcept from $vs-administrative-gender
 * birthDate 1..1 MS
-// If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
-// which (per the spec https://www.hl7.org/fhir/formats.html#choice) must resolve into only one of the options. The deceased[x]
-// element also has a cardinality of one. The upshot of all of this is that a valid FHIR Patient resource can have either a
-// deceasedBoolean or a deceasedDateTime but not both. The “correct” behaviour for receiving an invalid FHIR resource is undefined,
-// but this is implementation specific.
-// Therefore no * deceasedDateTime 0..0
 * deceasedBoolean 0..0
 * address 0..* MS
   * extension[domicile-code] 0..1 MS
@@ -108,14 +125,27 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * organization 0..0
   * period 0..1 MS
   * id 0..0
-* generalPractitioner only Reference(NzOrganization or NzPractitioner or NzPractitionerRole)
 * extension[ethnicity] 0..*
+
+// ---------------------------------------------------------
+// Reference constraints
+// ---------------------------------------------------------
+* generalPractitioner only Reference(NzOrganization or NzPractitioner or NzPractitionerRole)
 
 Profile: DHOPatientUpdate
 Parent: NzPatient
 Title: "Dunedin Hospital Outpatient Update profile"
 Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the DH outpatients context."
+* ^version = "1.0.1"
+
+// ---------------------------------------------------------
+// Inserts
+// ---------------------------------------------------------
 * insert CommonPatientConstraints
+
+// ---------------------------------------------------------
+// Cardinality tightening
+// ---------------------------------------------------------
 * name 0..0
 * telecom 1..* MS
   * extension[cp-purpose] 0..0

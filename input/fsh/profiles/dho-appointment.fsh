@@ -2,13 +2,19 @@ Profile: DHOAppointment
 Parent: Appointment
 Title: "Dunedin Hospital Outpatient Appointment Profile"
 Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R4B/appointment.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the NZ context."
-* ^version = "0.0.1"
+* ^version = "1.0.1"
 * ^purpose = "This profile is used to represent outpatient appointments in Dunedin."
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
+// ---------------------------------------------------------
+// Inserts
+// ---------------------------------------------------------
 * insert DHODerivedMetaDataRules
 
+// ---------------------------------------------------------
+// Cardinality tightening
+// ---------------------------------------------------------
 * identifier 0..*
   * use 0..1 MS
   * system 0..1 MS
@@ -16,7 +22,6 @@ Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R
   * period 0..0
   * assigner 0..1
   * id 0..0
-* identifier ^short = "External (provider) and Health NZ business identifiers"
 * status 1..1
 * cancelationReason 0..1
 * serviceCategory 0..*
@@ -37,8 +42,17 @@ Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R
 * patientInstruction 0..1
 * basedOn 0..*
 * participant 1..*
-* participant.actor only Reference(NzPatient or NzPractitioner or NzPractitionerRole or NzHealthcareService or NzLocation or RelatedPerson or Device)
 * participant.required 0..1
 * participant.status 1..1 MS
 * participant.period 0..1
 * requestedPeriod 0..*
+
+// ---------------------------------------------------------
+// Reference constraints
+// ---------------------------------------------------------
+* participant.actor only Reference(NzPatient or NzPractitioner or NzPractitionerRole or NzHealthcareService or NzLocation or RelatedPerson or Device)
+
+// --------------------------------------------------------
+// Short Descriptions
+// --------------------------------------------------------
+* identifier ^short = "External (provider) and Health NZ business identifiers"

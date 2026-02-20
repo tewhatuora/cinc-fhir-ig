@@ -1,21 +1,37 @@
 Profile: DHOCondition
 Parent: Condition
-Description: "Condition FHIR resource for Dunedin Outpatients"
-* ^version = "0.1.3"
-// elements modified'
-* subject only Reference(Patient)
+Description: "This profile derives from the Condition Resource for Dunedin Outpatients"
+* ^version = "1.0.1"
+* ^purpose = "This profile is used to represent outpatient conditions for Dunedin Hospital Outpatients."
+* ^status = #draft
+* ^jurisdiction = urn:iso:std:iso:3166#NZ
+
+// ---------------------------------------------------------
+// Inserts
+// ---------------------------------------------------------
+* insert DHOProfilePatient(subject)
+
+// ---------------------------------------------------------
+// Constraints
+// ---------------------------------------------------------
 * onset[x] only dateTime
-* onsetDateTime ^short = "Must be in UTC timezone on the FHIR server"
 * abatement[x] only dateTime
-* abatementDateTime ^short = "Must be in UTC timezone on the FHIR server"
 * recorder only Reference(Practitioner)
-// elements prohibited
+
+// --------------------------------------------------------
+// Short descriptions
+// --------------------------------------------------------
+* onsetDateTime ^short = "Must be in UTC timezone on the FHIR server"
+* abatementDateTime ^short = "Must be in UTC timezone on the FHIR server"
+
+// ---------------------------------------------------------
+// Cardinality tightening
+// ---------------------------------------------------------
 * asserter 0..0
 * bodySite 0..0
 * contained 0..0
 * encounter 0..0
 * evidence 0..0
-//* extension 0..0    v0.1.3 relief from prohibition of CarePlan extension
 * identifier 0..0
 * implicitRules 0..0
 * language 0..0

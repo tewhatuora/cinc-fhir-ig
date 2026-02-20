@@ -113,9 +113,45 @@ Severity: #error
 Expression: "system = 'https://standards.digital.health.nz/ns/hpi-person-id' implies value.matches('^[0-9]{2}[A-Za-z]{4}$')"
 
 Invariant: DHOallowedLocalIdentifierSystems
-Description: "Identifier system must be HPI facility, HPI Organisation, HPI CPN or NZBN"
+Description: "Identifier system must be HPI facility, NHO, NZBN, HPI Organisation, HPI Person, HPI Practitioner or NZHIS Facility ID (Legacy)"
 Severity: #error
-Expression: "$this = 'https://standards.digital.health.nz/ns/hpi-organisation-id' or $this = 'https://standards.digital.health.nz/ns/hpi-nzbn' or $this = 'https://standards.digital.health.nz/ns/hpi-facility-id' or $this = 'https://standards.digital.health.nz/ns/hpi-person-id'"
+// note nzhis-facility-id is a legacy system which is still commonly used.
+Expression: "
+$this = 'https://standards.digital.health.nz/ns/hpi-facility-id' or
+$this = 'https://standards.digital.health.nz/ns/nhi-id' or
+$this = 'https://standards.digital.health.nz/ns/hpi-nzbn' or
+$this = 'https://standards.digital.health.nz/ns/hpi-organisation-id' or
+$this = 'https://standards.digital.health.nz/ns/hpi-person-id' or
+$this = 'https://standards.digital.health.nz/ns/hpi-practitioner-id' or
+$this = 'https://standards.digital.health.nz/ns/nzhis-facility-id'
+"
+
+/* ------------------------------------------------------------------------------------------------------
+ * Complete list from Health Information Standards Organization which is included as part of NZ FHIR Base
+ * ------------------------------------------------------------------------------------------------------
+ * $this = 'https://standards.digital.health.nz/ns/chiropractic-board-id'
+ * $this = 'https://standards.digital.health.nz/ns/dental-council-id'
+ * $this = 'https://standards.digital.health.nz/ns/dietitians-board-id'
+ * $this = 'https://standards.digital.health.nz/ns/hpi-facility-id'
+ * $this = 'https://standards.digital.health.nz/ns/hpi-organisation-id'
+ * $this = 'https://standards.digital.health.nz/ns/hpi-practitioner-role-id'
+ * $this = 'https://standards.digital.health.nz/ns/hpi-person-id'
+ * $this = 'https://standards.digital.health.nz/ns/medical-council-id'
+ * $this = 'https://standards.digital.health.nz/ns/medical-sciences-council-id'
+ * $this = 'https://standards.digital.health.nz/ns/medical-radiation-technologists-board-id'
+ * $this = 'https://standards.digital.health.nz/ns/midwifery-council-id'
+ * $this = 'https://standards.digital.health.nz/ns/hpi-nzbn'
+ * $this = 'https://standards.digital.health.nz/ns/nhi-id'
+ * $this = 'https://standards.digital.health.nz/ns/nursing-council-id'
+ * $this = 'https://standards.digital.health.nz/ns/occupational-therapy-board-id'
+ * $this = 'https://standards.digital.health.nz/ns/optometrists-dispensing-opticians-board-id'
+ * $this = 'https://standards.digital.health.nz/ns/osteopathic-council-id'
+ * $this = 'https://standards.digital.health.nz/ns/pharmacy-council-id'
+ * $this = 'https://standards.digital.health.nz/ns/physiotherapy-board-id'
+ * $this = 'https://standards.digital.health.nz/ns/podiatrists-board-id'
+ * $this = 'https://standards.digital.health.nz/ns/psychologists-board-id'
+ * $this = 'https://standards.digital.health.nz/ns/psychotherapists-board-id'
+*/
 
 // --- AppointmentResponse Rules ---
 Invariant: DHOparticipantType-or-actor
