@@ -298,7 +298,8 @@ Usage: #definition
 
 * rest.resource[+].type = #Encounter
 * rest.resource[=].supportedProfile[0] = Canonical(ManaakiNgaTahiEncounter)
-* rest.resource[=].supportedProfile[+] = Canonical(SharedCareEncounter)
+* rest.resource[=].supportedProfile[+] = Canonical(OnlineGPEncounter)
+* rest.resource[=].supportedProfile[+] = Canonical(UrgentCareEncounter)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounter)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterCreate)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterUpdate)

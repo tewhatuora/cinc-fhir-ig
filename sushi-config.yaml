@@ -406,14 +406,19 @@ groups:
     - SharedCareClaim
     - SharedCareClaimResponse
     - SharedCareAppointment
-    - SharedCareEncounter
+    - OnlineGPEncounter
+    - UrgentCareEncounter
   ClaimExamples:
     name: Examples of Resources used for PCTAP automation of operational reporting and payments
     resources:
     - NzTelehealthClaimResponseExample
     - NzTelehealthClaimExample
     - NzTelehealthAppointmentExample
-    - NzTelehealthEncounterExample
+    - NzGpOnlineEncounterExample
+
+# Resources configuration
+resources:
+  ViewDefinition/RemoteMonitoringViewDefinition: omit
 
 #
 # The ImplementationGuide resource defines several other properties
