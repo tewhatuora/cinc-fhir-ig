@@ -17,7 +17,7 @@ Description: "This profile derives from the [AppointmentResponse](https://hl7.or
 // Cardinality tightening
 // ---------------------------------------------------------
 * appointment 1..1 MS
-* participantType 1..* MS
+* participantType 1..1 MS
 * participantStatus 1..1 MS
 * comment 0..0
 * start 0..0
