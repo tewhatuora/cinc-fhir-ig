@@ -105,12 +105,12 @@ Key information (for update):
 |-----------------------|-----------------------------|
 | Patient.identifier    | patient's NHI               |
 | Patient.status        | 'finished'                  |
-| Patent.telecom.system | 'phone'                     |
-| Patent.telecom.use    | 'home'                      |
-| Patent.telecom.value  | patient's phone number      |
-| Patent.telecom.system | 'email'                     |
-| Patent.telecom.use    | 'home'                      |
-| Patent.telecom.value  | patient's email address     |
+| Patient.telecom.system | 'phone'                     |
+| Patient.telecom.use    | 'home'                      |
+| Patient.telecom.value  | patient's phone number      |
+| Patient.telecom.system | 'email'                     |
+| Patient.telecom.use    | 'home'                      |
+| Patient.telecom.value  | patient's email address     |
 
 see [Patient Response example](/Patient-DHO-outpatient-instance.json.html)
 
