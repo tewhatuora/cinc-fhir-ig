@@ -41,7 +41,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 // * provider.identifier.value = "9876543210123"
 
 * item[+].sequence = 1
-* item[=].encounter[+].reference = "Encounter/NzTelehealthEncounterExample"
+* item[=].encounter[+].reference = "Encounter/NzGpOnlineEncounterExample"
 * item[=].productOrService.coding.system = "https://standards.digital.health.nz/ns/purchase-unit"
 * item[=].productOrService.coding.code = #PU1234
 * item[=].servicedPeriod.start = "2025-01-01T10:00:00+13:00"

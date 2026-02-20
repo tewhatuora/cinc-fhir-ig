@@ -81,3 +81,12 @@ Context: Claim
 // Expression: "matches('^AGR-[0-9]{4}-[0-9]{3}(-v[0-9]+)?$')"
 // Severity: #error
 
+
+Extension: SharedCareDiagnosisCode
+Id: shared-care-diagnosis-code
+Title: "Shared Care Diagnosis Code"
+Description: "Diagnosis code for operational reporting using SNOMED CT codes instead of referencing clinical Condition resources"
+Context: Encounter
+* value[x] only CodeableConcept
+* valueCodeableConcept from http://hl7.org/fhir/ValueSet/condition-code (example)
+* valueCodeableConcept ^short = "Diagnosis code (preferably SNOMED CT)"

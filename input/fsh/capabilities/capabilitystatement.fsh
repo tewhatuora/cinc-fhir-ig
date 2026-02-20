@@ -298,7 +298,8 @@ Usage: #definition
 
 * rest.resource[+].type = #Encounter
 * rest.resource[=].supportedProfile[0] = Canonical(ManaakiNgaTahiEncounter)
-* rest.resource[=].supportedProfile[+] = Canonical(SharedCareEncounter)
+* rest.resource[=].supportedProfile[+] = Canonical(OnlineGPEncounter)
+* rest.resource[=].supportedProfile[+] = Canonical(UrgentCareEncounter)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounter)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterCreate)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterUpdate)
@@ -766,8 +767,59 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].searchRevInclude = "*"
 
+* rest.resource[+].type = #MedicationDispense
+* rest.resource[=].supportedProfile = Canonical(NzPharmacyMedicationDispense)
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/medications-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[+].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[+].name = "prescription"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/MedicationDispense-prescription"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[+].name = "whenhandedover"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/MedicationDispense-whenhandedover"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[+].name = "whenprepared"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/MedicationDispense-whenprepared"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[+].name = "_id"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest.resource[=].searchParam[=].type = #token
+
+* rest.resource[+].type = #MedicationRequest
+* rest.resource[=].supportedProfile = Canonical(NzPharmacyMedicationRequest)
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/medications-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[+].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[+].name = "subject"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/MedicationRequest-subject"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[+].name = "requester"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/MedicationRequest-requester"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[+].name = "authoredon"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/MedicationRequest-authoredon"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[+].name = "_id"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest.resource[=].searchParam[=].type = #token
+
 * rest.resource[+].type = #Claim
-* rest.resource[=].supportedProfile = Canonical(SharedCareClaim)
+* rest.resource[=].supportedProfile[+] = Canonical(SharedCareClaim)
+* rest.resource[=].supportedProfile[+] = Canonical(NzPharmacyClaim)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
@@ -792,7 +844,8 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #token
 
 * rest.resource[+].type = #ClaimResponse
-* rest.resource[=].supportedProfile = Canonical(SharedCareClaimResponse)
+* rest.resource[=].supportedProfile[+] = Canonical(SharedCareClaimResponse)
+* rest.resource[=].supportedProfile[+] = Canonical(NzPharmacyClaimResponse)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[0].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/ClaimResponse-identifier"
