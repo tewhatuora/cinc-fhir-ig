@@ -5,10 +5,9 @@ Usage: #example
 * id = "dho-outpatient-encounter-create-instance"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOEncounterCreate"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
 * status = #arrived
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB "Ambulatory"

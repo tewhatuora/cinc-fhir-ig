@@ -22,10 +22,9 @@ Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 
 * meta.lastUpdated = "2025-11-11T02:29:24.844Z"
 * meta.versionId = "2"
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointment"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked
@@ -67,18 +66,15 @@ Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 * start = "2025-09-03T02:30:35Z"
 * end = "2025-09-03T03:30:35Z"
 
-
 Instance: DHOUnstructuredAppointmentExample
 InstanceOf: DHOAppointment
 Usage: #example
 Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
-
 * meta.lastUpdated = "2025-11-11T02:29:24.844Z"
 * meta.versionId = "2"
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointment"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
 * identifier.value = "#fbdb8d66-1390-22c7-89a6-a9a75d65d3e6"
 * status = #booked

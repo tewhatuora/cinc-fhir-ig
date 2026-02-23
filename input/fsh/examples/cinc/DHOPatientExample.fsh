@@ -8,8 +8,7 @@ Usage: #example
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.0.1"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
@@ -94,7 +93,6 @@ Usage: #example
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
 
-
 Instance: DHOPatientUpdateExample
 InstanceOf: DHOPatientUpdate
 Usage: #example
@@ -105,8 +103,7 @@ Description: "An example Dunedin Hospital Outpatient Update demographics (phone 
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatientUpdate"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
 * identifier insert NHIIdentifier(ZXP7823)
 * telecom[+].system = #phone
