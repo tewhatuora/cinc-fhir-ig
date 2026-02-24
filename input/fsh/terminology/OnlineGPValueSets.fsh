@@ -34,3 +34,4 @@ Description: "Allowed discharge disposition codes for Online GP encounters in Ne
 * http://snomed.info/sct#306344004 "Referral to professional allied to medicine"
 * http://snomed.info/sct#566291000210102 "Out of scope for telehealth"
 * http://snomed.info/sct#185324002 "Failed encounter"
+* http://snomed.info/sct#185324002 "Did not Attend"
