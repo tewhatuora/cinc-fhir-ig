@@ -5,11 +5,12 @@ Title: "NZ Telehealth Claim Example"
 Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
+* meta.profile = "https://fhir.org.nz/ig/tewhatuora/sharedcare/StructureDefinition/SharedCareClaim"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
 
 * identifier[+].use = #official
-* identifier[=].system = "https://standards.digital.health.nz/ns/claim-identifier"
+* identifier[=].system = "https://provider-org-name.co.nz/ns/claim-identifier"
 * identifier[=].value = "C123456"
 
 * status = #active
@@ -22,14 +23,13 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * created = "2025-01-01T00:00:00+13:00"
 
-* billablePeriod.start = "2025-01-01"
-* billablePeriod.end = "2025-01-01"
+* billablePeriod.start = "2025-01-01T00:00:00+13:00"
+* billablePeriod.end = "2025-01-02T00:00:00+13:00"
 
 // * patient.reference = "Patient/ZZZ0008"
 * patient.type = "Patient"
 * patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * patient.identifier.value = "ZZZ0008"
-* patient.display = "Mr Test Patient | Male | 2001-01-01"
 
 // * provider.reference = "Organization/GZZ999-9"
 * provider.type = "Organization"
@@ -43,7 +43,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 * item[+].sequence = 1
 * item[=].encounter[+].reference = "Encounter/NzGpOnlineEncounterExample"
 * item[=].productOrService.coding.system = "https://standards.digital.health.nz/ns/purchase-unit"
-* item[=].productOrService.coding.code = #PU1234
+* item[=].productOrService.coding.code = #COGP0068
 * item[=].servicedPeriod.start = "2025-01-01T10:00:00+13:00"
 * item[=].servicedPeriod.end = "2025-01-01T10:17:00+13:00"
 * item[=].locationReference.type = "Location"
@@ -62,7 +62,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 //In 4B Required fields, but not utilized in the example
 * priority.coding.system = "http://terminology.hl7.org/CodeSystem/processpriority" 
 * priority.coding.code = #normal
-* insurance.coverage.identifier.system = "https://standards.digital.health.nz/ns/coverage-identifier"
-* insurance.coverage.identifier.value = "INC123456"
 * insurance.focal = false
 * insurance.sequence = 1
+* insurance.coverage.extension[0].url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* insurance.coverage.extension[0].valueCode = #not-applicable
