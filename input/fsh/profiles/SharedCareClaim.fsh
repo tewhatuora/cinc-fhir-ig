@@ -87,6 +87,7 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * item.detail 0..*
 * item.detail.unitPrice 0..0
 * item.detail.net 0..0
+* item.detail.subDetail 0..*
 * item.detail.subDetail.unitPrice 0..0
 * item.detail.subDetail.net 0..0
 
