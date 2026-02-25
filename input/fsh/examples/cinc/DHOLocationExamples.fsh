@@ -1,7 +1,7 @@
 Instance: DHOLocationInternalExample
 InstanceOf: DHOLocation
 Usage: #example
-Title: "Dunedin Hospital Internal Clinic Example"
+Title: "An example Dunedin Hospital Outpatient Internal Clinic"
 Description: "An internal location within Dunedin Hospital, with required area code and parent location."
 
 * id = "DHO-location-internal-instance"
@@ -36,7 +36,7 @@ Description: "An internal location within Dunedin Hospital, with required area c
 Instance: DHOLocationPatientHomeExample
 InstanceOf: DHOLocation
 Usage: #example
-Title: "Patient Home Location Example"
+Title: "An example Dunedin Hospital Outpatient patient home location"
 Description: "A patient's home used as a location for telehealth or home visits."
 
 * id = "DHO-location-home-instance"
@@ -68,7 +68,7 @@ Instance: DHOLocationExternalExample
 InstanceOf: DHOLocation
 Usage: #example
 Title: "External Facility Example"
-Description: "An external facility (e.g., a community clinic) not directly managed by DHO."
+Description: "An example Dunedin Hospital Outpatient external facility (e.g., a community clinic) not directly managed by DHO."
 
 * id = "DHO-location-external-instance"
 * meta.versionId = "1"
@@ -99,7 +99,7 @@ Description: "An external facility (e.g., a community clinic) not directly manag
 Instance: DHOLocationOutreachExample
 InstanceOf: DHOLocation
 Usage: #example
-Title: "Outreach Example"
+Title: "An example Dunedin Hospital Outpatient outreach"
 Description: "Location demonstrating the DHOOutreach extension."
 
 * id = "DHO-location-outreach-instance"

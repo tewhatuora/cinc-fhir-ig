@@ -353,6 +353,10 @@ groups:
       - DHOEncounterCreateExample
       - DHOEncounterUpdateExample
       - DHODrDottyMcStuffins
+      - DHOLocationInternalExample
+      - DHOLocationPatientHomeExample
+      - DHOLocationExternalExample
+      - DHOLocationOutreachExample
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:
