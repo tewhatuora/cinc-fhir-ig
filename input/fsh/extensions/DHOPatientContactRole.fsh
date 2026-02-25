@@ -1,4 +1,4 @@
-Extension: PatientContactRole
+Extension: DHOPatientContactRole
 Id: hnz-patient-contact-role-extension-id
 Title: "HNZ Patient Contact Role"
 Context: Patient.contact

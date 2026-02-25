@@ -12,10 +12,9 @@ Description: "An example Dunedin Hospital Outpatient Condition"
 * severity = http://snomed.info/sct#6736007 "Moderate severity"
 * code = http://snomed.info/sct#840539006 "COVID-19"
 * code.text = "COVID-19"
-
-* subject = Reference(CareyCarrington) "Carey Carrington"
+* subject.identifier insert NHIIdentifier(ZXP7823)
+* subject.display = "Carey Carrington"
 * subject.type = "Patient"
-
 * onsetDateTime = "2022-09-20"
 * recordedDate = "2022-09-20"
 * recorder.type = "Practitioner"
