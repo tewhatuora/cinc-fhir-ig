@@ -159,7 +159,6 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * value 1..1 MS
   * use 1..1 MS
   * rank 0..1
-//  * extension 0..0
   * id 0..0
 * birthDate 0..0
 * address 0..0
