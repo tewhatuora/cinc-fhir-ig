@@ -2,12 +2,15 @@ CodeSystem: DHOLocationOutreach
 Id: DHOLocationOutreach
 Title: "DHOLocation Outreach Type"
 Description: "Indicates whether this location is fixed or part of an outreach program."
+* ^caseSensitive = true
+* ^experimental = false
 * #fixed "Fixed site location"
 * #outreach "Outreach / mobile location"
 
 ValueSet: DHOLocationOutreachVS
 Id: DHOLocationOutreachVS
 Title: "Allowed outreach types for DHOLocation"
+Description: "Allowed outreach types for DHOLocation (fixed site or outreach/mobile location)"
 * include codes from system DHOLocationOutreach
 
 Extension: DHOOutreach
