@@ -6,7 +6,6 @@ Severity: #error
 
 RuleSet: NzDerivedMetaDataRules
 * meta 1..1
-* meta.profile 1..*
 
 * meta.tag ^slicing.discriminator.type = #value
 * meta.tag ^slicing.discriminator.path = "system"

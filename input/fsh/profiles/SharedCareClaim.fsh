@@ -11,6 +11,8 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 
 * insert NzDerivedMetaDataRules
 
+* meta.profile 1..1
+
 * contained 0..0
 
 * insert ProfilePatient(patient)
