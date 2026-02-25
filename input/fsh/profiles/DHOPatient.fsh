@@ -152,7 +152,6 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * extension contains DHOTelecomNotification named notification-enabled 0..1 MS
   * extension[notification-enabled] ^short = "True if notifications can be sent to this email or SMS address"
   * extension[cp-purpose] 0..0
-  * extension[notification-enabled] MS
   * period 0..0
   * system 1..1 MS
   * value 1..1 MS
