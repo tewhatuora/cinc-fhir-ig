@@ -1,15 +1,15 @@
-Instance: NzTelehealthAppointmentExample
-InstanceOf: SharedCareAppointment
+Instance: UrgentCareAppointmentExample
+InstanceOf: UrgentCareAppointment
 Usage: #example
-Title: "NZ Telehealth Appointment Example"
-Description: "Example of a telehealth appointment for 24/7 telehealth services"
+Title: "Urgent Care Appointment Example"
+Description: "Example of appointment for Urgent Care Services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 * identifier.use = #official
-* identifier.system = "https://standards.digital.health.nz/ns/appointment-identifier"
+* identifier.system = "https://provider-org-name.co.nz/ns/appointment-identifier"
 * identifier.value = "APT123456"
 
 * status = #fulfilled

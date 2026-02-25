@@ -53,7 +53,7 @@ Description: """A FHIR resource profile for operational reporting of Online GP e
 * participant.period 0..1
 
 * appointment 0..*
-* appointment only Reference(SharedCareAppointment)
+* appointment only Reference(OnlineGPAppointment)
 
 * reasonCode 0..0
 

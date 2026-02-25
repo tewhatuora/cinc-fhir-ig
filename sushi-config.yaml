@@ -405,7 +405,8 @@ groups:
     resources:
     - SharedCareClaim
     - SharedCareClaimResponse
-    - SharedCareAppointment
+    - OnlineGPAppointment
+    - UrgentCareAppointment
     - OnlineGPEncounter
     - UrgentCareEncounter
   ClaimExamples:
@@ -413,7 +414,8 @@ groups:
     resources:
     - NzTelehealthClaimResponseExample
     - NzTelehealthClaimExample
-    - NzTelehealthAppointmentExample
+    - OnlineGPAppointmentExample
+    - UrgentCareAppointmentExample
     - NzGpOnlineEncounterExample
 
 # Resources configuration
