@@ -72,7 +72,6 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * system 1..1 MS
   * value 1..1 MS
   * rank 0..1
-//  * extension 0..0
   * id 0..0
 * birthDate 1..1 MS
 * deceasedBoolean 0..0
