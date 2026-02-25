@@ -2,7 +2,7 @@ Profile: DHOAppointmentResponse
 Parent: AppointmentResponse
 Id: DHOAppointmentResponse
 Title: "DHO Appointment Response Profile"
-Description: "This profile derives from the [AppointmentResponse](https://hl7.org/fhir/R4B/appointmentresponse.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the Dunedin Hospital Outpatients context."
+Description: "This profile derives from the [AppointmentResponse](https://hl7.org/fhir/R4B/appointmentresponse.html) Resource for use in the Dunedin Hospital Outpatients context."
 * ^version = "1.0.2"
 * ^purpose = "Dunedin Hospital Outpatient AppointmentResponse profile"
 
