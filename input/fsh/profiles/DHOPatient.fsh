@@ -71,6 +71,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * period 0..0
   * system 1..1 MS
   * value 1..1 MS
+  * use 1..1 MS
   * rank 0..1
   * id 0..0
 * birthDate 1..1 MS
