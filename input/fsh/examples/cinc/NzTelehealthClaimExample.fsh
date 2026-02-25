@@ -5,7 +5,6 @@ Title: "NZ Telehealth Claim Example"
 Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
-* meta.profile = "https://fhir.org.nz/ig/tewhatuora/sharedcare/StructureDefinition/SharedCareClaim"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
 
