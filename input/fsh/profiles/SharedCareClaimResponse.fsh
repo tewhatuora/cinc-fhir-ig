@@ -15,6 +15,11 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 
 * insert NzDerivedMetaDataRules
 
+* meta 1..1
+* meta.profile 1..1
+
+* contained 0..0
+
 * request 1..1
 * request only Reference(SharedCareClaim)
 * request ^short = "Reference to the Claim that was determined"
@@ -33,7 +38,7 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * type 1..1
 * type from NzClaimTypes (extensible)
 
-* subType 0..1
+* subType 1..1
 * subType from NzClaimSubtypes (extensible)
 
 * created 1..1
