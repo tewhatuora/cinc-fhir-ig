@@ -72,7 +72,7 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * item.productOrService ^comment = "Use actual PU codes (e.g., COGP0068) and align servicedPeriod with the code for realistic examples"
 
 // * item.servicedPeriod 1..1
-// * item.serviced[x] 1..1
+* item.serviced[x] 1..1
 * item.serviced[x] only Period
 * item.serviced[x] ^short = "When the claimed event started and ended"
 * item.serviced[x] ^comment = "This may determine the applicable fee that should have been charged and possibly the PU code that applies"
