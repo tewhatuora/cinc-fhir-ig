@@ -7,13 +7,18 @@ Description: """A FHIR resource profile describing the outcome of NZ generic pay
 Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer are compulsory fields, but not utilized in the telehealth implementation.
       item.adjudication.quantity R5 is item.adjudication.value in R4B.
 """
-* ^version = "1.0.0"
+* ^version = "1.0.1"
 * ^purpose = "A FHIR resource profile describing the outcome of NZ generic payment claims"
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 
 * insert NzDerivedMetaDataRules
+
+* meta 1..1
+* meta.profile 1..1
+
+* contained 0..0
 
 * request 1..1
 * request only Reference(SharedCareClaim)
@@ -33,7 +38,7 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * type 1..1
 * type from NzClaimTypes (extensible)
 
-* subType 0..1
+* subType 1..1
 * subType from NzClaimSubtypes (extensible)
 
 * created 1..1
