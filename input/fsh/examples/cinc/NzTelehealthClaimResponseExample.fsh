@@ -10,7 +10,7 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 
 * identifier[0].use = #official
 * identifier[0].system = "https://standards.digital.health.nz/ns/claim-response-identifier"
-* identifier[0].value = "CR12345"
+* identifier[0].value = "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
 
 * status = #active
 
@@ -24,31 +24,35 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 * patient.type = "Patient"
 * patient.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * patient.identifier.value = "ZZZ0008"
-* patient.display = "Mr Test Patient | Male | 2001-01-01"
 
-* created = "2025-01-01T00:00:00-00:00"
+* created = "2025-01-15T10:30:00-00:00"
 
 * outcome = http://hl7.org/fhir/remittance-outcome#complete
 
 * request = Reference(NzTelehealthClaimExample)
 
-// * requestor.reference = "Organisation/GZZ999-9"
-// * requestor.type = "Organisation"
-// * requestor.identifier.use = #primary
-// * requestor.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-// * requestor.identifier.value = "GZZ999-9"
-// * requestor.identifier.use = #secondary
-// * requestor.identifier.system = "https://standards.digital.health.nz/ns/hpi-nzbn"
-// * requestor.identifier.value = "9876543210123"
+* requestor.type = "Organization"
+* requestor.identifier.use = #official
+* requestor.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
+* requestor.identifier.value = "GZZ999-J"
 
 * item[+].itemSequence = 1
+* item[=].extension[traceNumber].valueIdentifier.system = "https://standards.digital.health.nz/ns/claim-response-item-identifier"
+* item[=].extension[traceNumber].valueIdentifier.value = "cd7b6e0d-c554-4786-a52d-3efd1c187c1a"
 * item[=].extension[productOrService].valueCodeableConcept.coding[+].system = "https://standards.digital.health.nz/ns/purchase-unit"
-* item[=].extension[productOrService].valueCodeableConcept.coding[=].code = #PU1234
+* item[=].extension[productOrService].valueCodeableConcept.coding[=].code = #COGP0068
+* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[+].system = "http://terminology.hl7.org/CodeSystem/remittance-outcome"
+* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[=].code = #complete
+* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[=].display = "approved"
+* item[=].extension[reviewOutcome].extension[reason][+].valueCodeableConcept.coding[+].system = "https://standards.digital.health.nz/ns/determination-rule-id"
+* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].code = #DET015.001
+* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].display = "passed"
+* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.text = "Patient eligibility confirmed"
 
 * item[=].adjudication[+].category.coding[+].system = "http://terminology.hl7.org/CodeSystem/adjudication"
 * item[=].adjudication[=].category.coding[=].code = #benefit
 * item[=].adjudication[=].reason.coding[+].system = "https://standards.digital.health.nz/ns/adjudication-reason-code"
-* item[=].adjudication[=].reason.coding[=].code = #ar1234
+* item[=].adjudication[=].reason.coding[=].code = #policy
 * item[=].adjudication[=].amount.value = 100.00
 * item[=].adjudication[=].amount.currency = #NZD
 * item[=].adjudication[=].value = 1
@@ -67,5 +71,10 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 //In 4B Required fields, but not utilized in the example
 // * insurer.reference = "Organization/GZZ000-1"
 * insurer.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-* insurer.identifier.value = "n/a"
+* insurer.identifier.value = "G0K357-H"
 * insurer.type = "Organization"
+
+* error[+].code.coding[+].system = "http://terminology.hl7.org/CodeSystem/adjudication-error"
+* error[=].code.coding[=].code = #a001
+* error[=].code.coding[=].display = "Invalid claim"
+* error[=].code.text = "Claim validation failed: Missing required service date"

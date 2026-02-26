@@ -80,7 +80,8 @@ Usage: #definition
 
 * rest.resource[+].type = #Appointment
 * rest.resource[=].supportedProfile[+] = Canonical(Appointment)
-* rest.resource[=].supportedProfile[+] = Canonical(SharedCareAppointment)
+* rest.resource[=].supportedProfile[+] = Canonical(OnlineGPAppointment)
+* rest.resource[=].supportedProfile[+] = Canonical(UrgentCareAppointment)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOAppointment)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"

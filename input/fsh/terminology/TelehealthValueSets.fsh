@@ -1,12 +1,12 @@
 // Value Sets for Claim system
 ValueSet: NzAppointmentReasonCodes
-Id: nz-appointment-reason-codes
+Id: nz-onlinegp-appointment-reason-codes
 Title: "NZ Appointment Reason Codes Code System"
 Description: "Code system for NZ appointment reason codes"
 * ^status = #draft
 * $sct#266934004 "Transport problem (finding)"
 
-* include codes from system nz-appointment-reason-codes-cs
+* include codes from system nz-onlinegp-appointment-reason-codes-cs
 
 ValueSet: NzClaimTypes
 Id: nz-claim-types

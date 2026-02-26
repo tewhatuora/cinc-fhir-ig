@@ -5,7 +5,7 @@ ValueSet: OnlineGPParticipantType
 Id: onlinegp-participant-type
 Title: "Online GP Participant Type"
 Description: "Allowed participant types for Online GP encounters in New Zealand"
-* ^version = "1.0.0"
+* ^version = "1.0.2"
 * ^status = #active
 * ^experimental = false
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -34,3 +34,4 @@ Description: "Allowed discharge disposition codes for Online GP encounters in Ne
 * http://snomed.info/sct#306344004 "Referral to professional allied to medicine"
 * http://snomed.info/sct#566291000210102 "Out of scope for telehealth"
 * http://snomed.info/sct#185324002 "Failed encounter"
+* http://snomed.info/sct#410543007 "Did not Attend"

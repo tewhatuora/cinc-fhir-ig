@@ -9,7 +9,7 @@
 // * #pharmacy "Pharmacy" "Pharmacy claims for goods & services"
 // * #oral "Oral" "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
 CodeSystem: NzAppointmentReasonCodesCS
-Id: nz-appointment-reason-codes-cs
+Id: nz-onlinegp-appointment-reason-codes-cs
 Title: "NZ Appointment Reason Codes Code System"
 Description: "Code system for NZ appointment reason codes"
 * ^status = #draft

@@ -49,7 +49,7 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 * participant.period 0..1
 
 * appointment 0..*
-* appointment only Reference(SharedCareAppointment)
+* appointment only Reference(UrgentCareAppointment)
 
 * reasonCode 0..*
 
