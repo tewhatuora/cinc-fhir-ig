@@ -4,18 +4,23 @@ Id: SharedCareClaim
 Title: "NZ SharedCare Claim"
 Description: """A FHIR resource profile for NZ generic payment claims."""
 
-* ^version = "1.0.0"
+* ^version = "1.0.1"
 * ^purpose = "A FHIR resource profile for NZ generic payment claims."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 * insert NzDerivedMetaDataRules
 
+// * meta.profile 1..1
+
+// * contained 0..0
+
 * insert ProfilePatient(patient)
+* patient.display 0..0
 // Core elements
 * identifier 0..*
 * identifier ^short = "Business identifier(s) for the claim"
-* identifier ^comment = "Business identifier(s) for the claim (external and/or internal identifiers)"
+* identifier ^comment = "Business identifier(s) for the claim (external and/or internal identifiers). The system should be the practice/organisation with the PMS (e.g., https://provider-org-name.co.nz/ns/claim-identifier). The value is in the context/namespace of that system, not Health NZ. Integrators should come up with their own system."
 * identifier.system 1..1
 * identifier.value 1..1
 
@@ -37,7 +42,9 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 
 * created 1..1
 
-* billablePeriod 0..1
+* billablePeriod 1..1
+* billablePeriod ^short = "Billing period with datetime including timezone (start is inclusive, end is exclusive)"
+* billablePeriod ^comment = "The start time is inclusive, end time is exclusive. The end datetime (converted to an inclusive local date) is used as the Claim Date and/or end of the claim period."
 
 * payee 0..1
 
@@ -61,6 +68,13 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * item.encounter only Reference(Encounter)
 
 * item.productOrService 1..1  // In 4B this has to be 1..1, not 0..1
+* item.productOrService ^short = "Product or service being claimed (e.g., PU code)"
+* item.productOrService ^comment = "Use actual PU codes (e.g., COGP0068) and align servicedPeriod with the code for realistic examples"
+
+// * item.serviced[x] 1..1
+* item.serviced[x] only Period
+* item.serviced[x] ^short = "When the claimed event started and ended"
+* item.serviced[x] ^comment = "This may determine the applicable fee that should have been charged and possibly the PU code that applies"
 
 * item.locationReference 0..1
 * item.locationReference only Reference(Location)
@@ -72,6 +86,11 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * item.quantity 0..1
 
 * item.detail 0..*
+* item.detail.unitPrice 0..0
+* item.detail.net 0..0
+* item.detail.subDetail 0..*
+* item.detail.subDetail.unitPrice 0..0
+* item.detail.subDetail.net 0..0
 
 // Not used but in 4B Required fields
 * insurance 1..1

@@ -5,7 +5,7 @@ ValueSet: OnlineGPParticipantType
 Id: onlinegp-participant-type
 Title: "Online GP Participant Type"
 Description: "Allowed participant types for Online GP encounters in New Zealand"
-* ^version = "1.0.0"
+* ^version = "1.0.1"
 * ^status = #active
 * ^experimental = false
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
