@@ -38,7 +38,8 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 * requestor.identifier.value = "GZZ999-J"
 
 * item[+].itemSequence = 1
-* item[=].extension[traceNumber].valueString = "cd7b6e0d-c554-4786-a52d-3efd1c187c1a"
+* item[=].extension[traceNumber].valueIdentifier.system = "https://standards.digital.health.nz/ns/claim-response-item-identifier"
+* item[=].extension[traceNumber].valueIdentifier.value = "cd7b6e0d-c554-4786-a52d-3efd1c187c1a"
 * item[=].extension[productOrService].valueCodeableConcept.coding[+].system = "https://standards.digital.health.nz/ns/purchase-unit"
 * item[=].extension[productOrService].valueCodeableConcept.coding[=].code = #COGP0068
 * item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[+].system = "http://terminology.hl7.org/CodeSystem/remittance-outcome"
