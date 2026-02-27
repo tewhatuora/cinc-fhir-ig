@@ -4,15 +4,30 @@ Description: "Reference must be an HPI facility URL with format https://standard
 Expression: "matches('^https://standards.digital.health.nz/ns/hpi-facility-id/F[A-Za-z0-9]{2}[0-9]{3}-[A-Za-z0-9]$')"
 Severity: #error
 
-RuleSet: NzDerivedMetaDataRules
+RuleSet: PCTapDerivedMetaDataRules
 * meta 1..1
 
 * meta.tag ^slicing.discriminator.type = #value
 * meta.tag ^slicing.discriminator.path = "system"
 * meta.tag ^slicing.rules = #open
-* meta.tag contains correlationId 1..1
+* meta.tag contains 
+    providerCorrelationId 0..1 and
+    correlationId 1..1
 
+// -----------------------------
+// Provider Correlation ID
+// -----------------------------
+* meta.tag[providerCorrelationId].system 1..1
+* meta.tag[providerCorrelationId].system ^short = "Provider correlation ID system"
+* meta.tag[providerCorrelationId].system ^definition = "The system URI used by the provider to identify their correlation ID."
+* meta.tag[providerCorrelationId].code 1..1
+
+// -----------------------------
+// Hub Correlation ID
+// -----------------------------
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id" (exactly)
+* meta.tag[correlationId].system ^short = "Hub correlation ID system"
+* meta.tag[correlationId].system ^definition = "The system URI used by the hub to identify its correlation ID."
 * meta.tag[correlationId].code 1..1
 
 * meta.source 1..1
