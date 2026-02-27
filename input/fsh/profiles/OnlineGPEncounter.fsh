@@ -9,7 +9,7 @@ Description: """A FHIR resource profile for operational reporting of Online GP e
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* insert NzDerivedMetaDataRules
+* insert PCTapDerivedMetaDataRules
 
 * meta 1..1
 

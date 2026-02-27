@@ -13,7 +13,7 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 
-* insert NzDerivedMetaDataRules
+* insert PCTapDerivedMetaDataRules
 
 * meta 1..1
 * meta.profile 1..1

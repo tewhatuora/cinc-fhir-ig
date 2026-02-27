@@ -5,8 +5,11 @@ Title: "NZ GP Online Encounter Example"
 Description: "Example of an online GP encounter for 24/7 telehealth services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
+* meta.tag[providerCorrelationId].system = "https://onlinegp-provider-name.co.nz/ns/correlation-id"
+* meta.tag[providerCorrelationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 
 * identifier.use = #official
 * identifier.system = "https://onlinegp-provider-name.co.nz/ns/encounter-identifier"
