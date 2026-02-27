@@ -75,7 +75,7 @@ Usage: #example
 * contact[=].telecom[+].system = #phone
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
-* contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
+* contact[=].extension[+].url = Canonical(dho-patient-contact-role-extension-id)
 * contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#nok "Next of Kin"
 * contact[=].extension[=].valueCodeableConcept.text = "Next of Kin"
 
@@ -85,7 +85,7 @@ Usage: #example
 * contact[=].telecom[+].system = #phone
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 22 123 4567"
-* contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
+* contact[=].extension[+].url = Canonical(dho-patient-contact-role-extension-id)
 * contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#powatt "Power of Attorney"
 * contact[=].extension[=].valueCodeableConcept.text = "Power of Attorney"
 

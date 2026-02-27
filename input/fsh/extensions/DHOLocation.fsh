@@ -15,7 +15,7 @@ Description: "Allowed outreach types for DHOLocation (fixed site or outreach/mob
 
 Extension: DHOOutreach
 Id: DHOOutreach
-Title: "Outreach vs Fixed site"
+Title: "DHO Outreach vs Fixed site"
 Context: Location
 Description: "Indicates whether this location is fixed or part of an outreach program."
 * valueCodeableConcept from DHOLocationOutreachVS (required)

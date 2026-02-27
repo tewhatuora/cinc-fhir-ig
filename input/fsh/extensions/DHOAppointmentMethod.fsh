@@ -1,6 +1,6 @@
 Extension: DHOAppointmentMethod
 Id: DHOAppointmentMethod
-Title: "Appointment method"
+Title: "DHO Appointment method"
 Context: Appointment
 Description: "How the appointment is delivered (in-person, telephone, telehealth, home-visit). This is not the clinical reason for the appointment."
 * value[x] only CodeableConcept

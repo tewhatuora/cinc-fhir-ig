@@ -20,7 +20,10 @@ Description: "An internal location within Dunedin Hospital, with required area c
 * identifier[0].system = "https://standards.digital.health.nz/ns/dho-area-code"
 * identifier[=].value = "DHO-AREA-123"
 
-* address.line = "201 Great King Street"
+* address.use = #work
+* address.type = #physical
+* address.line[+] = "350 Cumberland Street"
+* address.line[+] = "Dunedin Central"
 * address.city = "Dunedin"
 * address.postalCode = "9016"
 * address.country = "NZ"
@@ -114,7 +117,7 @@ Description: "Location demonstrating the DHOOutreach extension."
 * identifier[0].system = "https://standards.digital.health.nz/ns/hpi-facility-id"
 * identifier[=].value = "F04066-D"
 * managingOrganization = Reference(DHONzOrganizationExample)
-* address.text = "123 Example Street, Dunedin"
+* address.text = "456 Example Street, Dunedin"
 
 // Use the extension (named 'outreach' in the profile)
 * extension[outreach].valueCodeableConcept = DHOLocationOutreach#outreach "Outreach / mobile location"

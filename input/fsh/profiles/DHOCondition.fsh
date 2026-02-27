@@ -1,6 +1,6 @@
 Profile: DHOCondition
 Parent: Condition
-Description: "This profile derives from the Condition Resource for Dunedin Outpatients"
+Description: "This profile derives from the [Condition](https://hl7.org/fhir/R4B/condition.html) Resource for use in the Dunedin Hospital Outpatients context."
 * ^version = "1.0.1"
 * ^purpose = "Dunedin Hospital Outpatient Conditions profile"
 
