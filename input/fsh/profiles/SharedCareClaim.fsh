@@ -9,7 +9,7 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* insert NzDerivedMetaDataRules
+* insert PCTapDerivedMetaDataRules
 
 * meta.profile 1..1
 

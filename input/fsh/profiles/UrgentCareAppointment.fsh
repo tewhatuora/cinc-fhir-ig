@@ -10,7 +10,7 @@ Description: "A FHIR resource profile for operational reporting of Urgent Care A
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 
-* insert NzDerivedMetaDataRules
+* insert PCTapDerivedMetaDataRules
 
 * identifier 0..1
 * identifier.system 1..1

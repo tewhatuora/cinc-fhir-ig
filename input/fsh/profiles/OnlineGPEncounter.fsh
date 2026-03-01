@@ -4,12 +4,12 @@ Id: OnlineGPEncounter
 Title: "Online GP Encounter"
 Description: """A FHIR resource profile for operational reporting of Online GP encounters."""
 
-* ^version = "1.0.1"
+* ^version = "1.0.2"
 * ^purpose = "A FHIR resource profile for operational reporting of Online GP encounters."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
-* insert NzDerivedMetaDataRules
+* insert PCTapDerivedMetaDataRules
 
 * meta 1..1
 
@@ -31,7 +31,7 @@ Description: """A FHIR resource profile for operational reporting of Online GP e
 * type from SharedCareEncounterTypeValueSet (extensible)
 * type ^short = "Type of encounter (e.g., Video consultation)"
 
-* serviceType 0..0
+* serviceType 0..1
 
 * insert ProfilePatient(subject)
 * subject.display 0..0

@@ -8,6 +8,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
+
 * identifier.use = #official
 * identifier.system = "https://onlinegp-provider-name.co.nz/ns/encounter-identifier"
 * identifier.value = "ENC123456789"
