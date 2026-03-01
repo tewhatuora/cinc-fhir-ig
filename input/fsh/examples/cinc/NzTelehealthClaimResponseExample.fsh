@@ -41,13 +41,13 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 * item[=].extension[traceNumber].valueIdentifier.value = "cd7b6e0d-c554-4786-a52d-3efd1c187c1a"
 * item[=].extension[productOrService].valueCodeableConcept.coding[+].system = "https://standards.digital.health.nz/ns/purchase-unit"
 * item[=].extension[productOrService].valueCodeableConcept.coding[=].code = #COGP0068
-* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[+].system = "http://terminology.hl7.org/CodeSystem/remittance-outcome"
-* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[=].code = #complete
-* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[=].display = "approved"
-* item[=].extension[reviewOutcome].extension[reason][+].valueCodeableConcept.coding[+].system = "https://standards.digital.health.nz/ns/determination-rule-id"
-* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].code = #DET015.001
-* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].display = "passed"
-* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.text = "Patient eligibility confirmed"
+* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[+].system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/claim-decision-cs"
+* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[=].code = #approved
+* item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[=].display = "Approved"
+* item[=].extension[reviewOutcome].extension[reason][+].valueCodeableConcept.coding[+].system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/claim-decision-reason-cs"
+* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].code = #0001
+* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].display = "Not medically necessary"
+* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.text = "The payer has determined this product, service, or procedure as not medically necessary"
 
 * item[=].adjudication[+].category.coding[+].system = "http://terminology.hl7.org/CodeSystem/adjudication"
 * item[=].adjudication[=].category.coding[=].code = #benefit
