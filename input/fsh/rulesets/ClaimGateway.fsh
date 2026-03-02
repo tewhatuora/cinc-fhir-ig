@@ -17,7 +17,7 @@ RuleSet: PCTapDerivedMetaDataRules
 // -----------------------------
 // Provider Correlation ID
 // -----------------------------
-* meta.tag[providerCorrelationId].system 1..1
+* meta.tag[providerCorrelationId].system  = "https://onlinegp-provider-name.co.nz/ns/correlation-id"
 * meta.tag[providerCorrelationId].system ^short = "Provider correlation ID system"
 * meta.tag[providerCorrelationId].system ^definition = "The system URI used by the provider to identify their correlation ID."
 * meta.tag[providerCorrelationId].code 1..1
