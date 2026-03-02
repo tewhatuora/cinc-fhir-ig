@@ -7,20 +7,11 @@ Severity: #error
 RuleSet: PCTapDerivedMetaDataRules
 * meta 1..1
 
-* meta.tag ^slicing.discriminator.type = #pattern
+* meta.tag ^slicing.discriminator.type = #value
 * meta.tag ^slicing.discriminator.path = "system"
 * meta.tag ^slicing.rules = #open
 * meta.tag contains 
-    providerCorrelationId 0..1 and
     correlationId 1..1
-
-// -----------------------------
-// Provider Correlation ID
-// -----------------------------
-* meta.tag[providerCorrelationId].system 1..1
-* meta.tag[providerCorrelationId].system ^short = "Provider correlation ID system"
-* meta.tag[providerCorrelationId].system ^definition = "The system URI used by the provider to identify their correlation ID."
-* meta.tag[providerCorrelationId].code 1..1
 
 // -----------------------------
 // Hub Correlation ID
