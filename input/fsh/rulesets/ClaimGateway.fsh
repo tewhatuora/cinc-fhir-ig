@@ -16,8 +16,7 @@ RuleSet: PCTapDerivedMetaDataRules
 // -----------------------------
 // Hub Correlation ID
 // -----------------------------
-* meta.tag[correlationId] ^patternCoding.system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id" (exactly)
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].system ^short = "Hub correlation ID system"
 * meta.tag[correlationId].system ^definition = "The system URI used by the hub to identify its correlation ID."
 * meta.tag[correlationId].code 1..1
