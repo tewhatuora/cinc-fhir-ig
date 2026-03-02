@@ -7,7 +7,7 @@ Severity: #error
 RuleSet: PCTapDerivedMetaDataRules
 * meta 1..1
 
-* meta.tag ^slicing.discriminator.type = #value
+* meta.tag ^slicing.discriminator.type = #pattern
 * meta.tag ^slicing.discriminator.path = "system"
 * meta.tag ^slicing.rules = #open
 * meta.tag contains 
@@ -25,6 +25,7 @@ RuleSet: PCTapDerivedMetaDataRules
 // -----------------------------
 // Hub Correlation ID
 // -----------------------------
+* meta.tag[correlationId] ^patternCoding.system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id" (exactly)
 * meta.tag[correlationId].system ^short = "Hub correlation ID system"
 * meta.tag[correlationId].system ^definition = "The system URI used by the hub to identify its correlation ID."
