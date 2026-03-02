@@ -7,7 +7,7 @@ Severity: #error
 RuleSet: PCTapDerivedMetaDataRules
 * meta 1..1
 
-* meta.tag ^slicing.discriminator.type = #value
+* meta.tag ^slicing.discriminator.type = #pattern
 * meta.tag ^slicing.discriminator.path = "system"
 * meta.tag ^slicing.rules = #open
 * meta.tag contains 
@@ -17,7 +17,7 @@ RuleSet: PCTapDerivedMetaDataRules
 // -----------------------------
 // Provider Correlation ID
 // -----------------------------
-* meta.tag[providerCorrelationId].system  = "https://onlinegp-provider-name.co.nz/ns/correlation-id"
+* meta.tag[providerCorrelationId].system 1..1
 * meta.tag[providerCorrelationId].system ^short = "Provider correlation ID system"
 * meta.tag[providerCorrelationId].system ^definition = "The system URI used by the provider to identify their correlation ID."
 * meta.tag[providerCorrelationId].code 1..1
@@ -25,6 +25,7 @@ RuleSet: PCTapDerivedMetaDataRules
 // -----------------------------
 // Hub Correlation ID
 // -----------------------------
+* meta.tag[correlationId] ^patternCoding.system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id" (exactly)
 * meta.tag[correlationId].system ^short = "Hub correlation ID system"
 * meta.tag[correlationId].system ^definition = "The system URI used by the hub to identify its correlation ID."
