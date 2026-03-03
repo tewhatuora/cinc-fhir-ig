@@ -48,9 +48,6 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 * insert LocalIdentifierDocs(participant.individual)
 * participant.period 0..1
 
-* appointment 0..*
-* appointment only Reference(UrgentCareAppointment)
-
 * reasonCode 0..*
 
 * period 1..1
