@@ -94,8 +94,8 @@ Description: "Code system for claim decision reasons based on validation rule ID
 * #DET064.009 "Passed" "Encounter is only claimed once."
 * #DET064.010 "Failed" "Encounter cannot be claimed more than once."
 * #DET055.005 "Failed" "NHI number provided is for a deceased health service user."
-* #DET064.011 "Passed" "Supplied purchase unit code was validated."
-* #DET064.012 "Passed" "Supplied purchase unit code was replaced from the looked-up fee."
+* #DET064.011 "Passed" "Fee(s) found for purchase unit code and contracted service."
+* #DET064.012 "Passed" "Purchase unit code not valid for this contracted service - no fee(s) found."
 
 CodeSystem: ProviderQualificationCS
 Id: provider-qualification-cs
