@@ -4,7 +4,7 @@ Id: UrgentCareAppointment
 Title: "Urgent Care Appointment"
 Description: "A FHIR resource profile for operational reporting of Urgent Care Appointment."
 
-* ^version = "1.0.1"
+* ^version = "1.0.2"
 * ^purpose = "A FHIR resource profile for operational reporting of Urgent Care Appointment."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
