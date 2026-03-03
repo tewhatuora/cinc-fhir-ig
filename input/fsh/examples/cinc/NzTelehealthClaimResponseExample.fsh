@@ -46,8 +46,8 @@ Description: "Example of a NZ Telehealth Claim Response for 24/7 telehealth serv
 * item[=].extension[reviewOutcome].extension[decision].valueCodeableConcept.coding[=].display = "Approved"
 * item[=].extension[reviewOutcome].extension[reason][+].valueCodeableConcept.coding[+].system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/claim-decision-reason-cs"
 * item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].code = #DET064.001
-* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].display = "Record of encounter was found in our system."
-* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.text = "The payer has determined this product, service, or procedure as not medically necessary"
+* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.coding[=].display = "Passed"
+* item[=].extension[reviewOutcome].extension[reason][=].valueCodeableConcept.text = "Record of encounter was found in our system."
 
 * item[=].adjudication[+].category.coding[+].system = "http://terminology.hl7.org/CodeSystem/adjudication"
 * item[=].adjudication[=].category.coding[=].code = #benefit
