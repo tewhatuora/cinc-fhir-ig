@@ -31,7 +31,7 @@ Description: "An example Dunedin Hospital Outpatient Clinic Appointment"
 * extension[appointmentMethod].valueCodeableConcept = DHOAppointmentModalityCS#in-person "In person"
 * description = "DH Fracture Consultant"
 * serviceCategory =	$cs-nc-health-specialty-code#S45 "Orthopaedic Surgery" // need to determine code system
-* serviceType = #S45B "Fracture Clinic" // need to determine code system - Snomed equivalent is $sct#702858002
+* serviceType = DHOHealthSpecialityCS#S45B "S45B - Fracture Clinic"
 
 * patientInstruction = "Bring all medications you are currently taking on your admission to hospital."
 // Patient
@@ -82,7 +82,7 @@ Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
 * extension[appointmentMethod].valueCodeableConcept = DHOAppointmentModalityCS#in-person "In person"
 * description = "Physiotherapy Appointment"
 * serviceCategory =	$cs-nc-health-specialty-code#A01 "Allied Health and other"
-* serviceType = #A01B "Physiotherapy" // need to determine code system
+* serviceType = DHOHealthSpecialityCS#A01B "A01B - Physiotherapy"
 
 // Patient
 * participant[+].required = #required
@@ -124,8 +124,8 @@ Description: "An example Dunedin Hospital Outpatient Telehealth Appointment"
 * status = #booked
 * extension[appointmentMethod].valueCodeableConcept = DHOAppointmentModalityCS#telehealth "Telehealth"
 * description = "Telehealth follow-up"
-* serviceCategory = $cs-nc-health-specialty-code#S45 "Orthopaedic Surgery" // need to determine code system
-* serviceType = #S45B "Fracture Clinic" // need to determine code system
+* serviceCategory = $cs-nc-health-specialty-code#S45 "Orthopaedic Surgery"
+* serviceType = DHOHealthSpecialityCS#S45B "S45B - Fracture Clinic"
 
 * patientInstruction = "Please be available at the scheduled time; ensure your device is charged and you have a stable connection."
 
@@ -170,7 +170,7 @@ Description: "An example Dunedin Hospital Outpatient Telephone Appointment"
 * extension[appointmentMethod].valueCodeableConcept = DHOAppointmentModalityCS#telephone "Telephone"
 * description = "Telephone follow-up"
 * serviceCategory = $cs-nc-health-specialty-code#S45 "Orthopaedic Surgery" // need to determine code system
-* serviceType = #S45B "Fracture Clinic" // need to determine code system
+* serviceType = DHOHealthSpecialityCS#S45B "S45B - Fracture Clinic"
 
 * patientInstruction = "We will call you at the scheduled time. Please keep your phone nearby and ensure voicemail is enabled."
 

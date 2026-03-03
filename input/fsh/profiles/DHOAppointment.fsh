@@ -48,6 +48,11 @@ Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R
 * requestedPeriod 0..*
 
 // ---------------------------------------------------------
+// Terminology bindings
+// ---------------------------------------------------------
+* serviceType from DHOHealthSpecialityVS (extensible)
+
+// ---------------------------------------------------------
 // Extensions
 // ---------------------------------------------------------
 * extension contains DHOAppointmentMethod named appointmentMethod 1..1 MS
