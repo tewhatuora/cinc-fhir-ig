@@ -58,14 +58,44 @@ Description: "Code system for claim decisions"
 CodeSystem: ClaimDecisionReasonCS
 Id: claim-decision-reason-cs
 Title: "Claim Decision Reason Code System"
-Description: "Code system for claim decision reasons based on FHIR R5 claim-decision-reason"
+Description: "Code system for claim decision reasons based on validation rule IDs"
 * ^status = #draft
 * ^caseSensitive = true
-* #0001 "Not medically necessary" "The payer has determined this product, service, or procedure as not medically necessary."
-* #0002 "Prior authorization not obtained" "Prior authorization was not obtained prior to providing the product, service, or procedure."
-* #0003 "Provider out-of-network" "This provider is considered out-of-network by the payer for this plan."
-* #0004 "Service inconsistent with patient age" "The payer has determined this product, service, or procedure is not consistent with the patient's age."
-* #0005 "Benefit limits exceeded" "The patient or subscriber benefit's have been exceeded."
+
+// Claim Level Validation Rules
+* #DET040.014 "A valid claim date has been provided."
+* #DET040.015 "Claim date provided is not valid."
+* #DET052.001 "No duplicate found for this claim"
+* #DET052.002 "Claim is a duplicate of claim [Claim Number] received on [Received Date]."
+* #DET001.006 "Agreement is valid for {service name} services"
+* #DET001.001 "Agreement number provided cannot be found in our records"
+* #DET001.007 "Agreement is not valid for {service name} services"
+* #DET063.003 "Provider HPI organisation is appropriate for the Agreement"
+* #DET063.004 "Provider HPI organisation is not appropriate for the Agreement"
+* #DET055.001 "NHI number found in our records."
+* #DET055.002 "NHI number cannot be found in our records."
+* #DET055.004 "NHI number validation passes for health service user."
+* #DET055.018 "Patient is eligible for subsidised healthcare"
+* #DET055.019 "Patient is not eligible for subsidised healthcare"
+
+// Claim Item Level Validation Rules
+* #DET041.088 "Date of Service is earlier than or equal to Claim Date."
+* #DET041.087 "Date of Service is later than Claim Date."
+* #DET020.003 "Date of Service falls between Agreement start and end date."
+* #DET020.002 "Date of Service did not occur between the Agreement start and termination dates."
+* #DET064.001 "Record of encounter was found in our system."
+* #DET064.002 "Could not find the encounter with identifier {identifier} in our system."
+* #DET064.003 "Encounter is for the same Patient as the Claim."
+* #DET064.004 "Encounter and Claim do not refer to the same Patient."
+* #DET064.005 "Encounter is for the same Service Date as the Claim Item."
+* #DET064.006 "Encounter and Claim Item have different Service Dates."
+* #DET064.007 "Patient attended the Encounter."
+* #DET064.008 "Cannot claim for an Encounter that did not occur."
+* #DET064.009 "Encounter is only claimed once."
+* #DET064.010 "Encounter cannot be claimed more than once."
+* #DET055.005 "NHI number provided is for a deceased health service user."
+* #DET064.011 "Supplied purchase unit code was validated."
+* #DET064.012 "Supplied purchase unit code was replaced from the looked-up fee."
 
 CodeSystem: ProviderQualificationCS
 Id: provider-qualification-cs
