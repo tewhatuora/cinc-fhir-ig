@@ -1,4 +1,5 @@
 .DS_Store
+/.idea
 Thumbs.db
 /fsh-generated
 /input-cache*
