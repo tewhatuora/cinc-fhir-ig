@@ -1,6 +1,6 @@
 CONVERTER_DL_URL=$(curl -s https://api.github.com/repos/tewhatuora/fhir-openapi-converter/releases/latest | jq -r '.assets[] | select(.name == "cli.js") | .browser_download_url')
 curl -L -o fhir-openapi-converter.js $CONVERTER_DL_URL
-LOG_LEVEL=debug node ./fhir-openapi-converter.js --inputFolder fsh-generated --outputFolder oas
+LOG_LEVEL=debug node ./fhir-openapi-converter.js --inputFolder fsh-generated --outputFolder oas --dereferenceOutput false
 result=$?
 
 if [ $result -ne 0 ]; then

@@ -1,6 +1,6 @@
 Instance: DHOPatientExample
 InstanceOf: DHOPatient
-Description: "An example DH Outpatient"
+Description: "An example Dunedin Hospital Outpatient"
 Usage: #example
 
 * id = "DHO-outpatient-instance"
@@ -8,8 +8,7 @@ Usage: #example
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatient"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
 * extension[sex-at-birth].valueCodeableConcept.coding.version = "4.0.1"
 * extension[sex-at-birth].valueCodeableConcept.coding.system = "http://hl7.org/fhir/administrative-gender"
@@ -28,9 +27,7 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
 * extension[interpreter-required].valueBoolean = false
 
-* identifier.use = #official
-* identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* identifier.value = "ZXP7823"
+* identifier insert NHIIdentifier(ZXP7823)
 * active = true
 * name.use = #usual
 * name.text = "Miss Carey Mary Carrington"
@@ -42,10 +39,12 @@ Usage: #example
 * telecom[=].value = "+64 21 123 4567"
 * telecom[=].use = #mobile
 * telecom[=].rank = 1
+* telecom[=].extension[notification-enabled].valueBoolean = true
 * telecom[+].system = #email
 * telecom[=].value = "example@mail.com"
 * telecom[=].use = #home
 * telecom[=].rank = 2
+* telecom[=].extension[notification-enabled].valueBoolean = true
 * gender = #female
 * birthDate = "1968-01-27"
 * address[+].type = #postal
@@ -76,7 +75,7 @@ Usage: #example
 * contact[=].telecom[+].system = #phone
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
-* contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
+* contact[=].extension[+].url = Canonical(dho-patient-contact-role-extension-id)
 * contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#nok "Next of Kin"
 * contact[=].extension[=].valueCodeableConcept.text = "Next of Kin"
 
@@ -86,7 +85,7 @@ Usage: #example
 * contact[=].telecom[+].system = #phone
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 22 123 4567"
-* contact[=].extension[+].url = Canonical(hnz-patient-contact-role-extension-id)
+* contact[=].extension[+].url = Canonical(dho-patient-contact-role-extension-id)
 * contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#powatt "Power of Attorney"
 * contact[=].extension[=].valueCodeableConcept.text = "Power of Attorney"
 
@@ -95,7 +94,6 @@ Usage: #example
 * generalPractitioner.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * generalPractitioner.identifier.value = "99ZZFX"
 * generalPractitioner.display = "Dottie McStuffins"
-
 
 Instance: DHOPatientUpdateExample
 InstanceOf: DHOPatientUpdate
@@ -107,18 +105,16 @@ Description: "An example Dunedin Hospital Outpatient Update demographics (phone 
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
 * meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatientUpdate"
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
-* identifier.use = #official
-* identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
-* identifier.value = "ZXP7823"
-
+* identifier insert NHIIdentifier(ZXP7823)
 * telecom[+].system = #phone
 * telecom[=].value = "+64 21 123 4567"
 * telecom[=].use = #mobile
 * telecom[=].rank = 1
+* telecom[=].extension[notification-enabled].valueBoolean = true
 * telecom[+].system = #email
 * telecom[=].value = "example@mail.com"
 * telecom[=].use = #home
 * telecom[=].rank = 2
+* telecom[=].extension[notification-enabled].valueBoolean = true
