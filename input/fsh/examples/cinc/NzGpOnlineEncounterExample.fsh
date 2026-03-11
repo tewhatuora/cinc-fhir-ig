@@ -5,9 +5,13 @@ Title: "NZ GP Online Encounter Example"
 Description: "Example of an online GP encounter for 24/7 telehealth services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[hubCorrelationId].system = "https://hub.services.digital.health.nz/ns/correlation-id-type"
+* meta.tag[hubCorrelationId].code = #hub-correlation-id
+* meta.tag[hubCorrelationId].display = "123e4567-e89b-12d3-a456-426614174000"
 
+* meta.tag[providerCorrelationId].system = "https://hub.services.digital.health.nz/ns/correlation-id-type"
+* meta.tag[providerCorrelationId].code = #provider-correlation-id
+* meta.tag[providerCorrelationId].display = "PROVIDER-TRACK-99821"
 
 * identifier.use = #official
 * identifier.system = "https://onlinegp-provider-name.co.nz/ns/encounter-identifier"
@@ -35,7 +39,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * participant[0].period.start = "2025-01-01T10:00:00+13:00"
 * participant[0].period.end = "2025-01-01T10:17:00+13:00"
 
-* appointment[0].reference = "Appointment/NzTelehealthAppointmentExample"
+* appointment[0].reference = "Appointment/OnlineGPAppointmentExample"
 
 * period.start = "2025-01-01T10:00:00+13:00"
 * period.end = "2025-01-01T10:17:00+13:00"

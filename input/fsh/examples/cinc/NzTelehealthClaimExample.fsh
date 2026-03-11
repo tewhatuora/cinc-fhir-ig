@@ -5,8 +5,10 @@ Title: "NZ Telehealth Claim Example"
 Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F12345-A"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+
+* meta.tag[hubCorrelationId].system = "https://hub.services.digital.health.nz/ns/correlation-id-type"
+* meta.tag[hubCorrelationId].code = #hub-correlation-id
+* meta.tag[hubCorrelationId].display = "123e4567-e89b-12d3-a456-426614174000"
 
 * identifier[+].use = #official
 * identifier[=].system = "https://provider-org-name.co.nz/ns/claim-identifier"

@@ -5,8 +5,10 @@ Title: "Urgent Care Encounter Example"
 Description: "Example of an urgent care encounter for walk-in clinic services"
 
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F67890-B"
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
+
+* meta.tag[hubCorrelationId].system = "https://hub.services.digital.health.nz/ns/correlation-id-type"
+* meta.tag[hubCorrelationId].code = #hub-correlation-id
+* meta.tag[hubCorrelationId].display = "123e4567-e89b-12d3-a456-426614174000"
 
 * identifier.use = #official
 * identifier.system = "https://urgentcare-provider-name.co.nz/ns/encounter-identifier"

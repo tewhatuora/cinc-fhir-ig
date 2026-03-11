@@ -1,4 +1,12 @@
 // Value Sets for Claim system
+
+ValueSet: CorrelationIdValueSet
+Id: correlation-id-value-set
+Title: "Correlation Identifier ValueSet"
+Description: "Allowed codes for correlation identifier types."
+* ^status = #active
+* include codes from system CorrelationIdCodeSystem
+
 ValueSet: NzAppointmentReasonCodes
 Id: nz-onlinegp-appointment-reason-codes
 Title: "NZ Appointment Reason Codes Code System"
