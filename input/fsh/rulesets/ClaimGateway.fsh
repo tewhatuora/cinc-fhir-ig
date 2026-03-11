@@ -4,27 +4,64 @@ Description: "Reference must be an HPI facility URL with format https://standard
 Expression: "matches('^https://standards.digital.health.nz/ns/hpi-facility-id/F[A-Za-z0-9]{2}[0-9]{3}-[A-Za-z0-9]$')"
 Severity: #error
 
+Invariant: correlation-id-required
+Description: "At least one correlation identifier must be present."
+Severity: #error
+Expression: "meta.tag.where(code = 'hub-correlation-id' or code = 'provider-correlation-id').exists()"
+
+Invariant: hub-correlation-guid
+Description: "Hub correlation identifier must follow GUID format."
+Severity: #error
+Expression: "display.matches('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$')"
+
 RuleSet: PCTapDerivedMetaDataRules
+
 * meta 1..1
 
 * meta.tag ^slicing.discriminator.type = #value
-* meta.tag ^slicing.discriminator.path = "system"
+* meta.tag ^slicing.discriminator.path = "code"
 * meta.tag ^slicing.rules = #open
-* meta.tag contains 
-    correlationId 1..1
 
-// -----------------------------
+* meta.tag contains
+    hubCorrelationId 0..1 and
+    providerCorrelationId 0..*
+* obeys correlation-id-required
+
+// ----------------------------------------------------
 // Hub Correlation ID
-// -----------------------------
-* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].system ^short = "Hub correlation ID system"
-* meta.tag[correlationId].system ^definition = "The system URI used by the hub to identify its correlation ID."
-* meta.tag[correlationId].code 1..1
+// ----------------------------------------------------
 
-* meta.source 1..1
-* meta.source obeys hpi-location-url-format
-* meta.source ^short = "HPI Facility ID from where the record is sourced"
-* meta.source ^definition = "Captures the source of the record. This must contain the HPIFacilityID e.g. https://standards.digital.health.nz/ns/hpi-facility-id/FZZ111-A"
+* meta.tag[hubCorrelationId].system 1..1
+* meta.tag[hubCorrelationId].system = "https://hub.services.digital.health.nz/ns/correlation-id-type"
+* meta.tag[hubCorrelationId].system ^short = "Code system for Hub correlation ID type"
+
+* meta.tag[hubCorrelationId].code 1..1
+* meta.tag[hubCorrelationId].code = #hub-correlation-id
+* meta.tag[hubCorrelationId].code from CorrelationIdValueSet (required)
+* meta.tag[hubCorrelationId].code ^short = "Code identifying this as a Hub correlation ID"
+
+* meta.tag[hubCorrelationId].display 1..1
+* meta.tag[hubCorrelationId].display ^short = "Hub correlation identifier"
+* meta.tag[hubCorrelationId].display ^definition = "GUID assigned by the Health NZ Hub for end-to-end transaction tracing."
+
+* meta.tag[hubCorrelationId] obeys hub-correlation-guid
+
+// ----------------------------------------------------
+// Provider Correlation ID
+// ----------------------------------------------------
+
+* meta.tag[providerCorrelationId].system 1..1
+* meta.tag[providerCorrelationId].system = "https://hub.services.digital.health.nz/ns/correlation-id-type"
+* meta.tag[providerCorrelationId].system ^short = "Code system for provider correlation ID type"
+
+* meta.tag[providerCorrelationId].code 1..1
+* meta.tag[providerCorrelationId].code = #provider-correlation-id
+* meta.tag[providerCorrelationId].code from CorrelationIdValueSet (required)
+* meta.tag[providerCorrelationId].code ^short = "Code identifying this as a provider correlation ID"
+
+* meta.tag[providerCorrelationId].display 1..1
+* meta.tag[providerCorrelationId].display ^short = "Provider tracking identifier"
+* meta.tag[providerCorrelationId].display ^definition = "Tracking identifier supplied by a provider system."
 
 // --- PATIENT Rules ---
 RuleSet: ProfilePatient(property)
