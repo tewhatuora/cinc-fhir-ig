@@ -96,5 +96,6 @@ Alias: $cs-nc-health-specialty-code = http://nzhts.digital.health.nz/fhir/CodeSy
 
 Alias: $australasian-triage-scale = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/australasian-triage-scale-cs
 Alias: $nz-appointment-reason-codes = https://fhir-ig.digital.health.nz/shared-care/ValueSet/nz-onlinegp-appointment-reason-codes
+Alias: $nz-claim-type = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/nz-claim-type-cs
 Alias: $nz-claim-subtype = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/nz-claim-subtype-cs
 

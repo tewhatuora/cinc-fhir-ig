@@ -13,9 +13,7 @@ Id: nz-claim-types
 Title: "NZ Claim Types"
 Description: "Types of claims in New Zealand"
 * ^status = #draft
-* http://terminology.hl7.org/CodeSystem/claim-type#professional "Professional claim for practitioner services"
-* http://terminology.hl7.org/CodeSystem/claim-type#pharmacy "Pharmacy claim for medication dispensing"
-* http://terminology.hl7.org/CodeSystem/claim-type#oral "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
+* include codes from system $nz-claim-type
 
 ValueSet: NzClaimSubtypes
 Id: nz-claim-subtypes
