@@ -32,6 +32,16 @@ Description: "Code system for NZ claim subtypes"
 * #ICPSA "ICPSA" "Community pharmacy claims under ICPSA"
 * #PCT "PCT" "Hospital pharmacy claims"
 
+CodeSystem: NzClaimTypeCS
+Id: nz-claim-type-cs
+Title: "NZ Claim Type Code System"
+Description: "Code system for NZ claim types"
+* ^status = #draft
+* ^caseSensitive = true
+* #professional "Professional" "Professional claim for practitioner services"
+* #pharmacy "Pharmacy" "Pharmacy claim for medication dispensing"
+* #oral "Oral" "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
+
 CodeSystem: AustralasianTriageScaleCS
 Id: australasian-triage-scale-cs
 Title: "Australasian Triage Scale Code System"
