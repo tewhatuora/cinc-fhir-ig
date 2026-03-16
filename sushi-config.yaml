@@ -259,6 +259,7 @@ groups:
       - PrivateColposcopyVisitQuestionnaire
       - PrivateColposcopyDischargeQuestionnaire
       - EarlyWarningScoreQuestionnaire
+      - DunedinFormConditionAffectQuestionnaire
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources
