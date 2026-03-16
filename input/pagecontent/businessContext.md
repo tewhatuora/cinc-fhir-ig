@@ -44,3 +44,6 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 ### Dunedin Hospital Outpatients (DHO)
 1. [Dunedin Hospital Outpatients overview](./DunedinHospitalOutpatients.html)
+
+### 2.5 Online GP Care reporting & payment automation
+1. [OnlineGP](./OnlineGP.html) 
