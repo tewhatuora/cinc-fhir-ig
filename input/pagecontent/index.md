@@ -10,4 +10,4 @@ This IG covers the following Health NZ information categories:
 4. Remote Patient Monitoring Workflows.
 5. Dunedin Hospital Outpatients Integration workflows.
 6. Common Messaging System for sending out communication
-7. 24/7 Telehealth claim process
+7. Online GP Care reporting & payment automation
