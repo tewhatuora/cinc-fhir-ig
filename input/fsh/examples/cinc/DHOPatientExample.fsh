@@ -22,9 +22,6 @@ InstanceOf: DHOPatient
 Description: "An example Dunedin Hospital Outpatient"
 Usage: #example
 
-* text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>Shows a usual Dunedin Hospital Outpatient with a GP as a Contained resource</div>"
-* text.status = #additional
-
 * id = "DHO-outpatient-instance"
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-09-04T09:00:00.000Z"
