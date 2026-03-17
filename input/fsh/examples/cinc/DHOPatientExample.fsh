@@ -1,7 +1,29 @@
+Instance: DHOPractitionerRole2
+InstanceOf: PractitionerRole
+Description: "Practitioner Role for test Patient"
+Usage: #inline
+* practitioner.type = #Practitioner
+* practitioner.identifier.system = "https://standards.digital.health.nz/id/hpi-person-id"
+* practitioner.identifier.value = "99ZZZX"
+* practitioner.display = "Dr Dotty McStuffins"
+
+* organization.type = #Organization
+* organization.identifier.system = "https://standards.digital.health.nz/id/hpi-organisation-id"
+* organization.identifier.value = "G00001-E"
+* organization.display = "HealthIsUs"
+
+* location.type = #Location
+* location.identifier.system = "https://standards.digital.health.nz/id/hpi-facility-d"
+* location.identifier.value = "F04066-D"
+* location.display = "Good Health Medical Centre"
+
 Instance: DHOPatientExample
 InstanceOf: DHOPatient
 Description: "An example Dunedin Hospital Outpatient"
 Usage: #example
+
+* text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>Shows a usual Dunedin Hospital Outpatient with a GP as a Contained resource</div>"
+* text.status = #additional
 
 * id = "DHO-outpatient-instance"
 * meta.versionId = "1"
@@ -26,6 +48,8 @@ Usage: #example
 * extension[nz-citizenship].extension[=].valueCodeableConcept.coding = $ns-nz-citizenship-status-code#no "No"
 * extension[nz-citizenship].extension[=].valueCodeableConcept.text = "No"
 * extension[interpreter-required].valueBoolean = false
+
+* contained[GP] = DHOPractitionerRole2
 
 * identifier insert NHIIdentifier(ZXP7823)
 * active = true
@@ -89,11 +113,13 @@ Usage: #example
 * contact[=].extension[=].valueCodeableConcept = $cs-patient-contact-role#powatt "Power of Attorney"
 * contact[=].extension[=].valueCodeableConcept.text = "Power of Attorney"
 
-* generalPractitioner.type = #Practitioner
-* generalPractitioner.identifier.use = #official
-* generalPractitioner.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
-* generalPractitioner.identifier.value = "99ZZFX"
-* generalPractitioner.display = "Dottie McStuffins"
+//* generalPractitioner.type = #Practitioner
+//* generalPractitioner.identifier.use = #official
+//* generalPractitioner.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
+//* generalPractitioner.identifier.value = "99ZZFX"
+//* generalPractitioner.display = "Dottie McStuffins"
+* generalPractitioner.reference = "#DHOPractitionerRole2"
+
 
 Instance: DHOPatientUpdateExample
 InstanceOf: DHOPatientUpdate

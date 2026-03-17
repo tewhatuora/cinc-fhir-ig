@@ -269,7 +269,21 @@ Usage: #definition
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounter)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterCreate)
 * rest.resource[=].supportedProfile[+] = Canonical(DHOEncounterUpdate)
-* rest.resource[=] insert GenericCRUDInteractions
+// replaced "* rest.resource[=] insert GenericCRUDInteractions" with the following to allow history and conditional updates
+* rest.resource[=].interaction[0].code = #create
+* rest.resource[=].interaction[+].code = #read
+* rest.resource[=].interaction[+].code = #update
+* rest.resource[=].interaction[+].code = #delete
+* rest.resource[=].interaction[+].code = #vread
+* rest.resource[=].interaction[+].code = #search-type
+* rest.resource[=].versioning = #versioned
+* rest.resource[=].readHistory = true
+* rest.resource[=].updateCreate = false
+* rest.resource[=].conditionalCreate = false
+* rest.resource[=].conditionalRead = #not-supported
+* rest.resource[=].conditionalUpdate = true
+* rest.resource[=].conditionalDelete = #not-supported
+// end
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:diagnosis"
 * rest.resource[=].searchInclude[+] = "Encounter:appointment"

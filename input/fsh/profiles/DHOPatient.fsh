@@ -2,6 +2,8 @@ RuleSet: CommonPatientConstraints
 
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
+* ^text.status = #additional
+* ^text.div = "<div xmlns='http://www.w3.org/1999/xhtml'>DHO Patient profile</div>"
 
 // ---------------------------------------------------------
 // Inserts
@@ -17,8 +19,13 @@ RuleSet: CommonPatientConstraints
 // ---------------------------------------------------------
 // Extensions
 // ---------------------------------------------------------
-* extension contains $sd-interpreter-required named interpreter-required 0..1
-* extension[nzCitizen] ^short = "Is this person a New Zealand citizen"
+* extension contains  $sd-interpreter-required named interpreter-required 0..1
+
+* extension[ethnicity].valueCodeableConcept from $vs-ethnic-group-level-4-code (required)
+
+* extension[nzCitizen] ^short = "This field indicates New Zealand citizenship status of the patient"
+* extension[nzCitizen] ^definition = "This field is used to indicate the New Zealand citizenship status of the patient"
+* extension[nzCitizen].extension[source].valueCodeableConcept from $vs-nz-citizenship-information-source-code
 
 // ---------------------------------------------------------
 // Cardinality tightening
@@ -28,7 +35,7 @@ RuleSet: CommonPatientConstraints
 * communication 0..0
 * managingOrganization 0..0
 * link 0..0
-* contained 0..0
+* contained 0..1
 * implicitRules 0..0
 * language 0..0
 // If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
@@ -56,12 +63,14 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
 // ---------------------------------------------------------
 * name 1..* MS
   * use 1..1 MS
-    * ^short = "one of: usual / old"
+    * ^short = "usual | temp | nickname | maiden"
   * family 1..1 MS
-  * given MS
-  * prefix MS
+  * given 0..5 MS
+    * ^short = "Given name and other given name(s)"
+    * ^definition = "Given name and other given name(s) for the patient"
+  * prefix from $vs-name-prefix
   * suffix 0..0
-  * extension 0..0
+  * extension contains $sd-preferred named preferred 0..1
   * id 0..0
 * telecom 0..* MS
   * obeys dho-telecom-notification-valid-system
@@ -125,12 +134,36 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * organization 0..0
   * period 0..1 MS
   * id 0..0
-* extension[ethnicity] 0..*
 
 // ---------------------------------------------------------
 // Reference constraints
 // ---------------------------------------------------------
-* generalPractitioner only Reference(NzOrganization or NzPractitioner or NzPractitionerRole)
+// * generalPractitioner only Reference(NzOrganization or NzPractitioner or NzPractitionerRole)
+// GP
+
+//Limit the possible resources for generalPractitioner only to a PractitionerRole
+//Note that this might still be a contained resource - that's still supported by this profile
+* generalPractitioner only Reference(PractitionerRole)
+
+* generalPractitioner 0..1
+* generalPractitioner ^short = "Reference for the Patient's enrolled general Practitioner"
+* generalPractitioner ^definition = "The reference for the General Practice that the patient is enrolled with"
+
+// slice for contained practitionerRole
+* contained ^slicing.discriminator.type = #type
+* contained ^slicing.discriminator.path = "$this"
+* contained ^slicing.rules = #closed
+* contained ^slicing.description = "Slicing to specify a PractitionerRole resource may be returned as a contained resource for the Patient's General Practitioner information"
+* contained contains GP 0..1
+* contained[GP] only http://hl7.org/fhir/StructureDefinition/PractitionerRole
+* contained[GP] ^short = "Contained resource for the Patient's enrolled general Practitioner"
+* contained[GP] ^definition = "Contained resource for the General Practice that the patient is enrolled with"
+* obeys dho-nz-pat-1
+
+Invariant: dho-nz-pat-1
+Expression: "Patient.name.where( (use.empty()) or (use='nickname') or (use = 'maiden') or (use = 'temp') )"
+Severity: #error
+Description: "only allows certain name name use values"
 
 Profile: DHOPatientUpdate
 Parent: NzPatient
@@ -156,6 +189,8 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * system 1..1 MS
   * value 1..1 MS
   * use 1..1 MS
+    * ^short = "home | work | mobile"
+    * ^definition = "The purpose of this contact point - constrained to home | work | mobile"
   * rank 0..1
   * id 0..0
 * birthDate 0..0
