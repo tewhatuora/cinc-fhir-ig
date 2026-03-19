@@ -338,21 +338,25 @@ groups:
       - StructureDefinition/DHOEncounter
       - StructureDefinition/DHOEncounterCreate
       - StructureDefinition/DHOEncounterUpdate
+      - StructureDefinition/DHOLocation
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
       - DHOPatientExample
       - DHOPatientUpdateExample
-      - DHOClinicAppointmentExample
-      - DHOUnstructuredAppointmentExample
+      - DHOAppointmentClinicExample
+      - DHOAppointmentUnstructuredExample
+      - DHOAppointmentTelehealthExample
+      - DHOAppointmentTelephoneExample
       - DHOAppointmentResponseExample
       - DHOEncounterExample
       - DHOEncounterCreateExample
       - DHOEncounterUpdateExample
-      - DHOSIPICSEmilyWhite
-      - DHOSIPICSAlexMorgan
-      - DHOSIPICSCuriousGeorge
       - DHODrDottyMcStuffins
+      - DHOLocationInternalExample
+      - DHOLocationPatientHomeExample
+      - DHOLocationExternalExample
+      - DHOLocationOutreachExample
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:

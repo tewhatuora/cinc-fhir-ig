@@ -1,8 +1,11 @@
 # Changelog
+## v0.4.3 (2026-03-17)
+### 2.5 Online GP Care reporting & payment automation
+Added the [OnlineGP](OnlineGP.html) resources and workflow.
 
 ## v0.4.2 (2025-09-04)
 ### Added Dunedin Hospital Outpatients
-Added the [Dunedin Hospital Outpatients](DundeinHospitalOutpatients.html) resources and workflow.
+Added the [Dunedin Hospital Outpatients](DunedinHospitalOutpatients.html) resources and workflow.
 
 ## v0.4.1 (2025-03-30)
 

@@ -14,7 +14,7 @@ Description: "Example of a telehealth claim for 24/7 telehealth services"
 
 * status = #active
 
-* type.coding = http://terminology.hl7.org/CodeSystem/claim-type#professional
+* type.coding = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/nz-claim-type-cs#professional
 
 * subType.coding = $nz-claim-subtype#telehealth
 
