@@ -97,6 +97,17 @@ Description: "Code system for claim decision reasons based on validation rule ID
 * #DET064.011 "Passed" "Fee(s) found for purchase unit code and contracted service."
 * #DET064.012 "Passed" "Purchase unit code not valid for this contracted service - no fee(s) found."
 
+// Adjudication Validation Rules
+* #DET064.013 "Passed" "Claimed fee {feeCode} is valid for the patient's age."
+* #DET064.014 "Failed" "Patient's age was older than maximum allowed age for claimed fee {feeCode}."
+* #DET064.015 "Failed" "Patient's age was younger than minimum allowed age for claimed fee {feeCode}."
+* #DET064.016 "Passed" "Claimed fee {feeCode} is valid for consultation date & time."
+* #DET064.017 "Failed" "Patient's consultation occurred outside of time period for claimed fee {feeCode}."
+* #DET064.018 "Passed" "Claimed fee {feeCode} is valid for patient's CSC status."
+* #DET064.019 "Failed" "Patient's CSC status does not correspond to the claimed fee {feeCode}."
+* #DET064.020 "Passed" "Fee(s) found for product code and contracted service."
+* #DET064.021 "Failed" "Product code not valid for this contracted service - no fee(s) found."
+
 CodeSystem: ProviderQualificationCS
 Id: provider-qualification-cs
 Title: "Provider Qualification Code System"
