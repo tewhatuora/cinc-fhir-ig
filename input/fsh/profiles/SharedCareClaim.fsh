@@ -68,6 +68,7 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * item.encounter only Reference(Encounter)
 * item.encounter.identifier 0..0
 * item.encounter.display 0..0
+* item.encounter.reference 1..1
 
 * item.productOrService 1..1  // In 4B this has to be 1..1, not 0..1
 * item.productOrService ^short = "Product or service being claimed (e.g., PU code)"
