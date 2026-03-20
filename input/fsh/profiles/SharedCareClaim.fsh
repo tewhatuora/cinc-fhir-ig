@@ -11,11 +11,6 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 
 * insert PCTapDerivedMetaDataRules
 
-Invariant: encounter-reference-format
-Description: "Encounter reference must be in the format 'Encounter/{uuid}'"
-Severity: #error
-Expression: "matches('^Encounter/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$')"
-
 * meta.profile 1..1
 
 * contained 0..0
@@ -73,7 +68,6 @@ Expression: "matches('^Encounter/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0
 * item.encounter only Reference(Encounter)
 * item.encounter.identifier 0..0
 * item.encounter.display 0..0
-* item.encounter.reference obeys encounter-reference-format
 
 * item.productOrService 1..1  // In 4B this has to be 1..1, not 0..1
 * item.productOrService ^short = "Product or service being claimed (e.g., PU code)"
