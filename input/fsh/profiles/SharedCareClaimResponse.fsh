@@ -7,7 +7,7 @@ Description: """A FHIR resource profile describing the outcome of NZ generic pay
 Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer are compulsory fields, but not utilized in the telehealth implementation.
       item.adjudication.quantity R5 is item.adjudication.value in R4B.
 """
-* ^version = "1.0.4"
+* ^version = "1.0.5"
 * ^purpose = "A FHIR resource profile describing the outcome of NZ generic payment claims"
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -23,6 +23,9 @@ Note: In 4B item.adjudication, item.detail.adjudication, payment.amount, insurer
 * request 1..1
 * request only Reference(SharedCareClaim)
 * request ^short = "Reference to the Claim that was determined"
+
+* patient.display 0..0
+* patient.display ^short = "Remove from all examples. Never return in a response. Never save if provided."
 
 * identifier 1..*
 * identifier ^short = "Business identifier(s) for the claim response"
