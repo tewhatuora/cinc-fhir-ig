@@ -33,7 +33,7 @@ RuleSet: CommonPatientConstraints
 * communication 0..0
 * managingOrganization 0..0
 * link 0..0
-* contained 0..1
+* contained 0..*
 * implicitRules 0..0
 * language 0..0
 // If you look at the definition of a FHIR patient (https://www.hl7.org/fhir/patient.html), deceased[x] is a a choice of data types
@@ -132,28 +132,27 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * organization 0..0
   * period 0..1 MS
   * id 0..0
+* generalPractitioner 0..*
 
 // ---------------------------------------------------------
 // Reference constraints
 // ---------------------------------------------------------
 // * generalPractitioner only Reference(NzOrganization or NzPractitioner or NzPractitionerRole)
-// GP
-
 //Limit the possible resources for generalPractitioner only to a PractitionerRole
 //Note that this might still be a contained resource - that's still supported by this profile
-* generalPractitioner only Reference(PractitionerRole)
 
-* generalPractitioner 0..1
+* generalPractitioner only Reference(PractitionerRole or NzPractitioner or Organization)
+
 * generalPractitioner ^short = "Reference for the Patient's enrolled general Practitioner"
-* generalPractitioner ^definition = "The reference for the General Practice that the patient is enrolled with"
+* generalPractitioner ^definition = "The reference for the General Practice that the patient is enrolled with. May be a Practitioner, Nurse Practitioner or a Facility"
 
 // slice for contained practitionerRole
 * contained ^slicing.discriminator.type = #type
 * contained ^slicing.discriminator.path = "$this"
 * contained ^slicing.rules = #closed
 * contained ^slicing.description = "Slicing to specify a PractitionerRole resource may be returned as a contained resource for the Patient's General Practitioner information"
-* contained contains GP 0..1
-* contained[GP] only http://hl7.org/fhir/StructureDefinition/PractitionerRole
+* contained contains GP 0..*
+* contained[GP] only PractitionerRole
 * contained[GP] ^short = "Contained resource for the Patient's enrolled general Practitioner"
 * contained[GP] ^definition = "Contained resource for the General Practice that the patient is enrolled with"
 * obeys dho-nz-pat-1

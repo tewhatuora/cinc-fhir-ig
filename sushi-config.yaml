@@ -342,7 +342,9 @@ groups:
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
-      - DHOPatientExample
+      - DHOPatientExampleGP
+      - DHOPatientExampleNP
+      - DHOPatientExampleMultiplePractitioners
       - DHOPatientUpdateExample
       - DHOAppointmentClinicExample
       - DHOAppointmentUnstructuredExample
