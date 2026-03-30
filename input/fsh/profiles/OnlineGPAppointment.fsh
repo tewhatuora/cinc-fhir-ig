@@ -33,7 +33,6 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * participant ^slicing.discriminator.path = "actor.type"
 * participant ^slicing.rules = #open
 * participant contains patient 1..1
-* participant[patient].actor 1..1
 * insert ProfilePatient(participant[patient].actor)
 * participant[patient].actor.display 0..0
 * participant[patient].actor.display ^short = "Remove from all examples. Never return in a response. Never save if provided."
