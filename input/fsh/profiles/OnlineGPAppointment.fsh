@@ -41,6 +41,7 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * status 1..1
 
 * created 0..1
+* created obeys full-datetime-with-timezone
 
 * end 0..1
 

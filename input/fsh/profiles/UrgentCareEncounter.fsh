@@ -17,6 +17,8 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 
 * identifier 1..*
 * identifier ^short = "External (provider) and Health NZ business identifiers"
+* identifier.period.start obeys full-datetime-with-timezone
+* identifier.period.end obeys full-datetime-with-timezone
 
 * status 1..1
 
@@ -51,6 +53,8 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 * reasonCode 0..*
 
 * period 1..1
+* period.start obeys full-datetime-with-timezone
+* period.end obeys full-datetime-with-timezone
 
 * priority 0..1 
 * priority from australasian-triage-scale (required)
