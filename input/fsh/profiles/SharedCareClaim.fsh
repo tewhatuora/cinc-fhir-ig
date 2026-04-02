@@ -41,10 +41,13 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * use 1..1
 
 * created 1..1
+* created obeys full-datetime-with-timezone
 
 * billablePeriod 1..1
 * billablePeriod ^short = "Billing period with datetime including timezone (start is inclusive, end is exclusive)"
 * billablePeriod ^comment = "The start time is inclusive, end time is exclusive. The end datetime (converted to an inclusive local date) is used as the Claim Date and/or end of the claim period."
+* billablePeriod.start obeys full-datetime-with-timezone
+* billablePeriod.end obeys full-datetime-with-timezone
 
 * payee 0..1
 
@@ -78,6 +81,8 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * item.serviced[x] only Period
 * item.serviced[x] ^short = "When the claimed event started and ended"
 * item.serviced[x] ^comment = "This may determine the applicable fee that should have been charged and possibly the PU code that applies"
+* item.servicedPeriod.start obeys full-datetime-with-timezone
+* item.servicedPeriod.end obeys full-datetime-with-timezone
 
 * item.locationReference 0..1
 * item.locationReference only Reference(Location)
