@@ -1,4 +1,9 @@
 // --- META RULES ---
+Invariant: full-datetime-with-timezone
+Description: "DateTime must be ISO 8601 format with time and timezone (e.g., 2026-01-01T00:00:00+13:00 or 2026-01-01T00:00:00Z). Date-only values are not accepted."
+Expression: "toString().matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$')"
+Severity: #error
+
 Invariant: hpi-location-url-format
 Description: "Reference must be an HPI facility URL with format https://standards.digital.health.nz/ns/hpi-facility-id/FZZ111-A"
 Expression: "matches('^https://standards.digital.health.nz/ns/hpi-facility-id/F[A-Za-z0-9]{2}[0-9]{3}-[A-Za-z0-9]$')"
