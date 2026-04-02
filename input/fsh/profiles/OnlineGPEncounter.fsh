@@ -4,7 +4,7 @@ Id: OnlineGPEncounter
 Title: "Online GP Encounter"
 Description: """A FHIR resource profile for operational reporting of Online GP encounters."""
 
-* ^version = "1.0.4"
+* ^version = "1.0.5"
 * ^purpose = "A FHIR resource profile for operational reporting of Online GP encounters."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
