@@ -4,6 +4,11 @@ Description: "DateTime must be ISO 8601 format with time and timezone (e.g., 202
 Expression: "toString().matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$')"
 Severity: #error
 
+Invariant: unique-item-sequence
+Description: "Each item.itemSequence must be unique within the ClaimResponse"
+Expression: "item.itemSequence.isDistinct()"
+Severity: #error
+
 Invariant: hpi-location-url-format
 Description: "Reference must be an HPI facility URL with format https://standards.digital.health.nz/ns/hpi-facility-id/FZZ111-A"
 Expression: "matches('^https://standards.digital.health.nz/ns/hpi-facility-id/F[A-Za-z0-9]{2}[0-9]{3}-[A-Za-z0-9]$')"
