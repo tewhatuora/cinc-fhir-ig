@@ -83,8 +83,8 @@ Description: """A FHIR resource profile for NZ generic payment claims."""
 * item.serviced[x] only Period
 * item.serviced[x] ^short = "When the claimed event started and ended"
 * item.serviced[x] ^comment = "This may determine the applicable fee that should have been charged and possibly the PU code that applies"
-* item.servicedPeriod.start obeys full-datetime-with-timezone
-* item.servicedPeriod.end obeys full-datetime-with-timezone
+* item.servicedPeriod.start
+* item.servicedPeriod.end
 
 * item.locationReference 0..1
 * item.locationReference only Reference(Location)
