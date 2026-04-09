@@ -9,6 +9,11 @@ Description: "Each item.itemSequence must be unique within the ClaimResponse"
 Expression: "item.itemSequence.isDistinct()"
 Severity: #error
 
+Invariant: unique-claim-item-sequence
+Description: "Each item.sequence must be unique within the Claim"
+Expression: "item.sequence.isDistinct()"
+Severity: #error
+
 Invariant: hpi-location-url-format
 Description: "Reference must be an HPI facility URL with format https://standards.digital.health.nz/ns/hpi-facility-id/FZZ111-A"
 Expression: "matches('^https://standards.digital.health.nz/ns/hpi-facility-id/F[A-Za-z0-9]{2}[0-9]{3}-[A-Za-z0-9]$')"
