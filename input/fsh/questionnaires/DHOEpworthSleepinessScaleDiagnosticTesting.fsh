@@ -1,14 +1,13 @@
 {
   "resourceType": "Questionnaire",
-  "id": "epworth-sleepiness-scale-diagnostic-testing",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
-  "url": "http://example.org/fhir/Questionnaire/epworth-sleepiness-scale-diagnostic-testing",
+  "url": "http://example.org/fhir/Questionnaire/DHOEpworthSleepinessScaleDiagnosticTesting",
   "version": "1.0.0",
-  "name": "EpworthSleepinessScaleDiagnosticTesting",
+  "name": "DHOEpworthSleepinessScaleDiagnosticTesting",
   "title": "Epworth Sleepiness Scale - Diagnostic Testing",
   "status": "draft",
   "subjectType": [

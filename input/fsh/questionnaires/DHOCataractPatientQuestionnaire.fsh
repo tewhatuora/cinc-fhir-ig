@@ -1,14 +1,13 @@
 {
   "resourceType": "Questionnaire",
-  "id": "cataract-patient-questionnaire",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
-  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/cataract-patient-questionnaire",
+  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/DHOCataractPatientQuestionnaire",
   "version": "1.0",
-  "name": "CataractPatientQuestionnaire",
+  "name": "DHOCataractPatientQuestionnaire",
   "title": "How does your cataract affect your life?",
   "status": "active",
   "experimental": false,

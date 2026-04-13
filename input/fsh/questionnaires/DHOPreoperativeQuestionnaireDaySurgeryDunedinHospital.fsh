@@ -5,6 +5,9 @@
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
+  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital",
+  "version": "1.0",
+  "name": "DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital",
   "title": "Preoperative Questionnaire Day Surgery Dunedin Hospital",
   "status": "active",
   "description": "Pre-operative assessment questionnaire for day surgery patients at Dunedin Hospital.",

@@ -1,11 +1,13 @@
 {
   "resourceType": "Questionnaire",
-  "id": "patient-screening-tool-ipc-district",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
+  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/DHOPatientScreeningToolIPC",
+  "version": "1.0",
+  "name": "DHOPatientScreeningToolIPC",
   "title": "Patient Screening Tool IPC (District)",
   "status": "draft",
   "subjectType": [
