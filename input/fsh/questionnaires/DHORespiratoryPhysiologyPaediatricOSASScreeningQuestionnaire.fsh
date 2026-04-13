@@ -5,7 +5,7 @@
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
-  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire",
+  "url": "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire",
   "version": "1.0",
   "name": "DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire",
   "title": " Respiratory Physiology Paediatric OSAS Screening Questionnaire",

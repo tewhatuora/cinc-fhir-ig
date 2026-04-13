@@ -5,7 +5,7 @@
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
-  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/DHOCataractPatientQuestionnaire",
+  "url": "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOCataractPatientQuestionnaire",
   "version": "1.0",
   "name": "DHOCataractPatientQuestionnaire",
   "title": "How does your cataract affect your life?",

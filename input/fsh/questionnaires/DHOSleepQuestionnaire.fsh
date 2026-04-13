@@ -5,7 +5,7 @@
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
-  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/DHOSleepQuestionnaire",
+  "url": "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOSleepQuestionnaire",
   "version": "1.0",
   "name": "DHOSleepQuestionnaire",
   "title": "Sleep Questionnaire",

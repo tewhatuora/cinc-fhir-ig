@@ -5,7 +5,7 @@
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
-  "url": "http://example.org/fhir/Questionnaire/DHOEpworthSleepinessScaleDiagnosticTesting",
+  "url": "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOEpworthSleepinessScaleDiagnosticTesting",
   "version": "1.0.0",
   "name": "DHOEpworthSleepinessScaleDiagnosticTesting",
   "title": "Epworth Sleepiness Scale - Diagnostic Testing",

@@ -5,7 +5,7 @@
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
-  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital",
+  "url": "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital",
   "version": "1.0",
   "name": "DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital",
   "title": "Preoperative Questionnaire Day Surgery Dunedin Hospital",

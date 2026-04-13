@@ -5,7 +5,7 @@
       "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
     ]
   },
-  "url": "https://tewhatuora.govt.nz/fhir/Questionnaire/DHOPatientScreeningToolIPC",
+  "url": "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOPatientScreeningToolIPC",
   "version": "1.0",
   "name": "DHOPatientScreeningToolIPC",
   "title": "Patient Screening Tool IPC (District)",
