@@ -39,7 +39,7 @@ Context: Claim.item
 Extension: SharedCareProductOrService
 Id: shared-care-product-or-service
 Title: "Shared Care Product Or Service"
-Description: "Validation and correction of purchase unit codes for shared care services"
+Description: "Validation and correction of product or service code for shared care services"
 Context: ClaimResponse.item
 * value[x] only CodeableConcept
 
