@@ -1,4 +1,3 @@
-# Online GP Reporting & Payment Automation
 
 Health NZ offers a subsidised Online GP Care service that connects healthcare consumers to NZ-registered healthcare professionals at telehealth providers using secure digital technologies (primarily video consultations, typically via a mobile application). 
 
@@ -8,9 +7,9 @@ The Online GP/telehealth service providers can be accessed from [https://info.he
 
 Providers are required to submit administrative/operational reporting to Health NZ on a regular basis – as contractually described in the Telehealth Service Specification. The published API endpoints allow providers (via their practice management systems) to automate the reporting, requests for payment, and payment processing – instead of manually producing a report to send to Health NZ and manually raising invoices at the end of each month which must be manually reviewed & approved by Health NZ.
 
-## Overview
+### Overview
 
-This section summarises the **FHIR REST endpoints** used to exchange:
+This section summarises the **FHIR REST API endpoints** used to exchange:
 - **Online GP Appointments** for operational reporting about **_planned_ encounters**.
   - Source profile: *[Online GP Appointment](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-OnlineGPAppointment.html)* (a profiled `Appointment`)
 - **Online GP Encounters** for operational reporting about **encounters _that occurred_** (or at least _started_).
@@ -27,7 +26,7 @@ This Shared Care FHIR server’s **[Capability Statement](https://fhir-ig.digita
 
 ---
 
-## Online GP Use Cases
+### Online GP Use Cases
 1. **Create or update a record of a _planned_ Online GP encounter** as an Appointment (reporting automation)
 2. **Create or update the record of an Online GP Encounter _that occurred_** (reporting automation)
 3. **Submit a request for payment of an Online GP Claim** (reporting & payment automation)
@@ -40,12 +39,14 @@ This Shared Care FHIR server’s **[Capability Statement](https://fhir-ig.digita
 
 ---
 
-## Common Conventions (applies to all use cases)
+### FHIR API endpoint conventions
 
-### Base URL
+Applicable to all use cases.
+
+#### Base URL
 - `[base]` = Shared Care FHIR Server base endpoint (environment-specific).
 
-### Correlation / provenance (as profiled)
+#### Common attributes (as profiled)
 The profiles of Appointment, Encounter, and Claim require `meta.source` and a `correlation-id` slice for `tag` to be included in the request body.
 
 | Attribute | Notes |
@@ -53,22 +54,23 @@ The profiles of Appointment, Encounter, and Claim require `meta.source` and a `c
 | **meta.source** | HPI Facility ID URI representing the system of record |
 | **tag.correlation-id** | Coding consisting of a `code` (a GUID) fixed to a specific `system` (i.e. `"https://hub.services.digital.health.nz/ns/correlation-id"`) used for observability/tracing of a request within Health NZ. |
 
+
 ---
 <br>
 
-# 1) Online GP Appointment (Appointment)
+### Online GP Appointment (Appointment)
 
-## What it represents
+#### What it represents
 
 A profiled `Appointment` resource for operational reporting of **_planned_ Online GP encounters** (including tracking of cancellations or no-shows). 
 
-## Endpoints (FHIR REST)
+#### Endpoints (FHIR REST)
 - **Create**: `POST [base]/Appointment`
 - **Update**: `PUT [base]/Appointment/{id}`
 - **Read**: `GET [base]/Appointment/{id}`
 - **Search**: `GET [base]/Appointment?{search-params}`
 
-## Key information
+#### Key information
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
@@ -80,18 +82,20 @@ A profiled `Appointment` resource for operational reporting of **_planned_ Onlin
 | Event Start Datetime | start | Planned start time |
 | Event End Datetime | end | Planned end time |
 
-### Example: Search for Online GP Appointments by patient/date
-```http
+##### Example: Search for Online GP Appointments by patient/date
+```
 GET [base]/Appointment?patient={patientId}&date=ge2026-03-01&date=le2026-03-31
 Accept: application/fhir+json
 ```
 
-### Example: Create Online GP Appointment (skeleton)
-```json
+##### Example: Create Online GP Appointment (skeleton)
+```
 POST [base]/Appointment
 Content-Type: application/fhir+json
 Accept: application/fhir+json
+```
 
+```json
 {
   "resourceType": "Appointment",
   "meta": {
@@ -110,12 +114,12 @@ Accept: application/fhir+json
 }
 ```
 
-# 2) Online GP Encounter (Encounter)
+### Online GP Encounter (Encounter)
 
-## What it represents
+#### What it represents
 A profiled Encounter resource for operational reporting of **Online GP encounters _that occurred_**.
 
-## Endpoints (FHIR REST)
+#### Endpoints (FHIR REST)
 
 - **Create**: `POST [base]/Encounter`
 - **Update**: `PUT [base]/Encounter/{id}`
@@ -125,7 +129,7 @@ A profiled Encounter resource for operational reporting of **Online GP encounter
 
 Confirm enabled interactions/search params in the server CapabilityStatement.
 
-## Key information
+#### Key information
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
@@ -145,20 +149,22 @@ Confirm enabled interactions/search params in the server CapabilityStatement.
 | Provisional/Working Diagnosis code(s) | diagnosis (extension) | Optional. SNOMED CTIDs.<br>Patient must be able to opt-out of providing this medical-related information. |
 | Disposition | hospitalization.dischargeDisposition | SNOMED CTIDs applicable to Online GP |
 
-### Example: Search encounters for a patient by status
+##### Example: Search encounters for a patient by status
 
-```http
+```
 GET [base]/Encounter?patient={patientId}&status=in-progress
 Accept: application/fhir+json
 ```
 
-### Example: Create Online GP Encounter (skeleton)
+##### Example: Create Online GP Encounter (skeleton)
 
-```json
+```
 POST [base]/Encounter
 Content-Type: application/fhir+json
 Accept: application/fhir+json
+```
 
+```json
 {
   "resourceType": "Encounter",
   "meta": {
@@ -176,15 +182,15 @@ Accept: application/fhir+json
   // ... remainder as per profile requirements: serviceProvider, participant, subject, status, class, type, period, etc.
 }
 ```
-# 3) Shared Care Claim (Claim)
+### Shared Care Claim (Claim)
 
-## What it represents
+#### What it represents
 
 A _generic_ profiled Claim resource for **requests for payment** for subsidised services performed under contract with Health NZ.
 
 It is applicable across multiple services (including Online GP payment automation). The kind of service being claimed for will be specified by the `type` and `subType`attributes of the Claim.
 
-## Endpoints (FHIR REST)
+#### Endpoints (FHIR REST)
 
 - **Create (submit claim)**: POST [base]/Claim
 - **Update**: PUT [base]/Claim/{id}
@@ -192,9 +198,9 @@ It is applicable across multiple services (including Online GP payment automatio
 - **Search**: GET [base]/Claim?{search-params}
 
 
-## Key information
+#### Key information
 
-Claim-level:
+##### Claim-level:
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
@@ -212,7 +218,7 @@ Claim-level:
 |  | created | Mandatory. Datetime when claim created in source system. |
 |  | related | Optional. Reference to an earlier related or cancelled Claim. |
 
-Claim item-level:
+##### Claim item-level:
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
@@ -230,13 +236,15 @@ Notes:
 - A claimed encounter could have multiple activities (items) - each with their own fee(s) and pricing.
 - `Claim.item.detail` records are not used for Online GP claims.
 
-### Example: Submit a Telehealth Claim (skeleton)
+##### Example: Submit a Telehealth Claim (skeleton)
 
-```json
+```
 POST [base]/Claim
 Content-Type: application/fhir+json
 Accept: application/fhir+json
+```
 
+```json
 {
   "resourceType" : "Claim",
   "meta" : {
@@ -255,27 +263,27 @@ Accept: application/fhir+json
 }
 ```
 
-### Example: Retrieve submitted Claim by id
+##### Example: Retrieve submitted Claim by id
 
-```http
+```
 GET [base]/Claim/{id}
 Accept: application/fhir+json
 ```
 
-# 4) Shared Care Claim Response (ClaimResponse)
+### Shared Care Claim Response (ClaimResponse)
 
-## What it represents
+#### What it represents
 
 A profiled `ClaimResponse` resource describing validation and/or adjudication (determination) results for submitted Share Care Claims.
 
 
-## Endpoints (FHIR REST)
+#### Endpoints (FHIR REST)
 
 - **Read**: GET [base]/ClaimResponse/{id}
 - **Search**: GET [base]/ClaimResponse?{search-params}
 
 
-## Key information
+#### Key information
 
 Each resource references the original claim via `ClaimResponse.request`.
 
@@ -283,7 +291,7 @@ Claim-level or claim item-level attributes that have failed validation, includin
 
 Once the claim and its items are validated then each `Claim.item` will be adjudicated. Information and failure messages relating to the adjudication (approval or denial) for the item will be reported as records within the `ClaimResponse.item.reviewOutcome` record. If all the items in the claim are approved then the `ClaimResponse.outcome` will be set to "complete". Otherwise, if any item had a denial then the `ClaimResponse.outcome` will be set to "partial". Payment may be made for any successfully adjudicated items.
 
-Response level attributes:
+##### Response level attributes:
 
 | FHIR Attribute | Notes |
 |----------------|-------|
@@ -305,7 +313,8 @@ Response level attributes:
 | item | Collection of zero or more records for each _adjudicated_ `Claim.item`.<br>The `Claim.item` must have been successfully validated in order to be subsequently adjudicated and be populated here. |
 | addItem | N/a |
 
-<br>Response item-level attributes:
+
+##### Response item-level attributes:
 
 | FHIR Attribute | Notes |
 |----------------|-------|
@@ -316,16 +325,16 @@ Response level attributes:
 | adjudication | A collection of one or more records **summarising the amount payable for this adjudicated claim item** per adjudication category (e.g. "benefit") and "policy" (the adjudication reason code).<br>Each adjudication record will contain:<br>- `category` (mandatory adjudication category e.g. "benefit")<br>- `reason` (optional adjudication reason codes - set to "policy")<br>- `amount` (sum of calculated amounts for this claim item and adjudication category)<br>- `value` (optional quantity from the claim item) |
 | detail | N/a |
 
-### Example: Find claim response(s) for a given Claim
+##### Example: Find claim response(s) for a given Claim
 
-```http
+```
 GET [base]/ClaimResponse?request=Claim/{claimId}
 Accept: application/fhir+json
 ```
 
-### Example: Read a ClaimResponse by id
+##### Example: Read a ClaimResponse by id
 
-```http
+```
 GET [base]/ClaimResponse/{id}
 Accept: application/fhir+json
 ```
