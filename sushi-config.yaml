@@ -260,6 +260,13 @@ groups:
       - PrivateColposcopyDischargeQuestionnaire
       - EarlyWarningScoreQuestionnaire
       - DunedinFormConditionAffectQuestionnaire
+      - DHOCataractPatientQuestionnaire
+      - DHOEpworthSleepinessScaleDiagnosticTesting
+      - DHOPatientScreeningToolIPC
+      - DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital
+      - DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire
+      - DHOSleepQuestionnaire
+
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
     description: Demonstration QuestionnaireResponses for all Questionnaire resources
