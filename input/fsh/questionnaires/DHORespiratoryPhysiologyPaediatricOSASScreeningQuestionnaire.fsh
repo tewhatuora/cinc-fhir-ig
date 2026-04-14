@@ -20,27 +20,32 @@
     {
       "type": "string",
       "linkId": "surname_11",
-      "text": "Surname"
+      "text": "Surname",
+      "required": true
     },
     {
       "type": "string",
       "linkId": "fullname_12",
-      "text": "Full Name"
+      "text": "Full Name",
+      "required": true
     },
     {
       "type": "string",
       "linkId": "nhinumber_13",
-      "text": "NHI number"
+      "text": "NHI number",
+      "required": true
     },
     {
       "type": "date",
       "linkId": "dob_14",
-      "text": "DOB"
+      "text": "DOB",
+      "required": true
     },
     {
       "type": "choice",
       "linkId": "sex_15",
       "text": "Sex",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -59,12 +64,14 @@
     {
       "type": "string",
       "linkId": "caregivername",
-      "text": "Caregiver Name"
+      "text": "Caregiver Name",
+      "required": true
     },
     {
       "type": "date",
       "linkId": "date_31",
-      "text": "Date"
+      "text": "Date",
+      "required": true
     },
     {
       "type": "display",
@@ -80,6 +87,7 @@
       "type": "choice",
       "linkId": "runnynose",
       "text": "A constant blocked or runny nose?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -105,6 +113,7 @@
       "type": "choice",
       "linkId": "chestinfections",
       "text": "Recurrent chest infections/pneumonia?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -130,6 +139,7 @@
       "type": "choice",
       "linkId": "airwaynrrowing",
       "text": "An airway narrowing or abnormality?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -155,6 +165,7 @@
       "type": "choice",
       "linkId": "syndromemajor",
       "text": "A syndrome or other major health problem?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -179,12 +190,14 @@
     {
       "type": "string",
       "linkId": "type_01",
-      "text": "Type"
+      "text": "Type",
+      "required": true
     },
     {
       "type": "choice",
       "linkId": "tonsils",
       "text": "Does your child have large tonsils?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -210,6 +223,7 @@
       "type": "choice",
       "linkId": "tonsilsremoved",
       "text": "Has your child had their adenoids or tonsils removed?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -240,6 +254,7 @@
       "type": "choice",
       "linkId": "snore_22",
       "text": "snore more than half the time?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -265,6 +280,7 @@
       "type": "choice",
       "linkId": "alwayssnore",
       "text": "always snore?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -290,6 +306,7 @@
       "type": "choice",
       "linkId": "snoreloundly",
       "text": "snore loudly?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -315,6 +332,7 @@
       "type": "choice",
       "linkId": "troublebreathing",
       "text": "have trouble breathing, or struggle to breathe?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -340,6 +358,7 @@
       "type": "choice",
       "linkId": "loudbreathing",
       "text": "have \"heavy\" or loud breathing?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -365,6 +384,7 @@
       "type": "choice",
       "linkId": "stopbreathingnight",
       "text": "Have you ever seen your child stop breathing during the night?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -395,6 +415,7 @@
       "type": "choice",
       "linkId": "breathethroughmouth",
       "text": "tend to breathe through the mouth during the day?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -420,6 +441,7 @@
       "type": "choice",
       "linkId": "wetthebed",
       "text": "occasionally wet the bed?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -445,6 +467,7 @@
       "type": "choice",
       "linkId": "unrefreshedmorning",
       "text": "wake up feeling unrefreshed in the morning?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -470,6 +493,7 @@
       "type": "choice",
       "linkId": "sleepinessduringday",
       "text": "have a problem with sleepiness during the day?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -495,6 +519,7 @@
       "type": "choice",
       "linkId": "sleepyatnight",
       "text": "Has a teacher commented that your child appears sleepy during the day?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -520,6 +545,7 @@
       "type": "choice",
       "linkId": "hardtowakeup",
       "text": "Is it hard to wake your child up in the morning?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -545,6 +571,7 @@
       "type": "choice",
       "linkId": "headachesinthemorning",
       "text": "Does your child wake up with headaches in the morning?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -570,6 +597,7 @@
       "type": "choice",
       "linkId": "stopgrowing",
       "text": "Did your child stop growing at a normal rate at any time since birth?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -595,6 +623,7 @@
       "type": "choice",
       "linkId": "childoverweight",
       "text": "Is your child overweight?",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -625,6 +654,7 @@
       "type": "choice",
       "linkId": "listenissues",
       "text": "does not seem to listen when spoken to directly.",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -650,6 +680,7 @@
       "type": "choice",
       "linkId": "difficultyinorganizing",
       "text": "has difficulty organizing task and activities.",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -675,6 +706,7 @@
       "type": "choice",
       "linkId": "stimulieasily",
       "text": "is easily distracted by extraneous stimuli.",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -700,6 +732,7 @@
       "type": "choice",
       "linkId": "squirmsseat",
       "text": "fidgets with hands or feet or squirms in seat.",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -725,6 +758,7 @@
       "type": "choice",
       "linkId": "drivenbyamotor",
       "text": "is 'on the go' or often acts as if 'driven by a motor'.",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -750,6 +784,7 @@
       "type": "choice",
       "linkId": "intrudesother",
       "text": "interrupts or intrudes on others (e.g. butts into conversations or games).",
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {

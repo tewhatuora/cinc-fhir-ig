@@ -9,12 +9,41 @@
   "version": "1.0.0",
   "name": "DHOEpworthSleepinessScaleDiagnosticTesting",
   "title": "Epworth Sleepiness Scale - Diagnostic Testing",
-  "status": "draft",
+  "status": "active",
   "subjectType": [
     "Patient"
   ],
   "description": "Collects Epworth Sleepiness Scale responses and related diagnostic testing details",
   "purpose": "Collects Epworth Sleepiness Scale responses and related diagnostic testing details to support assessment of daytime sleepiness.",
+  "contained": [
+    {
+      "resourceType": "ValueSet",
+      "id": "sleep-scale",
+      "status": "active",
+      "date": "2026-04-13T23:17:04.406Z",
+      "expansion": {
+        "timestamp": "2026-04-13T23:16:50.164Z",
+        "contains": [
+          {
+            "code": "0",
+            "display": "0 -- Would never dose"
+          },
+          {
+            "code": "1",
+            "display": "1 -- Slight chance of dozing"
+          },
+          {
+            "code": "2",
+            "display": "2 -- Moderate chance of dozing"
+          },
+          {
+            "code": "3",
+            "display": "3 -- High chance of dozing"
+          }
+        ]
+      }
+    }
+  ],
   "item": [
     {
       "item": [
@@ -24,9 +53,9 @@
           "text": "Diagnostic Testing Department\n\nPh: (03) 214 5775"
         },
         {
+          "type": "display",
           "linkId": "header-right",
-          "text": "Tom McKendrick\nSleep Laboratory\nDunedin Hospital\n\nPh: (03) 470 9742",
-          "type": "display"
+          "text": "Tom McKendrick\nSleep Laboratory\nDunedin Hospital\n\nPh: (03) 470 9742"
         }
       ],
       "type": "group",
@@ -36,19 +65,19 @@
     {
       "item": [
         {
+          "type": "string",
           "linkId": "patient-name",
-          "text": "Patient",
-          "type": "string"
+          "text": "Patient"
         },
         {
+          "type": "string",
           "linkId": "nhi-number",
-          "text": "NHI No",
-          "type": "string"
+          "text": "NHI No"
         },
         {
+          "type": "string",
           "linkId": "physician",
-          "text": "Physician",
-          "type": "string"
+          "text": "Physician"
         }
       ],
       "type": "group",
@@ -63,9 +92,9 @@
           "text": "On CPAP / NIV Treatment?"
         },
         {
+          "type": "string",
           "linkId": "current-pressure-setting",
-          "text": "Current Pressure Setting",
-          "type": "string"
+          "text": "Current Pressure Setting"
         },
         {
           "type": "date",
@@ -94,8 +123,8 @@
                 "coding": [
                   {
                     "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "radio-button",
-                    "display": "Radio Button"
+                    "code": "drop-down",
+                    "display": "Drop down"
                   }
                 ]
               }
@@ -104,364 +133,49 @@
           "linkId": "sitting-reading",
           "text": "Sitting and reading",
           "required": true,
-          "answerOption": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 0
-                }
-              ],
-              "valueCoding": {
-                "display": "0 = Would never dose"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 1
-                }
-              ],
-              "valueCoding": {
-                "display": "1 = Slight chance of dozing"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 2
-                }
-              ],
-              "valueCoding": {
-                "display": "2 = Moderate chance of dozing  "
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 3
-                }
-              ],
-              "valueCoding": {
-                "display": "3 = High chance of dozing "
-              }
-            }
-          ]
+          "answerValueSet": "#sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "Watchingtv",
           "text": "Watching TV",
           "required": true,
-          "answerOption": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 0
-                }
-              ],
-              "valueCoding": {
-                "display": "0 = Would never dose"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 1
-                }
-              ],
-              "valueCoding": {
-                "display": "1 = Slight chance of dozing"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 2
-                }
-              ],
-              "valueCoding": {
-                "display": "2 = Moderate chance of dozing  "
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 3
-                }
-              ],
-              "valueCoding": {
-                "display": "3 = High chance of dozing "
-              }
-            }
-          ]
+          "answerValueSet": "#sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "sittinginactive",
           "text": "Sitting, inactive in a public place (e.g., a theatre or meeting)",
           "required": true,
-          "answerOption": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 0
-                }
-              ],
-              "valueCoding": {
-                "display": "0 = Would never dose"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 1
-                }
-              ],
-              "valueCoding": {
-                "display": "1 = Slight chance of dozing"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 2
-                }
-              ],
-              "valueCoding": {
-                "display": "2 = Moderate chance of dozing  "
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 3
-                }
-              ],
-              "valueCoding": {
-                "display": "3 = High chance of dozing "
-              }
-            }
-          ]
+          "answerValueSet": "#sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "passengercarbreak",
           "text": "As a passenger in a car for an hour without a break",
           "required": true,
-          "answerOption": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 0
-                }
-              ],
-              "valueCoding": {
-                "display": "0 = Would never dose"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 1
-                }
-              ],
-              "valueCoding": {
-                "display": "1 = Slight chance of dozing"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 2
-                }
-              ],
-              "valueCoding": {
-                "display": "2 = Moderate chance of dozing  "
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 3
-                }
-              ],
-              "valueCoding": {
-                "display": "3 = High chance of dozing "
-              }
-            }
-          ]
+          "answerValueSet": "#sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "restintheafternoon",
           "text": "Lying down to rest in the afternoon when circumstances permit",
           "required": true,
-          "answerOption": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 0
-                }
-              ],
-              "valueCoding": {
-                "display": "0 = Would never dose"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 1
-                }
-              ],
-              "valueCoding": {
-                "display": "1 = Slight chance of dozing"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 2
-                }
-              ],
-              "valueCoding": {
-                "display": "2 = Moderate chance of dozing  "
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 3
-                }
-              ],
-              "valueCoding": {
-                "display": "3 = High chance of dozing "
-              }
-            }
-          ]
+          "answerValueSet": "#sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "sittingandtalking",
           "text": "Sitting and talking",
           "required": true,
-          "answerOption": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 0
-                }
-              ],
-              "valueCoding": {
-                "display": "0 = Would never dose"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 1
-                }
-              ],
-              "valueCoding": {
-                "display": "1 = Slight chance of dozing"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 2
-                }
-              ],
-              "valueCoding": {
-                "display": "2 = Moderate chance of dozing  "
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 3
-                }
-              ],
-              "valueCoding": {
-                "display": "3 = High chance of dozing "
-              }
-            }
-          ]
+          "answerValueSet": "#sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "sittingquietly",
           "text": "Sitting quietly after a lunch without alcohol",
           "required": true,
-          "answerOption": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 0
-                }
-              ],
-              "valueCoding": {
-                "display": "0 = Would never dose"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 1
-                }
-              ],
-              "valueCoding": {
-                "display": "1 = Slight chance of dozing"
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 2
-                }
-              ],
-              "valueCoding": {
-                "display": "2 = Moderate chance of dozing  "
-              }
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-                  "valueDecimal": 3
-                }
-              ],
-              "valueCoding": {
-                "display": "3 = High chance of dozing "
-              }
-            }
-          ]
+          "answerValueSet": "#sleep-scale"
         },
         {
           "type": "integer",

@@ -14,9 +14,6 @@
   "purpose": "To collect pre-operative clinical and risk information prior to day surgery.",
   "item": [
     {
-      "type": "group",
-      "linkId": "patientInfo",
-      "text": "Patient Information",
       "item": [
         {
           "type": "string",
@@ -63,7 +60,10 @@
           "linkId": "phonenumber_09",
           "text": "Phone Number"
         }
-      ]
+      ],
+      "type": "group",
+      "linkId": "patientInfo",
+      "text": "Patient Information"
     },
     {
       "item": [
@@ -71,14 +71,14 @@
           "type": "boolean",
           "linkId": "operation_10",
           "text": "Have you ever had an operation and/or anaesthetic?",
-          "required": false,
+          "required": true,
           "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "closerelative",
           "text": "Have you or a close relative ever had problems with an anaesthetic?",
-          "required": false,
+          "required": true,
           "repeats": false
         },
         {
@@ -87,20 +87,20 @@
           "text": "If YES, describe the problem:",
           "enableWhen": [
             {
-              "question": "852788868684",
+              "question": "closerelative",
               "operator": "=",
               "answerBoolean": true
             }
           ],
-          "enableBehavior": "all",
-          "required": false,
+          "enableBehavior": "any",
+          "required": true,
           "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "medicationsallergy",
           "text": "Are you allergic to any medications or other substances?",
-          "required": false,
+          "required": true,
           "repeats": false
         },
         {
@@ -109,19 +109,21 @@
           "text": "If YES, please list:",
           "enableWhen": [
             {
-              "question": "463827774956",
+              "question": "medicationsallergy",
               "operator": "=",
               "answerBoolean": true
             }
           ],
           "enableBehavior": "all",
-          "required": false,
+          "required": true,
           "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "anymedications",
-          "text": "Are you taking or have you taken any medications in the last 6 months?"
+          "text": "Are you taking or have you taken any medications in the last 6 months?",
+          "required": true,
+          "repeats": false
         },
         {
           "type": "string",
@@ -129,22 +131,25 @@
           "text": "If YES, please list all medications:",
           "enableWhen": [
             {
-              "question": "796544660002",
+              "question": "anymedications",
               "operator": "=",
               "answerBoolean": true
             }
           ],
-          "enableBehavior": "all"
+          "enableBehavior": "all",
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "hadmdro",
-          "text": "Have you ever had MDRO? (Superbug infection)"
+          "text": "Have you ever had MDRO? (Superbug infection)",
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "workedorpatient",
-          "text": "Have you worked or been a patient in a hospital in NZ or overseas in the last 6 months? "
+          "text": "Have you worked or been a patient in a hospital in NZ or overseas in the last 6 months? ",
+          "repeats": false
         },
         {
           "type": "string",
@@ -152,27 +157,31 @@
           "text": "If YES, state when and where:",
           "enableWhen": [
             {
-              "question": "204699377255",
+              "question": "workedorpatient",
               "operator": "=",
               "answerBoolean": true
             }
           ],
-          "enableBehavior": "all"
+          "enableBehavior": "all",
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "artificialjoint",
-          "text": "Do you have an artificial joint, heart valve or a pacemaker?"
+          "text": "Do you have an artificial joint, heart valve or a pacemaker?",
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "looseteeth",
-          "text": "Do you have dentures, partial plate, loose teeth?"
+          "text": "Do you have dentures, partial plate, loose teeth?",
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "smoke",
-          "text": "Do you smoke?"
+          "text": "Do you smoke?",
+          "repeats": false
         },
         {
           "type": "string",
@@ -180,22 +189,25 @@
           "text": "If YES, how many per day?",
           "enableWhen": [
             {
-              "question": "450367581447",
+              "question": "smoke",
               "operator": "=",
               "answerBoolean": true
             }
           ],
-          "enableBehavior": "all"
+          "enableBehavior": "all",
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "sufferingcold",
-          "text": "Are you suffering from or recovering from a cold, sore throat, flu or covid19?"
+          "text": "Are you suffering from or recovering from a cold, sore throat, flu or covid19?",
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "pregnant",
-          "text": "Are you or could you be pregnant?"
+          "text": "Are you or could you be pregnant?",
+          "repeats": false
         }
       ],
       "type": "group",
@@ -213,127 +225,158 @@
         {
           "type": "boolean",
           "linkId": "heartcondition",
-          "text": "Heart condition"
+          "text": "Heart condition",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "angina",
-          "text": "Chest pain/angina"
+          "text": "Chest pain/angina",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "bloodpressure",
-          "text": "High blood pressure"
+          "text": "High blood pressure",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "ankleswelling",
-          "text": "Ankle swelling"
+          "text": "Ankle swelling",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "shortnessbreath",
-          "text": "Abnormal shortness of breath"
+          "text": "Abnormal shortness of breath",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "bloodclots",
-          "text": "Blood clots in legs/lungs"
+          "text": "Blood clots in legs/lungs",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "rheumaticfever",
-          "text": "Rheumatic fever"
+          "text": "Rheumatic fever",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "pcough",
-          "text": "Persistent cough"
+          "text": "Persistent cough",
+          "required": true,
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "asthma",
-          "text": "Asthma"
+          "text": "Asthma",
+          "required": true,
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "lungproblem",
-          "text": "Other lung problems"
+          "text": "Other lung problems",
+          "required": true,
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "reflux",
-          "text": "Heartburn/reflux"
+          "text": "Heartburn/reflux",
+          "required": true,
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "sulcer",
-          "text": "Stomach ulcer"
+          "text": "Stomach ulcer",
+          "required": true,
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "bleedingdisorder",
-          "text": "Bleeding disorders"
+          "text": "Bleeding disorders",
+          "required": true,
+          "repeats": false
         },
         {
           "type": "boolean",
           "linkId": "anaemia",
-          "text": "Anaemia"
+          "text": "Anaemia",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "stroke",
-          "text": "Stroke/blackouts"
+          "text": "Stroke/blackouts",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "kidneydisorder",
-          "text": "Kidney disorders"
+          "text": "Kidney disorders",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "jaundice",
-          "text": "Hepatitis/jaundice"
+          "text": "Hepatitis/jaundice",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "efits",
-          "text": "Epilepsy/fits"
+          "text": "Epilepsy/fits",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "migraine_01",
-          "text": "Migraine"
+          "text": "Migraine",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "diabetestype",
-          "text": "Diabetes type 1 / 2"
+          "text": "Diabetes type 1 / 2",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "depressionnerves",
-          "text": "Depression/nerves"
+          "text": "Depression/nerves",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "arthritis",
-          "text": "Arthritis"
+          "text": "Arthritis",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "alcoholrelated",
-          "text": "Alcohol related problems"
+          "text": "Alcohol related problems",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "motionsickness",
-          "text": "Motion sickness"
+          "text": "Motion sickness",
+          "required": true
         },
         {
           "type": "string",
           "linkId": "other",
-          "text": "Other"
+          "text": "Other",
+          "required": true
         }
       ],
       "type": "group",
@@ -352,22 +395,26 @@
         {
           "type": "string",
           "linkId": "supportpersonname",
-          "text": "Support Person Name:"
+          "text": "Support Person Name:",
+          "required": true
         },
         {
           "type": "string",
           "linkId": "contactphone",
-          "text": "Contact Phone:"
+          "text": "Contact Phone:",
+          "required": true
         },
         {
           "type": "string",
           "linkId": "patientsignature",
-          "text": "Patient Signature:"
+          "text": "Patient Signature:",
+          "required": true
         },
         {
           "type": "date",
           "linkId": "date",
-          "text": "Date"
+          "text": "Date",
+          "required": true
         },
         {
           "type": "display",
@@ -377,27 +424,32 @@
         {
           "type": "boolean",
           "linkId": "eversmoked",
-          "text": "Has the patient ever smoked?"
+          "text": "Has the patient ever smoked?",
+          "required": true
         },
         {
           "type": "string",
           "linkId": "lastsmoke",
-          "text": "When did they last smoke?"
+          "text": "When did they last smoke?",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "quitadvise",
-          "text": "Advised to quit?"
+          "text": "Advised to quit?",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "vape",
-          "text": "Does the patient vape?"
+          "text": "Does the patient vape?",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "withnicotine",
-          "text": "with nicotine?"
+          "text": "with nicotine?",
+          "required": true
         },
         {
           "type": "display",
@@ -407,32 +459,38 @@
         {
           "type": "boolean",
           "linkId": "quitcard",
-          "text": "NRT or Quitcard provided"
+          "text": "NRT or Quitcard provided",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "referraltossss",
-          "text": "Referral to SSSS"
+          "text": "Referral to SSSS",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "supportdeclined",
-          "text": "Support declined"
+          "text": "Support declined",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "cessationprogramme",
-          "text": "Already on cessation programme"
+          "text": "Already on cessation programme",
+          "required": true
         },
         {
           "type": "date",
           "linkId": "date_11",
-          "text": "Date"
+          "text": "Date",
+          "required": true
         },
         {
           "type": "string",
           "linkId": "sign_12",
-          "text": "Sign"
+          "text": "Sign",
+          "required": true
         },
         {
           "type": "display",
@@ -447,27 +505,32 @@
         {
           "type": "boolean",
           "linkId": "agemore55",
-          "text": ">55yrs & Maori or Pacific Islander"
+          "text": ">55yrs & Maori or Pacific Islander",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "agemore75",
-          "text": ">75yrs (Other Ethnicity)"
+          "text": ">75yrs (Other Ethnicity)",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "ptfallenpast",
-          "text": "Pt has fallen in past year"
+          "text": "Pt has fallen in past year",
+          "required": true
         },
         {
           "type": "boolean",
           "linkId": "assessordeemspt",
-          "text": "Assessor deems pt requires a full assessment"
+          "text": "Assessor deems pt requires a full assessment",
+          "required": true
         },
         {
           "type": "date",
           "linkId": "date_21",
-          "text": "Date"
+          "text": "Date",
+          "required": true
         },
         {
           "type": "string",

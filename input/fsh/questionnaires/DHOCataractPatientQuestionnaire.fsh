@@ -22,6 +22,7 @@
       "resourceType": "ValueSet",
       "id": "difficulty-scale",
       "status": "active",
+      "date": "2026-04-13T23:10:03.370Z",
       "compose": {
         "include": [
           {
@@ -51,6 +52,41 @@
                 "display": "Extremely difficult"
               }
             ]
+          }
+        ]
+      },
+      "expansion": {
+        "timestamp": "2026-04-13T23:10:01.648Z",
+        "contains": [
+          {
+            "system": "1",
+            "code": "1",
+            "display": "1 -- No difficulty"
+          },
+          {
+            "system": "2",
+            "code": "2",
+            "display": "2 -- Little difficulty"
+          },
+          {
+            "system": "3",
+            "code": "3",
+            "display": "3 -- Some difficulty"
+          },
+          {
+            "system": "4",
+            "code": "4",
+            "display": "4 -- Quite difficulty"
+          },
+          {
+            "system": "5",
+            "code": "5",
+            "display": "5 -- Very difficulty"
+          },
+          {
+            "system": "6",
+            "code": "6",
+            "display": "6 -- Extremely difficulty"
           }
         ]
       }
@@ -97,80 +133,7 @@
       "text": "How much does your condition affect your social interactions? Examples include meeting friends, going out, joining groups, going shopping, and other everyday activities outside the home.",
       "required": true,
       "repeats": false,
-      "answerOption": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 1
-            }
-          ],
-          "valueCoding": {
-            "code": "1",
-            "display": "No difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 2
-            }
-          ],
-          "valueCoding": {
-            "code": "2",
-            "display": "Little difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 3
-            }
-          ],
-          "valueCoding": {
-            "code": "3",
-            "display": "Some difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 4
-            }
-          ],
-          "valueCoding": {
-            "code": "4",
-            "display": "Quite difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 5
-            }
-          ],
-          "valueCoding": {
-            "code": "5",
-            "display": "Very difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 6
-            }
-          ],
-          "valueCoding": {
-            "code": "6",
-            "display": "Extremely difficult"
-          }
-        }
-      ]
+      "answerValueSet": "#difficulty-scale"
     },
     {
       "type": "choice",
@@ -192,80 +155,7 @@
       "text": "How much does your condition affect your personal relationships? Examples include personal relationships with a partner, family members, and close personal friends.",
       "required": true,
       "repeats": false,
-      "answerOption": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 1
-            }
-          ],
-          "valueCoding": {
-            "code": "1",
-            "display": "No difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 2
-            }
-          ],
-          "valueCoding": {
-            "code": "2",
-            "display": "Little difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 3
-            }
-          ],
-          "valueCoding": {
-            "code": "3",
-            "display": "Some difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 4
-            }
-          ],
-          "valueCoding": {
-            "code": "4",
-            "display": "Quite difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 5
-            }
-          ],
-          "valueCoding": {
-            "code": "5",
-            "display": "Very difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 6
-            }
-          ],
-          "valueCoding": {
-            "code": "6",
-            "display": "Extremely difficult"
-          }
-        }
-      ]
+      "answerValueSet": "#difficulty-scale"
     },
     {
       "type": "choice",
@@ -287,80 +177,7 @@
       "text": "How much does your condition affect your ability to meet your responsibilities to others? Examples include doing meaningful things for yourself or others, such as caring for children, grandchildren or a partner, and work (both paid and unpaid), including how having to rely on others may affect you.",
       "required": true,
       "repeats": false,
-      "answerOption": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 1
-            }
-          ],
-          "valueCoding": {
-            "code": "1",
-            "display": "No difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 2
-            }
-          ],
-          "valueCoding": {
-            "code": "2",
-            "display": "Little difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 3
-            }
-          ],
-          "valueCoding": {
-            "code": "3",
-            "display": "Some difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 4
-            }
-          ],
-          "valueCoding": {
-            "code": "4",
-            "display": "Quite difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 5
-            }
-          ],
-          "valueCoding": {
-            "code": "5",
-            "display": "Very difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 6
-            }
-          ],
-          "valueCoding": {
-            "code": "6",
-            "display": "Extremely difficult"
-          }
-        }
-      ]
+      "answerValueSet": "#difficulty-scale"
     },
     {
       "type": "choice",
@@ -382,80 +199,7 @@
       "text": "How much does your condition affect your personal care? Examples include looking after yourself and your health, personal hygiene, and any need for aids or special clothing.",
       "required": true,
       "repeats": false,
-      "answerOption": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 1
-            }
-          ],
-          "valueCoding": {
-            "code": "1",
-            "display": "No difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 2
-            }
-          ],
-          "valueCoding": {
-            "code": "2",
-            "display": "Little difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 3
-            }
-          ],
-          "valueCoding": {
-            "code": "3",
-            "display": "Some difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 4
-            }
-          ],
-          "valueCoding": {
-            "code": "4",
-            "display": "Quite difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 5
-            }
-          ],
-          "valueCoding": {
-            "code": "5",
-            "display": "Very difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 6
-            }
-          ],
-          "valueCoding": {
-            "code": "6",
-            "display": "Extremely difficult"
-          }
-        }
-      ]
+      "answerValueSet": "#difficulty-scale"
     },
     {
       "type": "choice",
@@ -477,80 +221,7 @@
       "text": "How much does your condition affect your personal safety? Examples include being safe from injury or harm, from yourself or others, and in your surroundings.",
       "required": true,
       "repeats": false,
-      "answerOption": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 1
-            }
-          ],
-          "valueCoding": {
-            "code": "1",
-            "display": "No difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 2
-            }
-          ],
-          "valueCoding": {
-            "code": "2",
-            "display": "Little difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 3
-            }
-          ],
-          "valueCoding": {
-            "code": "3",
-            "display": "Some difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 4
-            }
-          ],
-          "valueCoding": {
-            "code": "4",
-            "display": "Quite difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 5
-            }
-          ],
-          "valueCoding": {
-            "code": "5",
-            "display": "Very difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 6
-            }
-          ],
-          "valueCoding": {
-            "code": "6",
-            "display": "Extremely difficult"
-          }
-        }
-      ]
+      "answerValueSet": "#difficulty-scale"
     },
     {
       "type": "choice",
@@ -572,80 +243,7 @@
       "text": "How much does your condition affect your leisure activities? Examples include getting exercise, hobbies, sporting activities, gardening, do-it-yourself activities, crafts, and travel.",
       "required": true,
       "repeats": false,
-      "answerOption": [
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 1
-            }
-          ],
-          "valueCoding": {
-            "code": "1",
-            "display": "No difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 2
-            }
-          ],
-          "valueCoding": {
-            "code": "2",
-            "display": "Little difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 3
-            }
-          ],
-          "valueCoding": {
-            "code": "3",
-            "display": "Some difficulty"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 4
-            }
-          ],
-          "valueCoding": {
-            "code": "4",
-            "display": "Quite difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 5
-            }
-          ],
-          "valueCoding": {
-            "code": "5",
-            "display": "Very difficult"
-          }
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/itemWeight",
-              "valueDecimal": 6
-            }
-          ],
-          "valueCoding": {
-            "code": "6",
-            "display": "Extremely difficult"
-          }
-        }
-      ]
+      "answerValueSet": "#difficulty-scale"
     }
   ]
 }
