@@ -46,15 +46,7 @@
       ],
       "type": "string",
       "linkId": "assessordetails_06",
-      "text": "Assessor Details",
-      "_text": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-            "valueString": "font-weight: bold"
-          }
-        ]
-      }
+      "text": "Assessor Details"
     },
     {
       "item": [
@@ -86,38 +78,11 @@
       ],
       "type": "string",
       "linkId": "patientdetails",
-      "text": "Patient Details",
-      "_text": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-            "valueString": "font-weight: bold;"
-          }
-        ]
-      }
+      "text": "Patient Details"
     },
     {
       "item": [
         {
-          "type": "boolean",
-          "linkId": "question-a-info",
-          "_prefix": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                "valueString": "font-weight: bold;"
-              }
-            ]
-          },
-          "text": "A: MDRO? Multi Drug Resistant Organism (e.g., MRSA, ESBL, VRE, CPO)",
-          "_text": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                "valueString": "font-weight: bold;"
-              }
-            ]
-          },
           "item": [
             {
               "type": "boolean",
@@ -149,36 +114,30 @@
                 {
                   "type": "display",
                   "linkId": "a-action",
-                  "prefix": "If answered yes,",
-                  "_prefix": {
-                    "extension": [
-                      {
-                        "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                        "valueString": "font-weight: bold"
-                      }
-                    ]
-                  },
-                  "text": "refer to MDRO-Admission-assessment-flowchart.dox (200982) for testing and placement."
+                  "text": "If answered yes, refer to MDRO-Admission-assessment-flowchart.dox (200982) for testing and placement."
                 }
               ],
               "type": "boolean",
               "linkId": "a6",
               "text": "In the last 6 months been a resident at Longwood Care Home (Southland)?"
             }
-          ]
+          ],
+          "type": "boolean",
+          "linkId": "question-a-info",
+          "_prefix": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
+                "valueString": "font-weight: bold;"
+              }
+            ]
+          },
+          "text": "A: MDRO? Multi Drug Resistant Organism (e.g., MRSA, ESBL, VRE, CPO)"
         }
       ],
       "type": "group",
       "linkId": "question-a-group",
-      "text": "Question A – Required for all overnight admissions, plus dialysis outpatients, and Oncology outpatients",
-      "_text": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-            "valueString": "font-weight: bold;"
-          }
-        ]
-      }
+      "text": "Question A – Required for all overnight admissions, plus dialysis outpatients, and Oncology outpatients"
     },
     {
       "item": [
@@ -211,21 +170,12 @@
               ],
               "type": "boolean",
               "linkId": "b-more-than-3",
-              "text": ">3 watery bowel motions or any episodes in the past 24 hours",
-              "enableBehavior": "any"
+              "text": ">3 watery bowel motions or any episodes in the past 24 hours"
             }
           ],
           "type": "boolean",
           "linkId": "b",
-          "text": "B: Diarrhoea / vomiting?",
-          "_text": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                "valueString": "font-weight: bold;"
-              }
-            ]
-          }
+          "text": "B: Diarrhoea / vomiting?"
         },
         {
           "item": [
@@ -235,9 +185,9 @@
               "text": "Refer to Disease Specific Isolation Guidelines (20435) for isolation period or discuss with IPC team. ",
               "enableWhen": [
                 {
-                  "question": "557106351405",
+                  "question": "Infectious Disease",
                   "operator": "=",
-                  "answerBoolean": true
+                  "answerBoolean": false
                 }
               ],
               "enableBehavior": "any"
@@ -245,16 +195,7 @@
           ],
           "type": "boolean",
           "linkId": "Infectious Disease",
-          "text": "C: Other Infectious Disease",
-          "_text": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                "valueString": "font-weight: bold;"
-              }
-            ]
-          },
-          "enableBehavior": "any"
+          "text": "C: Other Infectious Disease"
         },
         {
           "type": "display",
@@ -312,15 +253,7 @@
           ],
           "type": "string",
           "linkId": "acuterespiratoryillness",
-          "text": "D: Positive test for acute respiratory illness? E.g., COVID / Influenza / RSV",
-          "_text": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                "valueString": "font-weight: bold;"
-              }
-            ]
-          }
+          "text": "D: Positive test for acute respiratory illness? E.g., COVID / Influenza / RSV"
         },
         {
           "item": [
@@ -359,29 +292,12 @@
               ],
               "type": "group",
               "linkId": "covid-rat-instructions",
-              "text": "Yes to E -- COVID RAT Test",
-              "_text": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                    "valueString": "font-weight: bold;"
-                  }
-                ]
-              },
-              "enableBehavior": "any"
+              "text": "Yes to E -- COVID RAT Test"
             }
           ],
           "type": "boolean",
           "linkId": "e",
-          "text": "E: Respiratory symptoms? Any new or worsening symptoms in the past 10 days (14 if immune compromised)",
-          "_text": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                "valueString": "font-weight: bold;"
-              }
-            ]
-          }
+          "text": "E: Respiratory symptoms? Any new or worsening symptoms in the past 10 days (14 if immune compromised)"
         },
         {
           "item": [
@@ -401,42 +317,17 @@
             {
               "type": "display",
               "linkId": "f-action-display",
-              "text": "Yes to F -- Droplet isolation for 5 days, staff to wear N95 mask. Only test if symptoms develop.",
-              "_text": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                    "valueString": "font-weight: bold;"
-                  }
-                ]
-              },
-              "enableBehavior": "any"
+              "text": "Yes to F -- Droplet isolation for 5 days, staff to wear N95 mask. Only test if symptoms develop."
             }
           ],
           "type": "boolean",
           "linkId": "f",
-          "text": "F: Contact with COVID?",
-          "_text": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-                "valueString": "font-weight: bold;"
-              }
-            ]
-          }
+          "text": "F: Contact with COVID?"
         }
       ],
       "type": "group",
       "linkId": "questions-b-f-group",
-      "text": "Questions B–F – Ask all patients in all clinical areas, including all inpatients and outpatients",
-      "_text": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/rendering-style",
-            "valueString": "font-weight: bold;"
-          }
-        ]
-      }
+      "text": "Questions B–F – Ask all patients in all clinical areas, including all inpatients and outpatients"
     },
     {
       "type": "display",

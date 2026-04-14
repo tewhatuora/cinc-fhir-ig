@@ -15,16 +15,88 @@
   ],
   "description": "The Questionnaire collects patient-reported sleep symptoms, habits, and risk factors to support assessment of sleep disorders such as sleep apnoea.",
   "purpose": "Enables clinicians to evaluate risk and guide further investigation and care.",
+  "contained": [
+    {
+      "resourceType": "ValueSet",
+      "id": "epworth-sleep-scale",
+      "status": "draft",
+      "date": "2026-04-14T02:03:51.418Z",
+      "expansion": {
+        "timestamp": "2026-04-14T02:03:49.587Z",
+        "contains": [
+          {
+            "code": "0",
+            "display": "0 -- NEVER doze"
+          },
+          {
+            "code": "1",
+            "display": "1 -- SLIGHT chance of dozing  "
+          },
+          {
+            "code": "2",
+            "display": "2.-- MODERATE chance of dozing  "
+          },
+          {
+            "code": "3",
+            "display": "3 -- HIGH chance of dozing  "
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "ValueSet",
+      "id": "general-scale",
+      "status": "draft",
+      "date": "2026-04-14T02:08:31.235Z",
+      "expansion": {
+        "timestamp": "2026-04-14T02:08:29.128Z",
+        "contains": [
+          {
+            "code": "4",
+            "display": "Always"
+          },
+          {
+            "code": "3",
+            "display": "Often"
+          },
+          {
+            "code": "2",
+            "display": "Sometimes"
+          },
+          {
+            "code": "1",
+            "display": "Rarely"
+          },
+          {
+            "code": "0",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "ValueSet",
+      "id": "boolen-choice",
+      "status": "draft",
+      "date": "2026-04-14T02:10:27.587Z",
+      "expansion": {
+        "timestamp": "2026-04-14T02:10:26.293Z",
+        "contains": [
+          {
+            "display": "Yes"
+          },
+          {
+            "display": "No"
+          }
+        ]
+      }
+    }
+  ],
   "item": [
     {
       "type": "display",
       "linkId": "intro",
       "text": "Epworth Scale"
-    },
-    {
-      "type": "string",
-      "linkId": "item_01",
-      "text": "New item 1"
     },
     {
       "item": [
@@ -86,33 +158,7 @@
           "type": "open-choice",
           "linkId": "snoring",
           "text": "According to what others have told you, how often do you think you snore? ",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "Always"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Often"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Sometimes"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Rarely"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Never"
-              }
-            }
-          ]
+          "answerValueSet": "#general-scale"
         },
         {
           "type": "boolean",
@@ -150,65 +196,13 @@
           "type": "choice",
           "linkId": "refreshed",
           "text": "Do you wake feeling refreshed?",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "Never"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Rarely"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Sometimes"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Often"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Always"
-              }
-            }
-          ]
+          "answerValueSet": "#general-scale"
         },
         {
           "type": "choice",
           "linkId": "sleepy",
           "text": "How often do you feel sleepy and want to fall asleep in the daytime? ",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "Never"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Rarely"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Sometimes"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Often"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "Always"
-              }
-            }
-          ]
+          "answerValueSet": "#general-scale"
         }
       ],
       "type": "group",
@@ -226,190 +220,43 @@
           "type": "choice",
           "linkId": "sittingandreading",
           "text": "Sitting & Reading",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "0 -- NEVER doze"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "1 -- SLIGHT chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "2 -- MODERATE chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "3 -- HIGH chance of dozing  "
-              }
-            }
-          ]
+          "answerValueSet": "#epworth-sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "reading",
           "text": "Watching TV",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "0 -- NEVER doze"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "1 -- SLIGHT chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "2 -- MODERATE chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "3 -- HIGH chance of dozing  "
-              }
-            }
-          ]
+          "answerValueSet": "#epworth-sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "sittingactivity",
           "text": "Sitting inactive in a public place (theatre, meeting, etc)",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "0 -- NEVER doze"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "1 -- SLIGHT chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "2 -- MODERATE chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "3 -- HIGH chance of dozing  "
-              }
-            }
-          ]
+          "answerValueSet": "#epworth-sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "incarforanhour",
           "text": " A passenger in a car for one hour",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "0 -- NEVER doze"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "1 -- SLIGHT chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "2 -- MODERATE chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "3 -- HIGH chance of dozing  "
-              }
-            }
-          ]
+          "answerValueSet": "#epworth-sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "lyingdown",
           "text": "Lying down in the afternoon (if circumstances permit)",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "0 -- NEVER doze"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "1 -- SLIGHT chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "2 -- MODERATE chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "3 -- HIGH chance of dozing  "
-              }
-            }
-          ]
+          "answerValueSet": "#epworth-sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "sittingtalking",
           "text": "Sitting talking to someone",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "0 -- NEVER doze"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "1 -- SLIGHT chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "2 -- MODERATE chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "3 -- HIGH chance of dozing  "
-              }
-            }
-          ]
+          "answerValueSet": "#epworth-sleep-scale"
         },
         {
           "type": "choice",
           "linkId": "trafficlights",
           "text": "In a car whilst stopped in traffic or traffic lights",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "display": "0 -- NEVER doze"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "1 -- SLIGHT chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "2 -- MODERATE chance of dozing"
-              }
-            },
-            {
-              "valueCoding": {
-                "display": "3 -- HIGH chance of dozing  "
-              }
-            }
-          ]
+          "answerValueSet": "#epworth-sleep-scale"
         }
       ],
       "type": "group",
@@ -417,14 +264,12 @@
       "text": "Epworth Sleepiness Score"
     },
     {
-      "linkId": "medical",
-      "text": "Medical History",
-      "type": "group",
       "item": [
         {
           "type": "boolean",
           "linkId": "hayfever",
-          "text": "Hayfever or constantly blocked nose"
+          "text": "Hayfever or constantly blocked nose",
+          "required": true
         },
         {
           "type": "boolean",
@@ -467,9 +312,6 @@
           "text": "Previous stroke or TIA ‘mini-stroke’?"
         },
         {
-          "type": "boolean",
-          "linkId": "diabetes",
-          "text": "Diabetes",
           "item": [
             {
               "type": "boolean",
@@ -484,12 +326,12 @@
               ],
               "enableBehavior": "any"
             }
-          ]
+          ],
+          "type": "boolean",
+          "linkId": "diabetes",
+          "text": "Diabetes"
         },
         {
-          "type": "boolean",
-          "linkId": "depression",
-          "text": "Depression",
           "item": [
             {
               "type": "boolean",
@@ -504,7 +346,10 @@
               ],
               "enableBehavior": "any"
             }
-          ]
+          ],
+          "type": "boolean",
+          "linkId": "depression",
+          "text": "Depression"
         },
         {
           "type": "boolean",
@@ -536,7 +381,10 @@
           "linkId": "epilepsy",
           "text": "Epilepsy"
         }
-      ]
+      ],
+      "type": "group",
+      "linkId": "medical",
+      "text": "Medical History"
     },
     {
       "item": [
@@ -783,19 +631,16 @@
       "repeats": true
     },
     {
-      "type": "string",
-      "linkId": "othersymptoms",
-      "text": "Other Symptoms",
       "item": [
         {
           "item": [
             {
               "type": "text",
-              "linkId": "symptomsoption",
+              "linkId": "hallucinations02",
               "text": "If yes, please describe your symptoms:",
               "enableWhen": [
                 {
-                  "question": "602894942239",
+                  "question": "hallucinations01",
                   "operator": "=",
                   "answerBoolean": true
                 }
@@ -804,7 +649,7 @@
             }
           ],
           "type": "boolean",
-          "linkId": "hallucinations",
+          "linkId": "hallucinations01",
           "text": "Do you have hallucinations (you see, feel or hear things that aren’t there) while falling asleep or waking up?"
         },
         {
@@ -815,14 +660,14 @@
         {
           "item": [
             {
-              "type": "text",
-              "linkId": "movesymptoms",
-              "text": "If yes, please describe your symptoms:",
+              "type": "string",
+              "linkId": "laughter02",
+              "text": "If yes, please describe your symptoms: ",
               "enableWhen": [
                 {
-                  "question": "307298355562",
+                  "question": "laughter01",
                   "operator": "=",
-                  "answerBoolean": false
+                  "answerBoolean": true
                 }
               ],
               "enableBehavior": "any"
@@ -834,16 +679,16 @@
         },
         {
           "type": "boolean",
-          "linkId": "sleepdifficulties",
-          "text": "Do you have any other difficulties with sleep, like nightmares, acting out dreams, sleepwalking?  ",
+          "linkId": "sleepdifficulty01",
+          "text": "Do you have any other difficulties with sleep, like nightmares, acting out dreams, sleepwalking?",
           "item": [
             {
               "type": "text",
-              "linkId": "difficultysymp",
+              "linkId": "sleepdifficulty02",
               "text": "If yes, please describe your symptoms: ",
               "enableWhen": [
                 {
-                  "question": "906134368494",
+                  "question": "sleepdifficulty01",
                   "operator": "=",
                   "answerBoolean": true
                 }
@@ -852,7 +697,10 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "string",
+      "linkId": "othersymptoms",
+      "text": "Other Symptoms"
     }
   ]
 }
