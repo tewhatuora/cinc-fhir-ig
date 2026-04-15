@@ -21,6 +21,10 @@ Description: "Code system for NZ appointment reason codes"
 * #566571000210104 "Avoiding possible exposure to infectious disease" "Service user has personal health concerns, immunocompromised status, or protecting vulnerable household members"
 * #566581000210102 "Telehealth appointment booked for convenience" "Service user does not have accessibility or booking constraints but prefers convenience of telehealth service"
 * #566351000210102 "Patient not registered - not needed" "Not registered in general practice"
+* #185369008 "Referred by pharmacist" "Pharmacy has referred service user"
+* #659821000210106 "Referred by urgent care clinic" "Referred by urgent care"
+* #301661000210103 "Referred by emergency department" "Emergency department has referred service user"
+
 
 CodeSystem: NzClaimSubtypeCS
 Id: nz-claim-subtype-cs

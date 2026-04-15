@@ -28,7 +28,7 @@ Description: "FHIR profile for New Zealand pharmacy claim responses"
 * item.itemSequence ^short = "To match Claim.item.sequence"
 
 * item.extension contains shared-care-product-or-service named productOrService 1..1
-* item.extension[productOrService] ^short = "Purchase unit code"
+* item.extension[productOrService] ^short = "Product or Service code"
 
 * item.detail 1..*
 * item.detail ^short = "Adjudication for claim detail items"
