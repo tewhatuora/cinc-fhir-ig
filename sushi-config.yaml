@@ -259,7 +259,7 @@ groups:
       - PrivateColposcopyVisitQuestionnaire
       - PrivateColposcopyDischargeQuestionnaire
       - EarlyWarningScoreQuestionnaire
-      - DunedinFormConditionAffectQuestionnaire
+      - DHOHowDoesYourConditionAffectYourLife
       - DHOCataractPatientQuestionnaire
       - DHOEpworthSleepinessScaleDiagnosticTesting
       - DHOPatientScreeningToolIPC
