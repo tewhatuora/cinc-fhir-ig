@@ -1,4 +1,6 @@
 
+### Background
+
 Health NZ offers a subsidised Online GP Care service that connects healthcare consumers to NZ-registered healthcare professionals at telehealth providers using secure digital technologies (primarily video consultations, typically via a mobile application). 
 
 Doctors and nurse practitioners can assess symptoms, diagnose conditions, prescribe medications, and provide referrals – all from wherever the patient is. The service allows people to receive professional advice and treatment when they need it - no matter where they are or what time of day it is. It helps to ease pressure on emergency departments or urgent care services in a way that is complementary to the role of GPs in the community who remain responsible for their patients' continuity of care.
