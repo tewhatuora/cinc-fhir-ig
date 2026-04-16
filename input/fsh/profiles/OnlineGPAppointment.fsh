@@ -14,8 +14,8 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * meta 1..1
 
 * identifier 1..*
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "assigner.identifier.system"
+* identifier ^slicing.discriminator.type = #exists
+* identifier ^slicing.discriminator.path = "assigner"
 * identifier ^slicing.rules = #open
 
 * identifier contains appointmentId 0..1 and providerId 1..1
@@ -24,6 +24,7 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * identifier[appointmentId] ^definition = "Business identifier assigned by the provider system for this appointment."
 * identifier[appointmentId].system 1..1
 * identifier[appointmentId].value 1..1
+* identifier[appointmentId].assigner 0..0
 
 * identifier[providerId] ^short = "Provider organisation identifier for access control"
 * identifier[providerId] ^definition = "Identifies the provider organisation that owns this appointment. Used for tenant-based access control."
