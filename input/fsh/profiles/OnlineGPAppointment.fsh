@@ -27,6 +27,7 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * identifier.assigner.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
 * identifier.assigner.identifier.system 1..1
 * identifier.assigner.identifier.value 1..1
+* identifier.assigner.identifier obeys hpiOrganizationIdPattern
 
 * contained 0..0
 * serviceCategory  0..0
