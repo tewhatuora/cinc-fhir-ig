@@ -8,13 +8,14 @@ Description: "Example of Appointment for Online GP services"
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-* identifier.use = #official
-* identifier.system = "https://provider-org-name.co.nz/ns/appointment-identifier"
-* identifier.value = "APT123456"
-* identifier.assigner.type = "Organization"
-* identifier.assigner.identifier.use = #official
-* identifier.assigner.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-* identifier.assigner.identifier.value = "GZZ999-J"
+* identifier[appointmentId].use = #official
+* identifier[appointmentId].system = "https://provider-org-name.co.nz/ns/appointment-identifier"
+* identifier[appointmentId].value = "APT123456"
+
+* identifier[providerId].assigner.type = "Organization"
+* identifier[providerId].assigner.identifier.use = #official
+* identifier[providerId].assigner.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
+* identifier[providerId].assigner.identifier.value = "GZZ999-J"
 
 * status = #fulfilled
 

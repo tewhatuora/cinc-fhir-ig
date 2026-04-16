@@ -4,7 +4,7 @@ Id: OnlineGPAppointment
 Title: "Online GP Appointment"
 Description: "A FHIR resource profile for operational reporting of Online GP Appointment."
 
-* ^version = "1.0.6"
+* ^version = "1.0.7"
 * ^purpose = "A FHIR resource profile for operational reporting of Online GP Appointment."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -13,21 +13,30 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * insert PCTapDerivedMetaDataRules
 * meta 1..1
 
-* identifier 0..1
-* identifier.system 1..1
-* identifier.value 1..1
-* identifier.assigner 1..1
-* identifier.assigner only Reference(Organization)
-* identifier.assigner ^short = "The provider organisation that owns this appointment"
-* identifier.assigner ^definition = "Reference to the Organization that is the provider for this appointment. Used for tenant-based access control."
-* identifier.assigner.type = "Organization"
-* identifier.assigner.type 1..1
-* identifier.assigner.identifier 1..1
-* identifier.assigner.identifier.use = #official
-* identifier.assigner.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-* identifier.assigner.identifier.system 1..1
-* identifier.assigner.identifier.value 1..1
-* identifier.assigner.identifier obeys hpiOrganizationIdPattern
+* identifier 1..*
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "assigner.identifier.system"
+* identifier ^slicing.rules = #open
+
+* identifier contains appointmentId 0..1 and providerId 1..1
+
+* identifier[appointmentId] ^short = "External appointment identifier"
+* identifier[appointmentId] ^definition = "Business identifier assigned by the provider system for this appointment."
+* identifier[appointmentId].system 1..1
+* identifier[appointmentId].value 1..1
+
+* identifier[providerId] ^short = "Provider organisation identifier for access control"
+* identifier[providerId] ^definition = "Identifies the provider organisation that owns this appointment. Used for tenant-based access control."
+* identifier[providerId].assigner 1..1
+* identifier[providerId].assigner only Reference(Organization)
+* identifier[providerId].assigner.type = "Organization"
+* identifier[providerId].assigner.type 1..1
+* identifier[providerId].assigner.identifier 1..1
+* identifier[providerId].assigner.identifier.use = #official
+* identifier[providerId].assigner.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
+* identifier[providerId].assigner.identifier.system 1..1
+* identifier[providerId].assigner.identifier.value 1..1
+* identifier[providerId].assigner.identifier obeys hpiOrganizationIdPattern
 
 * contained 0..0
 * serviceCategory  0..0
