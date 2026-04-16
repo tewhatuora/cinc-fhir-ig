@@ -12,6 +12,11 @@ Description: "Example of Appointment for Online GP services"
 * identifier.system = "https://provider-org-name.co.nz/ns/appointment-identifier"
 * identifier.value = "APT123456"
 
+* supportingInformation.type = "Organization"
+* supportingInformation.identifier.use = #official
+* supportingInformation.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
+* supportingInformation.identifier.value = "GZZ999-J"
+
 * status = #fulfilled
 
 * created = "2025-01-01T09:30:00+13:00"

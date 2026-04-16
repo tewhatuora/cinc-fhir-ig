@@ -4,7 +4,7 @@ Id: OnlineGPAppointment
 Title: "Online GP Appointment"
 Description: "A FHIR resource profile for operational reporting of Online GP Appointment."
 
-* ^version = "1.0.6"
+* ^version = "1.0.7"
 * ^purpose = "A FHIR resource profile for operational reporting of Online GP Appointment."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -24,7 +24,18 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * appointmentType  0..0
 * reasonReference 0..0
 * priority 0..0
-* supportingInformation 0..0
+* supportingInformation 1..1
+* supportingInformation only Reference(Organization)
+* supportingInformation ^short = "The provider organisation that owns this appointment"
+* supportingInformation ^definition = "Reference to the Organization that is the provider for this appointment. Used for tenant-based access control."
+* supportingInformation.type = "Organization"
+* supportingInformation.type 1..1
+* supportingInformation.identifier 1..1
+* supportingInformation.identifier.use = #official
+* supportingInformation.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
+* supportingInformation.identifier.system 1..1
+* supportingInformation.identifier.value 1..1
+* supportingInformation.identifier obeys hpiOrganizationIdPattern
 * minutesDuration 0..0
 * patientInstruction 0..0
 * basedOn 0..0
