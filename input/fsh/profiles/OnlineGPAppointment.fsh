@@ -13,31 +13,9 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * insert PCTapDerivedMetaDataRules
 * meta 1..1
 
-* identifier 1..*
-* identifier ^slicing.discriminator.type = #exists
-* identifier ^slicing.discriminator.path = "assigner"
-* identifier ^slicing.rules = #open
-
-* identifier contains appointmentId 0..1 and providerId 1..1
-
-* identifier[appointmentId] ^short = "External appointment identifier"
-* identifier[appointmentId] ^definition = "Business identifier assigned by the provider system for this appointment."
-* identifier[appointmentId].system 1..1
-* identifier[appointmentId].value 1..1
-* identifier[appointmentId].assigner 0..0
-
-* identifier[providerId] ^short = "Provider organisation identifier for access control"
-* identifier[providerId] ^definition = "Identifies the provider organisation that owns this appointment. Used for tenant-based access control."
-* identifier[providerId].assigner 1..1
-* identifier[providerId].assigner only Reference(Organization)
-* identifier[providerId].assigner.type = "Organization"
-* identifier[providerId].assigner.type 1..1
-* identifier[providerId].assigner.identifier 1..1
-* identifier[providerId].assigner.identifier.use = #official
-* identifier[providerId].assigner.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
-* identifier[providerId].assigner.identifier.system 1..1
-* identifier[providerId].assigner.identifier.value 1..1
-* identifier[providerId].assigner.identifier obeys hpiOrganizationIdPattern
+* identifier 0..1
+* identifier.system 1..1
+* identifier.value 1..1
 
 * contained 0..0
 * serviceCategory  0..0
@@ -46,7 +24,18 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * appointmentType  0..0
 * reasonReference 0..0
 * priority 0..0
-* supportingInformation 0..0
+* supportingInformation 1..1
+* supportingInformation only Reference(Organization)
+* supportingInformation ^short = "The provider organisation that owns this appointment"
+* supportingInformation ^definition = "Reference to the Organization that is the provider for this appointment. Used for tenant-based access control."
+* supportingInformation.type = "Organization"
+* supportingInformation.type 1..1
+* supportingInformation.identifier 1..1
+* supportingInformation.identifier.use = #official
+* supportingInformation.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
+* supportingInformation.identifier.system 1..1
+* supportingInformation.identifier.value 1..1
+* supportingInformation.identifier obeys hpiOrganizationIdPattern
 * minutesDuration 0..0
 * patientInstruction 0..0
 * basedOn 0..0
