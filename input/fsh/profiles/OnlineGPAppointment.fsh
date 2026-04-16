@@ -16,6 +16,17 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * identifier 0..1
 * identifier.system 1..1
 * identifier.value 1..1
+* identifier.assigner 1..1
+* identifier.assigner only Reference(Organization)
+* identifier.assigner ^short = "The provider organisation that owns this appointment"
+* identifier.assigner ^definition = "Reference to the Organization that is the provider for this appointment. Used for tenant-based access control."
+* identifier.assigner.type = "Organization"
+* identifier.assigner.type 1..1
+* identifier.assigner.identifier 1..1
+* identifier.assigner.identifier.use = #official
+* identifier.assigner.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
+* identifier.assigner.identifier.system 1..1
+* identifier.assigner.identifier.value 1..1
 
 * contained 0..0
 * serviceCategory  0..0
