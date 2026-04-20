@@ -101,3 +101,28 @@ Usage: #definition
 * item[=].type = #group
 * item[=].linkId = "formheading"
 * item[=].text = "How does your condition affect your life?"
+
+Instance: difficulty-scale
+InstanceOf: ValueSet
+Usage: #inline
+* status = #active
+* date = "2026-04-13T23:10:03.370Z"
+* expansion.timestamp = "2026-04-13T23:10:01.648Z"
+* expansion.contains[0].system = "1"
+* expansion.contains[=].code = #1
+* expansion.contains[=].display = "1 -- No difficulty"
+* expansion.contains[+].system = "2"
+* expansion.contains[=].code = #2
+* expansion.contains[=].display = "2 -- Little difficulty"
+* expansion.contains[+].system = "3"
+* expansion.contains[=].code = #3
+* expansion.contains[=].display = "3 -- Some difficulty"
+* expansion.contains[+].system = "4"
+* expansion.contains[=].code = #4
+* expansion.contains[=].display = "4 -- Quite difficulty"
+* expansion.contains[+].system = "5"
+* expansion.contains[=].code = #5
+* expansion.contains[=].display = "5 -- Very difficulty"
+* expansion.contains[+].system = "6"
+* expansion.contains[=].code = #6
+* expansion.contains[=].display = "6 -- Extremely difficulty"

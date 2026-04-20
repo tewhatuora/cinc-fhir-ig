@@ -80,18 +80,6 @@ InstanceOf: ValueSet
 Usage: #inline
 * status = #active
 * date = "2026-04-13T23:10:03.370Z"
-* compose.include.concept[0].code = #1
-* compose.include.concept[=].display = "No difficulty"
-* compose.include.concept[+].code = #2
-* compose.include.concept[=].display = "Little difficulty"
-* compose.include.concept[+].code = #3
-* compose.include.concept[=].display = "Some difficulty"
-* compose.include.concept[+].code = #4
-* compose.include.concept[=].display = "Quite difficult"
-* compose.include.concept[+].code = #5
-* compose.include.concept[=].display = "Very difficult"
-* compose.include.concept[+].code = #6
-* compose.include.concept[=].display = "Extremely difficult"
 * expansion.timestamp = "2026-04-13T23:10:01.648Z"
 * expansion.contains[0].system = "1"
 * expansion.contains[=].code = #1
