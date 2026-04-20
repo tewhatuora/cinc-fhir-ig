@@ -4,7 +4,7 @@ Id: OnlineGPAppointment
 Title: "Online GP Appointment"
 Description: "A FHIR resource profile for operational reporting of Online GP Appointment."
 
-* ^version = "1.0.7"
+* ^version = "1.0.8"
 * ^purpose = "A FHIR resource profile for operational reporting of Online GP Appointment."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -43,11 +43,13 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 * participant ^slicing.discriminator.type = #pattern
 * participant ^slicing.discriminator.path = "actor.type"
 * participant ^slicing.rules = #open
-* participant contains patient 1..1
+* participant contains patient 0..1
 * participant[patient].actor 1..1
 * insert ProfilePatient(participant[patient].actor)
 * participant[patient].actor.display 0..0
 * participant[patient].actor.display ^short = "Remove from all examples. Never return in a response. Never save if provided."
+
+* obeys patient-or-data-absent-reason
 
 * status 1..1
 
