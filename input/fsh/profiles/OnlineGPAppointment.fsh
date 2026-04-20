@@ -60,8 +60,3 @@ Description: "A FHIR resource profile for operational reporting of Online GP App
 
 * reasonCode 1..*
 * reasonCode from NzAppointmentReasonCodes
-
-Invariant: patient-or-data-absent-reason
-Description: "Either a patient participant must be present, or a participant with a data-absent-reason extension on actor must be provided."
-Expression: "participant.where(actor.type = 'Patient').exists() or participant.where(actor.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists()).exists()"
-Severity: #error

@@ -112,3 +112,8 @@ Invariant: allowedLocalIdentifierSystems
 Description: "Identifier system must be HPI facility, HPI Organisation, HPI CPN or NZBN"
 Severity: #error
 Expression: "$this = 'https://standards.digital.health.nz/ns/hpi-organisation-id' or $this = 'https://standards.digital.health.nz/ns/hpi-nzbn' or $this = 'https://standards.digital.health.nz/ns/hpi-facility-id' or $this = 'https://standards.digital.health.nz/ns/hpi-person-id'"
+
+Invariant: patient-or-data-absent-reason
+Description: "Either a patient participant must be present, or a participant with a data-absent-reason extension on actor must be provided."
+Severity: #error
+Expression: "participant.where(actor.type = 'Patient').exists() or participant.where(actor.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists()).exists()"
