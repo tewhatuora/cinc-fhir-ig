@@ -4,7 +4,7 @@ Id: OnlineGPAppointment
 Title: "Online GP Appointment"
 Description: "A FHIR resource profile for operational reporting of Online GP Appointment."
 
-* ^version = "1.0.8"
+* ^version = "1.0.9"
 * ^purpose = "A FHIR resource profile for operational reporting of Online GP Appointment."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
