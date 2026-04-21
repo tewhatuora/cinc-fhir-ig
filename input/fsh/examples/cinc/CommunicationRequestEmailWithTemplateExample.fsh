@@ -2,21 +2,9 @@ Instance : EmailCommunicationRequestWithTemplateExample
 InstanceOf : CMSCommunicationRequest
 Description: "An example of a CommunicationRequest resource. This resource is used to record information related to requesting communication with a client using EMAIL as the medium."
 Usage : #example
-* identifier[0].use = #usual
-* identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
-* identifier[0].system = "https://api.messaging.digital.health.nz/SourceId"
-* identifier[1].use = #secondary
-* identifier[1].system = "https://api.messaging.digital.health.nz/CorrelationId"
-* identifier[1].value = "#bdb8d66-1390-42c7-89a6-a9a75d65d0e6-001"
-* identifier[2].use = #secondary
-* identifier[2].value = "#jb8d66-1390-42c7-89a6-a9a75d65d344"
-* identifier[2].system = "https://api.messaging.digital.health.nz/MessageId"
-* identifier[3].use = #secondary
-* identifier[3].value = "#kb8d66-1390-42c7-89a6-a9a75d65d333"
-* identifier[3].system = "https://api.messaging.digital.health.nz/ProviderMessageId"
-* identifier[4].use = #secondary
-* identifier[4].value = "#lb8d66-1390-42c7-89a6-a9a75d65d333"
-* identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerId"
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 * status = #unknown
 * medium.coding.code = #EMAILWRIT
 * medium.coding.system = $hnz-participation-mode-codes
