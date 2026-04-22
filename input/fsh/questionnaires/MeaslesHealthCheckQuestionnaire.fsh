@@ -128,7 +128,6 @@ Usage: #definition
 * item[=].linkId = "p02"
 * item[=].prefix = "page 2"
 * item[=].text = "Symptoms"
-
 * item[+].item[0].type = #choice
 * item[=].item[=].linkId = "p03-q01-Contact"
 * item[=].item[=].prefix = "page 3 question 1"
@@ -145,7 +144,6 @@ Usage: #definition
 * item[=].item[=].enableWhen.question = "p03-q01-Contact"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerCoding.display = "Yes"
-
 * item[=].type = #group
 * item[=].linkId = "p03"
 * item[=].prefix = "page 3"
@@ -156,14 +154,12 @@ Usage: #definition
 * item[=].item[=].text = "Can you provide details of any visitors who you are not sure of their immunity status? (required)"
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
-
 * item[=].item[+].type = #text
 * item[=].item[=].linkId = "p04-q01-1-Left.House"
 * item[=].item[=].prefix = "page 4 question 1.1"
 * item[=].item[=].text = "Have you left the house and met up with anyone? (required)"
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
-
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "p04-q02-Quarantine"
 * item[=].item[=].prefix = "page 4 question 2"
