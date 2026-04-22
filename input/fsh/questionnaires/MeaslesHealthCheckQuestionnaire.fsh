@@ -128,15 +128,22 @@ Usage: #definition
 * item[=].linkId = "p02"
 * item[=].prefix = "page 2"
 * item[=].text = "Symptoms"
-* item[+].item.type = #choice
-* item[=].item.linkId = "p03-q01-Contact"
-* item[=].item.prefix = "page 3 question 1"
-* item[=].item.text = "Do you know if you have had any contact with someone with measles since your last health check? (required)"
-* item[=].item.required = true
-* item[=].item.repeats = false
-* item[=].item.answerOption[0].valueCoding = #"Yes" "Yes"
-* item[=].item.answerOption[+].valueCoding = #"No" "No"
-* item[=].item.answerOption[+].valueCoding = #"I don't know" "I don't know"
+* item[+].item[0].type = #choice
+* item[=].item[=].linkId = "p03-q01-Contact"
+* item[=].item[=].prefix = "page 3 question 1"
+* item[=].item[=].text = "Have you had any new contact with someone with measles since your last health check? (required)"
+* item[=].item[=].required = true
+* item[=].item[=].repeats = false
+* item[=].item[=].answerOption[0].valueCoding = #Yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = #No "No"
+* item[=].item[=].answerOption[+].valueCoding = #"I don't know" "I don't know"
+* item[=].item[+].type = #text
+* item[=].item[=].linkId = "p03-q01-1-Contact.Details"
+* item[=].item[=].prefix = "page 3 question 1.1"
+* item[=].item[=].text = "Details of contact"
+* item[=].item[=].enableWhen.question = "p03-q01-Contact"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerCoding.display = "Yes"
 * item[=].type = #group
 * item[=].linkId = "p03"
 * item[=].prefix = "page 3"
@@ -144,7 +151,13 @@ Usage: #definition
 * item[+].item[0].type = #text
 * item[=].item[=].linkId = "p04-q01-Visitors"
 * item[=].item[=].prefix = "page 4 question 1"
-* item[=].item[=].text = "We want to know if you've been around anyone who might not be immune to measles. Have you had any visitors or left where you're staying? (required)"
+* item[=].item[=].text = "Can you provide details of any visitors who you are not sure of their immunity status? (required)"
+* item[=].item[=].required = true
+* item[=].item[=].repeats = false
+* item[=].item[+].type = #text
+* item[=].item[=].linkId = "p04-q01-1-Left.House"
+* item[=].item[=].prefix = "page 4 question 1.1"
+* item[=].item[=].text = "Have you left the house and met up with anyone? (required)"
 * item[=].item[=].required = true
 * item[=].item[=].repeats = false
 * item[=].item[+].type = #boolean
