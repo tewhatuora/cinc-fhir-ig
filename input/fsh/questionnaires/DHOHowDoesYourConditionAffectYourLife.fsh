@@ -38,16 +38,10 @@ Usage: #definition
 * item[=].item[=].linkId = "date_03"
 * item[=].item[=].text = "Date"
 * item[=].item[=].required = true
-* item[=].item[+].linkId = "patientlabel"
-* item[=].item[=].type = #display
-* item[=].item[=].text = "Stick patient label here (or fill in the details below if no label is available)"
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
-* item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#help "Help-Button"
-* item[=].item[=].extension.valueCodeableConcept.text = "Help-Button"
 * item[=].type = #group
 * item[=].linkId = "patientdetails"
 * item[=].text = "Patient details"
-* item[+].type = #group
+* item[+].type = #display
 * item[=].linkId = "introduction_04"
 * item[=].text = "Introduction"
 * item[+].item[0].type = #choice
