@@ -25,18 +25,22 @@
         "timestamp": "2026-04-13T23:16:50.164Z",
         "contains": [
           {
+            "system": "0",
             "code": "0",
             "display": "0 -- Would never dose"
           },
           {
+            "system": "1",
             "code": "1",
             "display": "1 -- Slight chance of dozing"
           },
           {
+            "system": "2",
             "code": "2",
             "display": "2 -- Moderate chance of dozing"
           },
           {
+            "system": "4",
             "code": "3",
             "display": "3 -- High chance of dozing"
           }

@@ -23,38 +23,6 @@
       "id": "difficulty-scale",
       "status": "active",
       "date": "2026-04-13T23:10:03.370Z",
-      "compose": {
-        "include": [
-          {
-            "concept": [
-              {
-                "code": "1",
-                "display": "No difficulty"
-              },
-              {
-                "code": "2",
-                "display": "Little difficulty"
-              },
-              {
-                "code": "3",
-                "display": "Some difficulty"
-              },
-              {
-                "code": "4",
-                "display": "Quite difficult"
-              },
-              {
-                "code": "5",
-                "display": "Very difficult"
-              },
-              {
-                "code": "6",
-                "display": "Extremely difficult"
-              }
-            ]
-          }
-        ]
-      },
       "expansion": {
         "timestamp": "2026-04-13T23:10:01.648Z",
         "contains": [

@@ -25,18 +25,22 @@
         "timestamp": "2026-04-14T02:03:49.587Z",
         "contains": [
           {
+            "system": "url",
             "code": "0",
             "display": "0 -- NEVER doze"
           },
           {
+            "system": "url",
             "code": "1",
             "display": "1 -- SLIGHT chance of dozing  "
           },
           {
+            "system": "url",
             "code": "2",
             "display": "2.-- MODERATE chance of dozing  "
           },
           {
+            "system": "url",
             "code": "3",
             "display": "3 -- HIGH chance of dozing  "
           }
@@ -52,45 +56,32 @@
         "timestamp": "2026-04-14T02:08:29.128Z",
         "contains": [
           {
+            "system": "url",
             "code": "4",
             "display": "Always"
           },
           {
+            "system": "url",
             "code": "3",
             "display": "Often"
           },
           {
+            "system": "url",
             "code": "2",
             "display": "Sometimes"
           },
           {
+            "system": "url",
             "code": "1",
             "display": "Rarely"
           },
           {
+            "system": "url",
             "code": "0",
             "display": "Never"
           }
         ]
       }
-    },
-    {
-      "resourceType": "ValueSet",
-      "id": "boolen-choice",
-      "status": "draft",
-      "date": "2026-04-14T02:10:27.587Z",
-      "expansion": {
-        "timestamp": "2026-04-14T02:10:26.293Z",
-        "contains": [
-          {
-            "display": "Yes"
-          },
-          {
-            "display": "No"
-          }
-        ]
-      }
-    }
   ],
   "item": [
     {

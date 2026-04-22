@@ -56,6 +56,7 @@
         {
           "valueCoding": {
             "system": "Female",
+            "display": "Female",
             "code": "female"
           }
         }

@@ -96,22 +96,7 @@
         {
           "linkId": "patientlabel",
           "type": "display",
-          "text": "Stick patient label here (or fill in the details below if no label is available)",
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "help",
-                    "display": "Help-Button"
-                  }
-                ],
-                "text": "Help-Button"
-              }
-            }
-          ]
+          "text": "Stick patient label here (or fill in the details below if no label is available)"
         }
       ],
       "type": "group",
@@ -119,7 +104,7 @@
       "text": "Patient details"
     },
     {
-      "type": "group",
+      "type": "display",
       "linkId": "introduction_04",
       "text": "Introduction"
     },
