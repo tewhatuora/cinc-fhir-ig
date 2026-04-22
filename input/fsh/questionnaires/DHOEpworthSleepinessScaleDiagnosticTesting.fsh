@@ -97,11 +97,15 @@ Usage: #inline
 * status = #active
 * date = "2026-04-13T23:17:04.406Z"
 * expansion.timestamp = "2026-04-13T23:16:50.164Z"
-* expansion.contains[0].code = #0
+* expansion.contains[0].system = #0
+* expansion.contains[=].code = #0
 * expansion.contains[=].display = "0 -- Would never dose"
-* expansion.contains[+].code = #1
+* expansion.contains[+].system = #1
+* expansion.contains[=].code = #1
 * expansion.contains[=].display = "1 -- Slight chance of dozing"
-* expansion.contains[+].code = #2
+* expansion.contains[+].system = #2
+* expansion.contains[=].code = #2
 * expansion.contains[=].display = "2 -- Moderate chance of dozing"
-* expansion.contains[+].code = #3
+* expansion.contains[+].system = #3
+* expansion.contains[=].code = #3
 * expansion.contains[=].display = "3 -- High chance of dozing"

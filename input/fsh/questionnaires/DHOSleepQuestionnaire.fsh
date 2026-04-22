@@ -13,7 +13,6 @@ Usage: #definition
 * purpose = "Enables clinicians to evaluate risk and guide further investigation and care."
 * contained[0] = epworth-sleep-scale
 * contained[+] = general-scale
-* contained[+] = boolen-choice
 * item[0].type = #display
 * item[=].linkId = "intro"
 * item[=].text = "Epworth Scale"
@@ -314,13 +313,17 @@ Usage: #inline
 * status = #draft
 * date = "2026-04-14T02:03:51.418Z"
 * expansion.timestamp = "2026-04-14T02:03:49.587Z"
-* expansion.contains[0].code = #0
+* expansion.contains[0].system = #0
+* expansion.contains[=].code = #0
 * expansion.contains[=].display = "0 -- NEVER doze"
-* expansion.contains[+].code = #1
+* expansion.contains[+].system = #1
+* expansion.contains[=].code = #1
 * expansion.contains[=].display = "1 -- SLIGHT chance of dozing  "
-* expansion.contains[+].code = #2
+* expansion.contains[+].system = #2
+* expansion.contains[=].code = #2
 * expansion.contains[=].display = "2.-- MODERATE chance of dozing  "
-* expansion.contains[+].code = #3
+* expansion.contains[+].system = #3
+* expansion.contains[=].code = #3
 * expansion.contains[=].display = "3 -- HIGH chance of dozing  "
 
 Instance: general-scale
@@ -329,22 +332,19 @@ Usage: #inline
 * status = #draft
 * date = "2026-04-14T02:08:31.235Z"
 * expansion.timestamp = "2026-04-14T02:08:29.128Z"
-* expansion.contains[0].code = #4
+* expansion.contains[0].system = #4
+* expansion.contains[=].code = #4
 * expansion.contains[=].display = "Always"
-* expansion.contains[+].code = #3
+* expansion.contains[+].system = #3
+* expansion.contains[=].code = #3
 * expansion.contains[=].display = "Often"
-* expansion.contains[+].code = #2
+* expansion.contains[+].system = #2
+* expansion.contains[=].code = #2
 * expansion.contains[=].display = "Sometimes"
-* expansion.contains[+].code = #1
+* expansion.contains[+].system = #1
+* expansion.contains[=].code = #1
 * expansion.contains[=].display = "Rarely"
-* expansion.contains[+].code = #0
+* expansion.contains[+].system = #0
+* expansion.contains[=].code = #0
 * expansion.contains[=].display = "Never"
 
-Instance: boolen-choice
-InstanceOf: ValueSet
-Usage: #inline
-* status = #draft
-* date = "2026-04-14T02:10:27.587Z"
-* expansion.timestamp = "2026-04-14T02:10:26.293Z"
-* expansion.contains[0].display = "Yes"
-* expansion.contains[+].display = "No"
