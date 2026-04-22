@@ -34,7 +34,7 @@ Usage: #example
 * item[+].item[0].answer.valueString = "No"
 * item[=].item[=].linkId = "p04-q01-Visitors"
 * item[=].item[=].text = "Can you provide details of any visitors who you are not sure of their immunity status? (required)"
-* item[+].item[+].answer.valueString = "No"
+* item[=].item[+].answer.valueString = "No"
 * item[=].item[=].linkId = "p04-q01-1-Left.House"
 * item[=].item[=].text = "Have you left the house and met up with anyone? (required)"
 * item[=].item[+].answer.valueBoolean = false
