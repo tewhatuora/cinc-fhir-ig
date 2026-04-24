@@ -1,250 +1,310 @@
+Alias: $osas = https://fhir-ig.digital.health.nz/cs/osas
+
 Instance: DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
+
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * version = "1.0"
 * name = "DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * title = " Respiratory Physiology Paediatric OSAS Screening Questionnaire"
 * status = #active
 * description = "A Respiratory Physiology Paediatric OSAS Screening Questionnaire."
-* item[0].type = #display
+
+// ================= PATIENT/CHILD/MINOR and CAREGIVER DETAILS =================
+
+* item[0].type = #group
 * item[=].linkId = "patientformcomplete"
-* item[=].text = "Please ensure patient details are completed here"
-* item[+].type = #string
-* item[=].linkId = "surname_11"
-* item[=].text = "Surname"
-* item[=].required = true
-* item[+].type = #string
-* item[=].linkId = "fullname_12"
-* item[=].text = "Full Name"
-* item[=].required = true
-* item[+].type = #string
-* item[=].linkId = "nhinumber_13"
-* item[=].text = "NHI number"
-* item[=].required = true
-* item[+].type = #date
-* item[=].linkId = "dob_14"
-* item[=].text = "DOB"
-* item[=].required = true
-* item[+].type = #choice
-* item[=].linkId = "sex_15"
-* item[=].text = "Sex"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #male "Male"
-* item[=].answerOption[+].valueCoding = #female "Female"
-* item[+].type = #string
-* item[=].linkId = "caregivername"
-* item[=].text = "Caregiver Name"
-* item[=].required = true
-* item[+].type = #date
-* item[=].linkId = "date_31"
-* item[=].text = "Date"
-* item[=].required = true
-* item[+].type = #display
+* item[=].text = "Patient Details"
+
+* item[=].item[0].type = #string
+* item[=].item[=].linkId = "surname_11"
+* item[=].item[=].text = "Surname"
+* item[=].item[=].required = true
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "fullname_12"
+* item[=].item[=].text = "Full Name"
+* item[=].item[=].required = true
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "nhinumber_13"
+* item[=].item[=].text = "NHI number"
+* item[=].item[=].required = true
+
+* item[=].item[+].type = #date
+* item[=].item[=].linkId = "dob_14"
+* item[=].item[=].text = "DOB"
+* item[=].item[=].required = true
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "sex_15"
+* item[=].item[=].text = "Sex"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = #male "Male"
+* item[=].item[=].answerOption[+].valueCoding = #female "Female"
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "caregivername"
+* item[=].item[=].text = "Caregiver Name"
+* item[=].item[=].required = true
+
+// ================= ANSWER ON BEHALF OF CHILD=================
+
+* item[+].type = #group
 * item[=].linkId = "answeronbehalf"
 * item[=].text = "Please answer on behalf of your child for the past month."
-* item[+].type = #display
-* item[=].linkId = "options_31"
-* item[=].text = "Does your child have any of the following:"
-* item[+].type = #choice
-* item[=].linkId = "runnynose"
-* item[=].text = "A constant blocked or runny nose?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "chestinfections"
-* item[=].text = "Recurrent chest infections/pneumonia?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "airwaynrrowing"
-* item[=].text = "An airway narrowing or abnormality?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "syndromemajor"
-* item[=].text = "A syndrome or other major health problem?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #string
-* item[=].linkId = "type_01"
-* item[=].text = "Type"
-* item[=].required = true
-* item[+].type = #choice
-* item[=].linkId = "tonsils"
-* item[=].text = "Does your child have large tonsils?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "tonsilsremoved"
-* item[=].text = "Has your child had their adenoids or tonsils removed?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #display
+
+//==================CHILDS MEDICAL HISTORY =====================
+
+* item[=].item[0].type = #group
+* item[=].item[=].linkId = "options_31"
+* item[=].item[=].text = "Does your child have any of the following:"
+
+// Q1
+* item[=].item[=].item[0].type = #choice
+* item[=].item[=].item[=].linkId = "runnynose"
+* item[=].item[=].item[=].text = "A constant blocked or runny nose?"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+// Q2
+* item[=].item[=].item[+].type = #choice
+* item[=].item[=].item[=].linkId = "chestinfections"
+* item[=].item[=].item[=].text = "Recurrent chest infections/pneumonia?"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+// Q3
+* item[=].item[=].item[+].type = #choice
+* item[=].item[=].item[=].linkId = "airwaynrrowing"
+* item[=].item[=].item[=].text = "An airway narrowing or abnormality?"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+// Q4
+* item[=].item[=].item[+].type = #choice
+* item[=].item[=].item[=].linkId = "syndromemajor"
+* item[=].item[=].item[=].text = "A syndrome or other major health problem?"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[=].item[=].item[0].type = #text
+* item[=].item[=].item[=].item[=].linkId = "type_01"
+* item[=].item[=].item[=].item[=].text = "Type"
+* item[=].item[=].item[=].item[=].enableWhen[0].question = "syndromemajor"
+* item[=].item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].item[=].enableWhen[=].answerCoding = $osas#yes "Yes"
+* item[=].item[=].item[=].item[=].required = true
+
+// Q5
+* item[=].item[=].item[+].type = #choice
+* item[=].item[=].item[=].linkId = "tonsils"
+* item[=].item[=].item[=].text = "Does your child have large tonsils?"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+// Q6
+* item[=].item[=].item[+].type = #choice
+* item[=].item[=].item[=].linkId = "tonsilsremoved"
+* item[=].item[=].item[=].text = "Has your child had their adenoids or tonsils removed?"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+// ================= WHILE SLEEPING SYMPTOMS=================
+
+* item[+].type = #group
 * item[=].linkId = "whilesleeping"
 * item[=].text = "While sleeping, does your child"
-* item[+].type = #choice
-* item[=].linkId = "snore_22"
-* item[=].text = "snore more than half the time?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "alwayssnore"
-* item[=].text = "always snore?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "snoreloundly"
-* item[=].text = "snore loudly?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "troublebreathing"
-* item[=].text = "have trouble breathing, or struggle to breathe?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "loudbreathing"
-* item[=].text = "have \"heavy\" or loud breathing?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "stopbreathingnight"
-* item[=].text = "Have you ever seen your child stop breathing during the night?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #display
+
+* item[=].item[0].type = #choice
+* item[=].item[=].linkId = "snore_22"
+* item[=].item[=].text = "snore more than half the time?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "alwayssnore"
+* item[=].item[=].text = "always snore?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "snoreloundly"
+* item[=].item[=].text = "snore loudly?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "troublebreathing"
+* item[=].item[=].text = "have trouble breathing, or struggle to breathe?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "loudbreathing"
+* item[=].item[=].text = "have \"heavy\" or loud breathing?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "stopbreathingnight"
+* item[=].item[=].text = "Have you ever seen your child stop breathing during the night?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+// ================= CURRENT HEALTH CONDITION OPTIONS QUESTIONS=================
+
+* item[+].type = #group
 * item[=].linkId = "followingoptions"
-* item[=].text = "Does your child has the following"
-* item[+].type = #choice
-* item[=].linkId = "breathethroughmouth"
-* item[=].text = "tend to breathe through the mouth during the day?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "wetthebed"
-* item[=].text = "occasionally wet the bed?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "unrefreshedmorning"
-* item[=].text = "wake up feeling unrefreshed in the morning?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "sleepinessduringday"
-* item[=].text = "have a problem with sleepiness during the day?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "sleepyatnight"
-* item[=].text = "Has a teacher commented that your child appears sleepy during the day?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "hardtowakeup"
-* item[=].text = "Is it hard to wake your child up in the morning?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "headachesinthemorning"
-* item[=].text = "Does your child wake up with headaches in the morning?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "stopgrowing"
-* item[=].text = "Did your child stop growing at a normal rate at any time since birth?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "childoverweight"
-* item[=].text = "Is your child overweight?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #display
+* item[=].text = "Does your child have the following"
+
+* item[=].item[0].type = #choice
+* item[=].item[=].linkId = "breathethroughmouth"
+* item[=].item[=].text = "tend to breathe through the mouth during the day?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "wetthebed"
+* item[=].item[=].text = "occasionally wet the bed?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "unrefreshedmorning"
+* item[=].item[=].text = "wake up feeling unrefreshed in the morning?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "sleepinessduringday"
+* item[=].item[=].text = "have a problem with sleepiness during the day?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "sleepyatnight"
+* item[=].item[=].text = "Has a teacher commented that your child appears sleepy during the day?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "hardtowakeup"
+* item[=].item[=].text = "Is it hard to wake your child up in the morning?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "headachesinthemorning"
+* item[=].item[=].text = "Does your child wake up with headaches in the morning?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "stopgrowing"
+* item[=].item[=].text = "Did your child stop growing at a normal rate at any time since birth?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "childoverweight"
+* item[=].item[=].text = "Is your child overweight?"
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+// ================= BEHAVIORAL FOLLOWING OPTIONS QUESTIONS=================
+
+* item[+].type = #group
 * item[=].linkId = "childoftenhas"
-* item[=].text = "My child often ."
-* item[+].type = #choice
-* item[=].linkId = "listenissues"
-* item[=].text = "does not seem to listen when spoken to directly."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "difficultyinorganizing"
-* item[=].text = "has difficulty organizing task and activities."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "stimulieasily"
-* item[=].text = "is easily distracted by extraneous stimuli."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "squirmsseat"
-* item[=].text = "fidgets with hands or feet or squirms in seat."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "drivenbyamotor"
-* item[=].text = "is 'on the go' or often acts as if 'driven by a motor'."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "intrudesother"
-* item[=].text = "interrupts or intrudes on others (e.g. butts into conversations or games)."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
+* item[=].text = "My child often"
+
+* item[=].item[0].type = #choice
+* item[=].item[=].linkId = "listenissues"
+* item[=].item[=].text = "does not seem to listen when spoken to directly."
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "difficultyinorganizing"
+* item[=].item[=].text = "has difficulty organizing task and activities."
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "stimulieasily"
+* item[=].item[=].text = "is easily distracted by extraneous stimuli."
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "squirmsseat"
+* item[=].item[=].text = "fidgets with hands or feet or squirms in seat."
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "drivenbyamotor"
+* item[=].item[=].text = "is 'on the go' or often acts as if 'driven by a motor'."
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "intrudesother"
+* item[=].item[=].text = "interrupts or intrudes on others (e.g. butts into conversations or games)."
+* item[=].item[=].required = true
+* item[=].item[=].answerOption[0].valueCoding = $osas#yes "Yes"
+* item[=].item[=].answerOption[+].valueCoding = $osas#no "No"
+* item[=].item[=].answerOption[+].valueCoding = $osas#unknown "Unknown"
