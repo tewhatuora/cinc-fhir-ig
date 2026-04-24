@@ -36,9 +36,6 @@ Usage: #definition
 
 // ================= QUESTIONS =================
 
-// Reusable answer options pattern
-// (FHIR doesn’t support true reuse here, so we repeat—but clean with alias)
-
 // Q1
 * item[=].item[+].type = #choice
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
