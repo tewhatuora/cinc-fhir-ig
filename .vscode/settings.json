@@ -1,9 +1,10 @@
 {
-  "plantuml.diagramsRoot": "input/images-source",
-  "plantuml.exportIncludeFolderHeirarchy": false,
-  "plantuml.exportOutDir": "input/images",
-  "plantuml.exportFormat": "svg",
-  "cSpell.words": [
-    "Piki"
-  ]
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        ".mule": true
+    }
 }
