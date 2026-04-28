@@ -4,6 +4,8 @@ Usage: #definition
 
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * name = "DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * title = "Respiratory Physiology Paediatric OSAS Screening Questionnaire"
 * status = #active

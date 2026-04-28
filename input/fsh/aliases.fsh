@@ -110,7 +110,6 @@ Alias: $nz-claim-subtype = https://fhir-ig.digital.health.nz/shared-care/CodeSys
 
 //--------FHIR Questionnaire -----------------------------
 Alias: $qic = http://hl7.org/fhir/questionnaire-item-control
-Alias: $qic-ext = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
 Alias: $caq = https://fhir-ig.digital.health.nz/cs/cataract-answers
 Alias: $ess = https://fhir-ig.digital.health.nz/cs/EpworthSleepScale
 Alias: $osas = https://fhir-ig.digital.health.nz/cs/osas

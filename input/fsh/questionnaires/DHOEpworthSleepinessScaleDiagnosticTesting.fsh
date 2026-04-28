@@ -4,6 +4,8 @@ Usage: #definition
 
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOEpworthSleepinessScaleDiagnosticTesting"
 * version = "1.0.0"
+* identifier.use = #official
+* identifier.value = "DHOEpworthSleepinessScaleDiagnosticTesting"
 * name = "DHOEpworthSleepinessScaleDiagnosticTesting"
 * title = "Epworth Sleepiness Scale - Diagnostic Testing"
 * status = #active
@@ -47,7 +49,7 @@ Usage: #definition
 
 // Q1
 * item[=].item[=].item[0].type = #choice
-* item[=].item[=].item[=].extension.url = $qic-ext
+* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].item[=].linkId = "sitting-reading"
 * item[=].item[=].item[=].text = "Sitting and reading"
@@ -59,7 +61,7 @@ Usage: #definition
 
 // Q2
 * item[=].item[=].item[+].type = #choice
-* item[=].item[=].item[=].extension.url = $qic-ext
+* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].item[=].linkId = "Watchingtv"
 * item[=].item[=].item[=].text = "Watching TV"
@@ -71,7 +73,7 @@ Usage: #definition
 
 // Q3
 * item[=].item[=].item[+].type = #choice
-* item[=].item[=].item[=].extension.url = $qic-ext
+* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].item[=].linkId = "sittinginactive"
 * item[=].item[=].item[=].text = "Sitting, inactive in a public place (e.g., a theatre or meeting)"
@@ -83,7 +85,7 @@ Usage: #definition
 
 // Q4
 * item[=].item[=].item[+].type = #choice
-* item[=].item[=].item[=].extension.url = $qic-ext
+* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].item[=].linkId = "passengercarbreak"
 * item[=].item[=].item[=].text = "As a passenger in a car for an hour without a break"
@@ -95,7 +97,7 @@ Usage: #definition
 
 // Q5
 * item[=].item[=].item[+].type = #choice
-* item[=].item[=].item[=].extension.url = $qic-ext
+* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].item[=].linkId = "restintheafternoons"
 * item[=].item[=].item[=].text = "Lying down to rest in the afternoon when circumstances permit"
@@ -107,7 +109,7 @@ Usage: #definition
 
 // Q6
 * item[=].item[=].item[+].type = #choice
-* item[=].item[=].item[=].extension.url = $qic-ext
+* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].item[=].linkId = "sittingandtalking"
 * item[=].item[=].item[=].text = "Sitting and talking"
@@ -119,7 +121,7 @@ Usage: #definition
 
 // Q7
 * item[=].item[=].item[+].type = #choice
-* item[=].item[=].item[=].extension.url = $qic-ext
+* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].item[=].linkId = "sittingquietly"
 * item[=].item[=].item[=].text = "Sitting quietly after a lunch without alcohol"
