@@ -1,5 +1,3 @@
-Alias: $difficulty-scale = https://fhir-ig.digital.health.nz/cs/difficulty-scale
-
 Instance: DHOHowDoesYourConditionAffectYourLife
 InstanceOf: Questionnaire
 Usage: #definition
@@ -18,8 +16,8 @@ Usage: #definition
 * item[=].text = "How does your condition affect your life?"
 
 // Q1
-* item[=].item[0].type = #open-choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[0].type = #choice
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "socialinteractions"
 * item[=].item[=].text = "How much does your condition affect your social interactions? (Examples: meeting friends, going out, joining in groups, going shopping, everyday activities outside the home)"
@@ -33,8 +31,8 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q2
-* item[=].item[+].type = #open-choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[+].type = #choice
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalrelationships"
 * item[=].item[=].text = "How much does your condition affect your personal relationships? (Examples: personal relations with partner, family members, close personal friends)"
@@ -48,8 +46,8 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q3
-* item[=].item[+].type = #open-choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[+].type = #choice
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "responsibilitiestoothers_05"
 * item[=].item[=].text = "How much does your condition affect your ability to meet your responsibilities to others? (Examples: doing meaningful things for yourself or others, including caring for children, grandchildren or partner, work (paid and unpaid), including how having to rely on others may have an impact on you)"
@@ -63,8 +61,8 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q4
-* item[=].item[+].type = #open-choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[+].type = #choice
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalcare_07"
 * item[=].item[=].text = "How much does your condition affect your personal care? (Examples: looking after yourself, your health, personal hygiene, need for aids or special clothing)"
@@ -78,8 +76,8 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q5
-* item[=].item[+].type = #open-choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[+].type = #choice
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalsafety_08"
 * item[=].item[=].text = "How much does your condition affect your personal safety? (Examples: being safe from injury and harm, from yourself or others and in your surroundings)"
@@ -93,10 +91,10 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q6
-* item[=].item[+].type = #open-choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[+].type = #choice
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
-* item[=].item[=].linkId = "472589503397"
+* item[=].item[=].linkId = "leisure_09"
 * item[=].item[=].text = "How much does your condition affect your leisure activities? (Examples: getting exercise, hobbies, sporting activities, gardening, do-it-yourself activities, crafts and travel)"
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = false

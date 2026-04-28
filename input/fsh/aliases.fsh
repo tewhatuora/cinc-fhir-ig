@@ -106,3 +106,16 @@ Alias: $australasian-triage-scale = https://fhir-ig.digital.health.nz/shared-car
 Alias: $nz-appointment-reason-codes = https://fhir-ig.digital.health.nz/shared-care/ValueSet/nz-onlinegp-appointment-reason-codes
 Alias: $nz-claim-subtype = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/nz-claim-subtype-cs
 
+
+
+//--------FHIR Questionnaire -----------------------------
+Alias: $qic = http://hl7.org/fhir/questionnaire-item-control
+Alias: $qic-ext = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+Alias: $caq = https://fhir-ig.digital.health.nz/cs/cataract-answers
+Alias: $ess = https://fhir-ig.digital.health.nz/cs/EpworthSleepScale
+Alias: $osas = https://fhir-ig.digital.health.nz/cs/osas
+Alias: $difficulty-scale = https://fhir-ig.digital.health.nz/cs/difficulty-scale
+Alias: $general = https://fhir-ig.digital.health.nz/cs/general-scale
+Alias: $licence-class = https://fhir-ig.digital.health.nz/cs/Licence-Class
+Alias: $licence-endorsement = https://fhir-ig.digital.health.nz/cs/Vehicle-licence-endorsement
+Alias: $gender = http://hl7.org/fhir/administrative-gender

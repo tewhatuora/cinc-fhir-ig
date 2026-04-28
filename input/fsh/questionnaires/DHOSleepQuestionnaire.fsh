@@ -1,9 +1,3 @@
-Alias: $general = https://fhir-ig.digital.health.nz/cs/general-scale
-Alias: $ess = https://fhir-ig.digital.health.nz/cs/EpworthSleepScale
-Alias: $qic = http://hl7.org/fhir/questionnaire-item-control
-Alias: $licence-class = https://fhir-ig.digital.health.nz/cs/Licence-Class
-Alias: $licence-endorsement = https://fhir-ig.digital.health.nz/cs/Vehicle-licence-endorsement
-
 Instance: DHOSleepQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
@@ -59,7 +53,7 @@ Usage: #definition
 * item[=].linkId = "sleep-apnoea"
 * item[=].text = "Sleep Apnoea"
 
-* item[=].item[0].type = #open-choice
+* item[=].item[0].type = #choice
 * item[=].item[=].linkId = "snoring"
 * item[=].item[=].text = "According to what others have told you, how often do you think you snore?"
 * item[=].item[=].answerOption[0].valueCoding = $general#Always "Always"
@@ -284,7 +278,7 @@ Usage: #definition
 * item[=].item[=].text = "Do you have a vehicle licence?"
 
 * item[=].item[=].item[0].type = #choice
-* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#radio-button "Radio Button"
 * item[=].item[=].item[=].linkId = "licenseclass"
 * item[=].item[=].item[=].text = "What is your vehicle licence class?"
@@ -300,7 +294,7 @@ Usage: #definition
 * item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#6 "Class 6 (Motorcycle)"
 
 * item[=].item[=].item[+].type = #choice
-* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#radio-button "Radio Button"
 * item[=].item[=].item[=].linkId = "licenseendorsement"
 * item[=].item[=].item[=].text = "What is your vehicle licence endorsement?"

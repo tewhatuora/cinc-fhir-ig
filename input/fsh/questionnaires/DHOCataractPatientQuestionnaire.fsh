@@ -1,6 +1,3 @@
-Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-control
-Alias: $caq = https://fhir-ig.digital.health.nz/cs/cataract-answers
-
 Instance: DHOCataractPatientQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
@@ -38,7 +35,7 @@ Usage: #definition
 
 // Q1
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].linkId = "social-interactions"
 * item[=].item[=].text = "How much does your condition affect your social interactions?"
@@ -53,7 +50,7 @@ Usage: #definition
 
 // Q2
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].linkId = "personalrelationships"
 * item[=].item[=].text = "How much does your condition affect your personal relationships?"
@@ -68,7 +65,7 @@ Usage: #definition
 
 // Q3
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].linkId = "abilitytomeet"
 * item[=].item[=].text = "How much does your condition affect your ability to meet your responsibilities to others?"
@@ -83,7 +80,7 @@ Usage: #definition
 
 // Q4
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].linkId = "personalcare"
 * item[=].item[=].text = "How much does your condition affect your personal care?"
@@ -98,7 +95,7 @@ Usage: #definition
 
 // Q5
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].linkId = "personalsafety"
 * item[=].item[=].text = "How much does your condition affect your personal safety?"
@@ -113,7 +110,7 @@ Usage: #definition
 
 // Q6
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.url = $qic-ext
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].linkId = "leisureactivities"
 * item[=].item[=].text = "How much does your condition affect your leisure activities?"
