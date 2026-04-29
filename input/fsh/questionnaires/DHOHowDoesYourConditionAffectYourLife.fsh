@@ -19,7 +19,7 @@ Usage: #definition
 
 // Q1
 * item[=].item[0].type = #choice
-* item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "socialinteractions"
 * item[=].item[=].text = "How much does your condition affect your social interactions? (Examples: meeting friends, going out, joining in groups, going shopping, everyday activities outside the home)"
@@ -34,7 +34,7 @@ Usage: #definition
 
 // Q2
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalrelationships"
 * item[=].item[=].text = "How much does your condition affect your personal relationships? (Examples: personal relations with partner, family members, close personal friends)"
@@ -49,7 +49,7 @@ Usage: #definition
 
 // Q3
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "responsibilitiestoothers_05"
 * item[=].item[=].text = "How much does your condition affect your ability to meet your responsibilities to others? (Examples: doing meaningful things for yourself or others, including caring for children, grandchildren or partner, work (paid and unpaid), including how having to rely on others may have an impact on you)"
@@ -64,7 +64,7 @@ Usage: #definition
 
 // Q4
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalcare_07"
 * item[=].item[=].text = "How much does your condition affect your personal care? (Examples: looking after yourself, your health, personal hygiene, need for aids or special clothing)"
@@ -79,7 +79,7 @@ Usage: #definition
 
 // Q5
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalsafety_08"
 * item[=].item[=].text = "How much does your condition affect your personal safety? (Examples: being safe from injury and harm, from yourself or others and in your surroundings)"
@@ -94,7 +94,7 @@ Usage: #definition
 
 // Q6
 * item[=].item[+].type = #choice
-* item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "leisure_09"
 * item[=].item[=].text = "How much does your condition affect your leisure activities? (Examples: getting exercise, hobbies, sporting activities, gardening, do-it-yourself activities, crafts and travel)"

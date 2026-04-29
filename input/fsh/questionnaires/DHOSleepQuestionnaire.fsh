@@ -280,7 +280,7 @@ Usage: #definition
 * item[=].item[=].text = "Do you have a vehicle licence?"
 
 * item[=].item[=].item[0].type = #choice
-* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#radio-button "Radio Button"
 * item[=].item[=].item[=].linkId = "licenseclass"
 * item[=].item[=].item[=].text = "What is your vehicle licence class?"
@@ -296,7 +296,7 @@ Usage: #definition
 * item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#6 "Class 6 (Motorcycle)"
 
 * item[=].item[=].item[+].type = #choice
-* item[=].item[=].item[=].extension.url = http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl
+* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#radio-button "Radio Button"
 * item[=].item[=].item[=].linkId = "licenseendorsement"
 * item[=].item[=].item[=].text = "What is your vehicle licence endorsement?"
