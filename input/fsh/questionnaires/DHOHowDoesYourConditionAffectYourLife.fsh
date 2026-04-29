@@ -1,10 +1,10 @@
-Alias: $difficulty-scale = https://fhir-ig.digital.health.nz/cs/difficulty-scale
-
 Instance: DHOHowDoesYourConditionAffectYourLife
 InstanceOf: Questionnaire
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOHowDoesYourConditionAffectYourLife"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHOHowDoesYourConditionAffectYourLife"
 * name = "DHOHowDoesYourConditionAffectYourLife"
 * title = "How does your condition affect your life?"
 * status = #active
@@ -18,7 +18,7 @@ Usage: #definition
 * item[=].text = "How does your condition affect your life?"
 
 // Q1
-* item[=].item[0].type = #open-choice
+* item[=].item[0].type = #choice
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "socialinteractions"
@@ -33,7 +33,7 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q2
-* item[=].item[+].type = #open-choice
+* item[=].item[+].type = #choice
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalrelationships"
@@ -48,7 +48,7 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q3
-* item[=].item[+].type = #open-choice
+* item[=].item[+].type = #choice
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "responsibilitiestoothers_05"
@@ -63,7 +63,7 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q4
-* item[=].item[+].type = #open-choice
+* item[=].item[+].type = #choice
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalcare_07"
@@ -78,7 +78,7 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q5
-* item[=].item[+].type = #open-choice
+* item[=].item[+].type = #choice
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
 * item[=].item[=].linkId = "personalsafety_08"
@@ -93,10 +93,10 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $difficulty-scale#6 "6 -- Extremely difficult"
 
 // Q6
-* item[=].item[+].type = #open-choice
+* item[=].item[+].type = #choice
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
-* item[=].item[=].linkId = "472589503397"
+* item[=].item[=].linkId = "leisure_09"
 * item[=].item[=].text = "How much does your condition affect your leisure activities? (Examples: getting exercise, hobbies, sporting activities, gardening, do-it-yourself activities, crafts and travel)"
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = false

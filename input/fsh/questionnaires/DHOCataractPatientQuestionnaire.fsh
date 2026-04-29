@@ -1,12 +1,11 @@
-Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-control
-Alias: $caq = https://fhir-ig.digital.health.nz/cs/cataract-answers
-
 Instance: DHOCataractPatientQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
 
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOCataractPatientQuestionnaire"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHOCataractPatientQuestionnaire"
 * name = "DHOCataractPatientQuestionnaire"
 * title = "How does your cataract affect your life?"
 * status = #active

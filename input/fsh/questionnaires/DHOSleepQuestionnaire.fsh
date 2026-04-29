@@ -1,15 +1,11 @@
-Alias: $general = https://fhir-ig.digital.health.nz/cs/general-scale
-Alias: $ess = https://fhir-ig.digital.health.nz/cs/EpworthSleepScale
-Alias: $qic = http://hl7.org/fhir/questionnaire-item-control
-Alias: $licence-class = https://fhir-ig.digital.health.nz/cs/Licence-Class
-Alias: $licence-endorsement = https://fhir-ig.digital.health.nz/cs/Vehicle-licence-endorsement
-
 Instance: DHOSleepQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
 
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOSleepQuestionnaire"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHOSleepQuestionnaire"
 * name = "DHOSleepQuestionnaire"
 * title = "Sleep Questionnaire"
 * status = #active
@@ -24,11 +20,11 @@ Usage: #definition
 * item[=].text = "Sleep Service"
 
 * item[=].item[0].type = #display
-* item[=].item[=].linkId = "986140922139"
+* item[=].item[=].linkId = "referral"
 * item[=].item[=].text = "We have received a referral to our Sleep Service from your doctor."
 
 * item[=].item[+].type = #display
-* item[=].item[=].linkId = "588842164207"
+* item[=].item[=].linkId = "Studyresult"
 * item[=].item[=].text = "Please note we cannot consider your referral/sleep study results until we have this information completed by you."
 
 // ================= MEASUREMENTS =================
@@ -59,7 +55,7 @@ Usage: #definition
 * item[=].linkId = "sleep-apnoea"
 * item[=].text = "Sleep Apnoea"
 
-* item[=].item[0].type = #open-choice
+* item[=].item[0].type = #choice
 * item[=].item[=].linkId = "snoring"
 * item[=].item[=].text = "According to what others have told you, how often do you think you snore?"
 * item[=].item[=].answerOption[0].valueCoding = $general#Always "Always"

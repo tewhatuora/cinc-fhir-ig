@@ -1,13 +1,13 @@
-Alias: $osas = https://fhir-ig.digital.health.nz/cs/osas
-
 Instance: DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
 
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * name = "DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
-* title = " Respiratory Physiology Paediatric OSAS Screening Questionnaire"
+* title = "Respiratory Physiology Paediatric OSAS Screening Questionnaire"
 * status = #active
 * description = "A Respiratory Physiology Paediatric OSAS Screening Questionnaire."
 
@@ -41,8 +41,8 @@ Usage: #definition
 * item[=].item[=].linkId = "sex_15"
 * item[=].item[=].text = "Sex"
 * item[=].item[=].required = true
-* item[=].item[=].answerOption[0].valueCoding = #male "Male"
-* item[=].item[=].answerOption[+].valueCoding = #female "Female"
+* item[=].item[=].answerOption[0].valueCoding = $gender#male "Male"
+* item[=].item[=].answerOption[+].valueCoding = $gender#female "Female"
 
 * item[=].item[+].type = #string
 * item[=].item[=].linkId = "caregivername"
