@@ -136,6 +136,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * period 0..1 MS
   * id 0..0
 * generalPractitioner 0..*
+* extension[ethnicity] 0..*
 
 // ---------------------------------------------------------
 // Reference constraints
