@@ -10,37 +10,53 @@ title Common Messaging System Workflow
 == Direct Message ==
 
 r -> s++: Create CommunicationRequest\n(message-body payload)
-return Success
+s --> r: Success
+deactivate s
 
 s -> m++: Process CommunicationRequest
-m -> rec: Send message (SMS / Email)
-return Delivery status
+m -> s++: Create Communication\n(basedOn CommunicationRequest)
+s --> m: Success
+deactivate s
 
-s -> s: Create Communication\n(basedOn CommunicationRequest)
-s -> s: Update Communication status
+m -> rec: Send message (SMS / Email)
+rec --> m: Delivery status
+
+m -> s++: Update Communication status
+s --> m: Success
+deactivate s
 
 opt Callback URL provided
-  s -> r: Delivery status callback
+  m -> r: Delivery status callback
 end
+deactivate m
 
 == Template-Based Message ==
 
 r -> s++: Create TemplateDocumentReference\n(template-message-body + template-message-parameters)
-return Success
+s --> r: Success
+deactivate s
 
 r -> s++: Create CommunicationRequest\n(message-template + message-parameters)
-return Success
+s --> r: Success
+deactivate s
 
-s -> s: Resolve template placeholders\nwith parameter values
-s -> m++: Process rendered message
+s -> m++: Process CommunicationRequest
+m -> m: Resolve template placeholders\nwith parameter values
+
+m -> s++: Create Communication\n(basedOn CommunicationRequest)
+s --> m: Success
+deactivate s
+
 m -> rec: Send message (SMS / Email)
-return Delivery status
+rec --> m: Delivery status
 
-s -> s: Create Communication\n(basedOn CommunicationRequest)
-s -> s: Update Communication status
+m -> s++: Update Communication status
+s --> m: Success
+deactivate s
 
 opt Callback URL provided
-  s -> r: Delivery status callback
+  m -> r: Delivery status callback
 end
+deactivate m
 
 @enduml
