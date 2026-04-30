@@ -1,32 +1,16 @@
-Instance : OutreachCommunicationExample
-InstanceOf : CMSCommunication
-Description: "An example of a Communication resource. This resource is used to record information related to communication via SMS as the medium"
-Usage : #example
-* identifier[0].use = #usual
-* identifier[0].value = "#ebdb8d66-1390-42c7-89a6-a9a75d65d0e6"
-* identifier[0].system = "https://api.messaging.digital.health.nz/SourceId"
-* identifier[1].use = #secondary
-* identifier[1].system = "https://api.messaging.digital.health.nz/CorrelationId"
-* identifier[1].value = "#bdb8d66-1390-42c7-89a6-a9a75d65d0e6-001"
-* identifier[2].use = #secondary
-* identifier[2].value = "#cb8d66-1390-42c7-89a6-a9a75d65d344"
-* identifier[2].system = "https://api.messaging.digital.health.nz/MessageId"
-* identifier[3].use = #secondary
-* identifier[3].value = "#cb8d66-1390-42c7-89a6-a9a75d65d333"
-* identifier[3].system = "https://api.messaging.digital.health.nz/ProviderMessageId"
-* identifier[4].use = #secondary
-* identifier[4].value = "#lb8d66-1390-42c7-89a6-a9a75d65d333"
-* identifier[4].system = "https://api.messaging.digital.health.nz/ConsumerId"
+Instance: OutreachCommunicationExample
+InstanceOf: CMSCommunication
+Description: "An example of a Communication resource. This resource is used to record information related to communication via phone as the medium"
+Usage: #example
+
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 * basedOn = Reference(OutreachServiceRequestExample)
 * status = #completed
-
 * statusReason.coding.code = #sent
 * statusReason.coding.system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes"
-
-* payload[0].contentString = "summary of the communication"
-
-* medium.coding.system = $hnz-participation-mode-codes
-* medium.coding.code = #PHONE
+* medium = $communication-medium#PHONE
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
 
@@ -42,13 +26,13 @@ Usage : #example
 * recipient.identifier.value = "ZXP7823"
 * recipient.display = "Carey Carrington"
 
+* payload[0].contentString = "summary of the communication"
 
-* extension[+].url = Canonical(hnz-contact-point-extension)
-* extension[=].extension[+].url = "toContactPoint"
-* extension[=].extension[=].valueContactPoint.system = #phone
-* extension[=].extension[=].valueContactPoint.value = "+64221234567"
+// --- Root Extensions ---
+* extension[ContactPoint].extension[toContactPoint].valueContactPoint.system = #phone
+* extension[ContactPoint].extension[toContactPoint].valueContactPoint.value = "+64221234567"
 
 * meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-* extension[+].url = Canonical(hnz-status-date-time-extension)
-* extension[=].valueDateTime = "2024-08-20T14:35:00Z"
+* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+* extension[StatusDateTime].valueDateTime = "2024-08-20T14:35:00Z"

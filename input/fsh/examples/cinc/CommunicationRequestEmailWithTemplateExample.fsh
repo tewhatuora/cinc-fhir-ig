@@ -1,13 +1,14 @@
-Instance : EmailCommunicationRequestWithTemplateExample
-InstanceOf : CMSCommunicationRequest
+Instance: EmailCommunicationRequestWithTemplateExample
+InstanceOf: CMSCommunicationRequest
 Description: "An example of a CommunicationRequest resource. This resource is used to record information related to requesting communication with a client using EMAIL as the medium."
-Usage : #example
+Usage: #example
+
 * meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 * status = #unknown
-* medium.coding.code = #EMAILWRIT
-* medium.coding.system = $hnz-participation-mode-codes
+* medium = $communication-medium#EMAILWRIT
+
 * occurrenceDateTime = "2024-08-20T14:30:00Z"
 * authoredOn = "2024-08-20T14:30:00Z"
 
@@ -17,50 +18,40 @@ Usage : #example
 * sender.identifier.value = "56789"
 * sender.display = "BSA"
 
-//Email Body
-* payload[0].contentAttachment.id = "message-body"
-* payload[=].contentAttachment.contentType = #text/plain
-* payload[=].contentAttachment.language = #en-nz
-* payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[=].contentAttachment.title = "Appointment Reminder" //Email Subject
+// --- Email Body ---
+* payload[message-body].extension[payloadType].valueCode = #body
+* payload[message-body].contentAttachment.contentType = #text/plain
+* payload[message-body].contentAttachment.title = "Appointment Reminder"
 
-//Attachment1
-* payload[+].contentAttachment.id = "attachment-file1"
-* payload[=].contentAttachment.contentType = #application/pdf
-* payload[=].contentAttachment.title = "File1.pdf"
-* payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+// --- Attachment 1 ---
+* payload[attachment-file][+].extension[payloadType].valueCode = #attachment
+* payload[attachment-file][=].contentAttachment.contentType = #application/pdf
+* payload[attachment-file][=].contentAttachment.title = "File1.pdf"
+* payload[attachment-file][=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
 
-//Attachment2
-* payload[+].contentAttachment.id = "attachment-file2"
-* payload[=].contentAttachment.contentType = #application/pdf
-* payload[=].contentAttachment.title = "File2.pdf"
-* payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
-* payload[=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
+// --- Attachment 2 ---
+* payload[attachment-file][+].extension[payloadType].valueCode = #attachment
+* payload[attachment-file][=].contentAttachment.contentType = #application/pdf
+* payload[attachment-file][=].contentAttachment.title = "File2.pdf"
+* payload[attachment-file][=].contentAttachment.data = "IyBQYXRpZW50IEVuY291bnRlciBOb3RlcwoKIyMgMjAyMy0wOC0wMgoKLSBEaXNjdXNzZWQgY29uZGl0aW9uCi0gT3RhaW5lZCBjb25zZW50IAotIGV0Yy4="
 
-//Template
-* payload[+].contentReference.id = "message-template"
-* payload[=].contentReference.display = "Vaccination Appointment Reminder"
-* payload[=].contentReference = Reference(DocumentReference/EmailCommunicationTemplateExample)
+// --- Template ---
+* payload[message-template].extension[payloadType].valueCode = #template
+* payload[message-template].contentReference.display = "Vaccination Appointment Reminder"
+* payload[message-template].contentReference = Reference(DocumentReference/EmailCommunicationTemplateExample)
 
-//Template Parameter
-* payload[+].contentAttachment.contentType = #application/json
-* payload[=].contentAttachment.id = "message-parameters"
-* payload[=].contentAttachment.data = "eyAiUGF0aWVudE5hbWUiOiAiSm9obiBEb2UiLCAiQXBwb2ludG1lbnREYXRlIjogIjIwMjQtMTItMTMiLCAiQXBwb2ludG1lbnRUaW1lIjogIjEwOjAwIEFNIiwgIkNvbmZpcm1hdGlvbkRlYWRsaW5lIjogIjIwMjQtMTItMTAiIH0="
-* payload[=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
+// --- Template Parameters ---
+* payload[message-parameters].extension[payloadType].valueCode = #parameters
+* payload[message-parameters].contentAttachment.contentType = #application/json
+* payload[message-parameters].contentAttachment.data = "eyAiUGF0aWVudE5hbWUiOiAiSm9obiBEb2UiLCAiQXBwb2ludG1lbnREYXRlIjogIjIwMjQtMTItMTMiLCAiQXBwb2ludG1lbnRUaW1lIjogIjEwOjAwIEFNIiwgIkNvbmZpcm1hdGlvbkRlYWRsaW5lIjogIjIwMjQtMTItMTAiIH0="
 
-//Extensions
-* extension[0].url = Canonical(hnz-campaign-extension)
-* extension[=].extension[0].url = "campaignCode"
-* extension[=].extension[=].valueString = "2141acc05fdf4bc79070e472e69b17f6"
-* extension[=].extension[+].url = "campaignName"
-* extension[=].extension[=].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
-* extension[+].url = Canonical(hnz-contact-point-extension)
-* extension[=].extension[+].url = "toContactPoint"
-* extension[=].extension[=].valueContactPoint.system = #email
-* extension[=].extension[=].valueContactPoint.value = "totest@gmail.com"
-* extension[=].extension[+].url = "fromContactPoint"
-* extension[=].extension[=].valueContactPoint.system = #email
-* extension[=].extension[=].valueContactPoint.value = "fromtest@gmail.com"
-* extension[+].url = Canonical(hnz-system-callback-url-extension)
-* extension[=].valueUrl = "https://example.com/callback"
+// --- Root Extensions ---
+* extension[Campaign].extension[campaignCode].valueString = "2141acc05fdf4bc79070e472e69b17f6"
+* extension[Campaign].extension[campaignName].valueString = "Measles_HealthCheck_Email_Journey_Sit_24_Feb"
+
+* extension[ContactPoint].extension[toContactPoint].valueContactPoint.system = #email
+* extension[ContactPoint].extension[toContactPoint].valueContactPoint.value = "totest@gmail.com"
+* extension[ContactPoint].extension[fromContactPoint].valueContactPoint.system = #email
+* extension[ContactPoint].extension[fromContactPoint].valueContactPoint.value = "fromtest@gmail.com"
+
+* extension[CallbackUrl].valueUrl = "https://example.com/callback"

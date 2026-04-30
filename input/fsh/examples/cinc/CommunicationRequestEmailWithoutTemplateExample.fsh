@@ -7,7 +7,7 @@ Usage: #example
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 * status = #unknown
-* medium = http://terminology.hl7.org/CodeSystem/v3-ParticipationMode#EMAILWRIT
+* medium = $communication-medium#EMAILWRIT
 // Note: If using a local alias for system, use: * medium.coding.system = $hnz-participation-mode-codes
 
 * occurrenceDateTime = "2024-08-20T14:30:00Z"
@@ -21,7 +21,6 @@ Usage: #example
 
 // --- Email Body ---
 * payload[message-body].extension[payloadType].valueCode = #body
-* payload[message-body].contentAttachment.id = "message-body"
 * payload[message-body].contentAttachment.contentType = #text/plain
 * payload[message-body].contentAttachment.language = #en-nz
 * payload[message-body].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
@@ -30,7 +29,6 @@ Usage: #example
 
 // --- Attachment 1 ---
 * payload[attachment-file][+].extension[payloadType].valueCode = #attachment
-* payload[attachment-file][=].contentAttachment.id = "attachment-file1"
 * payload[attachment-file][=].contentAttachment.contentType = #application/pdf
 * payload[attachment-file][=].contentAttachment.title = "File1.pdf"
 * payload[attachment-file][=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
@@ -38,7 +36,6 @@ Usage: #example
 
 // --- Attachment 2 ---
 * payload[attachment-file][+].extension[payloadType].valueCode = #attachment
-* payload[attachment-file][=].contentAttachment.id = "attachment-file2"
 * payload[attachment-file][=].contentAttachment.contentType = #application/pdf
 * payload[attachment-file][=].contentAttachment.title = "File2.pdf"
 * payload[attachment-file][=].contentAttachment.creation = "2023-08-01T09:35:00+11:00"
