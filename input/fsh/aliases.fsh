@@ -89,6 +89,7 @@ Alias: $ns-ethnic-group-level-4-code = https://standards.digital.health.nz/ns/et
 Alias: $ns-hpi-person-id = https://standards.digital.health.nz/ns/hpi-person-id
 Alias: $ns-information-source-code = https://standards.digital.health.nz/ns/information-source-code
 Alias: $ns-nz-citizenship-status-code = https://standards.digital.health.nz/ns/nz-citizenship-status-code
+Alias: $cs-telecom-validation-status = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/DHOTelecomValidationCS
 
 // ValueSets
 Alias: $vs-administrative-gender = http://hl7.org/fhir/ValueSet/administrative-gender
