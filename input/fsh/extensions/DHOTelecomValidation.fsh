@@ -25,4 +25,6 @@ Id: dho-telecom-validation
 Title: "DHO Telecom Validation Status"
 Description: "The Validation status of the telecom. Used when the system type is 'email', 'sms', or 'phone' with use 'mobile'."
 Context: ContactPoint
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
 * valueCodeableConcept from DHOTelecomValidationVS (required)
