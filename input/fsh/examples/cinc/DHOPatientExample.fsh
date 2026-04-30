@@ -204,7 +204,7 @@ Usage: #example
 * telecom[=].rank = 1
 * telecom[=].extension[notification-enabled].valueBoolean = true
 * telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.5"
-* telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#ntvalid "Not Validated"
+* telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#ntval "Not Validated"
 * telecom[=].extension[validation-status].valueCodeableConcept.text = "Not Validated"
 
 * telecom[+].system = #email

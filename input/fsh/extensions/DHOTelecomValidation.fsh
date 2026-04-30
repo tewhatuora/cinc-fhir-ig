@@ -1,6 +1,10 @@
 CodeSystem: DHOTelecomValidationCS
+Id: DHOTelecomValidationCS
 Title: "DHOPatient Telecom Validation Status"
 Description: "Indicates the validation status of a telecom."
+* ^url = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/DHOTelecomValidationCS"
+* ^status = #active
+* ^publisher = "Te Whatu Ora"
 * ^caseSensitive = true
 * ^experimental = false
 * #failed "Failed"

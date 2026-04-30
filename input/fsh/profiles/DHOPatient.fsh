@@ -184,8 +184,9 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * obeys dho-telecom-notification-valid-system
   * extension contains DHOTelecomNotification named notification-enabled 0..1 MS
   * extension[notification-enabled] ^short = "True if notifications can be sent to this email or SMS address"
+  * obeys dho-telecom-validation-system
   * extension contains DHOTelecomValidation named validation-status 0..1 MS
-  * extension[validation-status] ^short = "Validation status of this telecoms"
+  * extension[validation-status] ^short = "Validation status of this telecom"
   * extension[cp-purpose] 0..0
   * period 0..0
   * system 1..1 MS
