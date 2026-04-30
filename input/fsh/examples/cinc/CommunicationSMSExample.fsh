@@ -10,7 +10,7 @@ Usage: #example
 * status = #completed
 * statusReason.coding.code = #sent
 * statusReason.coding.system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes"
-* medium = $communication-medium#SMSWRIT
+* medium = $hnz-participation-mode-codes#SMSWRIT
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
 

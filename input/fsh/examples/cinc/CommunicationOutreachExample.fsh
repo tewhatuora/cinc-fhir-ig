@@ -10,7 +10,7 @@ Usage: #example
 * status = #completed
 * statusReason.coding.code = #sent
 * statusReason.coding.system = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/hnz-communication-delivery-status-codes"
-* medium = $communication-medium#PHONE
+* medium = $hnz-participation-mode-codes#PHONE
 * sent = "2024-08-20T14:30:00Z"
 * received = "2024-08-20T14:35:00Z"
 
@@ -31,8 +31,5 @@ Usage: #example
 // --- Root Extensions ---
 * extension[ContactPoint].extension[toContactPoint].valueContactPoint.system = #phone
 * extension[ContactPoint].extension[toContactPoint].valueContactPoint.value = "+64221234567"
-
-* meta.tag[+].system = "https://hub.services.digital.health.nz/ns/correlation-id"
-* meta.tag[=].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 * extension[StatusDateTime].valueDateTime = "2024-08-20T14:35:00Z"

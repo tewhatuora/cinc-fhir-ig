@@ -31,7 +31,7 @@ Description: "This resource is a record of a request for a communication to be p
 * status 1..
 * statusReason from hnz-communication-delivery-status-valueset (required)
 * medium 1..
-* medium from $communication-medium (required)
+* medium from hnz-participation-mode-valueset (required)
 * subject only Reference(Patient) //nhi
 * occurrenceDateTime 0..1 //event scheduleddatetime
 * occurrenceDateTime ^short = "Must be in UTC timezone on the FHIR server"
@@ -58,18 +58,15 @@ Description: "This resource is a record of a request for a communication to be p
 * payload[message-body].extension[payloadType].valueCode = #body
 * payload[message-body].contentAttachment 1..1
 * payload[message-body].contentAttachment.contentType = #text/plain
-* payload[message-body].contentAttachment.data 1..1
 
 * payload[message-parameters].extension contains CMSPayloadTypeExtension named payloadType 1..1
 * payload[message-parameters].extension[payloadType].valueCode = #parameters
 * payload[message-parameters].contentAttachment 1..1
 * payload[message-parameters].contentAttachment.contentType = #application/json
-* payload[message-parameters].contentAttachment.data 1..1
 
 * payload[attachment-file].extension contains CMSPayloadTypeExtension named payloadType 1..1
 * payload[attachment-file].extension[payloadType].valueCode = #attachment
 * payload[attachment-file].contentAttachment 1..1
-* payload[attachment-file].contentAttachment.data 1..1
 * payload[attachment-file].contentAttachment.extension contains hnz-attachment-extension named AttachmentExtension 0..1
 
 * payload[message-template].extension contains CMSPayloadTypeExtension named payloadType 1..1

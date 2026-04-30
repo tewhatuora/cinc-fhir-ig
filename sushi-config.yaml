@@ -120,6 +120,7 @@ menu:
     FHIR representation of consent: fhirConsent.html
     Consent-based resource access control: consentBasedAccessControl.html
     Definitions and Examples: artifacts.html#consent-definitions-and-examples
+  Common Messaging System: commonMessagingSystem.html
   API Developer Guide:
     View OpenAPI: new-tab https://fhir-ig.digital.health.nz/openapi/index.html?urls.primaryName=Shared+Care+API
     Developer Guide: developerGuide.html

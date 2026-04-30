@@ -7,8 +7,7 @@ Usage: #example
 * meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 * status = #unknown
-* medium = $communication-medium#EMAILWRIT
-// Note: If using a local alias for system, use: * medium.coding.system = $hnz-participation-mode-codes
+* medium = $hnz-participation-mode-codes#EMAILWRIT
 
 * occurrenceDateTime = "2024-08-20T14:30:00Z"
 * authoredOn = "2024-08-20T14:30:00Z"
