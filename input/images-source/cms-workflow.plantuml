@@ -1,8 +1,8 @@
 @startuml
 autonumber "<b>[00]"
 Participant "Requesting System" as r #lightblue
-participant "CMS FHIR Server" as s #palegreen
-participant "Messaging Service" as m #gold
+participant "FHIR Server" as s #palegreen
+participant "Common Messaging Service" as m #gold
 Participant "Recipient" as rec #LightSeaGreen
 
 title Common Messaging System Workflow
