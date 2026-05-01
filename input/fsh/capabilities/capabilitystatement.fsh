@@ -165,6 +165,85 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #reference
 */
 
+* rest.resource[+].type = #Bundle
+* rest.resource[=].profile = Canonical(Bundle)
+* rest.resource[=] insert GenericCRUDInteractions
+
+* rest.resource[+].type = #Communication
+* rest.resource[=].supportedProfile = Canonical(CMSCommunication)
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchParam[+].name = "sender"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-sender"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who shares the information"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "clinical-identifier"
+* rest.resource[=].searchParam[+].name = "based-on"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-based-on"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Communication-based-on"
+* rest.resource[=].searchParam[+].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "clinical-patient"
+* rest.resource[=].searchParam[+].name = "recipient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-recipient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who the information is shared with"
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"
+* rest.resource[=].searchParam[+].name = "sent"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-sent"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "When sent"
+* rest.resource[=].searchParam[+].name = "received"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-received"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "Communication-received"
+* rest.resource[=].searchParam[+].name = "medium"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Communication-medium"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Communication-medium"
+* rest.resource[=].searchParam[+].name = "_profile"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=].searchParam[=].type = #reference
+
+* rest.resource[+].type = #CommunicationRequest
+* rest.resource[=].supportedProfile = Canonical(CMSCommunicationRequest)
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchRevInclude = "*"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Unique identifier"
+* rest.resource[=].searchParam[+].name = "medium"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-medium"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "A channel of communication"
+* rest.resource[=].searchParam[+].name = "occurrence"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-occurrence"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "CommunicationRequest.occurrence.ofType(dateTime)"
+* rest.resource[=].searchParam[+].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "clinical-patient"
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = ""
+* rest.resource[=].searchParam[+].name = "recipient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-recipient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Who the information is shared with"
+* rest.resource[=].searchParam[+].name = "_profile"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=].searchParam[=].type = #reference
+
 * rest.resource[+].type = #CarePlan
 * rest.resource[=].profile = Canonical(CarePlan)
 * rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiCarePlan)
@@ -274,52 +353,60 @@ Usage: #definition
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:diagnosis"
 * rest.resource[=].searchInclude[+] = "Encounter:appointment"
+* rest.resource[=].searchParam[+].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
+* rest.resource[=].searchParam[+].name = "appointment"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifer"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "The appointment associated with the encounter"
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "planned | arrived | triaged | in-progress | onleave | finished | cancelled +"
+* rest.resource[=].searchParam[+].name = "subject"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-subject"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
 * rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#clinical-identifier"
+
+* rest.resource[+].type = #Observation
+* rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].operation[+].name = "flat-export"
+* rest.resource[=].operation[=].definition = Canonical(Observation-flat-export)
+* rest.resource[=].searchParam[+].name = "code"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
 * rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "clinical-identifier"
-* rest.resource[=].searchParam[+].name = "appointment"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-appointment"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The appointment associated with the encounter"
+* rest.resource[=].searchParam[=].documentation = "Describes what was observed. Sometimes this is called the observation 'name'"
 * rest.resource[=].searchParam[+].name = "date"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-date"
 * rest.resource[=].searchParam[=].type = #date
-* rest.resource[=].searchParam[=].documentation = "A date within the period the Encounter lasted"
-* rest.resource[=].searchParam[+].name = "date-start"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-date-start"
-* rest.resource[=].searchParam[=].type = #date
-* rest.resource[=].searchParam[=].documentation = "The actual start date of the Encounter"
-* rest.resource[=].searchParam[+].name = "date-end"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-date-end"
-* rest.resource[=].searchParam[=].type = #date
-* rest.resource[=].searchParam[=].documentation = "The actual end date of the Encounter"
-* rest.resource[=].searchParam[+].name = "location"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-location"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Location the encounter takes place"
-* rest.resource[=].searchParam[+].name = "participant"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-participant"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
-* rest.resource[=].searchParam[+].name = "participant-type"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-participant-type"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
+* rest.resource[=].searchParam[=].documentation = "Observation.effective \n Obtained date/time. If the obtained element is a period, a date that falls in the period"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "A unique identifier assigned to this observation."
 * rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
-* rest.resource[=].searchParam[+].name = "practitioner"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-practitioner"
+* rest.resource[=].searchParam[=].documentation = "Who the observation is for \n [Patient](http://hl7.org/fhir/R4/patient.html)"
+* rest.resource[=].searchParam[+].name = "based-on"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-based-on"
 * rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
-* rest.resource[=].searchParam[+].name = "subject-status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-subject-status"
+* rest.resource[=].searchParam[=].documentation = "Reference to the service request."
+* rest.resource[=].searchParam[+].name = "encounter"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-encounter"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "The Encounter resource associated with the Observation."
+* rest.resource[=].searchParam[+].name = "category"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-category"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "The classification of the type of observation"
 * rest.resource[=].searchParam[+].name = "derived-from"
@@ -354,6 +441,10 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-value-string"
 * rest.resource[=].searchParam[=].type = #string
 * rest.resource[=].searchParam[=].documentation = "The value of the observation, if the value is a string, and also searches in CodeableConcept.text"
+* rest.resource[=].searchParam[+].name = "_id"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].searchParam[+].name = "_lastUpdated"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
 * rest.resource[=].searchParam[=].type = #date
@@ -486,7 +577,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 * rest.resource[=].operation[+].name = "apply"
 * rest.resource[=].operation[=].definition = Canonical(PlanDefinition-apply)
-
 
 * rest.resource[+].type = #Questionnaire
 //* rest.resource[=].profile = canonical(Questionnaire)
@@ -621,7 +711,6 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
-
 
 * rest.resource[+].type = #ServiceRequest
 * rest.resource[=].supportedProfile = Canonical(OutreachServiceRequest)
