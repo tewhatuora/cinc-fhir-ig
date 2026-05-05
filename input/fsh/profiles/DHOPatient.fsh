@@ -63,7 +63,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * use 1..1 MS
     * ^short = "usual | temp | nickname | maiden"
   * family 1..1 MS
-  * given 0..5 MS
+  * given 0..* MS
     * ^short = "Given name and other given name(s)"
     * ^definition = "Given name and other given name(s) for the patient"
   * prefix from $vs-name-prefix
@@ -115,7 +115,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
     * use 0..0
     * text 1..1 MS
     * family 1..1 MS
-    * given MS
+    * given 1..* MS
     * prefix 0..1 MS
     * suffix 0..0
     * extension 0..0

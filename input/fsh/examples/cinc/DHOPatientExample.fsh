@@ -133,7 +133,8 @@ Usage: #example
 * maritalStatus.coding[=].display = "Never Married"
 * contact[+].name.text = "John NextOfKin"
 * contact[=].name.family = "NextOfKin"
-* contact[=].name.given = "John Test"
+* contact[=].name.given[+] = "John"
+* contact[=].name.given[+] = "Test"
 * contact[=].telecom[+].system = #phone
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
@@ -228,7 +229,8 @@ Usage: #example
 * maritalStatus.coding[=].display = "Never Married"
 * contact[+].name.text = "John NextOfKin"
 * contact[=].name.family = "NextOfKin"
-* contact[=].name.given = "John Test"
+* contact[=].name.given[+] = "John"
+* contact[=].name.given[+] = "Test"
 * contact[=].telecom[+].system = #phone
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
@@ -325,7 +327,8 @@ Usage: #example
 * maritalStatus.coding[=].display = "Never Married"
 * contact[+].name.text = "John NextOfKin"
 * contact[=].name.family = "NextOfKin"
-* contact[=].name.given = "John Test"
+* contact[=].name.given[+] = "John"
+* contact[=].name.given[+] = "Test"
 * contact[=].telecom[+].system = #phone
 * contact[=].telecom[=].use = #mobile
 * contact[=].telecom[=].value = "+64 27 123 4567"
