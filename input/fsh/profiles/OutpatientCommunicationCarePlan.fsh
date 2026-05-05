@@ -1,6 +1,6 @@
-Profile: SharedCareCarePlan
+Profile: OutpatientCommunicationCarePlan
 Parent: CarePlan
-Id: SharedCareCarePlan
+Id: OutpatientCommunicationCarePlan
 Title: "SharedCare Care Plan"
 Description: "A care coordination profile that manages patient questionnaires and communication workflows. Supports magic link generation for patient questionnaire access, tracks communication delivery status, and maintains processing state for care coordination activities. Used in shared care scenarios where multiple providers coordinate patient care through structured questionnaires and automated communications."
 
