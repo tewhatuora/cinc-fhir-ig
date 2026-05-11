@@ -52,7 +52,7 @@ Usage: #definition
 * item[=].item[=].required = false
 * item[=].item[=].item[0].type = #boolean
 * item[=].item[=].item[=].linkId = "acuterespiratoryillness"
-* item[=].item[=].item[=].text = "Have you tested positive for a respiratory illness (e.g. COVID-19, influenza, or RSV) in the last 10 days (14 days if you are immunocompromised)? "
+* item[=].item[=].item[=].text = "Have you tested positive for a respiratory illness (e.g. COVID-19, influenza, or RSV) in the last 10 days (14 days if you are immunocompromised)?"
 * item[=].item[=].item[=].required = false
 * item[=].item[=].item[+].type = #string
 * item[=].item[=].item[=].linkId = "specifyilleness"
