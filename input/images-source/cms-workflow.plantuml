@@ -1,0 +1,62 @@
+@startuml
+autonumber "<b>[00]"
+Participant "Requesting System" as r #lightblue
+participant "FHIR Server" as s #palegreen
+participant "Common Messaging Service" as m #gold
+Participant "Recipient" as rec #LightSeaGreen
+
+title Common Messaging System Workflow
+
+== Direct Message ==
+
+r -> s++: Create CommunicationRequest\n(message-body payload)
+s --> r: Success
+deactivate s
+
+s -> m++: Process CommunicationRequest
+m -> s++: Create Communication\n(basedOn CommunicationRequest)
+s --> m: Success
+deactivate s
+
+m -> rec: Send message (SMS / Email)
+rec --> m: Delivery status
+
+m -> s++: Update Communication status
+s --> m: Success
+deactivate s
+
+opt Callback URL provided
+  m -> r: Delivery status callback
+end
+deactivate m
+
+== Template-Based Message ==
+
+r -> s++: Create TemplateDocumentReference\n(template-message-body + template-message-parameters)
+s --> r: Success
+deactivate s
+
+r -> s++: Create CommunicationRequest\n(message-template + message-parameters)
+s --> r: Success
+deactivate s
+
+s -> m++: Process CommunicationRequest
+m -> m: Resolve template placeholders\nwith parameter values
+
+m -> s++: Create Communication\n(basedOn CommunicationRequest)
+s --> m: Success
+deactivate s
+
+m -> rec: Send message (SMS / Email)
+rec --> m: Delivery status
+
+m -> s++: Update Communication status
+s --> m: Success
+deactivate s
+
+opt Callback URL provided
+  m -> r: Delivery status callback
+end
+deactivate m
+
+@enduml

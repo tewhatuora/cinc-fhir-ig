@@ -35,11 +35,9 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 
 ### Outreach Referrals
-
 1. [Outreach Referral and task management overview](./outreachReferrals.html)
 
 ### Remote Patient Monitoring
-
 1. [Remote Patient Monitoring Overview](./remotePatientMonitoring.html)
 
 ### Dunedin Hospital Outpatients (DHO)
@@ -47,3 +45,6 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 ### Online GP Care reporting & payment automation
 1. [Online GP Reporting & Payment Automation Overview](./OnlineGP.html) 
+
+### Common Messaging
+1. [Common Messaging System](./commonMessagingSystem.html)
