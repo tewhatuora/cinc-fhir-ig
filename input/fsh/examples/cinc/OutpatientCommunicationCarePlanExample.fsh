@@ -1,8 +1,8 @@
-Instance: SharedCareCarePlanExample
-InstanceOf: SharedCareCarePlan
+Instance: OutpatientCommunicationCarePlanExample
+InstanceOf: OutpatientCommunicationCarePlan
 Usage: #example
-Title: "Shared Care CarePlan Example"
-Description: "Example of a SharedCare CarePlan with questionnaire and communication activities"
+Title: "Outpatient Communication CarePlan Example"
+Description: "Example of an OutpatientCommunication CarePlan with questionnaire and communication activities"
 
 * subject insert NHIPatientRef(ZAC7823,[[John Smith]])
 

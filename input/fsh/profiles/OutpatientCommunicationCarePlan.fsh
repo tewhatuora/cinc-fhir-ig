@@ -1,8 +1,10 @@
 Profile: OutpatientCommunicationCarePlan
 Parent: CarePlan
 Id: OutpatientCommunicationCarePlan
-Title: "SharedCare Care Plan"
-Description: "A care coordination profile that manages patient questionnaires and communication workflows. Supports magic link generation for patient questionnaire access, tracks communication delivery status, and maintains processing state for care coordination activities. Used in shared care scenarios where multiple providers coordinate patient care through structured questionnaires and automated communications."
+Title: "Outpatient Communication Care Plan"
+Description: """A care coordination profile that manages patient questionnaires and communication outcomes.
+Tracks CommunicationRequest references and QuestionnaireResponse outcomes within a care plan.
+Maintains activity status and performer information for clinician workflow tracking."""
 
 * subject 1..1 MS
 * subject only Reference(NzPatient)
@@ -35,6 +37,7 @@ Description: "A care coordination profile that manages patient questionnaires an
 * activity.detail.performer ^short = "Clinician who reviewed or acted on this activity"
 
 * category 0..* MS
+// * category from CarePlanCategoryVS (preferred)
 * category ^short = "Care plan category or specialty"
 
 
@@ -73,4 +76,10 @@ Id: shared-care-activity-status-reason
 Title: "Shared Care Activity Status Reason"
 Description: "Status reasons for shared care activity workflow tracking"
 * include codes from system SharedCareActivityStatusReasonCS
+
+// ValueSet: CarePlanCategoryVS
+// Id: care-plan-category
+// Title: "Care Plan Category"
+// Description: "SNOMED CT codes for care plan categories"
+// * include codes from system $sct where concept is-a 734163000
 

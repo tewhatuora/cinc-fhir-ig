@@ -4,7 +4,7 @@ skinparam BoxPadding 10
 skinparam shadowing false
 
 box "Client Application" #f9f9f9
-    participant "Client" as Client
+    participant "HCS" as Client
 end box
 
 box "Integration Services" #e1f5fe
