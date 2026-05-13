@@ -267,6 +267,7 @@ groups:
       - DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital
       - DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire
       - DHOSleepQuestionnaire
+      - DHOMusculoskeletalHealthQuestionnaire
 
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
