@@ -5,6 +5,8 @@ Title: "NZ Appointment Reason Codes Code System"
 Description: "Code system for NZ appointment reason codes"
 * ^status = #draft
 * $sct#266934004 "Transport problem (finding)"
+* $sct#74964007 "Other (qualifier value)"
+
 
 * include codes from system nz-onlinegp-appointment-reason-codes-cs
 
