@@ -77,6 +77,7 @@ Usage: #definition
 * item[=].item[=].text = "Do you regularly wake with headaches in the morning?"
 * item[=].item[=].required = false
 
+
 // ================= SLEEPINESS DURING THE DAY =================
 * item[+].type = #group
 * item[=].linkId = "daytime"
@@ -104,6 +105,10 @@ Usage: #definition
 * item[=].item[=].answerOption[+].valueCoding = $general#Sometimes "Sometimes"
 * item[=].item[=].answerOption[+].valueCoding = $general#Rarely "Rarely"
 * item[=].item[=].answerOption[+].valueCoding = $general#Never "Never"
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "OftenNaps"
+* item[=].item[=].text = "Do you often have a nap during the day?"
 
 // ================= EPWORTH SLEEPINESS SCORE  =================
 * item[+].type = #group
@@ -221,6 +226,7 @@ Usage: #definition
 * item[=].item[=].linkId = "bp"
 * item[=].item[=].text = "High blood pressure"
 * item[=].item[=].required = false
+
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "controldifficulty"
 * item[=].item[=].text = "If yes, is it difficult to control?"
@@ -229,6 +235,7 @@ Usage: #definition
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].enableBehavior = #all
+
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "stroke"
 * item[=].item[=].text = "Previous stroke or TIA ‘mini-stroke’?"
@@ -491,7 +498,7 @@ Usage: #definition
 * item[=].item[=].required = false
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "OtherSymptoms4"
-* item[=].item[=].text = "Do you have sudden bouts of muscle weakness brought on by laughter or emotion?\t"
+* item[=].item[=].text = "Do you have sudden bouts of muscle weakness brought on by laughter or emotion?"
 * item[=].item[=].required = false
 * item[=].item[+].type = #string
 * item[=].item[=].linkId = "OtherSymptoms5"

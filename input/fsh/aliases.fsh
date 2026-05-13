@@ -118,3 +118,6 @@ Alias: $general = https://fhir-ig.digital.health.nz/cs/general-scale
 Alias: $licence-class = https://fhir-ig.digital.health.nz/cs/Licence-Class
 Alias: $licence-endorsement = https://fhir-ig.digital.health.nz/cs/Vehicle-licence-endorsement
 Alias: $gender = http://hl7.org/fhir/administrative-gender
+Alias: $ordinalValue = http://hl7.org/fhir/StructureDefinition/ordinalValue
+Alias: $calculatedExpression = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression
+

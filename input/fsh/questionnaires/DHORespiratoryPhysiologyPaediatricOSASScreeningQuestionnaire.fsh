@@ -55,9 +55,14 @@ Usage: #definition
 * item[=].item[=].item[=].linkId = "syndromemajor"
 * item[=].item[=].item[=].text = "A syndrome or other major health problem?"
 * item[=].item[=].item[=].required = false
-* item[=].item[=].item[=].item[0].type = #string
-* item[=].item[=].item[=].item[=].linkId = "specifytype"
-* item[=].item[=].item[=].item[=].text = "If Yes please specify Type"
+
+* item[=].item[=].item[+].type = #string
+* item[=].item[=].item[=].linkId = "specifytype"
+* item[=].item[=].item[=].text = "If Yes please specify Type"
+* item[=].item[=].item[=].enableWhen.question = "syndromemajor"
+* item[=].item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[=].item[=].enableBehavior = #all
 
 * item[=].item[=].item[+].type = #boolean
 * item[=].item[=].item[=].linkId = "tonsils"
@@ -113,6 +118,11 @@ Usage: #definition
 * item[=].item[0].type = #boolean
 * item[=].item[=].linkId = "breathethroughmouth"
 * item[=].item[=].text = "tend to breathe through the mouth during the day?"
+* item[=].item[=].required = true
+
+* item[=].item[0].type = #boolean
+* item[=].item[=].linkId = "breathethroughmouth"
+* item[=].item[=].text = "have a dry mouth on waking up in the morning"
 * item[=].item[=].required = true
 
 * item[=].item[+].type = #boolean
