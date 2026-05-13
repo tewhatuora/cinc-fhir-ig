@@ -3,7 +3,7 @@ Parent: CommunicationRequest
 Id: CMSCommunicationRequest
 Title: "CMS Communication Request"
 Description: "This resource is a record of a request for a communication to be performed. The performance of a CommunicationRequest may result in a communication resource. The following content attachment ID's are special message-body attachment-fileX message-template message-parameters"
-* ^version = "0.0.1"
+* ^version = "1.0.1"
 * ^purpose = "A request for communication"
 * ^jurisdiction = urn:iso:std:iso:3166#NZ 
 

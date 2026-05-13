@@ -3,7 +3,7 @@ Parent: Communication
 Id: CMSCommunication
 Title: "CMS Communication"
 Description: "A communication Resource used to record the SMS/EMAIL communication performed by Systems"
-* ^version = "0.0.1"
+* ^version = "1.0.1"
 * ^purpose = "Record all the SMS/EMAIL communication performed by any system"
 * ^jurisdiction = urn:iso:std:iso:3166#NZ 
 * meta 1..1

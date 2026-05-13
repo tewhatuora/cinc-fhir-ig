@@ -3,7 +3,7 @@ Parent: DocumentReference
 Description: "A DocumentReference FHIR Resource that defines a template for communication. Content is sliced into template-message-body, template-message-parameters and template-attachment-file."
 Id: TemplateDocumentReference
 Title: "CMSTemplateDocumentReference"
-* ^version = "0.0.1"
+* ^version = "1.0.1"
 * ^purpose = "A Record Of Template used by different healthcare services for communication"
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
