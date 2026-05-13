@@ -3,12 +3,15 @@ InstanceOf: Questionnaire
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOPatientScreeningToolIPC"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHOPatientScreeningToolIPC"
 * name = "DHOPatientScreeningToolIPC"
 * title = "Patient Screening Tool IPC (District)"
 * status = #draft
 * subjectType = #Patient
 * description = "Patient infection prevention and control screening tool for district use."
 * purpose = "Patient infection prevention and control screening tool for district use."
+
 * item[0].item[0].type = #date
 * item[=].item[=].linkId = "date_01"
 * item[=].item[=].text = "Date"

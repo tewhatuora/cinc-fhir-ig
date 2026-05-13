@@ -3,6 +3,8 @@ InstanceOf: Questionnaire
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital"
 * name = "DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital"
 * title = "Preoperative Questionnaire Day Surgery Dunedin Hospital"
 * status = #active
