@@ -48,3 +48,6 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 ### Common Messaging
 1. [Common Messaging System](./commonMessagingSystem.html)
+
+### Pharmacy Claiming
+1. [Pharmacy Claiming Overview](./PharmacyClaiming.html) 

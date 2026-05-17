@@ -11,3 +11,4 @@ This IG covers the following Health NZ information categories:
 5. [Dunedin Hospital Outpatients](./DunedinHospitalOutpatients.html) Integration workflows.
 6. [Common Messaging System](./commonMessagingSystem.html) for sending out communication.
 7. [Online GP Care](./OnlineGP.html) reporting & payment automation.
+8. [Pharmacy Claiming Overview](./PharmacyClaiming.html) 
