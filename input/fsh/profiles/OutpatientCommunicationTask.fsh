@@ -10,9 +10,8 @@ Supports pre-appointment form collection workflow."""
 * for only Reference(NzPatient)
 * for ^short = "Patient who should complete the questionnaire"
 
-* basedOn 0..1 MS
-* basedOn only Reference(ServiceRequest or Appointment)
-* basedOn ^short = "Optional reference to appointment or service request that prompted this task"
+* basedOn 1..1
+* basedOn ^short = "Encounter or Referral Reference (logical reference)"
 
 * reasonCode 0..1 MS
 // * reasonCode from AppointmentSpecialtyVS (preferred)
@@ -23,23 +22,39 @@ Supports pre-appointment form collection workflow."""
 * input ^slicing.discriminator.path = "type"
 * input ^slicing.rules = #open
 
-* input contains communicationRequest 0..1 MS
-
-* input[communicationRequest].type = http://hl7.org/fhir/uv/sdc/CodeSystem/temp#questionnaire
-* input[communicationRequest].valueReference only Reference(CommunicationRequest)
-* input[communicationRequest].valueReference 1..1 MS
-* input[communicationRequest].valueReference ^short = "CommunicationRequest to CMS for sending form link via email/SMS"
+// * input contains communicationRequest 0..1 MS
+// * input[communicationRequest].type = http://hl7.org/fhir/uv/sdc/CodeSystem/temp#questionnaire
+// * input[communicationRequest].valueReference only Reference(CommunicationRequest)
+// * input[communicationRequest].valueReference 1..1 MS
+// * input[communicationRequest].valueReference ^short = "CommunicationRequest to CMS for sending form link via email/SMS"
 
 * output 0..* MS
 * output ^slicing.discriminator.type = #pattern
 * output ^slicing.discriminator.path = "type"
 * output ^slicing.rules = #open
 
-* output contains communication 0..1 MS
+// * output contains communication 0..1 MS
+// * output[communication].type = http://hl7.org/fhir/uv/sdc/CodeSystem/temp#questionnaire-response
+// * output[communication].valueReference only Reference(Communication)
+// * output[communication].valueReference ^short = "Communication tracking email/SMS delivery status"
 
-* output[communication].type = http://hl7.org/fhir/uv/sdc/CodeSystem/temp#questionnaire-response
-* output[communication].valueReference only Reference(Communication)
-* output[communication].valueReference ^short = "Communication tracking email/SMS delivery status"
+// Unused elements set to 0..0
+
+* instantiatesCanonical 0..0
+* instantiatesUri 0..0
+* groupIdentifier 0..0
+* partOf 0..0
+* priority 0..0
+* executionPeriod 0..0
+* performerType 0..0
+* reasonReference 0..0
+* insurance 0..0
+* note 0..0
+* relevantHistory 0..0
+* restriction 0..0
+
+// Unused SDC Task extensions set to 0..0
+
 
 // ValueSet: AppointmentSpecialtyVS
 // Id: appointment-specialty
