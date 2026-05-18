@@ -1,350 +1,682 @@
-Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-control
-
 Instance: DHOSleepQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
+
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOSleepQuestionnaire"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHOSleepQuestionnaire"
 * name = "DHOSleepQuestionnaire"
-* title = "Sleep Questionnaire"
+* title = "Sleep Service Questionnaire"
 * status = #active
 * subjectType = #Patient
 * description = "The Questionnaire collects patient-reported sleep symptoms, habits, and risk factors to support assessment of sleep disorders such as sleep apnoea."
 * purpose = "Enables clinicians to evaluate risk and guide further investigation and care."
-* contained[0] = epworth-sleep-scale
-* contained[+] = general-scale
-* contained[+] = boolen-choice
-* item[0].type = #display
+
+
+// ================= INTRO =================
+* item[0].type = #group
 * item[=].linkId = "intro"
-* item[=].text = "Epworth Scale"
-* item[+].item[0].type = #string
-* item[=].item[=].linkId = "name"
-* item[=].item[=].text = "Name"
-* item[=].item[+].type = #string
-* item[=].item[=].linkId = "address"
-* item[=].item[=].text = "Address"
-* item[=].item[+].type = #string
-* item[=].item[=].linkId = "nhi"
-* item[=].item[=].text = "NHI"
-* item[=].item[+].type = #date
-* item[=].item[=].linkId = "dob"
-* item[=].item[=].text = "Date Completed"
-* item[=].type = #group
-* item[=].linkId = "patient-details"
-* item[=].text = "Patient Details"
-* item[+].item[0].type = #decimal
+* item[=].text = "We have received a referral to our Sleep Service from your doctor. Please note we cannot consider your referral/sleep study results until we have this information completed by you."
+
+// ================= MEASUREMENTS =================
+* item[=].item[0].type = #display
+* item[=].item[=].linkId = "measurements"
+* item[=].item[=].text = "1. Measurements"
+
+* item[=].item[+].type = #decimal
 * item[=].item[=].linkId = "weight"
 * item[=].item[=].text = "Weight (kg)"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #decimal
 * item[=].item[=].linkId = "height"
 * item[=].item[=].text = "Height (cm)"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #decimal
 * item[=].item[=].linkId = "neck"
-* item[=].item[=].text = "Neck circumference (cm) - Please use tape measure provided  "
+* item[=].item[=].text = "Neck circumference (cm) - Please use tape measure provided"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #string
 * item[=].item[=].linkId = "dentures"
-* item[=].item[=].text = "Do you have dentures? (full or partial) "
-* item[=].type = #group
-* item[=].linkId = "measurements"
-* item[=].text = "Measurements"
-* item[+].item[0].type = #open-choice
-* item[=].item[=].linkId = "snoring"
-* item[=].item[=].text = "According to what others have told you, how often do you think you snore? "
-* item[=].item[=].answerValueSet = "#general-scale"
-* item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "stop-breathing"
-* item[=].item[=].text = "Has anyone heard you stop breathing in your sleep?"
-* item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "choking"
-* item[=].item[=].text = "Do you sometimes wake with a choking or gasping sensation?"
-* item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "family"
-* item[=].item[=].text = "Does anyone in your family have obstructive sleep apnoea?"
-* item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "toilet"
-* item[=].item[=].text = "Do you get up to go to the toilet more than once a night?"
-* item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "headache"
-* item[=].item[=].text = "Do you regularly wake with headaches in the morning?"
-* item[=].type = #group
+* item[=].item[=].text = "Do you have dentures? (full or partial)"
+* item[=].item[=].required = false
+
+
+// ================= SLEEP APNOEA =================
+* item[+].type = #group
 * item[=].linkId = "sleep-apnoea"
-* item[=].text = "Sleep Apnoea"
-* item[+].item[0].type = #choice
+* item[=].text = "2. Sleep Apnoea"
+
+* item[=].item[0].type = #choice
+* item[=].item[=].linkId = "snoring"
+* item[=].item[=].text = "According to what others have told you, how often do you think you snore?"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $general#Always "Always"
+* item[=].item[=].answerOption[+].valueCoding = $general#Often "Often"
+* item[=].item[=].answerOption[+].valueCoding = $general#Sometimes "Sometimes"
+* item[=].item[=].answerOption[+].valueCoding = $general#Rarely "Rarely"
+* item[=].item[=].answerOption[+].valueCoding = $general#Never "Never"
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "choking"
+* item[=].item[=].text = "Select all that apply"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = true
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#check-box "Check-box"
+* item[=].item[=].answerOption[0].valueCoding = $sleep-options#1 "Has anyone heard you stop breathing in your sleep?"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#2 "Do you sometimes wake with a choking or gasping sensation?"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#3 "Does anyone in your family have obstructive sleep apnoea?"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#4 "Do you get up to go to the toilet more than once a night?"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#5 "Do you regularly wake with headaches in the morning?"
+
+
+// ================= SLEEPINESS DURING THE DAY =================
+* item[+].type = #group
+* item[=].linkId = "daytime"
+* item[=].text = "3. Sleepiness during the Day"
+
+* item[=].item[0].type = #choice
 * item[=].item[=].linkId = "refreshed"
 * item[=].item[=].text = "Do you wake feeling refreshed?"
-* item[=].item[=].answerValueSet = "#general-scale"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $general#Always "Always"
+* item[=].item[=].answerOption[+].valueCoding = $general#Often "Often"
+* item[=].item[=].answerOption[+].valueCoding = $general#Sometimes "Sometimes"
+* item[=].item[=].answerOption[+].valueCoding = $general#Rarely "Rarely"
+* item[=].item[=].answerOption[+].valueCoding = $general#Never "Never"
+
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "sleepy"
-* item[=].item[=].text = "How often do you feel sleepy and want to fall asleep in the daytime? "
-* item[=].item[=].answerValueSet = "#general-scale"
-* item[=].type = #group
-* item[=].linkId = "daytime"
-* item[=].text = "Sleepiness during the Day "
-* item[+].item[0].type = #display
+* item[=].item[=].text = "How often do you feel sleepy and want to fall asleep in the daytime?"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $general#Always "Always"
+* item[=].item[=].answerOption[+].valueCoding = $general#Often "Often"
+* item[=].item[=].answerOption[+].valueCoding = $general#Sometimes "Sometimes"
+* item[=].item[=].answerOption[+].valueCoding = $general#Rarely "Rarely"
+* item[=].item[=].answerOption[+].valueCoding = $general#Never "Never"
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "OftenNaps"
+* item[=].item[=].text = "Do you often have a nap during the day?"
+
+// ================= EPWORTH SLEEPINESS SCORE  =================
+
+* item[+].type = #group
+* item[=].linkId = "epworth"
+* item[=].text = "4. Epworth Sleepiness Score"
+
+* item[=].item[0].type = #display
 * item[=].item[=].linkId = "fallasleep"
-* item[=].item[=].text = "How likely are you to doze off or fall asleep in the following situations - in contrast to feeling tired. This    refers to your usual way of life in recent times. Even if you have not done some of these things    recently, try to work out how they would have affected you.  "
+* item[=].item[=].text = "How likely are you to doze off or fall asleep in the following situations - in contrast to feeling tired. This refers to your usual way of life in recent times. Even if you have not done some of these things recently, try to work out how they would have affected you."
+
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "sittingandreading"
 * item[=].item[=].text = "Sitting & Reading"
-* item[=].item[=].answerValueSet = "#epworth-sleep-scale"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $ess#0 "0 -- NEVER doze"
+* item[=].item[=].answerOption[0].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[0].extension.valueDecimal = 0
+* item[=].item[=].answerOption[+].valueCoding = $ess#1 "1 -- SLIGHT chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 1
+* item[=].item[=].answerOption[+].valueCoding = $ess#2 "2 -- MODERATE chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 2
+* item[=].item[=].answerOption[+].valueCoding = $ess#3 "3 -- HIGH chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 3
+
 * item[=].item[+].type = #choice
-* item[=].item[=].linkId = "reading"
+* item[=].item[=].linkId = "watchingTV"
 * item[=].item[=].text = "Watching TV"
-* item[=].item[=].answerValueSet = "#epworth-sleep-scale"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $ess#0 "0 -- NEVER doze"
+* item[=].item[=].answerOption[0].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[0].extension.valueDecimal = 0
+* item[=].item[=].answerOption[+].valueCoding = $ess#1 "1 -- SLIGHT chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 1
+* item[=].item[=].answerOption[+].valueCoding = $ess#2 "2 -- MODERATE chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 2
+* item[=].item[=].answerOption[+].valueCoding = $ess#3 "3 -- HIGH chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 3
+
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "sittingactivity"
 * item[=].item[=].text = "Sitting inactive in a public place (theatre, meeting, etc)"
-* item[=].item[=].answerValueSet = "#epworth-sleep-scale"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $ess#0 "0 -- NEVER doze"
+* item[=].item[=].answerOption[0].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[0].extension.valueDecimal = 0
+* item[=].item[=].answerOption[+].valueCoding = $ess#1 "1 -- SLIGHT chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 1
+* item[=].item[=].answerOption[+].valueCoding = $ess#2 "2 -- MODERATE chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 2
+* item[=].item[=].answerOption[+].valueCoding = $ess#3 "3 -- HIGH chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 3
+
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "incarforanhour"
-* item[=].item[=].text = " A passenger in a car for one hour"
-* item[=].item[=].answerValueSet = "#epworth-sleep-scale"
+* item[=].item[=].text = "A passenger in a car for one hour"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $ess#0 "0 -- NEVER doze"
+* item[=].item[=].answerOption[0].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[0].extension.valueDecimal = 0
+* item[=].item[=].answerOption[+].valueCoding = $ess#1 "1 -- SLIGHT chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 1
+* item[=].item[=].answerOption[+].valueCoding = $ess#2 "2 -- MODERATE chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 2
+* item[=].item[=].answerOption[+].valueCoding = $ess#3 "3 -- HIGH chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 3
+
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "lyingdown"
 * item[=].item[=].text = "Lying down in the afternoon (if circumstances permit)"
-* item[=].item[=].answerValueSet = "#epworth-sleep-scale"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $ess#0 "0 -- NEVER doze"
+* item[=].item[=].answerOption[0].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[0].extension.valueDecimal = 0
+* item[=].item[=].answerOption[+].valueCoding = $ess#1 "1 -- SLIGHT chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 1
+* item[=].item[=].answerOption[+].valueCoding = $ess#2 "2 -- MODERATE chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 2
+* item[=].item[=].answerOption[+].valueCoding = $ess#3 "3 -- HIGH chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 3
+
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "sittingtalking"
 * item[=].item[=].text = "Sitting talking to someone"
-* item[=].item[=].answerValueSet = "#epworth-sleep-scale"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $ess#0 "0 -- NEVER doze"
+* item[=].item[=].answerOption[0].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[0].extension.valueDecimal = 0
+* item[=].item[=].answerOption[+].valueCoding = $ess#1 "1 -- SLIGHT chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 1
+* item[=].item[=].answerOption[+].valueCoding = $ess#2 "2 -- MODERATE chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 2
+* item[=].item[=].answerOption[+].valueCoding = $ess#3 "3 -- HIGH chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 3
+
+* item[=].item[+].type = #choice
+* item[=].item[=].linkId = "sittingQuitely"
+* item[=].item[=].text = "Sitting quietly after lunch without alcohol"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $ess#0 "0 -- NEVER doze"
+* item[=].item[=].answerOption[0].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[0].extension.valueDecimal = 0
+* item[=].item[=].answerOption[+].valueCoding = $ess#1 "1 -- SLIGHT chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 1
+* item[=].item[=].answerOption[+].valueCoding = $ess#2 "2 -- MODERATE chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 2
+* item[=].item[=].answerOption[+].valueCoding = $ess#3 "3 -- HIGH chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 3
+
 * item[=].item[+].type = #choice
 * item[=].item[=].linkId = "trafficlights"
-* item[=].item[=].text = "In a car whilst stopped in traffic or traffic lights"
-* item[=].item[=].answerValueSet = "#epworth-sleep-scale"
-* item[=].type = #group
-* item[=].linkId = "epworth"
-* item[=].text = "Epworth Sleepiness Score"
-* item[+].item[0].type = #boolean
+* item[=].item[=].text = "In a car whilst stopped in traffic or at traffic lights"
+* item[=].item[=].required = false
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].answerOption[0].valueCoding = $ess#0 "0 -- NEVER doze"
+* item[=].item[=].answerOption[0].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[0].extension.valueDecimal = 0
+* item[=].item[=].answerOption[+].valueCoding = $ess#1 "1 -- SLIGHT chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 1
+* item[=].item[=].answerOption[+].valueCoding = $ess#2 "2 -- MODERATE chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 2
+* item[=].item[=].answerOption[+].valueCoding = $ess#3 "3 -- HIGH chance of dozing"
+* item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+* item[=].item[=].answerOption[=].extension.valueDecimal = 3
+
+* item[=].item[+].type = #integer
+* item[=].item[=].linkId = "totalscore"
+* item[=].item[=].text = "TOTAL SCORE out of 24:"
+* item[=].item[=].required = false
+* item[=].item[=].readOnly = true
+* item[=].item[=].extension.url = $sdc-calc
+* item[=].item[=].extension.valueExpression.language = #text/fhirpath
+* item[=].item[=].extension.valueExpression.expression = "iif(%resource.item.descendants().where(linkId='sittingandreading').answer.value.exists(), %resource.item.descendants().where(linkId='sittingandreading').answer.value.ordinal(), 0) + iif(%resource.item.descendants().where(linkId='watchingTV').answer.value.exists(), %resource.item.descendants().where(linkId='watchingTV').answer.value.ordinal(), 0) + iif(%resource.item.descendants().where(linkId='sittingactivity').answer.value.exists(), %resource.item.descendants().where(linkId='sittingactivity').answer.value.ordinal(), 0) + iif(%resource.item.descendants().where(linkId='incarforanhour').answer.value.exists(), %resource.item.descendants().where(linkId='incarforanhour').answer.value.ordinal(), 0) + iif(%resource.item.descendants().where(linkId='lyingdown').answer.value.exists(), %resource.item.descendants().where(linkId='lyingdown').answer.value.ordinal(), 0) + iif(%resource.item.descendants().where(linkId='sittingtalking').answer.value.exists(), %resource.item.descendants().where(linkId='sittingtalking').answer.value.ordinal(), 0) + iif(%resource.item.descendants().where(linkId='sittingQuitely').answer.value.exists(), %resource.item.descendants().where(linkId='sittingQuitely').answer.value.ordinal(), 0) + iif(%resource.item.descendants().where(linkId='trafficlights').answer.value.exists(), %resource.item.descendants().where(linkId='trafficlights').answer.value.ordinal(), 0)"
+
+
+// ================= MEDICAL HISTORY Questions =================
+
+* item[+].type = #group
+* item[=].linkId = "medical"
+* item[=].text = "5. Medical History: Select all that apply."
+
+* item[=].item[0].type = #choice
 * item[=].item[=].linkId = "hayfever"
-* item[=].item[=].text = "Hayfever or constantly blocked nose"
-* item[=].item[=].required = true
+* item[=].item[=].text = "Select all that apply:"
+* item[=].item[=].required = false
+* item[=].item[=].repeats = true
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].extension.valueCodeableConcept = $qic#check-box "Check-box"
+* item[=].item[=].answerOption[0].valueCoding = $sleep-options#1 "Hayfever or constantly blocked nose"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#2 "Previous nasal surgery"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#3 "Previous airway surgery? (e.g. tonsils removed)"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#4 "Heart disease (heart failure, heart attack, angina, arrhythmia e.g. atrial fibrillation, stent or bypass?)"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#5 "Previous stroke or TIA ‘mini-stroke’?"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#6 "Asthma/COPD"
+* item[=].item[=].answerOption[+].valueCoding = $sleep-options#7 "Neuromuscular disease"
+
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "nasal"
-* item[=].item[=].text = "Previous nasal surgery"
-* item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "airway"
-* item[=].item[=].text = "Previous airway surgery? (e.g. tonsils removed)"
-* item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "heart"
-* item[=].item[=].text = "Heart disease (heart failure, heart attack, angina, arrhythmia e.g. atrial fibrillation, stent or bypass?)   "
-* item[=].item[+].item.type = #boolean
-* item[=].item[=].item.linkId = "controldifficulty"
-* item[=].item[=].item.text = "If yes, is difficult to control?"
-* item[=].item[=].item.enableWhen.question = "bp"
-* item[=].item[=].item.enableWhen.operator = #=
-* item[=].item[=].item.enableWhen.answerBoolean = true
-* item[=].item[=].item.enableBehavior = #all
-* item[=].item[=].type = #boolean
 * item[=].item[=].linkId = "bp"
 * item[=].item[=].text = "High blood pressure"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "stroke"
-* item[=].item[=].text = "Previous stroke or TIA ‘mini-stroke’?"
-* item[=].item[+].item.type = #boolean
-* item[=].item[=].item.linkId = "yescontroldifficulty"
-* item[=].item[=].item.text = "If yes, is it difficult to control?"
-* item[=].item[=].item.enableWhen.question = "diabetes"
-* item[=].item[=].item.enableWhen.operator = #=
-* item[=].item[=].item.enableWhen.answerBoolean = true
-* item[=].item[=].item.enableBehavior = #any
-* item[=].item[=].type = #boolean
+* item[=].item[=].linkId = "controldifficulty"
+* item[=].item[=].text = "If yes, is it difficult to control?"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "bp"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+* item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "diabetes"
 * item[=].item[=].text = "Diabetes"
-* item[=].item[+].item.type = #boolean
-* item[=].item[=].item.linkId = "depression_11"
-* item[=].item[=].item.text = "If yes, is it difficult to control?"
-* item[=].item[=].item.enableWhen.question = "depression"
-* item[=].item[=].item.enableWhen.operator = #=
-* item[=].item[=].item.enableWhen.answerBoolean = true
-* item[=].item[=].item.enableBehavior = #any
-* item[=].item[=].type = #boolean
-* item[=].item[=].linkId = "depression"
-* item[=].item[=].text = "Depression"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "asthma"
-* item[=].item[=].text = "Asthma/COPD"
+* item[=].item[=].linkId = "yescontroldifficulty"
+* item[=].item[=].text = "If yes, is it difficult to control?"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "diabetes"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "neuro"
-* item[=].item[=].text = "Neuromuscular disease"
-* item[=].item[+].item.type = #string
-* item[=].item[=].item.linkId = "neurodisease"
-* item[=].item[=].item.text = "If yes, is it difficult to control?"
-* item[=].item[=].item.enableWhen.question = "epilepsy"
-* item[=].item[=].item.enableWhen.operator = #=
-* item[=].item[=].item.enableWhen.answerBoolean = true
-* item[=].item[=].item.enableBehavior = #any
-* item[=].item[=].type = #boolean
 * item[=].item[=].linkId = "epilepsy"
 * item[=].item[=].text = "Epilepsy"
-* item[=].type = #group
-* item[=].linkId = "medical"
-* item[=].text = "Medical History"
-* item[+].item[0].type = #boolean
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "neurodisease"
+* item[=].item[=].text = "If yes, is it difficult to control?"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "epilepsy"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+* item[=].item[+].type = #boolean
+* item[=].item[=].linkId = "depression"
+* item[=].item[=].text = "Depression"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #boolean
+* item[=].item[=].linkId = "depression_11"
+* item[=].item[=].text = "If yes, is it difficult to control?"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "depression"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+
+// ================= LIFESTYLE  Questions=================
+* item[+].type = #group
+* item[=].linkId = "lifestyle"
+* item[=].text = "6. Lifestyle"
+
+* item[=].item[0].type = #boolean
 * item[=].item[=].linkId = "breath"
 * item[=].item[=].text = "Do you get short of breath during your daily activities?"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #string
 * item[=].item[=].linkId = "occupation"
 * item[=].item[=].text = "What is your Occupation?"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #boolean
 * item[=].item[=].linkId = "job-risk"
-* item[=].item[=].text = "Has your job been at risk due to sleepiness or loss or concentration?"
-* item[=].item[+].item[0].type = #choice
-* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
-* item[=].item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
+* item[=].item[=].text = "Has your job been at risk due to sleepiness or loss of concentration?"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #group
+* item[=].item[=].linkId = "licencedetails"
+* item[=].item[=].text = "If you have a vehicle licence, what classes and endorsements does it have?"
+
+* item[=].item[=].item[0].type = #choice
 * item[=].item[=].item[=].linkId = "licenseclass"
-* item[=].item[=].item[=].text = "What is your vehicle licence class?"
-* item[=].item[=].item[=].enableWhen.question = "doze-driving"
-* item[=].item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].item[=].enableWhen.answerBoolean = true
-* item[=].item[=].item[=].enableBehavior = #any
-* item[=].item[=].item[=].answerOption[0].valueCoding.display = "Class 1 (motorcar)"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Class 2"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Class 3"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Class 4"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Class 5"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Class 6 (Motorcycle)"
-* item[=].item[=].item[+].type = #choice
+* item[=].item[=].item[=].text = "Class:"
+* item[=].item[=].item[=].required = false
 * item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
-* item[=].item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
+* item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].item[=].answerOption[0].valueCoding = $licence-class#1 "Class 1 - Car licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#2 "Class 2 - Medium rigid vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#3 "Class 3 - Medium combination vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#4 "Class 4 - Heavy rigid vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#5 "Class 5 - Heavy combination vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#6 "Class 6 - Motorcycle licence"
+
+* item[=].item[=].item[+].type = #choice
 * item[=].item[=].item[=].linkId = "licenseendorsement"
-* item[=].item[=].item[=].text = "What is your vehicle licence endorsement?"
-* item[=].item[=].item[=].enableWhen.question = "doze-driving"
-* item[=].item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].item[=].enableWhen.answerBoolean = true
-* item[=].item[=].item[=].enableBehavior = #any
-* item[=].item[=].item[=].answerOption[0].valueCoding.display = "P"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "V"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "D"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "F"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "R"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "T"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "W"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "I"
-* item[=].item[=].item[=].answerOption[+].valueCoding.display = "O"
-* item[=].item[=].type = #boolean
-* item[=].item[=].linkId = "doze-driving"
-* item[=].item[=].text = "Do you have a vehicle licence?"
-* item[=].type = #group
-* item[=].linkId = "lifestyle"
-* item[=].text = "Lifestyle"
-* item[+].item.item.type = #text
-* item[=].item.item.linkId = "sleeptime"
-* item[=].item.item.text = "If yes, please describe your symptoms: "
-* item[=].item.item.enableWhen.question = "sleep-time"
-* item[=].item.item.enableWhen.operator = #=
-* item[=].item.item.enableWhen.answerBoolean = true
-* item[=].item.item.enableBehavior = #any
-* item[=].item.type = #boolean
-* item[=].item.linkId = "sleep-time"
-* item[=].item.text = "When you try to relax in the evening or sleep at night, do you ever have unpleasant,   restless feelings in your legs that can be relieved by walkin"
-* item[=].type = #group
-* item[=].linkId = "sleep-pattern"
-* item[=].text = "Restless Legs"
-* item[+].item[0].type = #time
-* item[=].item[=].linkId = "wake-time"
+* item[=].item[=].item[=].text = "Endorcements:"
+* item[=].item[=].item[=].required = false
+* item[=].item[=].item[=].repeats = true
+* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
+* item[=].item[=].item[=].answerOption[0].valueCoding = $licence-endorsement#P "P - Passenger"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#V "V - Vehicle Recovery"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#D "D - Dangerous Goods"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#F "F - Forklift"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#R "R - Rollers"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#T "T - Tracks"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#W "W - Wheels"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#I "I - Instructor"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#O "O - Testing Officer"
+
+* item[=].item[+].type = #boolean
+* item[=].item[=].linkId = "dozedwhiledriving"
+* item[=].item[=].text = "Have you ever dozed at the wheel?"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #date
+* item[=].item[=].linkId = "dozingdate"
+* item[=].item[=].text = "When did this happen?"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "dozedwhiledriving"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "dozingdetails"
+* item[=].item[=].text = "Tell us about it:"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "dozedwhiledriving"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+* item[=].item[+].type = #group
+* item[=].item[=].linkId = "CaffeineIntake"
+* item[=].item[=].text = "Caffeine intake (amount per day especially mid-afternoon to late evening)"
+
+* item[=].item[=].item[0].type = #string
+* item[=].item[=].item[=].linkId = "TeaIntake"
+* item[=].item[=].item[=].text = "Tea:"
+* item[=].item[=].item[=].required = false
+
+* item[=].item[=].item[+].type = #string
+* item[=].item[=].item[=].linkId = "coffieeIntake"
+* item[=].item[=].item[=].text = "Coffee:"
+* item[=].item[=].item[=].required = false
+
+* item[=].item[=].item[+].type = #string
+* item[=].item[=].item[=].linkId = "lifeStyleDrinks"
+* item[=].item[=].item[=].text = "Coke, Pepsi, life style drinks:"
+* item[=].item[=].item[=].required = false
+
+* item[=].item[=].item[+].type = #string
+* item[=].item[=].item[=].linkId = "EnergyDrinks"
+* item[=].item[=].item[=].text = "Energy drinks:"
+* item[=].item[=].item[=].required = false
+
+* item[=].item[=].item[+].type = #string
+* item[=].item[=].item[=].linkId = "ChocolateDrinksBars"
+* item[=].item[=].item[=].text = "Chocolate drinks or bars:"
+* item[=].item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "AlcholicDrinks"
+* item[=].item[=].text = "How many alcoholic drinks do you have, on average, per week?"
+* item[=].item[=].required = false
+
+
+//--------Previous Sleep Studies Questions -----------------------------
+* item[+].type = #group
+* item[=].linkId = "SleepHistory"
+* item[=].text = "7. Previous Sleep Studies"
+
+* item[=].item[0].type = #boolean
+* item[=].item[=].linkId = "PrevSleepStudy"
+* item[=].item[=].text = "Have you ever had a sleep study?"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "HowLong"
+* item[=].item[=].text = "Approximately how long ago?"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "PrevSleepStudy"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+* item[=].item[+].type = #group
+* item[=].item[=].linkId = "Conducted"
+* item[=].item[=].text = "Was it conducted by:"
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "PrevSleepStudy"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+* item[=].item[=].item[0].type = #boolean
+* item[=].item[=].item[=].linkId = "PrivateLab"
+* item[=].item[=].item[=].text = "Private specialist"
+* item[=].item[=].item[=].required = false
+
+* item[=].item[=].item[+].type = #boolean
+* item[=].item[=].item[=].linkId = "DHOLab"
+* item[=].item[=].item[=].text = "Sleep Laboratory (Dunedin or Invercargill Hospital)"
+* item[=].item[=].item[=].required = false
+
+* item[=].item[=].item[+].type = #string
+* item[=].item[=].item[=].linkId = "OtherSleepLab"
+* item[=].item[=].item[=].text = "Another Sleep Laboratory, please specify"
+* item[=].item[=].item[=].required = false
+
+
+//--------Restless Legs Questions -----------------------------
+* item[+].type = #group
+* item[=].linkId = "RestlessLeg"
+* item[=].text = "8. Restless Legs"
+
+* item[=].item[0].type = #boolean
+* item[=].item[=].linkId = "RestlessLeg1"
+* item[=].item[=].text = "When you try to relax in the evening or sleep at night, do you ever have unpleasant, restless feelings in your legs that can be relieved by walking or movement?"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "RestlessLeg2"
+* item[=].item[=].text = "If yes, please describe your symptoms:"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "RestlessLeg1"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+
+//--------Hours of Sleep Questions -----------------------------
+* item[+].type = #group
+* item[=].linkId = "SleepHours"
+* item[=].text = "9. Hours of Sleep"
+
+* item[=].item[0].type = #string
+* item[=].item[=].linkId = "SleepHours1"
 * item[=].item[=].text = "What time do you go to sleep at night?"
-* item[=].item[+].type = #time
-* item[=].item[=].linkId = "shift"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "SleepHours2"
 * item[=].item[=].text = "What time do you get up in the morning?"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "shiftwork"
+* item[=].item[=].linkId = "SleepHours3"
 * item[=].item[=].text = "Do you do shift work?"
-* item[=].item[+].type = #text
-* item[=].item[=].linkId = "usualhourswork"
-* item[=].item[=].text = "Please describe your usual hours of work   "
-* item[=].type = #group
-* item[=].linkId = "sleephours"
-* item[=].text = "Hours of Sleep "
-* item[+].item[0].type = #string
-* item[=].item[=].linkId = "takelongtosleep"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "SleepHours4"
+* item[=].item[=].text = "Please describe your usual hours of work:"
+* item[=].item[=].required = false
+
+
+//--------Difficulty Sleeping Questions -----------------------------
+* item[+].type = #group
+* item[=].linkId = "SleepDifficulty"
+* item[=].text = "10. Difficulty Sleeping"
+
+* item[=].item[0].type = #string
+* item[=].item[=].linkId = "SleepDifficulty1"
 * item[=].item[=].text = "How long does it take you to get to sleep?"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #string
-* item[=].item[=].linkId = "wakeupatnight"
-* item[=].item[=].text = "How many times do you usually wake up during the night? "
+* item[=].item[=].linkId = "SleepDifficulty2"
+* item[=].item[=].text = "How many times do you usually wake up during the night?"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #string
-* item[=].item[=].linkId = "backtosleep"
-* item[=].item[=].text = "When you wake up, how long does it usually take you to get back to sleep?   "
+* item[=].item[=].linkId = "SleepDifficulty3"
+* item[=].item[=].text = "When you wake up, how long does it usually take you to get back to sleep?"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #string
-* item[=].item[=].linkId = "disturbsyoursleep"
-* item[=].item[=].text = "Do you have pain that disturbs your sleep?   "
-* item[=].type = #string
-* item[=].linkId = "medications"
-* item[=].text = "Difficulty Sleeping  "
-* item[=].repeats = true
-* item[+].item[0].item.type = #text
-* item[=].item[=].item.linkId = "hallucinations02"
-* item[=].item[=].item.text = "If yes, please describe your symptoms:"
-* item[=].item[=].item.enableWhen.question = "hallucinations01"
-* item[=].item[=].item.enableWhen.operator = #=
-* item[=].item[=].item.enableWhen.answerBoolean = true
-* item[=].item[=].item.enableBehavior = #any
-* item[=].item[=].type = #boolean
-* item[=].item[=].linkId = "hallucinations01"
+* item[=].item[=].linkId = "SleepDifficulty4"
+* item[=].item[=].text = "Do you have pain that disturbs your sleep?"
+* item[=].item[=].required = false
+
+
+//--------Other Symptoms Questions -----------------------------
+* item[+].type = #group
+* item[=].linkId = "OtherSymptoms"
+* item[=].text = "11. Other Symptoms"
+
+* item[=].item[0].type = #boolean
+* item[=].item[=].linkId = "OtherSymptoms1"
 * item[=].item[=].text = "Do you have hallucinations (you see, feel or hear things that aren’t there) while falling asleep or waking up?"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "OtherSymptoms2"
+* item[=].item[=].text = "If yes, please describe your symptoms:"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "OtherSymptoms1"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "OtherSymptoms3"
+* item[=].item[=].text = "Do you ever feel you can’t move or talk at all for 1 to 2 minutes after you wake up?"
+* item[=].item[=].required = false
+
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "cannotmove"
-* item[=].item[=].text = "Do you ever feel you can’t move or talk at all for 1 to 2 minutes after you wake up?  "
-* item[=].item[+].item.type = #string
-* item[=].item[=].item.linkId = "laughter02"
-* item[=].item[=].item.text = "If yes, please describe your symptoms: "
-* item[=].item[=].item.enableWhen.question = "laughter01"
-* item[=].item[=].item.enableWhen.operator = #=
-* item[=].item[=].item.enableWhen.answerBoolean = true
-* item[=].item[=].item.enableBehavior = #any
-* item[=].item[=].type = #boolean
-* item[=].item[=].linkId = "laughter01"
-* item[=].item[=].text = "Do you have sudden bouts of muscle weakness brought on by laughter or emotion?  "
+* item[=].item[=].linkId = "OtherSymptoms4"
+* item[=].item[=].text = "Do you have sudden bouts of muscle weakness brought on by laughter or emotion?"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "OtherSymptoms5"
+* item[=].item[=].text = "If yes, please describe your symptoms:"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "OtherSymptoms4"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
+
 * item[=].item[+].type = #boolean
-* item[=].item[=].linkId = "sleepdifficulty01"
-* item[=].item[=].text = "Do you have any other difficulties with sleep, like nightmares, acting out dreams, sleepwalking?"
-* item[=].item[=].item.type = #text
-* item[=].item[=].item.linkId = "sleepdifficulty02"
-* item[=].item[=].item.text = "If yes, please describe your symptoms: "
-* item[=].item[=].item.enableWhen.question = "sleepdifficulty01"
-* item[=].item[=].item.enableWhen.operator = #=
-* item[=].item[=].item.enableWhen.answerBoolean = true
-* item[=].item[=].item.enableBehavior = #any
-* item[=].type = #string
-* item[=].linkId = "othersymptoms"
-* item[=].text = "Other Symptoms"
+* item[=].item[=].linkId = "OtherSymptoms7"
+* item[=].item[=].text = "Do you have any other difficulties with sleep, like nightmares, acting out dreams, sleep walking?"
+* item[=].item[=].required = false
 
-Instance: epworth-sleep-scale
-InstanceOf: ValueSet
-Usage: #inline
-* status = #draft
-* date = "2026-04-14T02:03:51.418Z"
-* expansion.timestamp = "2026-04-14T02:03:49.587Z"
-* expansion.contains[0].code = #0
-* expansion.contains[=].display = "0 -- NEVER doze"
-* expansion.contains[+].code = #1
-* expansion.contains[=].display = "1 -- SLIGHT chance of dozing  "
-* expansion.contains[+].code = #2
-* expansion.contains[=].display = "2.-- MODERATE chance of dozing  "
-* expansion.contains[+].code = #3
-* expansion.contains[=].display = "3 -- HIGH chance of dozing  "
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "OtherSymptoms6"
+* item[=].item[=].text = "If yes, please describe your symptoms:"
+* item[=].item[=].required = false
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen.question = "OtherSymptoms7"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerBoolean = true
 
-Instance: general-scale
-InstanceOf: ValueSet
-Usage: #inline
-* status = #draft
-* date = "2026-04-14T02:08:31.235Z"
-* expansion.timestamp = "2026-04-14T02:08:29.128Z"
-* expansion.contains[0].code = #4
-* expansion.contains[=].display = "Always"
-* expansion.contains[+].code = #3
-* expansion.contains[=].display = "Often"
-* expansion.contains[+].code = #2
-* expansion.contains[=].display = "Sometimes"
-* expansion.contains[+].code = #1
-* expansion.contains[=].display = "Rarely"
-* expansion.contains[+].code = #0
-* expansion.contains[=].display = "Never"
 
-Instance: boolen-choice
-InstanceOf: ValueSet
-Usage: #inline
-* status = #draft
-* date = "2026-04-14T02:10:27.587Z"
-* expansion.timestamp = "2026-04-14T02:10:26.293Z"
-* expansion.contains[0].display = "Yes"
-* expansion.contains[+].display = "No"
+//--------Medications Questions -----------------------------
+* item[+].type = #group
+* item[=].linkId = "Medication"
+* item[=].text = "12. Medications"
+
+* item[=].item[0].type = #string
+* item[=].item[=].linkId = "listMeds"
+* item[=].item[=].text = "List all medications or attach a sheet with them listed"
+* item[=].item[=].required = false
+
+
+//--------Smoking History Questions -----------------------------
+* item[+].type = #group
+* item[=].linkId = "SmokeHistory"
+* item[=].text = "Smoke History"
+
+* item[=].item[0].type = #boolean
+* item[=].item[=].linkId = "SmokeHistory1"
+* item[=].item[=].text = "Have you ever smoked:"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #boolean
+* item[=].item[=].linkId = "SmokeHistory2"
+* item[=].item[=].text = "Current smoker"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "SmokeHistory3"
+* item[=].item[=].text = "Years smoked:"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "SmokeHistory4"
+* item[=].item[=].text = "Average per day:"
+* item[=].item[=].required = false
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "SmokeHistory5"
+* item[=].item[=].text = "Years Quit:"
+* item[=].item[=].required = false
+

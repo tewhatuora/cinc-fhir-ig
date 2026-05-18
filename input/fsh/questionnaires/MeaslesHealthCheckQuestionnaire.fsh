@@ -144,6 +144,9 @@ Usage: #definition
 * item[=].item[=].enableWhen.question = "p03-q01-Contact"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerCoding.display = "Yes"
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].required = true
+* item[=].item[=].repeats = false
 * item[=].type = #group
 * item[=].linkId = "p03"
 * item[=].prefix = "page 3"

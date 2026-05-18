@@ -1,250 +1,128 @@
 Instance: DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
+
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * version = "1.0"
+* identifier.use = #official
+* identifier.value = "DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
 * name = "DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire"
-* title = " Respiratory Physiology Paediatric OSAS Screening Questionnaire"
+* title = "Respiratory Physiology Paediatric OSAS Screening Questionnaire"
 * status = #active
 * description = "A Respiratory Physiology Paediatric OSAS Screening Questionnaire."
-* item[0].type = #display
-* item[=].linkId = "patientformcomplete"
-* item[=].text = "Please ensure patient details are completed here"
-* item[+].type = #string
-* item[=].linkId = "surname_11"
-* item[=].text = "Surname"
-* item[=].required = true
-* item[+].type = #string
-* item[=].linkId = "fullname_12"
-* item[=].text = "Full Name"
-* item[=].required = true
-* item[+].type = #string
-* item[=].linkId = "nhinumber_13"
-* item[=].text = "NHI number"
-* item[=].required = true
-* item[+].type = #date
-* item[=].linkId = "dob_14"
-* item[=].text = "DOB"
-* item[=].required = true
-* item[+].type = #choice
-* item[=].linkId = "sex_15"
-* item[=].text = "Sex"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #male "Male"
-* item[=].answerOption[+].valueCoding = #female "Female"
-* item[+].type = #string
-* item[=].linkId = "caregivername"
-* item[=].text = "Caregiver Name"
-* item[=].required = true
-* item[+].type = #date
-* item[=].linkId = "date_31"
-* item[=].text = "Date"
-* item[=].required = true
-* item[+].type = #display
+
+// ================= PATIENT/CHILD/MINOR and CAREGIVER DETAILS =================
+
+
+// ================= CAREGIVER DETAILS =================
+
+* item[0].type = #group
+* item[=].linkId = "caregiverdetails"
+* item[=].text = "Caregiver Details"
+
+* item[=].item[0].type = #string
+* item[=].item[=].linkId = "caregivername"
+* item[=].item[=].text = "Caregiver Name"
+* item[=].item[=].required = true
+
+* item[=].item[+].type = #string
+* item[=].item[=].linkId = "childrelationship"
+* item[=].item[=].text = "Relationship to child"
+* item[=].item[=].required = true
+
+// ================= MAIN QUESTIONS =================
+
+* item[+].type = #group
 * item[=].linkId = "answeronbehalf"
 * item[=].text = "Please answer on behalf of your child for the past month."
-* item[+].type = #display
-* item[=].linkId = "options_31"
-* item[=].text = "Does your child have any of the following:"
-* item[+].type = #choice
-* item[=].linkId = "runnynose"
-* item[=].text = "A constant blocked or runny nose?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "chestinfections"
-* item[=].text = "Recurrent chest infections/pneumonia?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "airwaynrrowing"
-* item[=].text = "An airway narrowing or abnormality?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "syndromemajor"
-* item[=].text = "A syndrome or other major health problem?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #string
-* item[=].linkId = "type_01"
-* item[=].text = "Type"
-* item[=].required = true
-* item[+].type = #choice
-* item[=].linkId = "tonsils"
-* item[=].text = "Does your child have large tonsils?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "tonsilsremoved"
-* item[=].text = "Has your child had their adenoids or tonsils removed?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #display
-* item[=].linkId = "whilesleeping"
-* item[=].text = "While sleeping, does your child"
-* item[+].type = #choice
-* item[=].linkId = "snore_22"
-* item[=].text = "snore more than half the time?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "alwayssnore"
-* item[=].text = "always snore?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "snoreloundly"
-* item[=].text = "snore loudly?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "troublebreathing"
-* item[=].text = "have trouble breathing, or struggle to breathe?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "loudbreathing"
-* item[=].text = "have \"heavy\" or loud breathing?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "stopbreathingnight"
-* item[=].text = "Have you ever seen your child stop breathing during the night?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #display
-* item[=].linkId = "followingoptions"
-* item[=].text = "Does your child has the following"
-* item[+].type = #choice
-* item[=].linkId = "breathethroughmouth"
-* item[=].text = "tend to breathe through the mouth during the day?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "wetthebed"
-* item[=].text = "occasionally wet the bed?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "unrefreshedmorning"
-* item[=].text = "wake up feeling unrefreshed in the morning?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "sleepinessduringday"
-* item[=].text = "have a problem with sleepiness during the day?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "sleepyatnight"
-* item[=].text = "Has a teacher commented that your child appears sleepy during the day?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "hardtowakeup"
-* item[=].text = "Is it hard to wake your child up in the morning?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "headachesinthemorning"
-* item[=].text = "Does your child wake up with headaches in the morning?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "stopgrowing"
-* item[=].text = "Did your child stop growing at a normal rate at any time since birth?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "childoverweight"
-* item[=].text = "Is your child overweight?"
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #display
-* item[=].linkId = "childoftenhas"
-* item[=].text = "My child often ."
-* item[+].type = #choice
-* item[=].linkId = "listenissues"
-* item[=].text = "does not seem to listen when spoken to directly."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "difficultyinorganizing"
-* item[=].text = "has difficulty organizing task and activities."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "stimulieasily"
-* item[=].text = "is easily distracted by extraneous stimuli."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "squirmsseat"
-* item[=].text = "fidgets with hands or feet or squirms in seat."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "drivenbyamotor"
-* item[=].text = "is 'on the go' or often acts as if 'driven by a motor'."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
-* item[+].type = #choice
-* item[=].linkId = "intrudesother"
-* item[=].text = "interrupts or intrudes on others (e.g. butts into conversations or games)."
-* item[=].required = true
-* item[=].answerOption[0].valueCoding = #yes "Yes"
-* item[=].answerOption[+].valueCoding = #no "No"
-* item[=].answerOption[+].valueCoding = #unknown "Unknown"
+
+// ================= OPTIONS 31 =================
+
+* item[=].item[0].type = #group
+* item[=].item[=].linkId = "options_31"
+* item[=].item[=].text = "Does your child have any of the following:"
+
+* item[=].item[=].item[0].type = #choice
+* item[=].item[=].item[=].linkId = "runnynose"
+* item[=].item[=].item[=].text = "Select all that apply:"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].repeats = true
+* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].item[=].extension.valueCodeableConcept = $qic#check-box "Check-box"
+* item[=].item[=].item[=].answerOption[0].valueCoding.display = "A constant blocked or runny nose?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Recurrent chest infections/pneumonia?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "An airway narrowing or abnormality?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Does your child have large tonsils?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Has your child had their adenoids or tonsils removed?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "A syndrome or other major health problem?"
+
+* item[=].item[=].item[+].type = #string
+* item[=].item[=].item[=].linkId = "specifytype"
+* item[=].item[=].item[=].text = "Please specify the syndrome or major health problem selected above."
+* item[=].item[=].item[=].enableWhen.question = "runnynose"
+* item[=].item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].item[=].enableWhen.answerCoding.display = "A syndrome or other major health problem?"
+* item[=].item[=].item[=].enableBehavior = #all
+
+// ================= WHILE SLEEPING =================
+
+* item[=].item[+].type = #group
+* item[=].item[=].linkId = "whilesleeping"
+* item[=].item[=].text = "While sleeping, does your child"
+
+* item[=].item[=].item[0].type = #choice
+* item[=].item[=].item[=].linkId = "snore_22"
+* item[=].item[=].item[=].text = "Select all that apply:"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].repeats = true
+* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].item[=].extension.valueCodeableConcept = $qic#check-box "Check-box"
+* item[=].item[=].item[=].answerOption[0].valueCoding.display = "snore more than half the time?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "always snore?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "snore loudly?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "have trouble breathing, or struggle to breathe?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "have \"heavy\" or loud breathing?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Have you ever seen your child stop breathing during the night?"
+
+// ================= FOLLOWING OPTIONS =================
+
+* item[=].item[+].type = #group
+* item[=].item[=].linkId = "followingoptions"
+* item[=].item[=].text = "Does your child have the following"
+
+* item[=].item[=].item[0].type = #choice
+* item[=].item[=].item[=].linkId = "breathethroughmouth"
+* item[=].item[=].item[=].text = "Select all that apply:"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].repeats = true
+* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].item[=].extension.valueCodeableConcept = $qic#check-box "Check-box"
+* item[=].item[=].item[=].answerOption[0].valueCoding.display = "have a dry mouth on waking up in the morning"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "occasionally wet the bed?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "wake up feeling unrefreshed in the morning?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "have a problem with sleepiness during the day?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Has a teacher commented that your child appears sleepy during the day?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Is it hard to wake your child up in the morning?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Does your child wake up with headaches in the morning?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Did your child stop growing at a normal rate at any time since birth?"
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "Is your child overweight?"
+
+// ================= CHILD OFTEN HAS =================
+
+* item[=].item[+].type = #group
+* item[=].item[=].linkId = "childoftenhas"
+* item[=].item[=].text = "My child often"
+
+* item[=].item[=].item[0].type = #choice
+* item[=].item[=].item[=].linkId = "listenissues"
+* item[=].item[=].item[=].text = "Select all that apply:"
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].repeats = true
+* item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].item[=].extension.valueCodeableConcept = $qic#check-box "Check-box"
+* item[=].item[=].item[=].answerOption[0].valueCoding.display = "does not seem to listen when spoken to directly."
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "has difficulty organizing task and activities."
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "is easily distracted by extraneous stimuli."
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "fidgets with hands or feet or squirms in seat."
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "is 'on the go' or often acts as if 'driven by a motor'."
+* item[=].item[=].item[=].answerOption[+].valueCoding.display = "interrupts or intrudes on others (e.g. butts into conversations or games)."
