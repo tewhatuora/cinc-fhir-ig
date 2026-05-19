@@ -1,6 +1,4 @@
 
-### Background
-
 Health NZ offers a subsidised Online GP Care service that connects healthcare consumers to NZ-registered healthcare professionals at telehealth providers using secure digital technologies (primarily video consultations, typically via a mobile application). 
 
 Doctors and nurse practitioners can assess symptoms, diagnose conditions, prescribe medications, and provide referrals – all from wherever the patient is. The service allows people to receive professional advice and treatment when they need it - no matter where they are or what time of day it is. It helps to ease pressure on emergency departments or urgent care services in a way that is complementary to the role of GPs in the community who remain responsible for their patients' continuity of care.
@@ -12,11 +10,11 @@ Providers are required to submit administrative/operational reporting to Health 
 ### Overview
 
 This section summarises the **FHIR REST API endpoints** used to exchange:
-- **Online GP Appointments** for operational reporting about **_planned_ encounters**.
+- **Online GP Appointments** for operational reporting about booking the consultation with the clinician (including no-shows).
   - Source profile: *[Online GP Appointment](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-OnlineGPAppointment.html)* (a profiled `Appointment`)
-- **Online GP Encounters** for operational reporting about **encounters _that occurred_** (or at least _started_).
+- **Online GP Encounters** for operational reporting about the consultation.
   - Source profile: *[Online GP Encounter](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-OnlineGPEncounter.html)* (a profiled `Encounter`)
-- **Claims** as operational reporting of **payment requests** for reimbursement for subsidised services delivered.
+- **Claims** describing **payment requests** for reimbursement for subsidised services delivered and/or payment-related operational reporting about the consultation.
   - Source profile: *[NZ Shared Care Claim](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-SharedCareClaim.html)* (a profiled `Claim`)
 - **Claim Responses** for Health NZ to detail the **outcome of a payment request** (i.e. claim) including validation errors and/or adjudication outcomes describing why the payment request was approved or denied.
   - Source profile: *[NZ Shared Care Claim Response](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-SharedCareClaimResponse.html)* (a profiled `ClaimResponse`)
@@ -60,37 +58,38 @@ The profiles of Appointment, Encounter, and Claim require `meta.source` and a `c
 ---
 <br>
 
-### Online GP Appointment (Appointment)
+## Online GP Appointment (Appointment)
 
-#### What it represents
+### What it represents
 
-A profiled `Appointment` resource for operational reporting of **_planned_ Online GP encounters** (including tracking of cancellations or no-shows). 
+A profiled `Appointment` resource for operational reporting of **_planned_ Online GP encounters** (including tracking of no-shows/did not attend). Cancellations are not required to be reported. Reporting is not provided until after the planned event and will be alongside any corresponding Encounter or Claim records (if applicable).
 
-#### Endpoints (FHIR REST)
+### Endpoints (FHIR REST)
 - **Create**: `POST [base]/Appointment`
 - **Update**: `PUT [base]/Appointment/{id}`
 - **Read**: `GET [base]/Appointment/{id}`
 - **Search**: `GET [base]/Appointment?{search-params}`
 
-#### Key information
+### Key information
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
 | HPI Facility | meta.source | Mandatory. HPI Facility Id where the record originated. |
-| (Disposition) | status | Mandatory. Set to "booked" (if it hasn't occurred yet), "fulfilled" (if an encounter occurred), "cancelled", or "noshow" (Did not Attend) |
-| Telehealth Service Appointment Reason | reasonCode | Mandatory. _Non_-clinical reason. SNOMED CTIDs |
-| National Health Index (NHI) | participant | Mandatory. NHI number |
+| (Disposition) | status | Mandatory. Set to "fulfilled" (if an encounter occurred) or "noshow" (Did not Attend). |
+| Telehealth Service Appointment Reason | reasonCode | Mandatory. _Non_-clinical reason. [Specific allowable SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-nz-onlinegp-appointment-reason-codes.html). |
+| Provider Organisation | supportingInformation | Mandatory. Must be a reference to the HPI Organisation. |
+| National Health Index (NHI) | participant | Mandatory. NHI number (if verified) otherwise a `data-absent-reason` of "not-asked" must be supplied (because normally the patient's identity is validated during the consultation). |
 | Appointment Request Datetime | created | When appointment was booked |
 | Event Start Datetime | start | Planned start time |
 | Event End Datetime | end | Planned end time |
 
-##### Example: Search for Online GP Appointments by patient/date
+#### Example: Search for Online GP Appointments by patient/date
 ```
 GET [base]/Appointment?patient={patientId}&date=ge2026-03-01&date=le2026-03-31
 Accept: application/fhir+json
 ```
 
-##### Example: Create Online GP Appointment (skeleton)
+#### Example: Create Online GP Appointment (skeleton)
 ```
 POST [base]/Appointment
 Content-Type: application/fhir+json
@@ -116,12 +115,12 @@ Accept: application/fhir+json
 }
 ```
 
-### Online GP Encounter (Encounter)
+## Online GP Encounter (Encounter)
 
-#### What it represents
+### What it represents
 A profiled Encounter resource for operational reporting of **Online GP encounters _that occurred_**.
 
-#### Endpoints (FHIR REST)
+### Endpoints (FHIR REST)
 
 - **Create**: `POST [base]/Encounter`
 - **Update**: `PUT [base]/Encounter/{id}`
@@ -131,34 +130,34 @@ A profiled Encounter resource for operational reporting of **Online GP encounter
 
 Confirm enabled interactions/search params in the server CapabilityStatement.
 
-#### Key information
+### Key information
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
 | HPI Facility | meta.source | HPI Facility Id where the record originated. |
 | Provider Organisation | serviceProvider | Mandatory. HPI Org Id |
-| Clinician | participant.role<br>participant.individual | Mandatory. Clinician role (SNOMED CTIDs applicable to Online GP)<br>Mandatory. HPI CPN |
-| National Health Index (NHI) | subject | Mandatory. NHI number |
+| Clinician | participant.role<br>participant.individual | Mandatory. Clinician role ([restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-onlinegp-participant-type.html) applicable to Online GP)<br>Mandatory. HPI CPN |
+| National Health Index (NHI) | subject | Mandatory. NHI number. |
 | CSC Holder | cscHolder (extension) | Boolean |
-| Enrolment Flag | regCode (extension) | NHI is "enrolled" or "casual" at this HPI Facility |
-| Token | identifier | Unique identifier(s) for Encounter |
-|  | status | Mandatory. E.g. "finished" |
-|  | class | Mandatory. E.g. "virtual" |
-|  | type | Mandatory. SNOMED CTIDs for method of encounter e.g. "719410009" for video consultation |
+| Enrolment Flag | regCode (extension) | NHI is either "enrolled" or "casual" at this HPI Facility |
+| Token | identifier | Unique identifier(s) for Encounter (e.g. the provider's identifier(s) for this encounter). |
+|  | status | Mandatory. [Restricted to allowed values](http://hl7.org/fhir/R4/valueset-encounter-status.html) e.g. "finished" |
+|  | class | Mandatory classification. Restricted to "VR" from [the allowed value set](https://terminology.hl7.org/6.5.0/ValueSet-v3-ActEncounterCode.html) representing a virtual consultation. |
+|  | type | Mandatory. [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-shared-care-encounter-type-valueset.html) for method of encounter e.g. "719410009" for video consultation |
 |  | serviceType | Further subcategorisation of encounter (if applicable) |
 |  | appointment | Reference to the Appointment resource |
 | Event Start Datetime<br>Event End Datetime| period | Mandatory. Actual time (start & end) of the encounter. |
-| Provisional/Working Diagnosis code(s) | diagnosis (extension) | Optional. SNOMED CTIDs.<br>Patient must be able to opt-out of providing this medical-related information. |
-| Disposition | hospitalization.dischargeDisposition | SNOMED CTIDs applicable to Online GP |
+| Provisional/Working Diagnosis code(s) | diagnosis (extension) | Optional. Restricted to the set of concept IDs from the SNOMED CT NZ Edition (April 2026) which is a superset of the International edition.<br>Patient must be able to opt-out of providing this medical-related information. |
+| Disposition | hospitalization.dischargeDisposition | [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-onlinegp-discharge-disposition.html) applicable to Online GP services. |
 
-##### Example: Search encounters for a patient by status
+#### Example: Search encounters for a patient by status
 
 ```
 GET [base]/Encounter?patient={patientId}&status=in-progress
 Accept: application/fhir+json
 ```
 
-##### Example: Create Online GP Encounter (skeleton)
+#### Example: Create Online GP Encounter (skeleton)
 
 ```
 POST [base]/Encounter
@@ -184,15 +183,15 @@ Accept: application/fhir+json
   // ... remainder as per profile requirements: serviceProvider, participant, subject, status, class, type, period, etc.
 }
 ```
-### Shared Care Claim (Claim)
+## Shared Care Claim (Claim)
 
-#### What it represents
+### What it represents
 
 A _generic_ profiled Claim resource for **requests for payment** for subsidised services performed under contract with Health NZ.
 
 It is applicable across multiple services (including Online GP payment automation). The kind of service being claimed for will be specified by the `type` and `subType`attributes of the Claim.
 
-#### Endpoints (FHIR REST)
+### Endpoints (FHIR REST)
 
 - **Create (submit claim)**: POST [base]/Claim
 - **Update**: PUT [base]/Claim/{id}
@@ -200,9 +199,9 @@ It is applicable across multiple services (including Online GP payment automatio
 - **Search**: GET [base]/Claim?{search-params}
 
 
-#### Key information
+### Key information
 
-##### Claim-level:
+Claim-level:
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
@@ -220,7 +219,7 @@ It is applicable across multiple services (including Online GP payment automatio
 |  | created | Mandatory. Datetime when claim created in source system. |
 |  | related | Optional. Reference to an earlier related or cancelled Claim. |
 
-##### Claim item-level:
+Claim item-level:
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
@@ -238,7 +237,7 @@ Notes:
 - A claimed encounter could have multiple activities (items) - each with their own fee(s) and pricing.
 - `Claim.item.detail` records are not used for Online GP claims.
 
-##### Example: Submit a Telehealth Claim (skeleton)
+#### Example: Submit a Telehealth Claim (skeleton)
 
 ```
 POST [base]/Claim
@@ -265,27 +264,27 @@ Accept: application/fhir+json
 }
 ```
 
-##### Example: Retrieve submitted Claim by id
+#### Example: Retrieve submitted Claim by id
 
 ```
 GET [base]/Claim/{id}
 Accept: application/fhir+json
 ```
 
-### Shared Care Claim Response (ClaimResponse)
+## Shared Care Claim Response (ClaimResponse)
 
-#### What it represents
+### What it represents
 
 A profiled `ClaimResponse` resource describing validation and/or adjudication (determination) results for submitted Share Care Claims.
 
 
-#### Endpoints (FHIR REST)
+### Endpoints (FHIR REST)
 
 - **Read**: GET [base]/ClaimResponse/{id}
 - **Search**: GET [base]/ClaimResponse?{search-params}
 
 
-#### Key information
+### Key information
 
 Each resource references the original claim via `ClaimResponse.request`.
 
@@ -293,7 +292,7 @@ Claim-level or claim item-level attributes that have failed validation, includin
 
 Once the claim and its items are validated then each `Claim.item` will be adjudicated. Information and failure messages relating to the adjudication (approval or denial) for the item will be reported as records within the `ClaimResponse.item.reviewOutcome` record. If all the items in the claim are approved then the `ClaimResponse.outcome` will be set to "complete". Otherwise, if any item had a denial then the `ClaimResponse.outcome` will be set to "partial". Payment may be made for any successfully adjudicated items.
 
-##### Response level attributes:
+Response level attributes:
 
 | FHIR Attribute | Notes |
 |----------------|-------|
@@ -315,26 +314,25 @@ Once the claim and its items are validated then each `Claim.item` will be adjudi
 | item | Collection of zero or more records for each _adjudicated_ `Claim.item`.<br>The `Claim.item` must have been successfully validated in order to be subsequently adjudicated and be populated here. |
 | addItem | N/a |
 
-
-##### Response item-level attributes:
+<br>Response item-level attributes:
 
 | FHIR Attribute | Notes |
 |----------------|-------|
 | itemSequence | Mandatory (if `item` exists) |
 | traceNumber  | Health NZ's identifier (GUID) for the adjudicated claim item. |
-| productOrService | Set to the `Claim.item.productOrService` (i.e. purchase unit code or product code)|
+| productOrService | Set to the claimed `Claim.item.productOrService` (i.e. purchase unit code or product code as per the Claim)|
 | reviewOutcome | A record describing the **overall adjudication outcome of the claim item** and associated information or failure messages for the claim item.<br>It consists of a `decision` ("approved" or "denied") and zero or more `reason` record(s).<br>Each reason record contains:<br>- `code` (the adjudiction/determination rule id)<br>- `display` ("passed" or "failed")<br>- `definition` (the information or failure message)<br>- `system` (the Health NZ code set describing the error, information, and adjudication failure messages) |
 | adjudication | A collection of one or more records **summarising the amount payable for this adjudicated claim item** per adjudication category (e.g. "benefit") and "policy" (the adjudication reason code).<br>Each adjudication record will contain:<br>- `category` (mandatory adjudication category e.g. "benefit")<br>- `reason` (optional adjudication reason codes - set to "policy")<br>- `amount` (sum of calculated amounts for this claim item and adjudication category)<br>- `value` (optional quantity from the claim item) |
 | detail | N/a |
 
-##### Example: Find claim response(s) for a given Claim
+#### Example: Find claim response(s) for a given Claim
 
 ```
 GET [base]/ClaimResponse?request=Claim/{claimId}
 Accept: application/fhir+json
 ```
 
-##### Example: Read a ClaimResponse by id
+#### Example: Read a ClaimResponse by id
 
 ```
 GET [base]/ClaimResponse/{id}
