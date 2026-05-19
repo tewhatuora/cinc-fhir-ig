@@ -1,4 +1,3 @@
-### Background
 
 Health NZ \| Te Whatu Ora provides the agreement and payment services for New Zealand's Integrated Community Pharmacy Services Agreement (ICPSA). The ICPSA is the national contract under which Health NZ purchases community pharmacy services from community pharmacy providers.
 
