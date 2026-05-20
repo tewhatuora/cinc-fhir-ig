@@ -48,8 +48,6 @@ Maintains activity status and performer information for clinician workflow track
 * basedOn 0..0
 * replaces 0..0
 * partOf 0..0
-
-
 * title 0..0
 * description 0..0
 * author 0..0
