@@ -1,4 +1,9 @@
 // --- META RULES ---
+Invariant: date-only
+Description: "DateTime must be date-only in yyyy-mm-dd format. Time and timezone values are not accepted."
+Expression: "toString().matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')"
+Severity: #error
+
 Invariant: full-datetime-with-timezone
 Description: "DateTime must be ISO 8601 format with time and timezone (e.g., 2026-01-01T00:00:00+13:00 or 2026-01-01T00:00:00Z). Date-only values are not accepted."
 Expression: "toString().matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$')"

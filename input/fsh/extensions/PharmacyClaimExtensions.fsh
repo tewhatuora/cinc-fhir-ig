@@ -1,5 +1,29 @@
+Extension: ItemRequest
+Id: item-request
+Title: "Item Request"
+Description: "Reference from a pharmacy claim item to the MedicationDispense that supports the claim item."
+* ^status = #draft
+* ^context[0].type = #element
+* ^context[0].expression = "Claim.item"
+* value[x] only Reference(MedicationDispense)
+* valueReference 1..1
 
 //Claim Extensions
+Extension: ExtendedSupplyFlag
+Id: extended-supply-flag
+Title: "Extended Supply Flag"
+Description: "Indicates whether the pharmacy claim item relates to extended supply."
+* ^status = #draft
+* value[x] only boolean
+
+Extension: TransactionCategory
+Id: transaction-category
+Title: "Transaction Category"
+Description: "The pharmacy claim transaction category."
+* ^status = #draft
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept from NzPharmacyTransactionCategory (required)
 
 Extension: PatientCohort
 Id: patient-cohort
