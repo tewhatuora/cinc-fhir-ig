@@ -3,15 +3,18 @@ InstanceOf: OutpatientCommunicationTask
 Title: "Outpatient Communication Task Example"
 Description: "Example of a task requesting a patient to complete a pre-appointment questionnaire for a cardiology appointment"
 
+* meta.tag[correlationId].system = "https://hub.services.digital.health.nz/ns/correlation-id"
+* meta.tag[correlationId].code = #xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 * status = #requested
 * code = http://hl7.org/fhir/uv/sdc/CodeSystem/temp#complete-questionnaire
 * for insert NHIPatientRef(ZAC7823,[[John Smith]])
-* owner = Reference(Practitioner/practitioner-example) "Dr. Jane Smith"
+* owner insert ReferencePractitioner(99ZZFX, [[Dr. Sarah Wilson]])
 * basedOn = Reference(OutpatientCommunicationCarePlanExample)
 * authoredOn = 2024-01-15T10:00:00Z
 * intent = #order
-* requester = Reference(Practitioner/practitioner-example) "Dr. Jane Smith"
-* description = "Please complete this questionnaire before your cardiology appointment on January 22nd. It should take about 10 minutes."
+* requester insert ReferencePractitioner(99ZZFX, [[Dr. Sarah Wilson]])
+* description = "Complete this questionnaire before your appointment."
 
 * input[questionnaire].type = http://hl7.org/fhir/uv/sdc/CodeSystem/temp#questionnaire
-* input[questionnaire].valueCanonical = "https://fhir-ig.digital.health.nz/shared-care/Questionnaire/cardiology-intake-questionnaire|1.0.0"
+* input[questionnaire].valueCanonical = Canonical(DHOSleepQuestionnaire)
