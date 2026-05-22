@@ -663,7 +663,7 @@ Usage: #example
 * item[=].required = false
 * item[=].repeats = false
 * item[+].item.type = #text
-* item[=].item.linkId = "q1779058131666_2vdsq7zko"
+* item[=].item.linkId = "OtherPotentialSources1"
 * item[=].item.text = "Do you have any ideas about what you think might have made you unwell?"
 * item[=].item.required = false
 * item[=].item.repeats = false
@@ -677,7 +677,7 @@ Usage: #example
 * item[=].required = false
 * item[=].repeats = false
 * item[+].type = #display
-* item[=].linkId = "136857906684"
+* item[=].linkId = "ThankYouMessage"
 * item[=].text = "Thank you for taking the time to answer these questions that help in the investigation of this disease."
 * item[=].enableWhen.question = "Privacy5"
 * item[=].enableWhen.operator = #=
