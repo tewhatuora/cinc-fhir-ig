@@ -336,12 +336,12 @@ Usage: #definition
 * item[=].item[=].item[=].text = "Class"
 * item[=].item[=].item[=].required = false
 * item[=].item[=].item[=].repeats = true
-* item[=].item[=].item[=].answerOption[0].valueCoding = $Licence-Class#1 "Class 1 - Car licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-Class#2 "Class 2 - Medium rigid vehicle licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-Class#3 "Class 3 - Medium combination vehicle licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-Class#4 "Class 4 - Heavy rigid vehicle licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-Class#5 "Class 5 - Heavy combination vehicle licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-Class#6 "Class 6 - Motorcycle licence"
+* item[=].item[=].item[=].answerOption[0].valueCoding = $licence-class #1 "Class 1 - Car licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #2 "Class 2 - Medium rigid vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #3 "Class 3 - Medium combination vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #4 "Class 4 - Heavy rigid vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #5 "Class 5 - Heavy combination vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #6 "Class 6 - Motorcycle licence"
 * item[=].item[=].item[+].type = #choice
 * item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
@@ -349,15 +349,15 @@ Usage: #definition
 * item[=].item[=].item[=].text = "Endorcements"
 * item[=].item[=].item[=].required = false
 * item[=].item[=].item[=].repeats = true
-* item[=].item[=].item[=].answerOption[0].valueCoding = $Licence-endorsement#P "P - Passenger"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-endorsement#V "V - Vehicle Recovery"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-endorsement#D "D - Dangerous Goods"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-endorsement#F "F - Forklift"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-endorsement#R "R - Rollers"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-endorsement#T "T - Tracks"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-endorsement#W "W - Wheels"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-endorsement#I "I - Instructor"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $Licence-endorsement#O "O - Testing Officer"
+* item[=].item[=].item[=].answerOption[0].valueCoding = $licence-endorsement#P "P - Passenger"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#V "V - Vehicle Recovery"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#D "D - Dangerous Goods"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#F "F - Forklift"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#R "R - Rollers"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#T "T - Tracks"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#W "W - Wheels"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#I "I - Instructor"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-endorsement#O "O - Testing Officer"
 * item[=].item[=].type = #group
 * item[=].item[=].linkId = "licencedetails"
 * item[=].item[=].text = "If you have a vehicle licence, what classes and endorsements does it have?"
