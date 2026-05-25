@@ -76,11 +76,11 @@ Description: "A FHIR resource profile for NZ Pharmacy Claims, including extensio
 // ----------Claim Items Level Elements----------------------
 * item 1..*
   * sequence 1..1
- // * request 1..1 this is R5 only, not R4B
+  
   * productOrService 1..1 // this is 1..1 in R4B, but 0..1 in R5
 
-  * serviced[x] 1..1
-  * serviced[x] only Period
+  * servicedPeriod 1..1
+  * servicedPeriod only Period
   * servicedPeriod.start 1..1
   * servicedPeriod.end 1..1
   * servicedPeriod.start obeys full-datetime-with-timezone
