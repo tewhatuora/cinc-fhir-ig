@@ -26,19 +26,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Fairly severe"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Fairly severe"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Very severe"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Very severe"
 * item.item[+].type = #display
 * item.item[=].linkId = "NightPainStiffness"
 * item.item[=].text = "2. Pain/stiffness/pins and needles/other health problem symptoms during the night"
@@ -51,19 +51,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Fairly severe"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Fairly severe"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Very severe"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Very severe"
 * item.item[+].type = #display
 * item.item[=].linkId = "Walking"
 * item.item[=].text = "3. Walking"
@@ -76,19 +76,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Severely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Severely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Not able to walk"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Not able to walk"
 * item.item[+].type = #display
 * item.item[=].linkId = "Washing"
 * item.item[=].text = "4. Washing/Dressing"
@@ -102,19 +102,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Severely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Severely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Unable to was or dress myself"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Unable to was or dress myself"
 * item.item[+].type = #display
 * item.item[=].linkId = "PhysicalActivity"
 * item.item[=].text = "5. Physical activity levels"
@@ -127,19 +127,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Very much"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Very much"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Unable to do physicial activities"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Unable to do physicial activities"
 * item.item[+].type = #display
 * item.item[=].linkId = "dailyroutine_11"
 * item.item[=].text = "6. Work/daily routine"
@@ -152,19 +152,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Severely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Severely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Extremely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Extremely"
 * item.item[+].type = #display
 * item.item[=].linkId = "SocialActivity"
 * item.item[=].text = "7. Social activities and hobbies"
@@ -177,19 +177,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Severely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Severely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Extremely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Extremely"
 * item.item[+].type = #display
 * item.item[=].linkId = "ImpactOnOthers"
 * item.item[=].text = "8. Impact on others around me"
@@ -202,19 +202,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Rarely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Rarely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Sometimes"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Sometimes"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Frequently"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Frequently"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- All the time"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "All the time"
 * item.item[+].type = #display
 * item.item[=].linkId = "Sleep"
 * item.item[=].text = "9. Sleep"
@@ -227,19 +227,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Rarely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Rarely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Sometimes"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Sometimes"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Frequently"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Frequently"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Every night"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Every night"
 * item.item[+].type = #display
 * item.item[=].linkId = "Fatigue"
 * item.item[=].text = "10. Fatigue or low energy"
@@ -252,19 +252,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slight"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slight"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderate"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderate"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Severe"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Severe"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Extreme"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Extreme"
 * item.item[+].type = #display
 * item.item[=].linkId = "EmotionalImpact"
 * item.item[=].text = "11. Emotional well-being"
@@ -277,19 +277,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Severely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Severely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Extremely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Extremely"
 * item.item[+].type = #display
 * item.item[=].linkId = "Currentconditions"
 * item.item[=].text = "12. Understanding of your condition and any current treatment"
@@ -303,19 +303,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Completely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Completely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Very well"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Very well"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Not at all"
 * item.item[+].type = #display
 * item.item[=].linkId = "managesymptoms_12"
 * item.item[=].text = "13. Confidence in being able to manage your symptoms"
@@ -328,19 +328,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Extremely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Extremely"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Very"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Very"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Not at all"
 * item.item[+].type = #display
 * item.item[=].linkId = "OverallImpact"
 * item.item[=].text = "14. Overall impact"
@@ -353,19 +353,19 @@ Usage: #definition
 * item.item[=].repeats = false
 * item.item[=].answerOption[0].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 4
-* item.item[=].answerOption[=].valueCoding = $general-scale#4 "4 -- Not at all"
+* item.item[=].answerOption[=].valueCoding = $general-scale#4 "Not at all"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 3
-* item.item[=].answerOption[=].valueCoding = $general-scale#3 "3 -- Slightly"
+* item.item[=].answerOption[=].valueCoding = $general-scale#3 "Slightly"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 2
-* item.item[=].answerOption[=].valueCoding = $general-scale#2 "2 -- Moderately"
+* item.item[=].answerOption[=].valueCoding = $general-scale#2 "Moderately"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 1
-* item.item[=].answerOption[=].valueCoding = $general-scale#1 "1 -- Very much"
+* item.item[=].answerOption[=].valueCoding = $general-scale#1 "Very much"
 * item.item[=].answerOption[+].extension.url = $ordinal
 * item.item[=].answerOption[=].extension.valueDecimal = 0
-* item.item[=].answerOption[=].valueCoding = $general-scale#0 "0 -- Extremely"
+* item.item[=].answerOption[=].valueCoding = $general-scale#0 "Extremely"
 * item.item[+].type = #integer
 * item.item[=].linkId = "total"
 * item.item[=].text = "Total"
