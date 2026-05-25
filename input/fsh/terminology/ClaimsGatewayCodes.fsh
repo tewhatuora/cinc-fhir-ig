@@ -1,3 +1,15 @@
+CodeSystem: NzPharmacyTransactionCategory
+Id: nz-pharmacy-transaction-category
+Title: "NZ Pharmacy Transaction Category"
+Description: "Transaction category codes used for NZ Pharmacy Claims."
+* ^status = #draft
+* ^caseSensitive = true
+* #I "Invoice"
+* #C "Credit"
+* #N "Non-claim"
+* #R "Resubmission"
+* #O "Owed balance"
+
 CodeSystem: PatientCohort
 Id:  pharmacy-claim-patient-cohort-codes
 Title: "Patient Cohort CodeSystem"

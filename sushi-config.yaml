@@ -267,6 +267,7 @@ groups:
       - DHOPreoperativeQuestionnaireDaySurgeryDunedinHospital
       - DHORespiratoryPhysiologyPaediatricOSASScreeningQuestionnaire
       - DHOSleepQuestionnaire
+      - DHOMusculoskeletalHealthQuestionnaire
 
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
@@ -368,6 +369,16 @@ groups:
       - DHOLocationPatientHomeExample
       - DHOLocationExternalExample
       - DHOLocationOutreachExample
+  OutpatientCommunicationWorkflow:
+    name: Outpatient Communication Workflow
+    resources:
+      - StructureDefinition/OutpatientCommunicationCarePlan
+      - StructureDefinition/OutpatientCommunicationTask
+  OutpatientCommunicationExamples:
+    name: Outpatient Communication Workflow examples
+    resources:
+      - OutpatientCommunicationCarePlanExample
+      - OutpatientCommunicationTaskExample
   OutreachReferralDefinitions:
     name: Outreach Referral Definitions
     resources:

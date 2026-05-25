@@ -1,0 +1,73 @@
+@startuml
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+skinparam shadowing false
+
+box "Client Application" #f9f9f9
+    participant "HCS" as Client
+end box
+
+box "Integration Services" #e1f5fe
+    participant "FHIR API" as FHIR
+    participant "MagicLink" as MagicLink
+    participant "CMS" as CMS
+end box
+
+box "External" #f1f8e9
+    actor "Patient" as Patient
+end box
+
+autonumber "<b>[00]"
+
+== 1. CarePlan + Task Creation ==
+
+Client -> FHIR: < Bundle >>\nPOST CarePlan (tracks clinical activities)\nPOST SDC Task (basedOn: CarePlan) (input: Questionnaire)
+return 200 OK (BundleResponse)
+
+' Client -> FHIR: POST SDC Task\n(basedOn: CarePlan)\n(input: Questionnaire)
+' return 201 Created ()
+
+== 3. CommunicationRequest & Magic Link ==
+
+Client -> MagicLink: Generate Magic Link (inc. Task ID)
+return 201 URL/Token
+
+Client -> FHIR: << Bundle >>\nPOST CommunicationRequest (based on CarePlan)\nPUT CarePlan
+note right: CarePlan activity references\nCommunicationRequest\nwith status (pending-review, etc)
+return 200 OK (BundleResponse)
+
+== 4. CMS Creates Communication ==
+
+FHIR -> CMS: CommunicationRequest Notification
+CMS -> Patient: Send SMS/Email with Magic Link
+CMS -> FHIR: << Bundle >>\nPOST Communication \nPUT CommunicationRequest\nPUT CarePlan (activity references Communication)
+note right: Communication tracks\ndelivery state
+return 200 OK (BundleResponse)
+
+
+
+== 5. Patient Response ==
+
+... Patient follows Magic Link ...
+
+Patient -> MagicLink: Submits Questionnaire
+MagicLink -> FHIR: << Bundle >>\nPOST QuestionnaireResponse\nPUT Task
+note right: Task output references\nQuestionnaireResponse
+return 200 OK (BundleResponse)
+
+== 6. Clinician Review ==
+
+Client -> FHIR: GET CarePlan?_id=[ID]\n&_include=CarePlan:activity:reference\n&_include=CarePlan:activity:outcomeReference
+return 200 OK (Bundle: SearchSet)
+
+Client -> FHIR: PUT CarePlan\n(update activity.detail.status)\n(update activity.detail.performer)
+note right: Mark as clinician-reviewed\nor action-taken
+return 200 Updated
+
+== 7. Client Retrieval ==
+
+Client -> FHIR: GET Task?_id=[ID]\n&_include=Task:input:valueCanonical\n&_include=Task:output:valueReference
+return 200 OK (Bundle: SearchSet)
+note right: Contains Task +\nQuestionnaire +\nQuestionnaireResponse
+
+@enduml

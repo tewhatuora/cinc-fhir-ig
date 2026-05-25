@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.5 (2026-05-14)
+### Added the Pharmacy Claiming  
+Added the [Pharmacy Claiming Overview](./PharmacyClaiming.html) 
+
 ## v0.4.4 (2026-04-09)
 ### Update Online GP Care reporting & payment automation
 Updated and renamed  [OnlineGP](OnlineGP.html) file
