@@ -336,12 +336,12 @@ Usage: #definition
 * item[=].item[=].item[=].text = "Class"
 * item[=].item[=].item[=].required = false
 * item[=].item[=].item[=].repeats = true
-* item[=].item[=].item[=].answerOption[0].valueCoding = $licence-class #1 "Class 1 - Car licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #2 "Class 2 - Medium rigid vehicle licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #3 "Class 3 - Medium combination vehicle licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #4 "Class 4 - Heavy rigid vehicle licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #5 "Class 5 - Heavy combination vehicle licence"
-* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class #6 "Class 6 - Motorcycle licence"
+* item[=].item[=].item[=].answerOption[0].valueCoding = $licence-class#1 "Class 1 - Car licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#2 "Class 2 - Medium rigid vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#3 "Class 3 - Medium combination vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#4 "Class 4 - Heavy rigid vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#5 "Class 5 - Heavy combination vehicle licence"
+* item[=].item[=].item[=].answerOption[+].valueCoding = $licence-class#6 "Class 6 - Motorcycle licence"
 * item[=].item[=].item[+].type = #choice
 * item[=].item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].item[=].extension.valueCodeableConcept = $qic#drop-down "Drop down"
