@@ -12,7 +12,7 @@ Usage: #example
 * occurrenceDateTime = "2024-08-20T14:30:00Z"
 * authoredOn = "2024-08-20T14:30:00Z"
 
-* basedOn insert Reference(OutpatientCommunicationCarePlanExample)
+* basedOn.reference = Reference(OutpatientCommunicationCarePlanExample)
 
 * sender.type = "Device"
 * sender.identifier.use = #official
