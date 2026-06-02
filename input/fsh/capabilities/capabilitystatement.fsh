@@ -246,7 +246,8 @@ Usage: #definition
 
 * rest.resource[+].type = #CarePlan
 * rest.resource[=].profile = Canonical(CarePlan)
-* rest.resource[=].supportedProfile = Canonical(ManaakiNgaTahiCarePlan)
+* rest.resource[=].supportedProfile[+] = Canonical(ManaakiNgaTahiCarePlan)
+* rest.resource[=].supportedProfile[+] = Canonical(OutpatientCommunicationCarePlan)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "CarePlan:encounter"
@@ -684,7 +685,8 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "When this document reference was createdr"
 
 * rest.resource[+].type = #Task
-* rest.resource[=].supportedProfile = Canonical(OutreachTask)
+* rest.resource[=].supportedProfile[+] = Canonical(OutreachTask)
+* rest.resource[=].supportedProfile[+] = Canonical(OutpatientCommunicationTask)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Task-status"
