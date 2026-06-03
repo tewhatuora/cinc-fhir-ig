@@ -165,7 +165,7 @@ Description: "Healthcare service codes for outpatient services"
 * #Y71 "Community mental health residential level 1"
 
 CodeSystem: OutpatientActivityStatusReasonCS
-Id: outpatient-activity-status-reason
+Id: outpatient-activity-status-reason-cs
 Title: "Outpatient Activity Status Reason"
 Description: "Status reasons for outpatient activity workflow tracking"
 * ^status = #active
