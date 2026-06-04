@@ -2,7 +2,6 @@ CodeSystem: OutpatientCategoriesCS
 Id: outpatient-categories-cs
 Title: "Outpatient Service Codes"
 Description: "Healthcare service codes for outpatient services"
-* ^url = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/outpatient-codes"
 * ^status = #active
 * ^caseSensitive = true
 * ^content = #complete
@@ -166,10 +165,9 @@ Description: "Healthcare service codes for outpatient services"
 * #Y71 "Community mental health residential level 1"
 
 CodeSystem: OutpatientActivityStatusReasonCS
-Id: outpatient-activity-status-reason
+Id: outpatient-activity-status-reason-cs
 Title: "Outpatient Activity Status Reason"
 Description: "Status reasons for outpatient activity workflow tracking"
-* ^url = "https://fhir-ig.digital.health.nz/shared-care/CodeSystem/outpatient-activity-status-reason"
 * ^status = #active
 * ^caseSensitive = true
 * ^content = #complete

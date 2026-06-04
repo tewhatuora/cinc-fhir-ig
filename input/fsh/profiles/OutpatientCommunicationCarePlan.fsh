@@ -6,6 +6,7 @@ Tracks CommunicationRequest references and QuestionnaireResponse outcomes within
 Maintains activity status and performer information for clinician workflow tracking."""
 
 * meta 1..1
+* meta.profile 1..1
 * meta.tag ^slicing.discriminator.type = #value
 * meta.tag ^slicing.discriminator.path = "system"
 * meta.tag ^slicing.rules = #open
@@ -24,47 +25,36 @@ Maintains activity status and performer information for clinician workflow track
 * subject only Reference(NzPatient)
 * subject ^short = "Patient reference with NHI"
 
-* encounter 0..1 MS
-* encounter ^short = "Encounter or Referral Reference (logical reference)"
 * status 1..1
 * intent 1..1
-* activity 1..* MS
+* author 0..1
+* activity 0..*
 
-* activity.reference 0..1 MS
+* activity.reference 0..1
 * activity.reference only Reference(CMSCommunicationRequest or OutpatientCommunicationTask)
 * activity.reference ^short = "CommunicationRequest reference"
 
-* activity.outcomeReference 0..* MS
+* activity.outcomeReference 0..*
 * activity.outcomeReference only Reference(QuestionnaireResponse or CMSCommunication)
 * activity.outcomeReference ^short = "QuestionnaireResponse or Communication outcome reference"
 
-* activity.detail 0..1 MS
-* activity.detail.instantiatesCanonical 0..1 MS
-* activity.detail.instantiatesCanonical ^short = "FHIR Questionnaire identifier for response lookup"
 * activity.detail.status 1..1 MS
-* activity.detail.status ^short = "Processing status flag"
-* activity.detail.statusReason 0..1 MS
+* activity.detail.statusReason 0..1 
 * activity.detail.statusReason from OutpatientActivityStatusReasonVS (preferred)
-* activity.detail.statusReason ^short = "Detailed status reason for clinician workflow"
-* activity.detail.performer 0..* MS
 * activity.detail.performer only Reference(Practitioner or PractitionerRole)
 * activity.detail.performer ^short = "Clinician who reviewed or acted on this activity"
 
-* category 0..* MS
+* category 0..*
 * category from OutpatientCategoriesVS (preferred)
 * category ^short = "Outpatient service category or specialty"
 
 
 // Unused fields set to 0..0
-// * identifier 0..0
 * instantiatesCanonical 0..0
 * instantiatesUri 0..0
 * basedOn 0..0
 * replaces 0..0
 * partOf 0..0
-* title 0..0
-* description 0..0
-* author 0..0
 * contributor 0..0
 * careTeam 0..0
 * addresses 0..0

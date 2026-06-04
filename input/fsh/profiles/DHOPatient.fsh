@@ -63,7 +63,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * use 1..1 MS
     * ^short = "usual | temp | nickname | maiden"
   * family 1..1 MS
-  * given 0..5 MS
+  * given 0..* MS
     * ^short = "Given name and other given name(s)"
     * ^definition = "Given name and other given name(s) for the patient"
   * prefix from $vs-name-prefix
@@ -75,6 +75,9 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * extension contains DHOTelecomNotification named notification-enabled 0..1 MS
   * extension[notification-enabled] ^short = "True if notifications can be sent to this email or SMS address"
   * extension[cp-purpose] 0..0
+  * obeys dho-telecom-validation-system
+  * extension contains DHOTelecomValidation named validation-status 0..1 MS
+  * extension[validation-status] ^short = "Validation status of this telecom"
   * period 0..0
   * system 1..1 MS
   * value 1..1 MS
@@ -115,7 +118,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
     * use 0..0
     * text 1..1 MS
     * family 1..1 MS
-    * given MS
+    * given 0..* MS
     * prefix 0..1 MS
     * suffix 0..0
     * extension 0..0
@@ -133,6 +136,7 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * period 0..1 MS
   * id 0..0
 * generalPractitioner 0..*
+* extension[ethnicity] 0..*
 
 // ---------------------------------------------------------
 // Reference constraints
@@ -181,6 +185,9 @@ Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/p
   * obeys dho-telecom-notification-valid-system
   * extension contains DHOTelecomNotification named notification-enabled 0..1 MS
   * extension[notification-enabled] ^short = "True if notifications can be sent to this email or SMS address"
+  * obeys dho-telecom-validation-system
+  * extension contains DHOTelecomValidation named validation-status 0..1 MS
+  * extension[validation-status] ^short = "Validation status of this telecom"
   * extension[cp-purpose] 0..0
   * period 0..0
   * system 1..1 MS
@@ -203,3 +210,8 @@ Invariant: dho-telecom-notification-valid-system
 Description: "The notification-enabled extension should only be present when the telecom system is 'email', 'sms', or 'phone' with use 'mobile'."
 Severity: #warning
 Expression: "extension.where(url = 'https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/dho-telecom-notification').exists() implies (system = 'email' or system = 'sms' or (system = 'phone' and use = 'mobile'))"
+
+Invariant: dho-telecom-validation-system
+Description: "The validation-status extension should only be present when the telecom system is 'email', 'sms', or 'phone' with use 'mobile'."
+Severity: #warning
+Expression: "extension.where(url = 'https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/dho-telecom-validation').exists() implies (system = 'email' or system = 'sms' or (system = 'phone' and use = 'mobile'))"

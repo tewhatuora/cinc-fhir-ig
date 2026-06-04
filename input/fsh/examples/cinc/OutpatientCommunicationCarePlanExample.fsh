@@ -9,12 +9,15 @@ Description: "Example of an OutpatientCommunication CarePlan tracking Communicat
 
 * subject insert NHIPatientRef(ZAC7823,[[John Smith]])
 
-* category = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/outpatient-codes#M10
+* category = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/outpatient-categories-cs#M10
 * status = #active
 * intent = #plan
+* author.identifier.system = "https://example.com/user-id"
+* author.identifier.value = "1234567890"
 
 // CommunicationRequest Activity
-* activity[+].reference = Reference(EmailCommunicationRequestWithoutTemplateExample)
+* activity[+].reference = Reference(OutpatientCommunicationRequestEmailExample)
 // Communication Outcome
 * activity[=].outcomeReference = Reference(EmailCommunicationExample)
 * activity[+].reference = Reference(OutpatientCommunicationTaskExample)
+
