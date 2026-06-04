@@ -9,7 +9,7 @@ Description: "Example of an OutpatientCommunication CarePlan tracking Communicat
 
 * subject insert NHIPatientRef(ZAC7823,[[John Smith]])
 
-* category = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/outpatient-categories-cs#M10
+* category = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/dho-health-speciality-cs#M10
 * status = #active
 * intent = #plan
 * author.identifier.system = "https://example.com/user-id"
