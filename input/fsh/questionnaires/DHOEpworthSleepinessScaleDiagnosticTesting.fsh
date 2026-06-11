@@ -1,6 +1,6 @@
 Instance: DHOEpworthSleepinessScaleDiagnosticTesting
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOEpworthSleepinessScaleDiagnosticTesting"
 * identifier.use = #official
 * identifier.value = "DHOEpworthSleepinessScaleDiagnosticTesting"

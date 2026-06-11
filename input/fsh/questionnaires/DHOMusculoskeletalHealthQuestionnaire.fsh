@@ -1,6 +1,6 @@
 Instance: DHOMusculoskeletalHealthQuestionnaire
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOMusculoskeletalHealthQuestionnaire"
 * identifier.use = #official
 * identifier.value = "DHOMusculoskeletalHealthQuestionnaire"

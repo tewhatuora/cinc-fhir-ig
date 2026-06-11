@@ -1,6 +1,6 @@
 Instance: DHOSleepQuestionnaire
 InstanceOf: Questionnaire
-Usage: #example
+Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DHOSleepQuestionnaire"
 * identifier.use = #official
 * identifier.value = "DHOSleepQuestionnaire"
