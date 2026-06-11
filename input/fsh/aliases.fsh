@@ -117,7 +117,6 @@ Alias: $difficulty-scale = https://fhir-ig.digital.health.nz/cs/difficulty-scale
 Alias: $general-scale = https://fhir-ig.digital.health.nz/cs/general-scale
 Alias: $licence-class  = https://fhir-ig.digital.health.nz/cs/licence-class 
 Alias: $licence-endorsement = https://fhir-ig.digital.health.nz/cs/vehicle-licence-endorsement
-Alias: $ordinal = http://hl7.org/fhir/StructureDefinition/ordinalValue
 Alias: $sdc-calc = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression
 Alias: $sleep-options = https://fhir-ig.digital.health.nz/cs/sleep-questionnaire-options
 Alias: $enterics-answer-code = https://standards.digital.health.nz/ns/enterics-answer-code

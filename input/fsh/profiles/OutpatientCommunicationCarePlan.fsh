@@ -45,7 +45,7 @@ Maintains activity status and performer information for clinician workflow track
 * activity.detail.performer ^short = "Clinician who reviewed or acted on this activity"
 
 * category 0..*
-* category from OutpatientCategoriesVS (preferred)
+* category from DHOHealthSpecialityVS (preferred)
 * category ^short = "Outpatient service category or specialty"
 
 
