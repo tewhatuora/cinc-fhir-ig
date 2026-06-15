@@ -16,3 +16,9 @@ Title: "NZ Pharmacy Transaction Category"
 Description: "Allowed transaction categories for NZ Pharmacy Claims."
 * ^status = #draft
 * include codes from system NzPharmacyTransactionCategory
+
+ValueSet: NzPharmacyClaimItemClassification
+Id: nz-pharmacy-claim-item-classification
+Title: "NZ Pharmacy Claim Item Classification"
+Description: "Allowed classifications for items in NZ Pharmacy Claims."
+* include codes from system NzPharmacyClaimItemClassificationCS
