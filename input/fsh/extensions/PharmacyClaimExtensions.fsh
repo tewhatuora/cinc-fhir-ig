@@ -176,3 +176,20 @@ Description: "Local script number for NZ Electronic Prescription Service, used a
 Context: MedicationDispense
 * value[x] only string
 * valueString 1..1
+
+// PharmacyClaim Item Classification
+Extension: ClassificationExtension
+Id: classification
+Title: "Classification Extension"
+Description: "Classification for pharmacy claim items"
+Context: Claim.item
+* value[x] only CodeableConcept
+
+// PharmacyClaim Item PSC Flag
+Extension: PscFlagExtension
+Id: psc-flag
+Title: "PSC Flag Extension"
+Description: "PSC flag for pharmacy claim items"
+Context: Claim.item
+* value[x] only boolean
+* valueBoolean 1..1

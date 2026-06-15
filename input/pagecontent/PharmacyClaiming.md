@@ -1,5 +1,4 @@
-
-Health NZ \| Te Whatu Ora provides the agreement and payment services for New Zealand's Integrated Community Pharmacy Services Agreement (ICPSA). The ICPSA is the national contract under which Health NZ purchases community pharmacy services from community pharmacy providers.
+ Health NZ | Te Whatu Ora provides the agreement and payment services for New Zealand's Integrated Community Pharmacy Services Agreement (ICPSA). The ICPSA is the national contract under which Health NZ purchases community pharmacy services from community pharmacy providers.
 
 Pharmacies are paid according to specific service eligibilty rules and payment formulae described in the ICPSA.
 
@@ -36,6 +35,7 @@ Each "Pharmacy Claim" will consist of a POST of a FHIR `Bundle` containing a sin
 This Shared Care FHIR server’s **[Capability Statement](https://fhir-ig.digital.health.nz/shared-care/CapabilityStatement-SharedCareFHIRAPICapabilityStatement.html)** should be treated as the source of truth for which interactions/search parameters are enabled.
 
 ---
+
 ### Pharmacy Claiming Use Cases
 1. **Submit a new request for payment of a Pharmacy Claim** (status of "active") in a Bundle with referenced resources
 2. **Submit an update to a request for payment of a Pharmacy Claim** (status of "active") in a Bundle with referenced resources to correct a validation or adjudication failure, for a credit, or for a credit & resubmission)
@@ -70,7 +70,7 @@ All requests must include a [standard Health NZ 'Request-Context' custom header 
 <br>
 
 ## NZ Pharmacy Claim (Claim)
----
+
 ### What it represents
 
 A _specific_ profiled Claim resource for **requests for payment for each component of a dispensed medication** originating from each pharmacy's PhMS - performed **in accordance with the ICPSA**.
@@ -80,13 +80,13 @@ It is how the PhMS submits a request for payment through Health NZ's "front door
 It represents the ICPSA payment request by the provider via their PhMS for dispensing(s) at the pharmacy for either:
 * One specific patient (NHI) during the claim period; or
 * All supply orders during the claim period
-  * These do not have a patient and instead a data-absent-reason of "not-applicable" must be supplied in the mandatory `patient` attribute instead of the reference to a Patient.
+  * These do not have a patient and instead a `data-absent-reason` of "not-applicable" must be supplied in the mandatory `patient` (or `subject`) attribute instead of the reference to a Patient.
 
 It can be identified from the `type` (pharmacy) and `subType` (ICPSA) attributes of the Claim in addition to its specific profile.
 
 It is recommended to submit a FHIR `Bundle` including the `Claim` and referenced resources for each patient (or supply orders) per prescription per day.
 
-### Endpoints (FHIR REST)
+## Endpoints (FHIR REST)
 
 - **Create (submit claim)**: POST [base]/Claim
 - **Update**: PUT [base]/Claim/{id}
@@ -109,13 +109,13 @@ It is intended to represent a **payment request from a pharmacy for a patient (o
 |  | use | Mandatory. Set to "claim" (for validation, adjudication, & payment processing). |
 |  | status | Mandatory. Set to "active" (or "cancelled" if PhMS-driven cancellations are supported). |
 |  | priority | Mandatory. Set to "normal" |
-|  | insurance | Mandatory (in the base resource). Set the `insurance.coverage` to a data-absent-reason of "not-applicable". |
-| File Date (5) | created | Mandatory. Datetime when claim created in PhMS. |
-| NHI (38) | patient | Mandatory. NHI number (or data-absent-reason of "not-applicable" for supply orders i.e. BSOs/PSOs). |
+|  | insurance | Mandatory (in the base resource). Set the `insurance.coverage` to a `data-absent-reason` of "not-applicable". |
+| File Date (5) | created | Mandatory. Datetime when claim created in PhMS (ISO 8601 timestamp). |
+| NHI (38) | patient | Mandatory (in base resource).<br>Reference to NZ Patient (NHI) if `Order Type` = 1.<br>Set with a `data-absent-reason` of "not-applicable" for supply orders i.e. BSOs/PSOs. |
 | Claim Date (12) | billablePeriod | Mandatory. Date _range_ that represents the Claim Period. **The _end date_ of the `billablePeriod` will be used as the "claim date"** to determine the applicable Claim Period (and therefore when it will be paid according to the ICPSA). |
 | Patient Cohort (50) | patientCohort (extension) | Optional. String. |
 | Agreement Number/<br>Alternate Contract<br>Number (4) | claimantNumber (extension) | Mandatory. Identifies the party who will be paid for the claim. |
-| Originating Agreement<br>Number (82) | originatingClaimantNumber (extension) | Mandatory. Identifies the party who originally dispensed the claim. |
+| Originating Agreement<br>Number (82) | originating<br>ClaimantNumber (extension) | Mandatory. Identifies the party who originally dispensed the claim. |
 |  | related | Optional. Reference to an earlier related or cancelled Claim. |
 |  | provider | Mandatory. HPI Organisation Id that owns this Claim record (and correspondng to the HPI Organisation in the OAuth2 credential). An organisation can only see their own Claim records.<br>Note: `claimantNumber` (above) will represent who gets paid for each ICPSA claim. |
 |  | enterer | Optional. Author or approver of the claim. |
@@ -134,11 +134,13 @@ Each Claim `item` _must_ have one or more `detail` records – one for each comp
 |------|-----------|-------|
 |  | item.sequence | Mandatory. Natural number unique within the Claim. |
 | Transaction Category (23) | item.transactionCategory<br>(extension) | Mandatory. Standard (“I”nvoice or null), “C”redit, “N”on-claim, “R”esubmission, “O”wed balance. |
+| Compound Classification (27) | item.classification (extension)<br>**(to be added to profile)**| CodeableConcept. Set when applicable (e.g. "GRASB" for Grasby (Aseptic Service)). |
+| Group ID (31) | item.groupId (extension) | String. Set when applicable. |
+| PSC Flag (46)| item.pscFlag (extension)<br>**(to be added to profile)**| Mandatory. Boolean. Set as applicable per dispensing transaction in each prescription. A mixed prescription with e.g. 5 dispensings could have it set to "N" for the first two, then if the third dispensing is the 21st for the year it gets set to "Y" thereafter. |
 | Patient Flag (49) | item.patientFlag (extension) | Boolean. Set when applicable. |
 | Prescriber Flag (36) | item.prescriberFlag<br>(extension) | Boolean. Set when applicable. |
 | Prescription Flag (60) | item.prescriptionFlag<br>(extension) | Boolean. Set when applicable. |
 | Dose Flag (61) | item.doseFlag (extension) | Boolean. Set when applicable. |
-| Group ID (31) | item.groupId (extension) | String. Set when applicable. |
 | Extended Supply (71) | item.extendedSupplyFlag<br>(extension) | Boolean. Set when applicable. |
 |  | item.request (extension) | Mandatory (unless a "C"redit transaction).<br>**Reference to FHIR MedicationDispense** describing the dispensing transaction including its requested medication.<br>Set to data-absent-reason of "not-applicable" if "C"redit transaction |
 |  | item.productOrService | Mandatory (in the base resource). Specify the Purchase Unit Code (PUC) for the ICPSA service. |
@@ -150,35 +152,39 @@ Each Claim `item` _must_ have one or more `detail` records – one for each comp
 
 This describes **the dispensed medication** in the dispensing transaction.
 
+The `request` of each `Claim.item` refers to a `MedicationDispense` resource.
+
 | PTDS Field | FHIR Attribute | Notes |
 |------|-----------|-------|
-|    | identifier | Mandatory |
-| Unique Transaction Number (22) | nzepsScriptNoLocal | Mandatory. Local PhMS identifier for the dispensing transaction. |
-|   | authorisingPrescription | Mandatory. **Reference to FHIR Medication Request** describing the prescription item. |
-| Claim Code (65)<br>Code Standard (66) | medication | Mandatory. CodeableConcept describing the dispensed _medication_ and its coding standard (e.g. Pharmacode). |
+|   | identifier | Mandatory |
+|   | status | Mandatory from [standard FHIR value set](https://hl7.org/fhir/R4B/valueset-medicationdispense-status.html). Set to "completed". || Unique Transaction Number (22) | nzepsScriptNoLocal | Mandatory. Local PhMS identifier for the dispensing transaction. |
+|   | authorizingPrescription | Mandatory. **Reference to FHIR Medication Request** describing the prescription item. |
+| NHI (38) | subject | Optional. Set as reference to NZ Patient (NHI) if `Order Type` = 1. |
+| Claim Code (65)<br>Code Standard (66) | medication | Mandatory. CodeableConcept describing the dispensed _medication_ and its coding standard(s) (e.g. Pharmacode, NZULM). |
 | Quantity Dispensed (67) | quantity | Mandatory |
-| Date of Service (64) | whenPrepared | Mandatory |
-|   | whenHandedOver | Optional. If known. |
-|   | status | Mandatory from [standard FHIR value set](https://hl7.org/fhir/R4B/valueset-medicationdispense-status.html) |
+| Date of Service (64) | whenPrepared | Mandatory. ISO 8601 timestamp string (dateTime). |
+|   | whenHandedOver | Optional. If known. ISO 8601 timestamp string (dateTime).|
+
 
 ##### Medication Request
 
 This describes **the prescribed medication (drug)** in the prescription item of the dispensing transaction.
 
+The `authorizingPrescription` of each `MedicationDispense` (for a `Claim.item`) refers to a `MedicationRequest` resource.
+
 | PTDS Field | FHIR Attribute | Notes |
 |------|-----------|-------|
 |  | status | Mandatory. Set to "completed". |
-|  | identifier | Mandatory (for NzepsMedicationRequest). Set to the SCID (unique NZePS ID) with system "nzeps-scid-item-id" |
-| Prescription ID (62)<br>& Prescription Suffix (63) | identifier | Mandatory identifier(s): (Local) Prescription ID & Suffix, Unique NZePS SCID |
+| Prescription ID (62)<br>& Prescription Suffix (63) | identifier | Mandatory identifier(s).<br>1. Set the SCID (unique NZePS ID) with system "nzeps-scid-item-id"<br>2. Set the (Local) Prescription ID & Suffix |
 |  | medication | Mandatory (in base resource) but not required in legacy PTDS.<br>If not required then should not be collected - so use a `data-absent-reason` of "not-applicable". |
-| NHI (38) | subject | Mandatory |
-| Prescription Date (54) | authoredOn | Mandatory (FHIR profile to be updated). dateTime |
+| NHI (38) | subject | Mandatory (in base resource).<br>Reference to NZ Patient (NHI) if `Order Type` = 1.<br>Set with a `data-absent-reason` of "not-applicable" for supply orders i.e. BSOs/PSOs.|
+| Prescription Date (54) | authoredOn<br>**(update profile to be mandatory)** | Mandatory. Date string yyyy-mm-dd. |
 | Prescriber ID (28)<br>Health Professional<br>Group Code (29) | requester | Optional. Reference(Practitioner) (NZMC, HPI practitioner) |
 | Locum ID (30) | recorder | Optional (if applicable). Reference(Practitioner) (NZMC, HPI practitioner) |
-| Dispensings Required (55)<br>Repeats Expiry (56)<br>Total Quantity Prescribed (69)<br>Pack Unit of Measure (70) | dispenseRequest | Mandatory |
 | Dose (57)<br>Daily Dose (58) | dosageInstruction | Mandatory |
-| Special Authority Number (48)<br>Specialist ID (34)<br>Date of Endorsement (35)<br>Order Type (76)| nzepsEndorsementType | Optional. [Complex extension](https://fhir-ig.digital.health.nz/mdr/StructureDefinition-nzeps-endorsement.html) containing `endorsementType`, `value`, and `expiryDate`.<br>Set `endorsementType` of "SPECAUTH" and `expiryDate` for a Special Authority.<br>Set `endorsementType` of "specialist", `value` = specialist ID.<br>Set `endorsementType` of "specialistEndorsement", `value` = month & year (MMYYYY).<br>Set `endorsementType` of "orderType", `value` of 1 for prescriptions, 3 for PSOs, 4 for BSOs, 5 for WSOs as applicable. Would this be better as a `Claim.item.orderType` extension? |
-| Patient Category (39)<br>CSC or PHO Status (40)<br>HUHC Status (43)<br>PSC Flag (46)| nzepsFundingCategory | Mandatory. [Extension](https://fhir-ig.digital.health.nz/mdr/StructureDefinition-nzeps-funding-category.html). |
+| Dispensings Required (55)<br>Repeats Expiry (56)<br>Total Quantity Prescribed (69)<br>Pack Unit of Measure (70) | dispenseRequest | Mandatory |
+| Special Authority Number (48)<br><br>Specialist ID (34) & Date of Endorsement (35)<br><br>Order Type (76)| nzeps<br>EndorsementType | Optional^. [Complex extension](https://fhir-ig.digital.health.nz/mdr/StructureDefinition-nzeps-endorsement.html) containing zero or more records each containing `endorsementType` (coding), `valueString`, and `valueDate`.<br><br>Types of endorsement inferred by the PTDS:<br>- **Special Authority**: `endorsementType` code = "SPECAUTH", `valueString` = the Special Authority number, and set its `valueDate` to expiry date.<br>- **Specialist Endorsement**: `endorsementType` code = "SPECEND", "SPECENDCP", or "SPECENDHP", `valueString` = the specialist's ID (HPI CPN reference & display name), `valueDate` = issue date (MMYYYY format in PTDS).<br>- **Pharmacy Order Type**: `endorsementType` code = "BSO" or "PSO" for supply orders, "GEN" for standard patient prescriptions, `valueString` = "True"<br><br>Note: Refer to NZePS_Data_Model's 'Endorsement Types' tab for the full set of endorsement types.<br><br>^Note: `Order Type` is mandatory in the PTDS - so `nzepsEndorsementType` may need to contain at least a record for that endorsement type.|
+| Patient Category (39)<br>CSC or PHO Status (40)<br>HUHC Status (43)| nzeps<br>FundingCategory | Mandatory. [Extension](https://fhir-ig.digital.health.nz/mdr/StructureDefinition-nzeps-funding-category.html) containing `uri` and `value`. <br>The combination of `Patient Category`, `CSC/PHO Status`, and `HUHC Status` results in a NZePS funding category. E.g. "A1", "A3", etc.
 
 
 #### Claim item detail-level
@@ -187,13 +193,12 @@ Each `detail` record represents **a claimed component of the dispensed medicatio
 
 | PTDS Field | FHIR Attribute | Notes |
 |------|-----------|-------|
-| Component Number (24) | item.detail.sequence | Mandatory. Natural number unique within the `item` in this Claim. Set to the component number. |
-| Claim Code (65)<br>Code Standard (66) | item.detail.productOrService | Mandatory. CodeableConcept describing the pharmaceutical _component_ being claimed and its coding standard (e.g. Pharmacode). | 
+| Component Number (24) | item.detail.sequence | Mandatory. Natural number unique within the `item` in this Claim. Set to the PTDS Component Number. |
 | Balance Owing (26) | item.detail.balanceOwing | Set when applicable. | 
 | Wastage Quantity (77) | item.detail.wastageQuantity | Set when applicable. | 
 | CBS Subsidy (79) | item.detail.cbsSubsidy | Set when applicable. | 
 | CBS Packsize (80) | item.detail.cbsPackSize | Set when applicable. | 
-| Claim Code (65)<br>Code Standard (66) | item.detail.productOrService | Mandatory. Pharmacode and/or NZULM code for the component of the dispensed medication.<br>Must include the coding required by Health NZ's claim processing system. |
+| Claim Code (65)<br>Code Standard (66) | item.detail.productOrService | Mandatory. CodeableConcept describing the pharmaceutical _component_ being claimed and its coding standard(s) (e.g. Pharmacode, NZULM). Must include the coding required by Health NZ's claim processing system.| 
 | Quantity Claimed (68) | item.detail.quantity | Mandatory. Number of units of the dispensed component being claimed.  |
 
 
@@ -215,16 +220,21 @@ The following (legacy) PTDS fields will not be represented within a FHIR Claim:
 * HUHC Number (44)
 * HUHC Expiry (45)
 * PSC Number (47)
-* Prescription Code (51)
-* Prescription Code Standard (52)
-* Prescription Quantity (53)
+* Prescription Code (not used in PTDS) (51)
+* Prescription Code Standard (not used in PTDS) (52)
+* Prescription Quantity (not used in PTDS) (53)
 * Formulation Unit (59)
 * SIG (73)
 * Funder (81)
 * Service Agreement Number (83)
-* Health Insurance Claim (84)
+* Health Insurance Claim (not used in PTDS) (84)
 * Form Number (85)
-* Total Claim Value (93)
+* File Trailer record:
+  * Record Type (90)
+  * Sequence Number (91)
+  * Number of Lines (92)
+  * Total Claim Value (93)
+  * PS Cards Issued (94)
 
 
 ##### Example: Submit a Pharmacy Claim (skeleton)
@@ -264,7 +274,7 @@ Accept: application/fhir+json
 <br>
 
 ## NZ Pharmacy Claim Response (ClaimResponse)
----
+
 ### What it represents
 
 A profiled `ClaimResponse` resource describing validation and/or adjudication (determination) results for submitted Pharmacy Claims.

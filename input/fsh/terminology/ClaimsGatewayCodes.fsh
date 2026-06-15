@@ -39,3 +39,9 @@ Description: "Code system for pharmacy adjudication categories"
 * #professionalfees "Professional Fees" "Professional service fees"
 * #amountpaid "Amount Paid" "Total amount paid"
 * #packsize "Pack Size" "Package size information"
+
+CodeSystem: NzPharmacyClaimItemClassificationCS
+Id: nz-pharmcy-claim-item-classification-cs
+Title: "NZ Pharmacy Claim Item Classification CodeSystem"
+Description: "Code system for pharmacy claim item classification"
+* #GRASB "GRASB"
