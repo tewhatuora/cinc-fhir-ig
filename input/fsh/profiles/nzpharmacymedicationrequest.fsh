@@ -3,7 +3,7 @@ Parent: MedicationRequest
 Id: NzPharmacyMedicationRequest
 Title: "NZ Medication Request"
 Description: "A FHIR profile for NZ Medication Requests, including extensions for NZePS endorsement and funding category."
-* ^version = "0.0.1"
+* ^version = "0.0.2"
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
 
