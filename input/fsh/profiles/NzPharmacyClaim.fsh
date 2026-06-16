@@ -4,7 +4,7 @@ Id: NzPharmacyClaim
 Title: "NZ Pharmacy Claim"
 Description: "A FHIR resource profile for NZ Pharmacy Claims, including extensions for patient cohort and claimant information."
 
-* ^version = "0.0.2"
+* ^version = "0.0.3"
 * ^purpose = "This profile is used to represent pharmacy claims in New Zealand, including patient cohort information and claimant details."
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
