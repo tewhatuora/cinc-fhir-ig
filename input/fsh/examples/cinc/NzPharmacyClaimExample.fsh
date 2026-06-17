@@ -63,10 +63,12 @@ Description: "Example of a New Zealand pharmacy claim"
 * item[0].extension[extendedSupplyFlag].valueBoolean = false
 
 // Item-level extensions flags
+* item[0].extension[pscFlag].valueBoolean = true
 * item[0].extension[patientFlag].valueBoolean = true
 * item[0].extension[prescriberFlag].valueBoolean = false
 * item[0].extension[prescriptionFlag].valueBoolean = true
 * item[0].extension[doseFlag].valueBoolean = false
+
 * item[0].extension[groupId].valueString = "GRP001"
 
 * item[0].extension[request].valueReference.type = "MedicationDispense"

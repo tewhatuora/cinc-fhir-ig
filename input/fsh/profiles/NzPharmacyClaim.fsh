@@ -4,7 +4,7 @@ Id: NzPharmacyClaim
 Title: "NZ Pharmacy Claim"
 Description: "A FHIR resource profile for NZ Pharmacy Claims, including extensions for patient cohort and claimant information."
 
-* ^version = "0.0.2"
+* ^version = "0.0.3"
 * ^purpose = "This profile is used to represent pharmacy claims in New Zealand, including patient cohort information and claimant details."
 * ^status = #draft
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -94,7 +94,14 @@ Description: "A FHIR resource profile for NZ Pharmacy Claims, including extensio
       dose-flag named doseFlag 0..1 and
       group-id named groupId 0..1 and
       transaction-category named transactionCategory 1..1 and
-      extended-supply-flag named extendedSupplyFlag 0..1
+      extended-supply-flag named extendedSupplyFlag 0..1 and
+      classification named classification 0..1 and
+      psc-flag named pscFlag 1..1
+
+  * extension[classification].value[x] only CodeableConcept
+  * extension[classification].valueCodeableConcept from NzPharmacyClaimItemClassification (required)
+  
+  * extension[pscFlag].value[x] only boolean
 
   * extension[request].valueReference only Reference(NzPharmacyMedicationDispense)
   * extension[request].valueReference 1..1
