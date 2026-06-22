@@ -193,3 +193,25 @@ Description: "PSC flag for pharmacy claim items"
 Context: Claim.item
 * value[x] only boolean
 * valueBoolean 1..1
+
+Extension: PharmacyItemDetailReviewOutcome
+Id: pharmacy-item-detail-review-outcome
+Title: "Pharmacy Claim Item Detail Review Outcome"
+Context: ClaimResponse.item.detail
+* extension contains
+    decision 1..1 and
+    reason 0..*
+* extension[decision].value[x] only CodeableConcept
+* extension[decision].valueCodeableConcept 1..1
+* extension[decision].valueCodeableConcept from ClaimDecisionCodes
+* extension[reason].value[x] only CodeableConcept
+* extension[reason].valueCodeableConcept 0..1
+* extension[reason].valueCodeableConcept from ClaimDecisionReasonCodes
+
+Extension: PharmacyItemDetailProductOrService
+Id: pharmacy-item-detail-product-or-service
+Title: "Pharmacy Claim Item Detail Product Or Service"
+Description: "Pharmaceutical code(s) for the dispensed component at item.detail level"
+Context: ClaimResponse.item.detail
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
