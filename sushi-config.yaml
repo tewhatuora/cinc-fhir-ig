@@ -427,6 +427,8 @@ groups:
    - NzPharmacyClaimResponseExample
    - HSAAPAdjudicatedClaimResponse
    - PharmacySubmittedClaim
+   - NzPharmacyMedicationRequestExample
+   - NzPharmacyMedicationDispenseExample
   ClaimDefinitions:
     name: Resources used for PCTAP automation of operational reporting and payments
     resources:
