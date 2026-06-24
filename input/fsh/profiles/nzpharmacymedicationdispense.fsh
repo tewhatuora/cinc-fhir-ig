@@ -11,6 +11,7 @@ Description: "A FHIR profile for NZ Medication Dispense, including extensions fo
 * identifier 1..* // Unique Transaction Number
 * authorizingPrescription 1..*
 // * medication 1..1 // CodeableConcept, NZMT code this is already in R4B
+* performer 1..* // Dispensing pharmacy (Organization) - required for provider isolation
 * quantity 0..1 // SimpleQuantity, Quantity Dispensed
 * daysSupply 0..1 // SimpleQuantity, Extended Supply
 * whenPrepared 1..1 // Date of Service

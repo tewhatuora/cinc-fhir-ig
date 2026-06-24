@@ -13,6 +13,7 @@ Description: "A FHIR profile for NZ Medication Requests, including extensions fo
 * subject 1..1 // NHI not allowing 0..1
 * requester 0..1 // Prescriber ID
 * recorder 0..1 // Locum ID
+* performer 1..1 // Dispensing pharmacy (Organization) - required for provider isolation
 
 //* informationSource 0..1 // Specialist ID not in R4B
 * dispenseRequest 1..1
