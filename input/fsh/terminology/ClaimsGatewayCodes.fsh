@@ -41,7 +41,7 @@ Description: "Code system for pharmacy adjudication categories"
 * #packsize "Pack Size" "Package size information"
 
 CodeSystem: NzPharmacyClaimItemClassificationCS
-Id: nz-pharmcy-claim-item-classification-cs
+Id: nz-pharmacy-claim-item-classification-cs
 Title: "NZ Pharmacy Claim Item Classification CodeSystem"
 Description: "Code system for pharmacy claim item classification"
 * #GRASB "GRASB"
