@@ -57,6 +57,8 @@ Description: "This profile derives from the [Appointment](https://hl7.org/fhir/R
 // ---------------------------------------------------------
 * extension contains DHOAppointmentMethod named appointmentMethod 1..1 MS
 * extension[appointmentMethod] ^short = "How the appointment is delivered (in-person | telehealth | home-visit)"
+* extension contains DHOInitialPatientClass named initialPatientClass 0..1 MS
+* extension[initialPatientClass] ^short = "Expected inital patient class (e.g. ambulatory, inpatient, emergency) at the start of the resulting encounter"
 
 // ---------------------------------------------------------
 // Reference constraints
