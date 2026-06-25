@@ -3,7 +3,9 @@ Parent: ClaimResponse
 Id: NzPharmacyClaimResponse
 Title: "New Zealand Pharmacy Claim Response"
 Description: "FHIR profile for New Zealand pharmacy claim responses"
-
+* ^version = "1.0.0"
+* ^status = #active
+* ^jurisdiction = urn:iso:std:iso:3166#NZ
 
 * insert PCTapDerivedMetaDataRules
 * meta 1..1

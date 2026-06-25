@@ -1,3 +1,5 @@
+# Pharmacy Claiming
+
  Health NZ | Te Whatu Ora provides the agreement and payment services for New Zealand's Integrated Community Pharmacy Services Agreement (ICPSA). The ICPSA is the national contract under which Health NZ purchases community pharmacy services from community pharmacy providers.
 
 Pharmacies are paid according to specific service eligibilty rules and payment formulae described in the ICPSA.
@@ -11,7 +13,7 @@ Although the new submission process allows the payment claims to be submitted as
 The PhMS will be notified when a submitted payment claim has been processed (approved/rejected) and **the PhMS will be able to fetch the outcome of the claim ("Pharmacy Claim Response") from a FHIR API endpoint** and present the results to the PhMS user. Payments for each Claim Period will be according to the current ICPSA schedule.
 
 
-### Overview
+## Overview
 
 This section summarises the **FHIR REST API endpoints** used to exchange:
 - **Pharmacy Claims** as operational reporting of **payment requests** for reimbursement for funded services delivered under the ICPSA.
@@ -36,25 +38,25 @@ This Shared Care FHIR server’s **[Capability Statement](https://fhir-ig.digita
 
 ---
 
-### Pharmacy Claiming Use Cases
+## Pharmacy Claiming Use Cases
 1. **Submit a new request for payment of a Pharmacy Claim** (status of "active") in a Bundle with referenced resources
 2. **Submit an update to a request for payment of a Pharmacy Claim** (status of "active") in a Bundle with referenced resources to correct a validation or adjudication failure, for a credit, or for a credit & resubmission)
 3. **Fetch a Claim Response describing the outcome of a request for payment of a Pharmacy Claim** (payment validation & adjudication results)
 4. **View a request for payment (Pharmacy Claim) that has been submitted** (details of the Claim)
 
-#### Not currently supported
+### Not currently supported
 1. **Submit a cancellation of a request for payment of a Pharmacy Claim** (status of "cancelled")
 
 ---
 
-### FHIR API endpoint conventions
+## FHIR API endpoint conventions
 
 Applicable to all use cases.
 
-#### Base URL
+### Base URL
 - `[base]` = Shared Care FHIR Server base endpoint (environment-specific).
 
-#### Common attributes (as profiled)
+### Common attributes (as profiled)
 The profile of Claim requires a `meta.source` and a `correlation-id` slice for `tag` to be included in the request body.
 
 | Attribute | Notes |
@@ -62,16 +64,16 @@ The profile of Claim requires a `meta.source` and a `correlation-id` slice for `
 | **meta.source** | HPI Facility ID URI representing the PhMS system of record |
 | **tag.correlation-id** | Coding consisting of a `code` (a GUID) fixed to a specific `system` (i.e. `"https://hub.services.digital.health.nz/ns/correlation-id"`) used for observability/tracing of a request within Health NZ. |
 
-#### Request-Context header
+### Request-Context header
 
 All requests must include a [standard Health NZ 'Request-Context' custom header (Base64 encoded)](https://github.com/tewhatuora/schemas#request-context-header). The purpose of use should be "HPAYMT".
 
 ---
 <br>
 
-## NZ Pharmacy Claim (Claim)
+# NZ Pharmacy Claim (Claim)
 
-### What it represents
+## What it represents
 
 A _specific_ profiled Claim resource for **requests for payment for each component of a dispensed medication** originating from each pharmacy's PhMS - performed **in accordance with the ICPSA**.
 
@@ -94,9 +96,9 @@ It is recommended to submit a FHIR `Bundle` including the `Claim` and referenced
 - **Search**: GET [base]/Claim?{search-params}
 
 
-### Key information
+## Key information
 
-#### Claim-level
+### Claim-level
 
 It is intended to represent a **payment request from a pharmacy for a patient (or supply orders) per prescription per day**.
 
@@ -118,11 +120,11 @@ It is intended to represent a **payment request from a pharmacy for a patient (o
 | Originating Agreement<br>Number (82) | originating<br>ClaimantNumber (extension) | Mandatory. Identifies the party who originally dispensed the claim. |
 |  | related | Optional. Reference to an earlier related or cancelled Claim. |
 |  | provider | Mandatory. HPI Organisation Id that owns this Claim record (and correspondng to the HPI Organisation in the OAuth2 credential). An organisation can only see their own Claim records.<br>Note: `claimantNumber` (above) will represent who gets paid for each ICPSA claim. |
-|  | enterer | Optional. Author or approver of the claim. |
+|  | enterer | Optional. Practitioner who is the author or approver of the claim. |
 |  | item | Mandatory. **One record per dispensing transaction** in the claim. |
 
 
-#### Claim item-level
+### Claim item-level
 
 This **represents a dispensing transaction and its dispensed medication**. 
 
@@ -134,9 +136,9 @@ Each Claim `item` _must_ have one or more `detail` records – one for each comp
 |------|-----------|-------|
 |  | item.sequence | Mandatory. Natural number unique within the Claim. |
 | Transaction Category (23) | item.transactionCategory<br>(extension) | Mandatory. Standard (“I”nvoice or null), “C”redit, “N”on-claim, “R”esubmission, “O”wed balance. |
-| Compound Classification (27) | item.classification (extension)<br>**(to be added to profile)**| CodeableConcept. Set when applicable (e.g. "GRASB" for Grasby (Aseptic Service)). |
-| Group ID (31) | item.groupId (extension) | String. Set when applicable. |
-| PSC Flag (46)| item.pscFlag (extension)<br>**(to be added to profile)**| Mandatory. Boolean. Set as applicable per dispensing transaction in each prescription. A mixed prescription with e.g. 5 dispensings could have it set to "N" for the first two, then if the third dispensing is the 21st for the year it gets set to "Y" thereafter. |
+| Compound Classification (27) | item.classification (extension)| Optional CodeableConcept. Set when applicable (e.g. "GRASB" for Grasby (Aseptic Service)). |
+| Group ID (31) | item.groupId (extension) | Optional String. Set when applicable. |
+| PSC Flag (46)| item.pscFlag (extension)| Mandatory. Boolean. Set as applicable per dispensing transaction in each prescription. A mixed prescription with e.g. 5 dispensings could have it set to "N" for the first two, then if the third dispensing is the 21st for the year it gets set to "Y" thereafter. |
 | Patient Flag (49) | item.patientFlag (extension) | Boolean. Set when applicable. |
 | Prescriber Flag (36) | item.prescriberFlag<br>(extension) | Boolean. Set when applicable. |
 | Prescription Flag (60) | item.prescriptionFlag<br>(extension) | Boolean. Set when applicable. |
@@ -148,7 +150,7 @@ Each Claim `item` _must_ have one or more `detail` records – one for each comp
 |  | item.detail | Mandatory. **One detail record for each claimed component of the dispensed medication** (e.g. ECPs in particular will have multiple components) |
 | Claim Amount (78) | item.net | Mandatory. Amount being claimed for the dispensed medication. |
 
-##### Medication Dispense
+#### Medication Dispense
 
 This describes **the dispensed medication** in the dispensing transaction.
 
@@ -157,7 +159,9 @@ The `request` of each `Claim.item` refers to a `MedicationDispense` resource.
 | PTDS Field | FHIR Attribute | Notes |
 |------|-----------|-------|
 |   | identifier | Mandatory |
-|   | status | Mandatory from [standard FHIR value set](https://hl7.org/fhir/R4B/valueset-medicationdispense-status.html). Set to "completed". || Unique Transaction Number (22) | nzepsScriptNoLocal | Mandatory. Local PhMS identifier for the dispensing transaction. |
+|   | status | Mandatory from [standard FHIR value set](https://hl7.org/fhir/R4B/valueset-medicationdispense-status.html). Set to "completed". |
+| Unique Transaction Number (22) | nzepsScriptNoLocal | Mandatory. Local PhMS identifier for the dispensing transaction. |
+|   | performer | Mandatory. HPI Organisation Id of the pharmacy organisation who performed the dispensing and who owns this record. It will also correspond to the HPI Organisation in the OAuth2 credential. An organisation can only see MedicationDispense records they submitted as part of a Claim. |
 |   | authorizingPrescription | Mandatory. **Reference to FHIR Medication Request** describing the prescription item. |
 | NHI (38) | subject | Optional. Set as reference to NZ Patient (NHI) if `Order Type` = 1. |
 | Claim Code (65)<br>Code Standard (66) | medication | Mandatory. CodeableConcept describing the dispensed _medication_ and its coding standard(s) (e.g. Pharmacode, NZULM). |
@@ -166,7 +170,7 @@ The `request` of each `Claim.item` refers to a `MedicationDispense` resource.
 |   | whenHandedOver | Optional. If known. ISO 8601 timestamp string (dateTime).|
 
 
-##### Medication Request
+#### Medication Request
 
 This describes **the prescribed medication (drug)** in the prescription item of the dispensing transaction.
 
@@ -178,8 +182,9 @@ The `authorizingPrescription` of each `MedicationDispense` (for a `Claim.item`) 
 | Prescription ID (62)<br>& Prescription Suffix (63) | identifier | Mandatory identifier(s).<br>1. Set the SCID (unique NZePS ID) with system "nzeps-scid-item-id"<br>2. Set the (Local) Prescription ID & Suffix |
 |  | medication | Mandatory (in base resource) but not required in legacy PTDS.<br>If not required then should not be collected - so use a `data-absent-reason` of "not-applicable". |
 | NHI (38) | subject | Mandatory (in base resource).<br>Reference to NZ Patient (NHI) if `Order Type` = 1.<br>Set with a `data-absent-reason` of "not-applicable" for supply orders i.e. BSOs/PSOs.|
-| Prescription Date (54) | authoredOn<br>**(update profile to be mandatory)** | Mandatory. Date string yyyy-mm-dd. |
+| Prescription Date (54) | authoredOn<br> | Mandatory. Date string yyyy-mm-dd. |
 | Prescriber ID (28)<br>Health Professional<br>Group Code (29) | requester | Optional. Reference(Practitioner) (NZMC, HPI practitioner) |
+|   | performer | Mandatory. HPI Organisation Id of the pharmacy organisation who performed the dispensing of this medication and who owns this record. It will also correspond to the HPI Organisation in the OAuth2 credential. An organisation can only see  MedicationRequest records they submitted as part of a Claim. |
 | Locum ID (30) | recorder | Optional (if applicable). Reference(Practitioner) (NZMC, HPI practitioner) |
 | Dose (57)<br>Daily Dose (58) | dosageInstruction | Mandatory |
 | Dispensings Required (55)<br>Repeats Expiry (56)<br>Total Quantity Prescribed (69)<br>Pack Unit of Measure (70) | dispenseRequest | Mandatory |
@@ -187,7 +192,7 @@ The `authorizingPrescription` of each `MedicationDispense` (for a `Claim.item`) 
 | Patient Category (39)<br>CSC or PHO Status (40)<br>HUHC Status (43)| nzeps<br>FundingCategory | Mandatory. [Extension](https://fhir-ig.digital.health.nz/mdr/StructureDefinition-nzeps-funding-category.html) containing `uri` and `value`. <br>The combination of `Patient Category`, `CSC/PHO Status`, and `HUHC Status` results in a NZePS funding category. E.g. "A1", "A3", etc.
 
 
-#### Claim item detail-level
+### Claim item detail-level
 
 Each `detail` record represents **a claimed component of the dispensed medication**. Most dispensing medications have a single component. Extemporaneously compounded products (ECPs) have multiple components - each with separate `quantity` & pricing.
 
@@ -202,7 +207,7 @@ Each `detail` record represents **a claimed component of the dispensed medicatio
 | Quantity Claimed (68) | item.detail.quantity | Mandatory. Number of units of the dispensed component being claimed.  |
 
 
-##### Legacy attributes not for inclusion
+#### Legacy attributes not for inclusion
 
 The following (legacy) PTDS fields will not be represented within a FHIR Claim:
 
@@ -237,7 +242,7 @@ The following (legacy) PTDS fields will not be represented within a FHIR Claim:
   * PS Cards Issued (94)
 
 
-##### Example: Submit a Pharmacy Claim (skeleton)
+#### Example: Submit a Pharmacy Claim (skeleton)
 
 ```
 POST [base]/Claim
@@ -264,7 +269,7 @@ Accept: application/fhir+json
 }
 ```
 
-##### Example: Retrieve submitted Claim by id
+#### Example: Retrieve submitted Claim by id
 
 ```
 GET [base]/Claim/{id}
@@ -273,20 +278,20 @@ Accept: application/fhir+json
 
 <br>
 
-## NZ Pharmacy Claim Response (ClaimResponse)
+# NZ Pharmacy Claim Response (ClaimResponse)
 
-### What it represents
+## What it represents
 
 A profiled `ClaimResponse` resource describing validation and/or adjudication (determination) results for submitted Pharmacy Claims.
 
 
-### Endpoints (FHIR REST)
+## Endpoints (FHIR REST)
 
 - **Read**: GET [base]/ClaimResponse/{id}
 - **Search**: GET [base]/ClaimResponse?{search-params}
 
 
-### Key information
+## Key information
 
 Each resource references the original claim via `ClaimResponse.request`.
 
@@ -294,7 +299,7 @@ Claim-level or claim item-level attributes that have failed validation, includin
 
 Once the claim and its items are validated then each `Claim.item` (and each of its `Claim.item.detail` records) will be adjudicated. Information and failure messages relating to the adjudication (approval or denial) for the item will be reported as records within the `ClaimResponse.item.detail.reviewOutcome` record. If all the items in the claim are approved then the `ClaimResponse.outcome` will be set to "complete". Otherwise, if any item had a denial then the `ClaimResponse.outcome` will be set to "partial". Payment may be made for any successfully adjudicated items.
 
-#### Response-level attributes
+### Response-level attributes
 
 | LBL attribute | FHIR Attribute | Notes |
 |---------------|----------------|-------|
@@ -332,7 +337,7 @@ The following (legacy) LBL attributes will not be represented within a FHIR Clai
   * QuantityDispensed - already in the `Claim.item.detail`
   * SequenceNumber - n/a
 
-##### Response item-level attributes
+#### Response item-level attributes
 
 The **validated/adjudicated dispensed medication** (a _summary_ of any components validated/adjudicated detail-level).
 
@@ -345,7 +350,7 @@ The **validated/adjudicated dispensed medication** (a _summary_ of any component
 | QuantityPaid<br>DrugCost<br>Markups<br>Pharmaceutical Subsidy<br>SubsidyValue<br>PackSize<br>Patient Abatement<br>Professional Fees<br> | adjudication | A collection of one or more records **summarising the amount payable over each detail of this adjudicated dispensed item** per [Pharmacy Adjudication Category](https://fhir-ig-uat.digital.health.nz/shared-care/ValueSet-pharmacy-adjudication-category.html).<br>Each adjudication record will contain:<br>- `category` (mandatory Pharmacy Adjudication Category e.g. "drugcost", "professionalfees", etc.)<br>- `reason` (optional - not to be populated)<br>- `amount` (sum of monetary amounts calculated for each detail record and Pharmacy Adjudication Category)<br>- `value` (optional - not to be populated at item-level) |
 |  | detail | One detail record for each component of the dispensed medication (e.g. ECPs in particular will have multiple components) |
 
-##### Response item detail-level attributes
+#### Response item detail-level attributes
 
 The **validated/adjudicated _component(s)_** of the dispensed medication.
 
@@ -358,14 +363,14 @@ The **validated/adjudicated _component(s)_** of the dispensed medication.
 | ComponentStatus<br>Error1<br>Error2<br>Error3 | reviewOutcome (extension) | A record describing the **overall adjudication outcome of the detail record** and associated information or failure messages.<br>It consists of a `decision` ("approved" or "denied") and zero or more `reason` record(s).<br>Each reason record contains:<br>- `code` (the adjudiction/determination rule id)<br>- `display` ("passed" or "failed")<br>- `definition` (the information or failure message)<br>- `system` (the Health NZ code set describing the error, information, and adjudication failure messages).<br>Note: _Validation_ errors should be reported in the `ClaimResponse.error` collection. |
 
 
-#### Example: Find Claim Response(s) for a given Claim
+### Example: Find Claim Response(s) for a given Claim
 
 ```
 GET [base]/ClaimResponse?request=Claim/{claimId}
 Accept: application/fhir+json
 ```
 
-#### Example: Read a ClaimResponse by id
+### Example: Read a ClaimResponse by id
 
 ```
 GET [base]/ClaimResponse/{id}

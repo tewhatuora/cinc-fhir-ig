@@ -72,7 +72,7 @@ Alias: $hnz-service-request-status-reason-codes = https://fhir-ig.digital.health
 Alias: $sd-birthPlace = http://hl7.org.nz/fhir/StructureDefinition/birth-place
 Alias: $sd-building-name = http://hl7.org.nz/fhir/StructureDefinition/building-name
 Alias: $sd-ethnicity = http://hl7.org.nz/fhir/StructureDefinition/nz-ethnicity
-Alias: $sd-interpreter-required  = http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired|5.2.0
+Alias: $sd-interpreter-required  = http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired|5.3.0
 Alias: $sd-nzResidency = http://hl7.org.nz/fhir/StructureDefinition/nz-residency
 Alias: $sd-nzCitizen = http://hl7.org.nz/fhir/StructureDefinition/nz-citizenship
 Alias: $sd-patient-contact-role-extension-id = https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/dho-patient-contact-role-extension-id
@@ -94,6 +94,7 @@ Alias: $cs-telecom-validation-status = https://fhir-ig.digital.health.nz/shared-
 // ValueSets
 Alias: $vs-administrative-gender = http://hl7.org/fhir/ValueSet/administrative-gender
 Alias: $vs-encounter-status = http://hl7.org/fhir/ValueSet/encounter-status
+Alias: $vs-encounter-class = http://terminology.hl7.org/ValueSet/encounter-class
 Alias: $vs-ethnic-group-level-4-code = https://nzhts.digital.health.nz/fhir/ValueSet/ethnic-group-level-4-code|2.1.0
 Alias: $vs-patient-contact-relationship = http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType|3.0.0
 Alias: $vs-nz-citizenship-information-source-code = https://nzhts.digital.health.nz/fhir/ValueSet/nz-citizenship-source-code

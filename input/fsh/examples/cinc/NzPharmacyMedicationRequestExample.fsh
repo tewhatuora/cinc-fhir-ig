@@ -29,6 +29,12 @@ Description: "Example of a New Zealand pharmacy medication request for Paracetam
 * requester.identifier.value = "99ZZSE"
 * requester.display = "Dr Sarah Smith"
 
+* performer.type = "Organization"
+* performer.identifier.use = #official
+* performer.identifier.system = "https://standards.digital.health.nz/ns/hpi-facility-id"
+* performer.identifier.value = "FZZ999-B"
+* performer.display = "Wellness Pharmacy Auckland"
+
 * recorder.type = "Practitioner"
 * recorder.identifier.use = #official
 * recorder.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
