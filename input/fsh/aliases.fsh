@@ -68,6 +68,9 @@ Alias: $hnz-service-request-status-reason-codes = https://fhir-ig.digital.health
 
 //----Dunedin Hospital Outpatients----//
 
+Alias: $cs-provenance-reason-type = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/provenance-reason-type-cs
+Alias: $vs-provenance-reason-type = https://fhir-ig.digital.health.nz/shared-care/ValueSet/provenance-reason-type-vs
+
 // StructureDefinitions
 Alias: $sd-birthPlace = http://hl7.org.nz/fhir/StructureDefinition/birth-place
 Alias: $sd-building-name = http://hl7.org.nz/fhir/StructureDefinition/building-name
