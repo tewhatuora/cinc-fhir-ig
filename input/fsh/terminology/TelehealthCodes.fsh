@@ -8,12 +8,17 @@
 // * #professional "Professional" "Outpatient claims from physicians including GPs, telehealth, primary maternity, diagnostic & labs, etc."
 // * #pharmacy "Pharmacy" "Pharmacy claims for goods & services"
 // * #oral "Oral" "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
-CodeSystem: NzAppointmentReasonCodesCS
-Id: nz-onlinegp-appointment-reason-codes-cs
-Title: "NZ Appointment Reason Codes Code System"
-Description: "Code system for NZ appointment reason codes"
+CodeSystem: SctNzAppointmentReasonCodesFragment
+Id: sct-nz-onlinegp-appointment-reason-codes-fragment
+Title: "SNOMED CT NZ Edition Appointment Reason Codes Fragment"
+Description: "Fragment for NZ appointment reason codes"
 * ^status = #draft
 * ^caseSensitive = true
+* ^content = #fragment
+* ^experimental = true
+* ^version = "http://snomed.info/sct/21000210109"
+* ^copyright = "This non-authoritative fragment contains SNOMED CT content. Use is subject to applicable SNOMED CT licensing terms."
+
 * #566531000210101 "Timely in person appointment unavailable" "Service user unable to get into usual GP practice for in person appointment when required. GP booked / wait for appointment is too long"
 * #566541000210109 "Unable to attend in person due to impaired mobility" "Service user has difficulty traveling to clinics"
 * #566551000210107 "Lives in rural or remote location" "Service user has limited access to healthcare facilities in location of residence or current location"

@@ -8,7 +8,7 @@ Description: "Code system for NZ appointment reason codes"
 * $sct#74964007 "Other (qualifier value)"
 
 
-* include codes from system nz-onlinegp-appointment-reason-codes-cs
+* include codes from system https://fhir-ig.digital.health.nz/shared-care/CodeSystem/sct-nz-onlinegp-appointment-reason-codes-fragment
 
 ValueSet: NzClaimTypes
 Id: nz-claim-types
