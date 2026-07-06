@@ -15,7 +15,7 @@ Usage: #definition
 * kind = #instance
 * implementation.description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
 * implementation.url = "https://fhir.api.digital.health.nz/R4"
-* fhirVersion = #4.0.1
+* fhirVersion = #4.3.0
 * format = #json
 * rest.mode = #server
 * rest.security.cors = true
