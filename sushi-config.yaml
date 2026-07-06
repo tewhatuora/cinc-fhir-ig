@@ -350,6 +350,7 @@ groups:
       - StructureDefinition/DHOEncounterCreate
       - StructureDefinition/DHOEncounterUpdate
       - StructureDefinition/DHOLocation
+      - StructureDefinition/OutpatientProvenance
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
