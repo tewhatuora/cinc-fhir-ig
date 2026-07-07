@@ -29,6 +29,17 @@ Description: "Fragment for NZ appointment reason codes"
 * #659821000210106 "Referred by urgent care clinic" "Referred by urgent care"
 * #301661000210103 "Referred by emergency department" "Emergency department has referred service user"
 
+CodeSystem: SctOnlineGPDischargeDispositionFragment
+Id: sct-nz-onlinegp-discharge-disposition-fragment
+Title: "SNOMED CT NZ Edition Discharge Disposition Fragment"
+Description: "Fragment for NZ discharge disposition codes"
+* ^status = #draft
+* ^caseSensitive = true
+* ^content = #fragment
+* ^experimental = true
+* ^version = "http://snomed.info/sct/21000210109"
+
+* #566291000210102 "Out of scope for telehealth"
 
 CodeSystem: NzClaimSubtypeCS
 Id: nz-claim-subtype-cs
