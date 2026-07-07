@@ -17,7 +17,6 @@ Description: "Fragment for NZ appointment reason codes"
 * ^content = #fragment
 * ^experimental = true
 * ^version = "http://snomed.info/sct/21000210109"
-* ^copyright = "This non-authoritative fragment contains SNOMED CT content. Use is subject to applicable SNOMED CT licensing terms."
 
 * #566531000210101 "Timely in person appointment unavailable" "Service user unable to get into usual GP practice for in person appointment when required. GP booked / wait for appointment is too long"
 * #566541000210109 "Unable to attend in person due to impaired mobility" "Service user has difficulty traveling to clinics"
