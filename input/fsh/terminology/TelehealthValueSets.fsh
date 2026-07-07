@@ -8,7 +8,7 @@ Description: "Code system for NZ appointment reason codes"
 * $sct#74964007 "Other (qualifier value)"
 
 
-* include codes from system https://fhir-ig.digital.health.nz/shared-care/CodeSystem/sct-nz-onlinegp-appointment-reason-codes-fragment
+* include codes from system sct-nz-onlinegp-appointment-reason-codes-fragment
 
 ValueSet: NzClaimTypes
 Id: nz-claim-types
@@ -82,9 +82,20 @@ Description: "Codes for diagnosis use (working vs final)"
 * ^status = #draft
 * include codes from system $diagnosis-role
 
-ValueSet: SharedCareEncounterTypeValueSet
-Id: shared-care-encounter-type-valueset
-Title: "Shared Care Encounter Type Value Set"
+ValueSet: UrgentCareEncounterTypeValueSet
+Id: urgent-care-encounter-type-valueset
+Title: "Urgent Care Encounter Type Value Set"
+Description: "Encounter types for Urgent Care"
+* ^status = #draft
+
+// Include specific preferred codes
+* $sct#1269515004 "Face to face consultation with patient"
+* $sct#386472008 "Telephone consultation"
+* $sct#719410009 "Video consultation"
+
+ValueSet: OnlineGPEncounterTypeValueSet
+Id: online-gp-encounter-type-valueset
+Title: "Online GP Encounter Type Value Set"
 Description: "Encounter types for Shared Care including specific codes and other SNOMED CT codes"
 * ^version = "0.0.1"
 * ^status = #draft
