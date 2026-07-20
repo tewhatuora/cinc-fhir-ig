@@ -113,7 +113,7 @@ Severity: #error
 Expression: "system = 'https://standards.digital.health.nz/ns/hpi-person-id' implies value.matches('^[0-9]{2}[A-Za-z]{4}$')"
 
 Invariant: DHOallowedLocalIdentifierSystems
-Description: "Identifier system must be HPI facility, NHO, NZBN, HPI Organisation, HPI Person, HPI Practitioner or NZHIS Facility ID (Legacy)"
+Description: "Identifier system must be HPI facility, NHI, NZBN, HPI Organisation, HPI Person, HPI Practitioner, NZHIS Facility ID (Legacy) or a DHO system URI (https://dho.tewhatuora.govt.nz/)"
 Severity: #error
 // note nzhis-facility-id is a legacy system which is still commonly used.
 Expression: "
@@ -123,7 +123,8 @@ $this = 'https://standards.digital.health.nz/ns/hpi-nzbn' or
 $this = 'https://standards.digital.health.nz/ns/hpi-organisation-id' or
 $this = 'https://standards.digital.health.nz/ns/hpi-person-id' or
 $this = 'https://standards.digital.health.nz/ns/hpi-practitioner-id' or
-$this = 'https://standards.digital.health.nz/ns/nzhis-facility-id'
+$this = 'https://standards.digital.health.nz/ns/nzhis-facility-id' or
+$this.startsWith('https://dho.tewhatuora.govt.nz/')
 "
 
 /* ------------------------------------------------------------------------------------------------------
