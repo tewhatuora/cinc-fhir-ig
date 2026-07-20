@@ -123,7 +123,8 @@ $this = 'https://standards.digital.health.nz/ns/hpi-nzbn' or
 $this = 'https://standards.digital.health.nz/ns/hpi-organisation-id' or
 $this = 'https://standards.digital.health.nz/ns/hpi-person-id' or
 $this = 'https://standards.digital.health.nz/ns/hpi-practitioner-id' or
-$this = 'https://standards.digital.health.nz/ns/nzhis-facility-id'
+$this = 'https://standards.digital.health.nz/ns/nzhis-facility-id' or
+$this = 'https://dho.tewhatuora.govt.nz/*'
 "
 
 /* ------------------------------------------------------------------------------------------------------
