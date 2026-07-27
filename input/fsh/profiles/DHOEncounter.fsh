@@ -84,7 +84,7 @@ Parent: Encounter
 Id: DHOEncounter
 Title: "DHO Encounter profile"
 Description: "This profile derives from the [Encounter](https://hl7.org/fhir/R4B/encounter.html) Resource, for use in the Dunedin Hospital Outpatients context."
-* ^version = "1.0.1"
+* ^version = "1.0.2"
 * insert CommonEncounterConstraints
 * appointment 0..*
 
@@ -93,7 +93,7 @@ Parent: Encounter
 Id: DHOEncounterCreate
 Title: "DHO Encounter profile used to create an Encounter"
 Description: "This profile derives from the [Encounter](https://hl7.org/fhir/R4B/encounter.html) Resource, for use in the Dunedin Hospital Outpatients context."
-* ^version = "1.0.1"
+* ^version = "1.0.2"
 * insert CommonEncounterConstraints
 * appointment 1..*
 
@@ -102,6 +102,6 @@ Parent: Encounter
 Id: DHOEncounterUpdate
 Title: "DHO Encounter profile used to update an Encounter"
 Description: "This profile derives from the [Encounter](https://hl7.org/fhir/R4B/encounter.html) Resource, for use in the Dunedin Hospital Outpatients context."
-* ^version = "1.0.1"
+* ^version = "1.0.2"
 * insert CommonEncounterConstraints
 * appointment 1..*
