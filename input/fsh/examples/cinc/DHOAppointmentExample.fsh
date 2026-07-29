@@ -1,4 +1,4 @@
-Instance: AppointmentSlot
+  Instance: AppointmentSlot
 InstanceOf: Slot
 Usage: #inline // #inline means this instance MUST NOT be exported as a separate example
 * status = #busy
@@ -112,7 +112,7 @@ Description: "An example Dunedin Hospital Outpatient Unstructured Appointment"
 Instance: DHOAppointmentTelehealthExample
 InstanceOf: DHOAppointment
 Usage: #example
-Description: "An example Dunedin Hospital Outpatient Telehealth Appointment"
+Description: "An example Dunedin Hospital Outpatient Telehealth Appointment where the clinician is based at New Dunedin Hospital and the patient is present at home."
 
 * meta.lastUpdated = "2025-11-11T02:29:24.844Z"
 * meta.versionId = "3"
@@ -142,14 +142,122 @@ Description: "An example Dunedin Hospital Outpatient Telehealth Appointment"
 * participant[=].actor.identifier insert HPIProviderNumber(99ZZZX)
 * participant[=].actor.display = "Dr Dotty McStuffins"
 
-// Owning clinic/site Location (still provided for routing/reporting even though modality is telehealth)
-* contained[+] = DHOClinicLocation
+// Clinician/service site Location - New Dunedin Hospital
+* contained[+] = DHOLocationNewDunedinHospitalExample
 * participant[+].required = #required
 * participant[=].status  = #accepted
-* participant[=].actor = Reference(DHOClinicLocation)
+* participant[=].actor = Reference(DHOLocationNewDunedinHospitalExample)
+
+// Patient's location - home (where the patient will be for the telehealth call)
+* contained[+] = DHOLocationPatientHomeExample
+* participant[+].required = #required
+* participant[=].status  = #accepted
+* participant[=].actor = Reference(DHOLocationPatientHomeExample)
 
 * start = "2025-09-10T02:30:35Z"
 * end = "2025-09-10T03:00:35Z"
+
+// ------------------------------------------------------------
+// Telehealth example - clinician at New Dunedin Hospital, patient in custody
+// ------------------------------------------------------------
+Instance: DHOAppointmentTelehealthPrisonExample
+InstanceOf: DHOAppointment
+Usage: #example
+Description: "An example Dunedin Hospital Outpatient Telehealth Appointment where the clinician is based at New Dunedin Hospital and the patient is present at a Corrections facility."
+
+* meta.lastUpdated = "2025-11-11T02:29:24.844Z"
+* meta.versionId = "3"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointment"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+
+* identifier.value = "#cccccccc-dddd-eeee-ffff-000000000000"
+* status = #booked
+* extension[appointmentMethod].valueCodeableConcept = DHOAppointmentModalityCS#telehealth "Telehealth"
+* description = "Telehealth follow-up (patient in custody)"
+* serviceCategory = $cs-nc-health-specialty-code#S45 "Orthopaedic Surgery"
+* serviceType = DHOHealthSpecialityCS#S45B "Fracture Clinic"
+
+* patientInstruction = "Corrections staff will make you available at the scheduled time in a private area with telehealth equipment."
+
+// Patient
+* participant[+].required = #required
+* participant[=].status  = #needs-action
+* participant[=].actor.identifier insert NHIIdentifier(ZXP7823)
+* participant[=].actor.display = "Carey Carrington"
+
+// Responsible Clinician
+* participant[+].type = $v3-ParticipationType#CON "consultant"
+* participant[=].required = #required
+* participant[=].status  = #accepted
+* participant[=].actor.identifier insert HPIProviderNumber(99ZZZX)
+* participant[=].actor.display = "Dr Dotty McStuffins"
+
+// Clinician/service site Location - New Dunedin Hospital
+* contained[+] = DHOLocationNewDunedinHospitalExample
+* participant[+].required = #required
+* participant[=].status  = #accepted
+* participant[=].actor = Reference(DHOLocationNewDunedinHospitalExample)
+
+// Patient's location - Corrections facility (where the patient will be for the telehealth call)
+* contained[+] = DHOLocationTelehealthPrisonExample
+* participant[+].required = #required
+* participant[=].status  = #accepted
+* participant[=].actor = Reference(DHOLocationTelehealthPrisonExample)
+
+* start = "2025-09-24T02:30:35Z"
+* end = "2025-09-24T03:00:35Z"
+
+// ------------------------------------------------------------
+// Telehealth example - clinician at New Dunedin Hospital, patient at Dunstan
+// ------------------------------------------------------------
+Instance: DHOAppointmentTelehealthDunstanExample
+InstanceOf: DHOAppointment
+Usage: #example
+Description: "An example Dunedin Hospital Outpatient Telehealth Appointment where the clinician is based at New Dunedin Hospital and the patient is present at the Dunstan outreach clinic."
+
+* meta.lastUpdated = "2025-11-11T02:29:24.844Z"
+* meta.versionId = "3"
+* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOAppointment"
+* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
+* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+
+* identifier.value = "#dddddddd-eeee-ffff-0000-111111111111"
+* status = #booked
+* extension[appointmentMethod].valueCodeableConcept = DHOAppointmentModalityCS#telehealth "Telehealth"
+* description = "Telehealth follow-up (patient at Dunstan outreach clinic)"
+* serviceCategory = $cs-nc-health-specialty-code#S45 "Orthopaedic Surgery"
+* serviceType = DHOHealthSpecialityCS#S45B "Fracture Clinic"
+
+* patientInstruction = "Please attend the Dunstan outreach clinic at the scheduled time; clinic staff will connect you to the specialist by telehealth."
+
+// Patient
+* participant[+].required = #required
+* participant[=].status  = #needs-action
+* participant[=].actor.identifier insert NHIIdentifier(ZXP7823)
+* participant[=].actor.display = "Carey Carrington"
+
+// Responsible Clinician
+* participant[+].type = $v3-ParticipationType#CON "consultant"
+* participant[=].required = #required
+* participant[=].status  = #accepted
+* participant[=].actor.identifier insert HPIProviderNumber(99ZZZX)
+* participant[=].actor.display = "Dr Dotty McStuffins"
+
+// Clinician/service site Location - New Dunedin Hospital
+* contained[+] = DHOLocationNewDunedinHospitalExample
+* participant[+].required = #required
+* participant[=].status  = #accepted
+* participant[=].actor = Reference(DHOLocationNewDunedinHospitalExample)
+
+// Patient's location - Dunstan outreach clinic (where the patient will be for the telehealth call)
+* contained[+] = DHOLocationDunstanOutreachExample
+* participant[+].required = #required
+* participant[=].status  = #accepted
+* participant[=].actor = Reference(DHOLocationDunstanOutreachExample)
+
+* start = "2025-10-01T02:30:35Z"
+* end = "2025-10-01T03:00:35Z"
 
 // ------------------------------------------------------------
 // Telephone example
