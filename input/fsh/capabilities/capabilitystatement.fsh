@@ -7,7 +7,7 @@ Usage: #definition
 * contact[+].name = "Health New Zealand Te Whatu Ora"
 * contact[=].telecom.value = "https://www.tewhatuora.govt.nz"
 * contact[=].telecom.system = #url
-* version = "0.4.5"
+* version = "0.4.6"
 * status = #active
 * date = "2024-07-03"
 * publisher = "Te Whatu Ora"
@@ -213,7 +213,8 @@ Usage: #definition
 * rest.resource[=].searchParam[=].type = #reference
 
 * rest.resource[+].type = #CommunicationRequest
-* rest.resource[=].supportedProfile = Canonical(CMSCommunicationRequest)
+* rest.resource[=].supportedProfile[+] = Canonical(CMSCommunicationRequest)
+* rest.resource[=].supportedProfile[+] = Canonical(POCTCommunicationRequest)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchRevInclude = "*"
 * rest.resource[=].searchParam[+].name = "identifier"
@@ -248,6 +249,7 @@ Usage: #definition
 * rest.resource[=].profile = Canonical(CarePlan)
 * rest.resource[=].supportedProfile[+] = Canonical(ManaakiNgaTahiCarePlan)
 * rest.resource[=].supportedProfile[+] = Canonical(OutpatientCommunicationCarePlan)
+* rest.resource[=].supportedProfile[+] = Canonical(POCTCarePlan)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "CarePlan:encounter"
@@ -610,6 +612,7 @@ Usage: #definition
 
 * rest.resource[+].type = #QuestionnaireResponse
 //* rest.resource[=].profile = canonical(QuestionnaireResponse)
+* rest.resource[=].supportedProfile[+] = Canonical(POCTAssessmentQuestionnaireResponse)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "QuestionnaireResponse:based-on"
