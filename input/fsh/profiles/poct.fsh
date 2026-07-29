@@ -35,7 +35,7 @@ Description: "A CarePlan used to coordinate the post-operative cataract follow-u
 * subject only Reference(Patient)
 
 Profile: POCTCommunicationRequest
-Parent: CommunicationRequest
+Parent: CMSCommunicationRequest
 Id: POCTCommunicationRequest
 Title: "Post-operative cataract CMS CommunicationRequest"
 Description: "A CommunicationRequest that initiates the post-operative cataract follow-up notification."

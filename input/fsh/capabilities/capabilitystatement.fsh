@@ -7,7 +7,7 @@ Usage: #definition
 * contact[+].name = "Health New Zealand Te Whatu Ora"
 * contact[=].telecom.value = "https://www.tewhatuora.govt.nz"
 * contact[=].telecom.system = #url
-* version = "0.4.6"
+* version = "0.4.7"
 * status = #active
 * date = "2024-07-03"
 * publisher = "Te Whatu Ora"
