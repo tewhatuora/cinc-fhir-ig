@@ -1,4 +1,4 @@
-  Instance: AppointmentSlot
+Instance: AppointmentSlot
 InstanceOf: Slot
 Usage: #inline // #inline means this instance MUST NOT be exported as a separate example
 * status = #busy
