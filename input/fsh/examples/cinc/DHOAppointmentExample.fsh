@@ -149,10 +149,10 @@ Description: "An example Dunedin Hospital Outpatient Telehealth Appointment wher
 * participant[=].actor = Reference(DHOLocationNewDunedinHospitalExample)
 
 // Patient's location - home (where the patient will be for the telehealth call)
-* contained[+] = DHOLocationPatientHomeExample
+* contained[+] = DHOLocationTelehealthHomeExample
 * participant[+].required = #required
 * participant[=].status  = #accepted
-* participant[=].actor = Reference(DHOLocationPatientHomeExample)
+* participant[=].actor = Reference(DHOLocationTelehealthHomeExample)
 
 * start = "2025-09-10T02:30:35Z"
 * end = "2025-09-10T03:00:35Z"
