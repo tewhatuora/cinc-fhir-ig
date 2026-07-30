@@ -350,6 +350,7 @@ groups:
       - StructureDefinition/DHOEncounterCreate
       - StructureDefinition/DHOEncounterUpdate
       - StructureDefinition/DHOLocation
+      - StructureDefinition/DHOServiceRequest
       - StructureDefinition/OutpatientProvenance
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
@@ -361,6 +362,8 @@ groups:
       - DHOAppointmentClinicExample
       - DHOAppointmentUnstructuredExample
       - DHOAppointmentTelehealthExample
+      - DHOAppointmentTelehealthPrisonExample
+      - DHOAppointmentTelehealthDunstanExample
       - DHOAppointmentTelephoneExample
       - DHOAppointmentResponseExample
       - DHOEncounterExample
@@ -368,9 +371,14 @@ groups:
       - DHOEncounterUpdateExample
       - DHODrDottyMcStuffins
       - DHOLocationInternalExample
+      - DHOLocationNewDunedinHospitalExample
       - DHOLocationPatientHomeExample
+      - DHOLocationTelehealthHomeExample
+      - DHOLocationTelehealthPrisonExample
       - DHOLocationExternalExample
       - DHOLocationOutreachExample
+      - DHOLocationDunstanOutreachExample
+      - DHOServiceRequestExample
   OutpatientCommunicationWorkflow:
     name: Outpatient Communication Workflow
     resources:
