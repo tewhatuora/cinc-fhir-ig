@@ -57,7 +57,7 @@ Description: "The completed assessment returned by the optometrist for a post-op
 * ^version = "0.1.0"
 * ^status = #draft
 * questionnaire 1..1
-* questionnaire = "https://fhir-ig.digital.health.nz/shared-care/Questionnaire/PostCataractAssessmentQuestionnaire|0.1.1" (exactly)
+* questionnaire = "https://fhir-ig.digital.health.nz/shared-care/Questionnaire/PostCataractAssessmentQuestionnaire" (exactly)
 * subject 1..1
 * subject only Reference(Patient)
 * basedOn 1..1
