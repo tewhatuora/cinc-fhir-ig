@@ -139,3 +139,13 @@ Description: "Code system for adjudication reasons"
 * ^caseSensitive = true
 * #policy "Policy" "Per policy guidelines"
 * #prior-auth "Prior Authorization" "Prior authorization required"
+
+CodeSystem: OnlineGpConsultationServiceTypeCodes
+Id: onlinegp-consultation-service-type-codes
+Title: "Online GP Consultation Service Type Codes"
+Description: "Consultation type codes used for Online GP encounters."
+* ^status = #draft
+* ^caseSensitive = true
+* ^content = #complete
+* #standard "Standard consultation" "Standard 10 or 15-minute Online GP consultation"
+* #prep "PrEP" "HIV Pre-Exposure Prophylaxis consultation"

@@ -23,6 +23,8 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "ZZZ0008"
 
+* serviceType = OnlineGpConsultationServiceTypeCodes#standard "Standard consultation"
+
 // * serviceProvider.reference = "Organization/GZZ999-9"
 * serviceProvider.identifier.system = "https://standards.digital.health.nz/ns/hpi-organisation-id"
 * serviceProvider.identifier.value = "GZZ999-9"
@@ -35,7 +37,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * participant[0].period.start = "2025-01-01T10:00:00+13:00"
 * participant[0].period.end = "2025-01-01T10:17:00+13:00"
 
-* appointment[0].reference = "Appointment/NzTelehealthAppointmentExample"
+* appointment[0].reference = "Appointment/OnlineGPAppointmentExample"
 
 * period.start = "2025-01-01T10:00:00+13:00"
 * period.end = "2025-01-01T10:17:00+13:00"
@@ -51,6 +53,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * extension[diagnosis].valueCodeableConcept.text = "Acute viral pharyngitis"
 
 * hospitalization.dischargeDisposition = $sct#182991002 "Treatment given"
+* hospitalization.admitSource = $sct#185369008 "Referred by pharmacist"
 
 * extension[cscHolder].valueBoolean = true
 
