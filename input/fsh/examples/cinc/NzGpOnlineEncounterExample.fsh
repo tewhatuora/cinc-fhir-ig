@@ -37,7 +37,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * participant[0].period.start = "2025-01-01T10:00:00+13:00"
 * participant[0].period.end = "2025-01-01T10:17:00+13:00"
 
-* appointment[0].reference = "Appointment/OnlineGPAppointmentExample"
+* appointment[0].reference = "Appointment/NzTelehealthAppointmentExample"
 
 * period.start = "2025-01-01T10:00:00+13:00"
 * period.end = "2025-01-01T10:17:00+13:00"
