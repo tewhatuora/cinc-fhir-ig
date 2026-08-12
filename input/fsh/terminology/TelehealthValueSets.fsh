@@ -97,3 +97,23 @@ Description: "Encounter types for Shared Care including specific codes and other
 
 // Include all SNOMED CT encounter type codes
 // * include codes from system $sct where concept is-a #308335008 "Patient encounter procedure"
+
+
+ValueSet: OnlineGpConsultationServiceType
+Id: onlinegp-consultation-service-type
+Title: "Online GP Consultation Service Type"
+Description: "Allowed consultation types for Online GP encounters."
+* ^status = #draft
+* include codes from system OnlineGpConsultationServiceTypeCodes
+
+
+ValueSet: OnlineGpReferralSource
+Id: onlinegp-referral-source
+Title: "Online GP Referral Source"
+Description: "Allowed referral sources for Online GP encounters."
+* ^status = #draft
+* $sct#185369008 "Referred by pharmacist"
+* $sct#659821000210106 "Referred by urgent care clinic"
+* $sct#301661000210103 "Referred by emergency department"
+* $sct#669431000210103 "Referred by integrated health services hub"
+* $sct#669421000210100 "Referred by rural hospital service"

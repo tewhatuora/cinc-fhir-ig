@@ -4,7 +4,7 @@ Id: OnlineGPEncounter
 Title: "Online GP Encounter"
 Description: """A FHIR resource profile for operational reporting of Online GP encounters."""
 
-* ^version = "1.0.5"
+* ^version = "1.0.6"
 * ^purpose = "A FHIR resource profile for operational reporting of Online GP encounters."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -34,6 +34,8 @@ Description: """A FHIR resource profile for operational reporting of Online GP e
 * type ^short = "Type of encounter (e.g., Video consultation)"
 
 * serviceType 0..1
+* serviceType from OnlineGpConsultationServiceType (required)
+* serviceType ^short = "Consultation type"
 
 * insert ProfilePatient(subject)
 * subject.display 0..0
@@ -74,6 +76,10 @@ Description: """A FHIR resource profile for operational reporting of Online GP e
 * hospitalization 0..1
 * hospitalization ^short = "Admission & discharge details (if applicable)"
 * hospitalization.dischargeDisposition from onlinegp-discharge-disposition (required)
+
+* hospitalization.admitSource 0..1
+* hospitalization.admitSource from OnlineGpReferralSource (required)
+* hospitalization.admitSource ^short = "Referral source"
 
 * location 0..*
 * location ^short = "(Sub)Locations where the patient has been during the encounter"

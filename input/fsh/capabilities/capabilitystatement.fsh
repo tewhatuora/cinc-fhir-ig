@@ -716,7 +716,8 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
 
 * rest.resource[+].type = #ServiceRequest
-* rest.resource[=].supportedProfile = Canonical(OutreachServiceRequest)
+* rest.resource[=].supportedProfile[+] = Canonical(OutreachServiceRequest)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOServiceRequest)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[+].name = "identifier"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
