@@ -18,5 +18,5 @@ Id: dho-encounter-class-vs
 Title: "DHO Encounter Class"
 Description: "Allowed Encounter.class codes for DHO Encounter profiles (ambulatory or inpatient)."
 * ^status = #active
-* $v3-ActCode#AMB "ambulatory"
-* $v3-ActCode#IMP "inpatient encounter"
+* $v3-ActCode#AMB
+* $v3-ActCode#IMP
