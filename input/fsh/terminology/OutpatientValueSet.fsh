@@ -12,3 +12,11 @@ Description: "Reason type codes for Provenance tracking, combining HL7 v3 DataOp
 * ^status = #active
 * include codes from system http://terminology.hl7.org/CodeSystem/v3-DataOperation
 * include codes from system provenance-reason-type-cs
+
+ValueSet: DHOEncounterClassVS
+Id: dho-encounter-class-vs
+Title: "DHO Encounter Class"
+Description: "Allowed Encounter.class codes for DHO Encounter profiles (ambulatory or inpatient)."
+* ^status = #active
+* $v3-ActCode#AMB "ambulatory"
+* $v3-ActCode#IMP "inpatient encounter"

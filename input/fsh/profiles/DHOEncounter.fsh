@@ -57,9 +57,9 @@ RuleSet: CommonEncounterConstraints
 * partOf only Reference(DHOEncounter or Encounter)
 
 // --------------------------------------------------------
-// Fix class to Ambulatory
+// Restrict class to Ambulatory or Inpatient
 // --------------------------------------------------------
-* class = $v3-ActCode#AMB "Ambulatory"
+* class from DHOEncounterClassVS (required)
 
 // --------------------------------------------------------
 // Short Descriptions
