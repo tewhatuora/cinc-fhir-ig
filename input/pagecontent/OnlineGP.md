@@ -143,7 +143,7 @@ Confirm enabled interactions/search params in the server CapabilityStatement.
 | Token | identifier | Unique identifier(s) for Encounter (e.g. the provider's identifier(s) for this encounter). |
 |  | status | Mandatory. [Restricted to allowed values](http://hl7.org/fhir/R4/valueset-encounter-status.html) e.g. "finished" |
 |  | class | Mandatory classification. Restricted to "VR" from [the allowed value set](https://terminology.hl7.org/6.5.0/ValueSet-v3-ActEncounterCode.html) representing a virtual consultation. |
-|  | type | Mandatory. [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-shared-care-encounter-type-valueset.html) for method of encounter e.g. "719410009" for video consultation |
+|  | type | Mandatory. [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-online-gp-encounter-type-valueset.html) for method of encounter e.g. "719410009" for video consultation |
 |  | serviceType | Further subcategorisation of encounter (if applicable) |
 |  | appointment | Reference to the Appointment resource |
 | Event Start Datetime<br>Event End Datetime| period | Mandatory. Actual time (start & end) of the encounter. |

@@ -8,12 +8,16 @@
 // * #professional "Professional" "Outpatient claims from physicians including GPs, telehealth, primary maternity, diagnostic & labs, etc."
 // * #pharmacy "Pharmacy" "Pharmacy claims for goods & services"
 // * #oral "Oral" "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
-CodeSystem: NzAppointmentReasonCodesCS
-Id: nz-onlinegp-appointment-reason-codes-cs
-Title: "NZ Appointment Reason Codes Code System"
-Description: "Code system for NZ appointment reason codes"
+CodeSystem: SctNzAppointmentReasonCodesFragment
+Id: sct-nz-onlinegp-appointment-reason-codes-fragment
+Title: "SNOMED CT NZ Edition Appointment Reason Codes Fragment"
+Description: "Fragment for NZ appointment reason codes"
 * ^status = #draft
 * ^caseSensitive = true
+* ^content = #fragment
+* ^experimental = true
+* ^version = "http://snomed.info/sct/21000210109"
+
 * #566531000210101 "Timely in person appointment unavailable" "Service user unable to get into usual GP practice for in person appointment when required. GP booked / wait for appointment is too long"
 * #566541000210109 "Unable to attend in person due to impaired mobility" "Service user has difficulty traveling to clinics"
 * #566551000210107 "Lives in rural or remote location" "Service user has limited access to healthcare facilities in location of residence or current location"
@@ -25,6 +29,17 @@ Description: "Code system for NZ appointment reason codes"
 * #659821000210106 "Referred by urgent care clinic" "Referred by urgent care"
 * #301661000210103 "Referred by emergency department" "Emergency department has referred service user"
 
+CodeSystem: SctOnlineGPDischargeDispositionFragment
+Id: sct-nz-onlinegp-discharge-disposition-fragment
+Title: "SNOMED CT NZ Edition Discharge Disposition Fragment"
+Description: "Fragment for NZ discharge disposition codes"
+* ^status = #draft
+* ^caseSensitive = true
+* ^content = #fragment
+* ^experimental = true
+* ^version = "http://snomed.info/sct/21000210109"
+
+* #566291000210102 "Out of scope for telehealth"
 
 CodeSystem: NzClaimSubtypeCS
 Id: nz-claim-subtype-cs
