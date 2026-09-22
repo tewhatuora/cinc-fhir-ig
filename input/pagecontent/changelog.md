@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.6 (2026-07-29)
+
+- Added post-operative cataract CarePlan profiles.
+- Added the post-operative cataract assessment outcome extension.
+- Added the shared post-operative cataract assessment outcome CodeSystem and ValueSet.
+
 ## v0.4.5 (2026-05-14)
 ### Added the Pharmacy Claiming  
 Added the [Pharmacy Claiming Overview](./PharmacyClaiming.html) 
