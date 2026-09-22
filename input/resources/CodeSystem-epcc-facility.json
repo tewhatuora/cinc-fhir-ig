@@ -1,0 +1,99 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "epcc-facility",
+  "url": "https://nzhts.digital.health.nz/fhir/CodeSystem/epcc-facility",
+  "version": "0.1.0-test",
+  "name": "EPCCFacility",
+  "title": "EPCC test optometry facilities",
+  "status": "active",
+  "experimental": true,
+  "date": "2026-09-15",
+  "publisher": "Health New Zealand | Te Whatu Ora",
+  "description": "Synthetic optometry facilities for testing the EPCC cataract pathway cascading dropdowns.",
+  "caseSensitive": false,
+  "content": "complete",
+  "property": [
+    {
+      "code": "region",
+      "description": "The EPCC region to which this facility belongs.",
+      "type": "code"
+    },
+    {
+      "code": "address",
+      "description": "Physical address for the facility.",
+      "type": "string"
+    },
+    {
+      "code": "opening-hours",
+      "description": "Human-readable opening hours for the facility.",
+      "type": "string"
+    },
+    {
+      "code": "phone",
+      "description": "Facility contact telephone number.",
+      "type": "string"
+    },
+    {
+      "code": "email",
+      "description": "Facility contact email address.",
+      "type": "string"
+    }
+  ],
+  "concept": [
+    {
+      "code": "FZZ997-F",
+      "display": "EPCC Demo North Shore Vision",
+      "property": [
+        { "code": "region", "valueCode": "auckland" },
+        { "code": "address", "valueString": "1 North Shore Road Auckland 0620" },
+        { "code": "opening-hours", "valueString": "Monday-Saturday 8:30 am-5:30 pm" },
+        { "code": "phone", "valueString": "090000002" },
+        { "code": "email", "valueString": "north-shore-vision@example.invalid" }
+      ]
+    },
+    {
+      "code": "FZZ998-D",
+      "display": "Specsavers Hamilton CBD",
+      "property": [
+        { "code": "region", "valueCode": "hamilton" },
+        { "code": "address", "valueString": "54 Bryce Street Hamilton 3204" },
+        { "code": "opening-hours", "valueString": "7/7 8:30 am-6:00 pm" },
+        { "code": "phone", "valueString": "078395095" },
+        { "code": "email", "valueString": "email@specsavers.com" }
+      ]
+    },
+    {
+      "code": "FZZ999-B",
+      "display": "EPCC Demo Harbour Eye Care",
+      "property": [
+        { "code": "region", "valueCode": "wellington" },
+        { "code": "address", "valueString": "1 Harbour Street Wellington 6011" },
+        { "code": "opening-hours", "valueString": "Monday-Friday 8:30 am-5:00 pm" },
+        { "code": "phone", "valueString": "040000001" },
+        { "code": "email", "valueString": "harbour-eye@example.invalid" }
+      ]
+    },
+    {
+      "code": "FZZ995-K",
+      "display": "EPCC Demo Riverside Optometry",
+      "property": [
+        { "code": "region", "valueCode": "christchurch" },
+        { "code": "address", "valueString": "1 Riverside Lane Christchurch 8011" },
+        { "code": "opening-hours", "valueString": "Monday-Saturday 8:30 am-5:30 pm" },
+        { "code": "phone", "valueString": "030000004" },
+        { "code": "email", "valueString": "riverside-optometry@example.invalid" }
+      ]
+    },
+    {
+      "code": "FZZ996-H",
+      "display": "EPCC Demo Southern Eye Clinic",
+      "property": [
+        { "code": "region", "valueCode": "dunedin" },
+        { "code": "address", "valueString": "1 Southern Street Dunedin 9016" },
+        { "code": "opening-hours", "valueString": "Monday-Friday 8:30 am-5:00 pm" },
+        { "code": "phone", "valueString": "030000003" },
+        { "code": "email", "valueString": "southern-eye@example.invalid" }
+      ]
+    }
+  ]
+}

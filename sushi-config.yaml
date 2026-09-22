@@ -245,6 +245,9 @@ groups:
       - StructureDefinition/EPCCCarePlan
       - StructureDefinition/epcc-assessment-outcome
       - CodeSystem/epcc-assessment-outcome
+      - CodeSystem/epcc-region
+      - CodeSystem/epcc-facility
+      - CodeSystem/epcc-provider
       - ValueSet/epcc-assessment-outcome
   Questionnaires:
     name: Shared Care API canonical Questionnaires

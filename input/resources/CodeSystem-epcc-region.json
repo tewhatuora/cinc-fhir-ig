@@ -1,0 +1,22 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "epcc-region",
+  "url": "https://nzhts.digital.health.nz/fhir/CodeSystem/epcc-region",
+  "version": "0.1.0-test",
+  "name": "EPCCRegion",
+  "title": "EPCC test regions",
+  "status": "active",
+  "experimental": true,
+  "date": "2026-09-15",
+  "publisher": "Health New Zealand | Te Whatu Ora",
+  "description": "Synthetic regions for testing the EPCC cataract pathway cascading dropdowns.",
+  "caseSensitive": false,
+  "content": "complete",
+  "concept": [
+    { "code": "auckland", "display": "Auckland" },
+    { "code": "hamilton", "display": "Hamilton" },
+    { "code": "wellington", "display": "Wellington" },
+    { "code": "christchurch", "display": "Christchurch" },
+    { "code": "dunedin", "display": "Dunedin" }
+  ]
+}

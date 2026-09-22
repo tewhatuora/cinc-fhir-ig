@@ -1,0 +1,50 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "epcc-provider",
+  "url": "https://nzhts.digital.health.nz/fhir/CodeSystem/epcc-provider",
+  "version": "0.1.0-test",
+  "name": "EPCCProvider",
+  "title": "EPCC test optometry providers",
+  "status": "active",
+  "experimental": true,
+  "date": "2026-09-15",
+  "publisher": "Health New Zealand | Te Whatu Ora",
+  "description": "Synthetic optometry providers for testing the EPCC cataract pathway cascading dropdowns.",
+  "caseSensitive": false,
+  "content": "complete",
+  "property": [
+    {
+      "code": "facility",
+      "description": "The EPCC optometry facility at which this provider practices.",
+      "type": "code"
+    }
+  ],
+  "concept": [
+    { "code": "92ZZYW", "display": "Example Optometrist Three", "property": [{ "code": "facility", "valueCode": "FZZ997-F" }] },
+    { "code": "94ZZYM", "display": "Example Optometrist Eleven", "property": [{ "code": "facility", "valueCode": "FZZ997-F" }] },
+    { "code": "95ZZYL", "display": "Example Optometrist Twelve", "property": [{ "code": "facility", "valueCode": "FZZ997-F" }] },
+    { "code": "97ZZYK", "display": "Example Optometrist Thirteen", "property": [{ "code": "facility", "valueCode": "FZZ997-F" }] },
+    { "code": "91ZZYX", "display": "Example Optometrist Two", "property": [{ "code": "facility", "valueCode": "FZZ998-D" }] },
+    { "code": "98ZZYQ", "display": "Example Optometrist Eight", "property": [{ "code": "facility", "valueCode": "FZZ998-D" }] },
+    { "code": "99ZZYP", "display": "Example Optometrist Nine", "property": [{ "code": "facility", "valueCode": "FZZ998-D" }] },
+    { "code": "90ZZYN", "display": "Example Optometrist Ten", "property": [{ "code": "facility", "valueCode": "FZZ998-D" }] },
+    {
+      "code": "96ZZZZ",
+      "display": "CPN Verification Test One",
+      "property": [
+        { "code": "facility", "valueCode": "FZZ999-B" },
+        { "code": "facility", "valueCode": "FZZ995-K" }
+      ]
+    },
+    { "code": "94ZZYU", "display": "Example Optometrist Five", "property": [{ "code": "facility", "valueCode": "FZZ999-B" }] },
+    { "code": "95ZZYT", "display": "Example Optometrist Six", "property": [{ "code": "facility", "valueCode": "FZZ999-B" }] },
+    { "code": "97ZZYR", "display": "Example Optometrist Seven", "property": [{ "code": "facility", "valueCode": "FZZ999-B" }] },
+    { "code": "94ZZYF", "display": "Example Optometrist Seventeen", "property": [{ "code": "facility", "valueCode": "FZZ995-K" }] },
+    { "code": "95ZZYE", "display": "Example Optometrist Eighteen", "property": [{ "code": "facility", "valueCode": "FZZ995-K" }] },
+    { "code": "97ZZYD", "display": "Example Optometrist Nineteen", "property": [{ "code": "facility", "valueCode": "FZZ995-K" }] },
+    { "code": "93ZZYV", "display": "Example Optometrist Four", "property": [{ "code": "facility", "valueCode": "FZZ996-H" }] },
+    { "code": "98ZZYJ", "display": "Example Optometrist Fourteen", "property": [{ "code": "facility", "valueCode": "FZZ996-H" }] },
+    { "code": "99ZZYH", "display": "Example Optometrist Fifteen", "property": [{ "code": "facility", "valueCode": "FZZ996-H" }] },
+    { "code": "90ZZYG", "display": "Example Optometrist Sixteen", "property": [{ "code": "facility", "valueCode": "FZZ996-H" }] }
+  ]
+}
