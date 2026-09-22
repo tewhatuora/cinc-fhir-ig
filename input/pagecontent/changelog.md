@@ -1,15 +1,10 @@
 # Changelog
 
-## v0.4.7 (2026-07-29)
-
-- Made the post-operative cataract CommunicationRequest profile derive from the CMS CommunicationRequest profile, so it carries one composable POCT profile canonical while retaining the CMS constraints.
-
 ## v0.4.6 (2026-07-29)
 
-- Added post-operative cataract CarePlan, CommunicationRequest, and QuestionnaireResponse profiles.
-- Added the post-operative cataract assessment outcome and CMS acceptance extensions.
+- Added post-operative cataract CarePlan profiles.
+- Added the post-operative cataract assessment outcome extension.
 - Added the shared post-operative cataract assessment outcome CodeSystem and ValueSet.
-- Advertised the new resource profiles in the Shared Care CapabilityStatement.
 
 ## v0.4.5 (2026-05-14)
 ### Added the Pharmacy Claiming  

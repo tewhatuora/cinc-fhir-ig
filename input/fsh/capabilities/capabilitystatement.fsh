@@ -214,7 +214,6 @@ Usage: #definition
 
 * rest.resource[+].type = #CommunicationRequest
 * rest.resource[=].supportedProfile[+] = Canonical(CMSCommunicationRequest)
-* rest.resource[=].supportedProfile[+] = Canonical(POCTCommunicationRequest)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchRevInclude = "*"
 * rest.resource[=].searchParam[+].name = "identifier"
@@ -249,7 +248,7 @@ Usage: #definition
 * rest.resource[=].profile = Canonical(CarePlan)
 * rest.resource[=].supportedProfile[+] = Canonical(ManaakiNgaTahiCarePlan)
 * rest.resource[=].supportedProfile[+] = Canonical(OutpatientCommunicationCarePlan)
-* rest.resource[=].supportedProfile[+] = Canonical(POCTCarePlan)
+* rest.resource[=].supportedProfile[+] = Canonical(EPCCCarePlan)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "CarePlan:encounter"
@@ -612,7 +611,6 @@ Usage: #definition
 
 * rest.resource[+].type = #QuestionnaireResponse
 //* rest.resource[=].profile = canonical(QuestionnaireResponse)
-* rest.resource[=].supportedProfile[+] = Canonical(POCTAssessmentQuestionnaireResponse)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "QuestionnaireResponse:based-on"
