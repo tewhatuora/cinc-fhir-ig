@@ -1,6 +1,6 @@
-Extension: PatientContactRole
-Id: hnz-patient-contact-role-extension-id
-Title: "HNZ Patient Contact Role"
+Extension: DHOPatientContactRole
+Id: dho-patient-contact-role-extension-id
+Title: "DHO Patient Contact Role"
 Context: Patient.contact
 Description: "The nature of the functional role between the patient and the contact person."
 

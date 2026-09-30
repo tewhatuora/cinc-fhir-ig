@@ -1,0 +1,26 @@
+Profile: DHOAppointmentResponse
+Parent: AppointmentResponse
+Id: DHOAppointmentResponse
+Title: "DHO Appointment Response Profile"
+Description: "This profile derives from the [AppointmentResponse](https://hl7.org/fhir/R4B/appointmentresponse.html) Resource for use in the Dunedin Hospital Outpatients context."
+* ^version = "1.0.2"
+* ^purpose = "Dunedin Hospital Outpatient AppointmentResponse profile"
+
+* ^status = #active
+* ^jurisdiction = urn:iso:std:iso:3166#NZ
+
+// ---------------------------------------------------------
+// Inserts
+// ---------------------------------------------------------
+* insert DHODerivedMetaDataRules
+
+// ---------------------------------------------------------
+// Cardinality tightening
+// ---------------------------------------------------------
+* appointment 1..1 MS
+* participantType 1..1 MS
+* participantStatus 1..1 MS
+* comment 0..0
+* start 0..0
+* end 0..0
+* actor 0..0

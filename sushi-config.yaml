@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Health New Zealand Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
 status: active
-version: 0.4.5
+version: 0.4.11
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -91,7 +91,7 @@ menu:
   Home: index.html
   Business context: businessContext.html
   Definitions:
-    Structure Definitions: artifacts.html#shared-care-api-definitions
+    Structure Definitions: artifacts.html#dunedin-hospital-outpatient-definitions
   Examples:
     Dunedin Hospital Outpatient: artifacts.html#dunedin-hospital-outpatient-examples
   API Developer Guide:
@@ -196,27 +196,41 @@ groups:
     name: Dunedin Hospital Outpatient definitions
     resources:
       - StructureDefinition/DHOPatient
-      - StructureDefinition/DHOPatientUpdate
       - StructureDefinition/DHOAppointment
       - StructureDefinition/DHOAppointmentResponse
       - StructureDefinition/DHOEncounter
       - StructureDefinition/DHOEncounterCreate
       - StructureDefinition/DHOEncounterUpdate
+      - StructureDefinition/DHOLocation
+      - StructureDefinition/DHOServiceRequest
+      - StructureDefinition/OutpatientProvenance
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
-      - DHOPatientExample
-      - DHOPatientUpdateExample
-      - DHOClinicAppointmentExample
-      - DHOUnstructuredAppointmentExample
+      - DHOPatientExampleGP
+      - DHOPatientExampleGPDeceased
+      - DHOPatientExampleNP
+      - DHOPatientExampleMultiplePractitioners
+      - Appointment/db4b903a-ee09-4e32-b930-bd4a72cfeaef
+      - Appointment/3bc197c8-a818-45c1-bc06-c0548c14fd71
+      - Appointment/862a3d2d-afad-468c-8afe-d61c11ad76c6
+      - Appointment/ba05c879-f820-4e0d-a05e-69b8097092cb
+      - Appointment/79ec3ae3-d523-4720-ad76-a14c47d0c9d5
+      - Appointment/b41de1ec-04ca-46e2-8b92-6a2ca927f689
       - DHOAppointmentResponseExample
       - DHOEncounterExample
       - DHOEncounterCreateExample
       - DHOEncounterUpdateExample
-      - DHOSIPICSEmilyWhite
-      - DHOSIPICSAlexMorgan
-      - DHOSIPICSCuriousGeorge
       - DHODrDottyMcStuffins
+      - DHOLocationInternalExample
+      - DHOLocationNewDunedinHospitalExample
+      - DHOLocationPatientHomeExample
+      - DHOLocationTelehealthHomeExample
+      - DHOLocationTelehealthPrisonExample
+      - DHOLocationExternalExample
+      - DHOLocationOutreachExample
+      - DHOLocationDunstanOutreachExample
+      - DHOServiceRequestExample
 
 #
 # The ImplementationGuide resource defines several other properties

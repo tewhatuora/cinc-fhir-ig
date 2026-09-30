@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.4.11 (2026-09-30)
+### Dunedin Hospital Outpatients Patient is read-only
+Patient update is no longer supported. The Patient resource in the Capability Statement now lists `read`, `vread` and
+`search-type` only, and the `DHOPatientUpdate` profile and its example have been removed. See
+[Dunedin Hospital Outpatients](DunedinHospitalOutpatients.html).
+
+### Dunedin Hospital Outpatients appointment references
+AppointmentResponse and Encounter now reference the Appointment by its FHIR id (`Appointment/{id}`). The Appointment
+examples have UUID ids and a SIPICS appointment-id identifier, and the AppointmentResponse example uses a reference
+instead of an appointment identifier.
+
 ## v0.4.2 (2025-09-04)
 ### Added Dunedin Hospital Outpatients
 Added the [Dunedin Hospital Outpatients](DundeinHospitalOutpatients.html) resources and workflow.
