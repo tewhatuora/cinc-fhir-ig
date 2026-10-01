@@ -351,7 +351,6 @@ groups:
     name: Dunedin Hospital Outpatient definitions
     resources:
       - StructureDefinition/DHOPatient
-      - StructureDefinition/DHOPatientUpdate
       - StructureDefinition/DHOAppointment
       - StructureDefinition/DHOAppointmentResponse
       - StructureDefinition/DHOEncounter
@@ -360,13 +359,17 @@ groups:
       - StructureDefinition/DHOLocation
       - StructureDefinition/DHOServiceRequest
       - StructureDefinition/OutpatientProvenance
+      - StructureDefinition/DHOCondition
+      - OperationDefinition/DHOAppointmentBackfill
+      - OperationDefinition/DHOAppointmentBackfillStatus
+      - OperationDefinition/DHOAppointmentBackfillCancel
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
       - DHOPatientExampleGP
       - DHOPatientExampleNP
       - DHOPatientExampleMultiplePractitioners
-      - DHOPatientUpdateExample
+      - DHOPatientExampleGPDeceased
       - DHOAppointmentClinicExample
       - DHOAppointmentUnstructuredExample
       - DHOAppointmentTelehealthExample
@@ -387,6 +390,8 @@ groups:
       - DHOLocationOutreachExample
       - DHOLocationDunstanOutreachExample
       - DHOServiceRequestExample
+      - DHOConditionExample
+      - DHOProvenanceNhiMergeExample
   OutpatientCommunicationWorkflow:
     name: Outpatient Communication Workflow
     resources:

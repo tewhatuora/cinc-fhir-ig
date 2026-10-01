@@ -128,6 +128,13 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "https://fhir-ig.digital.health.nz/shared-care/SearchParameter/dho-appointment-appointmentMethod"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Search by appointment delivery method (Appointment.extension:appointmentMethod)"
+// Admin backfill operations - see input/fsh/operations/DHOAppointmentBackfill.fsh
+* rest.resource[=].operation[+].name = "backfill"
+* rest.resource[=].operation[=].definition = Canonical(DHOAppointmentBackfill)
+* rest.resource[=].operation[+].name = "backfill-status"
+* rest.resource[=].operation[=].definition = Canonical(DHOAppointmentBackfillStatus)
+* rest.resource[=].operation[+].name = "backfill-cancel"
+* rest.resource[=].operation[=].definition = Canonical(DHOAppointmentBackfillCancel)
 
 // DH Outpatients AppointmentResponse Resource - Used to Confirm an Appointment
 * rest.resource[+].type = #AppointmentResponse
@@ -300,6 +307,7 @@ Usage: #definition
 
 * rest.resource[+].type = #Condition
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiCondition)
+* rest.resource[=].supportedProfile[+] = Canonical(DHOCondition)
 * rest.resource[=] insert GenericCRUDInteractions
 * rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
@@ -355,14 +363,50 @@ Usage: #definition
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchInclude[+] = "Encounter:diagnosis"
 * rest.resource[=].searchInclude[+] = "Encounter:appointment"
+* rest.resource[=].searchParam[+].name = "_id"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "clinical-identifier"
+* rest.resource[=].searchParam[+].name = "appointment"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-appointment"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "The appointment associated with the encounter"
+* rest.resource[=].searchParam[+].name = "date"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-date"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "A date within the period the Encounter lasted"
+* rest.resource[=].searchParam[+].name = "date-start"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-date-start"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "The actual start date of the Encounter"
+* rest.resource[=].searchParam[+].name = "date-end"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-date-end"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "The actual end date of the Encounter"
+* rest.resource[=].searchParam[+].name = "location"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-location"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Location the encounter takes place"
+* rest.resource[=].searchParam[+].name = "participant"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-participant"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
+* rest.resource[=].searchParam[+].name = "participant-type"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-participant-type"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
 * rest.resource[=].searchParam[+].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
-* rest.resource[=].searchParam[+].name = "appointment"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifer"
+* rest.resource[=].searchParam[+].name = "practitioner"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-practitioner"
 * rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The appointment associated with the encounter"
+* rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
 * rest.resource[=].searchParam[+].name = "status"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-status"
 * rest.resource[=].searchParam[=].type = #token
@@ -371,13 +415,10 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-subject"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
-* rest.resource[=].searchParam[+].name = "_id"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
-* rest.resource[=].searchParam[+].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#clinical-identifier"
-* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[+].name = "_lastUpdated"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
 
 * rest.resource[+].type = #Observation
 * rest.resource[=].profile = Canonical(ManaakiNgaTahiObservation)
@@ -469,8 +510,7 @@ Usage: #definition
 * rest.resource[+].type = #Patient
 * rest.resource[=].profile = Canonical(NzPatient)
 * rest.resource[=].documentation = "Dunedin Hospital Outpatients - Patient Profile"
-* rest.resource[=].supportedProfile[+] = Canonical(DHOPatientUpdate)
-* rest.resource[=] insert ReadUpdateInteractions
+* rest.resource[=] insert ReadInteractions
 * rest.resource[=].searchInclude[+] = "*"
 * rest.resource[=].searchParam[+].name = "_id"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
