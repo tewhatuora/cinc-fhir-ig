@@ -6,6 +6,15 @@ Patient update is no longer supported. The Patient resource in the Capability St
 `search-type` only, and the `DHOPatientUpdate` profile and its example have been removed. See
 [Dunedin Hospital Outpatients](DunedinHospitalOutpatients.html).
 
+### Dunedin Hospital Outpatients Encounter class
+`Encounter.class` on the DHO Encounter profiles is no longer fixed to `AMB`. It now has a required binding to the new
+`DHOEncounterClassVS` value set, which allows `AMB` (ambulatory) or `IMP` (inpatient). The Encounter profiles are now at
+version 1.0.3.
+
+### Encounter search parameters in the Capability Statement
+Removed the Observation search parameters and `_include` values that had been listed under Encounter. The `status` and
+`subject` search parameters now use the Encounter definitions.
+
 ### Dunedin Hospital Outpatients appointment references
 AppointmentResponse and Encounter now reference the Appointment by its FHIR id (`Appointment/{id}`). The Appointment
 examples have UUID ids and a SIPICS appointment-id identifier, and the AppointmentResponse example uses a reference

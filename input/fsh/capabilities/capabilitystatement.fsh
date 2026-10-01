@@ -89,6 +89,13 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "https://fhir-ig.digital.health.nz/shared-care/SearchParameter/dho-appointment-appointmentMethod"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Search by appointment delivery method (Appointment.extension:appointmentMethod)"
+// Admin backfill operations - see input/fsh/operations/DHOAppointmentBackfill.fsh
+* rest.resource[=].operation[+].name = "backfill"
+* rest.resource[=].operation[=].definition = Canonical(DHOAppointmentBackfill)
+* rest.resource[=].operation[+].name = "backfill-status"
+* rest.resource[=].operation[=].definition = Canonical(DHOAppointmentBackfillStatus)
+* rest.resource[=].operation[+].name = "backfill-cancel"
+* rest.resource[=].operation[=].definition = Canonical(DHOAppointmentBackfillCancel)
 
 // DH Outpatients AppointmentResponse Resource - Used to Confirm an Appointment
 * rest.resource[+].type = #AppointmentResponse
@@ -203,58 +210,18 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-practitioner"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Persons involved in the encounter other than the patient"
-* rest.resource[=].searchParam[+].name = "subject-status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-subject-status"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The classification of the type of observation"
-* rest.resource[=].searchParam[+].name = "derived-from"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-derived-from"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Related measurements the observation is made from"
-* rest.resource[=].searchParam[+].name = "performer"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-performer"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Who performed the observation"
 * rest.resource[=].searchParam[+].name = "status"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-status"
 * rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The status of the observation"
+* rest.resource[=].searchParam[=].documentation = "planned | arrived | triaged | in-progress | onleave | finished | cancelled +"
 * rest.resource[=].searchParam[+].name = "subject"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-subject"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-subject"
 * rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The subject that the observation is about"
-* rest.resource[=].searchParam[+].name = "value-concept"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-value-concept"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "The value of the observation, if the value is a CodeableConcept"
-* rest.resource[=].searchParam[+].name = "value-date"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-value-date"
-* rest.resource[=].searchParam[=].type = #date
-* rest.resource[=].searchParam[=].documentation = "The value of the observation, if the value is a date or period of time"
-* rest.resource[=].searchParam[+].name = "value-quantity"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-value-quantity"
-* rest.resource[=].searchParam[=].type = #quantity
-* rest.resource[=].searchParam[=].documentation = "The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"
-* rest.resource[=].searchParam[+].name = "value-string"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Observation-value-string"
-* rest.resource[=].searchParam[=].type = #string
-* rest.resource[=].searchParam[=].documentation = "The value of the observation, if the value is a string, and also searches in CodeableConcept.text"
+* rest.resource[=].searchParam[=].documentation = "The patient or group present at the encounter"
 * rest.resource[=].searchParam[+].name = "_lastUpdated"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
 * rest.resource[=].searchParam[=].type = #date
 * rest.resource[=].searchParam[=].documentation = "When the resource version last changed"
-* rest.resource[=].searchInclude[+] = "*"
-* rest.resource[=].searchInclude[+] = "Observation:patient"
-* rest.resource[=].searchInclude[+] = "Observation:encounter"
-* rest.resource[=].searchInclude[+] = "Observation:based-on"
-* rest.resource[=].searchInclude[+] = "Observation:derived-from"
-* rest.resource[=].searchInclude[+] = "Observation:device"
-* rest.resource[=].searchInclude[+] = "Observation:focus"
-* rest.resource[=].searchInclude[+] = "Observation:has-member"
-* rest.resource[=].searchInclude[+] = "Observation:part-of"
-* rest.resource[=].searchInclude[+] = "Observation:performer"
-* rest.resource[=].searchInclude[+] = "Observation:specimen"
-* rest.resource[=].searchInclude[+] = "Observation:subject"
 
 * rest.resource[+].type = #ServiceRequest
 * rest.resource[=].supportedProfile[+] = Canonical(DHOServiceRequest)

@@ -74,7 +74,7 @@ Key information:
 | Element               | Expected update/information                                             |
 |-----------------------|-------------------------------------------------------------------------|
 | Encounter.status      | 'arrived'                                                               |
-| Encounter.class       | https://terminology.hl7.org/3.1.0/ValueSet-v3-ActEncounterCode.html AMB |
+| Encounter.class       | AMB (ambulatory) or IMP (inpatient) from https://terminology.hl7.org/3.1.0/ValueSet-v3-ActEncounterCode.html |
 | Encounter.subject     | Patient.Identifier                                                      |
 | Encounter.appointment | Reference to the Appointment by its FHIR id, e.g. `Appointment/{id}`    |
 

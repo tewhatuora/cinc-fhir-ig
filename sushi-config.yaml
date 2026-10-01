@@ -92,6 +92,9 @@ menu:
   Business context: businessContext.html
   Definitions:
     Structure Definitions: artifacts.html#dunedin-hospital-outpatient-definitions
+    Extensions: artifacts.html#dunedin-hospital-outpatient-extensions
+    Terminology: artifacts.html#dunedin-hospital-outpatient-terminology
+    API Definitions: artifacts.html#dunedin-hospital-outpatient-api-definitions
   Examples:
     Dunedin Hospital Outpatient: artifacts.html#dunedin-hospital-outpatient-examples
   API Developer Guide:
@@ -198,12 +201,50 @@ groups:
       - StructureDefinition/DHOPatient
       - StructureDefinition/DHOAppointment
       - StructureDefinition/DHOAppointmentResponse
+      - StructureDefinition/DHOCondition
       - StructureDefinition/DHOEncounter
       - StructureDefinition/DHOEncounterCreate
       - StructureDefinition/DHOEncounterUpdate
       - StructureDefinition/DHOLocation
       - StructureDefinition/DHOServiceRequest
       - StructureDefinition/OutpatientProvenance
+  DHOExtensions:
+    name: Dunedin Hospital Outpatient extensions
+    resources:
+      - StructureDefinition/DHOAppointmentMethod
+      - StructureDefinition/DHOInitialPatientClass
+      - StructureDefinition/DHOOutreach
+      - StructureDefinition/dho-patient-contact-role-extension-id
+      - StructureDefinition/dho-telecom-notification
+      - StructureDefinition/dho-telecom-validation
+  DHOTerminology:
+    name: Dunedin Hospital Outpatient terminology
+    resources:
+      - ValueSet/dho-appointment-modality-vs
+      - CodeSystem/dho-appointment-modality-cs
+      - ValueSet/dho-encounter-class-vs
+      - ValueSet/dho-health-speciality-vs
+      - CodeSystem/dho-health-speciality-cs
+      - ValueSet/DHOLocationOutreachVS
+      - CodeSystem/DHOLocationOutreach
+      - ValueSet/DHOLocationPhysicalTypeVS
+      - CodeSystem/DHOLocationPhysicalType
+      - ValueSet/DHOLocationRelationshipVS
+      - CodeSystem/DHOLocationRelationship
+      - ValueSet/vs-patient-contact-role
+      - CodeSystem/cs-patient-contact-role
+      - ValueSet/provenance-reason-type-vs
+      - CodeSystem/provenance-reason-type-cs
+      - ValueSet/DHOTelecomValidationVS
+      - CodeSystem/DHOTelecomValidationCS
+  DHOAPIDefinitions:
+    name: Dunedin Hospital Outpatient API definitions
+    resources:
+      - CapabilityStatement/SharedCareFHIRAPICapabilityStatement
+      - OperationDefinition/DHOAppointmentBackfill
+      - OperationDefinition/DHOAppointmentBackfillStatus
+      - OperationDefinition/DHOAppointmentBackfillCancel
+      - SearchParameter/DHOAppointmentAppointmentMethod
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
@@ -231,6 +272,11 @@ groups:
       - DHOLocationOutreachExample
       - DHOLocationDunstanOutreachExample
       - DHOServiceRequestExample
+      - Condition/DHOConditionExample
+      - Provenance/DHOProvenanceNhiMergeExample
+      - Patient/CareyCarrington
+      - Practitioner/DrDottyMcStuffins
+      - Organization/DHO-nz-organization-example
 
 #
 # The ImplementationGuide resource defines several other properties
