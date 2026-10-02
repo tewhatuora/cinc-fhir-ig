@@ -45,14 +45,16 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 * length.code = #min
 
 * extension[diagnosis][0].valueCodeableConcept.coding.system = "http://snomed.info/sct"
-* extension[diagnosis][0].valueCodeableConcept.coding.code = #10509002
-* extension[diagnosis][0].valueCodeableConcept.coding.display = "Acute bronchitis"
-* extension[diagnosis][0].valueCodeableConcept.text = "Acute bronchitis"
+* extension[diagnosis][0].valueCodeableConcept.coding.version = "http://snomed.info/sct/21000210109"
+* extension[diagnosis][0].valueCodeableConcept.coding.code = #735128000
+* extension[diagnosis][0].valueCodeableConcept.coding.display = "Ex-smoking for less than 1 year"
+* extension[diagnosis][0].valueCodeableConcept.text = "Ex-smoking for less than 1 year"
 
 * extension[diagnosis][1].valueCodeableConcept.coding.system = "http://snomed.info/sct"
-* extension[diagnosis][1].valueCodeableConcept.coding.code = #49727002
-* extension[diagnosis][1].valueCodeableConcept.coding.display = "Cough"
-* extension[diagnosis][1].valueCodeableConcept.text = "Cough"
+* extension[diagnosis][1].valueCodeableConcept.coding.version = "http://snomed.info/sct/21000210109"
+* extension[diagnosis][1].valueCodeableConcept.coding.code = #48031000119106
+* extension[diagnosis][1].valueCodeableConcept.coding.display = "Ex-smoking for more than 1 year"
+* extension[diagnosis][1].valueCodeableConcept.text = "Ex-smoking for more than 1 year"
 
 * hospitalization.dischargeDisposition = $sct#306689006 "Discharge to home"
 
