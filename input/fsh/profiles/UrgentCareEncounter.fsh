@@ -29,7 +29,7 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 * classHistory 0..*
 
 * type 1..1
-* type from SharedCareEncounterTypeValueSet (extensible)
+* type from UrgentCareEncounterTypeValueSet (extensible)
 
 * serviceType 0..1
 
