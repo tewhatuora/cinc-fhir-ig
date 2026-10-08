@@ -102,7 +102,7 @@ Usage: #example
 * telecom[=].use = #mobile
 * telecom[=].rank = 1
 * telecom[=].extension[notification-enabled].valueBoolean = true
-* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.5"
+* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.7"
 * telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#valid "Validated"
 * telecom[=].extension[validation-status].valueCodeableConcept.text = "Validated"
 * telecom[+].system = #email
@@ -110,7 +110,7 @@ Usage: #example
 * telecom[=].use = #home
 * telecom[=].rank = 2
 * telecom[=].extension[notification-enabled].valueBoolean = true
-* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.5"
+* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.7"
 * telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#valid "Validated"
 * telecom[=].extension[validation-status].valueCodeableConcept.text = "Validated"
 * gender = #female
@@ -301,7 +301,7 @@ Usage: #example
 * telecom[=].use = #mobile
 * telecom[=].rank = 1
 * telecom[=].extension[notification-enabled].valueBoolean = true
-* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.5"
+* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.7"
 * telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#ntval "Not Validated"
 * telecom[=].extension[validation-status].valueCodeableConcept.text = "Not Validated"
 
@@ -403,7 +403,7 @@ Usage: #example
 * telecom[=].use = #mobile
 * telecom[=].rank = 1
 * telecom[=].extension[notification-enabled].valueBoolean = true
-* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.5"
+* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.7"
 * telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#pend "Pending"
 * telecom[=].extension[validation-status].valueCodeableConcept.text = "Pending"
 * telecom[+].system = #email
@@ -411,7 +411,7 @@ Usage: #example
 * telecom[=].use = #home
 * telecom[=].rank = 2
 * telecom[=].extension[notification-enabled].valueBoolean = true
-* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.5"
+* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.7"
 * telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#valid "Validated"
 * telecom[=].extension[validation-status].valueCodeableConcept.text = "Validated"
 
@@ -463,33 +463,3 @@ Usage: #example
 * generalPractitioner[+] = Reference(DHOPractitionerRole1)
 * generalPractitioner[+] = Reference(DHOPractitionerRole2)
 * generalPractitioner[+] = Reference(DHOPractitionerRole3)
-
-Instance: DHOPatientUpdateExample
-InstanceOf: DHOPatientUpdate
-Usage: #example
-Description: "An example Dunedin Hospital Outpatient Update demographics (phone and email)"
-
-* id = "DHO-outpatient-update-instance"
-* meta.versionId = "1"
-* meta.lastUpdated = "2025-09-04T09:00:00.000Z"
-* meta.profile = "https://fhir-ig.digital.health.nz/shared-care/StructureDefinition/DHOPatientUpdate"
-* meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
-* insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
-
-* identifier insert NHIIdentifier(ZXP7823)
-* telecom[+].system = #phone
-* telecom[=].value = "+64 21 123 4567"
-* telecom[=].use = #mobile
-* telecom[=].rank = 1
-* telecom[=].extension[notification-enabled].valueBoolean = true
-* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.5"
-* telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#valid "Validated"
-* telecom[=].extension[validation-status].valueCodeableConcept.text = "Validated"
-* telecom[+].system = #email
-* telecom[=].value = "example@mail.com"
-* telecom[=].use = #home
-* telecom[=].rank = 2
-* telecom[=].extension[notification-enabled].valueBoolean = true
-* telecom[=].extension[validation-status].valueCodeableConcept.coding.version = "0.4.5"
-* telecom[=].extension[validation-status].valueCodeableConcept.coding = $cs-telecom-validation-status#valid "Validated"
-* telecom[=].extension[validation-status].valueCodeableConcept.text = "Validated"

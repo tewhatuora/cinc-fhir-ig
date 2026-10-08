@@ -9,7 +9,7 @@ name: CINC_FHIR_IG
 title: Health New Zealand Te Whatu Ora Shared Care FHIR API
 description: An Implementation Guide which describes the various use cases for the Shared Care API, including the data consent model.
 status: active
-version: 0.4.5
+version: 0.4.7
 fhirVersion: 4.0.1
 copyrightYear: 2022+
 releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -238,6 +238,14 @@ groups:
       - OperationDefinition/ActivityDefinition-apply
       - OperationDefinition/PlanDefinition-apply
       - OperationDefinition/QuestionnaireResponse-extract
+  EPCCDefinitions:
+    name: Post-operative cataract pathway definitions
+    description: Profiles, extensions, and terminology for the post-operative cataract pathway
+    resources:
+      - StructureDefinition/EPCCCarePlan
+      - StructureDefinition/epcc-assessment-outcome
+      - CodeSystem/epcc-assessment-outcome
+      - ValueSet/epcc-assessment-outcome
   Questionnaires:
     name: Shared Care API canonical Questionnaires
     description: Standard questionnaire definitions shared by all applications
@@ -343,7 +351,6 @@ groups:
     name: Dunedin Hospital Outpatient definitions
     resources:
       - StructureDefinition/DHOPatient
-      - StructureDefinition/DHOPatientUpdate
       - StructureDefinition/DHOAppointment
       - StructureDefinition/DHOAppointmentResponse
       - StructureDefinition/DHOEncounter
@@ -352,13 +359,17 @@ groups:
       - StructureDefinition/DHOLocation
       - StructureDefinition/DHOServiceRequest
       - StructureDefinition/OutpatientProvenance
+      - StructureDefinition/DHOCondition
+      - OperationDefinition/DHOAppointmentBackfill
+      - OperationDefinition/DHOAppointmentBackfillStatus
+      - OperationDefinition/DHOAppointmentBackfillCancel
   DHOExamples:
     name: Dunedin Hospital Outpatient examples
     resources:
       - DHOPatientExampleGP
       - DHOPatientExampleNP
       - DHOPatientExampleMultiplePractitioners
-      - DHOPatientUpdateExample
+      - DHOPatientExampleGPDeceased
       - DHOAppointmentClinicExample
       - DHOAppointmentUnstructuredExample
       - DHOAppointmentTelehealthExample
@@ -379,6 +390,8 @@ groups:
       - DHOLocationOutreachExample
       - DHOLocationDunstanOutreachExample
       - DHOServiceRequestExample
+      - DHOConditionExample
+      - DHOProvenanceNhiMergeExample
   OutpatientCommunicationWorkflow:
     name: Outpatient Communication Workflow
     resources:

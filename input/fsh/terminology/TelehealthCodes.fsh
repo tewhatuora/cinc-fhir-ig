@@ -1,31 +1,3 @@
-// Code Systems for Telehealth
-// CodeSystem: NzClaimTypeCS
-// Id: nz-claim-type-cs
-// Title: "NZ Claim Type Code System"
-// Description: "Code system for NZ claim types"
-// * ^status = #draft
-// * ^caseSensitive = true
-// * #professional "Professional" "Outpatient claims from physicians including GPs, telehealth, primary maternity, diagnostic & labs, etc."
-// * #pharmacy "Pharmacy" "Pharmacy claims for goods & services"
-// * #oral "Oral" "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
-CodeSystem: NzAppointmentReasonCodesCS
-Id: nz-onlinegp-appointment-reason-codes-cs
-Title: "NZ Appointment Reason Codes Code System"
-Description: "Code system for NZ appointment reason codes"
-* ^status = #draft
-* ^caseSensitive = true
-* #566531000210101 "Timely in person appointment unavailable" "Service user unable to get into usual GP practice for in person appointment when required. GP booked / wait for appointment is too long"
-* #566541000210109 "Unable to attend in person due to impaired mobility" "Service user has difficulty traveling to clinics"
-* #566551000210107 "Lives in rural or remote location" "Service user has limited access to healthcare facilities in location of residence or current location"
-* #566561000210105 "Unable to attend in person due to work or family constraint" "Service user has limited time / access to healthcare facilities due to work or family constraints / responsibilities"
-* #566571000210104 "Avoiding possible exposure to infectious disease" "Service user has personal health concerns, immunocompromised status, or protecting vulnerable household members"
-* #566581000210102 "Telehealth appointment booked for convenience" "Service user does not have accessibility or booking constraints but prefers convenience of telehealth service"
-* #566351000210102 "Patient not registered - not needed" "Not registered in general practice"
-* #185369008 "Referred by pharmacist" "Pharmacy has referred service user"
-* #659821000210106 "Referred by urgent care clinic" "Referred by urgent care"
-* #301661000210103 "Referred by emergency department" "Emergency department has referred service user"
-
-
 CodeSystem: NzClaimSubtypeCS
 Id: nz-claim-subtype-cs
 Title: "NZ Claim Subtype Code System"
