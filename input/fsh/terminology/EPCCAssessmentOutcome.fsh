@@ -8,7 +8,8 @@ Description: "Clinical and workflow outcomes recorded by the post-operative cata
 * ^caseSensitive = true
 * ^content = #complete
 * #waiting-operation "Waiting Operation"
-* #patient-discharged "Patient Discharged"
+* #follow-up-path-closed "Follow up pathway closed"
+* #no-optometry-follow-up "No follow up with optometrist"
 * #optometry-to-book "Optometry appointment to book"
 * #patient-to-contact "Patient to Contact"
 * #waiting-optometry-assessment "Waiting for Optometry Assessment"
