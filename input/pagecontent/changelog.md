@@ -1,5 +1,34 @@
 # Changelog
 
+## v0.4.7 (2026-10-01)
+### Dunedin Hospital Outpatients Patient is read-only
+Patient update is no longer supported. The Patient resource in the Capability Statement now lists `read`, `vread` and
+`search-type` only, and the `DHOPatientUpdate` profile and its example have been removed. See
+[Dunedin Hospital Outpatients](DunedinHospitalOutpatients.html).
+
+### Dunedin Hospital Outpatients Encounter class
+`Encounter.class` on the DHO Encounter profiles is no longer fixed to `AMB`. It now has a required binding to the new
+`DHOEncounterClassVS` value set, which allows `AMB` (ambulatory) or `IMP` (inpatient). The Encounter profiles are now at
+version 1.0.3.
+
+### Encounter search parameters in the Capability Statement
+Added the `appointment` (now using the Encounter definition), `date`, `date-start`, `date-end`, `location`,
+`participant`, `participant-type`, `practitioner` and `_lastUpdated` search parameters to Encounter.
+
+### Dunedin Hospital Outpatients appointment references
+AppointmentResponse and Encounter now reference the Appointment by its FHIR id (`Appointment/{id}`). The Appointment
+examples have UUID ids and a SIPICS appointment-id identifier, and the AppointmentResponse example uses a reference
+instead of an appointment identifier.
+
+### Dunedin Hospital Outpatients Appointment backfill operations
+Added the `$backfill`, `$backfill-status` and `$backfill-cancel` admin operations on Appointment.
+
+## v0.4.6 (2026-07-29)
+
+- Added post-operative cataract CarePlan profiles.
+- Added the post-operative cataract assessment outcome extension.
+- Added the shared post-operative cataract assessment outcome CodeSystem and ValueSet.
+
 ## v0.4.5 (2026-05-14)
 ### Added the Pharmacy Claiming  
 Added the [Pharmacy Claiming Overview](./PharmacyClaiming.html) 
