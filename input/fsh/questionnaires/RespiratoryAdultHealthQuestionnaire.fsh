@@ -133,9 +133,13 @@ Usage: #definition
 * item[=].item[+].linkId = "MessageWithPersonName"
 * item[=].item[=].text = "If yes, please give person's name"
 * item[=].item[=].type = #string
-* item[=].item[=].enableWhen.question = "MessageWithPerson"
-* item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
+* item[=].item[=].enableBehavior = #all
+* item[=].item[=].enableWhen[0].question = "HappyToLeaveMessage"
+* item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].enableWhen[=].answerCoding = #yes "Yes"
+* item[=].item[=].enableWhen[+].question = "MessageWithPerson"
+* item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].enableWhen[=].answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
