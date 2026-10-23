@@ -125,7 +125,7 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].enableWhen.question = "HappyToLeaveMessage"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 * item[=].item[=].answerOption[0].valueCoding = #yes "Yes"
@@ -135,7 +135,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "MessageWithPerson"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -144,7 +144,7 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].enableWhen.question = "HappyToLeaveMessage"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 * item[=].item[=].answerOption[0].valueCoding = #yes "Yes"
@@ -197,7 +197,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "HighBloodPressure"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -213,7 +213,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "HeartConditions"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -229,7 +229,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "HeartLungSurgery"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -245,7 +245,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "ICDorPacemaker"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -261,7 +261,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "ShortnessOfBreathAtNight"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -277,7 +277,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "BlackoutsOrFainting"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -293,7 +293,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "SwollenAnkles"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -309,7 +309,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "BreathingDifficulties"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -325,7 +325,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "SteroidsForBreathing"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -341,7 +341,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "SleepApnoea"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -357,7 +357,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "KidneyCondition"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -375,7 +375,7 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].enableWhen.question = "Diabetes"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 * item[=].item[=].answerOption[0].valueCoding = #type-1 "Type 1"
@@ -387,7 +387,7 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].enableWhen.question = "Diabetes"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = true
 * item[=].item[=].answerOption[0].valueCoding = #insulin "Insulin"
@@ -407,7 +407,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "Stroke"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -423,7 +423,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "SuddenLossVisionSpeechMovement"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -439,7 +439,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "BloodClotsOrBleedingDisorder"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -455,7 +455,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "HeartburnRefluxHiatusHernia"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -471,7 +471,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "ThyroidProblems"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -487,7 +487,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "Dementia"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -503,14 +503,14 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "Epilepsy"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].linkId = "EpilepsyLastSeizure"
 * item[=].item[=].text = "When was your last seizure?"
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "Epilepsy"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -526,7 +526,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "Arthritis"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -542,7 +542,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "JointReplacementOrMetalware"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -558,7 +558,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "MuscleOrNeurologicalDisease"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -574,7 +574,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "JawOrNeckProblems"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -590,7 +590,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "HepatitisOrLiverCondition"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -606,7 +606,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "TransmittableDisease"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -622,7 +622,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "Tuberculosis"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -638,7 +638,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "FamilyConditions"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -654,7 +654,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "Anaemia"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -686,7 +686,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "BloodTransfusionRefusal"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -702,7 +702,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "Phobias"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -720,7 +720,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "TravelledOverseas"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
@@ -737,7 +737,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "VisualOrHearingImpairment"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -753,7 +753,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "CurrentPainProblems"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#text-box "Text Box"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -819,7 +819,7 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].enableWhen.question = "ChangedInLast6Months"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[=].repeats = false
 * item[=].item[=].answerOption[0].valueCoding = #10-stairs "10 stairs"
@@ -848,7 +848,7 @@ Usage: #definition
 * item[=].item[=].type = #integer
 * item[=].item[=].enableWhen.question = "DoYouSmoke"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -864,7 +864,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "EverSmoked"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -880,7 +880,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "DrinkAlcoholRegularly"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -898,7 +898,7 @@ Usage: #definition
 * item[=].item[=].type = #integer
 * item[=].item[=].enableWhen.question = "PregnantOrMayBePregnant"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[+].linkId = "Section6Allergies"
 * item[=].text = "Section 6 – Allergies"
@@ -919,7 +919,7 @@ Usage: #definition
 * item[=].item[=].type = #text
 * item[=].item[=].enableWhen.question = "AllergiesOrReactions"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[+].linkId = "Section7Medications"
 * item[=].text = "Section 7 – Medications"
@@ -957,7 +957,7 @@ Usage: #definition
 * item[=].item[=].type = #group
 * item[=].item[=].enableWhen.question = "PreviousSurgeryOrAdmission"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].repeats = true
 * item[=].item[=].item[0].linkId = "PreviousSurgeryOperationIllness"
 * item[=].item[=].item[=].text = "Operation / Illness"
@@ -988,7 +988,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "ProblemsUnderAnaesthetic"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -1004,7 +1004,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "RelativeProblemsUnderAnaesthetic"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -1020,7 +1020,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "AttendedPreAnaesthesiaAssessment"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[+].linkId = "Section10DischargePlanning"
 * item[=].text = "Section 10 – Discharge planning"
@@ -1039,7 +1039,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "RequirePhysicalSupportOrAids"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -1071,7 +1071,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "ProblemsWithDailyActivities"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
@@ -1117,7 +1117,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "UsingCommunitySupportServices"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #yes
+* item[=].item[=].enableWhen.answerCoding = #yes "Yes"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#radio-button "Radio Button"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
@@ -1133,7 +1133,7 @@ Usage: #definition
 * item[=].item[=].type = #string
 * item[=].item[=].enableWhen.question = "SpeakUnderstandEnglish"
 * item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerCoding.code = #no
+* item[=].item[=].enableWhen.answerCoding = #no "No"
 * item[=].item[=].required = false
 * item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#text-box "Text Box"
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
