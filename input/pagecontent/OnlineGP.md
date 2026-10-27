@@ -1,5 +1,3 @@
-# Online GP Reporting & Payment Automation
-
 Health NZ offers a subsidised Online GP Care service that connects healthcare consumers to NZ-registered healthcare professionals at telehealth providers using secure digital technologies (primarily video consultations, typically via a mobile application). 
 
 Doctors and nurse practitioners can assess symptoms, diagnose conditions, prescribe medications, and provide referrals – all from wherever the patient is. The service allows people to receive professional advice and treatment when they need it - no matter where they are or what time of day it is. It helps to ease pressure on emergency departments or urgent care services in a way that is complementary to the role of GPs in the community who remain responsible for their patients' continuity of care.
@@ -8,7 +6,7 @@ The Online GP/telehealth service providers can be accessed from [https://healthn
 
 Providers are required to submit administrative/operational reporting to Health NZ on a regular basis – as contractually described in the Telehealth Service Specification. The published API endpoints allow providers (via their practice management systems) to automate the reporting, requests for payment, and payment processing – instead of manually producing a report to send to Health NZ and manually raising invoices at the end of each month which must be manually reviewed & approved by Health NZ.
 
-## Overview
+### Overview
 
 This section summarises the **FHIR REST API endpoints** used to exchange:
 - **Online GP Appointments** for operational reporting of booking-related attributes of the consultation with the clinician (including reporting of no-shows).
@@ -17,7 +15,7 @@ This section summarises the **FHIR REST API endpoints** used to exchange:
   - Source profile: **[Online GP Encounter](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-OnlineGPEncounter.html)** (a profiled `Encounter`)
 - **Claims** describing **payment requests** for reimbursement for subsidised services delivered and/or payment-related operational reporting about the consultation.
   - Source profile: **[NZ Shared Care Claim](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-SharedCareClaim.html)** (a profiled `Claim`)
-- **Claim Responses** for Health NZ to detail the **outcome of a payment request** (i.e. claim) including validation errors and/or adjudication outcomes describing why the payment request was approved or denied.
+- **Claim Responses** for Health NZ to detail the **outcome of a payment request** (i.e. claim) including validation errors and/or adjudication outcomes describing why the payment "request" was approved or denied.
   - Source profile: **[NZ Shared Care Claim Response](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-SharedCareClaimResponse.html)** (a profiled `ClaimResponse`)
 
 These Online GP artefacts are exchanged using **standard FHIR RESTful interactions** on their base resource types:
@@ -27,7 +25,7 @@ This Shared Care FHIR server’s **[Capability Statement](https://fhir-ig.digita
 
 ---
 
-## Online GP Use Cases
+### Online GP Use Cases
 1. **Create or update a record of _booking-related_ attributes of an Online GP consultation as an Online GP Appointment** (reporting automation)
 2. **Create or update a record of attributes related to an Online GP consultation _that occurred_ as an Online GP Encounter** (reporting automation)
 3. **Submit a request for payment of an Online GP Claim** (reporting & payment automation)
@@ -40,14 +38,14 @@ This Shared Care FHIR server’s **[Capability Statement](https://fhir-ig.digita
 
 ---
 
-## FHIR API endpoint conventions
+### FHIR API endpoint conventions
 
 Applicable to all use cases.
 
-### Base URL
+#### Base URL
 - `[base]` = Shared Care FHIR Server base endpoint (environment-specific).
 
-### Common attributes (as profiled)
+#### Common attributes (as profiled)
 The profiles of Appointment, Encounter, and Claim require `meta.source` and a `correlation-id` slice for `meta.tag` to be included in the request body.
 
 | Attribute | Notes |
@@ -58,9 +56,9 @@ The profiles of Appointment, Encounter, and Claim require `meta.source` and a `c
 ---
 <br>
 
-# Online GP Appointment (Appointment)
+### Online GP Appointment (Appointment)
 
-## What it represents
+#### What it represents
 
 A [profiled `Appointment` resource](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-OnlineGPAppointment.html) for operational reporting of **booking-related attributes of Online GP encounters** including recording of non-attendance (no-show/did not attend). Cancellations are not required for Online GP reporting purposes however.
 
@@ -68,13 +66,13 @@ Reporting is not provided until after the time of the planned encounter and will
 
 No associated `Encounter` or `Claim` needs to be provided for a no-show/did not attend.
 
-## Endpoints (FHIR REST)
+#### Endpoints (FHIR REST)
 - **Create**: `POST [base]/Appointment`
 - **Update**: `PUT [base]/Appointment/{id}`
 - **Read**: `GET [base]/Appointment/{id}`
 - **Search**: `GET [base]/Appointment?{search-params}`
 
-## Key information
+#### Key information
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
@@ -87,13 +85,13 @@ No associated `Encounter` or `Claim` needs to be provided for a no-show/did not 
 | Event Start Datetime | start | Planned start time |
 | Event End Datetime | end | Planned end time |
 
-### Example: Search for Online GP Appointments by patient/date
+#### Example: Search for Online GP Appointments by patient/date
 ```
 GET [base]/Appointment?patient={patientId}&date=ge2026-03-01&date=le2026-03-31
 Accept: application/fhir+json
 ```
 
-### Example: Create Online GP Appointment (skeleton)
+#### Example: Create Online GP Appointment (skeleton)
 ```
 POST [base]/Appointment
 Content-Type: application/fhir+json
@@ -119,14 +117,14 @@ Accept: application/fhir+json
 }
 ```
 
-# Online GP Encounter (Encounter)
+### Online GP Encounter (Encounter)
 
-## What it represents
+#### What it represents
 A [profiled `Encounter` resource](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-OnlineGPEncounter.html) for operational reporting of **Online GP encounters _that occurred_**.
 
 No `Encounter` resource is required if the consultation was a no-show/did not attend. The `Appointment` resource will capture the required information.
 
-## Endpoints (FHIR REST)
+#### Endpoints (FHIR REST)
 
 - **Create**: `POST [base]/Encounter`
 - **Update**: `PUT [base]/Encounter/{id}`
@@ -136,7 +134,7 @@ No `Encounter` resource is required if the consultation was a no-show/did not at
 
 Confirm enabled interactions/search params in the server CapabilityStatement.
 
-## Key information
+#### Key information
 
 | Service Spec Field | FHIR Attribute | Notes |
 |------|-----------|-------|
@@ -149,21 +147,22 @@ Confirm enabled interactions/search params in the server CapabilityStatement.
 | Token | identifier | Mandatory. Identifier.<br>The `value` will be the Organisation's own unique identifier for this encounter in the context of their PMS database.<br>The `system` should be of the form `"https://<provider-name>.co.nz/ns/encounter-identifier"` (or similar). |
 |  | status | Mandatory. [Restricted to allowed values](http://hl7.org/fhir/R4/valueset-encounter-status.html) e.g. "finished" |
 |  | class | Mandatory classification. Restricted to "VR" from [the allowed value set](https://terminology.hl7.org/6.5.0/ValueSet-v3-ActEncounterCode.html) representing a virtual consultation. |
-|  | type | Mandatory. [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-shared-care-encounter-type-valueset.html) describing the modality of the encounter e.g. "719410009" for video consultation |
-|  | serviceType | Alternate categorisation of the encounter or type of consultation (if applicable) |
+| Mode of Delivery | type | Mandatory. [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-shared-care-encounter-type-valueset.html) describing the modality of the encounter e.g. "719410009" for video consultation |
+| Consultation Type | serviceType | Additional categorisation of the encounter or type of consultation (if applicable). [Restricted to set of allowed values](https://fhir-ig.digital.health.nz/shared-care/ValueSet-onlinegp-consultation-service-type.html). Assumed to be "standard" if not provided. |
 |  | appointment | Reference to the Appointment resource recording the booking-related attributes of the consultation. |
 | Event Start Datetime<br>Event End Datetime| period | Mandatory. Actual time (start & end) of the encounter. Used to determine whether it was an _after-hours_ encounter for a service. |
-| Provisional/Working Diagnosis code(s)<br><br>Health Consumer consent to share medical data| diagnosis (extension) | Optional. Restricted to the set of concept IDs from the SNOMED CT NZ Edition which is a superset of the International edition.<br>Patient must be able to opt-out of providing this medical-related information.<br>If the patient has opted out then SNOMED CTID "414859005" (No consent for electronic record sharing) must be provided instead.|
-| Disposition | hospitalization.dischargeDisposition | [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-onlinegp-discharge-disposition.html) applicable to Online GP services. |
+| Provisional/Working Diagnosis code(s)<br><br>Health Consumer consent to share medical data| diagnosis (extension) | Restricted to the set of concept IDs from the SNOMED CT NZ Edition which is a superset of the International edition.<br>Patient must be able to opt-out of providing this medical-related information.<br>If the patient has opted out then SNOMED CTID "414859005" (No consent for electronic record sharing) must be provided instead.|
+| Disposition | hospitalization.dischargeDisposition | [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-onlinegp-discharge-disposition.html) describing discharge dispositions applicable to Online GP services. |
+| Referral Source | hospitalization.admitSource | [Restricted to specific SNOMED CTIDs](https://fhir-ig.digital.health.nz/shared-care/ValueSet-onlinegp-referral-source.html) describing referral sources applicable to Online GP services. |
 
-### Example: Search encounters for a patient by status
+##### Example: Search encounters for a patient by status
 
 ```
 GET [base]/Encounter?patient={patientId}&status=in-progress
 Accept: application/fhir+json
 ```
 
-### Example: Create Online GP Encounter (skeleton)
+##### Example: Create Online GP Encounter (skeleton)
 
 ```
 POST [base]/Encounter
@@ -189,9 +188,9 @@ Accept: application/fhir+json
   // ... remainder as per profile requirements: serviceProvider, participant, subject, status, class, type, period, etc.
 }
 ```
-# Shared Care Claim (Claim)
+### Shared Care Claim (Claim)
 
-## What it represents
+#### What it represents
 
 A _generic_ [profiled `Claim` resource](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-SharedCareClaim.html) for **requests for payment** for subsidised healthcare performed under contract with Health NZ.
 
@@ -201,7 +200,7 @@ Multiple services (or products) can be claimed via the same `Claim` resource. Ea
 
 No `Claim` resource is required if the consultation was a no-show/did not attend.
 
-## Endpoints (FHIR REST)
+#### Endpoints (FHIR REST)
 
 - **Create (submit claim)**: POST [base]/Claim
 - **Update**: PUT [base]/Claim/{id}
@@ -209,7 +208,7 @@ No `Claim` resource is required if the consultation was a no-show/did not attend
 - **Search**: GET [base]/Claim?{search-params}
 
 
-## Key information
+#### Key information
 
 Claim-level:
 
@@ -247,7 +246,7 @@ Notes:
 - A claimed encounter will have delivered one or multiple services - each having its own contracted fee(s) and pricing and represented as a separate `Claim.item` (and its `productOrService`).
 - `Claim.item.detail` records are not used for Online GP claims.
 
-### Example: Submit an Online GP Claim (skeleton)
+##### Example: Submit an Online GP Claim (skeleton)
 
 ```
 POST [base]/Claim
@@ -274,27 +273,27 @@ Accept: application/fhir+json
 }
 ```
 
-### Example: Retrieve submitted Claim by id
+##### Example: Retrieve submitted Claim by id
 
 ```
 GET [base]/Claim/{id}
 Accept: application/fhir+json
 ```
 
-# Shared Care Claim Response (ClaimResponse)
+### Shared Care Claim Response (ClaimResponse)
 
-## What it represents
+#### What it represents
 
 A [profiled `ClaimResponse` resource](https://fhir-ig.digital.health.nz/shared-care/StructureDefinition-SharedCareClaimResponse.html) describing **validation and/or adjudication (determination) results for submitted Share Care Claims**.
 
 
-## Endpoints (FHIR REST)
+#### Endpoints (FHIR REST)
 
 - **Read**: GET [base]/ClaimResponse/{id}
 - **Search**: GET [base]/ClaimResponse?{search-params}
 
 
-## Key information
+#### Key information
 
 Each resource references the original claim via `ClaimResponse.request`.
 
@@ -336,14 +335,14 @@ Response level attributes:
 | adjudication | A collection of one or more records **summarising the amount payable for this adjudicated claim item** per adjudication category (e.g. "benefit") and "policy" (the adjudication reason code).<br>Each adjudication record will contain:<br>- `category` (mandatory adjudication category e.g. "benefit")<br>- `reason` (optional adjudication reason codes - set to "policy")<br>- `amount` (sum of calculated amounts for this claim item and adjudication category)<br>- `value` (optional quantity from the claim item) |
 | detail | N/a |
 
-### Example: Find claim response(s) for a given Claim
+##### Example: Find claim response(s) for a given Claim
 
 ```
 GET [base]/ClaimResponse?request=Claim/{claimId}
 Accept: application/fhir+json
 ```
 
-### Example: Read a ClaimResponse by id
+##### Example: Read a ClaimResponse by id
 
 ```
 GET [base]/ClaimResponse/{id}
@@ -352,9 +351,9 @@ Accept: application/fhir+json
 
 ---
 
-## Compliance Requirements
+### Compliance Requirements
 
-### Request-Context header
+#### Request-Context header
 
 All requests to the API must contain a standard `Request-Context` header:
 
