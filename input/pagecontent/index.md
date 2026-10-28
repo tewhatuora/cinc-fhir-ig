@@ -9,7 +9,7 @@ This IG covers the following Health NZ information categories:
 3. [Outreach referrals](./outreachReferrals.html) workflow management.
 4. [Remote Patient Monitoring](./remotePatientMonitoring.html) Workflows.
 5. [Dunedin Hospital Outpatients](./DunedinHospitalOutpatients.html) Integration workflows.
-6. [Outpatinet Communication](./outpatientCommunicationWorkflow.html)
+6. [Outpatient Communication](./outpatientCommunicationWorkflow.html)
 7. [Common Messaging System](./commonMessagingSystem.html) for sending out communication.
 8. [Online GP Care](./OnlineGP.html) reporting & payment automation.
 9. [Pharmacy Claiming Overview](./PharmacyClaiming.html) 
