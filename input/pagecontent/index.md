@@ -13,3 +13,4 @@ This IG covers the following Health NZ information categories:
 7. [Common Messaging System](./commonMessagingSystem.html) for sending out communication.
 8. [Online GP Care](./OnlineGP.html) reporting & payment automation.
 9. [Pharmacy Claiming Overview](./PharmacyClaiming.html) 
+10. [Urgent Care](./UrgentCare.html) reporting automation

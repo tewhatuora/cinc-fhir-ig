@@ -52,3 +52,6 @@ The initial origin of the FHIR data is HNZ’s CCCM system in which Covid Case m
 
 ### Pharmacy Claiming
 1. [Pharmacy Claiming Overview](./PharmacyClaiming.html) 
+
+### Urgent Care reporting
+1. [Urgent Care reporting](./UrgentCare.html) 
