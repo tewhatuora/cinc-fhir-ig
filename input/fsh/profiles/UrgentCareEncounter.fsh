@@ -4,7 +4,7 @@ Id: UrgentCareEncounter
 Title: "Urgent Care Encounter"
 Description: """A FHIR resource profile for operational reporting of Urgent Care encounters."""
 
-* ^version = "1.0.4"
+* ^version = "1.1.0"
 * ^purpose = "A FHIR resource profile for operational reporting of Urgent Care encounters."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -50,14 +50,15 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 * insert LocalIdentifierDocs(participant.individual)
 * participant.period 0..1
 
-* reasonCode 0..*
+* reasonCode 0..0
+* reasonReference 0..0
 
 * period 1..1
 * period.start obeys full-datetime-with-timezone
 * period.end obeys full-datetime-with-timezone
 
 * priority 0..1 
-* priority from australasian-triage-scale (required)
+* priority from australasian-triage-scale (preferred)
 * priority ^short = "Indicates the urgency of the encounter using the Australasian Triage Scale"
 
 * length 0..1
@@ -67,6 +68,10 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 
 * hospitalization 0..1
 * hospitalization ^short = "Admission & discharge details (if applicable)"
+* hospitalization.reAdmission 0..0
+* hospitalization.dietPreference 0..0
+* hospitalization.specialCourtesy 0..0
+* hospitalization.specialArrangement 0..0
 
 * location 0..*
 * location ^short = "(Sub)Locations where the patient has been during the encounter"
@@ -78,6 +83,7 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 
 * extension contains
     SharedCareCscHolder named cscHolder 0..1 and
+    SharedCareHuhcHolder named huhcHolder 0..1 and
     SharedCareAccidentRelated named accident 0..1 and
     SharedCareRegistrationCode named regCode 0..1 and
     encounter-modeOfArrival named modeOfArrival 0..1 and
