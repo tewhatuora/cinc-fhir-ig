@@ -7,9 +7,9 @@ Usage: #definition
 * contact[+].name = "Health New Zealand Te Whatu Ora"
 * contact[=].telecom.value = "https://www.tewhatuora.govt.nz"
 * contact[=].telecom.system = #url
-* version = "0.4.8"
+* version = "1.4.8"
 * status = #active
-* date = "2024-07-03"
+* date = "2026-10-28"
 * publisher = "Te Whatu Ora"
 * description = "Health NZ | Te Whatu Ora Shared Care FHIR API"
 * kind = #instance

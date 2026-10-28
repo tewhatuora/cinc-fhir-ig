@@ -1,6 +1,10 @@
 # Changelog
 
-## v0.4.8 (2026-10-28)
+## v1.4.8 (2026-10-28)
+### Moved to stable 1.x.x versioning
+Promoted the IG from `0.x.x` development versioning to `1.x.x` to reflect that it has been in production use. The
+patch lineage is retained (`1.4.8`).
+
 ### Added Urgent Care
 Added the [Urgent Care](UrgentCare.html) landing page, with links from the [home](index.html) and
 [business context](businessContext.html) pages.
