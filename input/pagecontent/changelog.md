@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.8 (2026-10-28)
+### Added Urgent Care
+Added the [Urgent Care](UrgentCare.html) landing page, with links from the [home](index.html) and
+[business context](businessContext.html) pages.
+
 ## v0.4.7 (2026-10-01)
 ### Dunedin Hospital Outpatients Patient is read-only
 Patient update is no longer supported. The Patient resource in the Capability Statement now lists `read`, `vread` and
