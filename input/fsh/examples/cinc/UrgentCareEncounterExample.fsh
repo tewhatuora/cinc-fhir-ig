@@ -32,8 +32,6 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 * participant[0].period.start = "2025-02-15T14:30:00+13:00"
 * participant[0].period.end = "2025-02-15T15:00:00+13:00"
 
-* reasonCode = $sct#49727002 "Cough"
-
 * period.start = "2025-02-15T14:30:00+13:00"
 * period.end = "2025-02-15T15:00:00+13:00"
 
@@ -67,6 +65,8 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 * location[=].period.end = "2025-02-15T15:00:00+13:00"
 
 * extension[cscHolder].valueBoolean = false
+
+* extension[huhcHolder].valueBoolean = false
 
 * extension[accident].valueBoolean = false
 
