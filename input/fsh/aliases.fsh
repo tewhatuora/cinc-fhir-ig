@@ -110,6 +110,7 @@ Alias: $vs-name-information-source = https://nzhts.digital.health.nz/fhir/ValueS
 Alias: $australasian-triage-scale = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/australasian-triage-scale-cs
 Alias: $nz-appointment-reason-codes = https://fhir-ig.digital.health.nz/shared-care/ValueSet/nz-onlinegp-appointment-reason-codes
 Alias: $nz-claim-subtype = https://fhir-ig.digital.health.nz/shared-care/CodeSystem/nz-claim-subtype-cs
+Alias: $purchase-unit = https://standards.digital.health.nz/ns/purchase-unit
 
 
 

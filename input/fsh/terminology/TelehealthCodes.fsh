@@ -149,3 +149,32 @@ Description: "Consultation type codes used for Online GP encounters."
 * ^content = #complete
 * #standard "Standard consultation" "Standard 10 or 15-minute Online GP consultation"
 * #prep "PrEP" "HIV Pre-Exposure Prophylaxis consultation"
+
+
+CodeSystem: SharedCareClaimPurchaseUnitCodeCS
+Id: shared-care-claim-purchase-unit-code-cs
+Title: "Shared Care Claim Purchase Unit Code Code System"
+Description: "Purchase unit codes used for Shared Care claims (e.g., Online GP services)."
+* ^url = "https://standards.digital.health.nz/ns/purchase-unit"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = true
+* ^content = #fragment
+* #COGP0057 "Online GP Under 14 years CSC holder Business Hours" "Online GP Service Under 14 years Community Service Card holder Business Hours"
+* #COGP0058 "Online GP Under 14 years CSC holder Out of Hours" "Online GP Service Under 14 years Community Service Card holder Out of Hours"
+* #COGP0059 "Online GP Under 14 years No CSC Business Hours" "Online GP Service Under 14 years No Community Service Card Business Hours"
+* #COGP0060 "Online GP Under 14 years No CSC Out of Hours" "Online GP Service Under 14 years No Community Service Card Out of Hours"
+* #COGP0061 "Online GP Youth (14-17 years) CSC holder Business Hours" "Online GP Service Youth (14-17 years) Community Service Card holder Business Hours"
+* #COGP0062 "Online GP Youth (14-17 years) CSC holder Out of Hours" "Online GP Service Youth (14-17 years) Community Service Card holder Out of Hours"
+* #COGP0063 "Online GP Youth (14-17 years) No CSC Business Hours" "Online GP Service Youth (14-17 years) No Community Service Card Business Hours"
+* #COGP0064 "Online GP Youth (14-17 years) No CSC Out of Hours" "Online GP Service Youth (14-17 years) No Community Service Card Out of Hours"
+* #COGP0065 "Online GP Adult CSC holder Business Hours" "Online GP Service Adult Community Service Card holder Business Hours"
+* #COGP0066 "Online GP Adult CSC holder Out of Hours" "Online GP Service Adult Community Service Card holder Out of Hours"
+* #COGP0067 "Online GP Adult No CSC Business Hours" "Online GP Service Adult No Community Service Card Business Hours"
+* #COGP0068 "Online GP Adult No CSC Out of Hours" "Online GP Service Adult No Community Service Card Out of Hours"
+* #COGP0081 "CSC holders – Initial PrEP consult" "CSC holders – Initial PrEP consultation"
+* #COGP0082 "Non-CSC holders – Initial PrEP consult" "Non-CSC holders – Initial PrEP consultation"
+* #COGP0083 "CSC holders – Re-start PrEP consult" "CSC holders – Re-start PrEP consultation"
+* #COGP0084 "Non-CSC holders – Re-start PrEP consult" "Non-CSC holders – Re-start PrEP consultation"
+* #COGP0085 "CSC holders – Follow-up PrEP consult" "CSC holders – Follow-up PrEP consultation"
+* #COGP0086 "Non-CSC holders – Follow-up PrEP consult" "Non-CSC holders – Follow-up PrEP consultation"
