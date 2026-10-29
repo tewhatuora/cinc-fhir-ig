@@ -117,3 +117,14 @@ Description: "Allowed referral sources for Online GP encounters."
 * $sct#301661000210103 "Referred by emergency department"
 * $sct#669431000210103 "Referred by integrated health services hub"
 * $sct#669421000210100 "Referred by rural hospital service"
+
+
+ValueSet: SharedCareClaimPurchaseUnitCode
+Id: shared-care-claim-purchase-unit-code
+Title: "Shared Care Claim Purchase Unit Code Value Set"
+Description: "Purchase unit codes allowable for Shared Care claims (e.g., Online GP services). Submitted using the system \"https://standards.digital.health.nz/ns/purchase-unit\"."
+* ^status = #active
+* ^experimental = false
+* ^jurisdiction = urn:iso:std:iso:3166#NZ
+
+* include codes from system SharedCareClaimPurchaseUnitCodeCS
