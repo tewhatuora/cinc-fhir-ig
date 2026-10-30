@@ -4,7 +4,7 @@ Id: UrgentCareEncounter
 Title: "Urgent Care Encounter"
 Description: """A FHIR resource profile for operational reporting of Urgent Care encounters."""
 
-* ^version = "1.1.0"
+* ^version = "1.2.0"
 * ^purpose = "A FHIR resource profile for operational reporting of Urgent Care encounters."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -29,7 +29,7 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 * classHistory 0..*
 
 * type 1..1
-* type from SharedCareEncounterTypeValueSet (extensible)
+* type from UrgentCareEncounterTypeValueSet (extensible)
 
 * serviceType 0..1
 
