@@ -16,7 +16,10 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB "Ambulatory"
 
-* type = $sct#185347001 "Encounter for problem"
+* type.coding.system = "http://snomed.info/sct"
+* type.coding.version = "http://snomed.info/sct/21000210109"
+* type.coding.code = #1269515004
+* type.coding.display = "Face to face consultation with patient"
 
 * subject.type = "Patient"
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
@@ -28,7 +31,10 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 
 * participant[0].individual.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * participant[0].individual.identifier.value = "56ABCD"
-* participant[0].type = $sct#309343006 "Physician (occupation)"
+* participant[0].type.coding.system = "http://snomed.info/sct"
+* participant[0].type.coding.version = "http://snomed.info/sct/21000210109"
+* participant[0].type.coding.code = #224535009
+* participant[0].type.coding.display = "Registered nurse"
 * participant[0].period.start = "2025-02-15T14:30:00+13:00"
 * participant[0].period.end = "2025-02-15T15:00:00+13:00"
 
@@ -43,16 +49,21 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 * length.code = #min
 
 * extension[diagnosis][0].valueCodeableConcept.coding.system = "http://snomed.info/sct"
+* extension[diagnosis][0].valueCodeableConcept.coding.version = "http://snomed.info/sct/21000210109"
 * extension[diagnosis][0].valueCodeableConcept.coding.code = #10509002
 * extension[diagnosis][0].valueCodeableConcept.coding.display = "Acute bronchitis"
 * extension[diagnosis][0].valueCodeableConcept.text = "Acute bronchitis"
 
 * extension[diagnosis][1].valueCodeableConcept.coding.system = "http://snomed.info/sct"
+* extension[diagnosis][1].valueCodeableConcept.coding.version = "http://snomed.info/sct/21000210109"
 * extension[diagnosis][1].valueCodeableConcept.coding.code = #49727002
 * extension[diagnosis][1].valueCodeableConcept.coding.display = "Cough"
 * extension[diagnosis][1].valueCodeableConcept.text = "Cough"
 
-* hospitalization.dischargeDisposition = $sct#306689006 "Discharge to home"
+* hospitalization.dischargeDisposition.coding.system = "http://snomed.info/sct"
+* hospitalization.dischargeDisposition.coding.version = "http://snomed.info/sct/21000210109"
+* hospitalization.dischargeDisposition.coding.code = #444019000
+* hospitalization.dischargeDisposition.coding.display = "Did not wait for treatment"
 
 * location[+].location.display = "Urgent Care Waiting Area"
 * location[=].status = #active
@@ -72,4 +83,4 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 
 * extension[regCode].valueString = "casual"
 
-* extension[modeOfArrival].valueCoding = http://terminology.hl7.org/CodeSystem/v2-0430#O "Other"
+* extension[modeOfArrival].valueCoding = http://terminology.hl7.org/CodeSystem/v2-0430#A "Ambulance"
