@@ -1,31 +1,3 @@
-// Code Systems for Telehealth
-// CodeSystem: NzClaimTypeCS
-// Id: nz-claim-type-cs
-// Title: "NZ Claim Type Code System"
-// Description: "Code system for NZ claim types"
-// * ^status = #draft
-// * ^caseSensitive = true
-// * #professional "Professional" "Outpatient claims from physicians including GPs, telehealth, primary maternity, diagnostic & labs, etc."
-// * #pharmacy "Pharmacy" "Pharmacy claims for goods & services"
-// * #oral "Oral" "Should be used for HSAAP dental claims including CDA, low-income dental, etc."
-CodeSystem: NzAppointmentReasonCodesCS
-Id: nz-onlinegp-appointment-reason-codes-cs
-Title: "NZ Appointment Reason Codes Code System"
-Description: "Code system for NZ appointment reason codes"
-* ^status = #draft
-* ^caseSensitive = true
-* #566531000210101 "Timely in person appointment unavailable" "Service user unable to get into usual GP practice for in person appointment when required. GP booked / wait for appointment is too long"
-* #566541000210109 "Unable to attend in person due to impaired mobility" "Service user has difficulty traveling to clinics"
-* #566551000210107 "Lives in rural or remote location" "Service user has limited access to healthcare facilities in location of residence or current location"
-* #566561000210105 "Unable to attend in person due to work or family constraint" "Service user has limited time / access to healthcare facilities due to work or family constraints / responsibilities"
-* #566571000210104 "Avoiding possible exposure to infectious disease" "Service user has personal health concerns, immunocompromised status, or protecting vulnerable household members"
-* #566581000210102 "Telehealth appointment booked for convenience" "Service user does not have accessibility or booking constraints but prefers convenience of telehealth service"
-* #566351000210102 "Patient not registered - not needed" "Not registered in general practice"
-* #185369008 "Referred by pharmacist" "Pharmacy has referred service user"
-* #659821000210106 "Referred by urgent care clinic" "Referred by urgent care"
-* #301661000210103 "Referred by emergency department" "Emergency department has referred service user"
-
-
 CodeSystem: NzClaimSubtypeCS
 Id: nz-claim-subtype-cs
 Title: "NZ Claim Subtype Code System"
@@ -149,3 +121,32 @@ Description: "Consultation type codes used for Online GP encounters."
 * ^content = #complete
 * #standard "Standard consultation" "Standard 10 or 15-minute Online GP consultation"
 * #prep "PrEP" "HIV Pre-Exposure Prophylaxis consultation"
+
+
+CodeSystem: SharedCareClaimPurchaseUnitCodeCS
+Id: shared-care-claim-purchase-unit-code-cs
+Title: "Shared Care Claim Purchase Unit Code Code System"
+Description: "Purchase unit codes used for Shared Care claims (e.g., Online GP services)."
+* ^url = "https://standards.digital.health.nz/ns/purchase-unit"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = true
+* ^content = #fragment
+* #COGP0057 "Online GP Under 14 years CSC holder Business Hours" "Online GP Service Under 14 years Community Service Card holder Business Hours"
+* #COGP0058 "Online GP Under 14 years CSC holder Out of Hours" "Online GP Service Under 14 years Community Service Card holder Out of Hours"
+* #COGP0059 "Online GP Under 14 years No CSC Business Hours" "Online GP Service Under 14 years No Community Service Card Business Hours"
+* #COGP0060 "Online GP Under 14 years No CSC Out of Hours" "Online GP Service Under 14 years No Community Service Card Out of Hours"
+* #COGP0061 "Online GP Youth (14-17 years) CSC holder Business Hours" "Online GP Service Youth (14-17 years) Community Service Card holder Business Hours"
+* #COGP0062 "Online GP Youth (14-17 years) CSC holder Out of Hours" "Online GP Service Youth (14-17 years) Community Service Card holder Out of Hours"
+* #COGP0063 "Online GP Youth (14-17 years) No CSC Business Hours" "Online GP Service Youth (14-17 years) No Community Service Card Business Hours"
+* #COGP0064 "Online GP Youth (14-17 years) No CSC Out of Hours" "Online GP Service Youth (14-17 years) No Community Service Card Out of Hours"
+* #COGP0065 "Online GP Adult CSC holder Business Hours" "Online GP Service Adult Community Service Card holder Business Hours"
+* #COGP0066 "Online GP Adult CSC holder Out of Hours" "Online GP Service Adult Community Service Card holder Out of Hours"
+* #COGP0067 "Online GP Adult No CSC Business Hours" "Online GP Service Adult No Community Service Card Business Hours"
+* #COGP0068 "Online GP Adult No CSC Out of Hours" "Online GP Service Adult No Community Service Card Out of Hours"
+* #COGP0081 "CSC holders – Initial PrEP consult" "CSC holders – Initial PrEP consultation"
+* #COGP0082 "Non-CSC holders – Initial PrEP consult" "Non-CSC holders – Initial PrEP consultation"
+* #COGP0083 "CSC holders – Re-start PrEP consult" "CSC holders – Re-start PrEP consultation"
+* #COGP0084 "Non-CSC holders – Re-start PrEP consult" "Non-CSC holders – Re-start PrEP consultation"
+* #COGP0085 "CSC holders – Follow-up PrEP consult" "CSC holders – Follow-up PrEP consultation"
+* #COGP0086 "Non-CSC holders – Follow-up PrEP consult" "Non-CSC holders – Follow-up PrEP consultation"

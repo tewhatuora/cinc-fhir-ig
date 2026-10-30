@@ -15,8 +15,7 @@ Some functionality of the API is currently limited based on the underlying appoi
 * Southern Radiology appointments only support retrieval. Updates (confirm, arrive, depart) are not currently supported.
 
 Additionally, a Patient resource is exposed to provide Patient demographic information held within the Hospital Patient
-Administration System (PAS). This provides the ability to update a limited set of patient demographics held in the PAS
-(contact details).
+Administration System (PAS). The Patient resource is read-only; patient demographics can't be updated through this API.
 
 ### Appointment Modality
 In this IG, the appointment method (how the appointment will be delivered) is conveyed using the **`Appointment.extension:appointmentMethod`** extension and is the authoritative indicator of delivery method: `in-person`, `telephone`, `telehealth`, or `home-visit`.
@@ -38,7 +37,7 @@ In all cases, **do not infer appointment method from Location**; use `extension:
 [2. Confirm Appointment ](#confirm-appointment) <br/>
 [3. Arrive Appointment ](#arrive-appointment) <br/>
 [4. Depart Appointment ](#depart-appointment) <br />
-[5. Retrieve or Update Te Waipounamu Patient Demographics ](#retrieve-or-update-te-waipounamu-patient-demographics) <br />
+[5. Retrieve Te Waipounamu Patient Demographics ](#retrieve-te-waipounamu-patient-demographics) <br />
 
 #### Appointment Created Or Updated
 An event notification will be sent to subscribers for any new or updated appointments, the details can then be retrieved
@@ -56,7 +55,7 @@ Key information:
 
 | Element                               | Expected update/information                                                            |
 |---------------------------------------|----------------------------------------------------------------------------------------|
-| AppointmentResponse.appointment       | Appointment.Identifier                                                                 |
+| AppointmentResponse.appointment       | Reference to the Appointment by its FHIR id, e.g. `Appointment/{id}`                   |
 | AppointmentResponse.participantType   | http://terminology.hl7.org/CodeSystem/v3-ParticipationType#SBJ                        |
 | AppointmentResponse.participantStatus | 'accepted'                                                                             |
 
@@ -75,9 +74,9 @@ Key information:
 | Element               | Expected update/information                                             |
 |-----------------------|-------------------------------------------------------------------------|
 | Encounter.status      | 'arrived'                                                               |
-| Encounter.class       | https://terminology.hl7.org/3.1.0/ValueSet-v3-ActEncounterCode.html AMB |
+| Encounter.class       | AMB (ambulatory) or IMP (inpatient) from https://terminology.hl7.org/3.1.0/ValueSet-v3-ActEncounterCode.html |
 | Encounter.subject     | Patient.Identifier                                                      |
-| Encounter.appointment | Appointment.Identifier                                                  |
+| Encounter.appointment | Reference to the Appointment by its FHIR id, e.g. `Appointment/{id}`    |
 
 see [Encounter create example](/Encounter-dho-outpatient-encounter-create-instance.json.html)
 
@@ -93,7 +92,7 @@ Key information:
 
 | Element                          | Expected update/information |
 |----------------------------------|-----------------------------|
-| Encounter.appointment.identifier | Appointment.Identifier      |
+| Encounter.appointment            | Reference to the Appointment by its FHIR id, e.g. `Appointment/{id}` |
 | Encounter.subject                | Patient.Identifier          |
 | Encounter.status                 | 'finished'                  |
 | Encounter.period.start           | arrival time                |
@@ -106,26 +105,10 @@ see [Encounter update example](/Encounter-dho-outpatient-encounter-update-instan
   {% include dho-appointment-depart.svg %}
 </figure>
 
-#### Retrieve Or Update Te Waipounamu Patient Demographics
+#### Retrieve Te Waipounamu Patient Demographics
 Retrieve Patient Demographics from a Patient in the Te Waipounamu regional Patient Administration System.
 
-Update contact details (phone/email) for the patient.
-
-_Note: Email address will not be automatically available after an update as a verification process with the patient must
-occur first. Once validated, the email will appear in the Patient resource._
-
-Key information (for update):
-
-| Element                | Expected update/information |
-|------------------------|-----------------------------|
-| Patient.identifier     | patient's NHI               |
-| Patient.status         | 'finished'                  |
-| Patient.telecom.system | 'phone'                     |
-| Patient.telecom.use    | 'home'                      |
-| Patient.telecom.value  | patient's phone number      |
-| Patient.telecom.system | 'email'                     |
-| Patient.telecom.use    | 'home'                      |
-| Patient.telecom.value  | patient's email address     |
+Patient details, including contact details, are maintained in the Patient Administration System, not through this API.
 
 see [Patient Response example](/Patient-DHO-outpatient-instance.json.html)
 
