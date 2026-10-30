@@ -7,8 +7,17 @@ Description: "Code system for NZ appointment reason codes"
 * $sct#266934004 "Transport problem (finding)"
 * $sct#74964007 "Other (qualifier value)"
 
-
-* include codes from system nz-onlinegp-appointment-reason-codes-cs
+// NZ Edition SNOMED CT codes
+* $sct|http://snomed.info/sct/21000210109#566531000210101 "Timely in person appointment unavailable"
+* $sct|http://snomed.info/sct/21000210109#566541000210109 "Unable to attend in person due to impaired mobility"
+* $sct|http://snomed.info/sct/21000210109#566551000210107 "Lives in rural or remote location"
+* $sct|http://snomed.info/sct/21000210109#566561000210105 "Unable to attend in person due to work or family constraint"
+* $sct|http://snomed.info/sct/21000210109#566571000210104 "Avoiding possible exposure to infectious disease"
+* $sct|http://snomed.info/sct/21000210109#566581000210102 "Telehealth appointment booked for convenience"
+* $sct|http://snomed.info/sct/21000210109#566351000210102 "Patient not registered - not needed"
+* $sct|http://snomed.info/sct/21000210109#185369008 "Referred by pharmacist"
+* $sct|http://snomed.info/sct/21000210109#659821000210106 "Referred by urgent care clinic"
+* $sct|http://snomed.info/sct/21000210109#301661000210103 "Referred by emergency department"
 
 ValueSet: NzClaimTypes
 Id: nz-claim-types
@@ -82,9 +91,20 @@ Description: "Codes for diagnosis use (working vs final)"
 * ^status = #draft
 * include codes from system $diagnosis-role
 
-ValueSet: SharedCareEncounterTypeValueSet
-Id: shared-care-encounter-type-valueset
-Title: "Shared Care Encounter Type Value Set"
+ValueSet: UrgentCareEncounterTypeValueSet
+Id: urgent-care-encounter-type-valueset
+Title: "Urgent Care Encounter Type Value Set"
+Description: "Encounter types for Urgent Care"
+* ^status = #draft
+
+// Include specific preferred codes
+* $sct#1269515004 "Face to face consultation with patient"
+* $sct#386472008 "Telephone consultation"
+* $sct#719410009 "Video consultation"
+
+ValueSet: OnlineGPEncounterTypeValueSet
+Id: online-gp-encounter-type-valueset
+Title: "Online GP Encounter Type Value Set"
 Description: "Encounter types for Shared Care including specific codes and other SNOMED CT codes"
 * ^version = "0.0.1"
 * ^status = #draft
