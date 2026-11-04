@@ -53,7 +53,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * extension[diagnosis].valueCodeableConcept.coding.display = "Currently smoking"
 * extension[diagnosis].valueCodeableConcept.text = "Currently smoking"
 
-* hospitalization.dischargeDisposition = $sct#182991002 "Treatment given"
+* hospitalization.dischargeDisposition = $sct|http://snomed.info/sct/21000210109#566291000210102 "Out of scope for telehealth"
 * hospitalization.admitSource = $sct#185369008 "Referred by pharmacist"
 
 * extension[cscHolder].valueBoolean = true
