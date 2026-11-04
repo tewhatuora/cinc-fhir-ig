@@ -70,19 +70,19 @@ Description: "Code system for claim decision reasons based on validation rule ID
 * #DET064.009 "Passed" "Encounter is only claimed once."
 * #DET064.010 "Failed" "Encounter cannot be claimed more than once."
 * #DET055.005 "Failed" "NHI number provided is for a deceased health service user."
-* #DET064.011 "Passed" "Fee(s) found for purchase unit code and contracted service."
-* #DET064.012 "Passed" "Purchase unit code not valid for this contracted service - no fee(s) found."
+* #DET064.011 "Passed" "Fee {feeCode} found for purchase unit code {PUC} and contracted provider on {serviceDate}."
+* #DET064.012 "Failed" "Purchase unit code {PUC} not valid for this contracted provider on {serviceDate} - no fee(s) found."
 
 // Adjudication Validation Rules
-* #DET064.013 "Passed" "Claimed fee {feeCode} is valid for the patient's age."
-* #DET064.014 "Failed" "Patient's age was older than maximum allowed age for claimed fee {feeCode}."
-* #DET064.015 "Failed" "Patient's age was younger than minimum allowed age for claimed fee {feeCode}."
-* #DET064.016 "Passed" "Claimed fee {feeCode} is valid for consultation date & time."
-* #DET064.017 "Failed" "Patient's consultation occurred outside of time period for claimed fee {feeCode}."
-* #DET064.018 "Passed" "Claimed fee {feeCode} is valid for patient's CSC status."
-* #DET064.019 "Failed" "Patient's CSC status does not correspond to the claimed fee {feeCode}."
-* #DET064.020 "Passed" "Fee(s) found for product code and contracted service."
-* #DET064.021 "Failed" "Product code not valid for this contracted service - no fee(s) found."
+* #DET064.013 "Passed" "Claimed fee {productOrServiceCode} is valid for the patient's age."
+* #DET064.014 "Failed" "Patient's age was older than maximum allowed age for claimed fee {productOrServiceCode}."
+* #DET064.015 "Failed" "Patient's age was younger than minimum allowed age for claimed fee {productOrServiceCode}."
+* #DET064.016 "Passed" "Claimed fee {productOrServiceCode} is valid for consultation date & time."
+* #DET064.017 "Failed" "Patient's consultation occurred outside of time period for claimed fee {productOrServiceCode}."
+* #DET064.018 "Passed" "Claimed fee {productOrServiceCode} is valid for patient's CSC status."
+* #DET064.019 "Failed" "Patient's CSC status does not correspond to the claimed fee {productOrServiceCode}."
+* #DET064.020 "Passed" "Fee {feeCode} found for product code {productCode} and contracted provider on {serviceDate}."
+* #DET064.021 "Failed" "Product code {productCode} not valid for this contracted provider on {serviceDate} - no fee(s) found."
 
 CodeSystem: ProviderQualificationCS
 Id: provider-qualification-cs
