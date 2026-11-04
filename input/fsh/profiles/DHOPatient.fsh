@@ -166,46 +166,6 @@ Expression: "Patient.name.where( (use.empty()) or (use='nickname') or (use = 'ma
 Severity: #error
 Description: "only allows certain name name use values"
 
-Profile: DHOPatientUpdate
-Parent: NzPatient
-Title: "DHO Patient update profile"
-Description: "This profile derives from the [Patient](https://hl7.org/fhir/R4B/patient.html) Resource with localisations using international and NZ standards including the [FHIR NZ Base IG](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html), for use in the Dunedin Hospital Outpatients context."
-* ^version = "1.0.1"
-
-// ---------------------------------------------------------
-// Inserts
-// ---------------------------------------------------------
-* insert CommonPatientConstraints
-
-// ---------------------------------------------------------
-// Cardinality tightening
-// ---------------------------------------------------------
-* name 0..0
-* telecom 1..* MS
-  * obeys dho-telecom-notification-valid-system
-  * extension contains DHOTelecomNotification named notification-enabled 0..1 MS
-  * extension[notification-enabled] ^short = "True if notifications can be sent to this email or SMS address"
-  * obeys dho-telecom-validation-system
-  * extension contains DHOTelecomValidation named validation-status 0..1 MS
-  * extension[validation-status] ^short = "Validation status of this telecom"
-  * extension[cp-purpose] 0..0
-  * period 0..0
-  * system 1..1 MS
-  * value 1..1 MS
-  * use 1..1 MS
-    * ^short = "home | work | mobile"
-    * ^definition = "The purpose of this contact point - constrained to home | work | mobile"
-  * rank 0..1
-  * id 0..0
-* birthDate 0..0
-* address 0..0
-* maritalStatus 0..0
-* multipleBirthBoolean 0..0
-* contact 0..0
-* generalPractitioner 0..0
-* managingOrganization 0..0
-* extension[ethnicity] 0..0
-
 Invariant: dho-telecom-notification-valid-system
 Description: "The notification-enabled extension should only be present when the telecom system is 'email', 'sms', or 'phone' with use 'mobile'."
 Severity: #warning

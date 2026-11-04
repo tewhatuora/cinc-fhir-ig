@@ -32,6 +32,8 @@ Description: "Allowed discharge disposition codes for Online GP encounters in Ne
 * http://snomed.info/sct#183561008 "Referral to general practitioner"
 * http://snomed.info/sct#134403003 "Urgent referral"
 * http://snomed.info/sct#306344004 "Referral to professional allied to medicine"
-* http://snomed.info/sct#566291000210102 "Out of scope for telehealth"
 * http://snomed.info/sct#185324002 "Failed encounter"
 * http://snomed.info/sct#410543007 "Did not Attend"
+
+// NZ Edition SNOMED CT codes
+* $sct|http://snomed.info/sct/21000210109#566291000210102 "Out of scope for telehealth"

@@ -89,3 +89,10 @@ Context: Encounter
 * value[x] only CodeableConcept
 * valueCodeableConcept from http://hl7.org/fhir/ValueSet/condition-code (example)
 * valueCodeableConcept ^short = "Diagnosis code (preferably SNOMED CT)"
+
+Extension: SharedCareHuhcHolder
+Id: shared-care-huhc-holder
+Title: "Shared Care HUHC holder"
+Description: "High Use Health Card holder for shared care encounters"
+Context: Encounter
+* value[x] only boolean

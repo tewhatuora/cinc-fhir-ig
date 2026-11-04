@@ -10,10 +10,9 @@ RuleSet: CreateUpdateInteractions
 * conditionalUpdate = false
 * conditionalDelete = #not-supported
 
-// Rest resource Read and Update operations
-RuleSet: ReadUpdateInteractions
+// Rest resource Read operations
+RuleSet: ReadInteractions
 * interaction[0].code = #read
-* interaction[+].code = #update
 * interaction[+].code = #vread
 * interaction[+].code = #search-type
 * versioning = #versioned

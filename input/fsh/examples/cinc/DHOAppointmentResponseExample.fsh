@@ -9,7 +9,6 @@ Description: "An example Dunedin Hospital Outpatient Appointment Response for Pa
 * meta.source = "https://standards.digital.health.nz/ns/hpi-facility-id/F04066-D"
 * insert CorrelationIdTag(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 
-* appointment.identifier.system = "urn:orion:pas:appointment:patient-appointment:code"
-* appointment.identifier.value = "77350"
+* appointment = Reference(DHOAppointmentClinicExample)
 * participantType = $v3-ParticipationType#SBJ "Subject"
 * participantStatus = #accepted

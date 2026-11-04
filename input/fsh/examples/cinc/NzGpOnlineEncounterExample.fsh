@@ -48,9 +48,10 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * length.code = #min
 
 * extension[diagnosis].valueCodeableConcept.coding.system = "http://snomed.info/sct"
-* extension[diagnosis].valueCodeableConcept.coding.code = #195662009
-* extension[diagnosis].valueCodeableConcept.coding.display = "Acute viral pharyngitis"
-* extension[diagnosis].valueCodeableConcept.text = "Acute viral pharyngitis"
+* extension[diagnosis].valueCodeableConcept.coding.version = "http://snomed.info/sct/21000210109"
+* extension[diagnosis].valueCodeableConcept.coding.code = #77176002
+* extension[diagnosis].valueCodeableConcept.coding.display = "Currently smoking"
+* extension[diagnosis].valueCodeableConcept.text = "Currently smoking"
 
 * hospitalization.dischargeDisposition = $sct#182991002 "Treatment given"
 * hospitalization.admitSource = $sct#185369008 "Referred by pharmacist"
