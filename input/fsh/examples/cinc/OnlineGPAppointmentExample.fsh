@@ -24,7 +24,7 @@ Description: "Example of Appointment for Online GP services"
 * start = "2025-01-01T10:00:00+13:00"
 * end = "2025-01-01T10:17:00+13:00"
 
-* reasonCode = $sct#266934004 "Transport problem (finding)"
+* reasonCode = $sct|http://snomed.info/sct/21000210109#566531000210101 "Timely in person appointment unavailable"
 
 * participant[patient].actor.type = "Patient"
 * participant[patient].actor.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
