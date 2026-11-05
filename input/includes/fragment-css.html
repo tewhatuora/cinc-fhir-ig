@@ -1,0 +1,38 @@
+<!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/logos.css" rel="stylesheet"/>
+<link href="assets/css/colours.css" rel="stylesheet" />
+<link href="assets/css/fonts.css" rel="stylesheet" />
+
+<!--
+  Project-specific CSS appended below the template's own stylesheet links.
+  Styles authored Markdown tables (teal header, borders, zebra striping)
+  to match the FHIR-generated artefact tables.
+
+  Scope: only narrative-content tables with NO class attribute, so
+  FHIR-generated tables (grid, dict, codes, lmap, ...) are untouched, and
+  restricted to #segment-content so header/footer/nav tables are unaffected.
+-->
+<style type="text/css">
+  #segment-content table:not([class]) {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+    font-size: 0.9em;
+  }
+  #segment-content table:not([class]) th,
+  #segment-content table:not([class]) td {
+    border: 1px solid #c9c9c9;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  #segment-content table:not([class]) thead th {
+    background-color: #00877c;
+    color: #ffffff;
+    font-weight: 600;
+    border-color: #00877c;
+  }
+  #segment-content table:not([class]) tbody tr:nth-child(even) {
+    background-color: #f4f8f8;
+  }
+</style>

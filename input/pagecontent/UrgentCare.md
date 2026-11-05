@@ -135,4 +135,4 @@ Accept: application/fhir+json
   }
   // ... remainder as per profile requirements: serviceProvider, participant, subject, status, class, type, period, etc.
 }
-
+```
