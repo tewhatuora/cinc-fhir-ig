@@ -1,0 +1,195 @@
+Alias: $usage-context-type = http://terminology.hl7.org/CodeSystem/usage-context-type
+Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-control
+
+Instance: WidespreadPainIndexQuestionnaire
+InstanceOf: Questionnaire
+Usage: #definition
+* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/WidespreadPainIndexQuestionnaire"
+* identifier.use = #official
+* identifier.value = "WidespreadPainIndexQuestionnaire"
+* version = "1.0.0"
+* name = "WidespreadPainIndexQuestionnaire"
+* title = "Widespread Pain Index"
+* title.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+* title.extension.valueString = "<div><h1 style=\"margin:0 0 12px 0;font-size:30px;line-height:1.2;color:#007d8a;font-weight:700;\">Widespread Pain Index</h1><div style=\"margin:0 0 18px 0;padding:12px 16px;background-color:#f0f9fa;border-left:4px solid #007d8a;border-radius:4px;\"><p style=\"margin:0 0 4px 0;font-size:18px;line-height:1.4;color:#005f68;font-weight:700;\">Rheumatology assessment</p><p style=\"margin:0;font-size:15px;line-height:1.5;color:#5f6b76;\">This questionnaire helps assess widespread pain and associated symptoms. Please answer the questions about pain and symptoms you have experienced over the time periods described.</p></div></div>"
+* status = #active
+* subjectType = #Patient
+* date = "2026-11-05T00:00:00.000Z"
+* description = "Widespread Pain Index assessment questionnaire for Rheumatology (PaperLite ID PL.1089). Captures pain location, symptom severity and a somatic symptom checklist."
+* useContext.code = $usage-context-type#focus "Clinical Focus"
+* useContext.valueCodeableConcept.text = "M70 Rheumatology"
+* purpose = "Rheumatology widespread pain assessment"
+* item[0].extension[0].valueBoolean = true
+* item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].extension[+].valueString = "specialtyCode"
+* item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-claims-extract"
+* item[=].linkId = "meta-specialty-code"
+* item[=].text = "Specialty Code"
+* item[=].type = #string
+* item[=].required = false
+* item[=].initial.valueString = "M70"
+* item[+].extension[0].valueBoolean = true
+* item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].extension[+].valueString = "specialtyName"
+* item[=].extension[=].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-claims-extract"
+* item[=].linkId = "meta-specialty-name"
+* item[=].text = "Specialty Name"
+* item[=].type = #string
+* item[=].required = false
+* item[=].initial.valueString = "Rheumatology"
+* item[+].linkId = "Section1PainLocation"
+* item[=].text = "Section 1 – Pain Location"
+* item[=].type = #group
+* item[=].item.extension.valueCodeableConcept = $questionnaire-item-control#check-box "Check-box"
+* item[=].item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item.linkId = "PainLocation"
+* item[=].item.text = "Where have you had pain over the past week?"
+* item[=].item.text.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+* item[=].item.text.extension.valueString = "<div style=\"padding-bottom:10px;\">Where have you had pain over the past week?</div>"
+* item[=].item.type = #choice
+* item[=].item.required = false
+* item[=].item.repeats = true
+* item[=].item.answerOption[0].valueCoding = #right-shoulder-girdle "Right Shoulder girdle"
+* item[=].item.answerOption[+].valueCoding = #right-hip "Right Hip (buttock, trochanter)"
+* item[=].item.answerOption[+].valueCoding = #right-jaw "Right Jaw"
+* item[=].item.answerOption[+].valueCoding = #right-upper-arm "Right Upper arm"
+* item[=].item.answerOption[+].valueCoding = #right-lower-arm "Right Lower arm"
+* item[=].item.answerOption[+].valueCoding = #right-upper-leg "Right Upper leg"
+* item[=].item.answerOption[+].valueCoding = #right-lower-leg "Right Lower leg"
+* item[=].item.answerOption[+].valueCoding = #left-shoulder-girdle "Left Shoulder girdle"
+* item[=].item.answerOption[+].valueCoding = #left-hip "Left Hip (buttock, trochanter)"
+* item[=].item.answerOption[+].valueCoding = #left-jaw "Left Jaw"
+* item[=].item.answerOption[+].valueCoding = #left-upper-arm "Left Upper arm"
+* item[=].item.answerOption[+].valueCoding = #left-lower-arm "Left Lower arm"
+* item[=].item.answerOption[+].valueCoding = #left-upper-leg "Left Upper leg"
+* item[=].item.answerOption[+].valueCoding = #left-lower-leg "Left Lower leg"
+* item[=].item.answerOption[+].valueCoding = #neck "Neck"
+* item[=].item.answerOption[+].valueCoding = #upper-back "Upper back"
+* item[=].item.answerOption[+].valueCoding = #lower-back "Lower back"
+* item[=].item.answerOption[+].valueCoding = #chest "Chest"
+* item[=].item.answerOption[+].valueCoding = #abdomen "Abdomen"
+* item[+].linkId = "Section2SymptomSeverity"
+* item[=].text = "Section 2 – Symptom Severity scale"
+* item[=].type = #group
+* item[=].item[0].linkId = "SymptomSeverityInstruction"
+* item[=].item[=].text = "Please score 0-3 for the following symptoms that you have experienced over the last week: 0 = no problem 1 = slight or mild problems, generally mild or intermittent 2 = moderate, considerable problems, often present and/or at a moderate level 3 = severe, pervasive, continuous, life disturbing problems"
+* item[=].item[=].text.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+* item[=].item[=].text.extension.valueString = "<p>Please score 0-3 for the following symptoms that you have experienced over the last week:</p><p>0 = no problem<br/>1 = slight or mild problems, generally mild or intermittent<br/>2 = moderate, considerable problems, often present and/or at a moderate level<br/>3 = severe, pervasive, continuous, life disturbing problems</p>"
+* item[=].item[=].type = #display
+* item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].linkId = "SeverityFatigue"
+* item[=].item[=].text = "1. During the past week, how much of a problem has fatigue or tiredness been?"
+* item[=].item[=].type = #choice
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].answerOption[0].valueCoding = #0 "0 - No problem"
+* item[=].item[=].answerOption[+].valueCoding = #1 "1 - Slight or mild problems"
+* item[=].item[=].answerOption[+].valueCoding = #2 "2 - Moderate, considerable problems"
+* item[=].item[=].answerOption[+].valueCoding = #3 "3 - Severe, pervasive, continuous, life disturbing problems"
+* item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].linkId = "SeverityUnrefreshed"
+* item[=].item[=].text = "2. During the past week, how much of a problem has waking up feeling unrefreshed been?"
+* item[=].item[=].type = #choice
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].answerOption[0].valueCoding = #0 "0 - No problem"
+* item[=].item[=].answerOption[+].valueCoding = #1 "1 - Slight or mild problems"
+* item[=].item[=].answerOption[+].valueCoding = #2 "2 - Moderate, considerable problems"
+* item[=].item[=].answerOption[+].valueCoding = #3 "3 - Severe, pervasive, continuous, life disturbing problems"
+* item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].linkId = "SeverityThinkingRemembering"
+* item[=].item[=].text = "3. During the past week, how much of a problem have difficulties with thinking or remembering been?"
+* item[=].item[=].type = #choice
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].answerOption[0].valueCoding = #0 "0 - No problem"
+* item[=].item[=].answerOption[+].valueCoding = #1 "1 - Slight or mild problems"
+* item[=].item[=].answerOption[+].valueCoding = #2 "2 - Moderate, considerable problems"
+* item[=].item[=].answerOption[+].valueCoding = #3 "3 - Severe, pervasive, continuous, life disturbing problems"
+* item[=].item[+].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item[=].linkId = "SeverityOtherPhysicalSymptoms"
+* item[=].item[=].text = "4. During the past week, overall, how much of a problem have your other physical symptoms been?"
+* item[=].item[=].type = #choice
+* item[=].item[=].required = false
+* item[=].item[=].repeats = false
+* item[=].item[=].answerOption[0].valueCoding = #0 "0 - No problem"
+* item[=].item[=].answerOption[+].valueCoding = #1 "1 - Slight or mild problems"
+* item[=].item[=].answerOption[+].valueCoding = #2 "2 - Moderate, considerable problems"
+* item[=].item[=].answerOption[+].valueCoding = #3 "3 - Severe, pervasive, continuous, life disturbing problems"
+* item[=].item[+].linkId = "SomaticSymptomsNote"
+* item[=].item[=].text = "Physical/somatic symptoms include: muscle pain, irritable bowel syndrome, fatigue/tiredness, thinking or remembering problem, muscle weakness, headache, pain/cramps in the abdomen, numbness/tingling, dizziness, insomnia, depression, constipation, pain in the upper abdomen, nausea, nervousness, chest pain, blurred vision, fever, diarrhoea, dry mouth, itching, wheezing, Raynaud's phenomenon, hives/welts, ringing in ears, vomiting, heartburn, oral ulcers, loss of/change in taste, seizures, dry eyes, shortness of breath, loss of appetite, rash, sun sensitivity, hearing difficulties, easy bruising, hair loss, frequent urination, painful urination, and bladder spasms."
+* item[=].item[=].text.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+* item[=].item[=].text.extension.valueString = "<p>Physical/somatic symptoms include:</p><p>muscle pain, irritable bowel syndrome, fatigue/tiredness, thinking or remembering problem, muscle weakness, headache, pain/cramps in the abdomen, numbness/tingling, dizziness, insomnia, depression, constipation, pain in the upper abdomen, nausea, nervousness, chest pain, blurred vision, fever, diarrhoea, dry mouth, itching, wheezing, Raynaud's phenomenon, hives/welts, ringing in ears, vomiting, heartburn, oral ulcers, loss of/change in taste, seizures, dry eyes, shortness of breath, loss of appetite, rash, sun sensitivity, hearing difficulties, easy bruising, hair loss, frequent urination, painful urination, and bladder spasms.</p>"
+* item[=].item[=].type = #display
+* item[+].linkId = "Section3SomaticSymptomChecklist"
+* item[=].text = "Section 3 – Somatic Symptom checklist"
+* item[=].type = #group
+* item[=].item.extension.valueCodeableConcept = $questionnaire-item-control#check-box "Check-box"
+* item[=].item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item.linkId = "SomaticSymptomChecklist"
+* item[=].item.text = "During the last three months, have you experienced any of the following?"
+* item[=].item.text.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+* item[=].item.text.extension.valueString = "<div style=\"padding-bottom:10px;\">During the last three months, have you experienced any of the following?</div>"
+* item[=].item.type = #choice
+* item[=].item.required = false
+* item[=].item.repeats = true
+* item[=].item.answerOption[0].valueCoding = #blurred-vision "Blurred vision or problems focusing"
+* item[=].item.answerOption[+].valueCoding = #ringing-ears "Ringing in the ears"
+* item[=].item.answerOption[+].valueCoding = #mouth-sores "Mouth sores"
+* item[=].item.answerOption[+].valueCoding = #loss-change-taste "Loss of taste or a change in taste"
+* item[=].item.answerOption[+].valueCoding = #dry-eyes "Dry eyes"
+* item[=].item.answerOption[+].valueCoding = #hearing-difficulties "Hearing difficulties"
+* item[=].item.answerOption[+].valueCoding = #dry-mouth "Dry mouth"
+* item[=].item.answerOption[+].valueCoding = #headache "Headache"
+* item[=].item.answerOption[+].valueCoding = #fever "Fever"
+* item[=].item.answerOption[+].valueCoding = #shortness-of-breath "Shortness of breath"
+* item[=].item.answerOption[+].valueCoding = #dizziness "Dizziness"
+* item[=].item.answerOption[+].valueCoding = #chest-pain "Chest pain"
+* item[=].item.answerOption[+].valueCoding = #wheezing-asthma "Wheezing or asthma symptoms"
+* item[=].item.answerOption[+].valueCoding = #loss-of-appetite "Loss of appetite"
+* item[=].item.answerOption[+].valueCoding = #heartburn "Heartburn"
+* item[=].item.answerOption[+].valueCoding = #nausea "Nausea"
+* item[=].item.answerOption[+].valueCoding = #constipation "Constipation"
+* item[=].item.answerOption[+].valueCoding = #indigestion-belching "Indigestion or belching"
+* item[=].item.answerOption[+].valueCoding = #liver-problems "Liver problems"
+* item[=].item.answerOption[+].valueCoding = #vomiting "Vomiting"
+* item[=].item.answerOption[+].valueCoding = #joint-pain "Joint pain"
+* item[=].item.answerOption[+].valueCoding = #joint-swelling "Joint swelling"
+* item[=].item.answerOption[+].valueCoding = #muscle-pain "Muscle pain"
+* item[=].item.answerOption[+].valueCoding = #low-back-pain "Low back pain"
+* item[=].item.answerOption[+].valueCoding = #neck-pain "Neck pain"
+* item[=].item.answerOption[+].valueCoding = #muscle-weakness "Muscle weakness"
+* item[=].item.answerOption[+].valueCoding = #depression "Depression"
+* item[=].item.answerOption[+].valueCoding = #insomnia "Insomnia"
+* item[=].item.answerOption[+].valueCoding = #nervousness-anxiety "Nervousness or anxiety"
+* item[=].item.answerOption[+].valueCoding = #easy-bruising "Easy bruising"
+* item[=].item.answerOption[+].valueCoding = #seizures-convulsions "Seizures or convulsions"
+* item[=].item.answerOption[+].valueCoding = #hives-welts "Hives or welts"
+* item[=].item.answerOption[+].valueCoding = #trouble-thinking-remembering "Trouble thinking or remembering"
+* item[=].item.answerOption[+].valueCoding = #rash "Rash"
+* item[=].item.answerOption[+].valueCoding = #fluid-filled-blisters "Fluid-filled blisters"
+* item[=].item.answerOption[+].valueCoding = #hair-loss "Hair loss"
+* item[=].item.answerOption[+].valueCoding = #irritable-bowel-syndrome "Irritable bowel syndrome"
+* item[=].item.answerOption[+].valueCoding = #faintness "Faintness"
+* item[=].item.answerOption[+].valueCoding = #pain-passing-urine "Pain when passing urine"
+* item[=].item.answerOption[+].valueCoding = #passing-urine-frequently "Passing urine frequently"
+* item[=].item.answerOption[+].valueCoding = #bladder-pain-discomfort "Pain, fullness or discomfort in the bladder area"
+* item[=].item.answerOption[+].valueCoding = #sensitivity-light-noise-odour "Sensitivity to bright lights, loud noises or odours"
+* item[=].item.answerOption[+].valueCoding = #fatigue-limiting-activity "Fatigue severe enough to limit daily activity"
+* item[=].item.answerOption[+].valueCoding = #tender-lymph-nodes "Tender lymph nodes"
+* item[=].item.answerOption[+].valueCoding = #frequent-sore-throats "Frequent sore throats"
+* item[=].item.answerOption[+].valueCoding = #raynauds-fingers-colour-change "Fingers changing red, white or blue when cold or emotionally upset"
+* item[=].item.answerOption[+].valueCoding = #unusual-sunlight-reaction "Unusual reaction to sunlight, other than sunburn"
+* item[=].item.answerOption[+].valueCoding = #yellowing-skin-eyes "Yellowing of the skin or eyes"
+* item[=].item.answerOption[+].valueCoding = #numbness-tingling-burning "Numbness, tingling or burning"
+* item[=].item.answerOption[+].valueCoding = #swelling-hands-legs-feet-ankles "Swelling of the hands, legs, feet or ankles not caused by arthritis"
+* item[=].item.answerOption[+].valueCoding = #upper-abdomen-stomach-pain "Pain or discomfort in the upper abdomen or stomach"
+* item[=].item.answerOption[+].valueCoding = #lower-abdomen-pain-cramps "Pain or cramps in the lower abdomen"
+* item[=].item.answerOption[+].valueCoding = #watery-diarrhoea "Frequent or severe watery diarrhoea"
+* item[=].item.answerOption[+].valueCoding = #black-tarry-bowel-motions "Black or tarry bowel motions not caused by iron"
+* item[=].item.answerOption[+].valueCoding = #itching "Itching"
+* item[=].item.answerOption[+].valueCoding = #tiredness-fatigue "Tiredness or fatigue"
