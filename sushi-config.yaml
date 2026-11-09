@@ -95,6 +95,7 @@ parameters:
     - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/MentalHealthAssessmentSurveyQuestionnaire
     - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/PregnancyAssessmentSurveyQuestionnaire
     - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/RespiratoryAdultHealthQuestionnaire
+    - https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/WidespreadPainIndexQuestionnaire
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #
@@ -279,6 +280,7 @@ groups:
       - DHOMusculoskeletalHealthQuestionnaire
       - EntericsInformQuestionnaire
       - RespiratoryAdultHealthQuestionnaire
+      - WidespreadPainIndexQuestionnaire
 
   QuestionnaireResponseExamples:
     name: Shared Care API QuestionnaireResponse examples
