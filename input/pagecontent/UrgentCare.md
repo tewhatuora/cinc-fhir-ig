@@ -1,6 +1,6 @@
 ### Urgent Care Reporting Overview
 
-Providers are required to submit this administrative/operational reporting to Health NZ on a regular basis. The pubished API endpoint allows providers (via their practice management systems) to automate the data submission process - allowing Health NZ to automate its reporting & analytics workflows. 
+Providers are required to submit this administrative/operational reporting to Health NZ on a regular basis. The published API endpoint allows providers (via their practice management systems) to automate the data submission process - allowing Health NZ to automate its reporting & analytics workflows. 
 
 The reported attributes are not necessarily collected or set by the end user (clinician) when urgent care is provided to the patient. However, in that case this specification may describe what data should be reported instead by the integrating system.
 
@@ -92,7 +92,6 @@ These are attributes in the published FHIR profile.
 | Referral Source (23) | hospitalization.admitSource | 0 or 1 | CodeableConcept. [SNOMED CTID of a referral source applicable to Urgent Care](#). |
 | Outcome/Disposition (20) | hospitalization.dischargeDisposition | 0 or 1 | CodeableConcept. [SNOMED CTID of an outcome/disposition applicable to Urgent Care reporting, including unknown](#) |
 | Date/Time Transfer to Observation (8) | statusHistory | 0 or 1 | `statusHistory` with its `status` of "observation" (new) and its `period` (start/end time) |
-| Date/Time of Teletriage (42) | statusHistory | 0 or 1 | `statusHistory` with its `status` of "teletriage" (new) and its `period` (start/end time) |
 | Reason for Urgent Care (25) | encounterReason (new extension) | 0 or more | CodeableConcept. [SNOMED CTID of an administrative reason, applicable to Urgent Care, for the encounter](#). Similar to Online GP _Appointment_ Reason. |
 | POCT Performed (35) | pointOfCareTests (new extension) | 0 or more | CodeableConcept(s). [SNOMED CTID of each point of care test](#) that was performed. |
 | POCUS Performed (36) | pocusPerformed (new extension) | 0 or 1 | Boolean. Point of care ultrasound was performed (true/false/unknown).|
