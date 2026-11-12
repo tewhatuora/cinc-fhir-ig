@@ -47,7 +47,7 @@ Usage: #definition
 * item[=].item[=].text.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].item[=].text.extension.valueString = "<div style=\"padding-bottom:10px;\">Where have you had pain over the past week?</div>"
 * item[=].item[=].type = #choice
-* item[=].item[=].required = false
+* item[=].item[=].required = true
 * item[=].item[=].repeats = true
 * item[=].item[=].answerOption[0].valueCoding = #right-shoulder-girdle "Right Shoulder girdle"
 * item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
@@ -217,7 +217,7 @@ Usage: #definition
 * item[=].item[=].text.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].item[=].text.extension.valueString = "<div style=\"padding-bottom:10px;\">During the last three months, have you experienced any of the following?</div>"
 * item[=].item[=].type = #choice
-* item[=].item[=].required = false
+* item[=].item[=].required = true
 * item[=].item[=].repeats = true
 * item[=].item[=].answerOption[0].valueCoding = #blurred-vision "Blurred vision or problems focusing"
 * item[=].item[=].answerOption[=].extension.url = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
