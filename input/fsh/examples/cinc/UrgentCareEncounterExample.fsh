@@ -65,6 +65,11 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 * hospitalization.dischargeDisposition.coding.code = #444019000
 * hospitalization.dischargeDisposition.coding.display = "Did not wait for treatment"
 
+* hospitalization.admitSource.coding.system = "http://snomed.info/sct"
+* hospitalization.admitSource.coding.version = "http://snomed.info/sct/21000210109"
+* hospitalization.admitSource.coding.code = #301661000210103
+* hospitalization.admitSource.coding.display = "Referred by emergency department"
+
 * location[+].location.display = "Urgent Care Waiting Area"
 * location[=].status = #active
 * location[=].period.start = "2025-02-15T14:15:00+13:00"
@@ -84,3 +89,26 @@ Description: "Example of an urgent care encounter for walk-in clinic services"
 * extension[regCode].valueString = "casual"
 
 * extension[modeOfArrival].valueCoding = http://terminology.hl7.org/CodeSystem/v2-0430#A "Ambulance"
+
+* extension[encounterReason].valueCodeableConcept.coding.system = "http://snomed.info/sct"
+* extension[encounterReason].valueCodeableConcept.coding.version = "http://snomed.info/sct/21000210109"
+* extension[encounterReason].valueCodeableConcept.coding.code = #566531000210101
+* extension[encounterReason].valueCodeableConcept.coding.display = "Timely in-person appointment unavailable"
+* extension[encounterReason].valueCodeableConcept.text = "Timely in-person appointment unavailable"
+
+* extension[patientPaid].valueMoney.value = 0.0
+* extension[patientPaid].valueMoney.currency = #NZD
+
+* extension[pointOfCareTests].valueCodeableConcept.coding.system = "http://snomed.info/sct"
+* extension[pointOfCareTests].valueCodeableConcept.coding.version = "http://snomed.info/sct/21000210109"
+* extension[pointOfCareTests].valueCodeableConcept.coding.code = #105000003
+* extension[pointOfCareTests].valueCodeableConcept.coding.display = "Troponin measurement"
+* extension[pointOfCareTests].valueCodeableConcept.text = "Troponin measurement"
+
+* extension[pocusPerformed].valueBoolean = false
+
+* extension[radiologyPerformed].valueBoolean = false
+
+* extension[primeCallout].valueBoolean = false
+
+* extension[masterIncidentNumber].valueString = "I873752"
