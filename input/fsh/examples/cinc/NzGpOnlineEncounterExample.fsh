@@ -17,7 +17,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#VR "virtual"
 
-* type = $sct#719410009 "Video consultation"
+* type = $sct|http://snomed.info/sct/21000210109#719410009 "Video consultation"
 
 * subject.type = "Patient"
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
@@ -33,7 +33,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 // * participant[0].individual.reference = "Practitioner/12345"
 * participant[0].individual.identifier.system = "https://standards.digital.health.nz/ns/hpi-person-id"
 * participant[0].individual.identifier.value = "99ZZFX"
-* participant[0].type = $sct#224535009 "Registered nurse (occupation)"
+* participant[0].type = $sct|http://snomed.info/sct/21000210109#224535009 "Registered nurse (occupation)"
 * participant[0].period.start = "2025-01-01T10:00:00+13:00"
 * participant[0].period.end = "2025-01-01T10:17:00+13:00"
 
@@ -54,7 +54,7 @@ Description: "Example of an online GP encounter for 24/7 telehealth services"
 * extension[diagnosis].valueCodeableConcept.text = "Currently smoking"
 
 * hospitalization.dischargeDisposition = $sct|http://snomed.info/sct/21000210109#566291000210102 "Out of scope for telehealth"
-* hospitalization.admitSource = $sct#185369008 "Referred by pharmacist"
+* hospitalization.admitSource = $sct|http://snomed.info/sct/21000210109#185369008 "Referred by pharmacist"
 
 * extension[cscHolder].valueBoolean = true
 

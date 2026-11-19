@@ -101,6 +101,7 @@ Description: "Encounter types for Urgent Care"
 * $sct#1269515004 "Face to face consultation with patient"
 * $sct#386472008 "Telephone consultation"
 * $sct#719410009 "Video consultation"
+* $sct#1258986006 "Face to face encounter"
 
 ValueSet: OnlineGPEncounterTypeValueSet
 Id: online-gp-encounter-type-valueset
@@ -114,6 +115,7 @@ Description: "Encounter types for Shared Care including specific codes and other
 * $sct#1269515004 "Face to face consultation with patient"
 * $sct#386472008 "Telephone consultation"
 * $sct#719410009 "Video consultation"
+* $sct#1258986006 "Face to face encounter"
 
 // Include all SNOMED CT encounter type codes
 // * include codes from system $sct where concept is-a #308335008 "Patient encounter procedure"
