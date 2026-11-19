@@ -95,6 +95,7 @@ ValueSet: UrgentCareEncounterTypeValueSet
 Id: urgent-care-encounter-type-valueset
 Title: "Urgent Care Encounter Type Value Set"
 Description: "Encounter types for Urgent Care"
+* ^version = "0.1.0"
 * ^status = #draft
 
 // Include specific preferred codes
@@ -107,7 +108,7 @@ ValueSet: OnlineGPEncounterTypeValueSet
 Id: online-gp-encounter-type-valueset
 Title: "Online GP Encounter Type Value Set"
 Description: "Encounter types for Shared Care including specific codes and other SNOMED CT codes"
-* ^version = "0.0.1"
+* ^version = "0.1.0"
 * ^status = #draft
 * ^experimental = false
 
