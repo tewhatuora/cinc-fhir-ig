@@ -4,7 +4,7 @@ Id: UrgentCareEncounter
 Title: "Urgent Care Encounter"
 Description: """A FHIR resource profile for operational reporting of Urgent Care encounters."""
 
-* ^version = "1.2.0"
+* ^version = "1.3.0"
 * ^purpose = "A FHIR resource profile for operational reporting of Urgent Care encounters."
 * ^status = #active
 * ^jurisdiction = urn:iso:std:iso:3166#NZ
@@ -17,6 +17,8 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 
 * identifier 1..*
 * identifier ^short = "External (provider) and Health NZ business identifiers"
+* identifier.system 1..1
+* identifier.value 1..1
 * identifier.period.start obeys full-datetime-with-timezone
 * identifier.period.end obeys full-datetime-with-timezone
 
@@ -40,12 +42,13 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 * partOf only Reference(Encounter)
 * partOf ^short = "A preceding Encounter (e.g. discharged from ED then admitted as an inpatient)"
 
-* serviceProvider 0..1
+* serviceProvider 1..1
 * serviceProvider only Reference(Organization)
 * insert LocalIdentifierDocs(serviceProvider)
 
-* participant 0..*
+* participant 1..*
 * participant ^short = "Practitioners involved in the encounter"
+* participant.individual 1..1
 * participant.individual only Reference(NzPractitioner)
 * insert LocalIdentifierDocs(participant.individual)
 * participant.period 0..1
@@ -54,6 +57,7 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
 * reasonReference 0..0
 
 * period 1..1
+* period.start 1..1
 * period.start obeys full-datetime-with-timezone
 * period.end obeys full-datetime-with-timezone
 
@@ -87,4 +91,13 @@ Description: """A FHIR resource profile for operational reporting of Urgent Care
     SharedCareAccidentRelated named accident 0..1 and
     SharedCareRegistrationCode named regCode 0..1 and
     encounter-modeOfArrival named modeOfArrival 0..1 and
-    SharedCareDiagnosisCode named diagnosis 0..*
+    SharedCareDiagnosisCode named diagnosis 0..* and
+    UrgentCareEncounterReason named encounterReason 0..* and
+    UrgentCarePointOfCareTests named pointOfCareTests 0..* and
+    UrgentCarePocusPerformed named pocusPerformed 0..1 and
+    UrgentCareRadiologyPerformed named radiologyPerformed 0..1 and
+    SharedCarePatientPaid named patientPaid 0..1 and
+    UrgentCarePrimeCallout named primeCallout 0..1 and
+    UrgentCarePrimeIncidentNumber named masterIncidentNumber 0..1
+
+* extension[regCode].valueString from SharedCareRegistrationCodeVS (required)

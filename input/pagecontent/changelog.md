@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.5.0 (2026-11-17)
+### Urgent Care Encounter phase 2 attributes
+The `UrgentCareEncounter` profile is now at version 1.3.0.
+- Added the `encounterReason`, `pointOfCareTests`, `pocusPerformed`, `radiologyPerformed`, `patientPaid`,
+  `primeCallout` and `masterIncidentNumber` extensions.
+- Added the `sct-nz-urgent-care-point-of-care-tests-fragment` code system fragment, with a required binding from
+  `pointOfCareTests`.
+- Aligned cardinality with the landing page: `identifier.system`, `identifier.value`, `participant.individual`,
+  `serviceProvider` and `period.start` are now `1..1`, and `participant` is `1..*`.
+- `regCode` now has a required binding to the new `SharedCareRegistrationCodeVS` value set (`enrolled`, `casual`).
+
 ## v1.4.8 (2026-10-28)
 ### Moved to stable 1.x.x versioning
 Promoted the IG from `0.x.x` development versioning to `1.x.x` to reflect that it has been in production use. The
