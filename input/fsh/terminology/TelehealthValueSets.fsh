@@ -134,12 +134,15 @@ ValueSet: OnlineGpReferralSource
 Id: onlinegp-referral-source
 Title: "Online GP Referral Source"
 Description: "Allowed referral sources for Online GP encounters."
+* ^version = "1.6.0"
 * ^status = #draft
 * $sct#185369008 "Referred by pharmacist"
-* $sct#659821000210106 "Referred by urgent care clinic"
-* $sct#301661000210103 "Referred by emergency department"
-* $sct#669431000210103 "Referred by integrated health services hub"
-* $sct#669421000210100 "Referred by rural hospital service"
+
+// NZ Edition SNOMED CT codes
+* $sct|http://snomed.info/sct/21000210109#659821000210106 "Referred by urgent care clinic"
+* $sct|http://snomed.info/sct/21000210109#301661000210103 "Referred by emergency department"
+* $sct|http://snomed.info/sct/21000210109#669431000210103 "Referred by integrated health services hub"
+* $sct|http://snomed.info/sct/21000210109#669421000210100 "Referred by rural hospital service"
 
 
 ValueSet: SharedCareClaimPurchaseUnitCode
